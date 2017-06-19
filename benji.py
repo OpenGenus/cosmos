@@ -1,6 +1,15 @@
 # coding: utf-8
-import wx,os,wikipedia,wolframalpha,time,webbrowser,winshell,json
-import requests,ctypes,random,ssl
+import wx
+import os
+import wikipedia
+import time 
+import webbrowser 
+import winshell
+import json
+import requests
+import ctypes 
+import random
+import ssl
 from bs4 import BeautifulSoup
 import win32com.client as wicl
 from urllib.request import urlopen
