@@ -1,3 +1,6 @@
+/*
+ * Part of Cosmos by OpenGenus Foundation
+ */
 #include <stdio.h>
 #define max 10
 
