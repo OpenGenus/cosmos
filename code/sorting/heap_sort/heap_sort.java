@@ -1,5 +1,7 @@
 import java.util.*;
-
+/*
+ * Part of Cosmos by OpenGenus Foundation
+*/
 public class HeapSort {
     
     public static void main(String[] args) {
