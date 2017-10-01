@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace CS
 {
+    /* Part of Cosmos by OpenGenus Foundation */
     class CountingSort
     {
         static int[] Sort(int[] arr)
