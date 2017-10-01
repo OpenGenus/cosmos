@@ -1,11 +1,27 @@
 fn main() {
-    let nums = vec![1, 3, 5, 7, 9];
-    let find_me = 5;
+    let nums = vec![1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+    let find_me = 13;
 
-    let index = binary_search(&nums, find_me, 0, nums.len())
+    let index = exponential_search(&nums, find_me);
 
     println!("Given Array: {:?}\n", nums);
-    println!("Searched for {} and found index {}", find_me, index));
+    println!("Searched for {} and found index {}", find_me, index);
+}
+
+fn exponential_search(nums: &Vec<i64>, search_value: i64) -> i64 {
+    let size: usize = nums.len();
+
+    if size == 0 {
+        return -1;
+    }
+
+    let mut bound: usize = 1;
+    while bound < size && nums[bound] < search_value {
+        bound *= 2;
+    }
+
+    return binary_search(&nums, search_value, bound/2, min(bound, size))
+
 }
 
 fn binary_search(nums: &Vec<i64>, search_value: i64, left: usize, right: usize) -> i64 {
@@ -31,4 +47,12 @@ fn binary_search(nums: &Vec<i64>, search_value: i64, left: usize, right: usize) 
     }
 
     -1
+}
+
+fn min(x: usize, y: usize) -> usize {
+    if x < y {
+        x
+    } else {
+        y
+    }
 }
