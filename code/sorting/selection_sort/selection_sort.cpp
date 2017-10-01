@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+/* Part of Cosmos by OpenGenus Foundation */
 void selection_sort(std::vector<int> &v) {
 	for (int i = 0; i < v.size(); i++) {
 		int minIndex = i;
@@ -11,7 +12,7 @@ void selection_sort(std::vector<int> &v) {
 	}
 }
 
-/*int main() {
+int main() {
 	std::vector<int> v;
 	v.push_back(1);
 	v.push_back(5);
@@ -23,4 +24,4 @@ void selection_sort(std::vector<int> &v) {
 		std::cout << num << " ";
 	}
 	return 0;
-}*/
+}
