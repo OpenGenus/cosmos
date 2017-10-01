@@ -1,16 +1,19 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 /* Function to merge the two haves arr[l..m] and arr[m+1..r] of array arr[] */
-void merge(int arr[], int l, int m, int r)
+void merge(vector<int> &arr, int l, int m, int r)
 {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 =  r - m;
 
     /* create temp arrays */
-    int L[n1], R[n2];
+    vector<int> L(n1);
+    vector<int> R(n2);
 
     /* Copy data to temp arrays L[] and R[] */
     for(i = 0; i < n1; i++)
@@ -56,7 +59,7 @@ void merge(int arr[], int l, int m, int r)
 
 /* l is for left index and r is right index of the sub-array
   of arr to be sorted */
-void mergeSort(int arr[], int l, int r)
+void mergeSort(vector<int> &arr, int l, int r)
 {
     if (l < r)
     {
@@ -69,20 +72,18 @@ void mergeSort(int arr[], int l, int r)
 
 int main()
 {
-        cout<<"Enter the number of elements\n";
-        int n;
-        cin>>n;
-        cout<<"Enter the elements\n";
-        int arr[n];
-        for(int i=0;i<n;i++)
+        int arraySize;
+        cin>>arraySize;
+        vector<int> inputArray(arraySize);
+        for(int i=0;i<arraySize;i++)
         {
-            cin>>arr[i];
+            cin>>inputArray[i];
         }
-        mergeSort(arr,0,n-1);
-        cout<<"Sorted array:\n";
-        for(int i=0;i<n;i++)
+        mergeSort(inputArray,0,arraySize-1);
+        for(int i=0;i<arraySize;i++)
         {
-            cout<<arr[i]<<"\t";
+            cout<<inputArray[i]<<" ";
         }
+        cout<<endl;
         return 0;
 }
