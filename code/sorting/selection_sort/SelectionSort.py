@@ -6,7 +6,6 @@ def selectionSort(unsorted):
 		for j in range(len(unsorted)):
 			if unsorted[j] < selected:
 				selected = unsorted[j]
-				print(selected)
 				index=j
 		sorte.append(selected)
 		unsorted.pop(index)
