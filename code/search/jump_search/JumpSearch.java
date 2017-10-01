@@ -1,6 +1,6 @@
 package arrays;
 
-public class Solution {
+public class JumpSearch {
 	// Java program to implement Jump Search.
 	public static int SearchJump(int[] arr, int x) {
 		int n = arr.length;
