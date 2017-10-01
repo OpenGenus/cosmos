@@ -39,7 +39,7 @@ void countSort(char arr[])
 // Driver program to test above function
 int main()
 {
-    char arr[] = "geeksforgeeks";//"applepp";
+    char arr[] = "opengenus";//"applepp";
  
     countSort(arr);
  
