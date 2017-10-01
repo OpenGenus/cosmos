@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus
 public class LinearSearch
 {
   public static void Main(string[] args)
