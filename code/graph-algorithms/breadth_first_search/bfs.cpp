@@ -3,6 +3,7 @@
 #include <set>
 #include <queue>
 
+/* Part of Cosmos by OpenGenus Foundation */
 void bfs(int start,								// the node that we are currently at
 		 std::map<int, std::set<int>>& adjList,	// the adjacency list for each node
 		 std::map<int, bool>& visited,			// the 'visited' state for each node
