@@ -1,3 +1,4 @@
+/*Part of Cosmos by OpenGenus Foundation*/
 //here a is the array name
 
 /*low is the initial index for sorting 
