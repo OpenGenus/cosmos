@@ -4,10 +4,10 @@
 
 void bubble_sort(std::vector<int> &v)
 {
-	for(int i =0; i<v.size() ; i++)
-		for(int j=i+1 ; j< v.size() ; j++)
+	for(int i=0; i < v.size(); ++i)
+		for(int j=i+1; j < v.size(); ++j)
 		{
-			if(v[i]>v[j])
+			if (v[i] > v[j])
 				std::swap(v[i],v[j]);
 		}
 }
