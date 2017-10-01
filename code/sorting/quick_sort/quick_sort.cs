@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
-
+/*
+ * Part of Cosmos by OpenGenus Foundation
+ */
 namespace ConsoleApplicationQSort
 {
     class Program
