@@ -1,5 +1,5 @@
 import random
-
+# Part of Cosmos by OpenGenus Foundation
 num_of_nums = 100
 
 
