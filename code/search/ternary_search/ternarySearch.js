@@ -1,3 +1,7 @@
+/*
+* Part of Cosmos by OpenGenus Foundation
+*/
+
 function ternarySearch(givenList, left, right, absolutePrecision) {
 	while (true) {
 		if (Math.abs(right - left) < absolutePrecision) {
