@@ -1,4 +1,4 @@
-package arrays;
+
 
 public class Interpolation {
 

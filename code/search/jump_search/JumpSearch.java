@@ -1,4 +1,4 @@
-package arrays;
+
 
 public class JumpSearch {
 	// Java program to implement Jump Search.
