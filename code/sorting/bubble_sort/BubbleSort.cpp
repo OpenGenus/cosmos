@@ -1,40 +1,33 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-
 using namespace std;
 
+void bubble_sort(vector<int> &v)
+{
+    while(1)
+    {
+        bool swapped = false;
+        for(int i = 0; i < v.size() - 1; ++i)
+        {
+            if (v[i] > v[i + 1])
+            {
+                swap(v[i], v[i + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) { break; }
+    }
+}
+
+// Testing the implemented bubble sort
 int main()
 {
-    int arraySize;
-    cin>>arraySize;
-    
-    //Array to store input numbers
-    vector<int> inputArray(arraySize);
-    for(int i=0;i<arraySize;i++)
+    vector<int> v = {2, 3, 1, 7, 6};
+    bubble_sort(v);
+    for(int i = 0; i < v.size(); ++i)
     {
-        cin>>inputArray[i];
+        cout << v[i] << " ";   
     }
-
-    //Bubble Sort
-    for(int i=0;i<arraySize-1;i++)
-    {
-        for(int j=0;j<arraySize-i-1;j++)
-        {
-            if(inputArray[j]>inputArray[j+1])
-            {
-                swap(inputArray[j],inputArray[j+1]);
-            }
-
-
-        }
-    }
-
-    //Printing the array
-    for(int i=0;i<arraySize;i++)
-    {
-        cout<<inputArray[i]<<" ";
-    }
-    cout<<endl;
     return 0;
 }
