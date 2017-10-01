@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+/* Part of Cosmos by OpenGenus Foundation */
 void sieve_of_eratosthenes(std::vector<int>& primes, const int max) {
 	std::vector<bool> isPrime;
 	// Initially, all the numbers are considered to be prime
