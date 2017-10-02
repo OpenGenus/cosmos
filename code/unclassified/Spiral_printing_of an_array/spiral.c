@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+// Part of Cosmos by OpenGenus Foundation
 void printSpiral(int N, int M, int[][M]);
 void print(int N, int M, int[][M]);
 
