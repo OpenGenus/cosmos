@@ -26,8 +26,13 @@ int main()
     int n;
     cout<<"Enter n: ";
     cin>>n;
-    cout << "Following are the prime numbers smaller "
-         << " than or equal to " << n << endl;
+    if(n>=2){
+    cout << "Following are the prime numbers smaller than or equal to " << n << endl;
     Sieve(n);
+	}
+	else
+	{
+	cout<<"No prime numbers less than or equal to "<<n<<endl;	
+	}
     return 0;
 }
