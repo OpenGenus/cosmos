@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public static void quickSort(int[] A, int left, int right)
     {
         if(left > right || left <0 || right <0) return; 
