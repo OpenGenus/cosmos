@@ -1,6 +1,6 @@
 // Following program is a Java implementation 
 // of Rabin Karp Algorithm given in the CLRS book
- 
+// Part of Cosmos by OpenGenus Foundation
 public class RabinKarp 
 {
     // d is the number of characters in input alphabet
