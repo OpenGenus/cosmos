@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def search(pat, txt):
     M = len(pat)
     N = len(txt)
