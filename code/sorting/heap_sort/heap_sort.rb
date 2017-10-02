@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 class Array
   def heap_sort
     self.heapify
