@@ -1,4 +1,5 @@
 /* Sorts the array using pigeonhole algorithm */
+// Part of Cosmos by OpenGenus Foundation
 void pigeonholeSort(int arr[], int n)
 {
     // Find minimum and maximum values in arr[]
