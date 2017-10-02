@@ -69,8 +69,8 @@ public class RabinKarp
     /* Driver program to test above function */
     public static void main(String[] args)
     {
-        String txt = "GEEKS FOR GEEKS";
-        String pat = "GEEK";
+        String txt = "Welcome to HackOctoberFest OpenGenus cosmos";
+        String pat = "cosmos";
         int q = 101; // A prime number
         search(pat, txt, q);
     }
