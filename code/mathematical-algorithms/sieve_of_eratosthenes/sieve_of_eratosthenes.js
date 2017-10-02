@@ -2,6 +2,7 @@ class SieveOfEratosthenes {
     /**
     * @constructor
     * @param {number} max - max number to test up to
+    * Part of Cosmos by OpenGenus Foundation
     */
     constructor(max) {
         this._max = max;
