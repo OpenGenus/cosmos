@@ -1,4 +1,3 @@
-//Problem : http://www.spoj.com/problems/DQUERY/
 //Time Complexity : O((n+q)*sqrt(n))
 
 #include <bits/stdc++.h>
