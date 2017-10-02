@@ -1,4 +1,5 @@
 """Bucket sort in python""" #docstring
+#Part of Cosmos by OpenGenus Foundation
 import math
 
 def get_bucket_list_size_and_min(arr, bucket_size=10):
