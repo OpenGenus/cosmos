@@ -1,4 +1,5 @@
 // Java implementation of Counting Sort
+// Part of Cosmos by OpenGenus Foundation
 class CountingSort {
     private void sort(char arr[]) {
         int n = arr.length;
