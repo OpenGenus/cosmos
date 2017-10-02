@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int interpolationSearch(int* array, int n, int key){
     int high = n-1;
     int low = 0;
