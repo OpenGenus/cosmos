@@ -7,7 +7,7 @@
 * Go to [Hacktober Fest 2k17](https://github.com/WebClub-NITK/Hacktoberfest-2k17/) Web Club repository and click on the fork button as shown in the image to fork the repository to your account!
 
 ![hack1](https://user-images.githubusercontent.com/16410361/30946872-0867f7fa-a424-11e7-936c-93c007c5101a.png)
-)
+
 
 ## Clone
 ![hack2](https://user-images.githubusercontent.com/16410361/30947040-1a748fa2-a425-11e7-878d-7909977b3e00.png)
