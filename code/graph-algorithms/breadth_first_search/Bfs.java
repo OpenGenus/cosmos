@@ -1,7 +1,7 @@
 // Java program to print BFS traversal from a given source vertex.
 import java.io.*;
 import java.util.*;
- 
+// Part of Cosmos by OpenGenus Foundation
 // This class represents a directed Graph using adjacency list representation
 class Bfs
 {
