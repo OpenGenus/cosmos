@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 unsigned bitDivision(unsigned numerator, unsigned denominator) {
 
     unsigned current = 1;
