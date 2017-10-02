@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-
+// Part of Cosmos by OpenGenus Foundation
 func PrintSpiral(list [][]int, rows, cols int) {
 	var T, B, L, R, dir int = 0, rows - 1, 0, cols - 1, 0
 
