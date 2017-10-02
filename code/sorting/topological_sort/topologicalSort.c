@@ -1,5 +1,5 @@
 #include <stdio.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 int main(){
     int i,j,k,n,a[10][10],indeg[10],flag[10],count=0;
  
