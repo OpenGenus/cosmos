@@ -1,9 +1,15 @@
-﻿using System;
+﻿/**
+ * Stack implementation using a singly-linked link.
+ * Part of the OpenGenus/cosmos project. (https://github.com/OpenGenus/cosmos)
+ */
+using System;
 
 namespace Cosmos_Data_Structures
 {
     public class Stack<T>
     {
+        //Node is a element that holds the element plus a reference to the next element.
+        //Used to implement the singly-linked list.
         private class Node
         {
             public T data;
@@ -25,6 +31,7 @@ namespace Cosmos_Data_Structures
             Size = 0;
         }
 
+        //Add element to the top of the stack.
         public void push(T element)
         {
             var newNode = new Node(element, top);
@@ -32,6 +39,8 @@ namespace Cosmos_Data_Structures
             Size++;
         }
 
+        //Gets element at the top of the stack.
+        //Throws an exception if the stack is empty.
         public T peek()
         {
             if (top == null)
@@ -42,6 +51,8 @@ namespace Cosmos_Data_Structures
             return top.data;
         }
 
+        //Removes and returns the element at the top of the stack.
+        //Throws an exception if the stack is empty.
         public T pop()
         {
             if(top == null)
@@ -55,6 +66,7 @@ namespace Cosmos_Data_Structures
             return oldTop.data;
         }
 
+        //Returns true if stack contains no elements, false otherwise.
         public bool isEmpty()
         {
             return top == null;
@@ -81,6 +93,7 @@ namespace Cosmos_Data_Structures
         }
     }
 
+    //Stack testing methods/class.
     public class StackTest
     {
         static void Main(string[] args)
