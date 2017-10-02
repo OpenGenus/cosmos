@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def SelectionSort(arr)
   n = arr.length - 1
   i = 0
