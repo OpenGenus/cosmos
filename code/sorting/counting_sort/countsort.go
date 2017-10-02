@@ -6,27 +6,30 @@ const MaxUint = ^uint(0)
 const MaxInt = int(MaxUint >> 1)
 const MinInt = -MaxInt - 1
 
-var list = []int{12, 3, 4, 1, 2, 3, 5, 42, 34, 61, 2, 3, 5}
+var list = []int{-5, 12, 3, 4, 1, 2, 3, 5, 42, 34, 61, 2, 3, 5}
 
 func countingSort(list []int) {
-	maxN := MinInt
+	maxNumber := MinInt
+	minNumber := MaxInt
 	for _, v := range list {
-		if v > maxN {
-			maxN = v
+		if v > maxNumber {
+			maxNumber = v
+		}
+		if v < minNumber {
+			minNumber = v
 		}
 	}
-	fmt.Println(maxN)
 
-	count := make([]int, maxN+1)
+	count := make([]int, maxNumber-minNumber+1)
 
 	for _, x := range list {
-		count[x]++
+		count[x-minNumber]++
 	}
-	z := 0
+	index := 0
 	for i, c := range count {
 		for ; c > 0; c-- {
-			list[z] = i
-			z++
+			list[index] = i + minNumber
+			index++
 		}
 	}
 }
