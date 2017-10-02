@@ -1,6 +1,6 @@
 // A DP based solution that uses table C[][] to calculate the Binomial Coefficient
 #include <stdio.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 // A utility function to return minimum of two integers
 int min(int a, int b) {
     return (a < b)? a: b;
