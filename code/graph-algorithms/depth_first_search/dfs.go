@@ -8,7 +8,7 @@ import "fmt"
  * Structures
  **************************************/
 
-// Define set structure (not built-in in golang)
+// Define set structure (golang has no built-in set)
 // Usage:
 //
 //    s := make(set)                // Create empty set
@@ -24,7 +24,7 @@ type Graph struct {
 }
 
 // Create a graph and initialize its adjacency list,
-// a return a pointer to it
+// and return a pointer to it.
 func createGraph() *Graph {
   var g = Graph{}
   g.adjList = make(map[int]set)
