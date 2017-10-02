@@ -21,7 +21,8 @@ void floydWarshall(int vertex, int adjacencyMatrix[][4]) {
 	}
 
 	// pretty print the graph
-	printf("o/d");
+	printf("o/d"); // o/d means the leftmost row is the origin vertex
+				   // and the topmost column as destination vertex
 	for(int i = 0; i < vertex; i++) {
 		printf("\t%d", i+1);
 	}
