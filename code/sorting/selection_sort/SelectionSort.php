@@ -1,5 +1,5 @@
 <?php
-
+// Part of Cosmos by OpenGenus Foundation
 function selectionSort($arr) {
     $n = count($arr);
 
