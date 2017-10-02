@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 fn heapify(arr: &mut [i32], n: usize, i: usize){
     let mut largest = i; //largest as root
     let l = 2*i + 1; //left
