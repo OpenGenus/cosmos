@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def quick_sort(array, beg_index, end_index)
   if beg_index < end_index
     pivot_index = partition(array, beg_index, end_index)
