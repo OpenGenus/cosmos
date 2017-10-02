@@ -1,4 +1,5 @@
 /* Java program for Merge Sort */
+// Part of Cosmos by OpenGenus Foundation
 class MergeSort {
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
