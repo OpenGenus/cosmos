@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 class LongestCommonSubsequenceRec {
   int lcs( char[] X, char[] Y, int m, int n) {
     if (m == 0 || n == 0) {	// base case
