@@ -1,0 +1,74 @@
+## Ruby
+
+*.gem
+*.rbc
+
+## Python
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+## C++
+
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Executables
+*.exe
+*.out
+*.app
+
+## Java
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+## Golang
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
