@@ -1,6 +1,7 @@
 '''
 
 Merge Sort
+Part of Cosmos by OpenGenus Foundation
 
 '''
 
