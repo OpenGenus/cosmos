@@ -1,3 +1,10 @@
+
+'''
+Part of Cosmos by OpenGenus Foundation
+'''
+
+
+
 matrix = lambda x: map(list, zip(*[iter(range(1, x*x + 1))]*x))
 """
 matrix = [
