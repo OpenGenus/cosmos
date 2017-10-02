@@ -42,7 +42,7 @@ fn heap_sort(arr: &mut [i32], n: usize){
 
 fn print_array(arr: &mut [i32], n: usize){
     for i in (0..n).rev(){
-        println!("{} ", arr[i as usize]);
+        print!("{} ", arr[i as usize]);
     }
     println!("");
 }
