@@ -1,7 +1,7 @@
 import array
 
 class Queue:
-	def __init__(self, self_max):
+	def __init__(self, size_max):
 		self.max = size_max
 		self.head = 0
 		self.tail = 0
@@ -39,6 +39,7 @@ print "Enter the size of Queue"
 n = int(raw_input())
 q = Queue(n)
 while True:
+	print
 	print "Press E to enqueue an element"
 	print "Press D to dequeue an element"
 	print "Press X to exit"
