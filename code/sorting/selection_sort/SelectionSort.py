@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 class SelectionSort():
     def sort(self, array):
         for i in range(len(array)-1):
