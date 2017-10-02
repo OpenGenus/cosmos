@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def merge(a,l,m,r)
     n1 = m-l+1
     left = Array.new(n1) # Created temp array for storing left subarray
