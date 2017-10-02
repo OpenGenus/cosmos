@@ -1,5 +1,5 @@
 public class BinomialCoefficient {
-
+// Part of Cosmos by OpenGenus Foundation
 	public long solve(int n, int k) {
 		long bc[][] = new long[n+1][n+1];
 
