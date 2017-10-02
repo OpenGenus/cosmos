@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-
+// Part of Cosmos by OpenGenus Foundation
 func SieveOfEratosthenes(n int) []int {
 	//Create an array of Boolean values indexed by
     //integers 2 to n, initially all set to true.
