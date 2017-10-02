@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 /*Binary Search Tree!!
 *
 * Nodes that will go on the Binary Tree.

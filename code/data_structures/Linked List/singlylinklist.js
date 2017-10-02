@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 /* SinglyLinkedList!!
 * A linked list is implar to an array, it hold values.
 * However, links in a linked list do not have indexes. With

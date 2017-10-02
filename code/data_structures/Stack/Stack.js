@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 /* Stack!!
 * A stack is exactly what it sounds like. An element gets added to the top of
 * the stack and only the element on the top may be removed. This is an example

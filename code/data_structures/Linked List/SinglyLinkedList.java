@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 class SinglyLinkedList{
 
 	private Node head;

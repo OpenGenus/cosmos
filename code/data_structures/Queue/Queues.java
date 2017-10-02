@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 class Queue{
 	private int maxSize;
 	private int[] queueArray;
