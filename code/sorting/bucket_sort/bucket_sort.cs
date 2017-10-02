@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+// Part of Cosmos by OpenGenus Foundation
 namespace OpenGenus
 {
 	class Program
