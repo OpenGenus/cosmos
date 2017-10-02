@@ -2,6 +2,8 @@
 #define R 3
 #define C 6
  
+// Part of Cosmos by OpenGenus Foundation
+
 void spiralPrint(int m, int n, int a[R][C])
 {
     int i, k = 0, l = 0;
