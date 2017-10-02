@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// Part of Cosmos by OpenGenus Foundation
 class ExponentialSearchApp
 {
 
