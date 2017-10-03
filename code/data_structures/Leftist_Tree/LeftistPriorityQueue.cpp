@@ -59,11 +59,23 @@ Leftist* delete_root(Leftist *T) {
 int main() {
 
   Leftist *my_tree = new Leftist(10); // create a tree with root = 10
-
+  // adding a node to a tree is the same as creating a new tree and merge them together
+  my_tree = merge(my_tree, new Leftist(100));   // push 100
+  my_tree = merge(my_tree, new Leftist(10000)); // push 10000
+  my_tree = merge(my_tree, new Leftist(1));     // push 1
+  my_tree = merge(my_tree, new Leftist(1266)); // push 1266
   while (my_tree != NULL) {
     std::cout << my_tree->value << std::endl;
     my_tree = delete_root(my_tree);
   }
+  
 
   return 0;
 }
+/* the output should be
+   * 1
+   * 10
+   * 100
+   * 1266
+   * 10000
+   */
