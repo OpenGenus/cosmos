@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int moves=0;
 void hanoi(int disks, char A, char B, char C);
  
