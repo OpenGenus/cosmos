@@ -18,7 +18,7 @@ void shuffle_an_array(It first, It last, RNG &&rng) {
 int main(int argc, char *argv[]) {
     std::array<int, 10> values{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     std::minstd_rand rng(std::random_device{}());
-    shuffle_values(values.begin(), values.end(), rng);
+    shuffle_an_array(values.begin(), values.end(), rng);
     
     for (int i=0; i < values.size(); ++i) {
         std::cout << (i > 0 ? ", " : "") << values[i];
