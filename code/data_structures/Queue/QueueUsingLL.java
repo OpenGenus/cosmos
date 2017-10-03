@@ -3,7 +3,7 @@ class Node<T> //NODE CLASS
     T data;
     Node<T> next;
 }
-
+// Part of Cosmos by OpenGenus Foundation
 //Queue Using linked list
 public class QueueUsingLL<T> {
 
