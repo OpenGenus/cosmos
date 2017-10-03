@@ -2,7 +2,7 @@
 
 def minimum_coins(value, denominations):
     result = []
-    #  Assuming denominations is sorted in descendig order
+    # Assuming denominations is sorted in descendig order
     for cur_denom in denominations:
         while cur_denom <= value:
             result.append(cur_denom)
@@ -13,7 +13,6 @@ def minimum_coins(value, denominations):
 # Testing
 def test():
     scenarios = [[100, [50, 25, 10, 5, 1],      [50, 50]],
-                 [100, [50, 25, 10, 5, 1],      [50, 50]],
                  [101, [50, 25, 10, 5, 1],      [50, 50, 1]],
                  [77,  [50, 25, 10, 5, 1],      [50, 25, 1, 1]],
                  [38,  [50, 25, 10, 5, 1],      [25, 10, 1, 1, 1]],
