@@ -22,7 +22,7 @@ int lis(int v[], int n) {
 
 // Bottom-up O(n*log(n)) approach
 int lis2(int v[], int n) {
-    // tail[i] strores the value of the lower possible value
+    // tail[i] stores the value of the lower possible value
     // of the last element in a incresing sequence of size i
     vector<int> tail;
     for(int i = 0; i < n; ++i) {
