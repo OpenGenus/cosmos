@@ -1,4 +1,5 @@
 import java.util.Scanner;
+// Part of Cosmos by OpenGenus Foundation
 class BitDivision
 {
 	static int division(int divident, int divisor)
