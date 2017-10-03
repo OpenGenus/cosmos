@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 #define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0]) 
 #define ALPHABET_SIZE (26)
 #define INDEX(c) ((int)c - (int)'a')
