@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 int lBitconSeq(vector<int> v, int n)
 {
 	vector<int> lis, lds; // lis stands for longest increasing subsequence and lds stands for longest decreasing subsequence
