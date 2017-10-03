@@ -1,6 +1,7 @@
 /**
  * C program to implement Fermat's Primality Test
  * based on Fermat's little theorem
+ * Part of Cosmos by OpenGenus Foundation
 **/
 
 #include <stdio.h>
