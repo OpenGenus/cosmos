@@ -16,4 +16,7 @@ class exponent{
 
         return temp;
     }
+    public static void main(String[] args){
+        System.out.println(exponentBySquare(2,9));
+    }
 }
