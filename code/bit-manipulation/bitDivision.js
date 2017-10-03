@@ -32,7 +32,7 @@ function divide(dividend, divisor) {
 
 function test() {
 
-    testCases = [
+    var testCases = [
         [9, 4],
         [-10, 3],
         [103, -10],
