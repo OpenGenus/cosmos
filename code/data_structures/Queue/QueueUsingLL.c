@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* An implementation of a queue data structure
+/* @author AaronDills
+   An implementation of a queue data structure
    using C and Linked Lists*/
 
 /* Structure for a Node containing an integer value and reference to another Node*/
