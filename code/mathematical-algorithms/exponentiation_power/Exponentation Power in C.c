@@ -6,11 +6,10 @@ int power(int num, int exp)
         return 1;
     else if(exp==1)
         return num;
-    int result=1;
-    while (exp>0){
-        result *= num;
-        exp--;
-    }
+    int result=power(num,exp/2);
+        result*=result;
+    if(exp%2==1)
+        result*=num;
     return result;
 }
 
