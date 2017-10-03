@@ -74,6 +74,7 @@ void update_heap(int x,int y){
 			k=k/2;
 		}
 	}
+}
 
 void extract_heap(int z){
 	graph tmp;
