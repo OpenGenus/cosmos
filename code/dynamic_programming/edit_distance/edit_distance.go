@@ -10,6 +10,9 @@ import (
 A dynamic programming implementation of the edit distance algorithm.
 
 Compile: go build edit_distance.go
+
+Part of Cosmos by OpenGenus Foundation
+
 */
 
 func main() {
