@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def lonely(l):
     if len(l) == 1 :
         return l[0] 
