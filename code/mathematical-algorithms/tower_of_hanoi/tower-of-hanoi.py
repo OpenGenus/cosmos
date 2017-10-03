@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 moves=0
 def TowerOfHanoi(disks , A, B, C):
     global moves
