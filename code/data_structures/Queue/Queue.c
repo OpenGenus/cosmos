@@ -1,5 +1,6 @@
 /*
  * C Program to Implement a Queue using an Array
+ * Part of Cosmos by OpenGenus Foundation
  */
 #include <stdio.h>
  
