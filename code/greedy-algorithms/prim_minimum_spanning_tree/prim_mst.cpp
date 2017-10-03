@@ -3,7 +3,7 @@
 #include <queue>
 #include <functional>
 #include <utility>
-
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 const int MAX = 1e4 + 5;
 typedef pair<long long, int> PII;
