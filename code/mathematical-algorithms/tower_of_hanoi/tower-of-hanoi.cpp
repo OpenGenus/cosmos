@@ -1,5 +1,5 @@
 #include <iostream>
-
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
 int moves=0;
