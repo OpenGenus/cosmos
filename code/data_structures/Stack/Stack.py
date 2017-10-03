@@ -2,7 +2,7 @@
 # Purpose: Stack implementation with array in python
 # Date: October 2 2017
 
-
+# Part of Cosmos by OpenGenus Foundation
 class Stack(object):
     # Quasi-Constructor
     def __init__(self):
