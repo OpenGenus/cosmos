@@ -1,3 +1,6 @@
+# Part of Cosmos by OpenGenus Foundation
+
+
 class Node:
  
     def __init__(self, data):
