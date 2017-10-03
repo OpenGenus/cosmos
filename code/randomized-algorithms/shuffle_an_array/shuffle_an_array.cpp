@@ -3,7 +3,7 @@
 #include <iterator>
 #include <random>
 
-
+// Part of Cosmos by OpenGenus Foundation
 template<class It, class RNG>
 void shuffle_an_array(It first, It last, RNG &&rng) {
     std::uniform_int_distribution<> dist;
