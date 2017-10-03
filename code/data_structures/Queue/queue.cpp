@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 class Queue
 {
 private:
