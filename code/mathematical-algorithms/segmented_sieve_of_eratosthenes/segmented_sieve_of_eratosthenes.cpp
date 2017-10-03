@@ -1,4 +1,5 @@
 //Code Copyright: Manish Kumar, E&C, IIT Roorkee
+// Part of Cosmos by OpenGenus Foundation
 #include <iostream>
 #include <cmath>
 #include <cstring>
