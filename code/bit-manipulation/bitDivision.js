@@ -10,7 +10,7 @@ function divide(dividend, divisor) {
     dividend = Math.abs(dividend);
     divisor = Math.abs(divisor);
 
-    answer = 0
+    var answer = 0
     while (dividend >= divisor) {
         let temp = divisor;
         let i = 1;
