@@ -4,7 +4,7 @@ function shellSort (a) {
 			var k = a[i];
 			for (var j = i; j >= h && k < a[j - h]; j -= h)
 				a[j] = a[j - h];
-				a[j] = k;
+			a[j] = k;
 		}
 	}
 	return a;

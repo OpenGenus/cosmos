@@ -1,60 +1,78 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-class SinglyLinkedList{
+class SinglyLinkedList<T> {
 
 	private Node head;
 
-	public SinglyLinkedList(){
+	public SinglyLinkedList() {
 		head = null;
 	}
 
-	public void insertHead(int x){
-		Node newNode = new Node(x); //Create a new link with a value attached to it
-		newNode.next = head; 		//Set the new link to point to the current head
-		head = newNode; 			//Now set the new link to be the head
+	public void insertHead(T data) {
+		Node newNode = new Node(data); //Create a new link with a value attached to it
+		newNode.next = head; //Set the new link to point to the current head
+		head = newNode; //Now set the new link to be the head
 	}
 
-    Node InsertNth(Node head, int data, int position) {
-        
-        Node newNode = new Node();
-        newNode.data = data;
-        
-        if (position == 0) {
-            newNode.next = head;
-            return newNode;
-        }
+	Node InsertNth(int data, int position) {
 
-        Node current = head;
+		Node newNode = new Node(data);
 
-        while (--position > 0) {
-            current = current.next;
-        }
-        
-        newNode.next = current.next;
-        current.next = newNode;
-        return head;
-    }
-    
-	public Node deleteHead(){
+		if (position == 0) {
+			newNode.next = head;
+			return newNode;
+		}
+
+		Node current = head;
+
+		while (--position > 0) {
+			current = current.next;
+		}
+
+		newNode.next = current.next;
+		current.next = newNode;
+		return head;
+	}
+
+	public Node deleteHead() {
 		Node temp = head;
 		head = head.next; //Make the second element in the list the new head, the Java garbage collector will later remove the old head
 		return temp;
 	}
 
-	public boolean isEmpty(){
-		return(head == null);
+	public boolean isEmpty() {
+		return (head == null);
 	}
 
-	public void display(){
+	public String toString() {
+		String s = new String();
 		Node current = head;
-		while(current!=null){
-			System.out.print(current.getValue()+" ");
+		while (current != null) {
+			s += current.getValue() + " -> ";
 			current = current.next;
 		}
-		System.out.println();
+		return s;
 	}
-	
-	public static void main(String args[]){
+
+	/**
+	 * Node is a private inner class because only the SinglyLinkedList class should have access to it
+	 */
+	private class Node<T> {
+		/** The value of the node */
+		public T value;
+		/** Point to the next node */
+		public Node next; //This is what the link will point to
+
+		public Node(T value) {
+			this.value = value;
+		}
+
+		public T getValue() {
+			return value;
+		}
+	}
+
+	public static void main(String args[]) {
 		SinglyLinkedList myList = new SinglyLinkedList();
 
 		System.out.println(myList.isEmpty()); //Will print true
@@ -63,26 +81,10 @@ class SinglyLinkedList{
 		myList.insertHead(7);
 		myList.insertHead(10);
 
-		myList.display(); // 10(head) --> 7 --> 5
+		System.out.println(myList); // 10(head) --> 7 --> 5
 
 		myList.deleteHead();
 
-		myList.display(); // 7(head) --> 5
+		System.out.println(myList); // 7(head) --> 5
 	}
-}
-
-class Node{
-	/** The value of the node */
-	public int value;
-	/** Point to the next node */
-	public Node next; //This is what the link will point to
-
-	public Node(int valuein){
-		value = valuein;
-	}
-
-	public int getValue(){
-		return value;
-	}
-
 }

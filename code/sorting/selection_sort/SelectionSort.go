@@ -1,28 +1,22 @@
+package main
 // Selection Sort in Golang
 // Part of Cosmos by OpenGenus Foundation
-package main
+import "fmt"
 
-import (
-	"fmt"
-)
-
-// SelectionSort sorts the given slice
-func SelectionSort(items []int) {
-	var n = len(items)
-	for i := 0; i < n; i++ {
-		var minIdx = i
-		for j := i; j < n; j++ {
-			if items[j] < items[minIdx] {
-				minIdx = j
-			}
-		}
-		items[i], items[minIdx] = items[minIdx], items[i]
-	}
+func selectionSort(array [8]int) [8]int{
+    for i := 0; i < len(array); i++ {
+        min := i
+        for j := i+1; j < len(array); j++ {
+            if array[j] < array[min] {
+                min = j
+            }
+        }
+        array[i], array[min] = array[min], array[i]
+    }
+    return array
 }
 
 func main() {
-	randomSlice := []int{1, 6, 2, 4, 9, 0, 5, 3, 7, 8}
-	fmt.Println("Unsorted Slice: ", randomSlice)
-	SelectionSort(randomSlice)
-	fmt.Println("Sorted Slice: ", randomSlice)
-}
+    array := [8]int{5,6,1,2,7,9,8,4}
+    sorted := selectionSort(array)
+    fmt.Printf("%v\n", sorted)
