@@ -25,7 +25,7 @@ int largest(struct btnode *t);
  
 int flag = 1;
  
-void main()
+int main()
 {
     int ch;
  
@@ -64,6 +64,7 @@ void main()
             break;    
         }
     }
+  return 1;
 }
  
 /* To insert a node in the tree */
