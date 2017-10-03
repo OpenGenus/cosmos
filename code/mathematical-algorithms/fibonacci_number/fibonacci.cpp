@@ -2,7 +2,8 @@
 #include <vector>
 
 /*
-    Don't use numbers bigger than (2^16)-1 as input for fib because some computers will crash due to memory issues.
+ * Part of Cosmos by OpenGenus Foundation
+ * Don't use numbers bigger than (2^16)-1 as input for fib because some computers will crash due to memory issues.
 */
 
 // Returns the nth term in the Fibonacci Sequence (dynamic): O(N) [nice performance]
