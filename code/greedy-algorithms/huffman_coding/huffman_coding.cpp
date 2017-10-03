@@ -1,8 +1,7 @@
 /*
  * Huffman Codes 
- * http://www.geeksforgeeks.org/greedy-algorithms-set-3-huffman-coding
- * */
-
+*/
+// Part of Cosmos by OpenGenus Foundation
 #include <iostream> // std::cout, std::endl
 #include <map> // std::map
 #include <string> // std::string
