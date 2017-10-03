@@ -1,5 +1,6 @@
 /*
  * C program to create a linked list and display the elements in the list
+ * Part of Cosmos by OpenGenus Foundation
  */
 #include <stdio.h>
 #include <malloc.h>
