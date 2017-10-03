@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int power(int num, int exp)
 {
     if(exp==0)
