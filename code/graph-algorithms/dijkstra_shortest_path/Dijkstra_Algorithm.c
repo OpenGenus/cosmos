@@ -1,4 +1,5 @@
 //for directed acyclig graphs!!
+// Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>
 #include<stdlib.h>
 #define INF 999999
