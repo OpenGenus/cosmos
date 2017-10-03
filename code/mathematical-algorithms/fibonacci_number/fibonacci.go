@@ -1,5 +1,5 @@
 package main
-
+// Part of Cosmos by OpenGenus Foundation
 import "fmt"
 
 //Returns the nth term in the Fibonacci Sequence
