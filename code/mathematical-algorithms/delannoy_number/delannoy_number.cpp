@@ -1,5 +1,5 @@
 #include <iostream>
-
+// Part of Cosmos by OpenGenus Foundation
 int DelannoyGenerator(int n, int m)
 {
 	int d = 1;
