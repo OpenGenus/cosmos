@@ -1,5 +1,6 @@
 /* 
  * C Program to Construct a Binary Search Tree and perform deletion, inorder traversal on it
+ * Part of Cosmos by OpenGenus Foundation
  */ 
 #include <stdio.h>
 #include <stdlib.h>
