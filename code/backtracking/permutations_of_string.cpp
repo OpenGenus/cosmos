@@ -17,7 +17,7 @@ void permute(char *a, int l, int r)
 {
     int i;
     if (l == r)
-        cout<<a;
+        std::cout<<a<<"\n";
     else
     {
         for (i = l; i <= r; i++)
