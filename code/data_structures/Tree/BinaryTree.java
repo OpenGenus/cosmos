@@ -1,34 +1,21 @@
 /* Part of Cosmos by OpenGenus Foundation */
+import java.util.ArrayList;
 
-class Node{
-	public int data;
-	public Node left;
-	public Node right;
-	public Node parent;
+class BinaryTree<T extends Comparable<T>>{
+	private Node<T> root;
 
-	public Node(int value){
-		data = value;
-		left = null;
-		right = null;
-		parent = null;
-	}
-}
-
-class Tree{
-	private Node root;
-
-	public Tree(){
+	public BinaryTree(){
 		root = null;
 	}
 	
-	public Node find(int key){
-		Node current = root;
-		Node last = root;
+	private Node<T> find(T key){
+		Node<T> current = root;
+		Node<T> last = root;
 		while(current != null){
 			last = current;
-			if(key < current.data)
+			if(key.compareTo(current.data) < 0)
 				current = current.left;
-			else if(key > current.data)
+			else if(key.compareTo(current.data) > 0)
 				current = current.right;
 			//If you find the value return it
 			else
@@ -37,16 +24,16 @@ class Tree{
 		return last;
 	}
 
-	public void put(int value){
-		Node newNode = new Node(value);
+	public void put(T value){
+		Node<T> newNode = new Node<>(value);
 		if(root == null)
 			root = newNode;
 		else{
 			//This will return the soon to be parent of the value you're inserting
-			Node parent = find(value);
+			Node<T> parent = find(value);
 
 			//This if/else assigns the new node to be either the left or right child of the parent
-			if(value < parent.data){
+			if(value.compareTo(parent.data) < 0){
 				parent.left = newNode;
 				parent.left.parent = parent;
 				return;
@@ -59,9 +46,9 @@ class Tree{
 		}
 	}
 
-	public boolean remove(int value){
+	public boolean remove(T value){
 		//temp is the node to be deleted
-		Node temp = find(value);
+		Node<T> temp = find(value);
 
 		//If the value doesn't exist
 		if(temp.data != value)
@@ -73,7 +60,7 @@ class Tree{
 				root = null;
 
 			//This if/else assigns the new node to be either the left or right child of the parent
-			else if(temp.parent.data < temp.data)
+			else if(temp.parent.data.compareTo(temp.data) < 0)
 				temp.parent.right = null;
 			else
 				temp.parent.left = null;
@@ -82,7 +69,7 @@ class Tree{
 
 		//Two children
 		else if(temp.left != null && temp.right != null){
-			Node successor = findSuccessor(temp);
+			Node<T> successor = findSuccessor(temp);
 
 			//The left tree of temp is made the left tree of the successor
 			successor.left = temp.left;
@@ -106,7 +93,7 @@ class Tree{
 				successor.parent = temp.parent;
 
 				//This if/else assigns the new node to be either the left or right child of the parent
-				if(temp.parent.data < temp.data)
+				if(temp.parent.data.compareTo(temp.data) < 0)
 					temp.parent.right = successor;
 				else
 					temp.parent.left = successor;
@@ -123,7 +110,7 @@ class Tree{
 				temp.right.parent = temp.parent;
 
 				//Assigns temp to left or right child
-				if(temp.data < temp.parent.data)
+				if(temp.data.compareTo(temp.parent.data) < 0)
 					temp.parent.left = temp.right;
 				else
 					temp.parent.right = temp.right;
@@ -137,7 +124,7 @@ class Tree{
 				temp.left.parent = temp.parent;
 
 				//Assigns temp to left or right side
-				if(temp.data < temp.parent.data)
+				if(temp.data.compareTo(temp.parent.data) < 0)
 					temp.parent.left = temp.left;
 				else
 					temp.parent.right = temp.left;
@@ -146,11 +133,11 @@ class Tree{
 		}
 	}
 
-	public Node findSuccessor(Node n){
+	private Node<T> findSuccessor(Node<T> n){
 		if(n.right == null)
 			return n;
-		Node current = n.right;
-		Node parent = n.right;
+		Node<T> current = n.right;
+		Node<T> parent = n.right;
 		while(current != null){
 			parent = current;
 			current = current.left;
@@ -158,19 +145,27 @@ class Tree{
 		return parent;
 	}
 
-	public Node getRoot(){
-			return root;
+	public T getRoot(){
+			return root.data;
 	}
 
-	public void inOrder(Node localRoot){
+	public String toString()
+	{
+		return inOrder(root).toString();
+	}
+
+	private ArrayList<T> inOrder(Node<T> localRoot){
+		ArrayList<T> temp = new ArrayList<>();
 		if(localRoot != null){
 			inOrder(localRoot.left);
-			System.out.print(localRoot.data + " ");
+			temp.add(localRoot.data);
+			//System.out.print(localRoot.data + " ");
 			inOrder(localRoot.right);
 		}
+		return temp;
 	}
 	
-	public void preOrder(Node localRoot){
+	private void preOrder(Node<T> localRoot){
 		if(localRoot != null){
 			System.out.print(localRoot.data + " ");
 			preOrder(localRoot.left);
@@ -178,11 +173,25 @@ class Tree{
 		}
 	}
 	
-	public void postOrder(Node localRoot){
+	private void postOrder(Node<T> localRoot){
 		if(localRoot != null){
 			postOrder(localRoot.left);
 			postOrder(localRoot.right);
 			System.out.print(localRoot.data + " ");
+		}
+	}
+
+	private class Node<T extends Comparable<T>>{
+		public T data;
+		public Node<T> left;
+		public Node<T> right;
+		public Node<T> parent;
+
+		public Node(T value){
+			data = value;
+			left = null;
+			right = null;
+			parent = null;
 		}
 	}
 }
