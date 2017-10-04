@@ -15,7 +15,7 @@ function  quickSort(a, low, high)
 	var i = low;
 	var j = high;
 	var temp;
-	k = (low + high) / 2; //k is pivot index
+	var k = (low + high) / 2; //k is pivot index
 	var pivot = parseInt(a[k.toFixed()]); /*k may be a fraction, toFixed takes it to the nearest integer*/ 
 	
 	while (i <= j)
