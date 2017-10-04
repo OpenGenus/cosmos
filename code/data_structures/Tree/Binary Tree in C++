@@ -1,0 +1,104 @@
+#include<iostream>
+using namespace std;
+
+// Part of Cosmos by OpenGenus Foundation
+
+#include<iostream>
+using namespace std;
+
+// max function
+int max(int a, int b) {
+   return ((a > b) ? a : b);
+}
+
+struct node
+{
+	int data;
+	node* left;
+	node* right;
+};
+
+// create a new node
+struct node* getNode(int data)
+{
+	node* newNode=new node();
+	newNode->data=data;
+	newNode->left=NULL;
+	newNode->right=NULL;
+	return newNode;
+}
+
+// Inorder Traversal
+void inorder(struct node* root)
+{
+    if (root != NULL)
+     {
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
+
+// Preorder Traversal
+void preorder(struct node* root)
+{
+    if (root != NULL)
+     {
+       
+        cout<<root->data<<" ";
+         inorder(root->left);
+        inorder(root->right);
+    }
+}
+
+// Postorder Traversal
+void postorder(struct node* root)
+{
+    if (root != NULL)
+     {
+        inorder(root->left);
+        inorder(root->right);
+        cout<<root->data<<" ";
+    }
+}
+
+//Insert new node into Binary Tree
+struct node* Insert(struct node* root, int data)
+{
+	if (root == NULL)
+		return getNode(data);
+
+	if (data <= root->data)
+		root->left  = Insert(root->left, data);
+	else if (data > root->data)
+		root->right = Insert(root->right, data);
+
+	return root;
+}
+
+
+
+int main()
+{  
+	node* root=NULL;
+	int a[30];
+	int n;
+	cout<<"\nEnter no. of nodes: ";
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+	   cin>>a[i];
+	   root=Insert(root,a[i]); 
+	}
+	
+	cout<<"\n\nInorder: ";
+	inorder(root);
+	cout<<"\n\nPreorder: ";
+	preorder(root);
+	cout<<"\n\nPostorder: ";
+	postorder(root);
+    
+ 
+
+	return 0;
+}
