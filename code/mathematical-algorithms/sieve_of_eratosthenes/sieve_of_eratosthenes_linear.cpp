@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+/* Part of Cosmos by OpenGenus Foundation */
 // Time complexity: O(n)
 std::vector<int> sieve_linear(int n) {
     std::vector<int> min_divider(n + 1); // min_divider[i] is the minimum prime divider of i
