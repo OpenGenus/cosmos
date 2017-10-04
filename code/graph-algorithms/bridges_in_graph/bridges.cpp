@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
 #define WHITE 0
