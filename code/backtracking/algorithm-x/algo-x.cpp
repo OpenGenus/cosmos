@@ -3,6 +3,8 @@
 	by Charles (@c650)
 
 	This code is from my repo at https://github.com/c650/knuth-algorithm-x
+	
+	Path of Cosmos by OpenGenus Foundation
 */
 #include <iostream>
 
