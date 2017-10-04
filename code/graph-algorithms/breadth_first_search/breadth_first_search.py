@@ -32,12 +32,12 @@ class Graph:
 def bfs(start, graph, visitFunc=visitPrint):
     visited = collections.defaultdict(bool)
     queue = collections.deque()
-    
+
     queue.append(start)
 
     while(len(queue) > 0):
         current = queue.popleft()
-        
+
         if (not visited[current]):
             visited[current] = True
             visitFunc(current)
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     #   2     3
     #  / \   / \
     # 4   5 6   7
-    
+
     g = Graph()
     g.addEdge(1, 2)
     g.addEdge(1, 3)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     print("Test 1:")
     bfs(1, g)
-    
+
     print("\nTest2:")
     bfs(2, g)
 

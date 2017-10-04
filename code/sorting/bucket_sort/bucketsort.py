@@ -1,13 +1,12 @@
 def bsort(A):
-  """Returns A sorted. with A = {x : x such that 0 <= x < 1}."""
     buckets = [[] for x in range(10)]
     for i, x in enumerate(A):
         buckets[int(x*len(buckets))].append(x)
-    out = []
-    for buck in buckets:
-        out += isort(buck)
-    return out
-    
+        out = []
+        for buck in buckets:
+            out += isort(buck)
+        return out
+
 def isort(A):
     if len(A) <= 1: return A
     i = 1
@@ -17,6 +16,6 @@ def isort(A):
         while j >= 0 and A[j] > k:
             A[j+1] = A[j]
             A[j] = k
-            j -= 1      
+            j -= 1
         i += 1
-return A
+    return A
