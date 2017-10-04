@@ -1,4 +1,4 @@
-
+// Part of Cosmos by OpenGenus Foundation
 public class HashTable<K, V> {
 	private class HTPair {
 		K key;
