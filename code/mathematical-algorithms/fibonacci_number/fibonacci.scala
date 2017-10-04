@@ -1,7 +1,7 @@
 // 0 and 1 are the first two numbers in the sequence,
 //so we start the accumulators with 0,1.
 // At every iteration, we add the two numbers to get the next one.
-
+// Path of Cosmos by OpenGenus Foundation
 //returns nth fibonacci number
 def fib(n: Int): Int = {
 @annotation.tailrec//makes sure loop() is tail recursive
