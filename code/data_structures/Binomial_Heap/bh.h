@@ -8,7 +8,7 @@ class Node{
 		Node* parent;
 		Node* child;
 		Node* sibling;
-	Node():parent(0),child(0),sibling(0),value(0),degree(0){};
+        Node():value(0),degree(0),parent(0),child(0),sibling(0){};
 	~Node(){};
 };
 
