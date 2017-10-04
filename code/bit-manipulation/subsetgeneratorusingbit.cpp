@@ -21,6 +21,6 @@ void generateSub(char *a){
 }
 int main()
 {
-    char a[10] = {'a','b','c','d'};
+    char a[4] = {'a','b','c','d'};
     generateSub(a);
 }
