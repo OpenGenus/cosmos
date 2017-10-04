@@ -89,7 +89,23 @@ node *delete(node *head, int data){
 
 	return head;
 }
-
+//Finds the height of the tree
+int height(node *head) 
+{
+   if (head==NULL) 
+       return 0;
+   else
+   {
+       /* compute the depth of each subtree */
+       int left_height = height(head->left);
+       int right_height = height(head->right);
+ 
+       /* use the larger one */
+       if (left_height > right_height) 
+           return(left_height+1);
+       else return(right_height+1);
+   }
+} 
 int main(){
 node *head=NULL;
 
@@ -97,7 +113,7 @@ node *head=NULL;
 	int c,data;
 
 	again:
-	printf("\n1. Insert Node         2. Delete Node		  3.Search\n");
+	printf("\n1. Insert Node         2. Delete Node		  3.Search		4.Find height\n");
 	scanf("%d",&c);
 
 	switch(c){
@@ -114,8 +130,8 @@ node *head=NULL;
 		case 3: printf("Enter data to search\n");
 				scanf("%d",&data);
 				search(head,data) ? printf("Found in tree\n"):printf("Not Found in tree\n");
+		case 4: printf("The height of BST is: %d ",height(head));
 	}
-
 	print(head);
 	goto again;
 return 0;
