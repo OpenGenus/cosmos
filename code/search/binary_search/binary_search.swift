@@ -1,10 +1,7 @@
-//
 //  binary_search.swift
-//  
-//
 //  Created by iraniya on 10/4/17.
-//
-//
+
+// Part of Cosmos by OpenGenus Foundation
 
 /**
  Binary Search
