@@ -1,3 +1,4 @@
+/*Part of Cosmos by OpenGenus Foundation*/
 #include <stdio.h>
  
 void swap(int *p, int *q)
