@@ -1,8 +1,7 @@
 // Segment tree with spaces. Allows to find sum in O(log size) time. Uses O(n log size) memory.
 
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <iostream>
+#include <string>
 
 const int size = 1000000000;
 
@@ -19,7 +18,6 @@ struct node {
 } *root;
 
 void add (node *vertex, int destination, int value) {
-  assert(vertex != 0);
   if (vertex->leftBound == destination && vertex->rightBound == destination + 1) {
     vertex->value += value;
     return;
@@ -59,29 +57,29 @@ int ask (node *vertex, int leftBound, int rightBound) {
 int main () {
   root = new node (-size, size); // Actually allows negative numbers
 
-  cout << "Print number of queries!\n";
+  std::cout << "Print number of queries!\n";
 
   int q;
-  cin >> q;
+  std::cin >> q;
 
   for (int _ = 0; _ < q; _++) {
-    string type;
-    cin >> type;
+    std::string type;
+    std::cin >> type;
 
     if (type == "add") {
       int destination, value;
-      cin >> destination >> value;
+      std::cin >> destination >> value;
 
       add (root, destination, value);
 
-      cout << "Added succesfully!\n";
+      std::cout << "Added succesfully!\n";
     } else if (type == "ask") {
       int leftBound, rightBound;
-      cin >> leftBound >> rightBound;
+      std::cin >> leftBound >> rightBound;
 
-      cout << ask (root, leftBound, rightBound) << "\n";
+      std::cout << ask (root, leftBound, rightBound) << "\n";
     } else {
-      cout << "Unknown Type! Only add and ask allowed\n";
+      std::cout << "Unknown Type! Only add and ask allowed\n";
     }
   }
 
