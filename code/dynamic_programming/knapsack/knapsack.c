@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 #define MAX 10
 #define MAXIMUM(a, b) a>b?a:b
 
