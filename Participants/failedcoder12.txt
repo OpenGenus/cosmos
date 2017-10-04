@@ -2,5 +2,6 @@ Name: Divyansh Verma
 Github Username: failedcoder12
 Degree and Year: 2nd Year, B.Tech
 Department: Computer Engineering
+Website: divyanshverma.me
 
-Interest: EveryThing I like (Cmopetitive Coding,Web and App Dev)
+Interest: EveryThing I like (Cmopetitive Coding,Web and App Dev)1
