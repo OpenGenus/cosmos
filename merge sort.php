@@ -1,4 +1,4 @@
-unction mergeSort($array)
+function mergeSort($array)
 {
     if(count($array) == 1 )
     {
