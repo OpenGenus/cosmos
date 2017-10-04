@@ -1,5 +1,6 @@
-Name : Karan Mohadikar
-GitHub UserName : karanmohadikar
-Degree and Year : MCA Ist Year
-Department : MACS
-Interest : Web Development and Gaming
+Name : karan 
+User name : karanmohadikar
+Class : MCA 1st Year
+Department: MACS
+interest : web development and gaming
+s
