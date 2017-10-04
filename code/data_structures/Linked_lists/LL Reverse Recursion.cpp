@@ -18,7 +18,6 @@ void printReverse(struct Node* head)
 void push(struct Node** head_ref, char new_data)
 {
     struct Node* new_node =new Node;
-  //  (struct Node*) malloc(sizeof(struct Node));
     
     new_node->data  = new_data;
     
