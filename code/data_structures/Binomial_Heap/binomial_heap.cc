@@ -1,6 +1,10 @@
-#include<iostream>
+#include <iostream>
 #include <queue>
+#include <vector>
+
+/* Part of Cosmos by OpenGenus Foundation */
 using namespace std;
+
 class Node{
 	public:
 		int value;
@@ -242,20 +246,17 @@ class BinomialHeap{
 };
 
 int main(){
-	
-	int n1,n2;
-	int input;
-	cin >> n1;
+	vector<int> heap1{5,4,3,2,1};
+	vector<int> heap2{4,3,2,1,8};
 	BinomialHeap bh1,bh2;
-	for(int i=0;i<n1;i++){
-		cin>>input;
-		bh1.insert(input);
-	}
-	cin >> n2;
-	for(int i=0;i<n2;i++){
-		cin>>input;
-		bh2.insert(input);
-	}
+
+    for (auto v: heap1) {
+        bh1.insert(v);
+    }
+
+    for (auto v: heap2) {
+        bh2.insert(v);
+    }
 
 	printf("preorder traversal of first binomialheap: ");
 	bh1.preorder();
