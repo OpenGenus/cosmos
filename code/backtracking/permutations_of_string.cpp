@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 /* Function to swap values at two pointers */
+// Part of Cosmos by OpenGenus Foundation
 void swap(char *x, char *y)
 {
     char temp;
