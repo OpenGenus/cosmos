@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int main (int argc, string argv[])
 {
     if (argc != 2)
