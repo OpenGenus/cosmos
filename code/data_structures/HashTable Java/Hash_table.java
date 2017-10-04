@@ -1,4 +1,3 @@
-package lecture18;
 
 public class HashTable<K, V> {
 	private class HTPair {
