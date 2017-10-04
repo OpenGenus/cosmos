@@ -1,6 +1,5 @@
-
-
 # Part of Cosmos by OpenGenus Foundation 
+
 class Node(object):
 	
     def __init__(self, data=-1,path='',left=None,right=None):
@@ -83,3 +82,31 @@ for i in range(t[1]):
 	else:
 		    
 		print(head.data)
+
+'''
+input should be like this
+10 8
+1 2 R
+1 3 L
+2 4 R
+2 5 L
+3 6 R
+3 7 L
+5 8 R
+5 9 L
+7 10 R
+2
+5
+3
+6
+1
+10
+9
+4
+
+First line of input is N and Q.
+Next N-1 line consists of two integers and one character first of whose is parent node , second is child node and character "L" representing Left child and "R" representing right child.
+Next Q lines represents qi.
+Output:
+For each qi printing the mirror node if it exists else printing -1.
+'''
