@@ -1,4 +1,5 @@
 <?php
+
 function merge_sort($my_array){
 	if(count($my_array) == 1 ) return $my_array;
 	$mid = count($my_array) / 2;
