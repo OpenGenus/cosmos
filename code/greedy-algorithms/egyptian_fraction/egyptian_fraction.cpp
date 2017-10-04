@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 void printEgyptian(int nr, int dr)
 {
     // If either numerator or denominator is 0
