@@ -31,7 +31,7 @@ def isprime(number):
 def power(x, exp, mod):
     
     result = 1
-    x=x % mod
+    x = x % mod
     
     while exp > 0:
         #if power is odd
@@ -50,6 +50,7 @@ def miller_rabin_primality(d,n):
     
     #choose a random number "a"
     a=random.randint(2, n-2) % (n-4)
+    
     #compute (a^d)%n
     x=power(a,d,n)
     
