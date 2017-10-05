@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h> 
  
-
+// Part of Cosmos by OpenGenus Foundation
 int search(int arr[], int x, int n)
 {
     for (int i = 0; i < n; i++)
