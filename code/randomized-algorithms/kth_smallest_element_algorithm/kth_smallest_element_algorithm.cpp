@@ -2,7 +2,7 @@
 #include<climits>
 #include<cstdlib>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 int randomPartition(int arr[], int l, int r);
  
 
