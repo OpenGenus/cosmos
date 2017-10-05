@@ -1,4 +1,4 @@
-# Min Heap (minheap.cpp)
+# Min Heap 
 Description
 ---
 Heap is a special case of balanced binary tree data structure where the root-node key is compared with its children and arranged accordingly. If a has child node b then -
