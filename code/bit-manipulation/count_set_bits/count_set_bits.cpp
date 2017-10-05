@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 int count(int n){
 	int c = 0;
 	while (n) {
