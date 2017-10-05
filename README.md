@@ -1,5 +1,5 @@
 # Hacktoberfest-2k17
-
+ 1 
 Official Repository for Hacktoberfest 2k17 NITK Edition meetup conducted at NITK Surathkal in collaboration with Team Engineer.
 
 ## CONTRIBUTING
@@ -13,4 +13,4 @@ Official Repository for Hacktoberfest 2k17 NITK Edition meetup conducted at NITK
 
 ## Code of Conduct
 
-* The [Web Club Code of Conduct](CODE%20OF%20CONDUCT.md) can be seen primarily to get the dos/donts for the repository.
+* The [Web Club Code of Conduct](CODE_OF_CONDUCT.md) can be seen primarily to get the dos/donts for the repository.
