@@ -1,8 +1,9 @@
 <?php
+// Part of Cosmos by OpenGenus Foundation */
 
 $array = array(0,1,6,7,6,3,4,2);
 
-function bubble_Sort($array)
+function bubble_sort($array)
 {
 	do
 	{
