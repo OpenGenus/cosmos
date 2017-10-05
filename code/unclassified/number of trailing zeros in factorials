@@ -6,8 +6,11 @@ int main(){
 
 	cout << "please enter a number\n";
 	int n; cin >> n;
-
-	int number_of_zeros = n / 5 ;
-	cout << "number of trailing zeros in factorial:\n";
-	cout << number_of_zeros << endl;
+	int s = 0;
+	
+	for(int i=1;i<=log(n)/log(5); ++i){
+		s = s + n / pow(5 , i);
+	}
+	cout << s << endl;
+	
 }
