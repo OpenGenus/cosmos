@@ -4,7 +4,7 @@
 //
 //  Created by Ivan Reinaldo Liyanto on 10/5/17.
 //  Copyright © 2017 Ivan Reinaldo Liyanto. All rights reserved.
-//
+//  Path of Cosmos by OpenGenus Foundation
 
 #include <iostream>
 #include <vector>
