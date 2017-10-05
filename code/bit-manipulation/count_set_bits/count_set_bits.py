@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def count_set_bit(number):
 	count = 0
 
