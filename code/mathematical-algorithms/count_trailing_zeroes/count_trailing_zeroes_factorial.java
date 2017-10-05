@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// Part of Cosmos by OpenGenus Foundation
 public class count_trailing_zeroes_factorial {
     public static int trailingZeroes(int n){
         int count = 0;
