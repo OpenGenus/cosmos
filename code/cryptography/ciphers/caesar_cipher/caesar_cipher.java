@@ -1,7 +1,7 @@
 import java.lang.StringBuilder;
 import java.util.Scanner;
 
-public final class CaesarCipher {
+public final class caesar_cipher {
     private final static int MIN_KEY = 1;
     private final static int MAX_KEY = 26;
 
