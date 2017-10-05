@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation 
 def left(i):
     return 2 * i + 1
 

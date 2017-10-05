@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <bits/stdc++.h>
 using namespace std;
 void heapify(int a[],int root,int n)

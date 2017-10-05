@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include<stdio.h>
 #include<math.h>
 float f(float x)
@@ -8,7 +9,7 @@ float df (float x)
 {
     return log10(x) + 0.43429;
 }
-void main()
+int main()
 {
     int itr, maxmitr;
     float h, x0, x1, allerr;
