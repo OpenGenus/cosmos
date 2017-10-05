@@ -3,12 +3,9 @@ BY:-  https://github.com/alphaWizard
 
 algorithm:- finds maximum bipartite matching for a given bipartite graph
             by taking input number of nodes(n) and number of edges(m) 
+            
+Part of Cosmos by OpenGenus Foundation
 */
-
-
-
-
-
 #include<bits/stdc++.h>
     using namespace std;
     vector<int> adj[10000];
