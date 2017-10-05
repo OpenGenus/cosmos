@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <cmath>
 #include <iostream>
 #include <limits>
