@@ -1,5 +1,4 @@
-package oops;
-
+// Part of Cosmos by OpenGenus Foundation
 public class linkedlist {
 	private class Node {
 		int data;
