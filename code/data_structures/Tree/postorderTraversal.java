@@ -1,6 +1,6 @@
 //createdBy arora-72
 //5-10-2017
-
+// Part of Cosmos by OpenGenus Foundation
 
 public class MakeTreefromInorderAndPreorder {
 	public static int pIndex=0;
