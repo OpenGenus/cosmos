@@ -60,25 +60,11 @@ bool detectcycle(vector<pair<int,int> > edgelist) // graph given in edge list re
   
   
   }
-  return false;
+  
   }
+     return false;
   
 
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
