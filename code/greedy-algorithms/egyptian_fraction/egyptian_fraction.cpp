@@ -1,52 +1,43 @@
 #include <iostream>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
-void printEgyptian(int nr, int dr)
+void printEgyptian(int numerator, int denominator)
 {
-    // If either numerator or denominator is 0
-    if (dr == 0 || nr == 0)
+    if (denominator == 0 || numerator == 0)
         return;
  
-    // If numerator divides denominator, then simple division
-    // makes the fraction in 1/n form
-    if (dr%nr == 0)
+    if (denominator%numerator == 0)
     {
-        cout << "1/" << dr/nr;
+        cout << "1/" << denominator/numerator;
         return;
     }
  
-    // If denominator divides numerator, then the given number
-    // is not fraction
-    if (nr%dr == 0)
+    if (numerator%denominator == 0)
     {
-        cout << nr/dr;
+        cout << numerator/denominator;
         return;
     }
  
-    // If numerator is more than denominator
-    if (nr > dr)
+    if (numerator > denominator)
     {
-        cout << nr/dr << " + ";
-        printEgyptian(nr%dr, dr);
+        cout << numerator/denominator << " + ";
+        printEgyptian(numerator%denominator, denominator);
         return;
     }
  
-    // We reach here dr > nr and dr%nr is non-zero
-    // Find ceiling of dr/nr and print it as first
-    // fraction
-    int n = dr/nr + 1;
+  
+    int n = denominator/numerator + 1;
     cout << "1/" << n << " + ";
  
-    // Recur for remaining part
-    printEgyptian(nr*n-dr, dr*n);
+    printEgyptian(numerator*n-denominator, denominator*n);
  }
  
-// Driver Program
 int main()
 {
-    int nr = 6, dr = 14;
+    int numerator,denominator ;
+    cin>>numerator>>denominator;
     cout << "Egyptian Fraction Representation of "
-         << nr << "/" << dr << " is\n ";
-    printEgyptian(nr, dr);
+         << numerator << "/" << denominator << " is\n ";
+    printEgyptian(numerator, denominator);
     return 0;
 }
