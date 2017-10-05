@@ -4,6 +4,8 @@ $dontPrintBinarySearchTest = true;
 require_once '../binary_search/binary_search.php';
 
 /**
+ * Part of Cosmos by OpenGenus Foundation
+ *
  * @param array $array
  * @param int   $search
  *

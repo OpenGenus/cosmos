@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * Part of Cosmos by OpenGenus Foundation
+ *
  * @param array $array
  * @param int   $low
  * @param int   $high
