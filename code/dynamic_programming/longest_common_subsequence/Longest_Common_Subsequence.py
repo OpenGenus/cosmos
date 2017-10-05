@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def lcs(X , Y):
 	m = len(X)
 	n = len(Y)
