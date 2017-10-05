@@ -1,3 +1,6 @@
+"""
+Part of Cosmos by OpenGenus Foundation 
+"""
 defmodule Sort do
   def bubble_sort(list) when length(list)<=1, do: list
   def bubble_sort(list) when is_list(list), do: bubble_sort(list, [])

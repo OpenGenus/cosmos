@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 function bubbleSort(items) {
     var length = items.length;
     for (var i = (length - 1); i >= 0; i--) {
