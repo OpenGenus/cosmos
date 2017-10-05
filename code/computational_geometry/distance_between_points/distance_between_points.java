@@ -1,6 +1,6 @@
 import java.lang.Math;
 
-public class DistanceBetweenPoints{
+public class distance_between_points{
 
      public static void main(String []args){
         // input points {x,y}
