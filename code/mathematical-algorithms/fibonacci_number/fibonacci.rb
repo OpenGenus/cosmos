@@ -6,13 +6,11 @@ def fibonacci(n)
   end
 end
 
-def fibonacci_memoized(n)
-  cache = { 0 => 0, 1 => 1 }
-  if cache.has_key?(n)
-    return cache.fetch(n)
-  end
-  cache[n] = fibonacci_memoized(n-2) + fibonacci_memoized(n-1)
-  cache[n]
+def fibonacci_memoized(n, cache=nil)
+  cache ||= { 0 => 0, 1 => 1 }
+  cache[n] = fibonacci_memoized(n-2, cache) + fibonacci_memoized(n-1, cache) unless cache.key?(n)
+
+  cache.fetch(n)
 end
 
 n = ARGV[0].to_i
