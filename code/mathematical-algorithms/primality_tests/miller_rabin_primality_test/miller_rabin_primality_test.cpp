@@ -1,4 +1,4 @@
-// C++ program Miller-Rabin primality test
+// C++ program Miller-Rabin Primality test
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -62,7 +62,7 @@ bool miillerTest(int d, int n)
 // accuracy level. Higher value of k indicates more accuracy.
 bool isPrime(int n, int k)
 {
-	// Corner cases
+	// Border cases
 	if (n <= 1 || n == 4) return false;
 	if (n <= 3) return true;
 
@@ -71,7 +71,7 @@ bool isPrime(int n, int k)
 	while (d % 2 == 0)
 		d /= 2;
 
-	// Iterate given nber of 'k' times
+	// Iterate given number 'k' times
 	for (int i = 0; i < k; i++)
 		if (miillerTest(d, n) == false)
 			return false;
@@ -82,12 +82,16 @@ bool isPrime(int n, int k)
 // Driver program
 int main()
 {
-	int k = 4; // Number of iterations
-
-	cout << "All primes smaller than 100: \n";
-	for (int n = 1; n < 100; n++)
+	int n, k = 4;
+	//Here k decides the number of iterations the number 'n' will undergo.
+	//Larger the value of k, more will be the accuracy of the output
+	//thus reducing its efficiency.
+	cout << "Enter the number to check: ";
+	cin >>n ;
 	if (isPrime(n, k))
-		cout << n << " ";
+		cout << n << " is prime.\n";
+    else
+        cout << n << " is not prime.\n" ;
 
 	return 0;
 }
