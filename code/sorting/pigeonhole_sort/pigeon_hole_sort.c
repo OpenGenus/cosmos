@@ -2,9 +2,11 @@
 #include <stdlib.h>
 
 int main(){
-
+    printf("enter the size of array to be sorted:\n");
     int n; scanf("%d", &n);
     int pigeon[n];
+    
+    printf("now enter the elements of the array:\n");
     for(int i=0;i<n;++i){
         scanf("%d", &pigeon[i]);
     }
