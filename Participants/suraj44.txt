@@ -1,0 +1,6 @@
+Name: Suraj Singh
+GitHub Username: suraj44
+Degree and Year: 2nd Year, B. Tech
+Department: Computer Engineering
+
+Interests: Machine Learning and Data Science
