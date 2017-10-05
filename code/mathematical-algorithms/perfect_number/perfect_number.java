@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public final class PerfectNumber {
+public final class perfect_number {
     private static boolean hasPerfect = false;
 
     public static void main(String[] args){
