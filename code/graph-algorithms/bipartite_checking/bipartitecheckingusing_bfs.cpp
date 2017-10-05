@@ -8,7 +8,9 @@ q.push(s);
 int colour[100000];
 int visited[100000];
 color[s]=0; // 0-> red color 1-> blue color
+
 memset(visited,0,sizeof(visited));
+visited[s]=1;
 bool isbipartite=true;
 
 while(!q.empty()&&isbipartite)
