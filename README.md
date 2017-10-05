@@ -35,7 +35,7 @@ This is a massive collaboration and to keep the quality intact and drive the vis
 
 The task of maintainers is to review pull requests, suggest further quality additions and keep the work upto data with the current state of the world. 🌍 
 
-[Check out our current maintainers]()
+[Check out our current maintainers](https://github.com/OpenGenus/cosmos/blob/master/.github/CONTRIBUTING.md)
 
 Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. [Join us at Slack](http://slack.opengenus.org/).
 
