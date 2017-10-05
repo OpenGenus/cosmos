@@ -36,4 +36,13 @@ public class PigeonHoleSort_Java {
 			}
 		}
 	}
+	
+	public static void main(String args[]) {
+        	int arr[] = {3, 5, 8, 5};
+        	pigeonholeSort(arr, arr.length);
+        	
+        	for(int num : arr) {
+        		System.out.println(num);
+        	}
+    	}
 }
