@@ -1,7 +1,7 @@
 // C++ program Miller-Rabin Primality test
 #include <bits/stdc++.h>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // Utility function to do modular exponentiation.
 // It returns (x^y) % p
 int power(int x, unsigned int y, int p)
