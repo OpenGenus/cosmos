@@ -1,6 +1,6 @@
 <?php
 // Part of Cosmos by OpenGenus Foundation
-function selectionSort($arr) {
+function selection_sort($arr) {
     $n = count($arr);
 
     foreach ($arr as $k => $el) {
@@ -24,6 +24,6 @@ function selectionSort($arr) {
 $test = [1, 3, 43, 2, 14, 53, 12, 87, 33];
 
 print_r($test);
-$sorted = selectionSort($test);
+$sorted = selection_sort($test);
 
 print_r($sorted);
