@@ -1,4 +1,4 @@
-# Cosmos
+﻿# Cosmos
 > The universe of algorithm and data structures
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in a various languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others. 
@@ -35,7 +35,7 @@ This is a massive collaboration and to keep the quality intact and drive the vis
 
 The task of maintainers is to review pull requests, suggest further quality additions and keep the work upto data with the current state of the world. 🌍 
 
-[Check out our current maintainers]()
+[Check out our current maintainers](https://github.com/OpenGenus/cosmos/blob/master/.github/CONTRIBUTING.md)
 
 Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. [Join us at Slack](http://slack.opengenus.org/).
 
@@ -43,7 +43,7 @@ Let us know that you would like to be a maintainer in the Slack channel *#algori
 
 The success of our vision to bring knowledge offline** depends on you. Even a small contribution helps. All forms of contribution are highly welcomed and valued. 
 
-When you contribute, your name with a link (if available) is added to our [contributors list]().
+When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
 # License
 

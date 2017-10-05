@@ -79,9 +79,11 @@ int main() {
 	            ans--;
 	        e--;
 	    }
-	    v[q[i].fi]=ans;
+	  
+		v[q[i].fi]=ans;
 	}
 	for(int i=0;i<Q;i++)
 	    printf("%d\n",v[i]);
 	return 0;
+	
 }
