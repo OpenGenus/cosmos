@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def findTrailingZeroes(n):
 	count = 0
 	i=5
