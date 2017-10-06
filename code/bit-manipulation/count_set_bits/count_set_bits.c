@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int count_set_bits(int n){
 	int c = 0;
 	while (n) {
