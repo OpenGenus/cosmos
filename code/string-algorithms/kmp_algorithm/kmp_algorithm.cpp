@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// Path of Cosmos by OpenGenus Foundation
 void computeLPSArray(char *pat, int M, int *lps);
  
 // Prints occurrences of txt[] in pat[]
