@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def shell_sort(alist):
     sub_list_count = len(alist) // 2
     while sub_list_count > 0:
