@@ -1,4 +1,5 @@
 import java.util.*;
+// Part of Cosmos by OpenGenus Foundation
 class Gcd_Lcm_Calc{
 	public void determineLCM(int a, int b) {
 		int num1, num2, lcm = 0;
