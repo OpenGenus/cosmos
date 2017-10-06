@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// Part of Cosmos by OpenGenus Foundation
 typedef struct node {
 			int value;
 			struct node *left, *right;
