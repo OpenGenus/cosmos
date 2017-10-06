@@ -1,5 +1,5 @@
 // Part of Cosmos by OpenGenus Foundation
-public class linkedlist {
+public class LinkedList {
 	private class Node {
 		int data;
 		Node next;
@@ -455,10 +455,10 @@ public class linkedlist {
 //
 //	}
 
-	public linkedlist mergetwosortedlinkedlist(linkedlist other) {
+	public LinkedList mergetwosortedLinkedList(LinkedList other) {
 		Node ttemp = this.head;
 		Node otemp = other.head;
-		linkedlist rv = new linkedlist();
+		LinkedList rv = new LinkedList();
 		while (ttemp != null && otemp != null) {
 			if (ttemp.data < otemp.data) {
 				rv.addLast(ttemp.data);
@@ -485,8 +485,8 @@ public class linkedlist {
 	public void mergesort() {
 		if (this.size == 1)
 			return;
-		linkedlist gh = new linkedlist();
-		linkedlist lh = new linkedlist();
+		LinkedList gh = new LinkedList();
+		LinkedList lh = new LinkedList();
 
 		Node mid = this.midNode();
 		Node temp = mid.next;
@@ -501,24 +501,24 @@ public class linkedlist {
 		lh.tail.next = null;
 		lh.size = this.size / 2;
 
-		linkedlist merged = new linkedlist();
+		LinkedList merged = new LinkedList();
 		gh.mergesort();
 		lh.mergesort();
 
-		merged = gh.mergetwosortedlinkedlist(lh);
+		merged = gh.mergetwosortedLinkedList(lh);
 
 		this.head = merged.head;
 		this.tail = merged.tail;
 		this.size = merged.size;
 
 	}
-	public linkedlist KREVERSE(int k) throws Exception{
-		linkedlist pre=new linkedlist();
-		linkedlist cur;
+	public LinkedList KREVERSE(int k) throws Exception{
+		LinkedList pre=new LinkedList();
+		LinkedList cur;
 
 
 		while(this.size()!=0){
-			cur=new linkedlist();
+			cur=new LinkedList();
 			for(int i=0;i<k;i++){
 				int rv=this.removeFirst();
 				cur.addfirst(rv);
@@ -537,7 +537,7 @@ public class linkedlist {
 	}
 	public void removeduplicat() throws Exception{
 
-		linkedlist n=new linkedlist();
+		LinkedList n=new LinkedList();
 
 		while(this.size()!=0){
 			int data=this.removeFirst();
