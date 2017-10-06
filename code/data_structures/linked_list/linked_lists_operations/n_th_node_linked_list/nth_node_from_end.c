@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define NUM_NODES 100 
-
+// Part of Cosmos by OpenGenus Foundation
 typedef struct node {
 		int value;
 		struct node* next;
