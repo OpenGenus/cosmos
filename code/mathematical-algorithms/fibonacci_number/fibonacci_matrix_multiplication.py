@@ -1,17 +1,3 @@
-"""
-Author: sidd607
-Email: sidd607@gmail.com
-
-Calculating the nth Fibonacci Number in O(logN) using matrix multiplications
-
-let F(n) be the nth fibonacci number
-
-The matrix representation gives the following closed expression for the Fibonacci numbers
-([[1 1],[1 0]])^n = [[F(n+1) F(n)], [F(n) F(n-1)]]
-
-More information at https://kukuruku.co/post/the-nth-fibonacci-number-in-olog-n/
-
-"""
 
 def fibonacci(n):
     """
