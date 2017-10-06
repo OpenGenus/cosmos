@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
- 
+// Part of Cosmos by OpenGenus Foundation
 const int MAXN = 1e5+5;
 vector<int> adj[MAXN], tree[MAXN];     // The bridge edge tree formed from the given graph.
 int disc[MAXN], low[MAXN], vis[MAXN];
