@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
+// Part of Cosmos by OpenGenus Foundation
 const int MAXN = 1e4+5;
 vector<int> adj[MAXN];
 bool vis[MAXN], AP[MAXN];
