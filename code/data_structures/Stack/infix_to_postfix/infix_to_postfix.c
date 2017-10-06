@@ -121,6 +121,8 @@ int infixToPostfix(char* exp)
  
     exp[++k] = '\0';
     printf( "%sn", exp );
+    
+    return 0;
 }
  
 // Driver program to test above functions
