@@ -9,14 +9,14 @@ class SinglyLinkedList<T> {
 	}
 
 	public void insertHead(T data) {
-		Node newNode = new Node(data); //Create a new link with a value attached to it
+		Node<T> newNode = new Node<>(data); //Create a new link with a value attached to it
 		newNode.next = head; //Set the new link to point to the current head
 		head = newNode; //Now set the new link to be the head
 	}
 
 	Node InsertNth(int data, int position) {
 
-		Node newNode = new Node(data);
+		Node<Integer> newNode = new Node<>(data);
 
 		if (position == 0) {
 			newNode.next = head;
@@ -73,7 +73,7 @@ class SinglyLinkedList<T> {
 	}
 
 	public static void main(String args[]) {
-		SinglyLinkedList myList = new SinglyLinkedList();
+		SinglyLinkedList<Integer> myList = new SinglyLinkedList<>();
 
 		System.out.println(myList.isEmpty()); //Will print true
 
