@@ -1,4 +1,3 @@
-// Java program to demonstrate lazy propagation in segment tree
 import java.util.*;
 import java.lang.*;
 import java.io.*;
