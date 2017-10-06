@@ -37,7 +37,7 @@ class Stack<T>{
 		if(!isEmpty()){ //Checks for an empty stack
 			return stackArray.get(top);
 		}else{
-			throw new IndexOutOfBoundsException();			
+			throw new IndexOutOfBoundsException();
 		}
 	}
 
@@ -61,7 +61,7 @@ public class Stacks{
 	 * @param args Command line arguments
 	 */
 	public static void main(String args[]){
-		Stack myStack = new Stack(4); //Declare a stack of maximum size 4
+		Stack<Integer> myStack = new Stack<>(4); //Declare a stack of maximum size 4
  		//Populate the stack
  		myStack.push(5);
  		myStack.push(8);
