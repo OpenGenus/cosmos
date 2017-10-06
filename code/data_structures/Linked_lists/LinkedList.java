@@ -515,8 +515,8 @@ public class linkedlist {
 	public linkedlist KREVERSE(int k) throws Exception{
 		linkedlist pre=new linkedlist();
 		linkedlist cur;
-		
-		
+
+
 		while(this.size()!=0){
 			cur=new linkedlist();
 			for(int i=0;i<k;i++){
@@ -530,30 +530,31 @@ public class linkedlist {
 				pre.tail=cur.tail;
 				pre.size+=cur.size();
 			}
-			
-			
+
+
 		}
 		return pre;
 	}
 	public void removeduplicat() throws Exception{
-		
+
 		linkedlist n=new linkedlist();
-		
+
 		while(this.size()!=0){
 			int data=this.removeFirst();
 			if(n.isEmpty()){
-				
+
 				n.addLast(data);
 			}
 			if(n.getLast()!=data){
 				n.addLast(data);
 			}
-		
+
 		}
 		this.head=n.head;
 		this.tail=n.tail;
 		this.size=n.size;
-		
-		
+
+
 	}
+
 }
