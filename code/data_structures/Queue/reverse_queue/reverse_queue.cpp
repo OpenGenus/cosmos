@@ -24,18 +24,17 @@ int main(){
     //print the queue
     print(q);
 
-    ///empty the queue into stack
+    //empty the queue into stack
     while(!q.empty()){
         s.push(q.front());
         q.pop();
     }
-
     //empty stack into queue
     while(!s.empty()){
         q.push(s.top());
         s.pop();
     }
-
+    
     //print the reversed queue
     print(q);
 
