@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public class NextGreaterNumber 
 {
     private void swap(int[] number, int i, int j)
