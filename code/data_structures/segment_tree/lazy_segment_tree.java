@@ -1,4 +1,5 @@
 // Java program to demonstrate lazy propagation in segment tree
+// Part of Cosmos by OpenGenus Foundation
 class LazySegmentTree
 {
     final int MAX = 1000;        // Max tree size
