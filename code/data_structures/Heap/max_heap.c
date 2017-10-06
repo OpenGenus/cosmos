@@ -1,4 +1,5 @@
 /*
+  Part of Cosmos by OpenGenus Foundation
   This is a C program that forms a max heap.
   The following queries can be used:
   0 - Print the max-heap
