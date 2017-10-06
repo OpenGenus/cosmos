@@ -2,7 +2,7 @@
 #include<stack>
 #include<queue>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 void print(queue<int> q){
 
     while(!q.empty()){
