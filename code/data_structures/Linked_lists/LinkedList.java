@@ -287,7 +287,7 @@ public class LinkedList {
 	// o(n)
 	public void reverselistDR() {
 		// this.reverselistDR(this.head,this.head,0);
-		heapmover left = new heapmover();
+		HeapMover left = new HeapMover();
 		left.node = this.head;
 		reverselistDR1(left, head, 0);
 
@@ -312,7 +312,7 @@ public class LinkedList {
 
 	}
 
-	private void reverselistDR1(heapmover left, Node right, int floor) {
+	private void reverselistDR1(HeapMover left, Node right, int floor) {
 		if (right == null) {
 
 			return;
@@ -331,12 +331,12 @@ public class LinkedList {
 
 	}
 
-	private class heapmover {
+	private class HeapMover {
 		Node node;
 	}
 
 	public void fold() {
-		heapmover left = new heapmover();
+		HeapMover left = new HeapMover();
 		left.node = this.head;
 		fold(left, this.head, 0);
 		if (this.size % 2 == 1) {
@@ -351,7 +351,7 @@ public class LinkedList {
 		this.tail.next = null;
 	}
 
-	private void fold(heapmover left, Node right, int floor) {
+	private void fold(HeapMover left, Node right, int floor) {
 		if (right == null) {
 
 			return;
