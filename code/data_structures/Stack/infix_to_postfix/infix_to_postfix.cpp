@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 // Stack type
 struct Stack
 {
