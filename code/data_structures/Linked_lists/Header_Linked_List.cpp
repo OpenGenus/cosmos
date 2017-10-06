@@ -6,14 +6,56 @@
 
 using namespace std;
 
-int main(){
-
 struct node{
 	int info;
 	node *next;
 }*ptr,*head,*start;
 
-int c=1,k=0,ele,data;
+
+//Function for creating new node and Inserting data in the node
+struct node* insert(struct node* head,int data){
+	ptr=new node;
+	ptr->next=NULL;
+	ptr->info=data;
+
+	head->next=ptr;
+	cout<<"Data Inserted\n";
+	return ptr;
+}
+
+//Function for searching item in Linked List
+int search(struct node* start,int item){
+	ptr=start->next;
+	int f,k;
+	f=0;
+	k=0;
+	while(ptr!=NULL){
+		k++;
+		if(ptr->info==item){
+			f++;
+			cout<<"Item Found at Node: "<<k<<"\n";
+		}
+		ptr=ptr->next;
+	}
+	return f;
+}
+
+//Function for Printing the Linked List
+void printLL(struct node* start){
+
+	ptr=start->next;
+
+	while(ptr!=NULL){
+		cout<<ptr->info<<"->";
+		ptr=ptr->next;
+	}
+	cout<<"\n";
+
+}
+
+int main(){
+
+int c=1,k=0,item,data;
 
 ptr=new node;
 ptr->next=NULL;
@@ -27,46 +69,23 @@ while(c<4 && c>0){
 		case 1:
 			cout<<"Enter Data\n";
 			cin>>data;
-
-			ptr=new node;
-			ptr->next=NULL;
-			ptr->info=data;
-
-			head->next=ptr;
-			head=ptr;
-			cout<<"Data Inserted\n";
-
+			
+			head=insert(head,data);
 		break;
 
 		case 2:
-			cout<<"Enter Item that you wnat to find\n";
-			cin>>ele;
+			cout<<"Enter Item that you want to find\n";
+			cin>>item;
 
-			ptr=start->next;
 			int f;
-			f=0;
-			while(ptr!=NULL){
-				k++;
-				if(ptr->info==ele){
-					f++;
-					cout<<"Item Found at Node: "<<k<<"\n";
-				}
-				ptr=ptr->next;
-			}
+			f=search(start,item);
 			if(f==0){
 				cout<<"Item Not Found\n";
 			}
-			k=0;
 		break;
 
 		case 3:
-			ptr=start->next;
-
-			while(ptr!=NULL){
-				cout<<ptr->info<<"->";
-				ptr=ptr->next;
-			}
-			cout<<"\n";
+			printLL(start);
 		break;
 
 		default:
