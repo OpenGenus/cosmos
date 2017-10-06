@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-
+# Part of Cosmos by OpenGenus Foundation
 def main():
     count = int(input("How many flips? "))
 
