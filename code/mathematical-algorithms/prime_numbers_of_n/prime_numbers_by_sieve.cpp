@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 #define N 10e7
 vector<int> a(N + 1, 0);
