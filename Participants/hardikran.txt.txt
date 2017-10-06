@@ -1,6 +1,0 @@
-Name:Hardik Rana
-github username:hardikran
-year:2nd year,B.tech
-Department:computer science
-
-Interest:web-development,game-development,coding
