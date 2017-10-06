@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public class convert_number_binary {
 	public static void main(String[] args) {
 		String binary = toBinary(20);
