@@ -2,7 +2,7 @@
 using namespace std;
 #define R 3
 #define C 3
- 
+// Part of Cosmos by OpenGenus Foundation
 int min(int x, int y, int z);
  
 int minCost(int cost[R][C], int m, int n)
