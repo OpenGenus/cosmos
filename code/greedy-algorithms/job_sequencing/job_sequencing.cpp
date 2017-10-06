@@ -1,7 +1,7 @@
 #include<iostream>
 #include<algorithm>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 // A structure to represent a job
 struct Job
 {
