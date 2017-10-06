@@ -1,6 +1,6 @@
 # A Python program for Prim's Minimum Spanning Tree (MST) algorithm.
 # The program is for adjacency matrix representation of the graph
-
+# Part of Cosmos by OpenGenus Foundation
 class Python():
  
     def __init__(self, vertices):
