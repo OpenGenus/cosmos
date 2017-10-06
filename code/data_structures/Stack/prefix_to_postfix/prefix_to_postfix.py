@@ -1,5 +1,5 @@
 # Converting prefix to its equivalent postfix notation.
-
+# Part of Cosmos by OpenGenus Foundation
 postfix = []
 temp = []
 operator = -10
