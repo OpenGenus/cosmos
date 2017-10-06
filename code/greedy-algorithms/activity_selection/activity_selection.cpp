@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 // A job has start time, finish time and profit.
 struct Activitiy
 {
