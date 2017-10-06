@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // structure representing an AVL node
 struct AVLNode  {
     int data;
