@@ -7,7 +7,7 @@
 #include <vector>
 #include <cmath>
 #include <cstdlib>
-
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
 // Swaps values in vector with given indices
