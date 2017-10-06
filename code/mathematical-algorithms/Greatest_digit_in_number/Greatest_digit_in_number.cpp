@@ -7,6 +7,7 @@ int greatest_digit(int n)
     {
         if(max<n%10)
             max=n%10;
+        n/=10;
     }
     return max;
 
