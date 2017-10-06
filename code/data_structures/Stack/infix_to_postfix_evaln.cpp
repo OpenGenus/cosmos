@@ -1,3 +1,4 @@
+
 #include<iostream>
 using namespace std;
 #include<cctype>
@@ -93,12 +94,55 @@ string InToPostfix(string x)
     }
     return r;
 }
+int postfixEval(string x)
+{
+    int r;
+    for(int i=0; i<x.length(); i++)
+    {
+        char c = x[i];
+        if(isalnum(c))
+        {
+            push(c - '0');
+        }
+        else
+        {
+            int a = pop();
+            int b = pop();
+            switch(c)
+            {
+            case '+':
+                push(a+b);
+                break;
+            case '-':
+                push(b-a);
+                break;
+            case '*':
+                push(a*b);
+                break;
+            case '/':
+                push(b/a);
+                break;
+            case '^':
+                push(b^a);
+            }
+        }
+    }
+    return pop();
+}
 int main()
 {
-    string x,r;
+    string i,p;
+    int flag = 0;
     cout<<"Enter infix expression: ";
-    cin>>x;
-    r = InToPostfix(x);
-    cout<<"Postfix evaluated expression: "<<r<<endl;
+    cin>>i;
+    p = InToPostfix(i);
+    cout<<"Postfix expression: "<<p<<"\nEnter 1 to evaluate postfix expression: ";
+    cin>>flag;
+    if(flag == 1)
+    {
+        int r = postfixEval(p);
+        cout<<"Postfix evaluated ans: "<<r<<endl;
+    }
     return 0;
 }
+
