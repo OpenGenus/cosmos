@@ -1,4 +1,5 @@
 # Python program to print transitive closure of a graph
+# Part of Cosmos by OpenGenus Foundation
 from collections import defaultdict
  
 # This class represents a directed graph using adjacency list representation
