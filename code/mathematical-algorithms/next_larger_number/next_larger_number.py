@@ -1,7 +1,7 @@
 # Python program to find the smallest number which 
 # is greater than a given no. has same set of 
 # digits as given number
- 
+# Part of Cosmos by OpenGenus Foundation
 # Given number as int array, this function finds the 
 # greatest number and returns the number as integer
 def findNext(number,n):
