@@ -23,4 +23,7 @@ int main()
 	}
 	double avg = double(sum)/n;
 	cout << "Average of numbers: " << avg << endl;
+	
+	// Deallocate array
+	delete [] a;
 }
