@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int getSum(int bit_tree[], int index)
 {
     int sum = 0; // Iniialize result
