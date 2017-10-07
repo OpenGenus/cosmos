@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def factorial(n):
     if n == 0:
         return 1
