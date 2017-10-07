@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// Part of Cosmos by OpenGenus Foundation
 public class Factorial {
     public static void main(String args[]) {
         Scanner stdin = new Scanner(System.in);
