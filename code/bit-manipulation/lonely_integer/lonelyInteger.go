@@ -8,7 +8,7 @@ package main
 
 import "fmt"
 
-func LonelyInteger(a []int) int{
+func LonelyInteger(a []int) int {
 	lonely := 0
 	for i := 0; i < len(a); i++ {
 		lonely ^= a[i]
@@ -17,6 +17,6 @@ func LonelyInteger(a []int) int{
 }
 
 func main() {
-	a := []int{2,3,4,5,3,2,4}
+	a := []int{2, 3, 4, 5, 3, 2, 4}
 	fmt.Println(LonelyInteger(a))
 }

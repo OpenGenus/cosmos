@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 import "sort"
+
 // Part of Cosmos by OpenGenus Foundation
 func binarySearch(data []int, value int) int {
 	startIndex := 0

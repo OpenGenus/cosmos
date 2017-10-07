@@ -1,9 +1,10 @@
 # Part of Cosmos by OpenGenus Foundation
 class SelectionSort():
+
     def sort(self, array):
-        for i in range(len(array)-1):
+        for i in range(len(array) - 1):
             minimumValue = i
-            for j in range(i+1, len(array)):
+            for j in range(i + 1, len(array)):
                 if array[j] < array[minimumValue]:
                     minimumValue = j
             temp = array[minimumValue]

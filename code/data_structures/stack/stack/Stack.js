@@ -9,22 +9,22 @@
 
 // Functions: push, pop, peek, view, length
 
-//Creates a stack
-var Stack = function () {
-  //The top of the Stack
-  this.top=0;
-  //The array representation of the stack
+// Creates a stack
+var Stack = function() {
+  // The top of the Stack
+  this.top = 0;
+  // The array representation of the stack
   this.stack = {};
 
-  //Adds a value onto the end of the stack
-  this.push=function(value) {
-    this.stack[this.top]=value;
+  // Adds a value onto the end of the stack
+  this.push = function(value) {
+    this.stack[this.top] = value;
     this.top++;
-  }
+  };
 
-  //Removes and returns the value at the end of the stack
-  this.pop = function(){
-    if(this.top === 0){
+  // Removes and returns the value at the end of the stack
+  this.pop = function() {
+    if (this.top === 0) {
       return "Stack is Empty";
     }
 
@@ -32,26 +32,27 @@ var Stack = function () {
     var result = this.stack[this.top];
     delete this.stack[this.top];
     return result;
-  }
+  };
 
-  //Returns the size of the stack
-  this.size = function(){
+  // Returns the size of the stack
+  this.size = function() {
     return this.top;
-  }
+  };
 
-  //Returns the value at the end of the stack
-  this.peek = function(){
-    return this.stack[this.top-1];
-  }
+  // Returns the value at the end of the stack
+  this.peek = function() {
+    return this.stack[this.top - 1];
+  };
 
-  //To see all the elements in the stack
-  this.view= function(){
-    for(var i=0;i<this.top;i++)
+  // To see all the elements in the stack
+  this.view = function() {
+    for (var i = 0; i < this.top; i++) {
       console.log(this.stack[i]);
-  }
-}
+    }
+  };
+};
 
-//Implementation
+// Implementation
 var myStack = new Stack();
 
 myStack.push(1);

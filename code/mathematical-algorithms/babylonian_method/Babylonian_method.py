@@ -4,6 +4,6 @@ def squareRoot(n):
     e = 0.000001
     while (x - y > e):
         x = (x + y) / 2
-        y = n/x
+        y = n / x
     return x
 print(squareRoot(50))

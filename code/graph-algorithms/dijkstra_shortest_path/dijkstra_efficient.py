@@ -5,8 +5,10 @@
 import math
 import sys
 
+
 class PriorityQueue:
     # Based on Min Heap
+
     def __init__(self):
         self.cur_size = 0
         self.array = []
@@ -75,6 +77,7 @@ class PriorityQueue:
 
 
 class Graph:
+
     def __init__(self, num):
         self.adjList = {}   # To store graph: u -> (v,w)
         self.num_nodes = num    # Number of nodes in graph

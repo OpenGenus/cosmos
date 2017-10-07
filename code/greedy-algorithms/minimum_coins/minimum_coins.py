@@ -1,5 +1,6 @@
 # Part of Cosmos by OpenGenus Foundation
 
+
 def minimum_coins(value, denominations):
     result = []
     # Assuming denominations is sorted in descendig order
@@ -11,6 +12,8 @@ def minimum_coins(value, denominations):
     return result
 
 # Testing
+
+
 def test():
     scenarios = [[100, [50, 25, 10, 5, 1],      [50, 50]],
                  [101, [50, 25, 10, 5, 1],      [50, 50, 1]],
@@ -23,7 +26,8 @@ def test():
     for scenario in scenarios:
         actual = minimum_coins(scenario[0], scenario[1])
         if actual != scenario[2]:
-            message = "Test Failed: Value: {}, Denominations: {}, Expected Result: {}, Actual Result: {}".format(scenario[0], scenario[1], scenario[2], actual)
+            message = "Test Failed: Value: {}, Denominations: {}, Expected Result: {}, Actual Result: {}".format(
+                scenario[0], scenario[1], scenario[2], actual)
             print message
 
     return None

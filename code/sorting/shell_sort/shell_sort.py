@@ -8,12 +8,12 @@ def shell_sort(alist):
 
 
 def gap_insertion_sort(alist, start, gap):
-    for i in range(start+gap, len(alist), gap):
+    for i in range(start + gap, len(alist), gap):
         currentvalue = alist[i]
         position = i
-        while position >= gap and alist[position-gap] > currentvalue:
-            alist[position] = alist[position-gap]
-            position = position-gap
+        while position >= gap and alist[position - gap] > currentvalue:
+            alist[position] = alist[position - gap]
+            position = position - gap
         alist[position] = currentvalue
 
 alist = [91, 91, 82, 45, 48, 35, 83, 70, 97]

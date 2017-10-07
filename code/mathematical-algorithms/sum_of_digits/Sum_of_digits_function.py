@@ -1,7 +1,7 @@
 def sum_of_digits(n):
     sum = 0
     num_as_string = str(n)
-    for c in num_as_string :
+    for c in num_as_string:
         digit = ord(c) - ord('0')
         sum = sum + digit
     return sum

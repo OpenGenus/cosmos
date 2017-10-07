@@ -1,5 +1,7 @@
 import sys
 # Part of Cosmos by OpenGenus Foundation
+
+
 def sieve_erato(n):
     loops = 0
     numbers = set(range(2, n))

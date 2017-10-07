@@ -1,9 +1,10 @@
 package main
+
 // Part of Cosmos by OpenGenus Foundation
 import (
+	"errors"
 	"fmt"
 	"math"
-	"errors"
 )
 
 func divide(dividend int, divisor int) (int, error) {
@@ -30,11 +31,10 @@ func divide(dividend int, divisor int) (int, error) {
 			temp <<= 1
 		}
 	}
- 
+
 	if !positive {
 		answer = -answer
 	}
 
 	return answer, nil
 }
-

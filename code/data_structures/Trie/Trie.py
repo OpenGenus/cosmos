@@ -2,6 +2,7 @@
 
 
 class TrieNode(object):
+
     def __init__(self):
         self.children = {}
 
@@ -18,6 +19,7 @@ def insert(root_node, word):
             t = TrieNode()
             n.children[character] = t
         n = t
+
 
 def search(root_node, search_string):
     node = root_node

@@ -3,7 +3,9 @@ import time
 
 _lk = threading.Lock()
 
+
 class SleepSortThread(threading.Thread):
+
     def __init__(self, val):
         self.val = val
         threading.Thread.__init__(self)
@@ -14,9 +16,10 @@ class SleepSortThread(threading.Thread):
         time.sleep(self.val * 0.1)
         # Acquire lock
         _lk.acquire()
-        print(self.val, end = " ")
+        print(self.val, end=" ")
         # Release lock
         _lk.release()
+
 
 def SleepSort(list):
     ts = []

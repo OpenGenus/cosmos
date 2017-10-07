@@ -1,8 +1,10 @@
 """ Part of Cosmos by OpenGenus Foundation """
 
+
 def divide(dividend, divisor):
 
-    if divisor == 0: return "undefined"
+    if divisor == 0:
+        return "undefined"
 
     isPositive = (dividend > 0) is (divisor > 0)
     dividend = abs(dividend)
@@ -17,7 +19,8 @@ def divide(dividend, divisor):
             i <<= 1
             temp <<= 1
 
-    if not isPositive: answer = -answer
+    if not isPositive:
+        answer = -answer
 
     return answer
 
@@ -34,7 +37,8 @@ def test():
     ]
 
     for test in testCases:
-        print("{:3} / {:<3} = {:<3}".format(test[0], test[1], divide(test[0], test[1])))
+        print("{:3} / {:<3} = {:<3}".format(
+            test[0], test[1], divide(test[0], test[1])))
 
 
 test()

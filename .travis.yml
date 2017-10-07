@@ -1,0 +1,21 @@
+sudo: false
+
+matrix:
+  include:
+    - language: python
+      python: 3.5
+      install:
+        - pip install flake8
+      script:
+        - flake8
+    - language: node_js
+      node_js: 7
+      install:
+        - npm install standard
+      script:
+        - standard
+    - language: go
+      go: 1.7
+      install: true
+      script:
+        - gofmt -d .
