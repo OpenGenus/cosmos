@@ -1,6 +1,6 @@
 
 #Python program to find minimum depth of a given Binary Tree
- 
+# Part of Cosmos by OpenGenus Foundation
 # Tree node
 class Node:
     def __init__(self , key):
