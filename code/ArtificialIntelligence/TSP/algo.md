@@ -1,3 +1,5 @@
+### Creating and running the executable
+
 1. Run `make` to get the executable tsp
 2. Run `./tsp < input >` output to get the results
 
