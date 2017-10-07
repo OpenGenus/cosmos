@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 string to_binary(int n){
    string binary = "";
    while (n > 0) {
