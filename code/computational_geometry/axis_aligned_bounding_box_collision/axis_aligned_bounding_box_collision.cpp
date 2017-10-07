@@ -1,5 +1,5 @@
 #include <iostream>
-
+// Part of Cosmos by OpenGenus Foundation
 struct Vector {
     int x;
     int y;
