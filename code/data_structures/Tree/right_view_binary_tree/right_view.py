@@ -1,5 +1,5 @@
 #Python program to print right view of Binary Tree
- 
+# Part of Cosmos by OpenGenus Foundation
 # A binary tree node
 class Node:
     # A constructor to create a new Binary tree Node
