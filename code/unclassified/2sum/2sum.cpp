@@ -3,7 +3,7 @@
 #include <iostream>
 #include <map>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 #define ll long long
 
 map<ll,ll> m;
