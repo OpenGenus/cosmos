@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+// Part of Cosmos by OpenGenus Foundation
 //Pre Condition n should not be equal to 0 
 int gcd(int m,int n){
   if(m%n==0){
