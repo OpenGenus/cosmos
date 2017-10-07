@@ -4,7 +4,7 @@ using namespace std;
 long long fib(long long n){
 long long fib[2][2] = {{1,1},{1,0}}, ret[2][2]={{1,0},{0,1}}, temp[2][2]={{0,0},{0,0}};
 int i,j,k;
-
+// Part of Cosmos by OpenGenus Foundation
 while(n>0){
 	if(n&1){
 		memset(temp,0, sizeof temp);
