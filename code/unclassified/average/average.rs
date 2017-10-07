@@ -3,7 +3,7 @@ fn average(arr :&Vec<i32>) -> i32 {
     for n in arr.iter() {
         sum += *n;
     }
-    sum
+    sum / arr.len() as i32
 }
 
 fn main() {
