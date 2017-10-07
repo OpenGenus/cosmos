@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// Part of Cosmos by OpenGenus Foundation
 // Lists all possible armstrong numbers from 0 to 999
 func listAM() {
 	count := 0
