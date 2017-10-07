@@ -15,13 +15,11 @@ int main()
 		{
 			if(i*i==n)
 			{
-			
-			cout<<"Yes";
-			return 0;
+				cout<<"Yes";
+				return 0;
+			}
 		}
-		}
-	  cout<<"No";
+	  	cout<<"No";
 		return 0;
-		
 	}
 }
