@@ -1,7 +1,9 @@
-1) Run make to get the executable tsp
-2) Run ./tsp < input > output to get the results
+### Building and running the executable
 
-Algorithm
+1) Run `make` to get the executable tsp
+2) Run `./tsp < input >` output to get the results
+
+### Algorithm
 
 1) Used simulated annealing to first direct the path towards the random walk when temperature is high and then towards hill climbing when temperature is low.
 
