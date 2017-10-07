@@ -2,8 +2,8 @@
 #define N;//length of the array
 using namespace std;
 
-int average(int []arr, N){
-    sum=0;
+int average(int []arr){
+    int sum=0;
     for (i=1;i<N;i++){
         sum+=arr[i];
     }
