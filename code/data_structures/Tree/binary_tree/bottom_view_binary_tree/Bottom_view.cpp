@@ -1,6 +1,6 @@
 include<bits/stdc++.h>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 // Tree node class
 struct Node
 {
