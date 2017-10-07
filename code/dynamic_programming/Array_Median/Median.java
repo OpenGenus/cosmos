@@ -1,4 +1,5 @@
 import java.util.*;
+// Part of Cosmos by OpenGenus Foundation
 public class Median{
     public static void main(String[] args) {
         int length;
