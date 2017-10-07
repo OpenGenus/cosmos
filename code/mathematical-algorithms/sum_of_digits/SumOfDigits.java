@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public class SumOfDigits {
     public static int sumDigits(long n) {
         int sum = 0;
