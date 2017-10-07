@@ -1,7 +1,7 @@
 // C++ program to impleament cycle sort
 #include <iostream>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // Function sort the array using Cycle sort
 void cycleSort (int arr[], int n)
 {
