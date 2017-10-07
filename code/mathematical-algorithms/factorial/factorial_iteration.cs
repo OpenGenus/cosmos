@@ -1,5 +1,3 @@
-using System;
-
 class factorial_iteration
 {
     public static int factorial(int n)
