@@ -2,7 +2,7 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
- 
+// Part of Cosmos by OpenGenus Foundation
 class Bipartite
 {
     final static int V = 4;    // No. of Vertices
