@@ -2,6 +2,7 @@
 # Space Complexity: O(N) for declaring another array of N=size num_of_elements
 # Time Complexity: O(logN) for each operation(update and query as well)
 # original array for storing values for later lookup
+# Part of Cosmos by OpenGenus Foundation
 array=[]
 # array to store cumulative sum
 bit=[]
