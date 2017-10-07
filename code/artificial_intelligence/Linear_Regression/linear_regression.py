@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # A basic implementation of linear regression with one variable
-
+# Part of Cosmos by OpenGenus Foundation
 def estimate_coef(x, y):
     # number of observations/points
     n = np.size(x)
