@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // structure to represent a point
 struct point {
 	ll x;
