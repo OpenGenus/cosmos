@@ -35,5 +35,5 @@ while(n>0){
 int main()
 {
 	//test case : Print 50th fibonacci number
-	cout << fib(2); 
+	cout << fib(50); 
 }
