@@ -1,0 +1,5 @@
+main	/home/amir/projects/open-source/cosmos/code/sorting/cycle_sort/cycle_sort.go	/^package main$/;"	package	line:1
+main	/home/amir/projects/open-source/cosmos/code/sorting/cycle_sort/cycle_sort.go	/^func main() {$/;"	func	line:7
+main	/home/amir/projects/open-source/cosmos/code/sorting/cycle_sort/cycle_sort.go	/^func main() {$/;"	func	line:7
+CycleSort	/home/amir/projects/open-source/cosmos/code/sorting/cycle_sort/cycle_sort.go	/^func CycleSort(arr *[]int) int {$/;"	func	line:14
+CycleSort	/home/amir/projects/open-source/cosmos/code/sorting/cycle_sort/cycle_sort.go	/^func CycleSort(arr *[]int) int {$/;"	func	line:14
