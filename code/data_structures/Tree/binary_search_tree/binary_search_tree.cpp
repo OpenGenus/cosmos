@@ -76,16 +76,13 @@ int main()
     insert(root, 80);
 
     cout<<"Inorder traversal: ";
-    // print inoder traversal of the BST
     inorder(root);
-    cout<<endl;
-    cout<<"Preorder traversal: ";
-    // print preorder traversal of the BST
+
+    cout<<"\nPreorder traversal: ";
     preorder(root);
-    cout<<endl;
-    cout<<"Postorder traversal: ";
-    // print postoder traversal of the BST
+
+    cout<<"\nPostorder traversal: ";
     postorder(root);
-    cout<<endl;
+    cout>>endl;
     return 0;
 }
