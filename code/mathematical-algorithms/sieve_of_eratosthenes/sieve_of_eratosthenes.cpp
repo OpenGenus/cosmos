@@ -6,8 +6,7 @@ void SieveOfEratosthenes(int n)
 	// Create a boolean array "prime[0..n]" and initialize
 	// all entries it as true. A value in prime[i] will
 	// finally be false if i is Not a prime, else true.
-	bool prime[n+1];
-	memset(prime, true, sizeof(prime));
+	vector<bool> prime(n+1, true);
 
 	for (int p=2; p*p<=n; p++)
 	{
@@ -35,5 +34,6 @@ int main()
 	cout << "Following are the prime numbers smaller "
 		 << " than or equal to " << n << endl;
 	SieveOfEratosthenes(n);
+	cout << "\n";
 	return 0;
 }
