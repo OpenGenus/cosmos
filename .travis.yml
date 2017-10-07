@@ -3,8 +3,7 @@ sudo: false
 matrix:
   include:
     - language: python
-      python:
-        - 3.5
+      python: 3.5
       install:
         - pip install flake8
       script:
