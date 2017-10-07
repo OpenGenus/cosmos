@@ -1,5 +1,6 @@
 #include<iostream>>
 using namespace std;
+// Part of Cosmos by OpenGenus Foundation
 int reverse_number(int n)
 {
     int ans=0,temp=n,mult=1,count=0;
