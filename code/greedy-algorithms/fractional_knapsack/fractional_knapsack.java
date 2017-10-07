@@ -1,21 +1,24 @@
+/* Part of Cosmos by OpenGenus Foundation */
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * Created by I341429 on 10/7/2017.
+ * Added by Vishesh Dembla on October 07, 2017
  */
-public class FractionalKnapsack {
+
+public class fractional_knapsack {
 
     private double finalValue;
     private int remainingWeight;
     private Item [] itemList;
 
-    public FractionalKnapsack( int totalWeight, Item [] itemList) {
+    public fractional_knapsack( int totalWeight, Item [] itemList) {
         this.finalValue = 0;
         this.remainingWeight = totalWeight;
         this.itemList = itemList;
+        //Sorting the array in descending order based upon the preference order
         Arrays.sort(itemList);
     }
 
@@ -29,16 +32,18 @@ public class FractionalKnapsack {
 
     public Item [] getFractions(){
         int i = 0;
+        
+        //Setting fraction of preffered items as 1.0, if their weight is less than the total remaining weight
         while(i  < itemList.length && remainingWeight > itemList[i].getWeight()){
             remainingWeight -= itemList[i].getWeight();
             finalValue += itemList[i].getValue();
             itemList[i].setFraction(1.0);
             i++;
         }
+        
         if( i < itemList.length) {
-
+            //Calculating the fraction of the item whoes weight is greater than the current remaining weight
             finalValue = finalValue + (remainingWeight) * itemList[i].getValue() / itemList[i].getWeight();
-
             itemList[i].setFraction(remainingWeight / itemList[i].getWeight());
             remainingWeight = 0 ;
         }
@@ -50,7 +55,7 @@ public class FractionalKnapsack {
         int totalWeight = 90;
         Item [] items = {new Item(10,60) , new Item(20,100) , new Item(30, 120)};
 
-        FractionalKnapsack fractionalKnapsack = new FractionalKnapsack(totalWeight , items);
+        fractional_knapsack fractionalKnapsack = new fractional_knapsack(totalWeight , items);
 
         items = fractionalKnapsack.getFractions();
         System.out.println("TOTAL VALUE = "+fractionalKnapsack.getFinalValue()+" REMAINING WEIGHT = "+fractionalKnapsack.getRemainingWeight());
@@ -60,9 +65,12 @@ public class FractionalKnapsack {
 }
 
 
+
 class Item implements Comparable<Item>{
     private int weight;
     private int value;
+
+    
     private double preference;
     private double fraction;
 
@@ -71,6 +79,7 @@ class Item implements Comparable<Item>{
         this.weight = weight;
         this.value = value;
         this.fraction = 0.0;
+        //Attribute preference helps to decide the order of preference of the items for selection
         this.preference = (double) value / (double) weight;
     }
 
@@ -98,13 +107,15 @@ class Item implements Comparable<Item>{
         this.fraction = fraction;
     }
 
+    
+     //Enabling sort in descending order
     @Override
     public int compareTo(Item item) {
         double difference = this.preference - item.preference;
         if(difference > 0)
-            return 1;
-        else if(difference < 0)
             return -1;
+        else if(difference < 0)
+            return 1;
         else
             return 0;
     }
