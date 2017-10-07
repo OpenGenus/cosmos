@@ -1,4 +1,5 @@
 package main
+
 // Part of Cosmos by OpenGenus Foundation
 import "fmt"
 
@@ -12,12 +13,12 @@ func fibonacci(n int) int {
 	} else {
 		return fibonacci(n-1) + fibonacci(n-2)
 	}
-	return 0;
+	return 0
 }
 
-//Fibonacci 30 and over can take a long time to compute. 
+//Fibonacci 30 and over can take a long time to compute.
 func main() {
-	fmt.Println(fibonacci(10)) 
+	fmt.Println(fibonacci(10))
 	fmt.Println(fibonacci(8))
 	fmt.Println(fibonacci(5))
 	fmt.Println(fibonacci(2))

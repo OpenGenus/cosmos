@@ -6,6 +6,8 @@ import collections
     Wrapper function for the print function.
     Used as the default visitFunc for bfs
 """
+
+
 def visitPrint(i):
     print(i)
 
@@ -14,7 +16,10 @@ def visitPrint(i):
     An edge can be added between two nodes by calling addEdge
         *This class assumes all edge weights are equal
 """
+
+
 class Graph:
+
     def __init__(self):
         self.adjList = collections.defaultdict(set)
 
@@ -29,6 +34,8 @@ class Graph:
     When visiting each node, mark it as visited by adding it to the hashmap.
     Then queue up all of its children to be visited next.
 """
+
+
 def bfs(start, graph, visitFunc=visitPrint):
     visited = collections.defaultdict(bool)
     queue = collections.deque()

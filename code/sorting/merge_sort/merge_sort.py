@@ -5,6 +5,7 @@ Part of Cosmos by OpenGenus Foundation
 
 '''
 
+
 def merge(arr, left, right):
     i = 0
     j = 0
@@ -26,6 +27,7 @@ def merge(arr, left, right):
         j += 1
         k += 1
 
+
 def mergeSort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
@@ -35,6 +37,6 @@ def mergeSort(arr):
         mergeSort(right)
         merge(arr, left, right)
 
-arr = [1,8,3,4,9,3]
+arr = [1, 8, 3, 4, 9, 3]
 mergeSort(arr)
 print('After sorting the given array is |', arr)

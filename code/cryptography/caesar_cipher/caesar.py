@@ -1,6 +1,6 @@
 MAX_KEY_SIZE = 26
 
-#Mode to select (e)ncryption or (d)ecryption
+# Mode to select (e)ncryption or (d)ecryption
   def getMode():
       while True:
           print('Do you wish to encrypt or decrypt a message?')
@@ -10,12 +10,12 @@ MAX_KEY_SIZE = 26
          else:
              print('Enter either "encrypt" or "e" or "decrypt" or "d".')
 
-#Gets message from the user
+# Gets message from the user
  def getMessage():
      print('Enter your message:')
      return input()
 
-#Gets key from the user
+# Gets key from the user
  def getKey():
      key = 0
      while True:
@@ -24,7 +24,7 @@ MAX_KEY_SIZE = 26
          if (key >= 1 and key <= MAX_KEY_SIZE):
              return key
 
-#Translation logic here
+# Translation logic here
 def getTranslatedMessage(mode, message, key):
     if mode[0] == 'd':
         key = -key
