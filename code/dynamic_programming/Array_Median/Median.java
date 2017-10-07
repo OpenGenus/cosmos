@@ -14,7 +14,9 @@ public class Median{
         if (array.length % 2 == 0){
             median =  (((array[array.length /2]) + (array[array.length/2 - 1])) / 2);
         }
-        
+        else {
+            median = array[array.length / 2];
+        }
         System.out.println(median);
     }
 }
