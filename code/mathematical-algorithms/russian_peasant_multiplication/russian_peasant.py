@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def russian_peasant(a, b):
     res = 0
     while b > 0:
