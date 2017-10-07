@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int sumOfDigits(int number) {
     int sum = 0;
     while(number != 0) {
