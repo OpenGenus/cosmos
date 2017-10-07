@@ -1,4 +1,5 @@
 import java.util.*;
+// Part of Cosmos by OpenGenus Foundation
 class average
 {
     static double avrg(int arr[], int n)
