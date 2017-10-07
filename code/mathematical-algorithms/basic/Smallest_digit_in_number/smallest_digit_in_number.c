@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int smallest_digit(int n){
     int min_digit = n%10;
     while(n){
