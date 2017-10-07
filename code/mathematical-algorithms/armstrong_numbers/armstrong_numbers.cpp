@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+
 // Part of Cosmos by OpenGenus Foundation
 int main()
 {

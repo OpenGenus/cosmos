@@ -2,6 +2,8 @@
 Armstrong Number - In case of an Armstrong number of 3 digits, the sum of 
 cubes of each digits is equal to the number itself. 
 '''
+
+# Part of Cosmos by OpenGenus Foundation
 def Armstrong(num):
 	order = len(str(num))
 	sum = 0 
