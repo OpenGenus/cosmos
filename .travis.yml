@@ -16,6 +16,6 @@ matrix:
         - standard
     - language: go
       go: 1.7
-      install:
+      install: true
       script:
         - gofmt -d .
