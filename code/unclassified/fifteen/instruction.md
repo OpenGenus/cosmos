@@ -6,4 +6,4 @@ If the size is 3×3 tiles, the puzzle is called the 8-puzzle or 9-puzzle, and if
 
 **The object of the puzzle is to place the tiles in order by making sliding moves that use the empty space.**
 
-**Here the special library "cs50.h" is used in the code which has been made by Harvard University to use this library in the course [CS50](https://cs50.harvard.edu/). You can google to find how to locally use this library or directly run the executable file and enjoy the Game**
+**Here the special library "cs50.h" is used in the code which has been made by Harvard University to use this library in the course [CS50](https://cs50.harvard.edu/). You can google to find how to locally use this library and enjoy the Game**
