@@ -1,6 +1,6 @@
 /*
  * @author: Ryan Lanese <github:ryanml>
- * @project: Cosmos
+ * Cosmos by OpenGenus Foundation
  */
 
 class PangramChecker {
