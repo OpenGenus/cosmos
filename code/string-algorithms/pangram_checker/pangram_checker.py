@@ -1,4 +1,5 @@
 def pangram_checker(text):
+    # Part of Cosmos by OpenGenus Foundation
     # Arr is a list that contains a bool value
     # for each letter if it appeared in the sentence
     # If the entire list is true the string is a pangram.
