@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Part of Cosmos by OpenGenus Foundation
 int main()
 {
     long long int number; // May have to deal with large numbers
