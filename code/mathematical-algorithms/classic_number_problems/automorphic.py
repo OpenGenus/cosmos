@@ -1,7 +1,7 @@
 '''
 In mathematics an automorphic number (sometimes referred to as a circular number) is a number
 whose square "ends" in the same digits as the number itself. 
-For example, 52 = 25, 62 = 36, 762 = 5776, 3762 = 141376,and 8906252 = 793212890625, 
+For example, 5^2 = 25, 6^2 = 36, 76^2 = 5776, 376^2 = 141376,and 890625^2 = 793212890625, 
 so 5, 6, 76 and 890625
 '''
 def automorphic(num):
