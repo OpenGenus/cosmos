@@ -1,0 +1,11 @@
+0. Besides 4 × 4 (which are Game of Fifteen’s dimensions), what other dimensions does the framework allow?
+-> 3 × 3 to 9 × 9
+
+1. With what sort of data structure is the game’s board represented?
+-> 
+
+2. What function is called to greet the player at game’s start?
+-> greet();
+
+3. What functions do you apparently need to implement?
+-> init();
