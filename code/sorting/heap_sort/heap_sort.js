@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
   var length;
   /* to create MAX  array */
   function heap_root(array, i) {
