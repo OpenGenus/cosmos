@@ -33,7 +33,7 @@ This is a massive collaboration and to keep the quality intact and drive the vis
 
 > Maintainers are your friend forever. They are vastly different from moderators. 
 
-The task of maintainers is to review pull requests, suggest further quality additions and keep the work upto data with the current state of the world. 🌍 
+The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. 🌍 
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/blob/master/.github/CONTRIBUTING.md)
 
@@ -41,7 +41,7 @@ Let us know that you would like to be a maintainer in the Slack channel *#algori
 
 # Contributions
 
-The success of our vision to bring knowledge offline** depends on you. Even a small contribution helps. All forms of contribution are highly welcomed and valued. 
+The success of our vision to bring knowledge **offline** depends on you. Even a small contribution helps. All forms of contribution are highly welcomed and valued. 
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
