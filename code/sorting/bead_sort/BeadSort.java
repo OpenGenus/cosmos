@@ -1,6 +1,5 @@
 import java.util.Arrays;
-
-// copied from https://rosettacode.org/wiki/Sorting_algorithms/Bead_sort
+// Part of Cosmos by OpenGenus Foundation
 public class BeadSort {
 
     private enum BeadSortStatus {
