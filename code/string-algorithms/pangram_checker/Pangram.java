@@ -3,7 +3,7 @@ import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
-
+// Part of Cosmos by OpenGenus Foundation
 public class Pangram {
     public static void main(String args[]) throws Exception {
 	
