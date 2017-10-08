@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int gcd(int x, int y){
     while(x!=y){
         if(x>y) x-=y;
