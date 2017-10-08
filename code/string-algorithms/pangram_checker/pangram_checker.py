@@ -17,5 +17,3 @@ def pangram_checker(text):
             return False
     
     return True
-
-print(pangram_checker(input()))
