@@ -1,5 +1,4 @@
 import sys
-import re
 
 
 def median(nums):
@@ -22,7 +21,7 @@ def main():
     nums_string = sys.stdin.read()
 
     # Split on whitespace
-    num_strings = re.split('\s+', nums_string)
+    num_strings = nums_string.split()
 
     # Make a new list of floats of all the non-whitespace values.
     nums = [float(i) for i in num_strings if i]
