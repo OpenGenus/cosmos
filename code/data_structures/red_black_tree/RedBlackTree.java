@@ -1,5 +1,5 @@
 public class RedBlackTree {
-
+// Part of Cosmos by OpenGenus Foundation
     public RedBlackTree( ) {
         header      = new RedBlackNode( null );
         header.left = header.right = nullNode;
