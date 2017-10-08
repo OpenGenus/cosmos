@@ -14,7 +14,12 @@ int main() {
 	
 	int n;
 	cin >> n;
+	// manual
 	cout<<count(n);
+	// builtin
+	// this is c++ builtin function very less people know about this.
+    	std :: cout << __builtin_popcount(5); //will return 2
+	// avalable in c, c++
 	
 	return 0;
 }
