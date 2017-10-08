@@ -12,5 +12,5 @@ function caesar_cipher(string $message, int $shift): string {
 echo 'Encoding "Hello World", using a right shift of 10:' . PHP_EOL;
 echo caesar_cipher('Hello World', 10) . PHP_EOL . PHP_EOL;
 
-echo 'Decoding "byFFI qILFx", using a left shift of 10:' . PHP_EOL;
-echo caesar_cipher('byFFI qILFx', -10);
+echo 'Decoding "byFFI qILFx", using a left shift of 6:' . PHP_EOL;
+echo caesar_cipher('byFFI qILFx', -6);
