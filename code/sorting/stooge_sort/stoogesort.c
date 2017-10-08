@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 
 void stooge_sort(int *input, int firs_num, int last_num)
