@@ -1,8 +1,13 @@
+from __future__ import division
+from __future__ import print_function
 import sys
 
 
 def median(nums):
-    """Calculates the median of a list of numbers."""
+    """
+        Calculates the median of a list of numbers.
+        import median from statistics in python 3.4 and above.
+    """
     sorted_nums = sorted(nums)
     len_nums = len(nums)
     odd = len_nums % 2
@@ -26,11 +31,11 @@ def main():
     # Make a new list of floats of all the non-whitespace values.
     nums = [float(i) for i in num_strings if i]
 
+    # Print median
     if not nums:
         print("You didn't enter any numbers.")
-
-    # Print median
-    print(median(nums))
+    else:
+        print(median(nums))
 
 
 def test_median():
@@ -53,8 +58,12 @@ def test_main():
 
     main.__globals__['print'] = print_patch
 
-    # patch main's stdin
-    main.__globals__['sys'].stdin.read = lambda: "1 2 3 4 5.5 6 7 8 9\n"
+    #patch main's stdin
+    class stdin_patch():
+        def read(self):
+            return "1 2 3 4 5.5 6 7 8 9\n"
+
+    main.__globals__['sys'].stdin = stdin_patch()
 
     # invoke main with mocks
     main()
@@ -66,5 +75,5 @@ def test_main():
 
 if __name__ == '__main__':
     test_median()
-    test_main()
+#    test_main()
     main()
