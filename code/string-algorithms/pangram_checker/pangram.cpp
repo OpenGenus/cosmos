@@ -43,7 +43,7 @@ static bool is_pangram(const std::string& str) {
 	std::vector<bool> alphabet(ALPHA_LEN, false); /* we'll flag each character. */
 
 	int count = 0;
-	for (auto& c : str) {
+	for (const auto& c : str) {
 
 		/* if the character c isn't alphabetical, or if we've already seen that character, skip it. */
 		if ( !std::isalpha(c) || alphabet[std::tolower(c) - ALPHA_BASE] ) continue;
