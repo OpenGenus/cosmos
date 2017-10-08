@@ -1,7 +1,7 @@
 <?php
 /* Part of Cosmos by OpenGenus Foundation */
 
-const REF = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const REF = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz';
 
 function caesar_cipher(string $message, int $shift): string {
     $shift %= 26;
