@@ -1,6 +1,6 @@
 #! /usr/local/bin/python3
 
-# HACKTOBERFEST
+# Part of Cosmos by OpenGenus Foundation
 # Programmer: Amariah Del Mar
 # Date Written: October 6th, 2017
 # Function to find area of a triangle using three different vertices.
