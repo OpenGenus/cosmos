@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Part of Cosmos by OpenGenus Foundation
 bool isPalindromeRecursive(string input)
 {
     if (input.begin() >= (input.end() - 1)) return true;

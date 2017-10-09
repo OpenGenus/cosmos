@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def isPalindromeRecursive(string):
     print(string);
     if len(string) == 2 or len(string) == 1:
