@@ -4,11 +4,11 @@
 #Social: @amitsin6h
 #OpenGenus Contributor
 
-def PlaindromeCheck(self):
-    plaindrome = self[::-1]
-    if (self == plaindrome):
+def PalindromeCheck(self):
+    palindrome = self[::-1]
+    if (self == palindrome):
         print True
     else:
         print False
 
-PlaindromeCheck('madam')
+PalindromeCheck('madam')
