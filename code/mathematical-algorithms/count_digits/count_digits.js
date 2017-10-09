@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 function count_digits(n)
 {
     var numDigits = 0;
