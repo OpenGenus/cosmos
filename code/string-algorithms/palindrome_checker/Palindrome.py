@@ -1,4 +1,3 @@
-#Sleep Sort in PHP
 #Author: Amit Kr. Singh
 #Github: @amitsin6h
 #Social: @amitsin6h
