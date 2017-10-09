@@ -6,6 +6,7 @@
  * Search   O(log n)    0(n)
  * Insert   O(log n)    0(n)
  * Delete   O(log n)    0(n)
+ * Part of Cosmos by OpenGenus Foundation
  */
 
 #include <algorithm>    // std::less, std::max
