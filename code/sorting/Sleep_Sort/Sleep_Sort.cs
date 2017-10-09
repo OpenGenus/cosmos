@@ -1,4 +1,5 @@
-﻿using System;
+﻿/* Part of Cosmos by OpenGenus Foundation */
+using System;
 using System.Threading;
 using System.Linq;
 
