@@ -3,12 +3,12 @@
 // Author: Rishav Pandey
 
 #include <stdio.h>
-#include <cs50.h>
+//#include <cs50.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     //check if user give more or less than two arguments.
     if(argc != 2)
@@ -33,8 +33,9 @@ int main(int argc, string argv[])
     }
     
     printf("plaintext:  ");
-    string s = get_string();
-    string k = argv[1];
+    char s[100];
+    scanf("%s", s);
+    char* k = argv[1];
     
     int klen = strlen(k);
     
