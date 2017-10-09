@@ -18,11 +18,12 @@
 
 - (void)insertionSort:(NSMutableArray<NSNumber *> *)array {
     for (int i = 1; i < array.count; i++) {
-        for (int j = i; j > 0 && [array[j] compare:array[j - 1]] == NSOrderedAscending; j--) {
-            NSNumber *tmp = array[j];
+        NSNumber *k = array[i];
+        int j;
+        for (j = i; j > 0 && [k compare:array[j - 1]] == NSOrderedAscending; j--) {
             array[j] = array[j - 1];
-            array[j - 1] = tmp;
         }
+        array[j] = k;
     }
 }
 
@@ -46,3 +47,4 @@ int main(int argc, const char * argv[]) {
     }
     return 0;
 }
+
