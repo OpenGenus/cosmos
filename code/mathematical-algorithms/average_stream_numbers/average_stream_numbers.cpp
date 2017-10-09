@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Part of Cosmos by OpenGenus Foundation
 double getAverage(double num)
 {
     static double sum = 0, n = 0;
