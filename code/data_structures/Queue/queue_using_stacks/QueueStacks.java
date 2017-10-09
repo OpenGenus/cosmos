@@ -3,6 +3,7 @@ import java.util.Stack;
 
 /**
  * Implements https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html
+ * Big O time complexity: O(n)
  */
 class Queue<T> {
     Stack<T> temp = new Stack<>();
