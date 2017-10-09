@@ -18,6 +18,15 @@ public:
  
     // A function to search a key in subtree rooted with this node.    
     BTreeNode *search(int k);   // returns NULL if k is not present.
+
+    // A utility function to insert a new key in this node
+    // The assumption is, the node must be non-full when this
+    // function is called
+    void insertNonFull(int k);
+
+    // A utility function to split the child y of this node
+    // Note that y must be full when this function is called
+    void splitChild(int i, BTreeNode *y);
  
 // Make BTree friend of this so that we can access private members of this
 // class in BTree functions
@@ -41,6 +50,8 @@ public:
     // function to search a key in this tree
     BTreeNode* search(int k)
     {  return (root == NULL)? NULL : root->search(k); }
+
+    void insert(int);
 };
  
 // Constructor for BTreeNode class
@@ -233,7 +244,7 @@ void BTreeNode::splitChild(int i, BTreeNode *y)
 // Driver program to test above functions
 int main()
 {
-    BTree t(3); // A B-Tree with minium degree 3
+    BTree t(3); // A B-Tree with minimum degree 3
     t.insert(10);
     t.insert(20);
     t.insert(5);
@@ -250,4 +261,3 @@ int main()
  
     return 0;
 }
-
