@@ -51,7 +51,6 @@ type BSTree struct {
 
 func (BSTree *BSTree) insert(value int) {
 	node := &Node{val: value}
-	BSTree.length
 
 	if BSTree.ref == nil {
 		BSTree.ref = node
