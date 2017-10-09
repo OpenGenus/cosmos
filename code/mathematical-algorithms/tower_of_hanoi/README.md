@@ -10,6 +10,7 @@ Moving n disks from rod L to rod R using rod C, can be recurssively defined as:
 3.) Moving n-1 disks from rod C to rod R.
 
 The recussion stops when n becomes 1 which is just moving a particular disk.
+
 Source : Wikipedia
 Disk positions may be determined more directly from the binary (base-2)
 representation of the move number (the initial state being move #0, with all
