@@ -1,5 +1,6 @@
 /*
 Pangram is a sentence containing every alphabet.
+Part of Cosmos by OpenGenus Foundation
 */
 #include<stdio.h>
  
