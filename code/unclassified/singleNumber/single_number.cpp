@@ -1,9 +1,12 @@
 // Author: Karan Chawla
 // Date: 8/8/17
+// Part of Cosmos by OpenGenus Foundation
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
+/* Function to find the unique number in an array */
 
 int singleNumber(vector<int>& A) 
 {
