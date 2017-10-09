@@ -21,8 +21,8 @@ int singleNumber(vector<int>& A)
 
 int main()
 {
-   vector<int> nums = {1, 1, 2, 3, 4, 4, 3, 6};
+   vector<int> nums = {1, 1, 2, 3, 2, 4, 4, 3, 6};
    cout << singleNumber(nums);
   
-   return(0)
+   return(0);
 }
