@@ -11,6 +11,12 @@ def search(arr, x):
  
     return -1
 
-arr = [2,3,1,4]
-find = 1
+
+
+arr = []
+elem = int(raw_input("insert how many elements you want:"))
+for i in range(0, elem):
+    arr.append(int(raw_input("Enter next no :")))
+  
+find = input("Enter the number you want to find")
 print("Position of ", find, " is ", search(arr, find))
