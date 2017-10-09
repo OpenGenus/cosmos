@@ -1,5 +1,3 @@
-/* Part of Cosmos by OpenGenus Foundation */
-
 //
 //  selection_sort.m
 //  Created by DaiPei on 2017/10/9.
@@ -9,13 +7,13 @@
 
 @interface SelectionSort : NSObject
 
-- (void)selectionSort:(NSMutableArray<NSNumber *> *)array;
+- (void)sort:(NSMutableArray<NSNumber *> *)array;
 
 @end
 
 @implementation SelectionSort
 
-- (void)selectionSort:(NSMutableArray<NSNumber *> *)array {
+- (void)sort:(NSMutableArray<NSNumber *> *)array {
     for (int i = 0; i < array.count - 1; i++) {
         int p = i;
         for (int j = i + 1; j < array.count; j++) {
@@ -23,10 +21,14 @@
                 p = j;
             }
         }
-        NSNumber *tmp = array[i];
-        array[i] = array[p];
-        array[p] = tmp;
+        [self swap:array at:i and:p];
     }
+}
+
+- (void)swap:(NSMutableArray<NSNumber *> *)array at:(NSUInteger)indexA and:(NSUInteger)indexB {
+    NSNumber *tmp = array[indexA];
+    array[indexA] = array[indexB];
+    array[indexB] = tmp;
 }
 
 @end
@@ -44,8 +46,9 @@ int main(int argc, const char * argv[]) {
             [array addObject:@(tmp)];
         }
         SelectionSort *ss = [[SelectionSort alloc] init];
-        [ss selectionSort:array];
+        [ss sort:array];
         NSLog(@"%@", array);
     }
     return 0;
 }
+

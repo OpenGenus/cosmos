@@ -1,5 +1,3 @@
-/* Part of Cosmos by OpenGenus Foundation */
-
 //
 //  insertion_sort.m
 //  Created by DaiPei on 2017/10/9.
@@ -9,13 +7,13 @@
 
 @interface InsertionSort : NSObject
 
-- (void)insertionSort:(NSMutableArray<NSNumber *> *) array;
+- (void)sort:(NSMutableArray<NSNumber *> *) array;
 
 @end
 
 @implementation InsertionSort
 
-- (void)insertionSort:(NSMutableArray<NSNumber *> *)array {
+- (void)sort:(NSMutableArray<NSNumber *> *)array {
     for (int i = 1; i < array.count; i++) {
         NSNumber *k = array[i];
         int j;
@@ -41,7 +39,7 @@ int main(int argc, const char * argv[]) {
             [array addObject:@(tmp)];
         }
         InsertionSort *is = [[InsertionSort alloc] init];
-        [is insertionSort:array];
+        [is sort:array];
         NSLog(@"%@", array);
     }
     return 0;
