@@ -3,12 +3,12 @@
 
 #include <iostream>
 using namespace std;
-
+//Defining individual node
 struct node{
     int data;
     node* next;
 };
-
+//Defining class stack
 class stack{
     node* top;
 public:
@@ -19,7 +19,7 @@ public:
     void pop();
     void show();
 };
-
+//Function to insert (push) items into the stack.
 void stack::push(){
     int item;
     cout<<"Enter the data to be inserted \n";
@@ -32,7 +32,7 @@ void stack::push(){
     top=ptr;
     cout<<item<<" inserted into the stack \n";
 }
-
+//Function to delete (pop) items from the stack.
 void stack::pop(){
     if (top==NULL)
     {
@@ -46,7 +46,7 @@ void stack::pop(){
     delete temp;
     cout<<item<<" deleted \n";
 }
-
+//Function to display items present in the stack.
 void stack::show(){
     if (top==NULL){
         cout<<"Stack is empty \n";
@@ -59,7 +59,7 @@ void stack::show(){
     }
     
 }
-
+//Main program.
 int main() {
     stack s;
     int choice;
