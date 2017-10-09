@@ -9,5 +9,3 @@ function count_digits(n)
     }
     return numDigits;
 }
-
-console.log(count_digits(26));
