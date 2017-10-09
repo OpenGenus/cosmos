@@ -2,8 +2,6 @@
 
 //
 //  insertion_sort.m
-//  oc_for_cosmos
-//
 //  Created by DaiPei on 2017/10/9.
 //
 
