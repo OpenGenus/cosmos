@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 import Foundation;
 
 func shaker_sort(v: inout [UInt32]) {
