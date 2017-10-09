@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 public class ShakerSort {
 
 	static void sort(int[] arr) {
