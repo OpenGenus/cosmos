@@ -9,13 +9,13 @@
 
 @interface ShakerSort : NSObject
 
-- (void)shakerSort:(NSMutableArray<NSNumber *> *)array;
+- (void)sort:(NSMutableArray<NSNumber *> *)array;
 
 @end
 
 @implementation ShakerSort
 
-- (void)shakerSort:(NSMutableArray<NSNumber *> *)array {
+- (void)sort:(NSMutableArray<NSNumber *> *)array {
     BOOL swapped = NO;
     for (int i = 0; i < array.count / 2; i++) {
         for (int j = i; j + 1 < array.count - i; j++) {
@@ -57,8 +57,9 @@ int main(int argc, const char * argv[]) {
             [array addObject:@(tmp)];
         }
         ShakerSort *ss = [[ShakerSort alloc] init];
-        [ss shakerSort:array];
+        [ss sort:array];
         NSLog(@"%@", array);
     }
     return 0;
 }
+

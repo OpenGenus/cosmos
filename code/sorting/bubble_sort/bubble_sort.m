@@ -9,20 +9,18 @@
 
 @interface BubbleSort : NSObject
 
-- (void) bubbleSort:(NSMutableArray<NSNumber *> *)array;
+- (void)sort:(NSMutableArray<NSNumber *> *)array;
 
 @end
 
 @implementation BubbleSort
 
-- (void) bubbleSort:(NSMutableArray<NSNumber *> *)array {
+- (void)sort:(NSMutableArray<NSNumber *> *)array {
     for (int i = 0; i < array.count-1; i++) {
         BOOL swapped = NO;
         for (int j = 0; j < array.count-1-i; j++) {
             if ([array[j] compare:array[j + 1]] == NSOrderedDescending) {
-                NSNumber *tmp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = tmp;
+                [self swap:array at:j and:j + 1];
                 swapped = YES;
             }
         }
@@ -30,6 +28,12 @@
             break;
         }
     }
+}
+
+- (void)swap:(NSMutableArray<NSNumber *> *)array at:(NSUInteger)indexA and:(NSUInteger)indexB {
+    NSNumber *tmp = array[indexA];
+    array[indexA] = array[indexB];
+    array[indexB] = tmp;
 }
 
 @end
@@ -47,8 +51,9 @@ int main(int argc, const char * argv[]) {
             [array addObject:@(tmp)];
         }
         BubbleSort *bs = [[BubbleSort alloc] init];
-        [bs bubbleSort:array];
+        [bs sort:array];
         NSLog(@"%@", array);
     }
     return 0;
 }
+

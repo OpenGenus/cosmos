@@ -9,13 +9,13 @@
 
 @interface ShellSort : NSObject
 
-- (void)shellSort:(NSMutableArray<NSNumber *> *)array;
+- (void)sort:(NSMutableArray<NSNumber *> *)array;
 
 @end
 
 @implementation ShellSort
 
-- (void)shellSort:(NSMutableArray<NSNumber *> *)array {
+- (void)sort:(NSMutableArray<NSNumber *> *)array {
     for (int h = (int)array.count / 2; h > 0; h /= 2) {
         for (int i = h; i < array.count; i++) {
             NSNumber *k = array[i];
@@ -27,6 +27,8 @@
         }
     }
 }
+
+@end
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -41,10 +43,9 @@ int main(int argc, const char * argv[]) {
             [array addObject:@(tmp)];
         }
         ShellSort *ss = [[ShellSort alloc] init];
-        [ss shellSort:array];
+        [ss sort:array];
         NSLog(@"%@", array);
     }
     return 0;
 }
 
-@end
