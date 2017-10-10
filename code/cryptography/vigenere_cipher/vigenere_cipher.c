@@ -1,59 +1,82 @@
+// Vigenere Cipher
+
+// Author: Rishav Pandey
+
 #include <stdio.h>
-#include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 
-int isalphastr (char*);
-
-int main (void)
+int main(int argc, char* argv[])
 {
-  char k[100] = "ovaltine";
-  char p[100] = "Meet me at 11:00 AM sharp.";
-  
-    if(!isalphastr(k))
+    //check if user give more or less than two arguments.
+    if(argc != 2)
     {
-        printf("The Key should be strictly alphabetical.\n");
+        printf("Enter the Valid Key");
         return 1;
     }
     
+    else
+    {
+        
+        for(int i =0, n = strlen(argv[1]); i<n ;i++)
+        {
+            //check weather the key is only alphabet or not
+            if(!isalpha(argv[1][i]))
+            {
+                printf("Enter only Alphabets");
+                return 1;
+                
+            }
+        }
+    }
+    
+    printf("plaintext:  ");
+    char s[100];
+    scanf("%s", s);
+    char* k = argv[1];
+    
+    int klen = strlen(k);
+    
+    
     printf("ciphertext: ");
     
-    int offset, k_len = strlen(k);
-    
-    for (int i = 0; i < k_len; i++)
+    for(int i = 0, j = 0, n = strlen(s); i<n ; i++)
     {
-        char type = (isupper(k[i])) ? 'A' : 'a';
-        k[i] -= type;
-    }
-    
-    for (int i = 0, j = 0, p_len = strlen(p); i < p_len; i++)
-    {
-        offset = j % k_len;
+        //wrap key for plaintext.
+        int key = tolower(k[j % klen]) - 97;
         
-        if (!isalpha(p[i]))
+        if(isalpha(s[i]))
+            {
+                    //for upper case letters.
+                if(isupper(s[i]))
+                {
+                    printf("%c",((s[i]-65+key)%26)+65); 
+                    
+                    //increase key for next char.
+                    j++;
+                    
+                }   
+                    //for lower case letters.
+                else if(islower(s[i]))
+                {
+                    printf("%c",((s[i]-97+key)%26)+97); 
+                    //for lower case letters.
+                    j++; 
+                    //increase key for next char.
+                    
+                }
+                    
+            }
+            
+            //for non alphabetical values.
+        else
+            
         {
-            printf("%c", p[i]);
-            continue;
+            printf("%c",s[i]); 
+            
         }
-        
-        char type = (isupper(p[i])) ? 'A' : 'a';
-        printf("%c", (((p[i] - type) + k[offset]) % 26) + type);
-        
-        j++;
     }
-    
     printf("\n");
     return 0;
-}
-
-int isalphastr(char key[])
-{
-    for (int i = 0, j = strlen(key); i < j; i++)
-    {
-        if (!isalpha(key[i]))
-        {
-            return 0;
-        }
-    }
-    
-    return 1;
 }
