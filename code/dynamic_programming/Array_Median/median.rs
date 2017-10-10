@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 fn median(arr: &[i32]) -> f64 {
     let len = arr.len();
     if len % 2 == 0 {
