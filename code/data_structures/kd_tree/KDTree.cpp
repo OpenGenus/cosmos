@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
- 
+// Part of Cosmos by OpenGenus Foundation
 const int k = 2;
  
 struct Node
