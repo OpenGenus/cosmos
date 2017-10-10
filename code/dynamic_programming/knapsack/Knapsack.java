@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 class Knapsack {
     public static void main(String[] args) throws Exception {
         int val[] = {10, 40, 30, 50};
