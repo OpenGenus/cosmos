@@ -1,5 +1,5 @@
 // An efficient program to randomly select k items from a stream of n items
- 
+// Part of Cosmos by OpenGenus Foundation
 #include <bits/stdc++.h>
 
  
