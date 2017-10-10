@@ -1,40 +1,48 @@
-def quickSort(arr):
-   quickSortHelper(arr,0,len(arr)-1)
-
-def quickSortHelper(arr,first,last):
-   if first<last:
-
-       splitpoint = partition(arr,first,last)
-
-       quickSortHelper(arr,first,splitpoint-1)
-       quickSortHelper(arr,splitpoint+1,last)
-
-
-def partition(arr,first,last):
-   pivot = arr[first]
-
-   left = first+1
-   right = last
-
-   done = False
-   while not done:
-
-       while left <= right and arr[left] <= pivot:
-           left = left + 1
-
-       while arr[right] >= pivot and right >= left:
-           right = right -1
-
-       if right < left:
-           done = True
-       else:
-           temp = arr[left]
-           arr[left] = arr[right]
-           arr[right] = temp
-
-   temp = arr[first]
-   arr[first] = arr[right]
-   arr[right] = temp
-
-
-   return right
+# Part of Cosmos by OpenGenus Foundation
+# This function takes last element as pivot, places
+# the pivot element at its correct position in sorted
+# array, and places all smaller (smaller than pivot)
+# to left of pivot and all greater elements to right
+# of pivot
+def partition(arr,low,high):
+    i = ( low-1 )         # index of smaller element
+    pivot = arr[high]     # pivot
+ 
+    for j in range(low , high):
+ 
+        # If current element is smaller than or
+        # equal to pivot
+        if   arr[j] <= pivot:
+         
+            # increment index of smaller element
+            i = i+1
+            arr[i],arr[j] = arr[j],arr[i]
+ 
+    arr[i+1],arr[high] = arr[high],arr[i+1]
+    return ( i+1 )
+ 
+# The main function that implements QuickSort
+# arr[] --> Array to be sorted,
+# low  --> Starting index,
+# high  --> Ending index
+ 
+# Function to do Quick sort
+def quickSort(arr,low,high):
+    if low < high:
+ 
+        # pi is partitioning index, arr[p] is now
+        # at right place
+        pi = partition(arr,low,high)
+ 
+        # Separately sort elements before
+        # partition and after partition
+        quickSort(arr, low, pi-1)
+        quickSort(arr, pi+1, high)
+ 
+# Driver code to test above
+arr = [10, 7, 8, 9, 1, 5]
+n = len(arr)
+quickSort(arr,0,n-1)
+print ("Sorted array is:")
+for i in range(n):
+    print ("%d" %arr[i]),
