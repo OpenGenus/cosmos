@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 def median(*nums)
     nums.sort!
     if nums.size.odd?
