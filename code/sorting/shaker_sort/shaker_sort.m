@@ -44,22 +44,22 @@
 
 @end
 
-//int main(int argc, const char * argv[]) {
-//    @autoreleasepool {
-//        int n = 0;
-//        NSLog(@"What is the size of the array?");
-//        scanf("%d", &n);
-//        NSMutableArray *array = [NSMutableArray arrayWithCapacity:n];
-//        NSLog(@"Enter elements of the array one by one:");
-//        for (int i = 0; i < n; i++) {
-//            int tmp;
-//            scanf("%d", &tmp);
-//            [array addObject:@(tmp)];
-//        }
-//        ShakerSort *ss = [[ShakerSort alloc] init];
-//        [ss sort:array];
-//        NSLog(@"%@", array);
-//    }
-//    return 0;
-//}
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        int n = 0;
+        NSLog(@"What is the size of the array?");
+        scanf("%d", &n);
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:n];
+        NSLog(@"Enter elements of the array one by one:");
+        for (int i = 0; i < n; i++) {
+            int tmp;
+            scanf("%d", &tmp);
+            [array addObject:@(tmp)];
+        }
+        ShakerSort *ss = [[ShakerSort alloc] init];
+        [ss sort:array];
+        NSLog(@"%@", array);
+    }
+    return 0;
+}
 
