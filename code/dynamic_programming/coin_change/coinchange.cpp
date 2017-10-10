@@ -1,15 +1,17 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 /*
  * Part of Cosmos by OpenGenus Foundation
 */
-#define MAX 100
+const int MAX=100;
 
-int coinWays(int amt,int coins[],int n){
+int coinWays(int amt,vector<int>& coins){
 
     // init the dp table
-    int dp[MAX] = {0};
+    vector<int> dp(MAX, 0);
+    int n = coins.size();
     dp[0] = 1; // base case
     
     for(int j=0;j<n;j++){
@@ -29,8 +31,8 @@ int coinWays(int amt,int coins[],int n){
 
 int main(){
 
-    int coins[] = {1,2,3,8}; // coin denominations 
-    int amount = 3;  // amount
-    cout<<coinWays(amount,coins,4)<<endl;
+    vector<int> coins = {1,2,3}; // coin denominations 
+    int amount = 4;  // amount
+    cout<<coinWays(amount,coins)<<endl;
     return 0;
 }
