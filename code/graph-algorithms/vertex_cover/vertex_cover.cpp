@@ -25,7 +25,7 @@ vector<int> vertex_cover(int n_vertices,int *V,int n_aristas,int **E){
     int maximo;
     //arreglo de nodos v_C
     vector<int>vertex_C;
-    vector<int>maximos;
+    vector<int>maximos(1,0);
     int **A;
     A=new int*[n_vertices+1];
     for(int i=0;i<n_vertices;i++){
@@ -50,7 +50,7 @@ vector<int> vertex_cover(int n_vertices,int *V,int n_aristas,int **E){
     while(M < n_aristas){//mientras H no sea conexa // mientras |M|<|E|
         maximo=0;
         //tomamos n, el nodo de grado maximo y lo metemos en el arreglo de v_C
-        for(int i=1;i<n_vertices;i++){
+        for(int i=1;i<n_vertices;){
             if(A[maximo][n_vertices]==A[i][n_vertices]){
                 maximos.push_back(i);
             }else if(A[maximo][n_vertices]<A[i][n_vertices]){
@@ -58,6 +58,7 @@ vector<int> vertex_cover(int n_vertices,int *V,int n_aristas,int **E){
                 maximos.clear();
                 maximos.push_back(i);
             }
+            i++;
         }
         //tomamos de las aristas los nodos adyacentes y le restamos uno a su grado máximo
         int tam=maximos.size();
