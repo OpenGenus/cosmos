@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 #include <algorithm>
 #include <iostream>
 #include <string>

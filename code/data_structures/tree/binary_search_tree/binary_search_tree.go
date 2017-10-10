@@ -44,6 +44,21 @@ func (ref *Node) inOrder(fn func(n *Node)) {
 
 }
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func getHeight(node *Node) int {
+	if node == nil {
+		return 0
+	}
+
+	return max(getHeight(node.lchild), getHeight(node.rchild)) + 1
+}
+
 type BSTree struct {
 	ref    *Node
 	length int
@@ -65,6 +80,10 @@ func (BSTree *BSTree) inorderPrint() {
 	})
 }
 
+func (BSTree *BSTree) height() int {
+	return getHeight(BSTree.ref)
+}
+
 func main() {
 
 	tree := new(BSTree)
@@ -74,6 +93,7 @@ func main() {
 	tree.insert(4)
 	tree.insert(5)
 	tree.insert(6)
+	fmt.Println("Height ", tree.height())
 
 	tree.inorderPrint()
 
