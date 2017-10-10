@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -214,5 +213,4 @@ int main() {
         v_C.pop_back();
     }
     return 0;
->>>>>>> 26771920c08310af2cc960cec8e7674bbdfb9c09
 }
