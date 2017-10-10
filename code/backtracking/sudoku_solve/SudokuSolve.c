@@ -14,9 +14,9 @@ static const int map_size = 9;
 ** Check a number's existance on a line.
 */
 
-int		exist_on_line(char map[map_size][map_size + 2], const int pos_y, const char c)
+int exist_on_line(char map[map_size][map_size + 2], const int pos_y, const char c)
 {
-	int	i = 0;
+	int i = 0;
 
 	while (i < map_size)
 	{
@@ -30,9 +30,9 @@ int		exist_on_line(char map[map_size][map_size + 2], const int pos_y, const char
 ** Check a number's existance on a column.
 */
 
-int		exist_on_column(char map[map_size][map_size + 2], const int pos_x, const char c)
+int exist_on_column(char map[map_size][map_size + 2], const int pos_x, const char c)
 {
-	int	i = 0;
+	int i = 0;
 
 	while (i < map_size)
 	{
@@ -46,7 +46,7 @@ int		exist_on_column(char map[map_size][map_size + 2], const int pos_x, const ch
 ** Check a number's existance on a block.
 */
 
-int		exist_on_block(char map[map_size][map_size + 2], const int pos_x, const int pos_y, const char c)
+int exist_on_block(char map[map_size][map_size + 2], const int pos_x, const int pos_y, const char c)
 {
 	int i = pos_y - (pos_y % 3);
 	int j = pos_x - (pos_x % 3);
@@ -75,7 +75,7 @@ int		exist_on_block(char map[map_size][map_size + 2], const int pos_x, const int
 ** from 0 to map_size².
 */
 
-int 	resolve_sudoku(char map[map_size][map_size + 2], const int pos)
+int resolve_sudoku(char map[map_size][map_size + 2], const int pos)
 {
 	if (pos == map_size * map_size)
 		return (1);
@@ -86,7 +86,7 @@ int 	resolve_sudoku(char map[map_size][map_size + 2], const int pos)
 	if (map[pos_y][pos_x] != '0')
 		return (resolve_sudoku(map, pos + 1));
 
-	char	c = '1';
+	char c = '1';
 
 	while (c <= map_size + '0')
 		{
@@ -109,7 +109,7 @@ int 	resolve_sudoku(char map[map_size][map_size + 2], const int pos)
 ** Read from stdin.
 */
 
-int 	read_map(char map[map_size][map_size + 2])
+int read_map(char map[map_size][map_size + 2])
 {
 	int i = 0;
 
@@ -123,15 +123,15 @@ int 	read_map(char map[map_size][map_size + 2])
  	return (0);
 }
 
-int		main(void)
+int main(void)
 {
-	int		i = 0;
-	char	map[map_size][map_size + 2];
+	int i = 0;
+	char map[map_size][map_size + 2];
  
 	if (read_map(map))
 		return (1); 
  	resolve_sudoku(map, 0);
  	while (i < map_size)
  		printf("%s\n", map[i++]);
-    return (0);
+    	return (0);
 }
