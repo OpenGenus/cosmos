@@ -34,3 +34,11 @@ procedure cocktailShakerSort( A : list of sortable items ) defined as:
   while swapped // if no elements have been swapped, then the list is sorted
 end procedure
 ```
+
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
