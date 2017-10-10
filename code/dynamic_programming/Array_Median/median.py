@@ -2,6 +2,7 @@ from __future__ import division
 from __future__ import print_function
 import sys
 
+# Part of Cosmos by OpenGenus Foundation
 
 def median(nums):
     """
