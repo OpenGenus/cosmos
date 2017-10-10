@@ -1,6 +1,6 @@
 # Python Program to shuffle a given array
 import random
- 
+# Part of Cosmos by OpenGenus Foundation
 # A function to generate a random permutation of arr[]
 def randomize (arr, n):
     # Start from the last element and swap one by one. We don't
