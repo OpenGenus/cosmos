@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// Part of Cosmos by OpenGenus Foundation
 namespace reversed_stack
 {
     class Program
