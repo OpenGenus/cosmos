@@ -1,7 +1,7 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // queue data structure using two stacks
 class queue {
 private :
