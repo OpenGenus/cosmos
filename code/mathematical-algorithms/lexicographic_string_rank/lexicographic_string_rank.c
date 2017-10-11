@@ -1,3 +1,4 @@
+//Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>
 #include <string.h>
  
