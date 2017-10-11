@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 class TrieNode {
     char c; 
     HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
