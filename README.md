@@ -7,6 +7,8 @@ This work is maintained by a community of hundreds of people and is a _massive c
 
 > **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library** - _Uwi Tenpen_
 
+>**Every great developer you know got there by solving problems they were unqualified to solve until they actually did it." - Patrick McKenzie
+
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
