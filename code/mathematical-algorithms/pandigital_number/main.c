@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 #include "stdio.h"
 #include "string.h"
 
@@ -10,7 +11,7 @@ int main(){
 	int base;
 
 	printf("Enter a number: ");
-	scanf("%lld", &number); 
+	scanf("%lld", &number);
 	printf("Enter base (min:2,max:10): ");
 	scanf("%d", &base);
 
@@ -47,7 +48,7 @@ int is_pandigital(long long number, int base){
 	/* define an array to hold count of all digits */
 	int digits[10], i;
 	memset(digits, 0, sizeof(int)*10);
-	
+
 	/* for every digit in number, increment count by one */
 	while(number > 0){
 		int digit = number % 10;
@@ -74,7 +75,7 @@ int is_zeroless_pandigital(long long number, int base){
 	/* define an array to hold count of all digits */
 	int digits[10], i;
 	memset(digits, 0, sizeof(int)*10);
-	
+
 	/* for every digit in number, increment count by one */
 	while(number > 0){
 		int digit = number % 10;
@@ -101,4 +102,3 @@ int check_number(long long number, int base){
 	}
 	return 1;
 }
-
