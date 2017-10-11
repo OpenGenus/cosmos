@@ -3,6 +3,7 @@
 * Vigenère cipher (PHP)
 * based on https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 * implemented by Stefano Amorelli <amoste@outlook.it>
+* Part of Cosmos by OpenGenus Foundation
 */
 
 class VigenereCipher
