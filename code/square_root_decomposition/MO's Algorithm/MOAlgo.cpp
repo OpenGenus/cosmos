@@ -1,89 +1,93 @@
 //Time Complexity : O((n+q)*sqrt(n))
-
 #include <bits/stdc++.h>
 
 /* Part of Cosmos by OpenGenus Foundation */
-
- 
-#define ll long long int
-#define mod 1000000007
-#define show(a) for(i=0;i<a.size();i++) cout<<a[i]<<" ";
-#define fi first
-#define se second
-#define vi vector<int>
-#define vs vector<string>
-#define vll vector<long long int>
-#define pb push_back
-#define pi pair<int,int>
-#define si set<int>
-#define sll set<ll>
-#define maxheap priority_queue<int>
-#define minheap priority_queue<int,vector<int>,greater<int>>
-#define mp make_pair
-#define fast_io() cin.sync_with_stdio(false);cout.sync_with_stdio(false);
-#define long_zero 0ll
-#define long_one 1ll
-inline int sbt(int x){return __builtin_popcount(x);}
 using namespace std;
-int freq[1111111];
-int BLOCK;
-//Mo Sorting
-bool f(pair<int,pi> a, pair<int,pi> b){
-    if(a.se.fi/BLOCK == b.se.fi/BLOCK)
-        return a.se.se>b.se.se;
-    return a.se.fi/BLOCK>b.se.fi/BLOCK;
+typedef struct query {
+	int l;
+	int r;
+	int p;
+}query;
+
+int N, Q, size;
+long long answers[100005];
+int BLOCK_SIZE;
+int A[100005];
+int current[100005];
+query queries[100005];
+
+bool mo_cmp(const query x, const query y) {
+    int block_x = x.l / BLOCK_SIZE;
+    int block_y = y.l / BLOCK_SIZE;
+    if(block_x != block_y) return block_x < block_y;
+    return x.r < y.r;
 }
-int main() {
-    //fast_io()
-    int n;
-    scanf("%d",&n);
-    int a[n+3];
-    for(int i=0;i<n;i++)
-        scanf("%d",&a[i]);
-    int l,r,s=0,e=0;
-    int Q;
-    vector<pair<int,pi>>q;
-    scanf("%d",&Q);
-    //block size:SQRT(N)
-    BLOCK = floor(sqrt(1.0*double(n)));
-    for(int i=0;i<Q;i++){
-        scanf("%d%d",&l,&r);
-        q.pb(mp(i,mp(l-1,r-1)));
-    }
-    int v[Q+4],ans=0;
-    sort(q.begin(),q.end(),f);  //f is comparator
-	for(int i=0;i<Q;i++){
-	    l=q[i].se.fi;
-	    r=q[i].se.se;
-	    while(s<l){
-	        freq[a[s]]--;
-	        if(!freq[a[s]])
-	            ans--;
-	        s++;
-	    }
-	    while(s>l){
-	        freq[a[s-1]]++;
-	        if(freq[a[s-1]]==1)
-	            ans++;
-	        s--;
-	    }
-	    while(e<=r){
-	        freq[a[e]]++; // mantains frequency
-	        if(freq[a[e]]==1)
-	            ans++;
-	        e++;
-	    }
-	    while(e>r+1){
-	        freq[a[e-1]]--;
-	        if(freq[a[e-1]]==0)
-	            ans--;
-	        e--;
-	    }
-	  
-		v[q[i].fi]=ans;
+
+// add element x to current mo-range
+void add(int x) {
+	if(current[x] == 0) {
+		++size;
 	}
-	for(int i=0;i<Q;i++)
-	    printf("%d\n",v[i]);
-	return 0;
-	
+	++current[x];
+}
+
+// remove element x from current mo-range
+void remove(int x) {
+    --current[x];
+	if(current[x] == 0) {
+		--size;
+	}
+}
+
+int main() {
+    // input number of array elements and number of queries
+    cin >> N >> Q;
+    BLOCK_SIZE = (int)(sqrt(N));
+
+    // input array elements
+    for(int i = 0; i < N; i++)
+		cin >> A[i];
+
+    for(int i = 0; i < Q; i++) {
+		int l, r, p = i;
+
+		// l, r, p are zero-indexed
+		cin >> l >> r;
+		queries[i].l = l;
+		queries[i].r = r;
+		queries[i].p = p;
+    }
+
+    sort(queries, queries + Q, mo_cmp);
+    int mo_left = 0, mo_right = -1;
+    for(int i = 0; i < Q; i++) {
+        int left = queries[i].l;
+        int right = queries[i].r;
+
+		// move mo-range to solve for range [left, right]
+        // and calculate number of distinct elements in this range
+        while(mo_right < right) {
+            mo_right++;
+            add(A[mo_right]);
+        }
+        while(mo_right > right) {
+            remove(A[mo_right]);
+            mo_right--;
+        }
+
+        while(mo_left < left) {
+            remove(A[mo_left]);
+            mo_left++;
+        }
+        while(mo_left > left) {
+            mo_left--;
+            add(A[mo_left]);
+        }
+        
+        answers[queries[i].p] = size;
+    }
+
+    for(int i = 0; i < Q; i++) {
+		cout << answers[i] << "\n";
+	}
 }
