@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 Integer=int(input("Enter an Number :  "))
 absInteger = abs(Integer)
 num=1
