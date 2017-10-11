@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 class Shuffler
   # This shuffle uses Fisher-Yates shuffle algorithm
   def self.arr! array
