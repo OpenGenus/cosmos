@@ -21,14 +21,14 @@ int partition(vector<int> &v, int lo, int hi)
     return (i + 1);
 }
 
-void quick_sort(vector<int> &v, int lo, int hi)
+void quicksort(vector<int> &v, int lo, int hi)
 {
     if (lo < hi)
     {
         int pi = partition(v, lo, hi);
         // Separately sort elements
-        quick_sort(v, lo, pi - 1);
-        quick_sort(v, pi + 1, hi);
+        quicksort(v, lo, pi - 1);
+        quicksort(v, pi + 1, hi);
     } 
 }
 
@@ -50,7 +50,7 @@ int main()
     random_shuffle(v.begin(), v.end());
 
     print(v);
-    quick_sort(v, 0, v.size() - 1);
+    quicksort(v, 0, v.size() - 1);
     print(v);
     return 0;
 }
