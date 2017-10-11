@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 import java.util.Stack;
 // Assuming that you already know how the Stack works,
 // if not, see here (code/data_structures/stack/stack)
