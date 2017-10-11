@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 if __name__ == '__main__':
 	plaintext = 'This is unencrypted sample text'
 	ciphertext = ''
