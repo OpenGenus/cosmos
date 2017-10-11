@@ -1,13 +1,4 @@
-
-import json
-global x
-x=[]
-global n
-n=0
-global flag
-
 def place(k, i):
-	# print("In place:")
 	for l in range(1,k):
 		if((x[l]==i) or (abs(x[l]-i) == abs(l-k))):
 			return False
@@ -15,9 +6,7 @@ def place(k, i):
 
 
 def nqueens(k):
-	global x
-	global n
-	global flag
+	global x, n, flag
 
 	for j in range(1,n+1):	# iterate over all columns
 		if(place(k, j)):
@@ -30,9 +19,7 @@ def nqueens(k):
 
 
 def main():
-	global n
-	global x
-	global flag
+	global n, x, flag
 	flag=0
 	n = input("Enter n for n-queen problem solution:")
 	x = [i for i in range(n+1)]
