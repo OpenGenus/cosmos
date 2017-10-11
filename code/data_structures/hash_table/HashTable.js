@@ -1,3 +1,6 @@
+/*
+ * Part of Cosmos by OpenGenus Foundation
+ */
 function HashTable(obj) {
   this.length = 0;
   this.items  = {};
