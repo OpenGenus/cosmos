@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public static int[] two_sum(int[] arr, int target){
   if(nums == null || nums.length < 2) return new int[] {0, 0}; 
   
