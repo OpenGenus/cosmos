@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm> /* for random_shuffle */
 using namespace std;
 
 int partition(vector<int> &v, int lo, int hi)
@@ -41,7 +42,12 @@ void print(vector<int> &v)
 // Testing the quick sort implementation
 int main()
 {
-    vector<int> v = {2, 3, 6, 7, 4, 1};
+    vector<int> v;
+    for (int i = 1; i <= 10; i++)
+      v.push_back(i);
+    random_shuffle(v.begin(), v.end());
+
+    print(v);
     quick_sort(v, 0, v.size() - 1);
     print(v);
     return 0;
