@@ -1,41 +1,47 @@
-#include <bits/stdc++.h>
+/* Part of Cosmos by OpenGenus Foundation */
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-int partition(vector<int> &v, int lo, int hi)
+using Iter = std::vector<int>::iterator;
+
+Iter partition(vector<int> &v, Iter low, Iter high)
 {
-    int pivot = v[hi];
-    int i = lo - 1;
-    for(int j = lo; j <= hi - 1; ++j)
-    {
-        if (v[j] <= pivot)
-        {
-            i++;
-            swap(v[i], v[j]);
-        }
+  int pivot = *high;
+  Iter iter = low - 1;
+
+  for (Iter l = low; l <= (high - 1); l++) {
+    if (*l <= pivot) {
+      iter_swap(++iter, l);
     }
-    swap(v[i + 1], v[hi]);
-    return (i + 1);
+  }
+
+  iter_swap(iter + 1, high);
+
+  return iter + 1;
 }
 
-void quick_sort(vector<int> &v, int lo, int hi)
+void quick_sort(vector<int> &v, Iter low, Iter high)
 {
-    if (lo < hi)
-    {
-        int pi = partition(v, lo, hi);
-        // Separately sort elements
-        quick_sort(v, lo, pi - 1);
-        quick_sort(v, pi + 1, hi);
-    } 
+  if (low >= high)
+    return;
+
+  auto pivot = partition(v, low, high);
+  
+  quick_sort(v, low, pivot - 1);
+  quick_sort(v, pivot + 1, high);
 }
 
 // Testing the quick sort implementation
 int main()
 {
     vector<int> v = {2, 3, 6, 7, 4, 1};
-    quick_sort(v, 0, v.size());
-    for(int i = 0; i < v.size(); ++i)
-    {
-        cout << v[i] << " ";
+    quick_sort(v, v.begin(), v.end() - 1);
+    for (auto &i : v) {
+        cout << i << " ";
     }	
     return 0;
 }
