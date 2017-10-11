@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Part of Cosmos by OpenGenus Foundation
 void shell_sort(int *a, int n)
 {
   int i, j, gap, temp;
