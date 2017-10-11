@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 #include <vector>
 #include <iostream>
 #include <algorithm> /* for random_shuffle */
