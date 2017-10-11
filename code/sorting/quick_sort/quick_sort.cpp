@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 int partition(vector<int> &v, int lo, int hi)
