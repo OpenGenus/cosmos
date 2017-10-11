@@ -1,8 +1,10 @@
 class TrieNode {
-    TrieNode[] children = new TrieNode[26];
+    char c; 
+    HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
     boolean isEnd;
-
+ 
     public TrieNode() {}
+    public TrieNode(char c){ this.c = c; }
 }
 
 public class Trie {
@@ -18,10 +20,10 @@ public class Trie {
 
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (node.children[c - 'a'] == null) {
-                node.children[c - 'a'] = new TrieNode();
+            if (!node.children.containsKey(c)) {
+                node.children.put(c,new TrieNode(c));
             }
-            node = node.children[c - 'a'];
+            node = node.children.get(c); 
         }
 
         node.isEnd = true;
@@ -30,23 +32,13 @@ public class Trie {
     // Returns true if the word is in the trie.
     public boolean search(String word) {
         TrieNode node = searchNode(word);
-
-        if (node == null) {
-            return false;
-        } else {
-            return node.isEnd;
-        }
+        return (node == null) ? false : node.isEnd; 
     }
 
     // Returns true if there is any word in the trie that starts with the given prefix.
     public boolean startsWith(String prefix) {
         TrieNode node = searchNode(prefix);
-
-        if (node == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return (node == null) ? false : true; 
     }
 
     public TrieNode searchNode(String s) {
@@ -54,8 +46,8 @@ public class Trie {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (node.children[c - 'a'] != null) {
-                node = node.children[c - 'a'];
+            if (node.children.containsKey(c)) {
+                node = node.children.get(c);
             } else {
                 return null;
             }
