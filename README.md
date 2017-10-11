@@ -10,20 +10,21 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* Backtracking	
-* Bit manipulation
-* Computational geometry
-* Data structures
-* Divide conquer
-* Dynamic programming
-* Graph algorithms
-* Greedy algorithms
-* Mathematical algorithms	
-* Randomized algorithms	
-* Search 
-* Sorting	
-* String algorithms
-* Unclassified 👻 
+* [Backtracking](https://github.com/OpenGenus/cosmos/tree/master/code/backtracking)	
+* [Bit manipulation](https://github.com/OpenGenus/cosmos/tree/master/code/bit-manipulation)
+* [Computational geometry](https://github.com/OpenGenus/cosmos/tree/master/code/computational_geometry)
+* [Data structures](https://github.com/OpenGenus/cosmos/tree/master/code/data_structures)
+* [Divide and Conquer](https://github.com/OpenGenus/cosmos/tree/master/code/divide_conquer)
+* [Dynamic programming](https://github.com/OpenGenus/cosmos/tree/master/code/dynamic_programming)
+* [Graph algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/graph-algorithms)
+* [Greedy algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/greedy-algorithms)
+* [Mathematical algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/mathematical-algorithms)
+* [Randomized algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/randomized-algorithms)
+* [Search](https://github.com/OpenGenus/cosmos/tree/master/code/search)
+* [Selection Algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/selection-algorithms)
+* [Sorting](https://github.com/OpenGenus/cosmos/tree/master/code/sorting)
+* [String algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/string-algorithms)
+* [Unclassified 👻](https://github.com/OpenGenus/cosmos/tree/master/code/unclassified)
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
