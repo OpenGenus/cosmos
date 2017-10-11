@@ -14,9 +14,7 @@ func bubbleSort(_ array: inout [Int]) {
         for j in 0..<(n-i-1) {
             if array[j] > array[j+1] {
                 swapped = true
-                let tmp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = tmp
+                swap(&array, at: j, and: j+1)
             }
         }
         if !swapped {
