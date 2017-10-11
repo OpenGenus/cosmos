@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def place(k, i):
 	for l in range(1,k):
 		if((x[l]==i) or (abs(x[l]-i) == abs(l-k))):
