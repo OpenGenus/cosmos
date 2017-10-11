@@ -1,5 +1,5 @@
-This program is for coin change problem of dynamic programming in C language.
-
+// This program is for coin change problem of dynamic programming in C language.
+// Part of Cosmos by OpenGenus Foundation
 
 #include<stdio.h>
 int count( int S[], int m, int n )
