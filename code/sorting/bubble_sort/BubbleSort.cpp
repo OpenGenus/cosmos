@@ -24,7 +24,7 @@ void bubble_sort(vector<int> &v)
 // Testing the implemented bubble sort
 int main()
 {
-    vector<int> v = {2, 3, 1, 7, 6};
+    vector<int> v {2, 3, 1, 7, 6};
     bubble_sort(v);
     for(int i = 0; i < v.size(); ++i)
     {
