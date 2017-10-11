@@ -1,5 +1,5 @@
 import random
- 
+ # Part of Cosmos by OpenGenus Foundation
 def bogosort(l):
     while not in_order(l):
         random.shuffle(l)
