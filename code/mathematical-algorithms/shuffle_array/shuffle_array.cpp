@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
-
+// Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
 int main()
