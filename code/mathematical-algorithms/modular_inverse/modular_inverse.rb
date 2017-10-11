@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def extended_gcd(a, b)
   last_remainder, remainder = a.abs, b.abs
   x, last_x, y, last_y = 0, 1, 1, 0
