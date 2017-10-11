@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def reversefactorial(factorial):
     n = 1
     m = 0
