@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Part of Cosmos by OpenGenus Foundation
 declare -a array
 ARRAYSZ=10
 
