@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+// Part of Cosmos by OpenGenus Foundation
 #define SIZE 20
 
 struct DataItem {
