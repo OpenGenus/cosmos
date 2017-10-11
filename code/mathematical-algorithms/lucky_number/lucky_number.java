@@ -1,4 +1,5 @@
 import java.io.*;
+// Part of Cosmos by OpenGenus Foundation
 class Main {
   
   static int counter = 2;
