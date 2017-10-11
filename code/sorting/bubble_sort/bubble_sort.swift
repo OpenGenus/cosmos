@@ -1,31 +1,24 @@
-#!/usr/bin/env swift
-
 /* Part of Cosmos by OpenGenus Foundation */
+
+//
+//  bubble_sort.swift
+//  Created by DaiPei on 2017/10/10.
+//
+
 import Foundation
 
-func sort(_ list: [Int]) -> [Int] {
-    let sortedList = NSMutableArray(array: list)
-    var sortedAboveIndex = list.count
-    var swaps = 0
-
-    repeat {
-        var lastSwapIndex = 0
-        
-        for i in 1..<sortedAboveIndex {
-            if (sortedList[i - 1] as! Int) > (sortedList[i] as! Int) {
-                sortedList.exchangeObject(at: i, withObjectAt: i-1)
-                lastSwapIndex = i
-                swaps += 1
+func bubbleSort(_ array: inout [Int]) {
+    let n = array.count
+    for i in 0..<(n-1) {
+        var swapped = false
+        for j in 0..<(n-i-1) {
+            if array[j] > array[j+1] {
+                swapped = true
+                swap(&array, at: j, and: j+1)
             }
         }
-
-        sortedAboveIndex = lastSwapIndex
-    } while (sortedAboveIndex != 0)
-
-    return sortedList as! [Int]
+        if !swapped {
+            break
+        }
+    }
 }
-
-let list = [1, 6, 2, 4, 9, 0, 5, 3, 7, 8]
-print("Before: ", list)
-let sortedList = sort(list)
-print("After: ", sortedList)
