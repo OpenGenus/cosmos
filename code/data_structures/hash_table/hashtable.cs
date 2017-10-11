@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /*
+ * Part of Cosmos by OpenGenus Foundation'
+ *
  * The Hashtable class represents a collection of key-and-value pairs that are organized
  * based on the hash code of the key. It uses the key to access the elements in the collection.
  * */
