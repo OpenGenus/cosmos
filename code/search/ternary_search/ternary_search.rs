@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 fn main() {
     let nums = vec![1, 3, 5, 7, 9];
     let ele = 5;
