@@ -4,8 +4,9 @@
 #define MAX_SIZE 5
 
 int stack[MAX_SIZE];  // stack with size = MAX_SIZE
-int top = 0;  // top is initialised to 0 - first value of 
+int top = 0;  // top is initialised to 0 - first value of
 
+// pushing value in stack
 void push(int val) {
   if(top!=MAX_SIZE)
     {
@@ -14,7 +15,18 @@ void push(int val) {
     }
 }
 
+// printing value of stack
 void print()
+{
+
+}
+
+// reversing stack
+int* reverse(int arr[]) {
+
+}
+
+// main function
 int main() {
 
   return 0;
