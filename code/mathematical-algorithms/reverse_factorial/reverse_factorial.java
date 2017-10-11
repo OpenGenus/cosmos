@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 public static String reverseFactorial(int n) {
     int number = n;
     int divisor = 2;
