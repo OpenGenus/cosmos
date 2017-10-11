@@ -6,6 +6,17 @@ import "fmt"
 
 var totalSol int
 
+/*
+
+Expected output:
+[1 2 3]
+[1 5]
+[2 4]
+[6]
+There're  4 ways to combine 6 from [1 2 3 4 5 6 7 8 9 10 11 12 13 14]
+
+*/
+
 func subSetSum(data []int, sol []int, index, target int) {
 	if target == 0 {
 		totalSol++
@@ -27,7 +38,7 @@ func subSetSum(data []int, sol []int, index, target int) {
 func main() {
 	data := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
 	sol := []int{}
-	target := 10
+	target := 6
 
 	totalSol = 0
 	subSetSum(data, sol, 0, target)
