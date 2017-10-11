@@ -33,7 +33,7 @@ void quick_sort(vector<int> &v, int lo, int hi)
 int main()
 {
     vector<int> v = {2, 3, 6, 7, 4, 1};
-    quick_sort(v, 0, v.size());
+    quick_sort(v, 0, v.size() - 1);
     for(int i = 0; i < v.size(); ++i)
     {
         cout << v[i] << " ";
