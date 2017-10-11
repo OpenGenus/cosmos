@@ -1,22 +1,19 @@
+#include <iostream>
+using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 
-#include<iostream>
-using namespace std;
- 
-unsigned long int catalan(unsigned int n)
-{
-    if (n <= 1) return 1;
- 
-    unsigned long int res = 0;
-    for (int i=0; i<n; i++)
-        res += catalan(i)*catalan(n-i-1);
- 
-    return res;
-}
- 
-int main()
-{
-    for (int i=0; i<10; i++)
-        cout << catalan(i) << " ";
-    return 0;
+int main(){
+	int n;
+	cin >> n;
+
+	long long cat[100000];
+	cat[0] = 1;
+	cout << cat[0];
+
+	for(int i = 1; i <= n; i++){
+		int cat[i] = 0;
+		for(int j = 0; j < i; j++)
+			cat[i] += cat[j] * cat[i - j - 1];
+		cout << cat[i] << endl;
+	}
 }

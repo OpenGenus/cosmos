@@ -10,7 +10,7 @@ class average
         {
             sum += arr[i];
         }
-        avg = sum/n;
+        avg = (double)sum/n;
         return avg;
     }
     public static void main(String args[])
