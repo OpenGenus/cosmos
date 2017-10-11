@@ -1,6 +1,9 @@
 module EditDistance where
 import Data.Array
 
+--- Part of Cosmos by OpenGenus
+--- Adapted from http://jelv.is/blog/Lazy-Dynamic-Programming/ 
+
 editDistance :: String -> String -> Int
 editDistance a b = d m n
   where (m, n) = (length a, length b)
