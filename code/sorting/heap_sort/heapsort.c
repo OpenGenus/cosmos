@@ -1,4 +1,5 @@
 // C implementation of Heap Sort
+// Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>
 #include <stdlib.h>
 
