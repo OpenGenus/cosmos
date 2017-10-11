@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 import java.util.*;
 class smallest_digit_in_number{
     public static void main(String args[]) {
