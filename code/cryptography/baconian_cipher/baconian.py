@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 baconian_codes = {'a' : 'AAAAA', 'b' : 'AAAAB', 'c' : 'AAABA', 'd' :
 'AAABB', 'e' : 'AABAA', 'f' : 'AABAB', 'g' : 'AABBA', 'h' : 'AABBB',
 'i' : 'ABAAA', 'j' : 'BBBAA', 'k' : 'ABAAB', 'l' : 'ABABA', 'm' :
