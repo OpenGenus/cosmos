@@ -15,19 +15,64 @@ void push(int val) {
     }
 }
 
+// poping value from stack
+void pop()
+{
+  top--;
+}
+
 // printing value of stack
 void print()
 {
-
+  int i;
+  for (i = top - 1; i >= 0; i--) {
+    printf("%d ", stack[i]);
+  }
+  printf("\n");
 }
 
 // reversing stack
-int* reverse(int arr[]) {
-
+void reverse() {
+  int i = top - 1;
+  int j = 0;
+  while(i > j)
+  {
+    int temp = stack[i];
+    stack[i] = stack[j];
+    stack[j] = temp;
+    i--;
+    j++;
+  }
 }
 
 // main function
 int main() {
+
+  /*
+      Adding value in stack
+  */
+  printf("\n\npushing values in the stack\n");
+  push(1);
+  push(2);
+  push(3);
+
+  /*
+      printing value in stack
+  */
+  printf("\n\nprinting values in the stack\n");
+  print();
+
+  /*
+      reversing value in stack
+  */
+  printf("\n\nreversing values in the stack\n");
+  reverse();
+
+  /*
+      printing reversed value in stack
+  */
+  printf("\n\nprinting reversed values in the stack\n");
+  print();
 
   return 0;
 }
