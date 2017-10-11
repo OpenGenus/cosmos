@@ -1,9 +1,7 @@
 /*
 input - 123
 output - 3
-
 */
-
 
 
 #include <stdio.h>
@@ -28,3 +26,4 @@ int main()
     count(a);
     return 0;
 }
+
