@@ -1,4 +1,6 @@
-function quick_sort( $array ) {
+<?php
+
+functionfunction quick_sort( $array ) {
 
 	if ( count( $array ) <= 1 ) {
 		return $array;
@@ -16,3 +18,5 @@ function quick_sort( $array ) {
 		return array_merge( quick_sort( $left ), array( $pivot ), quick_sort( $right ) );
 	}
 }
+
+?>
