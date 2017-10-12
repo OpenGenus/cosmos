@@ -13,7 +13,7 @@ int main()
   int mid;
   string s,sl,sr;  // s - main string , sl -  left string slice and sr - right string slice
 
-getline(cin,s);  // getting user input
+  getline(cin,s);  // getting user input
 
   int n = s.length(); // finding length of complete string
   mid=n/2;     // divinding the string
