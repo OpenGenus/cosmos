@@ -45,3 +45,8 @@ func merge(_ array: inout [Int], low: Int, mid: Int, high: Int) {
     }
 }
 
+func swap(_ array: inout [Int], at indexA: Int, and indexB: Int) {
+    let tmp = array[indexA]
+    array[indexA] = array[indexB]
+    array[indexB] = tmp
+}

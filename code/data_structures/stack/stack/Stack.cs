@@ -1,6 +1,9 @@
 ﻿/**
  * Stack implementation using a singly-linked link.
  * Part of the OpenGenus/cosmos project. (https://github.com/OpenGenus/cosmos)
+ * 
+ * A stack is a first-in first-out (FIFO) data structure.
+ * Elements are manipulated by adding and removing elements of the top of the stack.
  */
 using System;
 
@@ -8,7 +11,7 @@ namespace Cosmos_Data_Structures
 {
     public class Stack<T>
     {
-        //Node is a element that holds the element plus a reference to the next element.
+        //Node is a element that holds the data of the current element plus a reference to the next element.
         //Used to implement the singly-linked list.
         private class Node
         {
@@ -32,7 +35,7 @@ namespace Cosmos_Data_Structures
         }
 
         //Add element to the top of the stack.
-        public void push(T element)
+        public void Push(T element)
         {
             var newNode = new Node(element, top);
             top = newNode;
@@ -41,9 +44,9 @@ namespace Cosmos_Data_Structures
 
         //Gets element at the top of the stack.
         //Throws an exception if the stack is empty.
-        public T peek()
+        public T Peek()
         {
-            if (top == null)
+            if(IsEmpty())
             {
                 throw new InvalidOperationException("Cannot peek on an empty stack!");
             }
@@ -53,9 +56,9 @@ namespace Cosmos_Data_Structures
 
         //Removes and returns the element at the top of the stack.
         //Throws an exception if the stack is empty.
-        public T pop()
+        public T Pop()
         {
-            if(top == null)
+            if(IsEmpty())
             {
                 throw new InvalidOperationException("Cannot pop on an empty stack!");
             }
@@ -67,15 +70,16 @@ namespace Cosmos_Data_Structures
         }
 
         //Returns true if stack contains no elements, false otherwise.
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             return top == null;
         }
 
+        //Returns a string representation of the stack.
         public override string ToString()
         {
             Node tmp = top;
-            string result = "Stack(";
+            string result = "Stack([Top] ";
 
             while(tmp != null)
             {
@@ -84,7 +88,7 @@ namespace Cosmos_Data_Structures
 
                 if(tmp != null)
                 {
-                    result += ",";
+                    result += " -> ";
                 }
             }
 
@@ -103,24 +107,24 @@ namespace Cosmos_Data_Structures
 
             for (int i = 0; i < 10; i++)
             {
-                intStack.push(i);
+                intStack.Push(i);
             }
             Console.WriteLine("done");
 
             Console.WriteLine(intStack.ToString());
             Console.WriteLine("Size of stack: " + intStack.Size);
-            Console.WriteLine("Topmost element is " + intStack.peek() + ".\n");
+            Console.WriteLine("Topmost element is " + intStack.Peek() + ".\n");
 
             Console.Write("Removing elements...");
             for (int i = 0; i < 3; i++)
             {
-                intStack.pop();
+                intStack.Pop();
             }
             Console.WriteLine("done");
 
             Console.WriteLine(intStack.ToString());
             Console.WriteLine("Size of stack: " + intStack.Size);
-            Console.WriteLine("Topmost element is " + intStack.peek() + ".\n");
+            Console.WriteLine("Topmost element is " + intStack.Peek() + ".\n");
 
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
