@@ -1,6 +1,9 @@
 ﻿/**
  * Stack implementation using a singly-linked link.
  * Part of the OpenGenus/cosmos project. (https://github.com/OpenGenus/cosmos)
+ * 
+ * A stack is a first-in first-out (FIFO) data structure.
+ * Elements are manipulated by adding and removing elements of the top of the stack.
  */
 using System;
 
@@ -72,10 +75,11 @@ namespace Cosmos_Data_Structures
             return top == null;
         }
 
+        //Returns a string representation of the stack.
         public override string ToString()
         {
             Node tmp = top;
-            string result = "Stack(";
+            string result = "Stack([Top] ";
 
             while(tmp != null)
             {
@@ -84,7 +88,7 @@ namespace Cosmos_Data_Structures
 
                 if(tmp != null)
                 {
-                    result += ",";
+                    result += " -> ";
                 }
             }
 
