@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 import java.util.HashMap;
 import java.util.Map;
 public class MorseCode{
