@@ -15,7 +15,24 @@ void push(struct sNode** top_ref, int new_data);
 int pop(struct sNode** top_ref);
 bool isEmpty(struct sNode* top);
 void print(struct sNode* top);
+void insertAtBottom(struct sNode** top_ref, int item);
+void reverse(struct sNode** top_ref);
+/* Driver program to test above functions */
+int main()
+{
+    struct sNode *s = NULL;
+    push(&s, 4);
+    push(&s, 3);
+    push(&s, 2);
+    push(&s, 1);
  
+    printf("\n Original Stack ");
+    print(s);
+    reverse(&s);
+    printf("\n Reversed Stack ");
+    print(s);
+    return 0;
+}
 // Below is a recursive function that inserts an element
 // at the bottom of a stack.
 void insertAtBottom(struct sNode** top_ref, int item)
@@ -56,23 +73,7 @@ void reverse(struct sNode** top_ref)
         insertAtBottom(top_ref, temp);
     }
 }
- 
-/* Driveer program to test above functions */
-int main()
-{
-    struct sNode *s = NULL;
-    push(&s, 4);
-    push(&s, 3);
-    push(&s, 2);
-    push(&s, 1);
- 
-    printf("\n Original Stack ");
-    print(s);
-    reverse(&s);
-    printf("\n Reversed Stack ");
-    print(s);
-    return 0;
-}
+
  
 /* Function to check if the stack is empty */
 bool isEmpty(struct sNode* top)
