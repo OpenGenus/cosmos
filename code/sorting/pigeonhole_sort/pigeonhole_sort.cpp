@@ -1,3 +1,8 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 /* Sorts the array using pigeonhole algorithm */
 // Part of Cosmos by OpenGenus Foundation
 void pigeonholeSort(int arr[], int n)
@@ -43,9 +48,9 @@ int main()
  
     pigeonholeSort(arr, n);
  
-    printf("Sorted order is : ");
+    cout << "Sorted order is : ";
     for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
- 
+        cout << arr[i] << " ";
+    cout << "\n";
     return 0;
 }
