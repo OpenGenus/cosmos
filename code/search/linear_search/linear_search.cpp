@@ -7,9 +7,9 @@
  */
 
 template<typename _Forward_Iter, typename _Compare>
-_Forward_Iter linear_search(const _Forward_Iter& begin
-                     , const _Forward_Iter& end
-                     , const typename _Forward_Iter::value_type& find
+_Forward_Iter linear_search(_Forward_Iter const& begin
+                     , _Forward_Iter const& end
+                     , typename _Forward_Iter::value_type const& find
                      , _Compare comp) {
     _Forward_Iter current = begin;
 
@@ -23,16 +23,16 @@ _Forward_Iter linear_search(const _Forward_Iter& begin
 }
 
 template<typename _Forward_Iter>
-_Forward_Iter linear_search(const _Forward_Iter& begin
-                     , const _Forward_Iter& end
-                     , const typename _Forward_Iter::value_type& find) {
+_Forward_Iter linear_search(_Forward_Iter const& begin
+                     , _Forward_Iter const& end
+                     , typename _Forward_Iter::value_type const& find) {
     return linear_search(begin, end, find, std::equal_to<typename _Forward_Iter::value_type>());
 }
 
 template<typename _Value_Type, typename _Compare>
 ptrdiff_t linear_search(_Value_Type const * const arr
-                        , const size_t& sz
-                        , const _Value_Type& find
+                        , size_t const& sz
+                        , _Value_Type const& find
                         , _Compare comp) {
     size_t current{};
     
@@ -47,8 +47,8 @@ ptrdiff_t linear_search(_Value_Type const * const arr
 
 template<typename _Value_Type>
 ptrdiff_t linear_search(_Value_Type const * const arr
-                        , const size_t& sz
-                        , const _Value_Type& find) {
+                        , size_t const& sz
+                        , _Value_Type const& find) {
     return linear_search(arr, sz, find, std::equal_to<_Value_Type>());
 }
 
@@ -63,8 +63,8 @@ void my_assert(std::string message
 template <class _Tp>
 struct special_equal_to : std::binary_function<_Tp, _Tp, bool>
 {
-    bool operator()(const std::pair<_Tp, _Tp>& __x
-                    , const std::pair<_Tp, _Tp>& __y) const {
+    bool operator()(std::pair<_Tp, _Tp> const& __x
+                    , std::pair<_Tp, _Tp> const& __y) const {
         return __x.first == __y.second && __x.second == __y.first;
     }
 };
