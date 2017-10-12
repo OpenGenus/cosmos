@@ -1,3 +1,6 @@
+### /* Part of Cosmos by OpenGenus Foundation */
+### Julia 0.6 Implementation of bubble sorting algorithm
+
 function bubblesort(arr)
     n = length(arr)
  
@@ -14,3 +17,5 @@ print("unbubble sorted array = ",v)
 bubblesort(v)
 
 print("\nbubble sorted array = ",v)
+
+
