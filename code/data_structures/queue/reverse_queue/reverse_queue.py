@@ -31,6 +31,10 @@ class Queue:
 	def size(self):
 		return len(self.__data)
 
+	# Returns the maximum size that the queue can hold
+	def capacity(selfs):
+		return len(self.__max)
+
 
 # Return all items from queue in list.
 def get(queue):
