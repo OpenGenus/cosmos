@@ -1,29 +1,27 @@
 /// Part of Cosmos by OpenGenus Foundation
 /// Find of average of numbers in an array
 /// Contributed by: Pranav Gupta (foobar98)
+/// Modified by: Arnav Borborah (arnavb)
 
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 int main()
 {
-	// Size of array
-	int n;
-	cout << "Enter size of array: ";
-	cin >> n;
+	vector<int> elements;
 
-	// Declaring an array of size n
-	int *a = new int[n];
-
-	cout << "Enter array elements: ";
+	cout << "Enter the numbers you want to find the average of: ";
 	int sum = 0;
-	for(int i=0;i<n;i++){
-		cin >> a[i];
-		sum += a[i];
+	string input;
+	getline(cin, input);
+	istringstream is(input);
+	for(int element; is >> element;){ // Read numbers until the user enters a newline
+		elements.push_back(element);
+		sum += element;
 	}
-	double avg = double(sum)/n;
+	double avg = double(sum)/elements.size();
 	cout << "Average of numbers: " << avg << endl;
-	
-	// Deallocate array
-	delete [] a;
 }

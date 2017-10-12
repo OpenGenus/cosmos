@@ -1,49 +1,46 @@
-/* Part of Cosmos by OpenGenus Foundation */
-  var length;
-  /* to create MAX  array */
-  function heap_root(array, i) {
-      var left = 2 * i + 1;
-      var right = 2 * i + 2;
-      var max = i;
+/*
+* Part of Cosmos by OpenGenus Foundation
+*/
 
-      if (left < length && array[left] > array[max]) {
-          max = left;
-      }
+var arrayLength;
 
-      if (right < length && array[right] > array[max]) {
-          max = right;
-      }
+function heap_root(inputArray, i) {
+	var left = 2 * i + 1;
+	var right = 2 * i + 2;
+	var max = i;
 
-      if (max != i) {
-          swap(array, i, max);
-          heap_root(array, max);
-      }
-  }
+	if (left < arrayLength && inputArray[left] > inputArray[max]) {
+		max = left;
+	}
 
-  function swap(array, index_A, index_B) {
-      var temp = array[index_A];
+	if (right < arrayLength && inputArray[right] > inputArray[max]) {
+		max = right;
+	}
 
-      array[index_A] = array[index_B];
-      array[index_B] = temp;
-  }
+	if (max != i) {
+		swap(inputArray, i, max);
+		heap_root(inputArray, max);
+	}
+}
 
-  function heapSort(array) {
+function swap(inputArray, index_A, index_B) {
+	var temp = inputArray[index_A];
 
-      length = array.length;
+	inputArray[index_A] = inputArray[index_B];
+	inputArray[index_B] = temp;
+}
 
-      for (var i = Math.floor(length / 2); i >= 0; i -= 1) {
-          heap_root(array, i);
-      }
+function heapSort(inputArray) {
 
-      for (i = array.length - 1; i > 0; i--) {
-          swap(array, 0, i);
-          length--;
+	arrayLength = inputArray.length;
 
+	for (var i = Math.floor(arrayLength / 2); i >= 0; i -= 1) {
+		heap_root(inputArray, i);
+	}
 
-          heap_root(array, 0);
-      }
-  }
-
-  // var arr = [3, 0, 2, 5, -1, 4, 1];
-  // heapSort(arr);
-  // console.log(arr);
+	for (i = inputArray.length - 1; i > 0; i--) {
+		swap(inputArray, 0, i);
+		arrayLength--;
+		heap_root(inputArray, 0);
+	}
+}
