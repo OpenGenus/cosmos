@@ -11,43 +11,62 @@ end
 
 class LinkedList
 	attr_accessor :head
+	attr_accessor :size
 
 	def initialize
 		@head = nil
+		@size = 0
 	end
 
-	# Return the number of elements in the linked list
-	def size
-		current_node = @head
-		length = 0
-		until current_node.nil? do
-			length += 1
-			current_node = current_node.next
-		end
-		return length
-	end
-
-	# Insert a new node at end of linked list
-	def insert!(data)
+	# Add a new node at end of linked list
+	def add!(data)
 		if @head.nil? then
 			@head = Node.new(data)
 		else
-			curr_node = @head
-			until curr_node.next.nil? do
-				curr_node = curr_node.next
+			current_node = @head
+			until current_node.next.nil? do
+				current_node = current_node.next
 			end
-			curr_node.next = Node.new(data)
+			current_node.next = Node.new(data)
 		end
+		@size += 1
+		return nil
+	end
+
+	# Insert a new node at index
+	def insert!(index, data)
+		# If index is not in list yet, just assume add at end
+		if index >= @size then
+			return self.add!(data)
+		end
+		current_node = @head
+		prev_node = nil
+		current_index = 0
+		until current_node.nil? do
+			if index == current_index then
+				new_node = Node.new(data)
+				new_node.next = current_node
+				if current_node == @head then
+					@head = new_node
+				else
+					prev_node.next = new_node
+				end
+			end
+			current_index += 1
+			prev_node = current_node
+			current_node = current_node.next
+		end
+		@size += 1
 		return nil
 	end
 
 	# Get node at index
 	def get(index)
-		curr_ind = 0
+		current_index = 0
 		current_node = @head
 		until current_node.nil? do
-			return current_node.data if index == curr_ind
-			curr_ind += 1
+			return current_node.data if index == current_index
+			current_index += 1
 			current_node = current_node.next
 		end
 		return nil
@@ -55,11 +74,11 @@ class LinkedList
 
 	# Return node at index
 	def remove!(index)
-		curr_ind = 0
+		current_index = 0
 		current_node = @head
 		prev_node = nil
 		until current_node.nil? do
-			if index == curr_ind then
+			if index == current_index then
 				if current_node == @head then
 					@head = current_node.next
 				else
@@ -69,7 +88,7 @@ class LinkedList
 				current_node.next = nil
 				return current_node
 			end
-			curr_ind += 1
+			current_index += 1
 			prev_node = current_node
 			current_node = current_node.next
 		end
