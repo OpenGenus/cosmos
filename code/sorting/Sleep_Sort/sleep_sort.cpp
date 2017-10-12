@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     
     for(auto i = 1; i < argc; ++i)
     {
-        thread.emplace_back(
+        threads.emplace_back(
             [i, &argv]() {
                 int arg = stoi(argv[i]);
                 this_thread::sleep_for(chrono::seconds(arg));
