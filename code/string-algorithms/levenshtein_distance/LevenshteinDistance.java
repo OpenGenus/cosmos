@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 class LevenshteinDistance {
     private String a, b;
     private int n, m;
