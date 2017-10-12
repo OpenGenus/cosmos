@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 // Defines the world size parameters
 const int SIZE_X = 50;
 const int SIZE_Y = 160;
