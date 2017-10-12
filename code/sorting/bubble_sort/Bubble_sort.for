@@ -1,4 +1,5 @@
 !/* Part of Cosmos by OpenGenus Foundation */
+!Fortran implementation of bubble sorting algorithm
 
 program bubblesort
 
