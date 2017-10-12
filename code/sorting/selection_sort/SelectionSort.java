@@ -5,6 +5,7 @@
  * (i+1) to length of the array [i+1, arr.length), and swap it with the current
  * working index (i).
  *
+ * Part of Cosmos by OpenGenus Foundation
  */
 class SelectionSort {
 
