@@ -1,14 +1,16 @@
 # Part of Cosmos by OpenGenus Foundation
+#
 # It uses the following Table called Tabula Recta to find the
 # ciphertext. The simple intersection of the row and column
 # is the ciphertext. Let's say for eg. T is the Key and E is
 # the original Plaintext, then the intersection of T column
 # and E row is the ciphertext i.e. X. The plaintext and key-
-# length must be the same. Autokey Cipher is similar to 
-# Vigenere Cipher. The only difference lies in how the key is 
-# chosen. In Vigenere, any random key is chosen which is 
-# repeated till the length of the plaintext. In Autokey, 
-# the key chosen contains some part of the plaintext itself.
+# length must be the same. Running Key Cipher is similar to 
+# Vigenere Cipher. The difference lies in how the key is chosen;
+# the Vigenere cipher uses a short key that repeats, whereas the 
+# running key cipher uses a long key such as an excerpt from 
+# a book. This means the key does not repeat, making cryptanalysis 
+# more difficult. 
 
 #     A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 #     ---------------------------------------------------
@@ -40,7 +42,7 @@
 # Z   Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
 
 plaintext = 'DEFENDTHEEASTWALLOFTHECASTLE'
-key = 'FORTIFICATIONDEFENDTHEEASTWA'
+key = 'HOWDOESTHEDUCKKNOWTHATSAIDVI'
 ciphertext = ''
 
 if __name__ == '__main__':	
