@@ -8,9 +8,9 @@
 
 template<typename _Forward_Iter, typename _Compare>
 _Forward_Iter linear_search(_Forward_Iter const& begin
-                     , _Forward_Iter const& end
-                     , typename _Forward_Iter::value_type const& find
-                     , _Compare comp) {
+                            , _Forward_Iter const& end
+                            , typename _Forward_Iter::value_type const& find
+                            , _Compare comp) {
     _Forward_Iter current = begin;
 
     while (current != end) {
@@ -24,8 +24,8 @@ _Forward_Iter linear_search(_Forward_Iter const& begin
 
 template<typename _Forward_Iter>
 _Forward_Iter linear_search(_Forward_Iter const& begin
-                     , _Forward_Iter const& end
-                     , typename _Forward_Iter::value_type const& find) {
+                            , _Forward_Iter const& end
+                            , typename _Forward_Iter::value_type const& find) {
     return linear_search(begin, end, find, std::equal_to<typename _Forward_Iter::value_type>());
 }
 
