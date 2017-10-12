@@ -63,7 +63,7 @@ int main() {
   print();
 
   /*
-      reversing value in stack and storing in same stack variable
+      reversing value in stack and storing in same stack variaus
   */
   printf("\n\nreversing values in the stack\n");
   reverse();
