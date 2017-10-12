@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+// Part of Cosmos by OpenGenus Foundation
 #define width 40
 #define height 30
 
