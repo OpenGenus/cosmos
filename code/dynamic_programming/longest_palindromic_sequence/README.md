@@ -4,6 +4,12 @@
 
 Given a string `S`, find the length of the longest subsequence of `S` that is also a palindrome.
 
+Examples:
+
+The length of the longest palindromic sequence of `bbabcbcab` is 7 (`babcbab` or `bacbcab`).
+
+The length of the longest palindromic sequence of `abbaab` is 4 (`abba` or `baab`).
+
 ## Solution
 
 We can model the state of our function as being the start and the end of the string.
