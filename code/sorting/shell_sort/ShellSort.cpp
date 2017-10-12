@@ -4,12 +4,12 @@
 
 using namespace std;
 
-void shellSort(vector<int> &ar, int size)
+void shellSort(vector<int> &ar)
 {
 	int j;
-	for (int gap = size / 2; gap > 0; gap /= 2)
+	for (int gap = ar.size() / 2; gap > 0; gap /= 2)
   	{
-    	for (int i = gap; i < size; i++)
+    	for (int i = gap; i < ar.size(); i++)
     	{
       		int temp = ar[i];
       		for (j = i; j >= gap && temp < ar[j - gap]; j -= gap)
@@ -23,15 +23,14 @@ void shellSort(vector<int> &ar, int size)
 
 int main()
 {
-	int nSize;
-	cin>>nSize;
-	vector<int> inputArray(nSize);
-	for(int i=0;i<nSize;i++)
+	vector<int> inputArray;
+	cout << "Enter the elements of the array: ";
+	for(int i;cin>>i;)
 	{
-		cin>>inputArray[i];
+		inputArray.push_back(i);
 	}
-	shellSort(inputArray,nSize);
-	for(int i=0;i<nSize;i++)
+	shellSort(inputArray);
+	for(int i=0;i<inputArray.size();i++)
 	{
 		cout<<inputArray[i]<<" ";
 	}
