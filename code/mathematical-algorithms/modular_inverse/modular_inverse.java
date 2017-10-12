@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// Part of Cosmos by OpenGenus Foundation
 public class Main {
 
     /// Holds 3 long integers
