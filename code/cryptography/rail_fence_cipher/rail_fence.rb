@@ -19,7 +19,7 @@ end.parse!
 
 
 ##
-# A class for enciphering and deciphering messages using the Rail-fence result.
+# A class for enciphering and deciphering messages using the Rail-fence cipher.
 #
 # See: http://practicalcryptography.com/ciphers/rail-fence-cipher/
 class RailFence
