@@ -12,7 +12,7 @@ _Forward_Iter linear_search(const _Forward_Iter& begin
                      , const typename _Forward_Iter::value_type& find
                      , _Compare comp) {
     _Forward_Iter current = begin;
-    
+
     while (current != end) {
         if (comp(*current, find))
             break;
@@ -29,30 +29,44 @@ _Forward_Iter linear_search(const _Forward_Iter& begin
     return linear_search(begin, end, find, std::equal_to<typename _Forward_Iter::value_type>());
 }
 
-template<typename _Value_Type
-, typename _Compare = std::equal_to<_Value_Type>>
-ptrdiff_t linear_search(_Value_Type* arr, size_t len, _Value_Type find) {
+template<typename _Value_Type, typename _Compare>
+ptrdiff_t linear_search(_Value_Type const * const arr
+                        , const size_t& sz
+                        , const _Value_Type& find
+                        , _Compare comp) {
     size_t current{};
-    _Compare _comp;
-    while (current != len) {
-        if (_comp(*(arr+current), find))
+    
+    while (current != sz) {
+        if (comp(*(arr + current), find))
             break;
         ++current;
     }
     
-    return current == len ? -1 : current;
+    return current == sz ? -1 : current;
+}
+
+template<typename _Value_Type>
+ptrdiff_t linear_search(_Value_Type const * const arr
+                        , const size_t& sz
+                        , const _Value_Type& find) {
+    return linear_search(arr, sz, find, std::equal_to<_Value_Type>());
 }
 
 template<typename _Ty>
-void my_assert(std::string message, _Ty a, _Ty b) {
-    if (a != b) std::cout << message << std::endl;
+void my_assert(std::string message
+               , _Ty a
+               , _Ty b) {
+    if (a != b)
+        std::cout << message << std::endl;
 }
 
 template <class _Tp>
 struct special_equal_to : std::binary_function<_Tp, _Tp, bool>
 {
-    bool operator()(const std::pair<_Tp, _Tp>& __x, const std::pair<_Tp, _Tp>& __y) const
-    {return __x.first == __y.second && __x.second == __y.first;}
+    bool operator()(const std::pair<_Tp, _Tp>& __x
+                    , const std::pair<_Tp, _Tp>& __y) const {
+        return __x.first == __y.second && __x.second == __y.first;
+    }
 };
 
 void test() {
@@ -252,6 +266,7 @@ void test() {
               , set_it);
     
     std::vector<std::pair<int, int>> vec_du_arr8;
+    
     vec_du_arr8.push_back(std::make_pair(1, 2));
     vec_du_arr8.push_back(std::make_pair(3, 4));
     vec_du_arr8.push_back(std::make_pair(0, 7));
