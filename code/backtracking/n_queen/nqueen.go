@@ -3,6 +3,24 @@ package main
 
 import "fmt"
 
+/*
+Expected output
+
+Solutions 1
+-O--
+---O
+O---
+--O-
+Solutions 2
+--O-
+O---
+---O
+-O--
+
+*/
+
+var totalSol int
+
 func abs(number int) int {
 	if number < 0 {
 		return number * -1
@@ -29,7 +47,18 @@ func checkPlace(board []int, row, col int) bool {
 
 func nQueen(board []int, currentRow int) {
 	if currentRow == len(board) {
-		fmt.Println("Done", board)
+		totalSol++
+		fmt.Printf("Solutions %d\n", totalSol)
+		for i := 0; i < len(board); i++ {
+			for j := 0; j < len(board); j++ {
+				if board[i] == j {
+					fmt.Printf("O")
+				} else {
+					fmt.Printf("-")
+				}
+			}
+			fmt.Printf("\n")
+		}
 		return
 	}
 
@@ -45,5 +74,7 @@ func nQueen(board []int, currentRow int) {
 func main() {
 	boardSize := 4
 	board := make([]int, boardSize)
+
+	totalSol = 0
 	nQueen(board, 0)
 }
