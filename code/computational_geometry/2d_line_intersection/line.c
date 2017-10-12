@@ -1,68 +1,73 @@
-//
-//  main.c
-//  forfun
-//
-//  Created by Daniel Farley on 10/10/17.
-//  Copyright © 2017 Daniel Farley. All rights reserved.
-//  Path of Cosmos by OpenGenus Foundation
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#define min(a,b) ((a) < (b) ? (a) : (b))
-#define max(a,b) ((a) > (b) ? (a) : (b))
-
-typedef struct{
-    float x;
-    float y;
-} vec2;
-
-/* return point of intersection, in parent's coordinate space of its parameters */
-vec2 fintersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4){
-    float x12 = x1 - x2;
-    float x34 = x3 - x4;
-    float y12 = y1 - y2;
-    float y34 = y3 - y4;
-    
-    float c = x12 * y34 - y12 * x34;
-    
-    float a = x1 * y2 - y1 * x2;
-    float b = x3 * y4 - y3 * x4;
-    
-    float x = (a * x34 - b * x12) / c;
-    float y = (a * y34 - b * y12) / c;
-    
-    vec2 ret;
-    ret.x = x;
-    ret.y = y;
-    return ret;
+// C++ Implementation. To find the point of
+// intersection of two lines
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// This pair is used to store the X and Y
+// coordinates of a point respectively
+#define pdd pair<double, double>
+ 
+// Function used to display X and Y coordinates
+// of a point
+void displayPoint(pdd P)
+{
+    cout << "(" << P.first << ", " << P.second
+         << ")" << endl;
 }
-
-/* line segments defined by 2 points a-b, and c-d */
-vec2 intersection(vec2 a, vec2 b, vec2 c, vec2 d){
-    return fintersection(a.x, a.y, b.x, b.y, c.x, c.y, d.x, d.y);
+ 
+pdd lineLineIntersection(pdd A, pdd B, pdd C, pdd D)
+{
+    // Line AB represented as a1x + b1y = c1
+    double a1 = B.second - A.second;
+    double b1 = A.first - B.first;
+    double c1 = a1*(A.first) + b1*(A.second);
+ 
+    // Line CD represented as a2x + b2y = c2
+    double a2 = D.second - C.second;
+    double b2 = C.first - D.first;
+    double c2 = a2*(C.first)+ b2*(C.second);
+ 
+    double determinant = a1*b2 - a2*b1;
+ 
+    if (determinant == 0)
+    {
+        // The lines are parallel. This is simplified
+        // by returning a pair of FLT_MAX
+        return make_pair(FLT_MAX, FLT_MAX);
+    }
+    else
+    {
+        double x = (b2*c1 - b1*c2)/determinant;
+        double y = (a1*c2 - a2*c1)/determinant;
+        return make_pair(x, y);
+    }
 }
-
-int main() {
-    //example set 1
-    vec2 a; a.x=10; a.y=3;
-    vec2 b; b.x=20; b.y=10;
-    vec2 c; c.x=10; c.y=10;
-    vec2 d; d.x=20; d.y=3;
-    
-    //example set 2
-    // vec2 a; a.x=10; a.y=3;
-    // vec2 b; b.x=20; b.y=3;
-    // vec2 c; c.x=10; c.y=5;
-    // vec2 d; d.x=20; d.y=5;
-    
-    vec2 intersectionpoint = intersection(a,b,c,d);
-    if(intersectionpoint.x >= min(a.x, b.x) && intersectionpoint.x <= max(a.x, b.x) &&
-       intersectionpoint.y >= min(a.y, b.y) && intersectionpoint.y <= max(a.y, b.y)){
-        printf("intersection: %f %f", intersectionpoint.x, intersectionpoint.y);
-    }else
-        printf("no intersection");
-    
+ 
+// Driver code
+int main()
+{
+    pdd A = make_pair(1, 1);
+    pdd B = make_pair(4, 4);
+    pdd C = make_pair(1, 8);
+    pdd D = make_pair(2, 4);
+ 
+    pdd intersection = lineLineIntersection(A, B, C, D);
+ 
+    if (intersection.first == FLT_MAX &&
+        intersection.second==FLT_MAX)
+    {
+        cout << "The given lines AB and CD are parallel.\n";
+    }
+ 
+    else
+    {
+        // NOTE: Further check can be applied in case
+        // of line segments. Here, we have considered AB
+        // and CD as lines
+        cout << "The intersection of the given lines AB "
+                "and CD is: ";
+        displayPoint(intersection);
+    }
+ 
     return 0;
 }
-
