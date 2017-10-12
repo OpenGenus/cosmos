@@ -271,7 +271,10 @@ void test() {
     vec_du_arr8.push_back(std::make_pair(3, 4));
     vec_du_arr8.push_back(std::make_pair(0, 7));
     my_assert("error at line: " + std::to_string(__LINE__)
-              , linear_search(vec_du_arr8.begin(), vec_du_arr8.end(), std::make_pair(4, 3), special_equal_to<int>())
+              , linear_search(vec_du_arr8.begin()
+                              , vec_du_arr8.end()
+                              , std::make_pair(4, 3)
+                              , special_equal_to<int>())
               , vec_du_arr8.begin()+1);
 }
 
