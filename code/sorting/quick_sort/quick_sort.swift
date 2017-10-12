@@ -34,3 +34,9 @@ func partition(_ array: inout [Int], low: Int, high: Int) -> Int {
     swap(&array, at: high, and: div)
     return div
 }
+
+func swap(_ array: inout [Int], at indexA: Int, and indexB: Int) {
+    let tmp = array[indexA]
+    array[indexA] = array[indexB]
+    array[indexB] = tmp
+}
