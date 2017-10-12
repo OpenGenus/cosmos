@@ -10,7 +10,6 @@ class Node
 end
 
 class LinkedList
-	attr_accessor :head
 	attr_reader :size
 
 	def initialize
