@@ -1,4 +1,5 @@
 // C program to sort a stack using recursion
+// Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>
 #include <stdlib.h>
  
