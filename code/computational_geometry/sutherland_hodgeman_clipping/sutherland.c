@@ -2,7 +2,7 @@
 #include<math.h>
 #include<graphics.h>
 #define round(a) ((int)(a+0.5))
-
+// Part of Cosmos by OpenGenus Foundation
 int k;
 float xmin,ymin,xmax,ymax,arr[20],m;
 
