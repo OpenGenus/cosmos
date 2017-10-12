@@ -4,17 +4,19 @@
 #include <vector> 
 #include <thread>
 
+using namespace std;
+
 int main(int argc, char** argv)
 {
-    std::vector<std::thread> threads;
+    vector<thread> threads;
     
     for(auto i = 1; i < argc; ++i)
     {
         thread.emplace_back(
             [i, &argv]() {
-                int arg = std::stoi(argv[i]);
-                std::this_thread::sleep_for(std::chrono::seconds(arg));
-                std::cout << argv[i] << std::endl;
+                int arg = stoi(argv[i]);
+                this_thread::sleep_for(chrono::seconds(arg));
+                cout << argv[i] << endl;
             }
         );
     }
@@ -24,5 +26,5 @@ int main(int argc, char** argv)
         thread.join();
     }
     
-    return(0);
+    return 0;
 }
