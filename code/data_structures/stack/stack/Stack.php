@@ -2,7 +2,7 @@
 
 /**
  * Stack implementation
- * 
+ * Part of Cosmos by OpenGenus Foundation
  * Note: To run this script, you need PHP >= 7.1
  * 
  * @author Lucas Soares Candalo <candalolucas@gmail.com>
