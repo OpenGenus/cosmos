@@ -10,8 +10,8 @@ const int MAX = 1010;
 int memo[MAX][MAX]; // used to store subproblems answers
 
 /**
- *  Return the longest palindromic sequence
- *  in s[i...j] in top-down fashion
+ *  Return the longest palindromic subsequence
+ *  in s[i...j] in a top-down approach.
  *  Time complexity: O(n^2), n = length of s
  */
 int lps(const string& s, int i, int j) {
@@ -41,7 +41,7 @@ int longest_palindrome(const string& s) {
 
 int main() {
     
-    cout << longest_palindrome("bbabcbcab") << '\n'; // 7: babcbab
+    cout << longest_palindrome("bbabcbcab") << '\n'; // 7: babcbab | bacbcab
     cout << longest_palindrome("abbaab") << '\n';    // 4: abba | baab
     cout << longest_palindrome("opengenus") << '\n'; // 3: ene | ege | ngn | nen
 
