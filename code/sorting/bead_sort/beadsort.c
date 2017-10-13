@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 void bead_sort(int *a, int len)
 {
 	int i, j, max, sum;
