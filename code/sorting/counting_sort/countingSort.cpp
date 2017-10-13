@@ -1,4 +1,5 @@
 #include<iostream>
+#include <vector>
 #include<climits>
 
 /*
@@ -6,9 +7,9 @@
 */
 
 using namespace std;
-void countingSort(int arr[],int sortedA[],int n){
+void countingSort(vector<int> arr,vector<int>& sortedA){
 	int m=INT_MIN;
-	for(int i=0;i<n;i++){
+	for(int i=0;i<arr.size();i++){
 		if(arr[i]>m){
 			m=arr[i];
 		}
@@ -16,24 +17,23 @@ void countingSort(int arr[],int sortedA[],int n){
 	int freq[m+1]; //m is the maximum number in the array
 	for(int i=0;i<=m;i++)
 		freq[i]=0;
-	for(int i=0;i<n;i++)
+	for(int i=0;i<arr.size();i++)
 		freq[arr[i]]++;
 	int j = 0;
     for(int i=0;i<=m;i++){
         int tmp=freq[i];
         while(tmp--){
-            sortedA[j]=i;
+            sortedA[j] = i;
             j++;
         }
     }
 }
 int main(){
-	int arr[]={1,4,12,34,16,11,9,1,3,33,5};
-	int size = sizeof(arr)/ sizeof(arr[0]);
-	int sortedA[size+1]; // stores sorted array
-   	countingSort(arr,sortedA,size);
+	vector<int> arr{1,4,12,34,16,11,9,1,3,33,5};
+	vector<int> sortedA(arr.size()+1); // stores sorted array
+   	countingSort(arr,sortedA);
    	cout<<"Sorted Array:  ";
-   	for(int i=0;i<size;i++)
+   	for(int i=0;i<arr.size();i++)
    		cout<<sortedA[i]<<" ";
    	return 0;
 }
