@@ -1,32 +1,55 @@
+/**
+ * Utility class for sorting an array using Selection Sort algorithm. Selection
+ * Sort is a basic algorithm for sorting with O(n^2) time complexity. Basic idea
+ * of this algorithm is to find a local minimum, which is the minimum value from
+ * (i+1) to length of the array [i+1, arr.length), and swap it with the current
+ * working index (i).
+ *
+ * Part of Cosmos by OpenGenus Foundation
+ */
 class SelectionSort {
-    void sort(int arr[]) {
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) {	// iterate over the array
-            int min_idx = i;
-            for (int j = i+1; j < n; j++) {	// find the minimum element starting from the i'th element
-                if (arr[j] < arr[min_idx]) {
-                    min_idx = j;
-                }
-            }
-            // Swap the found minimum element with the i'th element
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
-        }
-    }
- 
-    void printArray(int arr[]) {
-        for (int i = 0; i < arr.length; ++i) {
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-    }
- 
-    public static void main(String args[]) {
-        SelectionSort sob = new SelectionSort();	// create object
-        int arr[] = {64, 25, 12, 22, 11};
-        sob.sort(arr);								// call method
-        System.out.println("Sorted array");
-        ob.printArray(arr);							// print sorted array
-    }
+
+  /**
+   * Example usage.
+   */
+  public static void main(String[] args) {
+		int[] arr = { 1, 5, 2, 5, 2, 9, 7 };
+		SelectionSort.sort(arr);
+		System.out.print(java.util.Arrays.toString(arr));
+	}
+
+	/**
+	 * Sort an array using Selection Sort algorithm.
+	 *
+	 * @param arr
+	 *            is an array to be sorted
+	 */
+	public static void sort(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			int min = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				/* find local min */
+				if (arr[j] < arr[min]) {
+					min = j;
+				}
+			}
+			swap(arr, i, min);
+		}
+	}
+
+	/**
+	 * Utility method for swapping elements in an array.
+	 *
+	 * @param arr
+	 *            is an array to be swapped
+	 * @param i
+	 *            is index of first element
+	 * @param j
+	 *            is index of second element
+	 */
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
 }
