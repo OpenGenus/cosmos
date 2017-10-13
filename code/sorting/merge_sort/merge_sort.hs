@@ -1,3 +1,4 @@
+-- Part of Cosmos by OpenGenus Foundation
 split_list::[a]->([a],[a])
 split_list x = splitAt (div (length x) $ 2) x
 
