@@ -1,6 +1,3 @@
-/** C++ implementation for Red-Black Tree Insertion
-   This code is adopted from the code provided by
-   Dinesh Khandelwal in comments **/
 #include <bits/stdc++.h>
 using namespace std;
  
