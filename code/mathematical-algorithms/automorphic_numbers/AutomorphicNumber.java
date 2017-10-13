@@ -26,9 +26,7 @@ class AutomorphicNumber{
 		int lenNum = strNum.length();
 		int lenSquareNum = strSquareNum.length();
 
-		// Check if the last lenNum digits of num^2 == num
-		if (strSquareNum.substring(lenSquareNum-lenNum).equals(strNum))
-			return true;
-		return false;
+		// Return the value of (the last lenNum digits of num^2 == num)
+		return strSquareNum.substring(lenSquareNum-lenNum).equals(strNum);
 	}
 }
