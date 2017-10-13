@@ -1,4 +1,5 @@
 // Java implementation of ShellSort
+// Part of Cosmos by OpenGenus Foundation
 class ShellSort
 {
     /* An utility function to print array of size n*/
