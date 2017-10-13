@@ -1,31 +1,40 @@
 /* Part of Cosmos by OpenGenus Foundation */
+using System;
+using System.Linq;
 
 namespace BubbleSortCSharp
 {
-    class bubblesort
+    class BubbleSort
     {
-        static void Main(string[] args)
-        {
-            int[] a = { 0, 9, -4, 8, 3, 2};
-            
-            //bubble sort
+        
+        static void sort(int[] a){
             for (int i = a.Length - 1; i > 0; i--)
             {
                 for (int j = 0; j <= i - 1; j++)
                 {
                     if (a[j] > a[j + 1])
                     {
-                        int temp = ay[j];
+                        int temp = a[j];
                         a[j] = a[j + 1];
                         a[j + 1] = temp;
                     }
                 }
             }
+        }
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter values to sort separated by space");
+            var a = Console.ReadLine().Split(' ')
+                    .Select(i => int.Parse(i))
+                    .ToArray();
+            
+            sort(a);
  
             Console.WriteLine("Sorted Array: ");
-            for (int i = 0; i < a.Length; i++)
+            foreach(int item in a)
             {
-                Console.WriteLine(a[i]);
+                Console.WriteLine(item);
             }
         }
     }
