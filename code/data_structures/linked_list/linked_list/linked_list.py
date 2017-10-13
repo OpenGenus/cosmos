@@ -16,22 +16,20 @@ class Node:
 class LinkedList:
     def __init__(self):
             self.head = None
+            
     def size(self):
-        cur_node = self.head
-        length = 0
-        while current_head != None:
-            length += 1
-            cur_node = current_head.get_next()
-        return length
+        if self.head is None:
+            return 0
+        else:
+            return 1 + self.head.get_next().size();
     
     def search(self,data):
-        cur_node = self.head
-        while cur_node != None:
-            if cur_node.get_data() == data:
-                return cur_node
-            else:
-                cur_node = cur_node.get_next()
-        return None
+        if self is None:
+            return None;
+        elif self.head == data:
+            return self.head
+        else:
+            return search(self.head.get_next(), data)
 
     def delete(self,data):
         cur_node = self.head
@@ -55,9 +53,8 @@ class LinkedList:
             if start == 1:
                 start = 0
             else:
-                print '->',
-            print cur_node.get_data(),
-            cur_node = cur_node.get_next()
+                print( '->')
+            print(cur_node.get_data() + " " + cur_node = cur_node.get_next())
         
     def insert(self,data):
         new_node = Node(data)
