@@ -129,12 +129,11 @@ class PersistentTreap<T : Comparable<T>>(private val root: TreapNode<T>? = null)
     private fun search(currentNode: TreapNode<T>?, value: T): Boolean {
         if (currentNode == null)
             return false
-        return (
-            if (value <= currentNode.value)
-                search(currentNode.leftChild, value)
-            else
-                search(currentNode.rightChild, value)
-        )
+        return when {
+            value < currentNode.value -> search(currentNode.leftChild, value)
+            value > currentNode.value -> search(currentNode.rightChild, value)
+            else -> true
+        }
     }
 
 }
