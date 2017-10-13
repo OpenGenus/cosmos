@@ -19,5 +19,3 @@ merge l@(l':ls) r@(r':rs)
 
 main =  do
     print $ merge_sort [9,6,4,3,2,1,2,5]
-
-
