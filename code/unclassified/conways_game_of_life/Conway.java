@@ -19,7 +19,6 @@ public class Conway extends JFrame {
 				gd.add(grid[i][j]);
 				grid[i][j].addActionListener(new Listen());				
 				grid[i][j].setBorder(null);
-
 			}
 
 		JPanel st_bar = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -48,7 +47,7 @@ public class Conway extends JFrame {
 		setLocationRelativeTo(null);
 		setSize(600, 600);
 		setVisible(true);
-			try {
+		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		}
 		catch (Exception e) {}
