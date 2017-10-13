@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 /* Checker */
 const alphabet = [...'abcdefghijklmnopqrstuvwxyz']
 
