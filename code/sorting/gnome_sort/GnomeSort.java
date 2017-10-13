@@ -1,7 +1,7 @@
 // Java Program to implement Gnome Sort
  
 import java.util.Arrays;
-public class GFG
+public class GnomeSort
 {
     static void gnomeSort(int arr[], int n)
     {
