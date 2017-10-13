@@ -22,10 +22,7 @@ type Move struct {
 var boardSize int
 
 func isSafe(nextX, nextY int) bool {
-	if nextX >= 0 && nextX < boardSize && nextY >= 0 && nextY < boardSize {
-		return true
-	}
-	return false
+	return nextX >= 0 && nextX < boardSize && nextY >= 0 && nextY < boardSize
 }
 
 func solveKT(board [][]int, currentStep, currentX, currentY int, moves []Move) bool {
