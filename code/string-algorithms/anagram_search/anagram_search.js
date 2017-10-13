@@ -2,7 +2,9 @@
 
 // Checks if two strings are anagrams of each other, ignoring any whitespace.
 //
-// Create maps of the counts of every character in each string.
-// As well as keep a set of all characters used in both strings.
+// Remove whitespaces in both strings.
+// Make all characters in both strings lowercase.
+// Use .reduce() to create a hash table for each word containing the counts for each letter.
+// Compare both hash tables to see if one contains any letters not contained in the other table.
 //
 // Check to ensure every unique character is used in both strings the same number of times.
