@@ -1,6 +1,6 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-public class EulerTient {
+public class EulerTotient {
 
 	public static int phi(int n) {
 
