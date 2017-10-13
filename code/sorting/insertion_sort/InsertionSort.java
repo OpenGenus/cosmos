@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 class InsertionSort {
     void sort(int arr[]) {
         for (int i = 1; i < arr.length; ++i) {

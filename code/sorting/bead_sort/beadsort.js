@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 function range(x) {
   var res = [];
   for (var i = 0; i < x; i++) {

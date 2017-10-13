@@ -2,6 +2,7 @@
  
 using namespace std;
  
+// Part of Cosmos by OpenGenus Foundation
 void swap(int *a, int *b)
 {
 	int temp; 

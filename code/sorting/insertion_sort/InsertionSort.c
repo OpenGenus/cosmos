@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Part of Cosmos by OpenGenus Foundation
 void insertion(int*, int);
 
 int main()

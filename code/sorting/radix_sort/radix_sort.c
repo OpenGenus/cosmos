@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int find_max(int* number, int length){
 	int i, max = number[0];
 	for(i = 0; i < length; i++)
