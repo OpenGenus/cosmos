@@ -18,3 +18,10 @@ Enter x2 and y2
 
 ![negative image_1507903215353](https://user-images.githubusercontent.com/31897425/31549886-1f50d524-b04d-11e7-8f50-5f27f57595d5.jpg)
 
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
