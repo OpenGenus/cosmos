@@ -4,6 +4,9 @@
 def longest_palindrome(text):
     """ Find the maximum length of a palindrome subsequence
 
+    Dynamic Programming approach on solvind the longest palindromic sequence.
+    Time complexity: O(n^2), n = length of text.
+
     Args:
         text: string which will be processed
     Returns:
@@ -19,17 +22,19 @@ def longest_palindrome(text):
         # reversed iteration on each substring character
         for rgap in reversed(xrange(0, fgap)):
             tmp = palindromes_lengths[rgap]
-            # if equal characters, update palindromes_lengths
             if text[fgap] == text[rgap]:
-                # if characters are neighbors, palindromes_lengths is 2
+                # if equal characters, update palindromes_lengths
                 if rgap + 1 > fgap - 1:
+                    # if characters are neighbors, palindromes_lengths is 2
                     palindromes_lengths[rgap] = 2
                 else:
+                    # else they're added to the pre-calculated length
                     palindromes_lengths[rgap] = 2 + pre
             else:
+                # if first and last characters do not match, try the latter ones
                 palindromes_lengths[rgap] = max(palindromes_lengths[rgap + 1],
                                                 palindromes_lengths[rgap])
-            # update pre-computed length
+            # update pre-calculated length
             pre = tmp
     # return the maximum palindrome length
     return palindromes_lengths[0]
