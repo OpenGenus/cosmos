@@ -1,40 +1,39 @@
-	#include <iostream>
-	#include <vector>
-	#include <algorithm> 
+#include <iostream>
+#include <vector>
+#include <algorithm> 
 
-	using namespace std;
+using namespace std;
 
-	void shellSort(vector<int> &ar, int size)
+void shellSort(vector<int> &ar)
+{
+	int j;
+	for (int gap = ar.size() / 2; gap > 0; gap /= 2)
+  	{
+    	for (int i = gap; i < ar.size(); i++)
+    	{
+      		int temp = ar[i];
+      		for (j = i; j >= gap && temp < ar[j - gap]; j -= gap)
+      		{
+        		ar[j] = ar[j - gap];
+      		}
+      		ar[j] = temp;
+    	} 
+  	}
+}
+
+int main()
+{
+	vector<int> inputArray;
+	cout << "Enter the elements of the array: ";
+	for(int i;cin>>i;)
 	{
-		int j;
-		for (int gap = size / 2; gap > 0; gap /= 2)
-	  	{
-	    	for (int i = gap; i < size; i++)
-	    	{
-	      		int temp = ar[i];
-	      		for (j = i; j >= gap && temp < ar[j - gap]; j -= gap)
-	      		{
-	        		ar[j] = ar[j - gap];
-	      		}
-	      		ar[j] = temp;
-	    	} 
-	  	}
+		inputArray.push_back(i);
 	}
-
-	int main()
+	shellSort(inputArray);
+	for(int i=0;i<inputArray.size();i++)
 	{
-		int nSize;
-		cin>>nSize;
-		vector<int> inputArray(nSize);
-		for(int i=0;i<nSize;i++)
-		{
-			cin>>inputArray[i];
-		}
-		shellSort(inputArray,nSize);
-		for(int i=0;i<nSize;i++)
-		{
-			cout<<inputArray[i]<<" ";
-		}
-		cout<<endl;
-		return 0;
+		cout<<inputArray[i]<<" ";
 	}
+	cout<<endl;
+	return 0;
+}
