@@ -8,3 +8,15 @@
 // Compare both hash tables to see if one contains any letters not contained in the other table.
 //
 // Check to ensure every unique character is used in both strings the same number of times.
+
+removeWhiteSpace(str) => {
+
+};
+
+charCountTable(str) => {
+
+};
+
+checkIfAnagrams(str1,str2) => {
+
+};
