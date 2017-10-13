@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 func fibonacciTerm(n: Int) -> Int {
     return calcFibonacci(a: n - 2, b: 1, c: 1)
 }
