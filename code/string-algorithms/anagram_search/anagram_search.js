@@ -10,11 +10,20 @@
 // Check to ensure every unique character is used in both strings the same number of times.
 
 removeWhiteSpace(str) => {
-
+  return ''.join(str.split(''));
 };
 
 charCountTable(str) => {
-
+  var letters = str.split('');
+  var counts = letters.reduce((instances,a) => {
+    if(a in instances) {
+      instances[a]++;
+    } else {
+      instances[a] = 1;
+    }
+    return instances;
+  }, {});
+  return counts;
 };
 
 checkIfAnagrams(str1,str2) => {
