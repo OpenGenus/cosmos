@@ -1,4 +1,6 @@
 /**
+ * Part of Cosmos by OpenGenus Foundation
+ *
  * Here we present two methods (recursive and iterative) of generating all
  * the combinations of a set by choosing only r of n elements.
  * 
