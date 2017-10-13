@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <alloc.h>
-
+// Part of Cosmos by OpenGenus Foundation
 struct btreenode
 {
     struct btreenode *leftchild ;

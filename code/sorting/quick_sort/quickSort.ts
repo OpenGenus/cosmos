@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 function quicksort(A: number[]): number[]  {
  
   let stack = [{ lo: 0, hi: A.length - 1 }];

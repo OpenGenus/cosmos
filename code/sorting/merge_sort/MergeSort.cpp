@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Part of Cosmos by OpenGenus Foundation
 /* Function to merge the two haves arr[l..m] and arr[m+1..r] of array arr[] */
 void merge(vector<int> &arr, int l, int m, int r)
 {
