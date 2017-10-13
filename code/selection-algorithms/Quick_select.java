@@ -1,4 +1,4 @@
-
+// Part of Cosmos by OpenGenus Foundation
 //Find kith largest element is equivalent to find (n - k)th smallest element in array.
 //It is worth mentioning that (n - k) is the real index (start from 0) of an element.
 public class Solution {
