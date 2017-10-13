@@ -106,3 +106,11 @@ n = 5, k = 8
 ---
 
 b = [0, 0, 0, 0, 0, 1, 0, 1] -- "00000101"
+
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
