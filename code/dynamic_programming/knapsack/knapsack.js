@@ -6,9 +6,9 @@
  * method which returns the maximum total value in the knapsack
  * @param {array} valueArray 
  * @param {array} weightArray 
- * @param {integer} maxiumWeight 
+ * @param {integer} maximumWeight 
  */
-function knapsack(valueArray, weightArray, maxiumWeight) {
+function knapsack(valueArray, weightArray, maximumWeight) {
   let n = weightArray.length;
   let matrix = [];
 
@@ -16,13 +16,13 @@ function knapsack(valueArray, weightArray, maxiumWeight) {
   if (!matrix[0]) matrix[0] = [];
 
   // if the knapsack's capacity is 0 - Set all columns at row 0 to be 0
-  for (let inc = 0; inc <= maxiumWeight; inc++) {
+  for (let inc = 0; inc <= maximumWeight; inc++) {
     matrix[0][inc] = 0;
   }
 
   for (let i = 1; i < n + 1; i++) {
     // check all possible maxWeight values from 1 to W
-    for (let j = 1; j < maxiumWeight + 1; j++) {
+    for (let j = 1; j < maximumWeight + 1; j++) {
       // lazy initialize the element of 2d array
       if (!matrix[j]) matrix[j] = [];
 
@@ -41,7 +41,7 @@ function knapsack(valueArray, weightArray, maxiumWeight) {
     }
   }
 
-  return matrix[n][maxiumWeight];
+  return matrix[n][maximumWeight];
 }
 
 console.log(
