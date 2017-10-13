@@ -1,5 +1,4 @@
-package core;
-
+// Part of Cosmos by OpenGenus Foundation
 public class fibonacci {
 
 	public static long fibonacciTerm(int term){
