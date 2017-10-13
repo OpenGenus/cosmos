@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def smallest_digit_in_number(input)
   if !is_a_number? input
     puts "Wrong input. Try again and insert a integer next time"
