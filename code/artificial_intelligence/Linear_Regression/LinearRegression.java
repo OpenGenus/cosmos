@@ -1,4 +1,6 @@
-ublic class LinearRegression { 
+// author @Yatharth Shah
+
+public class LinearRegression { 
 
     public static void main(String[] args) { 
         int MAXN = 1000;
