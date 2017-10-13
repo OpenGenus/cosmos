@@ -56,3 +56,8 @@ var checkIfAnagrams = (str1,str2) => {
     return true;
   }
 };
+
+checkIfAnagrams("bob"," "); // => false
+checkIfAnagrams("aabb","baba"); // => true
+checkIfAnagrams("aab"," aa b"); // => true
+checkIfAnagrams("bob","ob oo"); // => false
