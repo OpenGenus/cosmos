@@ -6,14 +6,21 @@
 // Make all characters in both strings lowercase.
 // Use .reduce() to create a hash table for each word containing the counts for each letter.
 // Compare both hash tables to see if one contains any letters not contained in the other table.
-//
 // Check to ensure every unique character is used in both strings the same number of times.
 
-removeWhiteSpace(str) => {
-  return ''.join(str.split(''));
+var removeWhiteSpace = (str) => {
+  var splitStr = str.split('');
+  var letters = [];
+  for(var i = 0; i < splitStr.length; i++) {
+    if(splitStr[i] !== ' ') {
+      letters.push(splitStr[i]);
+    }
+  }
+  var strNoSpaces = letters.join('');
+  return strNoSpaces;
 };
 
-charCountTable(str) => {
+var charCountTable = (str) => {
   var letters = str.split('');
   var counts = letters.reduce((instances,a) => {
     if(a in instances) {
@@ -26,6 +33,26 @@ charCountTable(str) => {
   return counts;
 };
 
-checkIfAnagrams(str1,str2) => {
+var checkIfAnagrams = (str1,str2) => {
+  str1 = removeWhiteSpace(str1.toLowerCase());
+  str2 = removeWhiteSpace(str2.toLowerCase());
 
+  var str1LetterCount = charCountTable(str1);
+  var str2LetterCount = charCountTable(str2);
+
+  var str1LetterKeys = Object.keys(str1LetterCount);
+  var str2LetterKeys= Object.keys(str2LetterCount);
+
+  if(str1LetterKeys.length !== str2LetterKeys.length) {
+    return false;
+  } else {
+    for(var i = 0; i < str1LetterKeys.length; i++) {
+      if(str1LetterCount[str1LetterKeys[i]] === str2LetterCount[str1LetterKeys[i]]) {
+        continue;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  }
 };
