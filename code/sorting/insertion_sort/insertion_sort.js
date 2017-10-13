@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 function insertionSort(array) {
   var length = array.length;
   

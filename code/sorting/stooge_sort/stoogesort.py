@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-
+# Part of Cosmos by OpenGenus Foundation
 def stoogeSort(a):
     def sort(left, right):
         if a[left] > a[right]:

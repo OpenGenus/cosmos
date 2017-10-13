@@ -15,7 +15,7 @@ struct point
 // custom compare for sorting points
 bool cmp(point a, point b)
 {
-    return a.x < b.x || a.x == b.x && a.y < b.y;
+    return a.x < b.x || (a.x == b.x && a.y < b.y);
 }
 
 // check clockwise orientation of points
@@ -40,7 +40,7 @@ void convex_hull(vector<point> &points)
     vector<point> up, down;
     up.push_back(p1);
     down.push_back(p1);
-    for (int i = 1; i < points.size(); ++i)
+    for (size_t i = 1; i < points.size(); ++i)
     {
         if (i == points.size() - 1 || cw(p1, points[i], p2))
         {
@@ -56,7 +56,7 @@ void convex_hull(vector<point> &points)
         }
     }
     cout << "Convex hull is:" << endl;
-    for (int i = 0; i < up.size(); ++i)
+    for (size_t i = 0; i < up.size(); ++i)
         cout << "x: " << up[i].x << " y: " << up[i].y << endl;
     for (int i = down.size() - 2; i > 0; --i)
         cout << "x: " << down[i].x << " y: " << down[i].y << endl;

@@ -3,6 +3,7 @@ using namespace std;
 
 #define BEAD(i, j) beads[i * max + j]
 
+// Part of Cosmos by OpenGenus Foundation
 // function to perform the above algorithm
 void beadSort(vector<int>& a)
 {

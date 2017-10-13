@@ -1,5 +1,5 @@
 // Quick Sort in Golang
-// Part of Cosmos by OpenGenus Community
+// Part of Cosmos by OpenGenus Foundation
 package main
 
 import (

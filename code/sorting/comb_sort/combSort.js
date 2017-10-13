@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 function is_array_sorted(arr) {
 		var sorted = true;
 		for (var i = 0; i < arr.length - 1; i++) {
