@@ -4,7 +4,7 @@
 def longest_palindrome(text):
     """ Find the maximum length of a palindrome subsequence
 
-    Dynamic Programming approach on solvind the longest palindromic sequence.
+    Dynamic Programming approach on solving the longest palindromic sequence.
     Time complexity: O(n^2), n = length of text.
 
     Args:
