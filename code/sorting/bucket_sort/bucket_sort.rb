@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 DEFAULT_BUCKET_SIZE = 5
 
 def bucket_sort(input, bucket_size = DEFAULT_BUCKET_SIZE)
