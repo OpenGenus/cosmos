@@ -10,8 +10,8 @@ There are 22 ways to combine 8 from [1 2 3 4 5 6 7 8 9 10]
 */
 
 //DP[i] += DP[i-coint[i]]
-//i = coinset,
-//j = for each money
+//j = coinset,
+//i = for each money
 func solveCoinChange(coins []int, target int) int {
 
 	dp := make([]int, target+1)
