@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 l = [int(x) for x in input().split()]
 
 def Qsort(a):
