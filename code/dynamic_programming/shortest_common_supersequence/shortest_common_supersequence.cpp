@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -38,7 +39,7 @@ int main()
 {
     string X = "ABCBDAB", Y = "BDCABA";
 
-    cout << "The length of shortest Common supersequence is "
+    cout << "The length of shortest common supersequence is "
          << findSCSLength(X, Y) << '\n';
 
     return 0;
