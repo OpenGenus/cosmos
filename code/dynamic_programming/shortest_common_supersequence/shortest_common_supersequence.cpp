@@ -10,19 +10,19 @@ int memo[MAX][MAX]; // used for memoization
 // between sequences X[0..m-1] and Y[0..n-1]
 int SCSLength(string& X, string& Y, int m, int n)
 {
-	// if we have reached the end of either sequence, return
-	// length of other sequence
-	if (m == 0 || n == 0)
-		return n + m;
+    // if we have reached the end of either sequence, return
+    // length of other sequence
+    if (m == 0 || n == 0)
+        return n + m;
 
     // if we have already computed this state
     if(memo[m-1][n-1] > -1) return memo[m-1][n-1];
 
-	// if last character of X and Y matches
-	if (X[m - 1] == Y[n - 1])
-		return memo[m-1][n-1] = SCSLength(X, Y, m - 1, n - 1) + 1;
-	else
-	// else if last character of X and Y don't match
+    // if last character of X and Y matches
+    if (X[m - 1] == Y[n - 1])
+        return memo[m-1][n-1] = SCSLength(X, Y, m - 1, n - 1) + 1;
+    else
+    // else if last character of X and Y don't match
         return memo[m-1][n-1] = 1 + min(SCSLength(X, Y, m, n - 1),
                                         SCSLength(X, Y, m - 1, n));
 }
@@ -36,10 +36,10 @@ int findSCSLength(string& X, string& Y) {
 // main function
 int main()
 {
-	string X = "ABCBDAB", Y = "BDCABA";
+    string X = "ABCBDAB", Y = "BDCABA";
 
     cout << "The length of shortest Common supersequence is "
          << findSCSLength(X, Y) << '\n';
 
-	return 0;
+    return 0;
 }
