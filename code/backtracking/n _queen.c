@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 #include<stdio.h>
 #include<stdlib.h>
 #define SIZE 20
@@ -62,8 +64,9 @@ void display(int n)
 {
 	int *a[n];
 	for(int i=0; i<n; i++)
-        a[i] = (int *)calloc(n,sizeof(int));
-
+	{
+         	a[i] = (int *)calloc(n,sizeof(int));
+	}
 
 	for(int i=s.top;i>=0;i--)
 	{
@@ -96,31 +99,31 @@ void sol()
     	{
     		if(safe(currRow, i))
     		{
-    			currCol=i;
-    			flag=1;
-    			break;
+			currCol=i;
+			flag=1;
+			break;
     		}
     	}
 
     	if(flag)
     	{
-    	    push(currCol);
-    		currRow+= 1;
-    		currCol = 0;
+		 push(currCol);
+		 currRow+= 1;
+		 currCol = 0;
     	}
     	else
     	{
     		if(isEmpty())
     		{
     		    if(counter==0)
-                    printf("No soln\n");
-    			break;
+                    	printf("No soln\n");
+		    break;
     		}
     		else
-			{
-				currRow-=1;
+		{
+		    currRow-=1;
     		    currCol = pop()+1;
-			}
+		}
     	}
 
 
@@ -139,4 +142,5 @@ int main()
 {
 	s.top = -1;
 	sol();
+	return 0;
 }
