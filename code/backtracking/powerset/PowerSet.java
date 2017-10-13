@@ -1,4 +1,5 @@
 /**
+ * Part of Cosmos by OpenGenus Foundation
  * This code snippet shows how to generate the powerset of a set which is the 
  * set of all subsets of a set. There are two common ways of doing this which
  * are to use the binary representation of numbers on a computer or to 
