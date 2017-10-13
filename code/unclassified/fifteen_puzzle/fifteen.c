@@ -12,6 +12,7 @@
  * sleep and is simpler to use than nanosleep; `man usleep` for more.
  
  * Author:- Rishav Pandey
+ * Part of Cosmos by OpenGenus Foundation
  */
  
  
