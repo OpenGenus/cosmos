@@ -46,10 +46,12 @@ void main()
             delay(500);
             drawline(p1,p2);
             break;
-    case 1:    drawwindow();
+      
+    case 1: drawwindow();
             delay(500);
             break;
-    case 2:    p3=resetendpt(p1,p2);
+      
+    case 2: p3=resetendpt(p1,p2);
             p4=resetendpt(p2,p1);
             drawwindow();
             delay(500);
