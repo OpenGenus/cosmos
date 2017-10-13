@@ -12,7 +12,6 @@ class TrieNode(object):
 def insert(root_node, word):
     n = root_node
     for character in word:
-        character = word[index]
         t = n.children.get(character)
         if not t:
             t = TrieNode()
@@ -27,3 +26,12 @@ def search(root_node, search_string):
             return False
         node = c
     return True
+
+
+root = TrieNode()
+
+insert(root, "abc")
+insert(root, "pqrs")
+
+print(search(root, "abc")) # will print True
+print(search(root, "xyz")) # will print False
