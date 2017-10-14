@@ -1,3 +1,4 @@
+-- Part of Cosmos by OpenGenus Foundation
 import System.Environment
 import Data.List (sort) -- using sort as the internal bucket sorting algorithm
 

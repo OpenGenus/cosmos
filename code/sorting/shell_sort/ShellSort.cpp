@@ -3,7 +3,7 @@
 #include <algorithm> 
 
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 void shellSort(vector<int> &ar)
 {
 	int j;

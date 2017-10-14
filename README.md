@@ -33,7 +33,7 @@ This is a massive collaboration and to keep the quality intact and drive the vis
 
 > Maintainers are your friend forever. They are vastly different from moderators. 
 
-The task of maintainers is to review pull requests, suggest further quality additions and keep the work upto data with the current state of the world. 🌍 
+The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. 🌍 
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/blob/master/.github/CONTRIBUTING.md)
 

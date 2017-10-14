@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 fn insertion_sort(array_A: &mut [int, ..6]) {
 	// Implementation of the traditional insertion sort algorithm in Rust
 	// The idea is to both learn the language and re visit classic (and not so much) 
