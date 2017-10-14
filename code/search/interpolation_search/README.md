@@ -1,4 +1,4 @@
-// Author Yatharth Shah
+# cosmos
 
 # Interpolation Search
 
