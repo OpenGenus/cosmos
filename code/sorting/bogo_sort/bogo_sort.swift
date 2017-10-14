@@ -8,7 +8,7 @@
 import Foundation
 
 func bogoSort(_ array: inout [Int]) {
-    while !sorted(array) {
+    while !isSorted(array) {
         shuffle(&array)
     }
 }
@@ -20,7 +20,10 @@ private func shuffle(_ array: inout [Int]) {
     }
 }
 
-private func sorted(_ array: [Int]) -> Bool {
+private func isSorted(_ array: [Int]) -> Bool {
+    if array.count <= 1 {
+        return true
+    }
     for i in 1..<array.count {
         if array[i] < array[i - 1] {
             return false
