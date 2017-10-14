@@ -2,6 +2,18 @@ import java.util.Random
 
 case class Treap[T](el: T, priority: Int, left: Treap[T], right: Treap[T]) { // extends Treap[T] {
 
+    def contains(target: T)(implicit ord: Ordering[T]): Boolean = {
+        if (target == el) {
+            true
+        } else if (ord.lt(target, el)) {
+            if (left == null) false
+            else left.contains(target)
+        } else {
+            if (right == null) false
+            else right.contains(target)
+        }
+    }
+
     def insert(newEl: T)(implicit ord: Ordering[T]): Treap[T] = insert(newEl, new Random().nextInt())
 
     def insert(newEl: T, newPriority: Int)(implicit ord: Ordering[T]): Treap[T] = {
@@ -52,5 +64,8 @@ object Main {
         Treap("a", 100, null, null).insert("b").insert("c").inOrder((el: String, priority: Int) => println((el, priority)))
         Treap("a", 100, null, null).insert("c").insert("c").inOrder((el: String, priority: Int) => println((el, priority)))
         Treap("a", 100, null, null).insert("c").insert("b").inOrder((el: String, priority: Int) => println((el, priority)))
+        println(Treap("a", 100, null, null).insert("c").insert("b").contains("e"))
+        println(Treap("a", 100, null, null).insert("c").insert("b").contains("b"))
+        println(Treap("a", 100, null, null).insert("c").insert("b").contains("a"))
     }
 }
