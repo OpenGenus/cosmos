@@ -1,29 +1,42 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 //
-//  selection_sort.m
-//  Created by DaiPei on 2017/10/9.
+//  bogo_sort.m
+//  Created by DaiPei on 2017/10/14.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SelectionSort : NSObject
+@interface BogoSort : NSObject
 
 - (void)sort:(NSMutableArray<NSNumber *> *)array;
 
 @end
 
-@implementation SelectionSort
+@implementation BogoSort
 
 - (void)sort:(NSMutableArray<NSNumber *> *)array {
-    for (int i = 0; i + 1 < array.count; i++) {
-        int p = i;
-        for (int j = i + 1; j < array.count; j++) {
-            if ([array[j] compare:array[p]] == NSOrderedAscending) {
-                p = j;
-            }
+    while (![self isSorted:array]) {
+        [self shuffle:array];
+    }
+}
+
+- (BOOL)isSorted:(NSMutableArray<NSNumber *> *)array {
+    if (array.count <= 1) {
+        return YES;
+    }
+    for (int i = 1; i < array.count; i++) {
+        if ([array[i] compare:array[i - 1]] == NSOrderedAscending) {
+            return NO;
         }
-        [self swap:array at:i and:p];
+    }
+    return YES;
+}
+
+- (void)shuffle:(NSMutableArray<NSNumber *> *)array {
+    for (int i = 0; i < array.count; i++) {
+        int j = arc4random() % array.count;
+        [self swap:array at:i and:j];
     }
 }
 
@@ -47,10 +60,9 @@ int main(int argc, const char * argv[]) {
             scanf("%d", &tmp);
             [array addObject:@(tmp)];
         }
-        SelectionSort *ss = [[SelectionSort alloc] init];
-        [ss sort:array];
+        BogoSort *bs = [[BogoSort alloc] init];
+        [bs sort:array];
         NSLog(@"%@", array);
     }
     return 0;
 }
-
