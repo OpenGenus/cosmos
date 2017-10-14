@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation 
+
 public class QuickSort {
      
     private int array[];
