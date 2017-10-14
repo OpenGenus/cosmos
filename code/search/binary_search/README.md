@@ -1,3 +1,5 @@
+# cosmos
+
 # Binary search
 The binary search algorithm is used for finding an element in a sorted array. It has the average performance O(log n).
 
@@ -10,8 +12,8 @@ The binary search algorithm is used for finding an element in a sorted array. It
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
 
-// Algo author Yatharth Shah
-#Algorithm for Binary search
+
+# Algorithm for Binary search
 
 set first = 1, last = N, mid = N/2
 while (item not found and first < last) {
@@ -26,3 +28,5 @@ set first = mid+1
 set mid = (first+last)/2
 }
 return index of matching item, or -1 if not found
+
+# Collaborative effort by [OpenGenus](https://github.com/opengenus)
