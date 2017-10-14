@@ -1,6 +1,7 @@
 #!/bin/bash
 #Read the Expression
 
+
 read -p "Enter The Exppression " EX
 
 
