@@ -236,8 +236,8 @@ int main() {
 	/*
 		If reading from strings from two files
 	*/
-	// ifstream file1("num.txt");
-	// ifstream file2("nu.txt");
+	// ifstream file1("file1.txt");
+	// ifstream file2("file2.txt");
 	// getline(file1, s1);
 	// file1.close();
 
