@@ -1,6 +1,6 @@
 // Dynamic Programming Python implementation of Matrix
 // Chain Multiplication.
-// See the Cormen book for details of the following algorithm
+// Part of Cosmos by OpenGenus Foundation
 class MatrixChainMultiplication
 {
     // Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
