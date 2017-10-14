@@ -1,13 +1,49 @@
-# Ternary search
-The ternary search algorithm is used for finding a given element in a sorted array.
+# cosmos 
 
-## Procedure
-1. Find where the array divides into two thirds
-2. Compare the value of both the thirds elements with the target element.
-3. If they match, it is returned the index. 
-4. If the value is less than the first third, the search continues in the leftmost third of the array.
-5. If the value is greater than the second third, the search continues in the rightmost third of the array.
-6. If the value is both greater than the first third and less than the second third, the search continues in the middle third of the array.
-5. The same procedure as in step 2-6 continues, but with a part of the array. This continues until the given element is found or until there are no elements left. 
+# Ternary Search
+A ternary search algorithm is a technique in computer science for finding the minimum or maximum of a unimodal function. A ternary search determines either that the minimum or maximum cannot be in the first third of the domain or that it cannot be in the last third of the domain, then repeats on the remaining third. A ternary search is an example of a divide and conquer algorithm.
 
-Collaborative effort by [OpenGenus](https://github.com/OpenGenus)
+# The function
+Assume we are looking for a maximum of f(x) and that we know the maximum lies somewhere between A and B. For the algorithm to be applicable, there must be some value x such that
+for all a,b with A ≤ a < b ≤ x, we have f(a) < f(b), and
+for all a,b with x ≤ a < b ≤ B, we have f(a) > f(b).
+
+# Iterative algorithm
+def ternarySearch(f, left, right, absolutePrecision):
+    """
+    Find maximum of unimodal function f() within [left, right]
+    To find the minimum, reverse the if/else statement or reverse the comparison.
+    """
+    while True:
+        #left and right are the current bounds; the maximum is between them
+        if abs(right - left) < absolutePrecision:
+            return (left + right)/2
+
+        leftThird = left + (right - left)/3
+        rightThird = right - (right - left)/3
+
+        if f(leftThird) < f(rightThird):
+            left = leftThird
+        else:
+            right = rightThird
+
+
+# Recursive algorithm
+def ternarySearch(f, left, right, absolutePrecision):
+    '''
+    left and right are the current bounds; 
+    the maximum is between them
+    '''
+    if abs(right - left) < absolutePrecision:
+        return (left + right)/2
+
+    leftThird = (2*left + right)/3
+    rightThird = (left + 2*right)/3
+
+    if f(leftThird) < f(rightThird):
+        return ternarySearch(f, leftThird, right, absolutePrecision) 
+    else:
+        return ternarySearch(f, left, rightThird, absolutePrecision)
+        
+        
+ # Collaborative effort by [OpenGenus](https://github.com/opengenus)
