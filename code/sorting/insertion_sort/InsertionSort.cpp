@@ -4,11 +4,12 @@
 
 using namespace std;
 
-void insertionSort(vector<int> &arr, int n)
+// Part of Cosmos by OpenGenus Foundation
+void insertionSort(vector<int> &arr)
 {
 	int key;
 	int j;
-	for(int i=1;i<n;i++)
+	for(int i=1;i<arr.size();i++)
 	{
 		key = arr[i];
 		j = i-1;
@@ -23,20 +24,17 @@ void insertionSort(vector<int> &arr, int n)
 
 int main()
 {
-	int arraySize;
-	cin>>arraySize;
-	vector<int> inputArray(arraySize);
-	for(int i=0;i<arraySize;i++)
+	vector<int> inputArray;
+	for(int i; cin >> i;)
 	{
-		cin>>inputArray[i];
+		inputArray.push_back(i);
 	}
-	insertionSort(inputArray, arraySize);
+	insertionSort(inputArray);
 
-	for(int i=0;i<arraySize;i++)
+	for(int i=0;i<inputArray.size();i++)
 	{
 		cout<<inputArray[i]<<" ";
 	}
 	cout<<endl;
 	return 0;
 }
-

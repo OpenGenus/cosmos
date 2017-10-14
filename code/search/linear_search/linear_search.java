@@ -1,6 +1,7 @@
 /*
  * Part of Cosmos by OpenGenus Foundation
 */
+import java.util.*;
 class Search
 {
     /*
@@ -20,8 +21,19 @@ class Search
     
     public static void main(String args[])
     {
-        int arr[] = {2,3,1,4};
-        int find = 1;
+        Scanner sc=new Scanner(System.in);//OBject of scanner class to take input
+        System.out.println("Enter the size of the array to be searched");
+        int n=sc.nextInt();
+        int arr[n];
+        
+        for(int i=0,i<n,i++)//loop to take input
+        {
+            System.out.println("Enter the element number "+(i+1)+" of the array");
+            arr[i]=sc.nextInt();
+        }
+        
+        System.out.println("Enter the number you want to find");
+        int find = sc.nextInt();
         System.out.println("Position of "+find+" is "+linearSearch(arr,find));
     }
 }

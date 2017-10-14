@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Part of Cosmos by OpenGenus Foundation
 /* Function to merge the two haves arr[l..m] and arr[m+1..r] of array arr[] */
 void merge(vector<int> &arr, int l, int m, int r)
 {
@@ -72,15 +73,13 @@ void mergeSort(vector<int> &arr, int l, int r)
 
 int main()
 {
-        int arraySize;
-        cin>>arraySize;
-        vector<int> inputArray(arraySize);
-        for(int i=0;i<arraySize;i++)
+        vector<int> inputArray;
+        for(int i=0;cin >> i;)
         {
-            cin>>inputArray[i];
+            inputArray.push_back(i);
         }
-        mergeSort(inputArray,0,arraySize-1);
-        for(int i=0;i<arraySize;i++)
+        mergeSort(inputArray,0,inputArray.size()-1);
+        for(int i=0;i<inputArray.size();i++)
         {
             cout<<inputArray[i]<<" ";
         }

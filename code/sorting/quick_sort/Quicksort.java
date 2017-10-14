@@ -1,10 +1,11 @@
+// Part of Cosmos by OpenGenus Foundation
 class QuickSort {
     int partition(int arr[], int low, int high) {
         int pivot = arr[high]; // last element is the pivot
         int i = (low-1); 
         for (int j=low; j<high; j++) {
             if (arr[j] <= pivot) {	// if j'th element is less than or equal to the pivot
-                i++;				// then swap the i'th element with the j'tj element
+                i++;				// then swap the i'th element with the j'th element
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;

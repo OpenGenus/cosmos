@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #define RANGE 255
- 
+
+// Part of Cosmos by OpenGenus Foundation 
 // The main function that sort the given string arr[] in
 // alphabatical order
 void countSort(char arr[])
