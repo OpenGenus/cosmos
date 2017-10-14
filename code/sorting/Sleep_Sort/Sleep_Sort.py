@@ -1,8 +1,9 @@
-# Part of Cosmos by OpenGenus Foundation 
+# Part of Cosmos by OpenGenus Foundation
 import threading
 import time
 
 _lk = threading.Lock()
+
 
 class SleepSortThread(threading.Thread):
     def __init__(self, val):
@@ -15,9 +16,10 @@ class SleepSortThread(threading.Thread):
         time.sleep(self.val * 0.1)
         # Acquire lock
         _lk.acquire()
-        print(self.val, end = " ")
+        print(self.val, end=" ")
         # Release lock
         _lk.release()
+
 
 def SleepSort(list):
     ts = []
@@ -34,6 +36,7 @@ def SleepSort(list):
     # Wait for all threads to terminate
     for i in ts:
         i.join()
+
 
 x = [2, 4, 3, 1, 6, 8, 4]
 x = SleepSort(x)

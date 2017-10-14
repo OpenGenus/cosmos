@@ -4,6 +4,7 @@ class node:
         self.left = None
         self.right = None
 
+
 class BinarySearchTree:
     def __init__(self):
         self.head = None
@@ -71,5 +72,6 @@ class BinarySearchTree:
 
     def Delete(self, value):
         self.head = self.Delete_Key(self.head, value)
+
 
 BST = BinarySearchTree()

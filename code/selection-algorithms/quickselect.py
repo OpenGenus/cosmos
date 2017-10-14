@@ -14,7 +14,7 @@ def quickselect(items, item_index):
 
         # partition
         i = l
-        for j in xrange(l+1, r+1):
+        for j in xrange(l + 1, r + 1):
             if lst[j] < lst[l]:
                 i += 1
                 lst[i], lst[j] = lst[j], lst[i]
@@ -26,9 +26,9 @@ def quickselect(items, item_index):
         if index == i:
             return lst[i]
         elif index < i:
-            return select(lst, l, i-1, index)
+            return select(lst, l, i - 1, index)
         else:
-            return select(lst, i+1, r, index)
+            return select(lst, i + 1, r, index)
 
     if items is None or len(items) < 1:
         return None

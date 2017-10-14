@@ -5,6 +5,7 @@
 import math
 import sys
 
+
 class PriorityQueue:
     # Based on Min Heap
     def __init__(self):

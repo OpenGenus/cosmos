@@ -19,13 +19,14 @@ class graph:
     def vertex_neighbors(self, v):
         return self.neighbors[v]
 
+
 def is_cyclic_graph(G):
 
     Q = []
     V = G.vertices()
 
     # initially all vertices are unexplored
-    layer = { v: -1 for v in V }
+    layer = {v: -1 for v in V}
 
     for v in V:
 

@@ -1,5 +1,5 @@
 
-def encrypt (key, text):
+def encrypt(key, text):
 
     alfa = "abcdefghijklmnopqrstuvwxyz"
     msg_to_be_decrypted = text.replace(' ', '')
@@ -10,13 +10,12 @@ def encrypt (key, text):
         letter_in_key = key[i % len(key)]
         shift = (alfa.find(letter_in_key) + 1) % 26
         index_of_letter = alfa.find(msg_to_be_decrypted[i])
-        encrypted += alfa[(index_of_letter + shift)%26]
+        encrypted += alfa[(index_of_letter + shift) % 26]
 
     return encrypted
 
 
-
-def decrypt (key, encrypted):
+def decrypt(key, encrypted):
 
     alfa = "abcdefghijklmnopqrstuvwxyz"
     decrypted = ''
@@ -27,7 +26,6 @@ def decrypt (key, encrypted):
         decrypted += alfa[shift]
 
     return decrypted
-
 
 
 key = 'abc'

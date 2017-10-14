@@ -1,14 +1,15 @@
 def isPowerOf2(num):
-	return ((num & (num-1))==0) and (num != 0)
+    return ((num & (num - 1)) == 0) and (num != 0)
+
 
 try:
-	input = raw_input
+    input = raw_input
 except NameError:
-	pass
+    pass
 
 n = int(input("Enter a number: "))
 
 if isPowerOf2(n):
-	print("Power of 2 spotted!")
+    print("Power of 2 spotted!")
 else:
-	print("Not a power of 2")
+    print("Not a power of 2")
