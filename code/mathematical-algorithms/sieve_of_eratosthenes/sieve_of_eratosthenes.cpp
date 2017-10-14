@@ -1,43 +1,39 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
+// Part of Cosmos by OpenGenus Foundation
+void SieveOfEratosthenes(int n)
+{
+	// Create a boolean array "prime[0..n]" and initialize
+	// all entries it as true. A value in prime[i] will
+	// finally be false if i is Not a prime, else true.
+	vector<bool> prime(n+1, true);
 
-/* Part of Cosmos by OpenGenus Foundation */
-void sieve_of_eratosthenes(std::vector<int>& primes, const int max) {
-	std::vector<bool> isPrime;
-	// Initially, all the numbers are considered to be prime
-	for (int i = 0; i <= max; i++) {
-		isPrime.push_back(true);
-	}
-	// 0 and 1 are obviously not prime, so we set it in the isPrime vector
-	isPrime[0] = isPrime[1] = false;
-
-	// Iterate from 2 up to the square root of max
-	for (int i = 2; i*i <= max; i++) {
-		if (isPrime[i]) {
-			// If the current number is prime, then set i^2, i^2+i, i^2+2i, ... as not prime
-			for (int j = i * i; j <= max; j += i) {
-				isPrime[j] = false;
-			}
+	for (int p=2; p*p<=n; p++)
+	{
+		// If prime[p] is not changed, then it is a prime
+		if (prime[p] == true)
+		{
+			// Update all multiples of p
+			for (int i=p*2; i<=n; i += p)
+				prime[i] = false;
 		}
 	}
 
-	// Iterate from 2 to max again. All the numbers, that are still set to true, are prime
-	for (int i = 2; i <= max; i++) {
-		if (isPrime[i]) {
-			primes.push_back(i);
-		}
-	}
+	// Print all prime numbers
+	for (int p=2; p<=n; p++)
+		if (prime[p])
+			cout << p << " ";
 }
 
-int main() {
-	int n = 100;
-	std::vector<int> primes;
-	// Find primes up to n
-	sieve_of_eratosthenes(primes, n);
-
-	std::cout << "Primes up to " << n << " are:" << std::endl;
-	for (auto prime : primes) {
-		std::cout << prime << " ";
-	}
+// Driver Program to test above function
+int main()
+{
+	int n;
+	cout<<"Enter the number";
+	cin>>n;
+	cout << "Following are the prime numbers smaller "
+		 << " than or equal to " << n << endl;
+	SieveOfEratosthenes(n);
+	cout << "\n";
 	return 0;
 }
