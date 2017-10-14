@@ -1,3 +1,5 @@
+
+// Author Yatharth Shah
 # Exponential Search
 
 Exponential search involves two steps:
