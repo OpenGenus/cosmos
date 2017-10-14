@@ -11,7 +11,7 @@ func mergeSort(_ array: inout [Int]) {
     mergeSort(&array, low:0, high: array.count - 1)
 }
 
-func mergeSort(_ array: inout [Int], low: Int, high: Int) {
+private func mergeSort(_ array: inout [Int], low: Int, high: Int) {
     if low < high {
         let mid = (low + high) / 2
         mergeSort(&array, low:low, high:mid)
@@ -20,7 +20,7 @@ func mergeSort(_ array: inout [Int], low: Int, high: Int) {
     }
 }
 
-func merge(_ array: inout [Int], low: Int, mid: Int, high: Int) {
+private func merge(_ array: inout [Int], low: Int, mid: Int, high: Int) {
     var tmpArray = [Int](array)
     var i = low, j = mid + 1, k = low
     while i <= mid && j <= high {
@@ -45,8 +45,3 @@ func merge(_ array: inout [Int], low: Int, mid: Int, high: Int) {
     }
 }
 
-func swap(_ array: inout [Int], at indexA: Int, and indexB: Int) {
-    let tmp = array[indexA]
-    array[indexA] = array[indexB]
-    array[indexB] = tmp
-}
