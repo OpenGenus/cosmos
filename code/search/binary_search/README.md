@@ -10,9 +10,6 @@ The binary search algorithm is used for finding an element in a sorted array. It
 4. If the value is less or greater than the target, the search continues in the lower or upper half of the array.  
 5. The same procedure as in step 2-4 continues, but with a smaller part of the array. This continues until the target element is found or until there are no elements left. 
 
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
-
-
 # Algorithm for Binary search
 
 set first = 1, last = N, mid = N/2
