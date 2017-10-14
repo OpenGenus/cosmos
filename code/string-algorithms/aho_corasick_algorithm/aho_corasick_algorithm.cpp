@@ -1,5 +1,5 @@
 #include<iostream>
-#include <bits/stdc++.h>]
+#include <bits/stdc++.h>
 using namespace std;
 const int MAXC = 26;
 const int MAXS = 500;
@@ -105,7 +105,7 @@ int main()
 	cout<<"Enter number of test words you want.\n";
 	int num;
 	cin>>num;
-    string arr[] = {"github"};
+    string arr[num];
 	cout<<"Enter test words.\n";
 		for(int i=0;i<num;i++)
 		cin>>arr[i];
