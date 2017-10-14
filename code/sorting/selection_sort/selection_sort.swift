@@ -8,7 +8,7 @@
 import Foundation
 
 func selectionSort(_ array: inout [Int]) {
-    for i in 0..<array.count - 1 {
+    for i in stride(from: 0, to: array.count - 1, by: 1) {
         var min = i
         for j in i+1..<array.count {
             if array[j] < array[min] {
