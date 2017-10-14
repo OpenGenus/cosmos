@@ -1,7 +1,7 @@
 # part of cosmos by OpenGenus Foundation
 
 from collections import defaultdict
-
+# Part of Cosmos by OpenGenus Foundation
 class Graph:
 	def __init__(self,vertices):
 		self.V = vertices # # of vertices
