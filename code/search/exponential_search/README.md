@@ -15,3 +15,5 @@ Once we find an index i (after repeated doubling of i), we know that the element
 
 Exponential Binary Search is particularly useful for unbounded searches, where size of array is infinite. Please refer Unbounded Binary Search for an example.
 It works better than Binary Search for bounded arrays also when the element to be searched is closer to the first element.
+
+# Collaborative effort by [OpenGenus](https://github.com/opengenus)
