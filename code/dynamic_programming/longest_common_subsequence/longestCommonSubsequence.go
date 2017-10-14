@@ -3,6 +3,12 @@ package main
 
 import "fmt"
 
+/*
+Expect Output
+The length of LCS of ABCDEFGHIJKLMNOPQRABCEDG adn DEFNMJABCDEG is 9
+
+*/
+
 func max(n1, n2 int) int {
 	if n1 > n2 {
 		return n1
