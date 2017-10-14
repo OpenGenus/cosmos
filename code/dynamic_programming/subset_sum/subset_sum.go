@@ -5,6 +5,15 @@ import "fmt"
 
 const TargetSize int = 200
 
+/*
+Expected Output:
+Current subset is [1 4 8 9 34 23 17 32]
+We can't get sum 113 from set
+We can get sum 9 from set
+We can't get sum 15 from set
+We can't get sum 20 from set
+We can get sum 31 from set
+*/
 func subSetSum(subset []int, dp [][]int) {
 	for i := range dp {
 		dp[i] = make([]int, TargetSize+1)
@@ -36,6 +45,7 @@ func main() {
 	subSetSum(input, dp)
 
 	sum := []int{113, 9, 15, 20, 31}
+	fmt.Printf("Current subset is %v\n", input)
 	for _, v := range sum {
 		if dp[len(input)][v] == 0 {
 			fmt.Printf("We can't get sum %d from set\n", v)
