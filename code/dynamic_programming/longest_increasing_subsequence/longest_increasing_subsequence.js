@@ -18,15 +18,13 @@ function longestIncreasingSubsequence(inputArray) {
   }
 
   for (i = 1; i < arrLength; i++) {
-    j = 0;
-    while (j < i) {
-      if (inputArray[j] < inputArray[i]) {
+    for (j = 0; j < i; j++)
+      if (
+        inputArray[j] < inputArray[i] &&
+        subsequenceLengthArray[j] + 1 > subsequenceLengthArray[i]
+      ) {
         subsequenceLengthArray[i] = subsequenceLengthArray[j] + 1;
-      } else {
-        subsequenceLengthArray[i] = subsequenceLengthArray[i - 1];
       }
-      j++;
-    }
   }
 
   return Math.max(...subsequenceLengthArray);
