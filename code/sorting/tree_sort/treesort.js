@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 var BinarySearchTree = function(value) {
   var instance = Object.create(BinarySearchTree.prototype);
 

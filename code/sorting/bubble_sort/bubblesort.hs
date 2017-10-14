@@ -1,3 +1,4 @@
+-- Part of Cosmos by OpenGenus Foundation
 bubblesort :: (Ord a) => [a] -> [a]
 bubblesort [] = []
 bubblesort [x] = [x]

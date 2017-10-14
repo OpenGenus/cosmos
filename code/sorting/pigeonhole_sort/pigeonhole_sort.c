@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// Part of Cosmos by OpenGenus Foundation
 int main(){
     printf("enter the size of array to be sorted:\n");
     int n; scanf("%d", &n);

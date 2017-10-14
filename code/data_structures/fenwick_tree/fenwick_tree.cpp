@@ -25,7 +25,7 @@ class BIT
     }
 
     // updates the element at index idx by val
-    int update(int idx, int val) // log(n) complexity
+    void update(int idx, int val) // log(n) complexity
     {
         while(idx <= n)
         {
