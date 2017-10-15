@@ -1,4 +1,4 @@
-# Coin change
+# Coin Change
 
 ## Description
 

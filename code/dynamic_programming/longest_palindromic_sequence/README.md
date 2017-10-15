@@ -1,4 +1,4 @@
-# Longest palindromic sequence
+# Longest Palindromic Sequence
 
 ## Description
 
