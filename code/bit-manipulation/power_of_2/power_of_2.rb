@@ -8,6 +8,7 @@
 
 
 def isPowerOfTwo(num)
+    # 0 is excluded
     num != 0 && (num & (num - 1)) == 0
   end
   
