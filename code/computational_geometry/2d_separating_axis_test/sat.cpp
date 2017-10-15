@@ -70,7 +70,7 @@ int main(){
     inputPolygon2.push_back(vec2(0, 0));
     inputPolygon2.push_back(vec2(7, 0));
     
-    cout << (sat() ? "intersects" : "not intersecting") << endl;
+    cout << "The two polygons " << (sat() ? "" : "do not ") << "intersect\n";
     
     return 0;
 }
