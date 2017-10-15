@@ -1,4 +1,6 @@
-/* Part of Cosmos by OpenGenus Foundation */
+/* Part of Cosmos by OpenGenus Foundation 
+ * RSA(Rivest–Shamir–Adleman) Public Key Cryptosystem
+*/
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
