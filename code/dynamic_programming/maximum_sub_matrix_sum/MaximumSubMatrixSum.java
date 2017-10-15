@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Given a 2D array, find the maximum sum subarray in it
  */
-class MaxSubMatrixSum
+public class MaximumSubMatrixSum
 {
     public static void main (String[] args) throws java.lang.Exception
     {
