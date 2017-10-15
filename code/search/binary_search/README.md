@@ -28,4 +28,6 @@ set first = 1, last = N, mid = N/2
   }
 return index of matching item, or -1 if not found
 
-## A massive collaborative effort by OpenGenus Foundation
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
