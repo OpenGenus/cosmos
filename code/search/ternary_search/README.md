@@ -1,6 +1,6 @@
-# cosmos 
+/* Part of Cosmos by OpenGenus Foundation */
 
-## Ternary Search
+# Ternary Search
 A ternary search algorithm is a technique in computer science for finding the minimum or maximum of a unimodal function. A ternary search determines either that the minimum or maximum cannot be in the first third of the domain or that it cannot be in the last third of the domain, then repeats on the remaining third. A ternary search is an example of a divide and conquer algorithm.
 
 ## The function
