@@ -1,3 +1,5 @@
+
+/* Part of Cosmos by OpenGenus Foundation */
 public class MatrixMult
 {
   public static int[][] m;         // storage for the # of multiplications
