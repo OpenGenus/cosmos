@@ -45,4 +45,10 @@ The gap starts out as the length of the list *n* being sorted divided by the shr
 
 [Wikipedia - Comb sort](https://en.wikipedia.org/wiki/Comb_sort)
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
