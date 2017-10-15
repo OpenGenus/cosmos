@@ -25,4 +25,7 @@ If you want to determine the positions of the occurrence of the number 7 in this
 The time complexity of the linear search is :-
 O(N), because each element in an array is compared only once.
 
-## A massive collaborative effort by OpenGenus Foundation
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
