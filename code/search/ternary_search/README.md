@@ -5,8 +5,8 @@ A ternary search algorithm is a technique in computer science for finding the mi
 
 ## The function
 Assume we are looking for a maximum of f(x) and that we know the maximum lies somewhere between A and B. For the algorithm to be applicable, there must be some value x such that
-for all a,b with A ≤ a < b ≤ x, we have f(a) < f(b), and
-for all a,b with x ≤ a < b ≤ B, we have f(a) > f(b).
+    for all a,b with A ≤ a < b ≤ x, we have f(a) < f(b), and
+    for all a,b with x ≤ a < b ≤ B, we have f(a) > f(b).
 
 ### Iterative algorithm
 def ternarySearch(f, left, right, absolutePrecision):
