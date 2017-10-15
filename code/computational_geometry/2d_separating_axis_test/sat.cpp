@@ -70,17 +70,6 @@ int main(){
     inputPolygon2.push_back(vec2(0, 0));
     inputPolygon2.push_back(vec2(7, 0));
     
-    //example set 2
-//        inputPolygon2.push_back(vec2(5, 5));
-//        inputPolygon2.push_back(vec2(5, 10));
-//        inputPolygon2.push_back(vec2(15, 10));
-//        inputPolygon2.push_back(vec2(15, 5));
-//
-//        inputPolygon1.push_back(vec2(20, 5));
-//        inputPolygon1.push_back(vec2(20, 10));
-//        inputPolygon1.push_back(vec2(25, 10));
-//        inputPolygon1.push_back(vec2(25, 5));
-    
     cout << (sat() ? "intersects" : "not intersecting") << endl;
     
     return 0;
