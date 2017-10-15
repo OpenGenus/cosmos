@@ -23,13 +23,10 @@ public class Coprime{
 			
 // If the divisor is greater than the min between the two, it did not find a factor between the two
 			if(divisor > Math.min(id1, id2))
-				System.out.println(id1 + " and " + id2 + ", TRANSFORM AND COMBINE!");
+				System.out.println(id1 + " and " + id2 + ", are coprime");
 // Otherwise, the two numbers are not coprime				
 			else
-				System.out.println(id1 + " and " + id2 + ", separate and move out.");
+				System.out.println(id1 + " and " + id2 + ", are not coprime");
 		}
-		
-		stdin.close();
 	}
-	
 }
