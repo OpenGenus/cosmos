@@ -1,4 +1,6 @@
 /**
+ * Part of Cosmos by OpenGenus Foundation.
+ *
  * This file shows you how to determine if a graph is bipartite or not.
  * This can be achieved in linear time by coloring the visited nodes.
  *
