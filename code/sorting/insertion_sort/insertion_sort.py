@@ -17,8 +17,10 @@ def random_array(num):
 def insertion_sort(array):
     for i in range(len(array)):  # Iterate through the array
         j = i
-        while j > 0 and array[j - 1] > array[j]:  # Compare the index and the index before
-            array = swap(array, j, j - 1)  # If they're out of order then swap and decrement
+        # Compare the index and the index before
+        while j > 0 and array[j - 1] > array[j]:
+            # If they're out of order then swap and decrement
+            array = swap(array, j, j - 1)
             j -= 1
 
     return array  # Return the array

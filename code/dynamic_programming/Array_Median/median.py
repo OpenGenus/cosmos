@@ -4,6 +4,7 @@ import sys
 
 # Part of Cosmos by OpenGenus Foundation
 
+
 def median(nums):
     """
         Calculates the median of a list of numbers.
@@ -15,10 +16,10 @@ def median(nums):
 
     # If the length is odd, the median is the middle value of the sorted list.
     if odd:
-        return sorted_nums[(len_nums-1)//2]
+        return sorted_nums[(len_nums - 1) // 2]
 
     # Otherwise it's the average of the middle two.
-    return (nums[len_nums//2] + nums[(len_nums//2)-1])/2
+    return (nums[len_nums // 2] + nums[(len_nums // 2) - 1]) / 2
 
 
 def main():
@@ -59,7 +60,7 @@ def test_main():
 
     main.__globals__['print'] = print_patch
 
-    #patch main's stdin
+    # patch main's stdin
     class stdin_patch():
         def read(self):
             return "1 2 3 4 5.5 6 7 8 9\n"

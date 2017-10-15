@@ -3,6 +3,8 @@ Part of Cosmos by OpenGenus Foundation
 '''
 
 # stack class
+
+
 class Stack:
     def __init__(self):
         self.items = []

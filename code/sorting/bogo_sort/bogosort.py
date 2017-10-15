@@ -1,10 +1,13 @@
 import random
- # Part of Cosmos by OpenGenus Foundation
+# Part of Cosmos by OpenGenus Foundation
+
+
 def bogosort(l):
     while not in_order(l):
         random.shuffle(l)
     return l
- 
+
+
 def in_order(l):
     if not l:
         return True
