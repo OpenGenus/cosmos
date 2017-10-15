@@ -1,14 +1,14 @@
 # cosmos 
 
-# Ternary Search
+## Ternary Search
 A ternary search algorithm is a technique in computer science for finding the minimum or maximum of a unimodal function. A ternary search determines either that the minimum or maximum cannot be in the first third of the domain or that it cannot be in the last third of the domain, then repeats on the remaining third. A ternary search is an example of a divide and conquer algorithm.
 
-# The function
+## The function
 Assume we are looking for a maximum of f(x) and that we know the maximum lies somewhere between A and B. For the algorithm to be applicable, there must be some value x such that
 for all a,b with A ≤ a < b ≤ x, we have f(a) < f(b), and
 for all a,b with x ≤ a < b ≤ B, we have f(a) > f(b).
 
-# Iterative algorithm
+### Iterative algorithm
 def ternarySearch(f, left, right, absolutePrecision):
     """
     Find maximum of unimodal function f() within [left, right]
@@ -28,7 +28,7 @@ def ternarySearch(f, left, right, absolutePrecision):
             right = rightThird
 
 
-# Recursive algorithm
+### Recursive algorithm
 def ternarySearch(f, left, right, absolutePrecision):
     '''
     left and right are the current bounds; 
@@ -46,4 +46,4 @@ def ternarySearch(f, left, right, absolutePrecision):
         return ternarySearch(f, left, rightThird, absolutePrecision)
         
         
- # Collaborative effort by [OpenGenus](https://github.com/opengenus)
+ ## Collaborative effort by [OpenGenus](https://github.com/opengenus)
