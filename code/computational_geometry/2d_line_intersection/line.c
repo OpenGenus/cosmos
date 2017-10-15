@@ -60,9 +60,9 @@ int main() {
     if(intersectionpoint.x >= min(a.x, b.x) && intersectionpoint.x <= max(a.x, b.x) &&
        intersectionpoint.y >= min(a.y, b.y) && intersectionpoint.y <= max(a.y, b.y)){
         printf("intersection: %f %f", intersectionpoint.x, intersectionpoint.y);
-    }else
+    } else {
         printf("no intersection");
-    
+    }
     return 0;
 }
 
