@@ -8,4 +8,4 @@ Search algorithms can be classified based on their mechanism of searching. Linea
 
 Search functions are also evaluated on the basis of their complexity, or maximum theoretical run time.
 
-## Collaborative effort by [OpenGenus](https://github.com/opengenus)
+## A massive collaborative effort by OpenGenus Foundation
