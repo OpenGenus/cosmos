@@ -38,21 +38,26 @@ def longest_decreasing_seq(numbers):
 
         lds[i].append(numbers[i])
     return lds
-        
+
+def longest_bitonic_seq(numbers):
+    lis = longest_increasing_seq(numbers)
+    lds = longest_decreasing_seq(numbers)
+
+    # now let's find the maxmimum
+    maxi = len(lis[0]+lds[0])
+    output = lis[0][:-1]+lds[0][::-1]
+
+    for i in xrange(1, len(numbers)):
+        if len(lis[i]+lds[i]) > maxi:
+            maxi = len(lis[i]+lds[i])
+            output = lis[i][:-1]+lds[i][::-1]
+            
+    return output
+
 # you can use any input format
 # format the input such that the array of numbers looks like below
 numbers = [1, 11, 2, 10, 4, 5, 2, 1]
 
-lis = longest_increasing_seq(numbers)
-lds = longest_decreasing_seq(numbers)
-
-# now let's find the maxmimum
-maxi = len(lis[0]+lds[0])
-output = lis[0][:-1]+lds[0][::-1]
-
-for i in xrange(1, len(numbers)):
-    if len(lis[i]+lds[i]) > maxi:
-        maxi = len(lis[i]+lds[i])
-        output = lis[i][:-1]+lds[i][::-1]
+output = longest_bitonic_seq(numbers)
 
 print output
