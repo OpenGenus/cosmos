@@ -1,11 +1,23 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 
 long long p, q, n, t, d, e, m[100], en[100];
+/*
+    p: prime 1
+    q: prime 2
+    n: p*q
+    t: euler totient function phi(n)
+    e: encryption key
+    d: decryption key
+
+    Public Key: n, e
+    Private Key: n, d   (or p, q, t)
+*/
 char msg[100];
 
-int prime(int n)
+bool prime(int n)
 {
 	if ( n == 1 )
 		return 0;
@@ -41,6 +53,7 @@ void chooseED()
 	}
 }
 
+// fast modular exponentiation, O(log n)
 long long modular_pow(long long base, long long exponent, long long modulus)
 {
     long long result = 1;
