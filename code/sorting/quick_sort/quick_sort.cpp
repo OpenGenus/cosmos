@@ -10,7 +10,7 @@
 
 /*
     Part of Cosmos by OpenGenus Foundation
- */
+*/
 
 /*
     quick sort synopsis
@@ -33,7 +33,7 @@ void quicksort(_Random_Acccess_Iter lo,
 template<typename _Random_Acccess_Iter>
 void quicksort(_Random_Acccess_Iter lo, _Random_Acccess_Iter hi);
 
-// implementation for 'pointer of PDO(Plain Old data structure)'
+// implementation for 'pointer of POD(Plain Old Data structure)'
 // int* explicit specialization
 template<typename _Compare>
 int *_partition(int *lo, int *hi, _Compare comp);
@@ -92,7 +92,7 @@ void quicksort(_Random_Acccess_Iter lo, _Random_Acccess_Iter hi) {
     }
 }
 
-// implementation for 'pointer of PDO(Plain Old data structure)'
+// implementation for 'pointer of POD(Plain Old Data structure)'
 // int* explicit specialization
 template<typename _Compare>
 int *_partition(int *lo, int *hi, _Compare comp) {
