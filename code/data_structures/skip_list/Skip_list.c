@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
- 
+// Part of Cosmos by OpenGenus Foundation
 #define SKIPLIST_MAX_LEVEL 6
  
 typedef struct snode {
