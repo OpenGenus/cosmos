@@ -50,12 +50,6 @@ int main() {
     vec2 c; c.x=10; c.y=10;
     vec2 d; d.x=20; d.y=3;
     
-    //example set 2
-    // vec2 a; a.x=10; a.y=3;
-    // vec2 b; b.x=20; b.y=3;
-    // vec2 c; c.x=10; c.y=5;
-    // vec2 d; d.x=20; d.y=5;
-    
     vec2 intersectionpoint = intersection(a,b,c,d);
     if(intersectionpoint.x >= min(a.x, b.x) && intersectionpoint.x <= max(a.x, b.x) &&
        intersectionpoint.y >= min(a.y, b.y) && intersectionpoint.y <= max(a.y, b.y)){
