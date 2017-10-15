@@ -1,7 +1,4 @@
-// cosmos
-
-package com.sanfoundry.setandstring;
- 
+// cosmos 
 import java.util.Scanner;
  
 public class SearchStringUsingDFA
@@ -10,20 +7,10 @@ public class SearchStringUsingDFA
  
     public static int getNextState(char[] pat, int M, int state, int x)
     {
-        /*
-         * If the character c is same as next character in pattern,
-         * then simply increment state
-         */
         if (state < M && x == pat[state])
             return state + 1;
         int ns, i;
-        /*
-         * ns stores the result which is next state
-         * ns finally contains the longest prefix which is also suffix
-         * in "pat[0..state-1]c"
-         * Start from the largest possible value and stop when you find
-         * a prefix which is also suffix
-         */
+        
         for (ns = state; ns > 0; ns--)
         {
             if (pat[ns - 1] == x)
@@ -39,11 +26,6 @@ public class SearchStringUsingDFA
         }
         return 0;
     }
- 
-    /*
-     * This function builds the TF table which represents Finite Automata for a
-     * given pattern
-     */
     public static void computeTF(char[] pat, int M, int[][] TF)
     {
         int state, x;
@@ -51,10 +33,6 @@ public class SearchStringUsingDFA
             for (x = 0; x < NO_OF_CHARS; ++x)
                 TF[state][x] = getNextState(pat, M, state, x);
     }
- 
-    /*
-     * Prints all occurrences of pat in txt
-     */
     public static void search(char[] pat, char[] txt)
     {
         int M = pat.length;
