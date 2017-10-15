@@ -1,13 +1,14 @@
 // C++ program to impleament cycle sort
 #include <iostream>
+#include <vector>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // Function sort the array using Cycle sort
-void cycleSort (int arr[], int n)
+void cycleSort (vector<int>& arr)
 {
     // traverse array elements and put it to on
     // the right place
-    for (int cycle_start=0; cycle_start<=n-2; cycle_start++)
+    for (int cycle_start=0; cycle_start<=arr.size()-2; cycle_start++)
     {
         // initialize item as starting point
         int item = arr[cycle_start];
@@ -15,7 +16,7 @@ void cycleSort (int arr[], int n)
         // Find position where we put the item. We basically
         // count all smaller elements on right side of item.
         int pos = cycle_start;
-        for (int i = cycle_start+1; i<n; i++)
+        for (int i = cycle_start+1; i<arr.size(); i++)
             if (arr[i] < item)
                 pos++;
 
@@ -39,7 +40,7 @@ void cycleSort (int arr[], int n)
             pos = cycle_start;
 
             // Find position where we put the element
-            for (int i = cycle_start+1; i<n; i++)
+            for (int i = cycle_start+1; i<arr.size(); i++)
                 if (arr[i] < item)
                     pos += 1;
 
@@ -59,18 +60,17 @@ void cycleSort (int arr[], int n)
 // Main Function
 int main()
 {
-    int sz;
-    cout<<"Enter the size of array : ";
-    cin>>sz;//size of array
-    int arr[sz];
-    int n = sizeof(arr)/sizeof(arr[0]);
-    cout<<"Enter Elements : ";
-    for(int m=0; m<sz; m++)
-        cin>>arr[m];
-    cycleSort(arr,  n) ;
+    vector<int> arr;
+    cout << "Enter the elements of the array: ";
+    int n;
+    while(cin >> n)
+    {
+        arr.push_back(n);
+    }
+    cycleSort(arr);
 
     cout << "\nAfter sort : " <<endl;
-    for(int i =0; i<n; i++)
+    for(int i =0; i<arr.size(); i++)
         cout << arr[i] << " ";
     return 0;
 }

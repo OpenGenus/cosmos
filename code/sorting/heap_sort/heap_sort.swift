@@ -19,7 +19,7 @@ func heapSort(_ array: inout [Int]) {
     }
 }
 
-func sink(array: inout [Int], at indexA: Int, to indexB: Int) {
+private func sink(array: inout [Int], at indexA: Int, to indexB: Int) {
     var i = indexA
     while (i + 1) * 2 - 1 <= indexB {
         let leftChild = (i + 1) * 2 - 1
@@ -37,4 +37,10 @@ func sink(array: inout [Int], at indexA: Int, to indexB: Int) {
             break
         }
     }
+}
+
+private func swap(_ array: inout [Int], at indexA: Int, and indexB: Int) {
+    let tmp = array[indexA]
+    array[indexA] = array[indexB]
+    array[indexB] = tmp
 }
