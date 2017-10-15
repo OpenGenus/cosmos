@@ -5,7 +5,7 @@ class QuickSort {
         int i = (low-1); 
         for (int j=low; j<high; j++) {
             if (arr[j] <= pivot) {	// if j'th element is less than or equal to the pivot
-                i++;				// then swap the i'th element with the j'tj element
+                i++;				// then swap the i'th element with the j'th element
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
