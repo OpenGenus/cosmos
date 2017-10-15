@@ -107,13 +107,15 @@ class neural_network:
         self.batch_size = len(inputs)
         self.forward_pass(inputs)
         a = self.layers[self.num_layers-1].activations
-        a[np.where(a==np.max(a))] = 1
-        a[np.where(a!=np.max(a))] = 0
+        num_classes = 10
+        targets = np.array([a]).reshape(-1)
+        a = np.asarray(a)
+        one_hot_labels = np.eye(num_classes)[a.astype(int)]
         total=0
         correct=0
         for i in range(len(a)):
             total += 1
-            if np.equal(a[i], labels[i]).all():
+            if np.equal(one_hot_labels[i], labels[i]).all():
                 correct += 1
         print("Accuracy: ", correct*100/total)
 
