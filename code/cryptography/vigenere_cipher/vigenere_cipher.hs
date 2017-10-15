@@ -40,7 +40,15 @@ encrypt = do
   putStrLn "Enter key: "
   key <- getLine
   putStrLn "Encrypted message: "
-  putStrLn $ vigenere mes cip
+  putStrLn $ vigenere mes key
+{- Ex.
+  encrypt
+  Enter message to be encrypted:
+  "Hello, World!"
+  Enter key:
+  "World"
+  Encrypted message:
+  "CAZCZ, ZJMHR!" -} 
 
 decrypt :: IO ()
 decrypt = do
@@ -50,3 +58,12 @@ decrypt = do
   key <- getLine
   putStrLn "Decrypted message: "
   putStrLn $ unVigenere mes key
+{- Ex.
+  decrypt
+  Enter message to be decrypted:
+  "CAZCZ, ZJMHR!"
+  Enter key:
+  "World"
+  Decrypted message:
+  "HELLO, WORLD!" -}
+  
