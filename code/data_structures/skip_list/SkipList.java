@@ -1,9 +1,6 @@
-// cosmos
-
+// Part of Cosmos by OpenGenus Foundation
 import java.util.*;
 public class SkipList<E> {
-    // Stephanie grabbed this field and the random function from DSutil.java
-    // by Cliff Shaffer.
     /** Initialize the random variable */
     static private Random value = new Random(); // Hold the Random class object
     
