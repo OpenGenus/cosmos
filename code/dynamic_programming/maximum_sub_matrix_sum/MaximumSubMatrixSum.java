@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -91,3 +93,4 @@ public class MaximumSubMatrixSum
                                   ")(" + right + ", " + bottom + ")]");
     }
 }
+
