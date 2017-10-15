@@ -1,4 +1,4 @@
-//cosmos
+
 
 import java.io.*;
 import java.util.*;
@@ -56,7 +56,6 @@ public class MCM
 	// to multiply the number of matrices given and their given dimensions.
     public int minMCM()
     {
-    	// Algorithm defined in Arup's CS II notes.
     	// Basically we are looking for the optimal way to "split" the matrices, where k defines the "split".
     	for (int i = 1; i <= SIZE; i++)
     	{
