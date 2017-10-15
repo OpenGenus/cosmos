@@ -1,4 +1,6 @@
 // C program to reverse a stack using recursion
+// Part of Cosmos by OpenGenus Foundation
+
 #include<stdio.h>
 #include<stdlib.h>
 #define bool int
@@ -33,6 +35,7 @@ int main()
     print(s);
     return 0;
 }
+
 // Below is a recursive function that inserts an element
 // at the bottom of a stack.
 void insertAtBottom(struct sNode** top_ref, int item)
@@ -72,6 +75,24 @@ void reverse(struct sNode** top_ref)
            inserted at the bottom */
         insertAtBottom(top_ref, temp);
     }
+}
+
+ 
+/* Driveer program to test above functions */
+int main()
+{
+    struct sNode *s = NULL;
+    push(&s, 4);
+    push(&s, 3);
+    push(&s, 2);
+    push(&s, 1);
+ 
+    printf("\n Original Stack ");
+    print(s);
+    reverse(&s);
+    printf("\n Reversed Stack ");
+    print(s);
+    return 0;
 }
 
  

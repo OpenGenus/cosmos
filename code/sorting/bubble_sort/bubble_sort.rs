@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32> {
     for _ in 0..arr.len() {
         let mut flag = false;

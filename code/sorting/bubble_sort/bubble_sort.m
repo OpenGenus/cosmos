@@ -16,7 +16,7 @@
 @implementation BubbleSort
 
 - (void)sort:(NSMutableArray<NSNumber *> *)array {
-    for (int i = 0; i < array.count-1; i++) {
+    for (int i = 0; i + 1 < array.count; i++) {
         BOOL swapped = NO;
         for (int j = 0; j < array.count-1-i; j++) {
             if ([array[j] compare:array[j + 1]] == NSOrderedDescending) {

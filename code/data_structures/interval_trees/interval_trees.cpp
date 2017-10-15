@@ -23,6 +23,7 @@ ITNode * newNode(Interval i)
     temp->i = new Interval(i);
     temp->max = i.high;
     temp->left = temp->right = NULL;
+    return temp;
 };
  
 
