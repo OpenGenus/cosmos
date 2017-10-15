@@ -1,4 +1,4 @@
-# cosmos
+/* Part of Cosmos by OpenGenus Foundation */
 
 ## Search algorithms
 
