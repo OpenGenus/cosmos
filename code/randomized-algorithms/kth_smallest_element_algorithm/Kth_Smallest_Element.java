@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 
 import java.util.Random;
 import java.util.Scanner;
