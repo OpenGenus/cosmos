@@ -13,12 +13,7 @@ void selection_sort(std::vector<int> &v) {
 }
 
 int main() {
-	std::vector<int> v;
-	v.push_back(1);
-	v.push_back(5);
-	v.push_back(2);
-	v.push_back(3);
-	v.push_back(4);
+	std::vector<int> v{1, 5, 2, 3, 4};
 	selection_sort(v);
 	for (auto num : v) {
 		std::cout << num << " ";
