@@ -31,4 +31,4 @@ If the item is less than arr[pos], calculate the probe position of the left sub-
 ## Step4:
 Repeat until a match is found or the sub-array reduces to zero.
 
-## Collaborative effort by [OpenGenus](https://github.com/opengenus)
+## A massive collaborative effort by OpenGenus Foundation
