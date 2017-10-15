@@ -54,7 +54,6 @@ bool sat(){
             return true;
     }
     
-    
     //false = no intersection
     return false;
 }
