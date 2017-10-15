@@ -6,6 +6,12 @@ Given a set of coins `S` with values `{ S1, S2, ..., Sm }`,
 find the number of ways of making the change to a certain value `N`.
 There is an infinite quantity of coins and the order of the coins doesn't matter.
 
+For example:
+
+For `S = {1, 2, 3}` and `N = 4`, the number of possibilities is 4, that are:
+`{1,1,1,1}`, `{1,1,2}`, `{2,2}` and `{1,3}`. Note that the sets `{1,2,1}`, `{2,1,1}`
+and `{3,1}` don't count to solution as they are permutations of the other ones.
+
 ## Solution
 
 For each set of coins, there are two possibilities for each coin:
