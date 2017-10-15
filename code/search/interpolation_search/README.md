@@ -29,4 +29,6 @@ If the item is less than arr[pos], calculate the probe position of the left sub-
 ## Step4:
 Repeat until a match is found or the sub-array reduces to zero.
 
-## A massive collaborative effort by OpenGenus Foundation
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
