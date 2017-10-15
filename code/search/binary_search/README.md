@@ -30,4 +30,4 @@ set first = 1, last = N, mid = N/2
   }
 return index of matching item, or -1 if not found
 
-## Collaborative effort by [OpenGenus](https://github.com/opengenus)
+## A massive collaborative effort by OpenGenus Foundation
