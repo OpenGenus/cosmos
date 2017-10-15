@@ -25,8 +25,6 @@ def longest_decreasing_seq(numbers):
     lds = []
 
     # to make an n sized list
-    for _ in xrange(len(numbers)):
-        lds.append([])
     lds = [[] for _ in xrange(len(numbers))]
 
     #base case
@@ -39,6 +37,7 @@ def longest_decreasing_seq(numbers):
                 lds[i] = copy.copy(lds[j])
 
         lds[i].append(numbers[i])
+    return lds
         
 # you can use any input format
 # format the input such that the array of numbers looks like below
