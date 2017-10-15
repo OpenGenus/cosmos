@@ -104,7 +104,7 @@ class neural_network:
 
     def check_accuracy(self, filename, inputs, labels):
         dill.load_session(filename)
-        self.batch_size = 1
+        self.batch_size = len(inputs)
         self.forward_pass(inputs)
         a = self.layers[self.num_layers-1].activations
         a[np.where(a==np.max(a))] = 1
