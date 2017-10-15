@@ -2,7 +2,7 @@
 #include<queue>
 #include<cstring>
 #include<iostream>
-
+// Part of Cosmos by OpenGenus Foundation
 struct edge
 {
   int to;
