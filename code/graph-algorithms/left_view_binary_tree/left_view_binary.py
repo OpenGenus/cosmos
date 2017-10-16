@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 # A binary tree node
 class Node:
  

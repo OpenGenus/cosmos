@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 # Python program to check if a given graph is Eulerian of not using eulerian path identification
 #Complexity : O(V+E)
   

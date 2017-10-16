@@ -1,4 +1,4 @@
-
+# Part of Cosmos by OpenGenus Foundation
 def solve_tsp_dynamic(points):
     #calc all lengths
     all_distances = [[length(x,y) for y in points] for x in points]
