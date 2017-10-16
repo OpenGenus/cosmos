@@ -1,4 +1,4 @@
-
+# Part of Cosmos by OpenGenus Foundation
 def sortMedian(list):
     data = sorted(list)
     n = len(data)
