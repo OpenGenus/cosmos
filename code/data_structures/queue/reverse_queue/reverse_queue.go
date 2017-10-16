@@ -1,6 +1,20 @@
 // Part of Cosmos by OpenGenus Foundation
 package main
 
+/*
+Exptected output:
+Current Queue is [], Is Queue empty ? true
+Try to push 30 into Queue
+Try to push 12 into Queue
+Try to push 34 into Queue
+Try to push 2 into Queue
+Try to push 17 into Queue
+Try to push 88 into Queue
+Reverse Queue
+88 17 2 34 12 30
+
+
+*/
 import "fmt"
 
 type Queue []int
