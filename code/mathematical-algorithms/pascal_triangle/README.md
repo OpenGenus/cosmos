@@ -17,4 +17,10 @@ element, and each element will be the sum of the number above and to the left wi
 [Wikipedia - Pascal's Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle)
 
 
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
