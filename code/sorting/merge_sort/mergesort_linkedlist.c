@@ -90,7 +90,7 @@ node* merge(node *lroot, node *rroot)
     return root;
 }
 
-node* partition(node *root, int len)
+node* merge_sort(node *root, int len)
 {
     node *temp = root, *prev;
     int llen = 0;
@@ -108,8 +108,8 @@ node* partition(node *root, int len)
     }
     prev->next = NULL;
 
-    node *lroot = partition(root, llen);
-    node *rroot = partition(temp, len - llen);
+    node *lroot = merge_sort(root, llen);
+    node *rroot = merge_sort(temp, len - llen);
 
     temp = merge(lroot, rroot);
 
@@ -141,7 +141,7 @@ int main()
         len++;
     }
     printf("\n");
-    root = partition(root, len);
+    root = merge_sort(root, len);
     print(root);
     return 0;
 }
