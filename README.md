@@ -25,9 +25,7 @@ Following is the high-level structure of cosmos:
 * String algorithms
 * Unclassified 👻 
 
-Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
-
-# Maintainers
+Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` , `PHP
 
 This is a massive collaboration and to keep the quality intact and drive the vision in the proper direction, we have maintainers.
 
