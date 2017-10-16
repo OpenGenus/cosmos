@@ -10,6 +10,6 @@ def binomialCoeff(n, k):
 
     return C[k]
 n  = int(input())
-k = int(intput())
+k = int(input())
 
 print(binomialCoeff(n,k))
