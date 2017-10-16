@@ -1,4 +1,11 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter.
+# Quick Sort
+The Quicksort is a comparison sort algorithm. It has an average performance of O(n*log(n)).
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+## Procedure
+1. Chose an element from the array : the pivot
+2. Partition the array into sub-arrays :
+    - elements with lower values than the pivot
+    - elements with greater values than the pivot
+3. Apply recursively the 2nd Step on all partitions
+
+Collaborative effort by [OpenGenus](https://github.com/opengenus)
