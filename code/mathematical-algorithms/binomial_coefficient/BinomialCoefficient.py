@@ -1,4 +1,3 @@
-//binomial coefficient in python 3
 def binomialCoeff(n, k):
     C = [0 for i in range(k + 1)]
     C[0] = 1
