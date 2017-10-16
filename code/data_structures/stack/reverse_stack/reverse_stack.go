@@ -1,6 +1,19 @@
 // Part of Cosmos by OpenGenus Foundation
 package main
 
+/*
+Expect output
+Current Stack is [], Is Stack empty ? true
+Try to push 30 into Stack
+Try to push 12 into Stack
+Try to push 34 into Stack
+Try to push 2 into Stack
+Try to push 17 into Stack
+Try to push 88 into Stack
+Reverse Stack
+30 12 34 2 17 88
+
+*/
 import "fmt"
 
 type Stack []int
