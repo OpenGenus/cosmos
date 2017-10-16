@@ -5,23 +5,23 @@ import "fmt"
 
 type Queue []int
 
-func (s *Queue) Push(v int) {
-	*s = append(*s, v)
+func (q *Queue) Push(v int) {
+	*q = append(*q, v)
 }
 
-func (s *Queue) Pop() {
-	length := len(*s)
+func (q *Queue) Pop() {
+	length := len(*q)
 	if length != 0 {
-		(*s) = (*s)[1:]
+		(*q) = (*q)[1:]
 	}
 }
 
-func (s *Queue) Top() int {
-	return (*s)[0]
+func (q *Queue) Top() int {
+	return (*q)[0]
 }
 
-func (s *Queue) Empty() bool {
-	if len(*s) == 0 {
+func (q *Queue) Empty() bool {
+	if len(*q) == 0 {
 		return true
 	}
 
