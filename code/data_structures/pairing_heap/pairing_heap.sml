@@ -1,4 +1,5 @@
 (* Pairing heap - http://en.wikipedia.org/wiki/Pairing_heap *)
+(* Part of Cosmos by OpenGenus Foundation *)
 functor PairingHeap(type t
                     val cmp : t * t -> order) =
 struct
