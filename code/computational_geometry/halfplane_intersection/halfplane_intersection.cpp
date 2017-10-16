@@ -143,5 +143,5 @@ int main() {
         hpi.intersect(HalfPlane(Line(p1, p3), p2));
         hpi.intersect(HalfPlane(Line(p2, p3), p1));
     }
-    printf("%lf\n", hpi.perimeter());
+    cout << hpi.perimeter();
 }
