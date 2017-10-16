@@ -28,10 +28,7 @@ bool is_lapindrome(string str)
   sort(right.begin(), right.end());
 
   // equating and returning
-  if(left==right)
-    return true;
-  else
-    return false;
+  return left == right;
 }
 
 /*

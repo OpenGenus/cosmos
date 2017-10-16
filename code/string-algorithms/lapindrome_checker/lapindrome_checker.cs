@@ -50,15 +50,8 @@ namespace lapindrome_checker
             left = String.Concat(left.OrderBy(x => x));
             right = String.Concat(right.OrderBy(x => x));
 
-            // testing if equal
-            if (left == right)
-            {
-                return true;  // here string is lapindrome
-            }
-            else
-            {
-                return false;  // here string is not lapindrome
-            }
+            // testing if equal and returning
+            return left == right;
         }
     }
 

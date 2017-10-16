@@ -28,10 +28,7 @@ def is_lapindrome(string):
     right = "".join(right_sorted)
 
     # equating
-    if left == right:
-        return True
-    else:
-        return False
+    return left == right
 
 
 
