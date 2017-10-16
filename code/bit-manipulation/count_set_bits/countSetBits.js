@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 export default function countSetBits(n) {
   n = +n;
 
