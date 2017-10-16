@@ -24,8 +24,8 @@ class MinCostPath {
 		for (i = 1; i <= m; i++)
 			for (j = 1; j <= n; j++)
 				tc[i][j] = min(tc[i-1][j-1], 
-						tc[i-1][j], 
-						tc[i][j-1]) + costMatrix[i][j];
+				tc[i-1][j], 
+				tc[i][j-1]) + costMatrix[i][j];
 		
 		return tc[m][n];
 	}
@@ -38,9 +38,11 @@ class MinCostPath {
 	}
 	
 	public static void main(String args[]) {
-		int cost[][] = 	new int[][]{ {1, 2, 3},
-									{4, 8, 2},
-									{1, 5, 3} };
+		int cost[][] = 	new int[][]{ 
+					{1, 2, 3},
+					{4, 8, 2},
+					{1, 5, 3} 
+					};
 		System.out.println(minCost(cost, 2, 2));
 	}
 }
