@@ -24,6 +24,7 @@ Following is the high-level structure of cosmos:
 * Sorting	
 * String algorithms
 * Unclassified 👻 
+  * Genetic 👻 
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
