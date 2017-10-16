@@ -7,4 +7,5 @@ def count_digits(n):
     return count;
 
 if __name__ == 'main':
-    print(count_digits(25))
+    number = input(Give me a number)
+    print(count_digits(number))
