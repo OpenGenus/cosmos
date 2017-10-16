@@ -11,8 +11,6 @@ long int sum(long int a)
 	}
 	return s;
 }
- 
- 
 int main()
 {
 	long int t,n,s1;
