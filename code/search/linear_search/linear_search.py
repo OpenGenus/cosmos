@@ -19,4 +19,8 @@ for i in range(0, elem):
     arr.append(int(raw_input("Enter next no :")))
   
 find = input("Enter the number you want to find")
-print("Position of ", find, " is ", search(arr, find))
+position = search(arr, find)
+if( position >= 0):
+	print("Position of ", find, " is ", position)
+else:
+	print(find," not found")
