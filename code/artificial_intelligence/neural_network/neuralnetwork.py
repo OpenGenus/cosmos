@@ -24,16 +24,10 @@ class neural_network:
             print("== EPOCH: ", j, " ==")
             while i+batch_size != len(inputs):
                 self.error = 0  
-#                 input_batch = []
-#                 label_batch = []
-#                 # print(i)
-#                 for i in range(i, i+batch_size):
-#                     input_batch.append(inputs[i])
-#                     label_batch.append(labels[i])   
                 self.forward_pass(inputs[i:i+batch_size])
                 self.calculate_error(labels[i:i+batch_size)
                 self.back_pass(labels[i:i+batch_size])
-                i += 1
+                i += batch_size
             print("Error: ", self.error)
         dill.dump_session(filename)
 
