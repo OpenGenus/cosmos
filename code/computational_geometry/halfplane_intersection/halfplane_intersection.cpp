@@ -1,5 +1,5 @@
 #include <cmath>
-#include <cstdio>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -7,7 +7,8 @@ using namespace std;
 const double INF = 1e9;
 const double EPS = 1e-8;
 
-struct Point {
+class Point {
+public:
     double x, y;
     Point() {}
     Point(double x, double y): x(x), y(y) {}
@@ -21,14 +22,15 @@ struct Point {
         return x * a.y - a.x * y;
     }
     void scan() {
-        scanf("%lf%lf", &x, &y);
+        cin >> x >> y;
     }
-    void print() {
-        printf("%lf %lf\n", x, y);
+    void print() const {
+        cout << x << " " << y << "\n";
     }
 };
 
-struct Line {
+class Line {
+public:
     double a, b, c;
     Line() {}
     Line(double a, double b, double c): a(a), b(b), c(c) {}
@@ -47,8 +49,10 @@ struct Line {
     }
 };
 
-struct Segment {
+class Segment {
+private:
     Point A, B;
+public:
     Segment() {}
     Segment(Point A, Point B): A(A), B(B) {}
     bool intersects(const Line &l) const {
@@ -68,8 +72,10 @@ struct Segment {
     }
 };
 
-struct HalfPlane {
+class HalfPlane {
+private:
     double a, b, c;
+public:
     HalfPlane() {}
     HalfPlane(Line l, Point A) {
         if (l.a * A.x + l.b * A.y + l.c < 0) {
@@ -90,8 +96,10 @@ struct HalfPlane {
     }
 };
 
-struct HalfPlaneIntersector {
+class HalfPlaneIntersector {
+private:
     vector <Point> points;
+public:
     HalfPlaneIntersector() {
         points.push_back(Point(-INF, INF));
         points.push_back(Point(INF, INF));
