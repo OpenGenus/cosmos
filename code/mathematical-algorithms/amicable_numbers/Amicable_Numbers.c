@@ -7,9 +7,7 @@ long int sum(long int a)
 	for(i=1;i<=a/2;i++)
 	{
 		if(a%i==0)
-		{
 			s+=i;
-		}
 	}
 	return s;
 }
@@ -24,10 +22,9 @@ int main()
 		scanf("%ld",&n);
 		s1=sum(n);
 		if(n==sum(s1))
-		{
 			printf("Yes, amicable with %ld\n",s1);
-		}
-		else printf("No\n");
+		else
+			printf("No\n");
 	}
 	return 0;
 } 
