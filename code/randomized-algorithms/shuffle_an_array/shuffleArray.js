@@ -1,3 +1,5 @@
+// Part of Cosmos by OpenGenus Foundation
+
 // This is a JavaScript implementation of Fisher-Yates shuffle based on
 // [lodash/shuffle.js](https://github.com/lodash/lodash/blob/master/shuffle.js).
 // This use `crypto` module if possible to provide stronger pseudo randomness.
