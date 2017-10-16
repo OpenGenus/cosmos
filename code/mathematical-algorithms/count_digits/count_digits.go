@@ -1,15 +1,20 @@
+package main
+
+import "fmt"
+
 func countDigits(n int) int {
 	count := 0
 
-	if n == 0
+	if n == 0 {
 		return 1
+  }
 
-    for(n != 0){
-        count++;
-        n /= 10;
-    }
+  for n != 0 {
+    count++
+    n /= 10
+  }
 
-    return count;
+  return count
 }
 
 func main() {
