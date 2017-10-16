@@ -1,6 +1,6 @@
- /* Part of Cosmos by OpenGenus Foundation 
-  * Factorial without using recursion
-  */ 
+ # Part of Cosmos by OpenGenus Foundation 
+ # actorial without using recursion
+
 def factorial(n):
   f = 1
   for i in range(1, n +1):
