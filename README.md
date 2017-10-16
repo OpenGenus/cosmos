@@ -20,6 +20,7 @@ Following is the high-level structure of cosmos:
 * Greedy algorithms
 * Mathematical algorithms	
 * Randomized algorithms	
+* Recursion
 * Search 
 * Sorting	
 * String algorithms
