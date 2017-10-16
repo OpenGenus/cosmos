@@ -8,4 +8,10 @@ The Quicksort is a comparison sort algorithm. It has an average performance of O
     - elements with greater values than the pivot
 3. Apply recursively the 2nd Step on all partitions
 
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
