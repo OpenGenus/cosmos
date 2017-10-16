@@ -1,2 +1,4 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter
+# Linear search
+The linear search is very simple. It sequentially checks each element of a list until the correct element is found or until all elements have been searched. It has the average performance of O(n).
+
+Collaborative effort by [OpenGenus](https://github.com/opengenus)

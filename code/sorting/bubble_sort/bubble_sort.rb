@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def bubble_sort(array)
     n = array.length
     loop do
