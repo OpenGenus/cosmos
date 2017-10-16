@@ -1,5 +1,9 @@
 # Part of Cosmos by OpenGenus Foundation
 
+# Pattern matching
+# new_element = head
+# items = tail
+
 defmodule Stack do
   def new, do: [] 
   
