@@ -16,7 +16,7 @@
 @implementation SelectionSort
 
 - (void)sort:(NSMutableArray<NSNumber *> *)array {
-    for (int i = 0; i < array.count - 1; i++) {
+    for (int i = 0; i + 1 < array.count; i++) {
         int p = i;
         for (int j = i + 1; j < array.count; j++) {
             if ([array[j] compare:array[p]] == NSOrderedAscending) {

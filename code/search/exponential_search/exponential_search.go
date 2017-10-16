@@ -21,7 +21,7 @@ func binarySearch(data []int, left int, right int, value int) int {
 
 func min(a, b int) int {
 	if a < b {
-			return a
+		return a
 	}
 	return b
 }

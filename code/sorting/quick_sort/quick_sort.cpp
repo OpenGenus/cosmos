@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+/* Part of Cosmos by OpenGenus Foundation */
+
+#include <vector>
+#include <iostream>
+#include <algorithm> /* for random_shuffle */
 using namespace std;
 
 int partition(vector<int> &v, int lo, int hi)
@@ -17,25 +21,36 @@ int partition(vector<int> &v, int lo, int hi)
     return (i + 1);
 }
 
-void quick_sort(vector<int> &v, int lo, int hi)
+void quicksort(vector<int> &v, int lo, int hi)
 {
     if (lo < hi)
     {
         int pi = partition(v, lo, hi);
         // Separately sort elements
-        quick_sort(v, lo, pi - 1);
-        quick_sort(v, pi + 1, hi);
+        quicksort(v, lo, pi - 1);
+        quicksort(v, pi + 1, hi);
     } 
+}
+
+void print(vector<int> &v)
+{
+    for(int i = 0; i < v.size(); ++i)
+    {
+        cout << v[i] << " ";
+    }
+    cout << endl;
 }
 
 // Testing the quick sort implementation
 int main()
 {
-    vector<int> v = {2, 3, 6, 7, 4, 1};
-    quick_sort(v, 0, v.size());
-    for(int i = 0; i < v.size(); ++i)
-    {
-        cout << v[i] << " ";
-    }	
+    vector<int> v;
+    for (int i = 1; i <= 10; i++)
+      v.push_back(i);
+    random_shuffle(v.begin(), v.end());
+
+    print(v);
+    quicksort(v, 0, v.size() - 1);
+    print(v);
     return 0;
 }

@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 def quickSort(arr):
    quickSortHelper(arr,0,len(arr)-1)
 

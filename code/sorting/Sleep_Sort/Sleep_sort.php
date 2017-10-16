@@ -1,10 +1,10 @@
+<?php
 //Sleep Sort in PHP
 //Author: Amit Kr. Singh
 //Github: @amitsin6h
 //Social: @amitsin6h
 //OpenGenus Contributor
-
-<?php
+// Part of Cosmos by OpenGenus Foundation
 $list = range(1,10);
 shuffle($list);
 foreach($list as $li){
