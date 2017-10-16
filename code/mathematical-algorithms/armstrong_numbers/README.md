@@ -5,6 +5,12 @@ sum of the cubes of it's digits is equal to the number itself. It's a specific c
 For example 407 is an Armstrong Number; because 4³ + 0³ + 7³ = 64 + 0 + 343 = 407.
 
 ## Further Reading
-[Wikipedia - Narcissistic Number](https://en.wikipedia.org/wiki/Narcissistic_number)
+[Wikipedia - Narcissistic/ Armstrong Number](https://en.wikipedia.org/wiki/Narcissistic_number)
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
