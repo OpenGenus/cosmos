@@ -1,7 +1,6 @@
 #lang racket
 (define (binary-search val l)
   (cond [(empty? l) false]
-        [(= (length l) 1) (= val (first l))]
         [(equal? val (first l)) true]
         [else
          (define midpoint (quotient (length l) 2))
