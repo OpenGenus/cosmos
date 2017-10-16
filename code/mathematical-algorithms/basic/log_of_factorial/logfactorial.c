@@ -12,6 +12,6 @@ double log_factorial(int n){
 int main(){
 	int n;
 	scanf("%d",&n);
-	printf("%f",log_factorial(n));;
+	printf("%f",log_factorial(n));
 	return 0;
 }
