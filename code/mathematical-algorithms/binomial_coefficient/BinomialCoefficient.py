@@ -1,4 +1,4 @@
- /* Part of Cosmos by OpenGenus Foundation */ 
+# Part of Cosmos by OpenGenus Foundation 
 def binomialCoeff(n, k):
     C = [0 for i in range(k + 1)]
     C[0] = 1
