@@ -1,7 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
-<html>
-    <head>
-	<script>
+# Part of Cosmos by OpenGenus Foundation
+
         function clip (subjectPolygon, clipPolygon) {
  
             var cp1, cp2, s, e;
@@ -63,8 +61,3 @@
 	        drawPolygon(context, subjectPolygon, '#888','#8f8');
 	        drawPolygon(context, clippedPolygon, '#000','#0ff');
     	}
-        </script>
-    <body>
-    	<canvas id='canvas' width='400' height='400'></canvas>
-    </body>
-</html>
