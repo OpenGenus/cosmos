@@ -1,73 +1,73 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-#include <bits/stdc++.h>
+#include <vector>
 #include <stdlib.h>
 #include <iostream>
 
 using namespace std;
 
 /* UTILITY FUNCTIONS */
-void swap(int *a, int *b)
+void swap(int &a, int &b)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    int temp = a;
+    a = b;
+    b = temp;
 }
  
-void printarr(int a[], int n)
+void printarr(vector<int> &v)
 {
-    for (int i = 0; i < n; ++i)
-        printf("%d ", a[i]);
-    printf("\n");
+    for (int i = 0; i < v.size(); ++i)
+	cout << v[i] << " ";
+    cout << endl;
 }
 
-void fill(int a[], int size, int max)
+void fill(vector<int> &v, int max)
 {
-    for (int i = 0; i < size; ++i)
-        a[i] = rand() % max +1;
+    for (int i = 0; i < v.size(); ++i)
+        v[i] = rand() % max +1;
 }
 
-
-void partition(int a[], int low, int high, int &i, int &j)
+// three-way-partioning
+void partition(vector<int> &v, int low, int high, int &i, int &j)
 {
     if (high - low <= 1)
     {
-        if (a[high] < a[low])
-            swap(&a[high], &a[low]);
+        if (v[high] < v[low])
+            swap(v[high], v[low]);
         i = low;
         j = high;
         return;
     }
  
     int mid = low;
-    int pivot = a[high];
+    int pivot = v[high];
     while (mid <= high)
     {
-        if (a[mid]<pivot)
-            swap(&a[low++], &a[mid++]);
-        else if (a[mid]==pivot)
+        if (v[mid]<pivot)
+            swap(v[low++], v[mid++]);
+        else if (v[mid]==pivot)
             mid++;
-        else if (a[mid]>pivot)
-            swap(&a[mid], &a[high--]);
+        else if (v[mid]>pivot)
+            swap(v[mid], v[high--]);
     }
  
     i = low-1;
     j = mid; 
 }
  
-// 3-way partition based quick sort
-void quicksort(int a[], int low, int high)
+
+void quicksort(vector<int> &v, int low, int high)
 {
     if (low>=high) 
         return;
  
-    int i, j; //references
+    int i, j;
  
-    partition(a, low, high, i, j);
+    partition(v, low, high, i, j);
  
-    // Recur two halves
-    quicksort(a, low, i);
-    quicksort(a, j, high);
+    // Recursively sort two halves
+    quicksort(v, low, i);
+    quicksort(v, j, high);
 }
  
 // Driver program
@@ -75,17 +75,17 @@ int main()
 {
     int size=10;
     int maxRand=10;
-    printf("Input test array size: ");
+    cout << "Input test array size: ";
     cin >> size;
-    int a[size];
-    printf("Maximum random number: ");
+    vector<int> v(size);
+    cout << "Maximum random number: ";
     cin >> maxRand;
     
-    fill(a,size,maxRand);
-    printf("Unsorted: ");
-    printarr(a, size);
-    quicksort(a, 0, size - 1);
-    printf("Sorted:   ");
-    printarr(a, size);
+    fill(v,maxRand);
+    cout << "Unsorted: ";
+    printarr(v);
+    quicksort(v, 0, size - 1);
+    cout << "Sorted:   ";
+    printarr(v);
     return 0;
 }

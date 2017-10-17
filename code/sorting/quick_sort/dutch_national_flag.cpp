@@ -1,57 +1,55 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-#include<stdio.h>
-#include<iostream>
-
-void swap(int *a, int *b);
+#include <vector>
+#include <stdlib.h>
+#include <iostream>
 
 using namespace std;
 
-// Dutch National Flag Sort
-void flagSort(int a[], int arr_size)
+// Dutch National Flag Sort for array items 0,1,2
+void flagSort(vector<int> &v)
 {
     int lo = 0;
-    int hi = arr_size - 1;
+    int hi = v.size() - 1;
     int mid = 0;
  
     while (mid <= hi)
     {
-        switch (a[mid])
+        switch (v[mid])
         {
         case 0:
-            swap(&a[lo++], &a[mid++]);
+            swap(v[lo++], v[mid++]);
             break;
         case 1:
             mid++;
             break;
         case 2:
-            swap(&a[mid], &a[hi--]);
+            swap(v[mid], v[hi--]);
             break;
         }
     }
 }
  
 /* UTILITY FUNCTIONS */
-void swap(int *a, int *b)
+void swap(int &a, int &b)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    int temp = a;
+    a = b;
+    b = temp;
 }
  
-void printarr(int a[], int n)
+void printarr(vector<int> &v)
 {
-    for (int i = 0; i < n; ++i)
-        printf("%d ", a[i]);
-    printf("\n");
+    for (int i = 0; i < v.size(); ++i)
+        cout << v[i] << " ";
+    cout << endl;
 }
 
 
-void flagFill(int a[] , int size) 
+void flagFill(vector<int> &v) 
 {
-    for (int i = 0; i < size; ++i) {
-        a[i] = rand() % 2 + 1;
-    }
+    for (int i = 0; i < v.size(); ++i) 
+        v[i] = rand() % 3;  
 }
 
 // Driver program
@@ -59,17 +57,16 @@ int main()
 {
     int size=10;
     int maxRand=10;
-    printf("Input test array size: ");
+    cout << "Input test array size: ";
     cin >> size;
-    int a[size];
+    vector<int> v(size);
     
-    flagFill(a,size);
-    printf("Unsorted: ");
-    printarr(a, size);
-    flagSort(a,size);
-    printf("Sorted:   ");
-    printarr(a, size);
+    flagFill(v);
+    cout << "Unsorted: ";
+    printarr(v);
+    flagSort(v);
+    cout << "Sorted:   ";
+    printarr(v);
  
-    getchar();
     return 0;
 }
