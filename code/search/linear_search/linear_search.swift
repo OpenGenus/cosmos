@@ -16,10 +16,10 @@ import Foundation
  */
 
 
-func linear_search<T : Equatable>(array : [T],element : T)->Int{
-    for item in array {
+func linear_search<T : Equatable>(array : [T], element : T) -> Int{
+    for (index, item) in array.enumerated() {
         if(item == element){
-            return array.index(of: item)!
+            return index
         }
     }
     return -1
