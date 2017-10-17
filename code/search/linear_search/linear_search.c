@@ -12,7 +12,7 @@ int search(int arr[], int x)
 	int i=0, size= arr[0];
 	for (i=0; i<size; i++)
 		if (arr[i] == x)
-		return i;
+		    return i;
 	return -1;
 }
 
