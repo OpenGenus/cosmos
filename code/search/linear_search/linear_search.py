@@ -7,7 +7,7 @@ def linear_search(arr, x):
             return i
     return -1
 arr = []
-num_elems = int(raw_input("Enter how many elements you want: "))
+num_elems = int(raw_input("Enter how many elements do you want: "))
 for i in range(num_elems):
     num = int(raw_input("Enter next no :"))
     arr.append(num)
