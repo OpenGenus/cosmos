@@ -1,36 +1,36 @@
 /*
+Part of Cosmos by OpenGenus Foundation
+
 BY:- https://github.com/alphaWizard
 
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
-int maxsubarraysum(int ar[],int n)
+
+int max_subarray_sum(const vector<int>& ar)
 {
-int msf=ar[0],mth=ar[0];
-int p=0;
-if(ar[0]<0) ++p;
-  int maxi=ar[0];
-    for(int i=1;i<n;i++)
-            {
-        maxi=max(maxi,ar[i]); if(ar[i]<0) ++p;// for handing case of all negative array elements
+    int msf = ar[0], mth = max(ar[0], 0);
+    int p = 0;
+    if(ar[0] < 0) ++p;
+    int maxi = ar[0];
+    for(int i = 1; i < ar.size(); i++)
+    {
+        maxi = max(maxi, ar[i]);
+        if(ar[i] < 0) ++p; // for handing case of all negative array elements
        
-            mth+=ar[i];
-            if(mth>msf) msf=mth;
-            if(mth<0) mth=0;
-        }
-return (p!=n)?msf:maxi;
+        mth += ar[i];
+        if(mth > msf) msf = mth;
+        if(mth < 0) mth = 0;
+    }
+    return (p != ar.size()) ? msf : maxi;
 }
 
 int main() {
-   int t;            // t number of test cases entered 
-    cin>>t;
-    while(t--)
-        {
-        int n;cin>>n;int ar[n];   //enter no, of terms
-        for(int i=0;i<n;++i)
-        cin>>ar[i];                //enter n elements of array
-cout<<maxsubarraysum(ar,n)<<"\n";
-    }
+
+    cout << max_subarray_sum({-3,  2, -1,  4, -5}) << '\n'; // Expected output: 5
+    cout << max_subarray_sum({-1, -2, -3, -4, -5}) << '\n'; // Expected output: -1
     return 0;
 }

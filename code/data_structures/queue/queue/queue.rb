@@ -1,24 +1,28 @@
 # Part of Cosmos by OpenGenus Foundation
-class Stack
+class Queue
   attr_accessor :items
 
   def initialize
     @items = []
   end
 
-  def push(element)
+  def enqueue(element)
     @items.push(element)
   end
 
-  def pop
-    @items.pop()
+  def dequeue
+    @items.delete_at(0)
   end
 
   def empty?
     @items.size == 0
   end
 
-  def peek
+  def front
+    @items.first
+  end
+
+  def back
     @items.last
   end
 end
