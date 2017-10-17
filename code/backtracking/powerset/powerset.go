@@ -1,4 +1,16 @@
+//Part of Open Genus foundation
 package main
+
+/*
+{1 2 3 }
+{1 2 }
+{1 3 }
+{1 }
+{2 3 }
+{2 }
+{3 }
+{}
+*/
 
 import "fmt"
 
@@ -7,10 +19,10 @@ func powerSet(input, record []int, index int) {
 		fmt.Printf("{")
 		for i, v := range record {
 			if v == 1 {
-				fmt.Printf("%v ", input[i])
+				fmt.Printf(" %v", input[i])
 			}
 		}
-		fmt.Printf("}\n")
+		fmt.Printf(" }\n")
 		return
 	}
 
