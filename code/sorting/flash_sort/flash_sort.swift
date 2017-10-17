@@ -62,10 +62,10 @@ func flashSort(_ array: inout [Int]) {
     }
 }
 
-private func swap(_ a: inout Int, _ b: inout Int) {
-    let tmp = a
-    a = b
-    b = tmp
+private func swap(_ array: inout [Int], at a: Int, and b: Int) {
+    let tmp = array[a]
+    array[a] = array[b]
+    array[b] = tmp
 }
 
 private func sortCore(_ array: inout [Int], from a: Int, to b: Int) {
@@ -79,8 +79,6 @@ private func sortCore(_ array: inout [Int], from a: Int, to b: Int) {
                 p = j
             }
         }
-        var tmp = array[p]
-        swap(&tmp, &array[i])
-        swap(&tmp, &array[p])
+        swap(&array, at: p, and: i)
     }
 }
