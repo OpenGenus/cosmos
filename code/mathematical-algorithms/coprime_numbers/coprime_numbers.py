@@ -1,3 +1,4 @@
+#Part of Cosmos by OpenGenus Foundation 
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
