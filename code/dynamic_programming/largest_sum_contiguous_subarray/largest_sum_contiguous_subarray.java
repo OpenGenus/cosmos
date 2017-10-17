@@ -6,17 +6,8 @@ public class Max_subarray_problem {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of elements");
-        int n = sc.nextInt();
-        int[] a = new int[n];
-        System.out.println("Enter the value of the elements");
-        for(int i = 0; i < n; i++)
-            a[i] = sc.nextInt();
-
-        int m = findmaxsum(a, 0, a.length - 1);
-
-        System.out.println(m);
+        System.out.println(new int[] {-3,  2, -1,  4, -5}, 0, 4); // Expected output: 5
+        System.out.println(new int[] {-1, -2, -3, -4, -5}, 0, 4); // Expected output: -1
     }
 
     private static int findmaxsum(int[] a, int l, int h) {
