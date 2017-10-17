@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <cmath>
 #include <iostream>
 typedef std::pair<double, double> point;
