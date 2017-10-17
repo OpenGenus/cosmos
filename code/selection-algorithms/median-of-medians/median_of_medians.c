@@ -1,3 +1,6 @@
+// Part of OpenGenus/cosmos
+// Author : ABDOUS Kamel
+
 // The median of medians algorithm.
 // Deterministic select algorithm that executes
 // in O(n) in the worst case.
