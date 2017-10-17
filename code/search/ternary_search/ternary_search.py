@@ -2,6 +2,7 @@ def ternarySearch (arr, to_find):
    left = 0
    right = len(arr) - 1
    while left <= right:
+      print str(arr[left]) + ' ' + str(arr[right])
       temp2 = left + (right - left) // 3
       temp3 = left + 2 * (right - left) // 3
       if to_find == arr[left]:
@@ -21,11 +22,11 @@ def ternarySearch (arr, to_find):
 
 
 def test(x):
-    arr = [6, 18, 47, 85, 44, 15, 97]
+    arr = [6, 15, 18, 44, 47, 87, 97]
     index = ternarySearch(arr, x);
 
     if index != -1:
         print "The element",x,"is at the index",index
     else:
         print "Element",x,"not found!"
-test(18)
+test(44)
