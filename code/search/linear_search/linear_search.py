@@ -6,11 +6,13 @@ def linear_search(arr, x):
         if arr[i] == x:
             return i
     return -1
+
 arr = []
-num_elems = int(raw_input("Enter how many elements do you want: "))
-for i in range(num_elems):
-    num = int(raw_input("Enter next no :"))
-    arr.append(num)
+while True:
+    inp = raw_input("Enter a number (non number to stop):")
+    if not inp.isdigit():
+        break
+    arr.append(int(inp))
   
 find = int(raw_input("Enter the number you want to find: "))
 print("Position of ", find, " is ", linear_search(arr, find))
