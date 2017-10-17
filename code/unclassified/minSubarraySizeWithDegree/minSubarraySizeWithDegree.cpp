@@ -1,16 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 #include <unordered_map>
+
+/* Part of Cosmos by OpenGenus Foundation */
 
 using namespace std;
 
 int minSubArraySizeWithDegree(const vector<int> nums) {
 	unordered_map <int, int> m;
 	priority_queue<int> pq;
-	int best_degree = 1;
-	int curr_best_degree = nums[0];
-	int i,
-		j,
-		s = nums.size();
+	int best_degree = 1,
+	    curr_best_degree = nums[0],
+	    i,
+	    j,
+	    s = nums.size();
 
 	for (int x = 0; x < s; x++) {
 		m[nums[x]]++;
