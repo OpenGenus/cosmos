@@ -1,5 +1,7 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
+import java.util.Arrays;
+
 public class BubbleSort {
 
 	static void bubbleSort(int [] array) {
@@ -18,19 +20,12 @@ public class BubbleSort {
 				break;
 		}
 	}
-	
-	
+
+
 	public static void main(String[] args) {
 		int array[] = {4,2,3,1};
 		bubbleSort(array);
 		System.out.println("Sorted array: ");
-		for (int i = 0; i < array.length; i++) {
-			
-			if (i != array.length-1) {
-				System.out.print(array[i]+", ");
-			} else {
-				System.out.println(array[i]);
-			}
-		}
+		System.out.println(Arrays.toString(array));
 	}
 }
