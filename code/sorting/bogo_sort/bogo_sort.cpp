@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 
-bool isSorted(std::vector<int> &v)
+bool isSorted(const std::vector<int> &v)
 {
 	int i = v.size();
 	while (--i > 0)
@@ -32,11 +32,12 @@ int main()
 {
 	std::srand(time(NULL));
 	std::vector<int> v = {2, 4, 1, 3, 6, 7, 8, 5};
+	// Please note, initializer lists are a C++11 feature
 
 	bogoSort(v);
 
 	for(int i = 0; i < v.size(); ++i)
-        std::cout << v[i] << " ";
+		std::cout << v[i] << " ";
 
 	return 0;
 }
