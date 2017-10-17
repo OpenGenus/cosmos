@@ -1,4 +1,6 @@
 /*
+Part of Cosmos by OpenGenus Foundation
+
 BY:- https://github.com/alphaWizard
 
 */
