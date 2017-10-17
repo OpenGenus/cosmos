@@ -14,8 +14,8 @@ public class Max_subarray_problem {
         {
             a[i]=sc.nextInt();
         }
-       //int[] a={-1,-4,-3,-4};
        int m= findmaxsum(a,0,a.length-1);
+
        System.out.println(m);
     }
 
@@ -29,16 +29,15 @@ public class Max_subarray_problem {
        {
            int mid=(l+h)/2;
            int leftmaxsum;
-         //   System.out.println(l+" "+mid+" "+h);
+
            leftmaxsum=findmaxsum(a,l,mid);
-          // System.out.println(l+" "+mid+" "+h);
+
            int rightmaxsum=findmaxsum(a,mid+1,h);
            int crossmaxsum=findcrosssum(a,l,mid,h);
        
         max=Math.max(Math.max(leftmaxsum, rightmaxsum), crossmaxsum);
        
        }
-      // System.out.println(max);
        return max;
       
     }
