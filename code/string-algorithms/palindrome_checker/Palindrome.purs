@@ -14,5 +14,5 @@ palindromeChecker string = do
 main::Aff(console::CONSOLE)Unit
 main= do
         _<- palindromeChecker "Tharun"
-        _<-palindromeChecker "MalaYaLam"
+        _<- palindromeChecker "MalaYaLam"
         pure unit
