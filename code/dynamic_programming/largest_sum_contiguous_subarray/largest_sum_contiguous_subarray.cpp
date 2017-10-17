@@ -10,13 +10,13 @@ BY:- https://github.com/alphaWizard
 
 using namespace std;
 
-int maxsubarraysum(vector<int>& ar)
+int max_subarray_sum(const vector<int>& ar)
 {
-    int msf = ar[0], mth = ar[0];
+    int msf = ar[0], mth = max(ar[0], 0);
     int p = 0;
     if(ar[0] < 0) ++p;
     int maxi = ar[0];
-    for(int i=1; i<n; i++)
+    for(int i = 1; i < ar.size(); i++)
     {
         maxi = max(maxi, ar[i]);
         if(ar[i] < 0) ++p; // for handing case of all negative array elements
@@ -25,7 +25,7 @@ int maxsubarraysum(vector<int>& ar)
         if(mth > msf) msf = mth;
         if(mth < 0) mth = 0;
     }
-    return (p != n) ? msf : maxi;
+    return (p != ar.size()) ? msf : maxi;
 }
 
 int main() {
