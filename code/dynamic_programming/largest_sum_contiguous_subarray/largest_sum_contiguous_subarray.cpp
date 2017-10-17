@@ -29,16 +29,8 @@ int max_subarray_sum(const vector<int>& ar)
 }
 
 int main() {
-    int t;  // t number of test cases entered 
-    cin>>t;
-    while(t--)
-    {
-        int n;
-        cin>>n; //enter no. of terms
-        vector<int> ar(n);
-        for(int i = 0; i < n; ++i)
-            cin >> ar[i];  //enter n elements of array
-        cout << maxsubarraysum(ar) << "\n";
-    }
+
+    cout << max_subarray_sum({-3,  2, -1,  4, -5}) << '\n'; // Expected output: 5
+    cout << max_subarray_sum({-1, -2, -3, -4, -5}) << '\n'; // Expected output: -1
     return 0;
 }
