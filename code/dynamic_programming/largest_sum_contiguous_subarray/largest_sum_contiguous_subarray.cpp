@@ -5,7 +5,8 @@ BY:- https://github.com/alphaWizard
 
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
