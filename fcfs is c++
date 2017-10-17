@@ -1,0 +1,154 @@
+#include <iostream>
+using namespace std;
+
+//defines a node
+struct NODE
+{
+ // NODE *prev;
+  int data;
+  NODE *next;
+};
+
+
+//defines a class
+class QUEUE
+{
+    private:
+            NODE *front;
+            NODE *back;
+            int count;
+    public:
+            QUEUE();
+            void addRear(int value);
+            void removeFront();
+            void displayQueue();
+            int getCount();
+            ~QUEUE();
+};
+
+//constructor
+QUEUE::QUEUE(){
+    front=back=NULL;
+    count=0;
+}
+
+//add an element to the queue;
+void QUEUE::addRear(int value){
+    //create a node
+    NODE *temp;
+    temp = new NODE;
+ 
+    //if node can not be created display error message
+    if(temp == NULL){
+        cout<<"Error : Oops, there is no enough memory";
+        return;
+    }
+
+    temp->data=value;
+ 
+    if(front==NULL){      //if the queue is empty
+        front=back=temp;
+    }
+    else
+    {
+        back->next =temp; //add the new node at last
+        back=back->next;  //assign the new node as the last node;
+    }
+    count++;
+}
+
+//displays the elements of queue
+void QUEUE::displayQueue(){
+    if(front == NULL){
+        cout<<"Queue is empty";
+        return;
+    }
+    NODE *tempNode;
+    tempNode=front;
+    while(tempNode !=NULL){
+        cout<<" "<<tempNode->data;
+        tempNode=tempNode->next;
+    }
+}
+
+//removes the element from the queue
+void QUEUE::removeFront(){
+    if(front == NULL){
+        cout<<"Queue is empty";
+        return;
+    }
+
+    NODE *tempNode;
+    tempNode = front;
+    cout<<"Deleted item :"<<front->data;
+    if(count >0){
+        front = tempNode->next;
+        //un comment the next line to make a circular queue
+        //back->next = front;
+        count--;
+        delete tempNode; // deletes the node
+    }
+}
+
+//returns the number of elements in the queue
+int QUEUE::getCount(){
+    return count;
+}
+//destructor
+QUEUE::~QUEUE(){
+    if(front == NULL){
+        cout<<"No memory is used";
+        return;
+    }
+    NODE *tempNode;
+    tempNode= front;
+    if(count>0){
+        front = tempNode->next;
+        count--;
+        delete tempNode;
+    }
+}
+
+int main(){
+ 
+    QUEUE queue;
+ 
+    while(true){
+        int option;
+        int n;
+        cout<<"\n\n===============================\n";
+        cout<<"\t\tMENU\n";
+        cout<<"===============================\n";
+        cout<<"1. Display\n";
+        cout<<"2. Add\n";
+        cout<<"3. Delete\n";
+        cout<<"4. Number of Elements\n";
+        cout<<"5. Exit\n";
+        cout<<"================================\n";
+        cout<<"Enter option number:";
+        cin>>option;
+ 
+        switch(option){
+            case 1:
+                queue.displayQueue();
+                break;
+            case 2:
+                cout<<"Enter data to add :";
+                cin>>n;
+                queue.addRear(n);
+                cout<<"\nAdded successfully";
+                break;
+            case 3:
+                queue.removeFront();
+                break;
+            case 4:
+                cout<<"\nNumber of element(s) :"<<queue.getCount();
+                break;
+            case 5:
+                return 0;
+            default:
+                cout<<"Oops, please select valid option.";
+                break;
+        }
+    }
+}
