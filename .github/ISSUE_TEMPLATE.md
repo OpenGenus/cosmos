@@ -2,12 +2,13 @@
 
 <!--Required Information-->
 
-**This is a...**
+**This is a(n):**
 <!-- choose one by changing [ ] to [x] -->
 - [ ] New algorithm
 - [ ] Update to an existing algorithm
-- [ ] An error
+- [ ] Error
+- [ ] Proposal to the Repository
 
-**Details:
+**Details:**
 <!-- Details of algorithm to be added/updated -->
 
