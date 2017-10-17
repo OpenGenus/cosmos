@@ -21,6 +21,6 @@ for i in range(0, elem):
 find = input("Enter the number you want to find")
 position = search(arr, find)
 if( position >= 0):
-	print("Position of ", find, " is ", position)
+	print("Position of " + str(find) + " is " + str(position))
 else:
-	print(find," not found")
+	print(str(find) + " not found")
