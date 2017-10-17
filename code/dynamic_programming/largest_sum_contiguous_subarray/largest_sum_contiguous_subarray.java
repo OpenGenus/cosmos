@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */ 
+
 import java.util.Scanner;
 
 public class Max_subarray_problem {
