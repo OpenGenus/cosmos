@@ -15,4 +15,4 @@ while True:
     arr.append(int(inp))
   
 find = int(raw_input("Enter the number you want to find: "))
-print("Position of ", find, " is ", linear_search(arr, find))
+print "Position of " + str(find) + " is " + str(linear_search(arr, find))
