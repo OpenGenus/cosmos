@@ -2,7 +2,6 @@ def ternarySearch (arr, to_find):
    left = 0
    right = len(arr) - 1
    while left <= right:
-      print str(arr[left]) + ' ' + str(arr[right])
       temp2 = left + (right - left) // 3
       temp3 = left + 2 * (right - left) // 3
       if to_find == arr[left]:
