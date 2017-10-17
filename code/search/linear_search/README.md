@@ -10,4 +10,10 @@ Time Complexity -> **O(n)**
 
 Space Complexity -> **O(1)**
 
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
