@@ -1,4 +1,5 @@
 ///GIVES TOTAL NUMBER OF POSSIBLE WAYS TO SOLVE N QUEEN PROBLEM USING BITSET
+// Part of Cosmos by OpenGenus Foundation
 #include<iostream>
 #include<bitset>
 using namespace std;
