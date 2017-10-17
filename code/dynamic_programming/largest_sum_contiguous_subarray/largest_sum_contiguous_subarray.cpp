@@ -9,7 +9,7 @@ BY:- https://github.com/alphaWizard
 
 using namespace std;
 
-int maxsubarraysum(int ar[],int n)
+int maxsubarraysum(vector<int>& ar)
 {
     int msf = ar[0], mth = ar[0];
     int p = 0;
@@ -34,10 +34,10 @@ int main() {
     {
         int n;
         cin>>n; //enter no. of terms
-        int ar[n];
+        vector<int> ar(n);
         for(int i = 0; i < n; ++i)
             cin >> ar[i];  //enter n elements of array
-        cout << maxsubarraysum(ar, n) << "\n";
+        cout << maxsubarraysum(ar) << "\n";
     }
     return 0;
 }
