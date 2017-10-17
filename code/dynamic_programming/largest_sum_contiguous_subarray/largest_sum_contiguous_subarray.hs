@@ -1,6 +1,6 @@
 module LargestSum where
 
--- Part of Cosmos by OpenGenus
+-- Part of Cosmos by OpenGenus Foundation
 
 sublists [] = []
 sublists (a:as) = sublists as ++ [a]:(map (a:) (prefixes as))
