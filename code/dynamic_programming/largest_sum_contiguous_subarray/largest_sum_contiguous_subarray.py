@@ -13,7 +13,14 @@ def maxSubArraySum(a):
 
     return max_so_far
 
-# Enter the number seperated by spaces
-arr = [int(x) for x in input().split()]
+def test():
 
-print("Maximum contiguous sum is", maxSubArraySum(arr))
+    tests = [
+        [-3,  2, -1,  4, -5], # Expected output: 5
+        [-1, -2, -3, -4, -5]  # Expected output: -1
+    ]
+
+    for arr in tests:
+        print("Maximum contiguous sum of", arr, "is", maxSubArraySum(arr))
+        
+test()
