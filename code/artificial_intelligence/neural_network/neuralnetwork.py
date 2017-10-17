@@ -24,16 +24,10 @@ class neural_network:
             print("== EPOCH: ", j, " ==")
             while i+batch_size != len(inputs):
                 self.error = 0  
-                input_batch = []
-                label_batch = []
-                # print(i)
-                for i in range(i, i+batch_size):
-                    input_batch.append(inputs[i])
-                    label_batch.append(labels[i])   
-                self.forward_pass(input_batch)
-                self.calculate_error(label_batch)
-                self.back_pass(label_batch)
-                i += 1
+                self.forward_pass(inputs[i:i+batch_size])
+                self.calculate_error(labels[i:i+batch_size)
+                self.back_pass(labels[i:i+batch_size])
+                i += batch_size
             print("Error: ", self.error)
         dill.dump_session(filename)
 
@@ -107,13 +101,15 @@ class neural_network:
         self.batch_size = len(inputs)
         self.forward_pass(inputs)
         a = self.layers[self.num_layers-1].activations
-        a[np.where(a==np.max(a))] = 1
-        a[np.where(a!=np.max(a))] = 0
+        num_classes = 10
+        targets = np.array([a]).reshape(-1)
+        a = np.asarray(a)
+        one_hot_labels = np.eye(num_classes)[a.astype(int)]
         total=0
         correct=0
         for i in range(len(a)):
             total += 1
-            if np.equal(a[i], labels[i]).all():
+            if np.equal(one_hot_labels[i], labels[i]).all():
                 correct += 1
         print("Accuracy: ", correct*100/total)
 
