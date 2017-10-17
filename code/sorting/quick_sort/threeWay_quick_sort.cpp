@@ -5,7 +5,8 @@
 #include <iostream>
 
 using namespace std;
- 
+
+/* UTILITY FUNCTIONS */
 void swap(int *a, int *b)
 {
     int temp = *a;
@@ -19,10 +20,16 @@ void printarr(int a[], int n)
         printf("%d ", a[i]);
     printf("\n");
 }
- 
+
+void fill(int a[], int size, int max)
+{
+    for (int i = 0; i < size; ++i)
+        a[i] = rand() % max +1;
+}
+
+
 void partition(int a[], int low, int high, int &i, int &j)
 {
-    // To handle 2 elements
     if (high - low <= 1)
     {
         if (a[high] < a[low])
@@ -44,31 +51,23 @@ void partition(int a[], int low, int high, int &i, int &j)
             swap(&a[mid], &a[high--]);
     }
  
-    //update i and j
     i = low-1;
-    j = mid; //or high-1
+    j = mid; 
 }
  
 // 3-way partition based quick sort
 void quicksort(int a[], int low, int high)
 {
-    if (low>=high) //1 or 0 elements
+    if (low>=high) 
         return;
  
-    int i, j;
+    int i, j; //references
  
-    // Note that i and j are passed as reference
     partition(a, low, high, i, j);
  
     // Recur two halves
     quicksort(a, low, i);
     quicksort(a, j, high);
-}
-
-void fill(int a[] , int size , int max) {
-    for (int i = 0; i < size; ++i) {
-        a[i] = rand() % max + 1;
-    }
 }
  
 // Driver program
