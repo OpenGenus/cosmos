@@ -15,8 +15,8 @@ func main() {
 func reverseNumber(n int) int {
 	splits := strings.Split(strconv.Itoa(n), "")
 	sort.Sort(sort.Reverse(sort.StringSlice(splits)))
-	s := strings.Join(splits, "")
-	i, _ := strconv.Atoi(s)
+	i, _ := strconv.Atoi(strings.Join(splits, ""))
 	return i
 }
+
 
