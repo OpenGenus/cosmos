@@ -101,7 +101,7 @@ int *generate_moveset(char **map, int sol[][2], int x, int y, int depth)
 ** Simply by changing it, I managed to complete a knight tour in less that 1s.
 ** 
 ** So, in order to not be "order" dependant, I select my moveset by using the Warnsdorf's rule.
-** But now I'm not even sure if recursivity is needed.
+** But now I'm not even sure if backtracking is needed. --(apparently it's not)
 */
 
 int kt_solve(char **map, int sol[][2], int x, int y, int depth)
@@ -129,6 +129,11 @@ int kt_solve(char **map, int sol[][2], int x, int y, int depth)
 			{
 				free(move_set);
 				return (1);
+			}
+			else
+			{
+				free(move_set);
+				return (0);
 			}
 		}
 		i++;
