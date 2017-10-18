@@ -10,12 +10,12 @@ public:
 public:
     node(int d){
         data=d;
-        next=NULL;
+        next=nullptr;
     }
 };
 
 void print(node*head){
-    while(head!=NULL){
+    while(head!=nullptr){
         cout<<head->data<<"-->";
         head=head->next;
     }
@@ -71,12 +71,12 @@ node*recReverse2(node*head){
     }
     node*newHead=recReverse2(head->next);
     head->next->next=head;
-    head->next=NULL;
+    head->next=nullptr;
     return newHead;
 }
 
 int main(){
-    node*head=NULL;
+    node*head=nullptr;
     cin>>head;
     cout<<head;
     head=recReverse2(head);
