@@ -5,12 +5,12 @@
 */
 
 ///i,j = current cell, m,n = destination
-void solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
+void solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int *ways){
 
     ///Base Case
     if(i==m && j==n){
         sol[m][n] = 1;
-        ways++;
+        (*ways)++;
         ///Print the soln
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
@@ -19,7 +19,6 @@ void solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
             printf("\n");
         }
         printf("\n");
-
         return ;
     }
 
@@ -54,7 +53,7 @@ int main(){
 
     int sol[10][10] = {0};
     int ways=0;
-    solveMaze(maze,sol,0,0,m,n,ways);
+    solveMaze(maze,sol,0,0,m,n,&ways);
     if(ways){
         printf("Total ways %d\n", ways);
     }
