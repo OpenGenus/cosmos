@@ -1,7 +1,7 @@
 /*
-     Part of Cosmos by OpenGenus Foundation
+    Part of Cosmos by OpenGenus Foundation
 
-     splay tree synopsis
+    splay tree synopsis
 
 template<typename _Tp, typename _Comp = std::less<_Tp> >
 class splay_tree {
@@ -29,58 +29,61 @@ private:
     };
 
     typedef struct iter_tree tree_type;
-
+    
     tree_type *_root;
     size_type _sz;
+    _Comp _comp;
 
     tree_type *splay(tree_type *n);
 
-    void rotateLeft(tree_type *n);
+    void left_rotate(tree_type *n);
 
-    void rotateRight(tree_type *n);
+    void right_rotate(tree_type *n);
 
-    void replace(tree_type *u, tree_type *v);
+    void replace(tree_type *old, tree_type *new_);
 
-    size_t height(tree_type *n) const;
+    tree_type *get(const_reference value);
+
+    size_type height(tree_type *n) const;
 
     tree_type *minimum(tree_type *n) const;
 
     tree_type *maximum(tree_type *n) const;
 
-    void inorder_travel(std::ostream &output, tree_type *n);
+    void inorder_travel(std::ostream &output, tree_type *n) const;
 
-    void preorder_travel(std::ostream &output, tree_type *n);
+    void preorder_travel(std::ostream &output, tree_type *n) const;
 
 public:
-    splay_tree() :_root(nullptr), _sz(0) {};
+    splay_tree() :_root(nullptr), _sz(0), _comp(_Comp());
+
+    ~splay_tree();
+
+    void release(tree_type *n);
 
     size_type insert(const_reference value);
 
-    size_type erase(const_reference value) ;
+    size_type erase(const_reference value);
 
-    tree_type *find(const_reference value);
+    tree_type const *find(const_reference value);
+ 
+    tree_type const *minimum() const;
 
-    value_type minimum() const;
-
-    value_type maximum() const ;
+    tree_type const *maximum() const;
 
     size_type height() const;
 
     size_type size() const;
 
-    bool empty() const ;
+    bool empty() const;
 
-    void inorder_travel(std::ostream &output);
+    void inorder_travel(std::ostream &output) const;
 
-    void preorder_travel(std::ostream &output);
+    void preorder_travel(std::ostream &output) const;
 };
 */
 
-#include <iostream>
-
-// for test
-// #include <fstream>
-// std::fstream input, ans;
+#include <functional>
 
 template<typename _Tp, typename _Comp = std::less<_Tp> >
 class splay_tree {
@@ -113,36 +116,37 @@ private:
 
     tree_type *_root;
     size_type _sz;
+    _Comp _comp;
 
     tree_type *splay(tree_type *n) {
         while (n && n->parent) {
             if (!n->parent->parent) {           // zig step
                 if (n->parent->left == n) {
-                    rotateRight(n->parent);
+                    right_rotate(n->parent);
                 } else {
-                    rotateLeft(n->parent);
+                    left_rotate(n->parent);
                 }
             } else if (n->parent->left == n && n->parent->parent->left == n->parent) {
-                rotateRight(n->parent->parent);
-                rotateRight(n->parent);
+                right_rotate(n->parent->parent);
+                right_rotate(n->parent);
             } else if (n->parent->right == n && n->parent->parent->right == n->parent) {
-                rotateLeft(n->parent->parent);
-                rotateLeft(n->parent);
+                left_rotate(n->parent->parent);
+                left_rotate(n->parent);
             } else if (n->parent->right == n && n->parent->parent->left == n->parent) {
-                rotateLeft(n->parent);
-                rotateRight(n->parent);
+                left_rotate(n->parent);
+                right_rotate(n->parent);
             } else {
-                rotateRight(n->parent);
-                rotateLeft(n->parent);
+                right_rotate(n->parent);
+                left_rotate(n->parent);
             }
         }
 
         return n;
     }
 
-    void rotateLeft(tree_type *n) {
+    void left_rotate(tree_type *n) {
         tree_type *right = n->right;
-        if (right != nullptr) {
+        if (right) {
             n->right = right->left;
             if (right->left)
                 right->left->parent = n;
@@ -162,11 +166,11 @@ private:
         n->parent = right;
     }
 
-    void rotateRight(tree_type *n) {
+    void right_rotate(tree_type *n) {
         tree_type *left = n->left;
-        if (left != nullptr) {
+        if (left) {
             n->left = left->right;
-            if (left->right != nullptr)
+            if (left->right)
                 left->right->parent = n;
             left->parent = n->parent;
         }
@@ -183,45 +187,60 @@ private:
         n->parent = left;
     }
 
-    void replace(tree_type *u, tree_type *v) {
-        if (!u->parent) {
-            _root = v;
-        } else if (u == u->parent->left) {
-            u->parent->left = v;
+    void replace(tree_type *old, tree_type *new_) {
+        if (old->parent == nullptr) {
+            _root = new_;
+        } else if (old == old->parent->left) {
+            old->parent->left = new_;
         } else {
-            u->parent->right = v;
+            old->parent->right = new_;
         }
-        if (v)
-            v->parent = u->parent;
+        if (new_)
+            new_->parent = old->parent;
     }
 
-    size_t height(tree_type *n) const {
+    tree_type *get(const_reference value) {
+        tree_type *n = _root;
+        while (n) {
+            if (_comp(n->value, value)) {
+                n = n->right;
+            } else if (_comp(value, n->value)) {
+                n = n->left;
+            } else {
+                splay(n);
+
+                return n;
+            }
+        }
+
+        return nullptr;
+    }
+
+    size_type height(tree_type *n) const {
         if (n) {
-            return 1 + max(height(_root->left), height(_root->right));
+            return 1 + std::max(height(n->left), height(n->right));
         } else {
             return 0;
         }
     }
 
     tree_type *minimum(tree_type *n) const {
-        if (empty())
-            return nullptr;
-        while (n->left)
-            n = n->left;
+        if (n)
+            while (n->left)
+                n = n->left;
 
         return n;
     }
 
     tree_type *maximum(tree_type *n) const {
-        if (empty())
-            return nullptr;
-        while (n->right)
-            n = n->right;
+        if (n)
+            while (n->right)
+                n = n->right;
 
         return n;
     }
 
-    void inorder_travel(std::ostream &output, tree_type *n) {
+    void inorder_travel(std::ostream &output, tree_type *n) const {
         if (n) {
             inorder_travel(output, n->left);
             output << n->value << " ";
@@ -229,7 +248,7 @@ private:
         }
     }
 
-    void preorder_travel(std::ostream &output, tree_type *n) {
+    void preorder_travel(std::ostream &output, tree_type *n) const {
         if (n) {
             output << n->value << " ";
             preorder_travel(output, n->left);
@@ -238,15 +257,25 @@ private:
     }
 
 public:
-    splay_tree() :_root(nullptr), _sz(0) {};
+    splay_tree() :_root(nullptr), _sz(0), _comp(_Comp()) {;}
+
+    ~splay_tree() {release(_root);}
+
+    void release(tree_type *n) {
+        if (n) {
+            release(n->left);
+            release(n->right);
+            delete n;
+        }
+    }
 
     size_type insert(const_reference value) {
         tree_type *n = _root, *parent = nullptr;
         while (n) {
             parent = n;
-            if (_Comp()(n->value, value)) {
+            if (_comp(n->value, value)) {
                 n = n->right;
-            } else if (_Comp()(value, n->value)) {
+            } else if (_comp(value, n->value)) {
                 n = n->left;
             } else {
                 n->value = value;
@@ -259,7 +288,7 @@ public:
 
         if (parent == nullptr) {
             _root = n;
-        } else if (_Comp()(parent->value, n->value)) {
+        } else if (_comp(parent->value, n->value)) {
             parent->right = n;
         } else {
             parent->left = n;
@@ -271,8 +300,8 @@ public:
     }
 
     size_type erase(const_reference value) {
-        tree_type *n = find(value);
-        if (n != nullptr) {
+        tree_type *n = get(value);
+        if (n) {
             splay(n);
             if (n->left == nullptr) {
                 replace(n, n->right);
@@ -297,31 +326,16 @@ public:
         return 0;
     }
 
-    tree_type *find(const_reference value) {
-        tree_type *n = _root;
-        while (n) {
-            if (_Comp()(n->value, value)) {
-                n = n->right;
-            } else if (_Comp()(value, n->value)) {
-                n = n->left;
-            } else {
-                return n;
-            }
-        }
-
-        return nullptr;
+    tree_type const *find(const_reference value) {
+        return get(value);
     }
 
-    value_type minimum() const {
-        tree_type *n = minimum(_root);
-
-        return n ? n->value : value_type{};
+    tree_type const *minimum() const {
+        return minimum(_root);
     }
 
-    value_type maximum() const {
-        tree_type *n = maximum(_root);
-
-        return n ? n->value : value_type{};
+    tree_type const *maximum() const {
+        return maximum(_root);
     }
 
     size_type height() const {
@@ -336,39 +350,55 @@ public:
         return _sz == 0;
     }
 
-    void inorder_travel(std::ostream &output) {
+    void inorder_travel(std::ostream &output) const {
         inorder_travel(output, _root);
     }
 
-    void preorder_travel(std::ostream &output) {
+    void preorder_travel(std::ostream &output) const {
         preorder_travel(output, _root);
     }
 };
 
+/*
 // for test
-// int main() {
-// using namespace std;
-//
-// splay_tree<int> *st = new splay_tree<int>();
-//
-// input.open("/input.txt");
-// ans.open("/ans.txt", ios::out | ios::trunc);
-//
-// int r, ty;
-// while (input >> r) {
-// input >> ty;
+#include <iostream>
+#include <fstream>
+std::fstream input, ans;
+int main() {
+    using namespace std;
+
+    splay_tree<int> *st = new splay_tree<int>();
+
+    input.open("/sample.txt");
+    ans.open("/output.txt", ios::out | ios::trunc);
+
+    int r, ty;
+    while (input >> r) {
+        input >> ty;
+
 // cout << r << " " << ty << endl;
-// if (ty == 0) {
-// st->insert(r);
-// } else if (ty == 1) {
-// st->erase(r);
-// } else {
-// st->find(r);
-// }
-// st->preorder_travel(ans);
-// st->inorder_travel(ans);
-// ans << endl;
-// }
-//
-// return 0;
-// }
+        if (ty == 0) {
+            st->insert(r);
+        } else if (ty == 1) {
+            st->erase(r);
+        } else {
+            st->find(r);
+        }
+
+        st->preorder_travel(ans);
+        st->inorder_travel(ans);
+        ans << endl;
+    }
+    ans << st->find(0);
+    ans << st->height();
+    ans << st->minimum();
+    ans << st->maximum();
+    ans << st->size();
+    ans << st->empty();
+
+    delete st;
+
+    return 0;
+}
+
+// */

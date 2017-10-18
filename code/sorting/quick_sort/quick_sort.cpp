@@ -3,27 +3,19 @@
 
     quick sort synopsis
 
-// implementation for 'standard random access container'
 template<typename _Random_Acccess_Iter, typename _Compare>
 void quicksort_impl(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp);
 
 template<typename _Random_Acccess_Iter, typename _Compare>
 void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
 
-template<typename _Random_Acccess_Iter>
+template<typename _Random_Acccess_Iter,
+typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
 void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
-
-// implementation for 'pointer of POD(Plain Old Data structure)'
-// int* explicit specialization;
-template<typename _Compare>
-void quicksort(int *begin, int *end, _Compare comp);
-
- void quicksort(int *begin, int *end);
 */
 
 #include <functional>
 
-// implementation for 'standard random access container'
 template<typename _Random_Acccess_Iter, typename _Compare>
 void quicksort_impl(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp) {
     if (first < last) {
@@ -53,35 +45,21 @@ void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare co
     return quicksort_impl(begin, end, comp);
 }
 
-template<typename _Random_Acccess_Iter>
+template<typename _Random_Acccess_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
 void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end) {
-    return quicksort(begin, end, std::less<typename _Random_Acccess_Iter::value_type>());
-}
-
-// implementation for 'pointer of POD(Plain Old Data structure)'
-// int* explicit specialization;
-template<typename _Compare>
-void quicksort(int *begin, int *end, _Compare comp) {
-    if (begin == end)
-        return;
-    --end;
-
-    return quicksort_impl(begin, end, comp);
-}
-
-void quicksort(int *begin, int *end) {
-    return quicksort(begin, end, std::less<int>());
+    return quicksort(begin, end, std::less<_Tp>());
 }
 
 /*
 // for test
-#include <iostream>
-#include <algorithm>
-#include <iomanip>
-#include <vector>
-#include <deque>
-#include <array>
-#include <string>
+ #include <iostream>
+ #include <algorithm>
+ #include <iomanip>
+ #include <vector>
+ #include <deque>
+ #include <array>
+ #include <string>
 
 void print(std::vector<int> &v) {
     for (size_t i = 0; i < v.size(); ++i)
@@ -99,7 +77,6 @@ int main()
 {
     using namespace std;
 
-// STL Container (random access)
     vector<int> v, t;
     srand((unsigned)clock());
 
@@ -116,9 +93,8 @@ int main()
 
     cout << endl;
 
-// POD, only implement int function template not allow partial specialization
     sz = 20 + rand() % 2;
-    int a[sz], b[sz];
+    float a[sz], b[sz];
     for (int i = 0; i < sz; i++) {
         a[i] = rand() % 10;
         b[i] = a[i];
@@ -132,4 +108,5 @@ int main()
 
     return 0;
 }
-*/
+
+// */
