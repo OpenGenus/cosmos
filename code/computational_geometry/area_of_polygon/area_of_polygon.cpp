@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+#include <cmath>
 #include <iostream>
 typedef std::pair<double, double> point;
 
@@ -9,7 +11,7 @@ point points[size];
 #define y second
 
 double calcArea(point a, point b, point c) {
-  return abs( (a.first - b.first) * (c.second - b.second) - (a.second - b.second) * (c.first - b.first) ) / 2;
+  return ((a.first - b.first) * (c.second - b.second) - (a.second - b.second) * (c.first - b.first)) / 2;
 }
 
 int main () {
@@ -26,5 +28,5 @@ int main () {
     answer += calcArea(points[0], points[i - 1], points[i]);
   }
 
-  std::cout << answer;
+  std::cout << abs(answer);
 }
