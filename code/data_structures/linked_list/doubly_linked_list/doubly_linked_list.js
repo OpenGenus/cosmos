@@ -213,21 +213,19 @@ LinkedList.prototype.forEach = function (fn, this_arg) {
  */
 LinkedList.prototype.get = function (index) {
 
-    if (index < 0) {
+    if (index < 0 || index >= this._length) {
         return undefined;
     }
+    
+    var node = this._front;
 
-    var element;
-
-    this.every(function (elem, i) {
-        if (index === i) {
-            element = elem;
-            return false;
+    for (var i = 0, length = this._length; i < length; i += 1) {
+        if (i === index) {
+            return node.value;
         }
-        return true;
-    });
-
-    return element;
+        
+        node = node.next;
+    }
 };
 
 /**
@@ -243,7 +241,9 @@ LinkedList.prototype.getFirst = function () {
  * @returns {any} The last element in the list
  */
 LinkedList.prototype.getLast = function () {
-    return this.get(this._length - 1);
+    if (this._back != null) {
+        return this._back.value;
+    }
 };
 
 /**
@@ -253,17 +253,17 @@ LinkedList.prototype.getLast = function () {
  */
 LinkedList.prototype.indexOf = function (element) {
 
-    var index = -1;
+    var node = this._front;
 
-    this.every(function (elem, i) {
-        if (elem === element) {
-            index = i;
-            return false;
+    for (var i = 0, length = this._length; i < length; i += 1) {
+        if (node.value === element) {
+            return i;
         }
-        return true;
-    });
+        
+        node = node.next;
+    }
 
-    return index;
+    return -1;
 };
 
 /**
@@ -271,7 +271,7 @@ LinkedList.prototype.indexOf = function (element) {
  * @returns {boolean} If the list if empty
  */
 LinkedList.prototype.isEmpty = function () {
-    return !this._length;
+    return this._length === 0;
 };
 
 /**
