@@ -14,13 +14,13 @@ Following is the high-level structure of cosmos:
 * Bit manipulation
 * Computational geometry
 * Data structures
-* Divide conquer
+* Divide conquering
 * Dynamic programming
 * Graph algorithms
 * Greedy algorithms
 * Mathematical algorithms
 * Randomized algorithms
-* Search
+* Searching
 * Sorting
 * String algorithms
 * Unclassified 👻
