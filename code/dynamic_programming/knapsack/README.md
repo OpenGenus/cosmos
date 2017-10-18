@@ -1,6 +1,14 @@
-# 0-1 Knapsnack
+# 0-1 Knapsack
 
-This is a dynamic programming algorithm
+## Description
+
+Given `n` items, in which the `i`th item has weight `w[i]` and value `v[i]`,
+find the maximum total value that can be put in a knapsack of capacity `W`.
+You cannot break an item, either pick the complete the item, or don't pick it.
+
+## Solution
+
+This is a dynamic programming algorithm.
 We first start by building a table consisting of rows of weights and columns of values.
 Starting from the first row and column, we keep on filling the table till the desired value is obtained.
 
