@@ -10,7 +10,7 @@
  * http://eternallyconfuzzled.com/tuts/datastructures/jsw_tut_rbtree.aspx
  */
 
-#include "red_black.h"
+#include "red_black_tree.h"
 
 #include <errno.h>
 #include <stdlib.h>

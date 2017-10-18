@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include "Doubly_Linked_List.h"
+#include "doubly_linked_list.h"
 
 dllist_t *dl_create() {
     dllist_t *l = (dllist_t *) calloc(1, sizeof(dllist_t));
