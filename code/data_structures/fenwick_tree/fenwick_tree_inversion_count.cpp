@@ -1,39 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int BIT[101000], A[101000],n;
 
-typedef int ll;
-ll BIT[101000], A[101000],n;
-
-ll query(int i){
-	ll ans = 0;
+int query(int i){
+	int ans = 0;
 	for(;i > 0;i-=i&(-i)){
 		ans += BIT[i];
 	}
 	return ans;
 }
-ll update(int i){
-	for(;i <=n;i += i&(-i))
+int update(int i){
+	for(;i <=n;i += i&(-i)){
 		BIT[i]++;
+	}
 }
-inline void scanint(ll *x)
-{
-	register char c = getchar_unlocked();
-	*x = 0;
-	for(; (c<48)||(c>57);c = getchar_unlocked());
-	for(; (c>47)&&(c<58);c = getchar_unlocked())
-		*x = (int)((((*x)<<1) + ((*x)<<3)) + c - 48);
-}
-
-
-main(){
-	//ios_base::sync_with_stdio(0);
-	//cin.tie(0);
-	ll ans,i;
+int main(){
+	int ans,i;
 	while(cin >> n and n){
-		memset(BIT,0,(n+1)*(sizeof(ll)));
+		memset(BIT,0,(n+1)*(sizeof(int)));
 		for(int i=0;i<n;i++){
-			scanint(&A[i]);
+			cin >> A[i];
 		}
 		ans = 0;
 		for(i=n-1;i>=0;i--){
@@ -42,4 +29,5 @@ main(){
 		}
 		cout << ans << endl;
 	}
+	return 0;
 }
