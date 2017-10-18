@@ -1,7 +1,4 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter
-
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
+# 0-1 Knapsnack
 
 This is a dynamic programming algorithm
 We first start by building a table consisting of rows of weights and columns of values.
@@ -24,4 +21,10 @@ M[n,w] = M[n-1,w]
 
 The value of M[n,w] is the maximum of both these cases.
 
+---
 
+<p align="center">
+    A massive collaborative effort by <a href="https://github.com/opengenus/cosmos">OpenGenus Foundation</a>
+</p>
+
+---
