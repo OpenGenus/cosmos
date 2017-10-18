@@ -21,7 +21,7 @@ public class Shuffle_An_Array
    public static void main(String[]args)
   {
           int[] A = {1,2,3,4,5,6,7,8};
-          int n = A.length();
+          int n = A.length;
           randomizing(A,n);
   }
 }
