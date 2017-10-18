@@ -4,7 +4,7 @@
 
 Given `n` items, in which the `i`th item has weight `wi` and value `vi`,
 find the maximum total value that can be put in a knapsack of capacity `W`.
-You cannot break an item, either pick the complete the item, or don't pick it.
+You cannot break an item, either pick the complete item, or don't pick it.
 
 ## Solution
 
@@ -22,7 +22,7 @@ then `M[n, w]` = `M[n - 1, w]`
 - Else,
 the object might be taken or left out.
     - If it is taken, the total value of the bag becomes
-    `M[n, w]` = `vn` + `M[n - 1, w - wn]`, where `vn` is value of the `n`th object and `wn` is its weight.
+    `M[n, w]` = `vn` + `M[n - 1, w - wn]`, where `vn` is value of the `n`th object and `wn` is its weight.
     - Or if the object is not included,
     `M[n, w]` = `M[n - 1, w]`
     
@@ -34,7 +34,7 @@ M[n, w] = M[n-1, w], if wn > w
           max( M[n-1, w], vn + M[n-1, w - wn] ), otherwise
 ```
 
-The complexity of above algorithm is `O(n*W)`, as there is `n*W` states and each state is computed in `O(1)`.
+The complexity of above algorithm is `O(n*W)`, as there are `n*W` states and each state is computed in `O(1)`.
 
 ---
 
