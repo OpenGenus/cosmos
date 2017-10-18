@@ -1,3 +1,5 @@
+# part of cosmos by OpenGenus Foundation
+
 from collections import defaultdict
 # Part of Cosmos by OpenGenus Foundation
 class Graph:

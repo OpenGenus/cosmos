@@ -22,6 +22,6 @@ int main()
 		elements.push_back(element);
 		sum += element;
 	}
-	double avg = double(sum)/elements.size();
+	double avg = static_cast<double>(sum)/elements.size();
 	cout << "Average of numbers: " << avg << endl;
 }
