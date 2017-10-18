@@ -1,8 +1,6 @@
 /*
-Open-Genus-Cosmos
-Reference - geeksforgeeks
-C++ program for weighted job scheduling using Dynamic
-Programming and Binary Search
+Part of Cosmos by OpenGenus Foundation
+C++ program for weighted job scheduling using Dynamic Programming and Binary Search
 */
 
 #include <bits/stdc++.h>
