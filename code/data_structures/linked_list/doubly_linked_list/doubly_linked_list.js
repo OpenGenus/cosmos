@@ -219,7 +219,7 @@ LinkedList.prototype.get = function (index) {
     
     var node = this._front;
 
-    for (var i = 0, length = this._length; i < length; i += 1) {
+    for (var i = 0; i < this._length; i += 1) {
         if (i === index) {
             return node.value;
         }
@@ -255,7 +255,7 @@ LinkedList.prototype.indexOf = function (element) {
 
     var node = this._front;
 
-    for (var i = 0, length = this._length; i < length; i += 1) {
+    for (var i = 0; i < this._length; i += 1) {
         if (node.value === element) {
             return i;
         }
