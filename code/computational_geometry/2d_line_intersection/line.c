@@ -13,24 +13,24 @@
 #define max(a,b) ((a) > (b) ? (a) : (b))
 
 typedef struct{
-    float x;
-    float y;
+    double x;
+    double y;
 } vec2;
 
 /* return point of intersection, in parent's coordinate space of its parameters */
-vec2 fintersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4){
-    float x12 = x1 - x2;
-    float x34 = x3 - x4;
-    float y12 = y1 - y2;
-    float y34 = y3 - y4;
+vec2 fintersection(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4){
+    double x12 = x1 - x2;
+    double x34 = x3 - x4;
+    double y12 = y1 - y2;
+    double y34 = y3 - y4;
     
-    float c = x12 * y34 - y12 * x34;
+    double c = x12 * y34 - y12 * x34;
     
-    float a = x1 * y2 - y1 * x2;
-    float b = x3 * y4 - y3 * x4;
+    double a = x1 * y2 - y1 * x2;
+    double b = x3 * y4 - y3 * x4;
     
-    float x = (a * x34 - b * x12) / c;
-    float y = (a * y34 - b * y12) / c;
+    double x = (a * x34 - b * x12) / c;
+    double y = (a * y34 - b * y12) / c;
     
     vec2 ret;
     ret.x = x;
@@ -50,19 +50,13 @@ int main() {
     vec2 c; c.x=10; c.y=10;
     vec2 d; d.x=20; d.y=3;
     
-    //example set 2
-    // vec2 a; a.x=10; a.y=3;
-    // vec2 b; b.x=20; b.y=3;
-    // vec2 c; c.x=10; c.y=5;
-    // vec2 d; d.x=20; d.y=5;
-    
     vec2 intersectionpoint = intersection(a,b,c,d);
     if(intersectionpoint.x >= min(a.x, b.x) && intersectionpoint.x <= max(a.x, b.x) &&
        intersectionpoint.y >= min(a.y, b.y) && intersectionpoint.y <= max(a.y, b.y)){
         printf("intersection: %f %f", intersectionpoint.x, intersectionpoint.y);
-    }else
+    } else {
         printf("no intersection");
-    
+    }
     return 0;
 }
 
