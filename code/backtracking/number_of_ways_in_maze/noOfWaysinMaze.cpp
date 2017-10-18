@@ -6,7 +6,8 @@ using namespace std;
 */
 
 ///i,j = current cell, m,n = destination
-bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
+void solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
+
     ///Base Case
     if(i==m && j==n){
         sol[m][n] = 1;
@@ -20,7 +21,7 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
         }
         cout<<endl;
 
-        return true;
+        return ;
     }
 
     ///Rec Case
@@ -28,15 +29,15 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
     sol[i][j] = 1;
 
     if(j+1<=n && maze[i][j+1]!='X'){
-        bool right_way = solveMaze(maze,sol,i,j+1,m,n,ways);
+        solveMaze(maze,sol,i,j+1,m,n,ways);
     }
     /// Try going Down
     if(i+1<=m && maze[i+1][j]!='X'){
-        bool down_way = solveMaze(maze,sol,i+1,j,m,n,ways);
+        solveMaze(maze,sol,i+1,j,m,n,ways);
     }
     ///Backtracking!
     sol[i][j] =0;
-    return false;
+    return;
 }
 
 
