@@ -170,34 +170,39 @@ int print_solution(char **map, int sol[][2], int x, int y)
 int knight_tour(int x, int y, int start_x, int start_y)
 {
 	int i = 0;
-	int sol[8 * 8][2];
-	char **map = malloc(sizeof(char*) * 8);
+	int sol[y * x][2];
+	char **map = malloc(sizeof(char*) * y);
 
 	if (!map)
 		return (1);
-	while (i < 8)
+	while (i < y)
 	{
-		map[i] = malloc(sizeof(char) * 9);
-		memset(map[i], '0', 8);
-		map[i++][8] = '\0';		
+		map[i] = malloc(sizeof(char) * (x + 1));
+		memset(map[i], '0', x);
+		map[i++][x] = '\0';		
 	}
 	sol[0][0] = start_x,
 	sol[0][1] = start_y;
 	map[sol[0][1]][sol[0][0]] = 'K';
-	if (kt_solve(map, sol, 8, 8, 0))
-		print_solution(map, sol, 8, 8);
+	if (kt_solve(map, sol, x, y, 0))
+		print_solution(map, sol, x, y);
 	else
-		printf("%s\n", "Something went wrong.");
+		printf("%s\n", "The knight tour is not possible.\n");
 	i = 0;
-	while (i < 8)
+	while (i < y)
 		free(map[i++]);
 	free(map);
 	return (1);
 }
 
+/*
+** Check size and start params.
+**
+*/
+
 int check_input(int x, int y, int start_x, int start_y)
 {
-	if (start_x > x || start_x < 0 || start_y > y || start_y < 0)
+	if (start_x >= x || start_x < 0 || start_y >= y || start_y < 0)
 	{
 		printf("Starting position is out of range.\n");
 		return (1);
@@ -207,15 +212,12 @@ int check_input(int x, int y, int start_x, int start_y)
 		printf("Size can't go above 20");
 		return (1);
 	}
-	if ((x % 2 && y % 2) ||
-		(y == 3 && (x == 4 || x == 6 || x == 8)) ||
-		(y < 3 || y == 4))
-	{
-		printf("No knight tour possible.\n");
-		return (1);
-	}
 	return (0);
 }	
+
+/*
+** Rmq: If i take a long time, it's probably because a knight tour is not possible.
+*/
 
 int main(int argc, char **argv)
 {
@@ -227,7 +229,7 @@ int main(int argc, char **argv)
 	if (argc != 5)
 	{
 		printf("Usage: %s : [size_x] [size_y] [pos_x] [pos_y]\n\n", argv[0]);
-		printf("size_x & size_y : Size of the map (size_x & size_y will be inverted if size_y is greater than size_x)\n");
+		printf("size_x & size_y : Size of the map.\n");
 		printf("pos_x  & pos_y  : Knight starting position\n");
 		return (1);
 	}
