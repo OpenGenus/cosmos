@@ -17,9 +17,7 @@ def heapRoot(arr, i, length):
 		heapRoot(arr, max_index, length)
 
 def swap(arr, a, b):
-	arr[a] = arr[a]+arr[b]
-	arr[b] = arr[a]-arr[b]
-	arr[a] = arr[a]-arr[b]
+	arr[a], arr[b] = arr[b], arr[a]
 
 #sorting is in the ascending order
 def heapSort(arr):
