@@ -31,7 +31,7 @@ Each type has several hundreds of problems with solutions in several languages s
 
 This is a massive collaboration and to keep the quality intact and drive the vision in the proper direction, we have maintainers.
 
-> Maintainers are your friend forever. They are vastly different from moderators.
+> Maintainers are your friends forever. They are vastly different from moderators.
 
 The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. 🌍
 
@@ -41,7 +41,7 @@ Let us know that you would like to be a maintainer in the Slack channel *#algori
 
 # Contributions
 
-The success of our vision to bring knowledge offline** depends on you. Even a small contribution helps. All forms of contribution are highly welcomed and valued.
+The success of our vision to bring knowledge offline** depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
