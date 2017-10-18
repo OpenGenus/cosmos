@@ -1,5 +1,4 @@
-#include<iostream>
-using namespace std;
+#include<stdio.h>
 
 /*
  * Part of Cosmos by OpenGenus Foundation
@@ -15,11 +14,11 @@ void solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
         ///Print the soln
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
-                cout<<sol[i][j]<<" ";
+                printf("%d ", sol[i][j]);
             }
-            cout<<endl;
+            printf("\n");
         }
-        cout<<endl;
+        printf("\n");
 
         return ;
     }
@@ -57,10 +56,10 @@ int main(){
     int ways=0;
     solveMaze(maze,sol,0,0,m,n,ways);
     if(ways){
-        cout<<"Total ways "<<ways<<endl;
+        printf("Total ways %d\n", ways);
     }
     else{
-        cout<<"No ways"<<endl;
+        printf("No ways\n");
     }
 return 0;
 }
