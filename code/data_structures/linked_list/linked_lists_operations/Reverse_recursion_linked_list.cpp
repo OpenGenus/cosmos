@@ -1,5 +1,4 @@
 #include<iostream>
-#include<stack>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
@@ -34,10 +33,8 @@ void insertInMiddle(node*&head,int d,int p){
     }
     else{
         //assuming p<=length of LL
-        int jump=1;
         node*temp=head;
-        while(jump<=p-1){
-            jump++;
+        for(int jump=1;jump<p;jump++){
             temp=temp->next;
         }
         node*n=new node(d);
@@ -69,7 +66,7 @@ istream& operator>>(istream&is, node*&head){
 
 ///optimized recursive reverse
 node*recReverse2(node*head){
-    if(head==NULL || head->next==NULL){
+    if(head==nullptr || head->next==nullptr){
         return head;
     }
     node*newHead=recReverse2(head->next);
