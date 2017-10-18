@@ -8,7 +8,6 @@ class InsertionSort {
                 arr[j - 1] = temp;
             }
         }
-        System.out.println("After:" + Arrays.toString(arr));
     }
 
     // Driver method
@@ -17,5 +16,6 @@ class InsertionSort {
         System.out.println("Before: " + Arrays.toString(arr));
         InsertionSort ob = new InsertionSort();
         ob.sort(arr);
+        System.out.println("After:" + Arrays.toString(arr));
     }
 }
