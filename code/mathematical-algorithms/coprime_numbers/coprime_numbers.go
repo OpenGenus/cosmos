@@ -4,23 +4,17 @@ import "fmt"
 
 func gcd(a, b int) int {
 	for b != 0 {
-		tmp := a % b
-		a = b
-		b = tmp
+		a, b = b, a%b
 	}
 	return a
 }
 
 func coprime(a, b int) bool {
-	if a > b {
-		return gcd(a, b) == 1
-	} else {
-		return gcd(b, a) == 1
-	}
+	return gcd(a, b) == 1
 }
 
 func main() {
-	a := 15
-	b := 14
+	a := 14
+	b := 15
 	fmt.Printf("Are %v and %v coprime? %v\n", a, b, coprime(a, b))
 }
