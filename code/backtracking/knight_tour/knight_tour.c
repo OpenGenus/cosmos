@@ -138,6 +138,10 @@ int kt_solve(char **map, int sol[][2], int x, int y, int depth)
 	return (0);
 }
 
+/*
+** Display the solution step by step.
+*/
+
 int print_solution(char **map, int sol[][2], int x, int y)
 {
 	int i = 0;
@@ -163,7 +167,7 @@ int print_solution(char **map, int sol[][2], int x, int y)
 ** Set up the knight tour.
 */
 
-int knight_tour(void)
+int knight_tour(int x, int y, int start_x, int start_y)
 {
 	int i = 0;
 	int sol[8 * 8][2];
@@ -177,8 +181,8 @@ int knight_tour(void)
 		memset(map[i], '0', 8);
 		map[i++][8] = '\0';		
 	}
-	sol[0][0] = 0,
-	sol[0][1] = 0;
+	sol[0][0] = start_x,
+	sol[0][1] = start_y;
 	map[sol[0][1]][sol[0][0]] = 'K';
 	if (kt_solve(map, sol, 8, 8, 0))
 		print_solution(map, sol, 8, 8);
@@ -191,8 +195,48 @@ int knight_tour(void)
 	return (1);
 }
 
-int main(void)
+int check_input(int x, int y, int start_x, int start_y)
 {
-	knight_tour();
+	if (start_x > x || start_x < 0 || start_y > y || start_y < 0)
+	{
+		printf("Starting position is out of range.\n");
+		return (1);
+	}
+	if (x > 20 || y > 20) // no one like stack overflox.
+	{
+		printf("Size can't go above 20");
+		return (1);
+	}
+	if ((x % 2 && y % 2) ||
+		(y == 3 && (x == 4 || x == 6 || x == 8)) ||
+		(y < 3 || y == 4))
+	{
+		printf("No knight tour possible.\n");
+		return (1);
+	}
+	return (0);
+}	
+
+int main(int argc, char **argv)
+{
+	int size_x;
+	int size_y;
+	int start_x;
+	int start_y;
+
+	if (argc != 5)
+	{
+		printf("Usage: %s : [size_x] [size_y] [pos_x] [pos_y]\n\n", argv[0]);
+		printf("size_x & size_y : Size of the map (size_x & size_y will be inverted if size_y is greater than size_x)\n");
+		printf("pos_x  & pos_y  : Knight starting position\n");
+		return (1);
+	}
+	size_x = atoi(argv[1]);
+	size_y = atoi(argv[2]);
+	start_x = atoi(argv[3]);
+	start_y = atoi(argv[4]);
+	if (check_input(size_x, size_y, start_x, start_y))
+		return (1);
+	knight_tour(size_x, size_y, start_x, start_y);
 	return (0);
 }
