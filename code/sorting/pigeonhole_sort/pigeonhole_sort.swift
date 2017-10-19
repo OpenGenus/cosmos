@@ -7,7 +7,9 @@
 
 import Foundation
 
-func pigeonhole_sort(_ array: inout [Int]) {
+func pigeonholeSort(_ array: inout [Int]) {
+    
+    // find max and min value in array
     var max = Int.min
     var min = Int.max
     for item in array {
@@ -18,18 +20,20 @@ func pigeonhole_sort(_ array: inout [Int]) {
             min = item
         }
     }
+    
+    // put element to right hole
     let range = max - min + 1
-    var hole = [Int](repeatElement(0, count: range))
+    var holes = [[Int]](repeatElement([Int](), count: range))
     for item in array {
-        hole[item - min] += 1
+        holes[item - min].append(item)
     }
+    
+    // use holes to make sorted array
     var index = 0
-    for i in 0..<range {
-        var count = hole[i]
-        while count > 0 {
-            array[index] = i + min
+    for hole in holes {
+        for item in hole {
+            array[index] = item
             index += 1
-            count -= 1
         }
     }
 }
