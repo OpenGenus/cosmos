@@ -11,4 +11,4 @@ It can be better explained by the image below
 
 ![alt text](http://contribute.geeksforgeeks.org/wp-content/uploads/CircleSort.png "Circle Sorting")
 
-This article is obtained as reference from [Geeksforgeeks](http://www.geeksforgeeks.org/circle-sort/)
+This article is obtained as a reference from [Geeksforgeeks](http://www.geeksforgeeks.org/circle-sort/)
