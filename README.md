@@ -10,18 +10,24 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
+* Artificial intelligence
 * Backtracking
 * Bit manipulation
+* Cellular automaton
 * Computational geometry
+* Cryptography
 * Data structures
 * Divide conquering
 * Dynamic programming
 * Graph algorithms
 * Greedy algorithms
 * Mathematical algorithms
+* Operating system
 * Randomized algorithms
 * Searching
+* Selecting
 * Sorting
+* Square root decomposition
 * String algorithms
 * Unclassified 👻
 
