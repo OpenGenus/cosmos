@@ -1,3 +1,4 @@
+## Part of Cosmos by OpenGenus Foundation
 def sum_of_digits(num)
   num = num.abs
   sum = 0
