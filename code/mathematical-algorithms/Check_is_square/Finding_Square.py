@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation 
 import math
 
 def finding_square(num):

@@ -2,7 +2,7 @@
 class Stack
   attr_accessor :items
 
-  def initialize()
+  def initialize
     @items = []
   end
 
@@ -10,7 +10,7 @@ class Stack
     @items.push(element)
   end
 
-  def pop()
+  def pop
     @items.pop()
   end
 

@@ -1,6 +1,8 @@
 //Time Complexity : O((n+q)*sqrt(n))
 
 #include <bits/stdc++.h>
+#include<math.h>
+#includ<conio.h>
 
 /* Part of Cosmos by OpenGenus Foundation */
 
@@ -34,14 +36,16 @@ bool f(pair<int,pi> a, pair<int,pi> b){
     return a.se.fi/BLOCK>b.se.fi/BLOCK;
 }
 int main() {
+	system("cls");
     //fast_io()
     int n;
     scanf("%d",&n);
     int a[n+3];
     for(int i=0;i<n;i++)
-        scanf("%d",&a[i]);
-    int l,r,s=0,e=0;
-    int Q;
+    {
+	    scanf("%d",&a[i]);
+    }
+    int l,r,s=0,e=0,Q;
     vector<pair<int,pi>>q;
     scanf("%d",&Q);
     //block size:SQRT(N)
@@ -84,6 +88,7 @@ int main() {
 	}
 	for(int i=0;i<Q;i++)
 	    printf("%d\n",v[i]);
+        getch();
 	return 0;
 	
 }
