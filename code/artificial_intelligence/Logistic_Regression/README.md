@@ -1,9 +1,9 @@
 # Logistical Regression
 
-The **logistical regression** algorithm build upon linear regression and is basically a supervised classification algorithm. In a classification problem, the target variable (or output), y, can take only discrete values for given set of features (or inputs), X.
+The **logistical regression** algorithm build upon linear regression and is basically a supervised classification algorithm. In a classification problem, the target variable (or output), Y, can take only discrete values for given set of features (or inputs), X.
 We can also say that the target variable is categorical. Based on the number of categories, Logistic regression can be classified as:
 
-1. binomial: target variable can have only 2 possible types: “0” or “1” which may represent “win” vs “loss”, “pass” vs “fail”, “dead” vs “alive”, etc.
+1. binomial: target variable can have only 2 possible types: 0 or 1 which may represent "win" vs "loss", "pass" vs "fail", "dead" vs "alive", etc.
 2. multinomial: target variable can have 3 or more possible types which are not ordered(i.e. types have no quantitative significance) like “disease A” vs “disease B” vs “disease C”.
 3. ordinal: it deals with target variables with ordered categories. For example, a test score can be categorized as:“very poor”, “poor”, “good”, “very good”. Here, each category can be given a score like 0, 1, 2, 3.
 
@@ -18,4 +18,4 @@ Here are some points about Logistic regression to ponder upon:
 - It uses maximum likelihood estimation (MLE) rather than ordinary least squares (OLS) to estimate the parameters, and thus relies on large-sample approximations.
 
 
-This article is obtained as reference from [Geeksforgeeks](http://www.geeksforgeeks.org/understanding-logistic-regression/)
+This article is obtained as a reference from [Geeksforgeeks](http://www.geeksforgeeks.org/understanding-logistic-regression/)
