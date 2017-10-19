@@ -1,43 +1,41 @@
 // Part of Cosmos by OpenGenus Foundation 
 
-/* 
-**
-** @AUTHOR: VINAY BADHAN
-** @GREEDY PROBLEM: FINDING SQUARE
-** @GITHUB LINK: https://github.com/vinayb21
-*/
-
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
-class FindingSquare {
-    
-    public static boolean isSquare(int n)
-    {
-        float i;
-        for (i=1; i<=n/2; i++)
-        {
-            if (n/i==i)
-                return true;
-        }
-        return false;
-    }
-    
+public class CheckisSquare{	
 
-    public static void main(String[] args) throws IOException 
-    {
-        int n;
-    	InputStreamReader in = new InputStreamReader(System.in);
-    	BufferedReader buffer = new BufferedReader(in);
-    	PrintWriter out = new PrintWriter(System.out, true);
-    	out.print("Enter a non-negative number: ");
-    	out.println();
-    	String line = buffer.readLine().trim();
-    	n = Integer.parseInt(line);
-    	boolean ans = isSquare(n);
-        if (ans)
-            out.println(n+" is a perfect square");
-        else
-            out.println(n+" is not a perfect square");
-    }
+	static boolean checkIsSquare(int n){
+		boolean flag = false;
+		int start = 0;
+		int end = n;
+		while(start <= end){
+			int mid = start + (end - start) / 2;
+			long val = (long)mid * (long)mid;
+			if(val == n)
+				return true;
+			else if(val < n)
+				start = mid + 1;
+			else
+				end = mid - 1;
+		}
+
+		return false;
+	}
+
+	public static void main(String[] args) throws IOException{
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){		
+			
+			int n = 0;
+			do{
+				System.out.println("Please Enter a Positive Integer :");
+				n = Integer.parseInt(br.readLine().trim());
+			}while(n < 0);
+
+			if(checkIsSquare(n))
+				System.out.println("YES");
+			else
+				System.out.println("NO");
+		}
+	}	
 }
