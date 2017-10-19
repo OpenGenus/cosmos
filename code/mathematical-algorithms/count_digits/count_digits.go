@@ -3,8 +3,9 @@ package main
 
 /*
 Expected output
-
-
+123,  number of digits is 3
+0,  number of digits is 1
+6523123,  number of digits is 7
 */
 
 import "fmt"
