@@ -1,7 +1,7 @@
 # Stack
 Description
 ---
-Stacks are an abstract data type (ADT) that function to store and manipulate data. Their order is last-in-first-out (LIFO). To implement a stack, an array or linked list can be used.
+Stacks are an abstract data type (ADT) that function to store and manipulate data. Their order is last-in-first-out (LIFO). To implement a stack, an array or [linked list](../linked_list) can be used. A stack is similar to a [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) in that the first object pushed onto the stack cannot be removed until every other object pushed on top of it has also been removed. It is also similar to a stack of plates in a cafeteria, where the bottom plate cannot be removed until all of the plates above it have been removed as well.
 
 Functions
 ---
@@ -17,3 +17,40 @@ Functions
 Time Complexity
 ---
 All the functions are O(1).
+
+Visualization
+---
+The stack:
+| |
+| |
+| |
+
+push(1)
+| |
+| |
+|1|
+
+push(3)
+| |
+|3|
+|1|
+
+push(8)
+|8|
+|3|
+|1|
+
+pop() -> 8
+| |
+|3|
+|1|
+
+peek() -> 3
+| |
+|3|
+|1|
+
+pop() -> 3
+| |
+| |
+|1|
