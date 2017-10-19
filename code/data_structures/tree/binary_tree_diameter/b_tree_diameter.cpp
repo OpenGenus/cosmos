@@ -1,3 +1,11 @@
+Data Structures : Finding Diameter of a binary tree
+
+Description : Diameter of tree is defined as the longest path or route between any two nodes in a tree.
+              This path may or may not be through the root. The below algorithm computes the height of 
+              the tree and uses it recursivley in the calculation of diameter of the specified tree.
+
+A massive collaborative effort by OpenGenus Foundation
+
 #include<iostream>
 using namespace std;
 
