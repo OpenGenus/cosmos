@@ -25,7 +25,7 @@ Following is the high-level structure of cosmos:
 * Operating system
 * Randomized algorithms
 * Searching
-* Selection
+* Selecting
 * Sorting
 * Square root decomposition
 * String algorithms
