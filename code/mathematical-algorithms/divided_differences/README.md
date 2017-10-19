@@ -3,8 +3,8 @@
 
 # Divided differences
 
-The second column is the value of the functions.
-The first - point.
+The second column is the value of the function.
+The first column - points.
 
 # Example
     1 1    
