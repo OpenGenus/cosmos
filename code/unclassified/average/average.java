@@ -3,8 +3,8 @@ import java.util.*;
 class average
 {
     /**
-    * @param arr array of integers to get a average of.
-    * @param n number of elementes.
+    * @param arr array of integers to get the average of.
+    * @param n number of elements.
     * @return the average calculated as sum(arr)/n
     */
     static double avrg(int arr[], int n)
