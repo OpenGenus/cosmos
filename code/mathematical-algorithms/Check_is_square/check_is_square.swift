@@ -2,26 +2,21 @@
 // Part of Cosmos by OpenGenus Foundation
 import Darwin
 
-func findingSquare(num : Int) -> Int {
-    var res = 0
-    let x = sqrt(Double(num))
-    for i in 0...num {
+func findingSquare(num : Int) -> Bool {
+    let x = Int(sqrt(Double(num)))
+    for i in 0...x{
         if(i*i == num){
-            res = 1
-            break
+            return true
         }
-        if(i > Int(x)){
-            break
-            }
     }
-    return res
+    return false
 }
 let number = Int(readLine()!)
 let result = findingSquare(num: number!)
 
-if(result == 0){
-    print("\(number) is NOT a perfect square")
+if(result){
+    print("A perfect square")
 }
 else{
-    print("\(number) is a perfect square")
+    print("Not a perfect square")
 }
