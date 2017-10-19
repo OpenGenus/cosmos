@@ -1,7 +1,4 @@
-#include <iostream>
 #include <stdio.h>
-
-using namespace std;
 
 int maxSum(int arr[], int N)
 {
