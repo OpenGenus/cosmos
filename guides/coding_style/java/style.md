@@ -16,7 +16,7 @@ if (true || false) {
 	// One line of code
 } else {
 	/* More than one line of code,
-	** so all blocks should be delimited.
+	** so all blocks should be delimited. */
 }
 
 int[] arr = new int[] { 1, 2, 3 };
@@ -50,7 +50,7 @@ while (true) {
 
 }
 
-class {
+class Foo {
 	// No space between declaration and code
 }
 ```
