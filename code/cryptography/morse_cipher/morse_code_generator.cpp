@@ -17,7 +17,7 @@ encrypt['U']="..-";encrypt['V']="...-"; encrypt['W']=".--"; encrypt['X']="-..-";
 encrypt['Y']="-.--";encrypt['Z']="--..";
 encrypt['1']=".----"; encrypt['2']="..---"; encrypt['3']="...--";encrypt['4']="....-";
 encrypt['5']="....."; encrypt['6']="-...."; encrypt['7']="--...";
-encrypt['8']="---.."; encrypt['9']="---."; encrypt['0']="-----"; 
+encrypt['8']="---.."; encrypt['9']="----."; encrypt['0']="-----"; 
 
 string cipher;
 for(int i=0;i<msg.size();i++)

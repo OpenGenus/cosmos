@@ -21,4 +21,4 @@ const smallest_digit_in_number = input => {
   return numbers[0];
 }
 
-console.log(sm)console.log(smallest_digit_in_number(243245));
+console.log(smallest_digit_in_number(243245));
