@@ -1,11 +1,7 @@
 function reverse_number(value) {
-    var str = "" + value;
-    var res = "";
-    for (var i = str.length - 1; i >= 0; i--) {
-      res += str[i];
-    }
-   
-    return parseInt(res);
-  }
+  let reversed = String(value).split('').reverse().join('');
+  return Number(reversed);
+}
 
-  console.log(reverse_number(123456789));
+console.log(reverse_number(123456789)); // 987654321
+console.log(reverse_number(12.34)); // 43.21

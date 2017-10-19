@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Queue implementation using a singly-linked link.
  * Part of the OpenGenus/cosmos project. (https://github.com/OpenGenus/cosmos)
  * 
