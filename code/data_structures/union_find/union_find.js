@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 class UnionFind {
   constructor () {
     this.parents = []
@@ -31,7 +33,7 @@ class UnionFind {
         [a, b] = [b, a]
       }
       
-      if (this.ranks[a] == this.ranks[b]) {
+      if (this.ranks[a] === this.ranks[b]) {
         this.ranks[a]++
       }
       

@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 
 case class UnionFind[T](map: Map[T, T] = Map[T, T]()) {
 

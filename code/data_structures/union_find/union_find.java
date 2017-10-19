@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 class UnionFind {
     int[] parent;
     int[] rank;
@@ -16,10 +18,10 @@ class UnionFind {
         parent[v] = find(parent[v]);
         return parent[v];
     }
-    public boolean isConnected(int a, int b) {
+    public boolean connected(int a, int b) {
         return find(a) == find(b);
     }
-    public void connect(int a, int b) {
+    public void union(int a, int b) {
         a = find(a);
         b = find(b);
         if (a != b) {
@@ -37,12 +39,12 @@ class UnionFind {
     public static void main(String[] args) {
         UnionFind unionFind = new UnionFind(10);
 
-        unionFind.connect(3, 4);
-        unionFind.connect(3, 8);
-        unionFind.connect(0, 8);
-        unionFind.connect(1, 3);
-        unionFind.connect(7, 9);
-        unionFind.connect(5, 9);
+        unionFind.union(3, 4);
+        unionFind.union(3, 8);
+        unionFind.union(0, 8);
+        unionFind.union(1, 3);
+        unionFind.union(7, 9);
+        unionFind.union(5, 9);
 
         // Now the components are:
         // 0 1 3 4 8
@@ -52,7 +54,7 @@ class UnionFind {
 
         for (int i = 0; i < 10; i++) {
             for (int j = i + 1; j < 10; j++) {
-                if (unionFind.isConnected(i, j)) {
+                if (unionFind.connected(i, j)) {
                     System.out.printf("%d and %d are in the same component\n", i, j);
                 }
             }
