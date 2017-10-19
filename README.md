@@ -1,5 +1,5 @@
 ﻿# Cosmos
-> The universe of algorithm and data structures
+> The universe of algorithm and data structures.
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
