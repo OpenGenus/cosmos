@@ -143,6 +143,5 @@ int main() {
 
     std::vector<size_t> solution;
     algo_x(m, std::vector<bool>{}, std::vector<bool>{}, solution);
-
     return 0;
 }
