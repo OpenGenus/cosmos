@@ -1,4 +1,5 @@
-#include <iostream>
+#include <stdio.h>
+#include <string.h>
 /* Function to swap values at two pointers */
 // Part of Cosmos by OpenGenus Foundation
 void swap(char *x, char *y)
@@ -17,8 +18,9 @@ void swap(char *x, char *y)
 void permute(char *a, int l, int r)
 {
     int i;
-    if (l == r)
-        std::cout<<a<<"\n";
+    if (l == r) {
+        printf("%s\n", a);
+    }
     else
     {
         for (i = l; i <= r; i++)
