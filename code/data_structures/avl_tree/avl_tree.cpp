@@ -58,17 +58,17 @@ public:
     }
 
     // preorder traversal of the AVL tree
-    void preOrder(std::ostream &out) {
+    void preOrder(std::ostream &out) const {
         preOrder(root, out);
     }
 
     // inorder traversal of the AVL tree
-    void inOrder(std::ostream &out) {
+    void inOrder(std::ostream &out) const {
         inOrder(root, out);
     }
 
     // postorder traversal of the AVL tree
-    void postOrder(std::ostream &out) {
+    void postOrder(std::ostream &out) const {
         postOrder(root, out);
     }
 
@@ -207,7 +207,7 @@ private:
     }
 
     // preorder traversal of the AVL tree
-    void preOrder(AVLNode *root, std::ostream &out) {
+    void preOrder(AVLNode *root, std::ostream &out) const {
         if (root != nullptr) {
             out << (root)->data << " ";
             preOrder((root)->left, out);
@@ -216,7 +216,7 @@ private:
     }
 
     // inorder traversal of the AVL tree
-    void inOrder(AVLNode *root, std::ostream &out) {
+    void inOrder(AVLNode *root, std::ostream &out) const {
         if (root != nullptr) {
             inOrder((root)->left, out);
             out << (root)->data << " ";
@@ -225,7 +225,7 @@ private:
     }
 
     // postorder traversal of the AVL tree
-    void postOrder(AVLNode *root, std::ostream &out) {
+    void postOrder(AVLNode *root, std::ostream &out) const {
         if (root != nullptr) {
             postOrder((root)->left, out);
             postOrder((root)->right, out);
