@@ -95,5 +95,4 @@ int main(int c, char **v)
 	solve(w, h);
  
 	return 0;
-}
-  
+}  
