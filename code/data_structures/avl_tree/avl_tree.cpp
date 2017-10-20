@@ -60,7 +60,7 @@ private:
 public:
     avl_tree() :root(nullptr) {;}
 
-    ~avl_tree() {deleteTree(root);}
+    ~avl_tree() {release(root);}
 
     // function to find the minimum element in the tree (lefftmost node)
     AVLNode *findMin(AVLNode *root) {
@@ -81,13 +81,13 @@ public:
     }
 
     // function to insert a node into the AVL tree
-    void insertIntoAVL(int data) {
-        root = insertIntoAVL(root, data);
+    void insert(int data) {
+        root = insert(root, data);
     }
 
     // function to delete a node from the AVL tree
-    void deleteFromAVL(int data) {
-        root = deleteFromAVL(root, data);
+    void erase(int data) {
+        root = erase(root, data);
     }
 
     // preorder traversal of the AVL tree
@@ -106,10 +106,10 @@ public:
     }
 
     // function to free allocated memory
-    void deleteTree(AVLNode *root) {
+    void release(AVLNode *root) {
         if (root != nullptr) {
-            deleteTree((root)->left);
-            deleteTree((root)->right);
+            release((root)->left);
+            release((root)->right);
             delete root;
         }
     }
@@ -118,7 +118,7 @@ private:
     AVLNode *root;
 
     // function to insert a node into the AVL tree
-    AVLNode *insertIntoAVL(AVLNode *root, int data) {
+    AVLNode *insert(AVLNode *root, int data) {
         if (root == nullptr) {
             AVLNode *newNode = new AVLNode;
             newNode->data = data;
@@ -126,7 +126,7 @@ private:
             newNode->left = newNode->right = nullptr;
             root = newNode;
         } else if (data < root->data) {
-            root->left = insertIntoAVL(root->left, data);
+            root->left = insert(root->left, data);
             if (getHeight(root->left) - getHeight(root->right) == 2) {
                 if (data < root->left->data) {
                     root = rotateLL(root);
@@ -135,7 +135,7 @@ private:
                 }
             }
         } else if (data > root->data) {
-            root->right = insertIntoAVL(root->right, data);
+            root->right = insert(root->right, data);
             if (getHeight(root->right) - getHeight(root->left) == 2) {
                 if (data > root->right->data) {
                     root = rotateRR(root);
@@ -150,11 +150,11 @@ private:
     }
 
     // function to delete a node from the AVL tree
-    AVLNode *deleteFromAVL(AVLNode *root, int data) {
+    AVLNode *erase(AVLNode *root, int data) {
         if (root == nullptr) {
             return nullptr;
         } else if (data < root->data) {
-            root->left = deleteFromAVL(root->left, data);
+            root->left = erase(root->left, data);
             if (getHeight(root->right) - getHeight(root->left) == 2) {
                 if (getHeight(root->right->right) > getHeight(root->right->left)) {
                     root = rotateRR(root);
@@ -163,7 +163,7 @@ private:
                 }
             }
         } else if (data > root->data) {
-            root->right = deleteFromAVL(root->right, data);
+            root->right = erase(root->right, data);
             if (getHeight(root->left) - getHeight(root->right) == 2) {
                 if (getHeight(root->left->left) > getHeight(root->left->right)) {
                     root = rotateLL(root);
@@ -176,7 +176,7 @@ private:
             if (root->left && root->right) {
                 temp = findMin(root->right);
                 root->data = temp->data;
-                root->right = deleteFromAVL(root->right, root->data);
+                root->right = erase(root->right, root->data);
                 if (getHeight(root->left) - getHeight(root->right) == 2) {
                     if (getHeight(root->left->left) > getHeight(root->left->right)) {
                         root = rotateLL(root);
@@ -242,11 +242,11 @@ int main() {
         switch (ch) {
         case 1: cout << "Enter data\n";
             cin >> data;
-            avlt.insertIntoAVL(data);
+            avlt.insert(data);
             break;
         case 2: cout << "Enter data\n";
             cin >> data;
-            avlt.deleteFromAVL(data);
+            avlt.erase(data);
             break;
         case 3: avlt.preOrder(cout);
             cout << endl;
