@@ -1,16 +1,16 @@
 // C++ program to print reverse of a linked list
 #include <iostream>
-using namespace std;
 
 class Node {
-    int data;
-    Node *next;
+    public:
+        int data;
+        Node *next;
 };
 
 void printReverse(Node *head) {
     if (head == nullptr) { return; }
     printReverse(head->next);
-    cout<<head->data<<" ";
+    std::cout<<head->data<<" ";
 }
 
 void push(Node **head_ref, char new_data) {
