@@ -2,7 +2,6 @@ package bag.java;
 // Part of Cosmos by OpenGenus Foundation
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
 /**
  * Collection which does not allow removing elements (only collect and iterate)
  *

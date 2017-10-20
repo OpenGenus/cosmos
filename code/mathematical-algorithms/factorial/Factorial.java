@@ -2,18 +2,17 @@ import java.util.Scanner;
 // Part of Cosmos by OpenGenus Foundation
 public class Factorial {
     public static void main(String args[]) {
-        Scanner stdin = new Scanner(System.in);
-        Factorial obj = new Factorial();
-        System.out.println("Enter a number");
-        int n = stdin.nextInt();
-        System.out.println("The factorial is " + obj.fact(n));
+        System.out.print("Enter a number: ");
+        Scanner enterNum = new Scanner(System.in);
+        int n = enterNum.nextInt();
+        System.out.println("Factorial is: " + factorial(n));
     }
     
-    long fact(int n) {
-        if(n == 0) {
-            return 1;
-        } else {
-            return ((long)n * fact(n-1));
+    private static BigInteger factorial(int n) {
+        BigInteger ret = BigInteger.ONE;
+        for (int i = 1; i <= n; ++i) {
+            ret = ret.multiply(BigInteger.valueOf(i));
         }
+        return ret;
     }
 }
