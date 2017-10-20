@@ -20,10 +20,9 @@ int getHeight(AVLNode *node) {
 
 // function to find the minimum element in the tree (lefftmost node)
 AVLNode *findMin(AVLNode *root) {
-    if (root == nullptr)
-        return nullptr;
-    while (root->left != nullptr)
-        root = root->left;
+    if (root != nullptr)
+        while (root->left != nullptr)
+            root = root->left;
 
     return root;
 }
@@ -178,11 +177,11 @@ void postOrder(AVLNode *root, std::ostream &out) {
 
 // function to free allocated memory
 void deleteTree(AVLNode *root) {
-    if (root == nullptr)
-        return;
-    deleteTree((root)->left);
-    deleteTree((root)->right);
-    delete root;
+    if (root != nullptr) {
+        deleteTree((root)->left);
+        deleteTree((root)->right);
+        delete root;
+    }
 }
 
 #include <iostream>
