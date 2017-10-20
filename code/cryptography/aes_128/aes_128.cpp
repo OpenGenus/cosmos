@@ -1,5 +1,9 @@
 /*
-Author: Andres Vargas
+National University from Colombia
+Author:Andres Vargas, Jaime
+Gitub: https://github.com/jaavargasar
+webpage: https://jaavargasar.github.io/
+Language: C++
 
 Description: Given an array 1 ( outpu1 ), an array2 (output2) and a key
              we gotta decipher the messege and read what the messege is as a plane text.

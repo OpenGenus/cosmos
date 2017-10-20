@@ -9,5 +9,5 @@ defmodule Average do
 end
 
 # Test
-n = [10,20,30,40]
+n = [10, 20, 30, 40]
 IO.puts Average.get(n) #=> 25
