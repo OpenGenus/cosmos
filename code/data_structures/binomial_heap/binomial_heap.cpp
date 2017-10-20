@@ -1,7 +1,6 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-
 /* Part of Cosmos by OpenGenus Foundation */
 using namespace std;
 
