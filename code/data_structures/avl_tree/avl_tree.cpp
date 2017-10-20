@@ -1,7 +1,8 @@
-#include <iostream>
-
 // Part of Cosmos by OpenGenus Foundation
+
 // structure representing an AVL node
+#include <algorithm>
+#include <ostream>
 struct AVLNode {
     int data;
     AVLNode *left;
@@ -13,6 +14,7 @@ struct AVLNode {
 int getHeight(AVLNode *node) {
     if (node)
         return node->height;
+
     return -1;
 }
 
@@ -148,29 +150,29 @@ AVLNode *deleteFromAVL(AVLNode * &root, int data) {
 }
 
 // preorder traversal of the AVL tree
-void preOrder(AVLNode *root) {
+void preOrder(AVLNode *root, std::ostream &out) {
     if (root != nullptr) {
-        std::cout << (root)->data << " ";
-        preOrder((root)->left);
-        preOrder((root)->right);
+        out << (root)->data << " ";
+        preOrder((root)->left, out);
+        preOrder((root)->right, out);
     }
 }
 
 // inorder traversal of the AVL tree
-void inOrder(AVLNode *root) {
+void inOrder(AVLNode *root, std::ostream &out) {
     if (root != nullptr) {
-        inOrder((root)->left);
-        std::cout << (root)->data << " ";
-        inOrder((root)->right);
+        inOrder((root)->left, out);
+        out << (root)->data << " ";
+        inOrder((root)->right, out);
     }
 }
 
 // postorder traversal of the AVL tree
-void postOrder(AVLNode *root) {
+void postOrder(AVLNode *root, std::ostream &out) {
     if (root != nullptr) {
-        postOrder((root)->left);
-        postOrder((root)->right);
-        std::cout << (root)->data << " ";
+        postOrder((root)->left, out);
+        postOrder((root)->right, out);
+        out << (root)->data << " ";
     }
 }
 
@@ -183,6 +185,7 @@ void deleteTree(AVLNode *root) {
     delete root;
 }
 
+#include <iostream>
 using namespace std;
 int main() {
     int ch, data;
@@ -199,13 +202,13 @@ int main() {
             cin >> data;
             root = deleteFromAVL(root, data);
             break;
-        case 3: preOrder(root);
+        case 3: preOrder(root, cout);
             cout << endl;
             break;
-        case 4: inOrder(root);
+        case 4: inOrder(root, cout);
             cout << endl;
             break;
-        case 5: postOrder(root);
+        case 5: postOrder(root, cout);
             cout << endl;
             break;
         }
