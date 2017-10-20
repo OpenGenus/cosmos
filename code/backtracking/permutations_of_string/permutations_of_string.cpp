@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <iostream>
 /* Function to swap values at two pointers */
 // Part of Cosmos by OpenGenus Foundation
 void swap(char *x, char *y)
