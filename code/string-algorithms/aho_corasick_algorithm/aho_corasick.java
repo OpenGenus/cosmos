@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AhoCorasick {
+public class aho_corasick{
 
 	static final int ALPHABET_SIZE = 26;
 

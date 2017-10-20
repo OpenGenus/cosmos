@@ -1,4 +1,4 @@
-public class Password {
+public class pw_checker{
 
 	public static void main(String[] args) {	
 		// password to check
