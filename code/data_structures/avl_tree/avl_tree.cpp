@@ -1,6 +1,84 @@
-// Part of Cosmos by OpenGenus Foundation
+/*
+    Part of Cosmos by OpenGenus Foundation
 
-// structure representing an AVL node
+    avl tree synopsis
+
+template<typename _Tp, typename _Comp = std::less<_Tp> >
+class avl_tree {
+private:
+    typedef _Tp value_type;
+
+    struct AVLNode {
+        value_type data;
+        AVLNode *left;
+        AVLNode *right;
+        int height;
+    };
+public:
+    avl_tree() :root(nullptr) {;}
+
+    ~avl_tree() {release(root);}
+
+    // function to insert a node into the AVL tree
+    void insert(int data);
+
+    // function to delete a node from the AVL tree
+    void erase(int data);
+
+    // helper function to return height of a node
+    int getHeight(AVLNode *node);
+
+    // function to find the minimum element in the tree (lefftmost node)
+    AVLNode *findMin(AVLNode *root);
+
+    // function to find the maximum element in the tree (rightmost node)
+    AVLNode *findMax(AVLNode *root);
+
+    // preorder traversal of the AVL tree
+    void preOrder(std::ostream &out) const ;
+
+    // inorder traversal of the AVL tree
+    void inOrder(std::ostream &out) const ;
+
+    // postorder traversal of the AVL tree
+    void postOrder(std::ostream &out) const ;
+
+    // function to free allocated memory
+    void release(AVLNode *root);
+
+private:
+    AVLNode *root;
+    _Comp comp;
+
+    // LL rotation rooted at X
+    AVLNode *rotateLL(AVLNode * &X);
+
+    // RR rotation rooted at X
+    AVLNode *rotateRR(AVLNode * &X);
+
+    // LR rotation rooted at X
+    AVLNode *rotateLR(AVLNode * &X);
+
+    // RL rotation rooted at X
+    AVLNode *rotateRL(AVLNode * &X);
+
+    // function to insert a node into the AVL tree
+    AVLNode *insert(AVLNode *root, int data);
+
+    // function to delete a node from the AVL tree
+    AVLNode *erase(AVLNode *root, int data);
+
+    // preorder traversal of the AVL tree
+    void preOrder(AVLNode *root, std::ostream &out) const ;
+
+    // inorder traversal of the AVL tree
+    void inOrder(AVLNode *root, std::ostream &out) const ;
+
+    // postorder traversal of the AVL tree
+    void postOrder(AVLNode *root, std::ostream &out) const ;
+};
+*/
+
 #include <algorithm>
 #include <ostream>
 
@@ -234,6 +312,7 @@ private:
     }
 };
 
+/*
 // for test
 #include <iostream>
 using namespace std;
@@ -268,5 +347,4 @@ int main() {
 
     return 0;
 }
-
 // */
