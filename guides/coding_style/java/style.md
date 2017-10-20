@@ -6,7 +6,10 @@ All braces should start on the same line as the method they are delimiting. If a
 
 ```Java
 if (true) {
-	// Code
+	/* 
+	** Multiple lines
+	** of code
+	*/
 }
 
 while (true)
@@ -15,8 +18,10 @@ while (true)
 if (true || false) {
 	// One line of code
 } else {
-	/* More than one line of code,
-	** so all blocks should be delimited. */
+	/* 
+	** More than one line of code,
+	** so all blocks should be delimited.
+	*/
 }
 
 int[] arr = new int[] { 1, 2, 3 };
@@ -29,9 +34,10 @@ Comments should have a space following the double slashes. Any multiline comment
 ```Java
 // Single line comment, with space after slashes
 
-/* Multi-line comment,
-** with spaces after
-** the delimiters. */
+/*
+** Multi-line
+** comment
+*/
 ```
 
 Control flow statements
@@ -58,3 +64,21 @@ class Foo {
 Whitespace
 ---
 Tabs should be tab characters, and not spaces.
+
+Naming
+---
+All names should be lowerCamelCase, except constants, which should be CAPITALIZED_AND-SEPARATED_BY_UNDERSCORES, and classes, which should be PascalCase.
+
+Methods
+---
+Methods should have no whitespace in between the parentheses for parameters and the method signature. If a method contains only one line, it should be on the same line as the method declaration and follow the inline brace delimiting rule.
+```Java
+public void foo() {
+	/*
+	** Multiple lines
+	** of code
+	*/
+}
+
+public void bar() { // One line of code, with a space separating the braces }
+```
