@@ -5,6 +5,7 @@ typedef int bool;
 #define true 1
 #define false 0
 
+//Function for swaping of two numbers
 void swap(int *p, int *q)
 {
 	int temp = *p;
