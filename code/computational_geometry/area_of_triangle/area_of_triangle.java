@@ -1,6 +1,6 @@
 import java.lang.Math;
 
-public class area_of_triangle{
+public class AreaOfTriangle {
 
      public static void main(String []args){
         // input points {x,y}
