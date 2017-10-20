@@ -3,7 +3,7 @@
 */
 import java.util.*;
 
-public class Main {
+public class ThriceUniqueNumber {
     
     final public static int BITS=32;
     
