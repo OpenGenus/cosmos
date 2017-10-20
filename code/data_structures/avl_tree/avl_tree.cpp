@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // structure representing an AVL node
 struct AVLNode  {
@@ -32,8 +31,8 @@ AVLNode* LL_rotation(AVLNode* &X)    {
     AVLNode* W = X->left;
     X->left = W->right;
     W->right = X;
-    X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
-    W->height = max(getHeight(W->left), getHeight(X)) + 1;
+    X->height = std::max(getHeight(X->left), getHeight(X->right)) + 1;
+    W->height = std::max(getHeight(W->left), getHeight(X)) + 1;
     return W;   //new root
 }
 
@@ -42,8 +41,8 @@ AVLNode* RR_rotation(AVLNode* &X)    {
     AVLNode* W = X->right;
     X->right = W->left;
     W->left = X;
-    X->height = max(getHeight(X->left), getHeight(X->right)) + 1;
-    W->height = max(getHeight(X), getHeight(W->right));
+    X->height = std::max(getHeight(X->left), getHeight(X->right)) + 1;
+    W->height = std::max(getHeight(X), getHeight(W->right));
     return W;   //new root
 }
 
@@ -86,7 +85,7 @@ AVLNode* insertIntoAVL(AVLNode* &root, int data)  {
                 root = RL_rotation(root);
         }
     }
-    root->height = max(getHeight(root->left), getHeight(root->right)) + 1;
+    root->height = std::max(getHeight(root->left), getHeight(root->right)) + 1;
     return root;
 }
 
@@ -146,7 +145,7 @@ AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
 // preorder traversal of the AVL tree
 void preOrder(AVLNode *root)   {
     if(root != nullptr)    {
-        cout<<(root)->data<<" ";
+        std::cout<<(root)->data<<" ";
         preOrder((root)->left);
         preOrder((root)->right);
     }
@@ -156,7 +155,7 @@ void preOrder(AVLNode *root)   {
 void inOrder(AVLNode *root)    {
     if(root != nullptr)    {
         inOrder((root)->left);
-        cout<<(root)->data<<" ";
+        std::cout<<(root)->data<<" ";
         inOrder((root)->right);
     }
 }
@@ -166,7 +165,7 @@ void postOrder(AVLNode *root)  {
     if(root != nullptr)    {
         postOrder((root)->left);
         postOrder((root)->right);
-        cout<<(root)->data<<" ";
+        std::cout<<(root)->data<<" ";
     }
 }
 
@@ -179,6 +178,7 @@ void deleteTree(AVLNode *root) {
     delete root;
 }
 
+using namespace std;
 int main()  {
     int ch,data;
     AVLNode *root = nullptr;
