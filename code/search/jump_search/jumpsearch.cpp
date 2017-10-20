@@ -1,6 +1,7 @@
 // C++ program to implement Jump Search
  
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
  
 int jumpSearch(int arr[], int x, int n)

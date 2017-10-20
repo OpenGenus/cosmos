@@ -1,6 +1,9 @@
 # Cosmos Guides
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
+## C Code style
+
+C is a general-purpose, procedural computer programming language originally developed between 1969 and 1973.
 
 ---
 

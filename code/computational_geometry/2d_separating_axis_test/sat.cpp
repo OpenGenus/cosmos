@@ -1,3 +1,4 @@
+// computational geometry | Two convex polygon intersection 2d seperating axis test | C++
 //Ivan Reinaldo Liyanto
 // open genus - cosmos
 #include <cmath>

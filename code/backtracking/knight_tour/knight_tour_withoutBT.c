@@ -247,3 +247,4 @@ int main(int argc, char **argv)
 	knight_tour(size_x, size_y, start_x, start_y);
 	return (0);
 }
+

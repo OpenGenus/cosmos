@@ -1,4 +1,4 @@
-//
+//  computational geometry | 2D line intersecton | C++
 //  main.cpp
 //  forfun
 //

@@ -12,3 +12,4 @@ nQueens' n = go n []
     go k bs = concatMap (go (k - 1)) [ x : bs | x <- [1..n], placeable x bs]
 
     placeable n xs = null [ i | (i,x) <- zip [1..] xs, n == x || abs (n - x) == i]
+
