@@ -16,6 +16,75 @@ private:
         int height;
     };
 
+public:
+    avl_tree() :root(nullptr) {;}
+
+    ~avl_tree() {release(root);}
+
+    // function to insert a node into the AVL tree
+    void insert(int data) {
+        root = insert(root, data);
+    }
+
+    // function to delete a node from the AVL tree
+    void erase(int data) {
+        root = erase(root, data);
+    }
+
+    // helper function to return height of a node
+    int getHeight(AVLNode *node) {
+        if (node)
+            return node->height;
+
+        return -1;
+    }
+
+    // function to find the minimum element in the tree (lefftmost node)
+    AVLNode *findMin(AVLNode *root) {
+        if (root != nullptr)
+            while (root->left != nullptr)
+                root = root->left;
+
+        return root;
+    }
+
+    // function to find the maximum element in the tree (rightmost node)
+    AVLNode *findMax(AVLNode *root) {
+        if (root != nullptr)
+            while (root->right != nullptr)
+                root = root->right;
+
+        return root;
+    }
+
+    // preorder traversal of the AVL tree
+    void preOrder(std::ostream &out) {
+        preOrder(root, out);
+    }
+
+    // inorder traversal of the AVL tree
+    void inOrder(std::ostream &out) {
+        inOrder(root, out);
+    }
+
+    // postorder traversal of the AVL tree
+    void postOrder(std::ostream &out) {
+        postOrder(root, out);
+    }
+
+    // function to free allocated memory
+    void release(AVLNode *root) {
+        if (root != nullptr) {
+            release((root)->left);
+            release((root)->right);
+            delete root;
+        }
+    }
+
+private:
+    AVLNode *root;
+    _Comp comp;
+
     // LL rotation rooted at X
     AVLNode *rotateLL(AVLNode * &X) {
         AVLNode *W = X->left;
@@ -51,76 +120,6 @@ private:
 
         return rotateRR(X);
     }
-
-    // helper function to return height of a node
-    int getHeight(AVLNode *node) {
-        if (node)
-            return node->height;
-
-        return -1;
-    }
-
-public:
-    avl_tree() :root(nullptr) {;}
-
-    _Comp comp;
-
-    ~avl_tree() {release(root);}
-
-    // function to find the minimum element in the tree (lefftmost node)
-    AVLNode *findMin(AVLNode *root) {
-        if (root != nullptr)
-            while (root->left != nullptr)
-                root = root->left;
-
-        return root;
-    }
-
-    // function to find the maximum element in the tree (rightmost node)
-    AVLNode *findMax(AVLNode *root) {
-        if (root != nullptr)
-            while (root->right != nullptr)
-                root = root->right;
-
-        return root;
-    }
-
-    // function to insert a node into the AVL tree
-    void insert(int data) {
-        root = insert(root, data);
-    }
-
-    // function to delete a node from the AVL tree
-    void erase(int data) {
-        root = erase(root, data);
-    }
-
-    // preorder traversal of the AVL tree
-    void preOrder(std::ostream &out) {
-        preOrder(root, out);
-    }
-
-    // inorder traversal of the AVL tree
-    void inOrder(std::ostream &out) {
-        inOrder(root, out);
-    }
-
-    // postorder traversal of the AVL tree
-    void postOrder(std::ostream &out) {
-        postOrder(root, out);
-    }
-
-    // function to free allocated memory
-    void release(AVLNode *root) {
-        if (root != nullptr) {
-            release((root)->left);
-            release((root)->right);
-            delete root;
-        }
-    }
-
-private:
-    AVLNode *root;
 
     // function to insert a node into the AVL tree
     AVLNode *insert(AVLNode *root, int data) {
