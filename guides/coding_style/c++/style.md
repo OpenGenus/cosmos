@@ -1,6 +1,6 @@
 # C++ Style Guide
 
----
+
 
 ### Naming Rules
 
