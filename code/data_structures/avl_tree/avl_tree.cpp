@@ -4,10 +4,13 @@
 #include <algorithm>
 #include <ostream>
 
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 class avl_tree {
 private:
+    typedef _Tp value_type;
+
     struct AVLNode {
-        int data;
+        value_type data;
         AVLNode *left;
         AVLNode *right;
         int height;
@@ -59,6 +62,8 @@ private:
 
 public:
     avl_tree() :root(nullptr) {;}
+
+    _Comp comp;
 
     ~avl_tree() {release(root);}
 
@@ -125,19 +130,19 @@ private:
             newNode->height = 0;
             newNode->left = newNode->right = nullptr;
             root = newNode;
-        } else if (data < root->data) {
+        } else if (comp(data, root->data)) {
             root->left = insert(root->left, data);
             if (getHeight(root->left) - getHeight(root->right) == 2) {
-                if (data < root->left->data) {
+                if (comp(data, root->left->data)) {
                     root = rotateLL(root);
                 } else {
                     root = rotateLR(root);
                 }
             }
-        } else if (data > root->data) {
+        } else if (comp(root->data, data)) {
             root->right = insert(root->right, data);
             if (getHeight(root->right) - getHeight(root->left) == 2) {
-                if (data > root->right->data) {
+                if (comp(root->right->data, data)) {
                     root = rotateRR(root);
                 } else {
                     root = rotateRL(root);
@@ -153,7 +158,7 @@ private:
     AVLNode *erase(AVLNode *root, int data) {
         if (root == nullptr) {
             return nullptr;
-        } else if (data < root->data) {
+        } else if (comp(data, root->data)) {
             root->left = erase(root->left, data);
             if (getHeight(root->right) - getHeight(root->left) == 2) {
                 if (getHeight(root->right->right) > getHeight(root->right->left)) {
@@ -162,7 +167,7 @@ private:
                     root = rotateRL(root);
                 }
             }
-        } else if (data > root->data) {
+        } else if (comp(root->data, data)) {
             root->right = erase(root->right, data);
             if (getHeight(root->left) - getHeight(root->right) == 2) {
                 if (getHeight(root->left->left) > getHeight(root->left->right)) {
@@ -235,7 +240,7 @@ private:
 using namespace std;
 int main() {
     int ch, data;
-    avl_tree avlt;
+    avl_tree<int> avlt;
     while (1) {
         cout << "1. Insert 2. Delete 3. Preorder 4. Inorder 5. Postorder 6. Exit\n";
         cin >> ch;
