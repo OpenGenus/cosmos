@@ -5,14 +5,14 @@ class BalancedExpression {
 		System.out.println("Balanced Expression");
 		Scanner in = new Scanner(System.in);
 		String input = in.next();
-		if (is_expression_balanced(input)) {
+		if (isExpressionBalanced(input)) {
 			System.out.println("The expression is balanced");
 		}
 		else {
 			System.out.println("The expression is not balanced");
 		}
 
-		static boolean is_expression_balanced(String input) {
+		static boolean isExpressionBalanced(String input) {
 			Stack stack = new Stack();
 			for (int i=0; i<input.length(); i++) {
 				if (input.charAt(i) == '(' || input.charAt(i) == '{'|| input.charAt(i) == '[') {
