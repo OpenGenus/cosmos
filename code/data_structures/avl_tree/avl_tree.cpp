@@ -27,6 +27,15 @@ AVLNode *findMin(AVLNode *root) {
     return root;
 }
 
+// function to find the maximum element in the tree (rightmost node)
+AVLNode *findMax(AVLNode *root) {
+    if (root != nullptr)
+        while (root->right != nullptr)
+            root = root->right;
+
+    return root;
+}
+
 // LL rotation rooted at X
 AVLNode *LL_rotation(AVLNode * &X) {
     AVLNode *W = X->left;
