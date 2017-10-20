@@ -71,9 +71,9 @@ All names should be lowerCamelCase, except constants, which should be CAPITALIZE
 
 Methods
 ---
-Methods should have no whitespace in between the parentheses for parameters and the method signature. If a method contains only one line, it should be on the same line as the method declaration and follow the inline brace delimiting rule.
+Methods should have no whitespace in between the parentheses for parameters and the method signature. If a method contains only one line, it should be on the same line as the method declaration and follow the inline brace delimiting rule. Parameters should have no spaces between the parentheses, and one space after the comma.
 ```Java
-public void foo() {
+public void foo(int a, int b) {
 	/*
 	** Multiple lines
 	** of code
@@ -81,4 +81,21 @@ public void foo() {
 }
 
 public void bar() { // One line of code, with a space separating the braces }
+```
+
+Expressions
+---
+All expressions, including boolean and arithmetic, should have a space between operators and operands.
+```Java
+// Incorrect
+int a=b+c;
+
+// Correct
+int a = b + c;
+
+// Incorrect
+if (a==b && c<d)
+
+// Correct
+if (a == b && c < d)
 ```
