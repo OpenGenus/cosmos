@@ -19,12 +19,12 @@ int getHeight(AVLNode* node)    {
 
 // function to find the minimum element in the tree (lefftmost node)
 AVLNode* findMin(AVLNode* root) {
-    if(root == NULL)
-        return NULL;
-    while(root->left != NULL)
+    if(root == nullptr)
+        return nullptr;
+    while(root->left != nullptr)
         root = root->left;
     return root;
-
+    
 }
 
 // LL rotation rooted at X
@@ -61,11 +61,11 @@ AVLNode* RL_rotation(AVLNode* &X)   {
 
 // function to insert a node into the AVL tree
 AVLNode* insertIntoAVL(AVLNode* &root, int data)  {
-    if(root == NULL)    {
+    if(root == nullptr)    {
         AVLNode* newNode = new AVLNode;
         newNode->data = data;
         newNode->height = 0;
-        newNode->left = newNode->right = NULL;
+        newNode->left = newNode->right = nullptr;
         root = newNode;
     }
     else if(data < root->data)  {
@@ -92,8 +92,8 @@ AVLNode* insertIntoAVL(AVLNode* &root, int data)  {
 
 // function to delete a node from the AVL tree
 AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
-    if(root == NULL)
-        return NULL;
+    if(root == nullptr)
+        return nullptr;
     else if(data < root->data)  {
         root->left = deleteFromAVL(root->left, data);
         if(getHeight(root->right) - getHeight(root->left) == 2) {
@@ -113,7 +113,7 @@ AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
         }
     }
     else    {
-        AVLNode* temp = NULL;
+        AVLNode* temp = nullptr;
         if(root->left && root->right)   {
             temp = findMin(root->right);
             root->data = temp->data;
@@ -124,7 +124,7 @@ AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
                 else
                     root = LR_rotation(root);
             }
-        }    
+        }
         else if(root->left) {
             temp = root;
             root = root->left;
@@ -137,7 +137,7 @@ AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
         }
         else    {
             delete root;
-            return NULL;
+            return nullptr;
         }
     }
     return root;
@@ -145,7 +145,7 @@ AVLNode* deleteFromAVL(AVLNode* &root, int data)    {
 
 // preorder traversal of the AVL tree
 void preOrder(AVLNode *root)   {
-    if(root != NULL)    {
+    if(root != nullptr)    {
         cout<<(root)->data<<" ";
         preOrder((root)->left);
         preOrder((root)->right);
@@ -154,7 +154,7 @@ void preOrder(AVLNode *root)   {
 
 // inorder traversal of the AVL tree
 void inOrder(AVLNode *root)    {
-    if(root != NULL)    {
+    if(root != nullptr)    {
         inOrder((root)->left);
         cout<<(root)->data<<" ";
         inOrder((root)->right);
@@ -163,7 +163,7 @@ void inOrder(AVLNode *root)    {
 
 // postorder traversal of the AVL tree
 void postOrder(AVLNode *root)  {
-    if(root != NULL)    {
+    if(root != nullptr)    {
         postOrder((root)->left);
         postOrder((root)->right);
         cout<<(root)->data<<" ";
@@ -172,7 +172,7 @@ void postOrder(AVLNode *root)  {
 
 // function to free allocated memory
 void deleteTree(AVLNode *root) {
-    if(root == NULL)
+    if(root == nullptr)
         return;
     deleteTree((root)->left);
     deleteTree((root)->right);
@@ -181,28 +181,28 @@ void deleteTree(AVLNode *root) {
 
 int main()  {
     int ch,data;
-    AVLNode *root = NULL;
+    AVLNode *root = nullptr;
     while(1)    {
         cout<<"1. Insert 2. Delete 3. Preorder 4. Inorder 5. Postorder 6. Exit\n";
         cin>>ch;
         switch(ch)  {
             case 1: cout<<"Enter data\n";
-                    cin>>data;
-                    root = insertIntoAVL(root,data);
-                    break;
+                cin>>data;
+                root = insertIntoAVL(root,data);
+                break;
             case 2: cout<<"Enter data\n";
-                    cin>>data;
-                    root = deleteFromAVL(root,data);
-                    break;
+                cin>>data;
+                root = deleteFromAVL(root,data);
+                break;
             case 3: preOrder(root);
-                    cout<<endl;
-                    break;
+                cout<<endl;
+                break;
             case 4: inOrder(root);
-                    cout<<endl;
-                    break;
+                cout<<endl;
+                break;
             case 5: postOrder(root);
-                    cout<<endl;
-                    break;
+                cout<<endl;
+                break;
         }
         if(ch == 6)
             break;
