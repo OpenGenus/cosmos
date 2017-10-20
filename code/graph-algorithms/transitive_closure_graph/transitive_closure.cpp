@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 #include<iostream>
 using namespace std;
 void printSolution(int reach[][4])
@@ -44,5 +43,4 @@ int main()
                         {0, 0, 0, 1}
                       };
     transitiveClosure(graph);
-    getch();
 }
