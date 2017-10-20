@@ -115,3 +115,4 @@ fn main() {
     //chessmap.printSolution();
     chessmap.solveKT(); //solve problum
 }
+
