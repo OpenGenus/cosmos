@@ -1,6 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-public class two_sum {
+public class 2sum {
     private static int[] two_sum(int[] arr, int target) {
         if (arr == null || arr.length < 2) return new int[]{0, 0};
 
