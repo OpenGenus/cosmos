@@ -1,26 +1,27 @@
 // C++ program to print reverse of a linked list
 #include <iostream>
+using namespace std;
 
-struct Node {
+class Node {
     int data;
-    struct Node *next;
+    Node *next;
 };
 
-void printReverse(struct Node *head) {
+void printReverse(Node *head) {
     if (head == nullptr) { return; }
     printReverse(head->next);
-    std::cout<<head->data<<" ";
+    cout<<head->data<<" ";
 }
 
-void push(struct Node **head_ref, char new_data) {
-    auto new_node = (struct Node *) malloc(sizeof(struct Node));
+void push(Node **head_ref, char new_data) {
+    auto new_node = (Node *) malloc(sizeof(Node));
     new_node->data = new_data;
     new_node->next = (*head_ref);
     (*head_ref) = new_node;
 }
 
 int main() {
-    struct Node *head = nullptr;
+    Node *head = nullptr;
     push(&head, 4);
     push(&head, 3);
     push(&head, 2);
