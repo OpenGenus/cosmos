@@ -122,8 +122,6 @@ Order of member modifiers, according to the Java Language Specification:
 `public protected private abstract default static final transient volatile sychronized native strictfp`
 
 ```Java
-public static final int CONSTANT = 1;
-
 public int x;
 public int y;
 public String str;
@@ -132,6 +130,8 @@ protected int num;
 protected String foo;
 
 private char c;
+
+public static final int CONSTANT = 1;
 
 // Code
 
