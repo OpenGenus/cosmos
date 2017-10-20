@@ -5,7 +5,7 @@
 
 This work is maintained by a community of hundreds of people and is a _massive collaborative effort_ to bring the readily available coding knowledge **offline**.
 
-> **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library** - _Uwi Tenpen_
+> **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
 
 # Cosmic Structure
 
