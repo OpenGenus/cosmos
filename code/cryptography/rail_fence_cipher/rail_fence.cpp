@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-#include <bits/stdc++.h>
 // Part of Cosmos by OpenGenus Foundation
 // Rails fence cipher - Cryptography
 using namespace std;

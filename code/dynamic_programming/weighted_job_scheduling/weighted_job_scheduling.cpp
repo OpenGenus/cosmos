@@ -3,7 +3,9 @@ Part of Cosmos by OpenGenus Foundation
 C++ program for weighted job scheduling using Dynamic Programming and Binary Search
 */
 
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 using namespace std;
  
 // A job has start time, finish time and profit.
