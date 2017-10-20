@@ -1,5 +1,6 @@
 /**
-Model class which represents a Vector.
+   computational geometry | 2D line intersecton | C
+   Model class which represents a Vector.
 **/
 class Vector {
 
