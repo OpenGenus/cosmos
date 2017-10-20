@@ -140,6 +140,7 @@ public void bar() {
 
 	// More code
 }
+```
 
 Source file structure
 ---
