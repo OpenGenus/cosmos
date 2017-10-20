@@ -1,13 +1,22 @@
-#include <iostream>
+/*
+	Input: 
+		
+	3
+	1 2 3
+	3 2 1
+	2 1 3
+	
+	Output: 3
+*/
 
-#define ll long long
-#define db(x) cout << "> " << #x << " : " << x << endl;
+#include <iostream>
 
 const int N = 12;
 const int INF = (1 << 30);
+
 using namespace std;
 
-inline int bit(int mask, int idx) { return ((mask & (1 << idx)) != 0); }
+inline int bit(int mask, int idx) { return ((mask & (1 << idx)) != 0); }	// returns the idx-bit in mask
 
 int n;
 int cost[N][N];
@@ -17,14 +26,16 @@ bool vis[(1 << N) +100];
 
 int f(int mask)
 {
-	if(mask == ((1 << n) -1))
+	if(mask == ((1 << n) -1))	// if all jobs are assigned we are done
 		return 0;
 	
-	if(vis[mask])
+	if(vis[mask])	// making sure that answer for each state is calculated only once
 		return dp[mask];
 	
 	int res = INF;
 	int curr = __builtin_popcount(mask);
+	
+	// number of set  bits in the mask gives the number of persons to whom a job was assigned
 	
 	for(int job = 0; job < n; job++)
 		if(!bit(mask, job))
@@ -37,6 +48,7 @@ int f(int mask)
 
 int main()
 {
+	//fast-io
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	
