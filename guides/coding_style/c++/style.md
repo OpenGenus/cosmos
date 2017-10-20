@@ -29,7 +29,7 @@ int underscore_case(); // Invalid
 When naming classes, follow the rules of pascal case.
 
 ```C++
-class name(); // Invalid
+class name; // Invalid
 struct camelCase; // Invalid
 class PascalCase; // Valid
 struct underscore_case; // Invalid
