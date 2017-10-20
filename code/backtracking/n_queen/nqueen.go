@@ -78,3 +78,4 @@ func main() {
 	totalSol = 0
 	nQueen(board, 0)
 }
+
