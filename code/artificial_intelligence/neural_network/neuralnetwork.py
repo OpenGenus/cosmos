@@ -92,8 +92,8 @@ class neural_network:
         self.batch_size = 1
         self.forward_pass(input)
         a = self.layers[self.num_layers-1].activations
-        a[np.where(a==np.max(a))] = 1
-        a[np.where(a!=np.max(a))] = 0
+        a[np.where(a==np.max(a))] = 0.9
+        a[np.where(a!=np.max(a))] = 0.1
         return a
 
     def check_accuracy(self, filename, inputs, labels):

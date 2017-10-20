@@ -87,7 +87,6 @@ int solveKTUtil(int x, int y, int movei, int sol[N][N],
              sol[next_x][next_y] = -1;// backtracking
        }
    }
-
    return false;
 }
 

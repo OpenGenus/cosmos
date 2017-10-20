@@ -7,59 +7,59 @@ typedef int bool;
 
 void swap(int *p, int *q)
 {
-    int temp = *p;
-    *p = *q;
-    *q = temp;
+	int temp = *p;
+	*p = *q;
+	*q = temp;
 }
- 
+
 /*Sorting an array a[] consisting of n
-elements with bubble sort method*/
+  elements with bubble sort method*/
 void bubbleSort(int a[], int n)
 {
-   int i, j;
-   bool swapped;
-   for (i = 0; i < n-1; i++)
-   {
-     swapped = false;
-     for (j = 0; j < n-i-1; j++)
-     {
-        if (a[j] > a[j+1])
-        {
-           swap(&a[j], &a[j+1]);
-           swapped = true;
-        }
-     }
- 
-     
-     if (swapped == false)
-        break;/*break if array is sorted
-         i.e. no swapping possible*/
-   }
+	int i, j;
+	bool swapped;
+	for (i = 0; i < n - 1; i++)
+	{
+		swapped = false;
+		for (j = 0; j < n - i - 1; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+				swap(&a[j], &a[j + 1]);
+				swapped = true;
+			}
+		}
+
+
+		if (swapped == false)
+			break;/*break if array is sorted
+					i.e. no swapping possible*/
+	}
 }
- 
+
 
 void print(int a[], int size)
 {
-    int i;
-    for (i=0; i < size; i++)
-        printf("%d ", a[i]);
-    printf("\n");
+	int i;
+	for (i = 0; i < size; i++)
+		printf("%d ", a[i]);
+	printf("\n");
 }
 
 
 
 int main()
 {   
-    int n,i;
-    printf("What is the size of the array?\n");
-    scanf("%d",&n);
-    int a[n];
-    printf("Enter elements of the array one by one\n");
-    for(i=0;i<n;i++){
-      scanf("\n%d",&a[i]);
-    }    
-    bubbleSort(a, n);
-    printf("Sorted array: ");
-    print(a, n);
-    return 0;
+	int n, i;
+	printf("What is the size of the array?\n");
+	scanf("%d",&n);
+	int a[n];
+	printf("Enter elements of the array one by one\n");
+	for(i = 0; i < n; i++){
+		scanf("\n%d",&a[i]);
+	}    
+	bubbleSort(a, n);
+	printf("Sorted array: ");
+	print(a, n);
+	return 0;
 }
