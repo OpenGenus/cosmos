@@ -37,7 +37,7 @@ AVLNode *findMax(AVLNode *root) {
 }
 
 // LL rotation rooted at X
-AVLNode *LL_rotation(AVLNode * &X) {
+AVLNode *rotateLL(AVLNode * &X) {
     AVLNode *W = X->left;
     X->left = W->right;
     W->right = X;
@@ -48,7 +48,7 @@ AVLNode *LL_rotation(AVLNode * &X) {
 }
 
 // RR rotation rooted at X
-AVLNode *RR_rotation(AVLNode * &X) {
+AVLNode *rotateRR(AVLNode * &X) {
     AVLNode *W = X->right;
     X->right = W->left;
     W->left = X;
@@ -59,17 +59,17 @@ AVLNode *RR_rotation(AVLNode * &X) {
 }
 
 // LR rotation rooted at X
-AVLNode *LR_rotation(AVLNode * &X) {
-    X->left = RR_rotation(X->left);
+AVLNode *rotateLR(AVLNode * &X) {
+    X->left = rotateRR(X->left);
 
-    return LL_rotation(X);
+    return rotateLL(X);
 }
 
 // RL rotation rooted at X
-AVLNode *RL_rotation(AVLNode * &X) {
-    X->right = LL_rotation(X->right);
+AVLNode *rotateRL(AVLNode * &X) {
+    X->right = rotateLL(X->right);
 
-    return RR_rotation(X);
+    return rotateRR(X);
 }
 
 // function to insert a node into the AVL tree
@@ -84,18 +84,18 @@ AVLNode *insertIntoAVL(AVLNode * &root, int data) {
         root->left = insertIntoAVL(root->left, data);
         if (getHeight(root->left) - getHeight(root->right) == 2) {
             if (data < root->left->data) {
-                root = LL_rotation(root);
+                root = rotateLL(root);
             } else {
-                root = LR_rotation(root);
+                root = rotateLR(root);
             }
         }
     } else if (data > root->data) {
         root->right = insertIntoAVL(root->right, data);
         if (getHeight(root->right) - getHeight(root->left) == 2) {
             if (data > root->right->data) {
-                root = RR_rotation(root);
+                root = rotateRR(root);
             } else {
-                root = RL_rotation(root);
+                root = rotateRL(root);
             }
         }
     }
@@ -112,18 +112,18 @@ AVLNode *deleteFromAVL(AVLNode * &root, int data) {
         root->left = deleteFromAVL(root->left, data);
         if (getHeight(root->right) - getHeight(root->left) == 2) {
             if (getHeight(root->right->right) > getHeight(root->right->left)) {
-                root = RR_rotation(root);
+                root = rotateRR(root);
             } else {
-                root = RL_rotation(root);
+                root = rotateRL(root);
             }
         }
     } else if (data > root->data) {
         root->right = deleteFromAVL(root->right, data);
         if (getHeight(root->left) - getHeight(root->right) == 2) {
             if (getHeight(root->left->left) > getHeight(root->left->right)) {
-                root = LL_rotation(root);
+                root = rotateLL(root);
             } else {
-                root = LR_rotation(root);
+                root = rotateLR(root);
             }
         }
     } else {
@@ -134,9 +134,9 @@ AVLNode *deleteFromAVL(AVLNode * &root, int data) {
             root->right = deleteFromAVL(root->right, root->data);
             if (getHeight(root->left) - getHeight(root->right) == 2) {
                 if (getHeight(root->left->left) > getHeight(root->left->right)) {
-                    root = LL_rotation(root);
+                    root = rotateLL(root);
                 } else {
-                    root = LR_rotation(root);
+                    root = rotateLR(root);
                 }
             }
         } else if (root->left) {
