@@ -40,60 +40,60 @@ use_dash_line=2
 use_ignore_line=3
 
 re='^[0-1]+$'
-echo "please type your choise to convert files' name ( without '.' and 'extension' )"
-echo "0) use directory name"
-echo "1) use type name"
+echo "Please type your choice to convert files' name ( without '.' and 'extension' )"
+echo "0) Use directory name"
+echo "1) Use type name"
 while [ 1 ]
 do
-	read choise
-	if [[ $choise =~ $re ]]; then
+	read choice
+	if [[ $choice =~ $re ]]; then
 		break
 	fi
 	echo "wrong input"
 done
-if [ $choise -eq $use_type_name ]; then
+if [ $choice -eq $use_type_name ]; then
 	read name
 else
 	name="${PWD##*/}"
 fi
 
 re='^[0-3]+$'
-echo "please type your choise to convert (alpha)"
-echo "0) use default"
-echo "1) convert upper case to lower case (default)"
-echo "2) convert lower case to upper case"
-echo "3) not convert"
+echo "Please type your choice to convert (alpha)"
+echo "0) Use default"
+echo "1) Convert upper case to lower case (default)"
+echo "2) Convert lower case to upper case"
+echo "3) Not convert"
 while [ 1 ]
 do
-	read alpha_choise
-	if [[ $alpha_choise =~ $re ]]; then
+	read alpha_choice
+	if [[ $alpha_choice =~ $re ]]; then
 		break
 	fi
-	echo "wrong input"
+	echo "Wrong input"
 done
-if [ $alpha_choise -eq $use_default_case ]|| [ $alpha_choise -eq $use_lower_case ]; then
+if [ $alpha_choice -eq $use_default_case ]|| [ $alpha_choice -eq $use_lower_case ]; then
 	name=`echo $name | tr [:upper:] [:lower:]`
-elif [ $alpha_choise -eq $use_upper_case ]; then
+elif [ $alpha_choice -eq $use_upper_case ]; then
 	name=`echo $name | tr [:lower:] [:upper:]`
 fi
 
 re='^[0-3]+$'
-echo "please type your choise to convert ('-' and '_')"
-echo "0) use default"
-echo "1) convert '-' and '_' to '_' (default)"
-echo "2) convert '-' and '_' to '-'"
-echo "3) not convert"
+echo "Please type your choice to convert ('-' and '_')"
+echo "0) Use default"
+echo "1) Convert '-' and '_' to '_' (default)"
+echo "2) Convert '-' and '_' to '-'"
+echo "3) Not convert"
 while [ 1 ]
 do
-	read line_choise
-	if [[ $line_choise =~ $re ]]; then
+	read line_choice
+	if [[ $line_choice =~ $re ]]; then
 		break
 	fi
-	echo "wrong input"
+	echo "Wrong input"
 done
-if [ $line_choise -eq $use_default_line ]||[ $line_choise -eq $use_under_line ]; then
+if [ $line_choice -eq $use_default_line ]||[ $line_choice -eq $use_under_line ]; then
 	name=`echo $name | tr - _`
-elif [ $line_choise -eq $use_dash_line ]; then
+elif [ $line_choice -eq $use_dash_line ]; then
 	name=`echo $name | tr _ -`
 fi
 
@@ -119,15 +119,15 @@ do
 
 	# convert file name with pattern
 	converted_file_name=$file_name
-	if [ $alpha_choise -eq $use_default_case ]||[ $alpha_choise -eq $use_lower_case ]; then
+	if [ $alpha_choice -eq $use_default_case ]||[ $alpha_choice -eq $use_lower_case ]; then
 		converted_file_name=`echo $converted_file_name | tr [:upper:] [:lower:]`
-	elif [ $alpha_choise -eq $use_upper_case ]; then
+	elif [ $alpha_choice -eq $use_upper_case ]; then
 		converted_file_name=`echo $converted_file_name | tr [:lower:] [:upper:]`
 	fi
 
-	if [ $line_choise -eq $use_default_line ]||[ $line_choise -eq $use_under_line ]; then
+	if [ $line_choice -eq $use_default_line ]||[ $line_choice -eq $use_under_line ]; then
 		converted_file_name=`echo $converted_file_name | tr - _`
-	elif [ $line_choise -eq $use_dash_line ]; then
+	elif [ $line_choice -eq $use_dash_line ]; then
 		converted_file_name=`echo $converted_file_name | tr _ -`
 	fi
 
