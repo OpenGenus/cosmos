@@ -3,49 +3,49 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BucketSort {
+    private static final int DEFAULT_BUCKET_SIZE = 5;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//float[] arr={1,9,4,7,2,8};
-		
+    public static void sort(Integer[] array) {
+        sort(array, DEFAULT_BUCKET_SIZE);
+    }
 
-	    double arr[] = {0.89, 0.565, 0.656, 0.1234, 0.665, 0.3434};
-		bucketSort(arr,arr.length);
+    public static void sort(Integer[] array, int bucketSize) {
+        if (array.length == 0) {
+            return;
+        }
 
-	}
-	public static void bucketSort(double arr[], int n)
-	{
-	    // 1) Create n empty buckets
-	    ArrayList<ArrayList<Double>> b=new ArrayList<ArrayList<Double>>();
-	    
-	    for(int i=0;i<n;++i)
-	    {
-	    	b.add(new ArrayList<Double>());
-	    	
-	    	
-	    }	    
-	    
-	    // 2) Put array elements in different buckets
-	    for (int i=0; i<n; i++)
-	    {
-	       int bi = (int) (n*arr[i]); // Index in bucket
-	       b.get(bi).add(arr[i]);
-	    }
-	 
-	    // 3) Sort individual buckets
-	    for (int i=0; i<n; i++)
-	       Collections.sort(b.get(i));
-	 
-	    // 4) Concatenate all buckets into arr[]
-	    int index = 0;
-	    for (int i = 0; i < n; i++)
-	        for (int j = 0; j < b.get(i).size(); j++)
-	          arr[index++] = b.get(i).get(j);
-	
-	
-	for(int i=0;i<arr.length;++i)
-		System.out.println(arr[i]);
-	
-	}
+        // Determine minimum and maximum values
+        Integer minValue = array[0];
+        Integer maxValue = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+            } else if (array[i] > maxValue) {
+                maxValue = array[i];
+            }
+        }
 
+        // Initialise buckets
+        int bucketCount = (maxValue - minValue) / bucketSize + 1;
+        List<List<Integer>> buckets = new ArrayList<List<Integer>>(bucketCount);
+        for (int i = 0; i < bucketCount; i++) {
+            buckets.add(new ArrayList<Integer>());
+        }
+
+        // Distribute input array values into buckets
+        for (int i = 0; i < array.length; i++) {
+            buckets.get((array[i] - minValue) / bucketSize).add(array[i]);
+        }
+
+        // Sort buckets and place back into input array
+        int currentIndex = 0;
+        for (int i = 0; i < buckets.size(); i++) {
+            Integer[] bucketArray = new Integer[buckets.get(i).size()];
+            bucketArray = buckets.get(i).toArray(bucketArray);
+            InsertionSort.sort(bucketArray);
+            for (int j = 0; j < bucketArray.length; j++) {
+                array[currentIndex++] = bucketArray[j];
+            }
+        }
+    }
 }
