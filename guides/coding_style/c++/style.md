@@ -92,3 +92,6 @@ Single line comments should use the standard style (`//`), and multi line commen
 ### Struct vs. Class
 If a class has all public members (not member functions), then use the `struct` keyword. On the other hand, if it has all private variables, then use the `class` keyword.
 When a class has both public and private members, then use the `class` keyword.
+
+### Including Header Files
+When including header files, only include files that are portable across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
