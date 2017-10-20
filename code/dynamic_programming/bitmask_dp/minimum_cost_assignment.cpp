@@ -52,8 +52,11 @@ int main()
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	
+	cout << "\nEnter number of people:" << endl;
 	cin >> n;
 	
+	cout << "\nEnter the cost-matrix (consisting of n rows and n columns where the element in ith row and jth column represents cost for ith person to do jth job) :" << endl;
+	 
 	for(int i = 0; i < n; i++)
 		for(int j = 0; j < n; j++)
 			cin >> cost[i][j];	// cost for ith person to do jth job
