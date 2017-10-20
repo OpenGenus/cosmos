@@ -56,7 +56,7 @@ Comments should have a space following the double slashes. Any multiline comment
 
 Control flow statements
 ---
-The parentheses for control flow statements should be one space after the statement. There should be a newline between unrelated statements, i.e. between a `while` and `if` but not between an `if` and `else`. There should be no spaces in between a statement and its block of code. This goes for class declarations as well. The only case that a piece of code inside an if-statement can be on the same line is if the code is a return statement.
+The parentheses for control flow statements should be one space after the statement. There should be a newline between unrelated statements, i.e. between a `while` and `if` but not between an `if` and `else`. There should be no spaces in between a statement and its block of code. This goes for class declarations as well. The only case that a piece of code inside an if-statement can be on the same line is if the code is a `return` statement.
 ```Java
 if (true || false) {
 	// Code
