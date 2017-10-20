@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>
 void prime_factors(int);
 int main()
