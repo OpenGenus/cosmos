@@ -1,6 +1,5 @@
 /*
     Part of Cosmos by OpenGenus Foundation
-
     avl tree synopsis
 
 template<typename _Tp, typename _Comp = std::less<_Tp> >
