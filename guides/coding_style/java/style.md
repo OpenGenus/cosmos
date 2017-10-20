@@ -46,6 +46,12 @@ Comments should have a space following the double slashes. Any multiline comment
 ** Multi-line
 ** comment
 */
+
+/*
+ * This is also
+ * acceptable
+ *
+ */
 ```
 
 Control flow statements
@@ -161,3 +167,8 @@ public void foo() {}
 @annotation
 @differentAnnotation
 public void bar() {}
+```
+
+Switch statements
+---
+All switch cases should end with either a `break` or `return` keyword. Every switch statement should also contain a `default` case.
