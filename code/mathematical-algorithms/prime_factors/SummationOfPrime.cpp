@@ -3,8 +3,7 @@
 // Constraints : 1<=t<=10^6
 // Part of Cosmos by OpenGenus Foundation
 
-#include<bits/stdc++.h>
-#define opt std::ios_base::sync_with_stdio(false)
+#include<iostream>
 typedef long long int ll;
 using namespace std;
 
@@ -38,7 +37,6 @@ void sieve(int n)
 
 int main()
 {
-   opt;
    sieve(1000000);  // precomputing the summation of all primes upto n less than or equal to 10^6
    int t;
    cin>>t;  // No. of test cases as input
