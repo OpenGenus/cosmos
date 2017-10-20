@@ -1,4 +1,4 @@
-#include <math.h>
+#include <cmath>
 #include <algorithm>
 #include <iostream>
 using namespace std; 
@@ -10,7 +10,7 @@ void _swap(int *a, int *b);
 void _doheap(int a[], int begin, int end);
 void _heapsort(int a[], int begin, int end);
 bool _isSorted(int a[], int end);
- 
+
 void introsort_r(int a[], int first, int last, int depth){
   while(last - first > 0 ) {
 		if(depth=0)

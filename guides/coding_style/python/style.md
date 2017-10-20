@@ -72,3 +72,61 @@ if b:
   # do something
 ```
 
+
+Functions
+---
+Function names should be lowercase, with words seperated by underscores as necessary
+
+**WRONG**
+```Python
+def WrongFunc(*args):
+  pass
+```
+
+**WRONG**
+```Python
+def Wrongfunc(*args):
+  pass
+```
+
+**RIGHT**
+```Python
+def right_func(*args):
+  pass
+```
+
+Classes
+---
+- Class names shoud use upper camel case
+- Always use *self* for the first argument to instance methods
+
+**WRONG**
+```Python
+class wrong_class_name(object):
+    def __init__(self, *args):
+        pass
+```
+
+**RIGHT**
+```Python
+class RightClassName(object):
+    def __init__(self, *args):
+        pass
+```
+
+Constants
+---
+Constant variable names should be all uppercase, with words sperated by underscores
+
+**WRONG**
+```Python
+max_length, total
+```
+
+**RIGHT**
+```Python
+MAX_LENGTH, TOTAL
+```
+
+
+

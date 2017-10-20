@@ -1,7 +1,6 @@
 // C++ implemntation of search() and traverse() methods
 #include<iostream>
 using namespace std;
- 
 // A BTree node
 class BTreeNode
 {
