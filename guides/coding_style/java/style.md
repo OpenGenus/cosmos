@@ -148,6 +148,7 @@ The structure of the file should comprise the following:
 1. Import statements
 2. Top-level class
 3. Lower level classes
+
 Each of the above components should be separated by exactly one line. All lines aside from the import statements must follow a length limit of 100 columns. Wildcard imports should **not** be used.
 
 Annotations
