@@ -34,9 +34,9 @@ public:
     binary_tree(node_type *r = nullptr) :_root(r), _sz(0), _comp(_Comp());
     ~binary_tree();
 
-    node_type const *maximum() const;
+    node_type const *&maximum() const;
 
-    node_type const *minimum() const;
+    node_type const *&minimum() const;
 
     size_type size() const;
 
@@ -53,13 +53,13 @@ protected:
     size_type _sz;
     _Comp _comp;
 
-    void release(node_type * &n);
+    void release(node_type *&n);
 
-    node_type * &get(const_reference value);
+    node_type *get(const_reference value);
 
-    node_type const *maximum(node_type const *n) const ;
+    node_type const *&maximum(node_type const *n) const;
 
-    node_type const *minimum(node_type const *n) const;
+    node_type const *&minimum(node_type const *n) const;
 
     void in_order(std::ostream &output, node_type const *n) const;
 
@@ -103,11 +103,11 @@ public:
     binary_tree(node_type *r = nullptr) :_root(r), _sz(0), _comp(_Comp()) {};
     ~binary_tree() {release(_root);}
 
-    node_type const *maximum() const {
+    node_type const *&maximum() const {
         return maximum(_root);
     }
 
-    node_type const *minimum() const {
+    node_type const *&minimum() const {
         return minimum(_root);
     }
 
@@ -136,7 +136,8 @@ protected:
     size_type _sz;
     _Comp _comp;
 
-    void release(node_type * &n) {
+    // post order release
+    void release(node_type *&n) {
         if (n) {
             release(n->left);
             release(n->right);
@@ -144,7 +145,7 @@ protected:
         }
     }
 
-    node_type * &get(const_reference value) {
+    node_type *get(const_reference value) {
         node_type *n = _root;
         while (n) {
             if (_comp(n->value, value)) {
@@ -161,7 +162,7 @@ protected:
         return nullptr;
     }
 
-    node_type const *maximum(node_type const *n) const {
+    node_type const *&maximum(node_type const *n) const {
         if (n)
             while (n->right)
                 n = n->right;
@@ -169,7 +170,7 @@ protected:
         return n;
     }
 
-    node_type const *minimum(node_type const *n) const {
+    node_type const *&minimum(node_type const *n) const {
         if (n)
             while (n->left)
                 n = n->left;
