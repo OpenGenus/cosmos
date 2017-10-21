@@ -222,19 +222,67 @@ public:
 
     aa_tree() :base() {;}
 
-    size_type insert(const_reference value) {
-        
+    void insert(const_reference value) {
+        insert(_root, value);
     }
 
-    size_type erase(const_reference value) {
-        
+    void erase(const_reference value) {
+        erase(_root, value);
     }
 
     node_type const *find(const_reference value) {
-        
+        return get(value);
     }
 
 private:
+    // implement by recursive
+    void insert(node_type *&n, const_reference value) {
+        if (n == nullptr)
+            n = new node_type(value);
+        else {
+            if (_comp(value, n->value)) {
+                insert(n->left, value);
+            } else if (_comp(n->value, value)) {
+                insert(n->right, value);
+            } else {    //depend on implement
+                n->value = value;
+            }
+        }
+        skew(n);
+        split(n);
+    }
+
+    void erase(node_type *&n, const_reference value) {
+
+    }
+
+    //input: T, a node representing an AA tree that needs to be rebalanced.
+    //output: Another node representing the rebalanced AA tree.
+    void skew(node_type *&n) {
+        if (n != nullptr
+            && n->left != nullptr
+            && n->left->level == n->level) {
+            node_type *left = n->left;
+            n->left = left->right;
+            left->right = n;
+            n = left;
+        }
+    }
+
+    //input: T, a node representing an AA tree that needs to be rebalanced.
+    //output: Another node representing the rebalanced AA tree
+    void split(node_type *&n) {
+        if (n != nullptr
+            && n->right != nullptr
+            && n->right->right != nullptr
+            && n->level == n->right->right->level) {
+            node_type * right = n->right;
+            n->right = right->left;
+            right->left = n;
+            n = right;
+            ++n->level;
+        }
+    }
 };
 
 
