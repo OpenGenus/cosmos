@@ -34,7 +34,7 @@ void rightView(node* root)
 			node* root=q.front();
 			q.pop();
 			if(nodeCount==0)
-			  printf("%d ",root->data);
+			 cout<<root->data<<" "; 
 			if(root->left!=NULL)
 			  q.push(root->left);
 			if(root->right!=NULL)
