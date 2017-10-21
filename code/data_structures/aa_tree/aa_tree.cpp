@@ -155,13 +155,11 @@ protected:
             } else if (_comp(n->value, value)) {
                 n = n->right;
             } else {
-                splay(n);
-
-                return n;
+                break;
             }
         }
 
-        return nullptr;
+        return n;
     }
 
     node_type const *&maximum(node_type const *n) const {
