@@ -1,5 +1,3 @@
-using System;
-
 namespace LinkedList
 {
     class Node<T>
@@ -184,36 +182,6 @@ namespace LinkedList
 
             newNode.setNextNode(node.getNextNode());
             node.setNextNode(newNode);
-        }
-    }
-
-    class debug
-    {
-        public static void Main()
-        {
-			LinkedList<int> list = new LinkedList<int>();
-
-			Console.WriteLine("Check 1");
-
-			list.append(2);
-			Console.WriteLine("Check 11");
-			list.append(3);
-			Console.WriteLine("Check 12");
-			list.append(4);
-			Console.WriteLine("Check 13");
-			list.append(5);
-
-			Console.WriteLine("Check 2");
-
-			Console.WriteLine(list.ToString());
-
-			Console.WriteLine("Check 3");
-
-			list.remove(1);
-
-			Console.WriteLine("Check 4");
-
-			Console.WriteLine(list.ToString());
         }
     }
 }
