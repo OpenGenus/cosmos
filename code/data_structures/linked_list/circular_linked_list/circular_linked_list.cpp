@@ -10,15 +10,15 @@ class node{
 
 int main()
 {
-	node *start,*ptr,*head;				//start is the last node.
+	node *start,*ptr,*head;				// start is the last node.
 	int c=1,data;
 	ptr=new node;
 	ptr->next=NULL;
 	start=head=ptr;
-	while(c<3 && c>0){
+	while (c<3 && c>0) {
 		cout<<"1.Insert\n2.Link List\n";
 		cin>>c;
-		switch(c){
+		switch (c) {
 			case 1:
 				cout<<"Enter Data\n";
 				cin>>data;
@@ -30,7 +30,7 @@ int main()
 			break;
 			case 2:
 				ptr=start->next;
-				while(ptr!=start && ptr!=NULL){
+				while (ptr!=start && ptr!=NULL) {
 					cout<<ptr->info<<"->";
 					ptr=ptr->next;
 				}
