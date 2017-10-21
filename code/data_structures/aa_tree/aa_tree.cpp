@@ -467,8 +467,140 @@ private:
 using namespace std;
 
 int main() {
-    aa_tree<int> aat;
+    AATree<int> *aat = new AATree<int>;
+
+    aat->insert(0);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(1);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(2);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(3);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(4);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(5);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(6);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(0);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(3);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(1);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(7);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(3);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(7);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(3);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(3);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->insert(1);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(7);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+    aat->erase(8);
+    aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
+    cout << aat->size() << "\n\n";
+
+    delete aat;
 
     return 0;
 }
+
+/*
+expected:
+0
+0
+1
+
+0 1
+0 1
+2
+
+0 1 2
+1 0 2
+3
+
+0 1 2 3
+1 0 2 3
+4
+
+0 1 2 3 4
+1 0 3 2 4
+5
+
+0 1 2 3 4 5
+1 0 3 2 4 5
+6
+
+0 1 2 3 4 5 6
+3 1 0 2 5 4 6
+7
+
+1 2 3 4 5 6
+3 1 2 5 4 6
+6
+
+1 2 4 5 6
+2 1 5 4 6
+5
+
+2 4 5 6
+4 2 5 6
+4
+
+2 4 5 6 7
+4 2 6 5 7
+5
+
+2 3 4 5 6 7
+4 2 3 6 5 7
+6
+
+2 3 4 5 6
+4 2 3 5 6
+5
+
+2 4 5 6
+4 2 5 6
+4
+
+2 3 4 5 6
+4 2 3 5 6
+5
+
+1 2 3 4 5 6
+2 1 4 3 5 6
+6
+
+1 2 3 4 5 6
+2 1 4 3 5 6
+6
+
+1 2 3 4 5 6
+2 1 4 3 5 6
+6
+
 // */
