@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int getInvCount(int arr[], int n)
 {
   int inv_count = 0;
@@ -12,8 +13,8 @@ int getInvCount(int arr[], int n)
  
 int main(int argv, char** args)
 {
-int n;
-scanf("%d",&n);
+  int n;
+  scanf("%d",&n);
   int arr[n],i;
   for(i=0;i<n;i++)
   scanf("%d",&arr[i]);
