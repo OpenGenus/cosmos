@@ -37,7 +37,7 @@ int[] arr = new int[] { 1, 2, 3 };
 
 Comments
 ---
-Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters.
+Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters. Documentation comments should have two asterisks following the first slash. Javadoc tags should be followed by an @ symbol.
 
 ```Java
 // Single line comment, with space after slashes
@@ -45,6 +45,12 @@ Comments should have a space following the double slashes. Any multiline comment
 /*
 ** Multi-line
 ** comment
+*/
+
+/**
+* Documentation
+* 
+* @version 1.0
 */
 ```
 
