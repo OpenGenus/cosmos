@@ -1,5 +1,5 @@
 import java.util.*;
-class Babylonian{
+public class Babylonian{
     public static void main(String args[] ) throws Exception {
         Scanner s = new Scanner(System.in);
         double n = s.nextDouble();

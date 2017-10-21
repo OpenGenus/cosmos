@@ -2,7 +2,7 @@ import java.util.Scanner;
 /*
  *	Part of Cosmos by OpenGenus Foundation
 */
- class NQueen{
+ public class NQueen{
 
 	int[][] array;
 	

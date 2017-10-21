@@ -1,6 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-class AutomorphicNumber{
+public class AutomorphicNumber{
 	public static void main(String[] args){
 		// From range 0 to 1000000,
 		// it will find which one is Automorphic Number.

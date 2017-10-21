@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
  
 // This class represents a directed Dfs using adjacency list representation
-class Dfs {
+public class Dfs {
 
     private int V;   // No. of vertices
  

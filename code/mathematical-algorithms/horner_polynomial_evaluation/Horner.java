@@ -1,6 +1,6 @@
 import java.io.*;
  
-class Horner
+public class Horner
 {
     // Function that returns value of poly[0]x(n-1) +
     // poly[1]x(n-2) + .. + poly[n-1]

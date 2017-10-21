@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class CheckisSquare{	
+public class FindingSquare{	
     private static boolean checkIsSquare(int n){
         if (n < 0) {
             return false;

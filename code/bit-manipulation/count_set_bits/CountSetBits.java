@@ -10,7 +10,7 @@
 import java.util.*;
 import java.io.*;
 
-class CountSetBits {
+public class CountSetBits {
     
     public static int countSetBits(int n)
     {

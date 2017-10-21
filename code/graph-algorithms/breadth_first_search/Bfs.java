@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
 // This class represents a directed Graph using adjacency list representation
-class Bfs
+public class Bfs
 {
     private int V;   // No. of vertices
     private LinkedList<Integer> adj[]; //Adjacency Lists

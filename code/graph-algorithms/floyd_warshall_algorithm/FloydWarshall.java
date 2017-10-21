@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 // Part of Cosmos by OpenGenus Foundation
-class FloydWarshall{
+public class FloydWarshall{
     final static int INF = 99999, V = 4;
  
     void floydWarshall(int graph[][])

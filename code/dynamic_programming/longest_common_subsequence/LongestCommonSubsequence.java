@@ -1,5 +1,5 @@
 // Part of Cosmos by OpenGenus Foundation
-class LongestCommonSubsequence {
+public class LongestCommonSubsequence {
   /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
   int lcs( char[] X, char[] Y, int m, int n ) {
     int L[][] = new int[m+1][n+1];

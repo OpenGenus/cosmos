@@ -1,5 +1,5 @@
 // Part of Cosmos by OpenGenus Foundation
-class LevenshteinDistance {
+public class LevenshteinDistance {
     private String a, b;
     private int n, m;
     private int[][] dp;

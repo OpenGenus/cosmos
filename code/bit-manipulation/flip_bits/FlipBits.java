@@ -10,7 +10,7 @@
 import java.util.*;
 import java.io.*;
 
-class FlipBits {
+public class FlipBits {
     
     public static int flipBits(int n)
     {

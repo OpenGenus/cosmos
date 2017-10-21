@@ -1,4 +1,4 @@
-class exponent{
+public class Exponent{
 
     public static int exponentBySquare(int num, int power){
         if(power==0)

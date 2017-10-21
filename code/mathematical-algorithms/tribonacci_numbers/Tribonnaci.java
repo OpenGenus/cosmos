@@ -1,5 +1,5 @@
 import java.util.*;
-class Tribonacci {
+public class Tribonnaci {
     public static void main(String args[] ) throws Exception {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();

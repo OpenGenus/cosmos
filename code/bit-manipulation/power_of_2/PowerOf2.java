@@ -3,7 +3,7 @@ import java.lang.*;
 import java.math.*;
 import java.util.*;
 
-class PowerOf2{
+public class PowerOf2{
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
 		int num = sc.nextInt();
