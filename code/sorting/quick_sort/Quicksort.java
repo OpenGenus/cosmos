@@ -1,8 +1,8 @@
 class QuickSort {
-    int partition(int arr[], int low, int high) {
-        int pivot = arr[high]; // last element is the pivot
+    int partition(int arr[], int low, int hi) {
+        int pivot = arr[hi]; // last element is the pivot
         int i = (low-1); 
-        for (int j=low; j<high; j++) {
+        for (int j=low; j<hi; j++) {
             if (arr[j] <= pivot) {	// if j'th element is less than or equal to the pivot
                 i++;				// then swap the i'th element with the j'tj element
                 int temp = arr[i];
@@ -13,19 +13,19 @@ class QuickSort {
  
         // swap arr[i+1] and arr[high] (or pivot)
         int temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
+        arr[i+1] = arr[hi];
+        arr[hi] = temp;
  
         return i+1;	// return position of the pivot
     }
  
-    void sort(int arr[], int low, int high) {
-        if (low < high) {
+    void sort(int arr[], int low, int hi) {
+        if (low < hi) {
         	// after the following function call elemnt at positon pi
         	// is at it's correct poition in the sorted array
-            int piv = partition(arr, low, high);
+            int piv = partition(arr, low, hi);
             sort(arr, low, piv - 1);	// recursively sort
-            sort(arr, piv + 1, high);	// rest of the array
+            sort(arr, piv + 1, hi);	// rest of the array
         }
     }
  
