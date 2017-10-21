@@ -1,23 +1,24 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
 using namespace std;
 
 struct node
 {
 	int data;
-	struct node* left;
-	struct node* right;	
+	node* left;
+	node* right;	
 };
 
-struct node* insertNode(int data)
+node* insertNode(int data)
 {
-	struct node* temp=(struct node*)malloc(sizeof(struct node));
+	node* temp=new node;
 	temp->data=data;
 	temp->left=NULL;
 	temp->right=NULL;
 	return temp;
 }
 
-void rightView(struct node* root)
+void rightView(node* root)
 {
 	if(root==NULL)
 	return;
@@ -30,7 +31,7 @@ void rightView(struct node* root)
 		break;
 		while(nodeCount--)
 		{
-			struct node* root=q.front();
+			node* root=q.front();
 			q.pop();
 			if(nodeCount==0)
 			{
@@ -46,7 +47,7 @@ void rightView(struct node* root)
 
 int main()
 {
-	struct node* root=insertNode(1);
+	node* root=insertNode(1);
 	root->left=insertNode(2);
 	root->right=insertNode(3);
 	root->right->left=insertNode(8);
