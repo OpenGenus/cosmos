@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int num;
+	cin>>num;
+	int i;
+	for(i=1;i<num;i++)
+	{
+		if(i*i==num)
+		{
+			cout<<"YES";
+			return 0;
+		}
+		
+	}
+	cout<<"NO";
+	return 0;
+}
