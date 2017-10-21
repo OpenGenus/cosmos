@@ -1,11 +1,12 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 // finds the average of an array of numbers.
+//Using map function
 function getAverage(numbers){
     var sum = 0;
-    for(i=0;i < numbers.length; i++){
-        sum += numbers[i];
-    }
+    numbers.map(function(number){
+		sum += number;
+	})
     return (sum / numbers.length);
 }
 

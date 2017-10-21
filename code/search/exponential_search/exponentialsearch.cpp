@@ -1,6 +1,7 @@
 // C++ program to find an element x in a
 // sorted array using Exponential search.
-#include <bits/stdc++.h>
+#include <cstdio>
+#define min(a, b) ((a) < (b) ? (a) : (b))
 using namespace std;
  
 int binarySearch(int arr[], int, int, int);

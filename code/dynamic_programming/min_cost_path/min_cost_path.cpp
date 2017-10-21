@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <cstdio>
 using namespace std;
 #define R 3
 #define C 3

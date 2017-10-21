@@ -1,5 +1,20 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+// Function to check squares
+int isSquare ( int n ){
+	
+	if ( n < 0 )
+		return 0;
+
+	//remove digits after decimal
+	int root = (int)round(sqrt(n)); 
+	
+	return ( root * root ) == n ;
+}
+
+
 int main()
 {
 	int t;
@@ -10,16 +25,8 @@ int main()
 		int n;
 		cout<<"Enter the number"<<endl;
 		cin>>n;
-		int i;
-		for(i=1;i<=n;i++)
-		{
-			if(i*i==n)
-			{
-				cout<<"Yes";
-				return 0;
-			}
-		}
-	  	cout<<"No";
-		return 0;
+
+		cout << ( isSquare (n) ? "YES" : "NO" ) << endl;
+
 	}
 }

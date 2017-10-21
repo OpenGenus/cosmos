@@ -39,3 +39,4 @@ func main() {
 	nQueen(boardSize, 0, 0, 0, 0)
 	fmt.Printf("Total solutions %d for bordsize %d\n", totalSol, boardSize)
 }
+

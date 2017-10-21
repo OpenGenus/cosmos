@@ -5,7 +5,7 @@ using namespace std;
 int updateGap(int gap){
     gap = (gap*10)/13;
     if(gap < 1)
-        return gap;
+        return 1;
     else
         return gap;
 }

@@ -7,7 +7,7 @@ typedef std::pair<double, double> point;
 #define y second
 
 double calcDistance (point a, point b) {
-  return sqrt( (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y) );
+  return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
 int main () {

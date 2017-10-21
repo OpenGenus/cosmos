@@ -14,7 +14,7 @@ func QuickSort(a []int) []int {
 		return a
 	}
 
-	left, right := 0, len(a)-1
+	left, right := 0, len(a) - 1
 	pivot := rand.Int() % len(a)
 
 	a[pivot], a[right] = a[right], a[pivot]
@@ -29,13 +29,13 @@ func QuickSort(a []int) []int {
 	a[left], a[right] = a[right], a[left]
 
 	QuickSort(a[:left])
-	QuickSort(a[left+1:])
+	QuickSort(a[left + 1:])
 
 	return a
 }
 
 func main() {
-	randomSlice := []int{1, 6, 2, 4, 9, 0, 5, 3, 7, 8}
+	randomSlice := []int{ 1, 6, 2, 4, 9, 0, 5, 3, 7, 8 }
 	fmt.Println("Unsorted Slice: ", randomSlice)
 	QuickSort(randomSlice)
 	fmt.Println("Sorted Slice: ", randomSlice)

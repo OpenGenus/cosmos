@@ -4,8 +4,7 @@ The Lonely Integer Problem
 Given an array in which all the no. are present twice except one, find that lonely integer.
 */
 
-#include<bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
 int LonelyInteger(int *a, int n) {
