@@ -25,33 +25,3 @@ if __name__ == "__main__":
 	L = np.random.random_integers(100,size = (100,)).tolist()
 	print ("Given array : \n",L)
 	print ("Sorted array : \n",insertion_sort(L))
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
