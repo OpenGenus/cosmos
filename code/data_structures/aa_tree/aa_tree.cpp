@@ -40,9 +40,9 @@ public:
  
     ~BinaryTree();
 
-    node_type const * &maximum() const;
+    node_type const *maximum() const;
 
-    node_type const * &minimum() const;
+    node_type const *minimum() const;
 
     size_type size() const;
 
@@ -66,9 +66,9 @@ protected:
 
     node_type *get(const_reference value);
 
-    node_type const * &maximum(node_type const *n) const;
+    node_type const *maximum(node_type const *n) const;
 
-    node_type const * &minimum(node_type const *n) const;
+    node_type const *minimum(node_type const *n) const;
 
     void inOrder(std::ostream &output, node_type const *n) const;
 
@@ -172,12 +172,20 @@ public:
         release(root_);
     }
 
-    node_type const * &maximum() const {
-        return maximum(root_);
+    node_type const *maximum() const {
+        auto f = maximum(root_);
+        if (f == nil_)
+            return nullptr;
+
+        return f;
     }
 
-    node_type const * &minimum() const {
-        return minimum(root_);
+    node_type const *minimum() const {
+        auto f = minimum(root_);
+        if (f == nil_)
+            return nullptr;
+
+        return f;
     }
 
     size_type size() const {
@@ -255,7 +263,7 @@ protected:
         return n;
     }
 
-    node_type const * &maximum(node_type const *n) const {
+    node_type const *maximum(node_type const *n) const {
         if (n != nil_)
             while (n->right != nil_)
                 n = n->right;
@@ -263,7 +271,7 @@ protected:
         return n;
     }
 
-    node_type const * &minimum(node_type const *n) const {
+    node_type const *minimum(node_type const *n) const {
         if (n != nil_)
             while (n->left != nil_)
                 n = n->left;
@@ -343,7 +351,11 @@ public:
     }
 
     node_type const *find(const_reference value) {
-        return get(value);
+        auto f = base::get(value);
+        if (f == nil_)
+            return nullptr;
+
+        return f;
     }
 
 private:
