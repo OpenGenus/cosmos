@@ -65,7 +65,7 @@ protected:
 
     void pre_order(std::ostream &output, node_type const *n) const;
 
-    void post_order(std::ostream &output, const node_type *n) const;
+    void post_order(std::ostream &output, node_type const *n) const;
 };
 */
 
@@ -101,7 +101,9 @@ public:
     typedef size_t            size_type;
 
     binary_tree(node_type *r = nullptr) :_root(r), _sz(0), _comp(_Comp()) {};
-    ~binary_tree() {release(_root);}
+    ~binary_tree() {
+        release(_root);
+    }
 
     node_type const *&maximum() const {
         return maximum(_root);
@@ -147,11 +149,11 @@ protected:
 
     node_type *get(const_reference value) {
         node_type *n = _root;
-        while (n) {
-            if (_comp(n->value, value)) {
-                n = n->right;
-            } else if (_comp(value, n->value)) {
+        while (n != nullptr) {
+            if (_comp(value, n->value)) {
                 n = n->left;
+            } else if (_comp(n->value, value)) {
+                n = n->right;
             } else {
                 splay(n);
 
@@ -163,23 +165,23 @@ protected:
     }
 
     node_type const *&maximum(node_type const *n) const {
-        if (n)
-            while (n->right)
+        if (n != nullptr)
+            while (n->right != nullptr)
                 n = n->right;
 
         return n;
     }
 
     node_type const *&minimum(node_type const *n) const {
-        if (n)
-            while (n->left)
+        if (n != nullptr)
+            while (n->left != nullptr)
                 n = n->left;
 
         return n;
     }
 
     void in_order(std::ostream &output, node_type const *n) const {
-        if (n) {
+        if (n != nullptr) {
             in_order(output, n->left);
             output << n->value << " ";
             in_order(output, n->right);
@@ -187,15 +189,15 @@ protected:
     }
 
     void pre_order(std::ostream &output, node_type const *n) const {
-        if (n) {
+        if (n != nullptr) {
             output << n->value << " ";
             pre_order(output, n->left);
             pre_order(output, n->right);
         }
     }
 
-    void post_order(std::ostream &output, const node_type *n) const {
-        if (n) {
+    void post_order(std::ostream &output, node_type const *n) const {
+        if (n != nullptr) {
             post_order(output, n->left);
             output << n->value << " ";
             post_order(output, n->right);
