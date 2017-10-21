@@ -58,7 +58,7 @@ Comments should have a space following the double slashes. Any multiline comment
   * This is a Javadoc comment that
   * is describing a method in a class
   * that will modify a string
-	*
+  *
   * @author myName
   * @param word the string to be manipulated
   * @return the modified string
