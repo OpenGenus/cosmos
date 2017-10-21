@@ -1,4 +1,7 @@
-void findUnique2(int *a,int n){
+#include <iostream>
+#include <vector>
+using namespace std;
+void findUnique2(vector<int> a,int n){
     
     int res=0;
     for(int i=0;i<n;i++){
@@ -33,10 +36,18 @@ void findUnique2(int *a,int n){
 
 int main(){
     
-    int n,i;
-    int a[] = {1,3,5,6,3,2,1,2};
-    n = sizeof(a)/sizeof(int);
-    findUnique2(a,n);
+    int n;
+    
+    vector<int> v;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        int temp;
+        cin>>temp;
+        v.push_back(temp);
+    }
+    
+    findUnique2(v,n);
     
     
     return 0;
