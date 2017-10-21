@@ -4,6 +4,7 @@
  * 
  * @author Sagar Rathod
  * @version 1.0
+ * 
  */
 
 class Singleton {
@@ -14,13 +15,11 @@ class Singleton {
 	
 	public static synchronized Singleton getInstance() {
 		
-		if(singletonInstance == null) {
+		if ( singletonInstance == null ) {
 			singletonInstance = new Singleton();
 		}
-		
 		return singletonInstance;
 	}
-	
 }
 
 public class SingletonPattern {
@@ -30,5 +29,4 @@ public class SingletonPattern {
 		Singleton instance = Singleton.getInstance();
 		System.out.println(instance == Singleton.getInstance());
 	}
-
 }
