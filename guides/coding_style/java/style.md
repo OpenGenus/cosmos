@@ -46,11 +46,17 @@ Comments should have a space following the double slashes. Any multiline comment
 ** Multi-line
 ** comment
 */
+
+/*
+ * This is also
+ * acceptable
+ *
+ */
 ```
 
 Control flow statements
 ---
-The parentheses for control flow statements should be one space after the statement. There should be a newline between unrelated statements, i.e. between a `while` and `if` but not between an `if` and `else`. There should be no spaces in between a statement and its block of code. This goes for class declarations as well. The only case that a piece of code inside an if-statement can be on the same line is if the code is a return statement.
+The parentheses for control flow statements should be one space after the statement. There should be a newline between unrelated statements, i.e. between a `while` and `if` but not between an `if` and `else`. There should be no spaces in between a statement and its block of code. This goes for class declarations as well. The only case that a piece of code inside an if-statement can be on the same line is if the code is a `return` statement.
 ```Java
 if (true || false) {
 	// Code
@@ -116,12 +122,14 @@ if (a == b && c < d)
 
 Variables
 ---
-All variables should be declared at the top of their scope, in the order shown below. Each set of variables with the same visibility should be grouped together and separated from other variable groups by a single space. In each group, variables of the same data type should be adjacent to one another. The exception are constants, which should always be declared at the top.
+All variables should be declared at the top of their scope, in the order shown below. Each set of variables with the same visibility should be grouped together and separated from other variable groups by a single space. In each group, variables of the same data type should be adjacent to one another. The exception are constants, which should always be declared at the top. All variables declared at the `class` scope should have one of the below modifiers.
 
 Order of member modifiers, according to the Java Language Specification:
 `public protected private abstract default static final transient volatile sychronized native strictfp`
 
 ```Java
+public static final int CONSTANT = 1;
+
 public int x;
 public int y;
 public String str;
@@ -130,8 +138,6 @@ protected int num;
 protected String foo;
 
 private char c;
-
-public static final int CONSTANT = 1;
 
 // Code
 
@@ -161,3 +167,23 @@ public void foo() {}
 @annotation
 @differentAnnotation
 public void bar() {}
+```
+
+Switch statements
+---
+All switch cases should end with either a `break` or `return` keyword. Every switch statement should also contain a `default` case.
+
+Statements
+---
+There should only be one statement per line. A statement is defined as ending in a semicolon, so this does not include control flow statements. The exceptions are a single statement that are delimited with braces, including anonymous methods and array instantiation.
+```Java
+Runnable run = () -> {
+	// Acceptable
+};
+
+int[][] arr = {
+	{ 1, 2, 3 },
+	{ 4, 5, 6 },
+	{ 7, 8, 9 }
+};
+```

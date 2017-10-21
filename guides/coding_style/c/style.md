@@ -65,10 +65,10 @@ default:
 }
 ```
 
-Funtions
+Functions
 ---
 
-Funtions should have the type on a seperate line proceeding the rest of the function definition.
+Functions should have the type on a seperate line proceeding the rest of the function definition.
 
 ```C
 int
