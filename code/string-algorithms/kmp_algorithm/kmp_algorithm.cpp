@@ -1,6 +1,7 @@
 // C++ program for implementation of KMP pattern searching
 // algorithm
-#include<bits/stdc++.h>
+#include <string>
+#include <iostream>
 using namespace std;
 
 void computeLPSArray(string pat, int M, int *lps);

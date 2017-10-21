@@ -5,23 +5,29 @@
 
 This work is maintained by a community of hundreds of people and is a _massive collaborative effort_ to bring the readily available coding knowledge **offline**.
 
-> **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library** - _Uwi Tenpen_
+> **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
 
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
+* Artificial intelligence
 * Backtracking
 * Bit manipulation
+* Cellular automaton
 * Computational geometry
+* Cryptography
 * Data structures
 * Divide conquering
 * Dynamic programming
 * Graph algorithms
 * Greedy algorithms
 * Mathematical algorithms
+* Operating system
 * Randomized algorithms
 * Searching
+* Selecting
 * Sorting
+* Square root decomposition
 * String algorithms
 * Unclassified 👻
 
@@ -41,9 +47,11 @@ Let us know that you would like to be a maintainer in the Slack channel *#algori
 
 # Contributions
 
-The success of our vision to bring knowledge offline** depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
+The success of our vision to bring knowledge offline depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
+
+If contributing code, please refer to the available [style guides](/guides/coding_style).
 
 # License
 

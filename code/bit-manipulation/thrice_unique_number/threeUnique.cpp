@@ -1,12 +1,10 @@
-#include<bits/stdc++.h>
-
 /*
 
 Part of Cosmos by OpenGenus Foundation
 Find unique number in an array where every element occours thrice except one.Find that unique Number
 
 */
-
+#include <iostream>
 using namespace std;
 int n;
 int a[104]={1,1,1,3,3,2,3};

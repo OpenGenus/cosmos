@@ -1,6 +1,8 @@
 // CPP program for 
 // Columnar Transposition Cipher
-#include<bits/stdc++.h>
+#include <string>
+#include <iostream>
+#include <map>
 using namespace std;
  
 map<int,int> keyMap;

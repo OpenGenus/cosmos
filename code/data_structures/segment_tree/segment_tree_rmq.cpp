@@ -3,7 +3,9 @@ B.Tech 2nd Year
 Computer Science and Engineering
 MNNIT Allahabad
 */
-#include<bits/stdc++.h>
+#include <cstdio>
+#include <climits>
+#define min(a, b) ((a) < (b) ? (a) : (b))
 using namespace std;
 
 typedef long long int ll;

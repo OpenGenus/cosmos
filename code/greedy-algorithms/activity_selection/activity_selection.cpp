@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // A job has start time, finish time and profit.

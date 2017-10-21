@@ -1,5 +1,6 @@
 /* Part of Cosmos by OpenGenus Foundation */
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
 using namespace std;
 
 void heapify (vector<int> &v, int n, int i)

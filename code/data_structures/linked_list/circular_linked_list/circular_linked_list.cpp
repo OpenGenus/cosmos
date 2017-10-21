@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
@@ -52,6 +51,5 @@ while(c<3 && c>0){
 
 }
 
-getch();
 return 0;
 }
