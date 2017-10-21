@@ -76,6 +76,56 @@ protected:
 
     void postOrder(std::ostream &output, node_type const *n) const;
 };
+
+template<typename _Tp,
+         typename _Comp = std::less<_Tp> >
+class AATree :public BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > {
+
+private:
+    typedef BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > base;
+    typedef AATree<_Tp, _Comp>                                    self;
+
+public:
+    using typename base::size_type;
+    using typename base::value_type;
+    using typename base::reference;
+    using typename base::const_reference;
+    using typename base::difference_type;
+
+protected:
+    using typename base::node_type;
+    using base::root_;
+    using base::comp_;
+    using base::nil_;
+    using base::sz_;
+
+public:
+    AATree() :base();
+
+    ~AATree();
+
+    void insert(const_reference value);
+
+    void erase(const_reference value);
+
+    node_type const *find(const_reference value);
+
+private:
+    // implement by recursive
+    void insert(node_type * &n, const_reference value);
+
+    void erase(node_type * &n, const_reference value);
+
+    // input: T, a node representing an AA tree that needs to be rebalanced.
+    // output: Another node representing the rebalanced AA tree.
+    node_type *skew(node_type *n);
+
+    // input: T, a node representing an AA tree that needs to be rebalanced.
+    // output: Another node representing the rebalanced AA tree
+    node_type *split(node_type *n);
+
+    void makeNode(node_type * &n, value_type value);
+};
 */
 
 #include <algorithm>
@@ -364,9 +414,12 @@ private:
     }
 };
 
+/*
 // for test
+// test insert/erase/size function
 #include <iostream>
 using namespace std;
+
 int main() {
     aa_tree<int> aat;
 
