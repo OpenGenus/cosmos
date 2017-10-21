@@ -1,16 +1,20 @@
 
 
 class Node:
+	# initializing a Node class
 	def __init__(self, data=None, nxt=None, prev=None):
 		self.data = data
 		self.next_node = nxt
 		self.prev_node = prev
+		# prints out when new node is born
 		print("Node of value {} Born".format(data))
+
 	def __del__(self):
+		# inside deconstructor. Prints when node is deleted
 		print("Node Died.")
 
 
-class Doubly_Linked_List:
+class DoublyLinkedList:
 	def __init__(self, head=None, tail=None):
 		self.head = head
 		self.tail = tail
@@ -19,12 +23,23 @@ class Doubly_Linked_List:
 	def __del__(self):
 		print("List Died")
 
-	def isEmpty(self):
+	def is_empty(self):
 		return (self.head is None) and (self.tail is None)
 
-	def insert(self, value):
+	def insert_front(self, value):
 		node = Node(value)
-		if self.isEmpty():
+		if self.is_empty():
+			self.head = node
+			self.tail = node
+		else:
+			temp = self.head
+			node.next_node = temp
+			temp.prev_node = node
+			self.head = node
+
+	def insert_back(self, value):
+		node = Node(value)
+		if self.is_empty():
 			self.head = node
 			self.tail = node
 		else:
@@ -34,7 +49,7 @@ class Doubly_Linked_List:
 			self.tail = node
 
 	def search(self, value):
-		if self.isEmpty():
+		if self.is_empty():
 			return 0
 		else:
 			found = False
@@ -58,7 +73,7 @@ class Doubly_Linked_List:
 		del temp
 
 	def printList(self):
-		if self.isEmpty():
+		if self.is_empty():
 			return
 		temp = self.head
 		while temp:
@@ -67,9 +82,12 @@ class Doubly_Linked_List:
 
 
 if __name__ == '__main__':
-	list = Doubly_Linked_List()
-	elements = {1, 2, 5, 7, 32, 753, 34, 55, 4}
-	for element in elements:
-		list.insert(element)
+	list = DoublyLinkedList()
+	front_elements = {1, 2, 5, 7}
+	back_elements = {33, 23, 9, 4}
+	for element in front_elements:
+		list.insert_front(element)
+	for element in back_elements:
+		list.insert_back(element)
 	list.printList()
 	
