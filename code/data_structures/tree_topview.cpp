@@ -1,23 +1,25 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<map>
+#include<queue>
 using namespace std;
 
 struct node
 {
 	int data;
-	struct node* left;
-	struct node* right;	
+	node* left;
+	node* right;	
 };
 
-struct node* insertNode(int data)
+node* insertNode(int data)
 {
-	struct node* temp=(struct node*)malloc(sizeof(struct node));
+	node* temp=new node;
 	temp->data=data;
 	temp->left=NULL;
 	temp->right=NULL;
 	return temp;
 }
 
-void topView(struct node* root)
+void topView(node* root)
 {
 	if(root==NULL)
 	return;
@@ -29,7 +31,7 @@ void topView(struct node* root)
 	{
 		pair<node*,int> temp=q.front();
 		q.pop();
-		struct node* root=temp.first;
+		node* root=temp.first;
 		int val=temp.second;
 		if(m.find(val)==m.end())
 		m[val]=root->data;
@@ -47,7 +49,7 @@ void topView(struct node* root)
 
 int main()
 {
-	struct node* root=insertNode(1);
+	node* root=insertNode(1);
 	root->left=insertNode(2);
 	root->right=insertNode(3);
 	root->right->left=insertNode(8);
