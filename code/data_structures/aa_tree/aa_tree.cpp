@@ -101,7 +101,7 @@ public:
     typedef ptrdiff_t         difference_type;
     typedef size_t            size_type;
 
-    binary_tree(node_type *r = nullptr) :_root(r), _sz(0), _comp(_Comp()) {};
+    binary_tree(node_type *r = nullptr) :_root(r), _sz(0), _comp(_Comp()), _release(true) {};
     ~binary_tree() {
         release(_root);
     }
@@ -138,17 +138,19 @@ protected:
     node_type *_root;
     size_type _sz;
     _Comp _comp;
+    bool _release;
+    node_type *_nil;
 
     // post order release
-    void release(node_type *&n) {
-        if (n != nullptr) {
+    void release(node_type * &n) {
+        if (_release == true) {
             std::stack<node_type *> release_nodes{};
             do {
-                while (n != nullptr) {
+                while (n != _nil) {
                     release_nodes.push(n);
                     n = n->left;
                 }
-                while (!release_nodes.empty() && release_nodes.top()->right == nullptr) {
+                while (!release_nodes.empty() && release_nodes.top()->right == _nil) {
                     node_type *delete_node = release_nodes.top();
                     release_nodes.pop();
                     delete delete_node;
@@ -160,13 +162,14 @@ protected:
                     n = right;
                     delete delete_node;
                 }
-            } while (!release_nodes.empty() || n != nullptr);
+            } while (!release_nodes.empty() || n != _nil);
         }
+        _release = false;
     }
 
     node_type *get(const_reference value) {
         node_type *n = _root;
-        while (n != nullptr) {
+        while (n != _nil) {
             if (_comp(value, n->value)) {
                 n = n->left;
             } else if (_comp(n->value, value)) {
@@ -179,24 +182,24 @@ protected:
         return n;
     }
 
-    node_type const *&maximum(node_type const *n) const {
-        if (n != nullptr)
-            while (n->right != nullptr)
+    node_type const * &maximum(node_type const *n) const {
+        if (n != _nil)
+            while (n->right != _nil)
                 n = n->right;
 
         return n;
     }
 
-    node_type const *&minimum(node_type const *n) const {
-        if (n != nullptr)
-            while (n->left != nullptr)
+    node_type const * &minimum(node_type const *n) const {
+        if (n != _nil)
+            while (n->left != _nil)
                 n = n->left;
 
         return n;
     }
 
     void in_order(std::ostream &output, node_type const *n) const {
-        if (n != nullptr) {
+        if (n != _nil) {
             in_order(output, n->left);
             output << n->value << " ";
             in_order(output, n->right);
@@ -204,7 +207,7 @@ protected:
     }
 
     void pre_order(std::ostream &output, node_type const *n) const {
-        if (n != nullptr) {
+        if (n != _nil) {
             output << n->value << " ";
             pre_order(output, n->left);
             pre_order(output, n->right);
@@ -212,7 +215,7 @@ protected:
     }
 
     void post_order(std::ostream &output, node_type const *n) const {
-        if (n != nullptr) {
+        if (n != _nil) {
             post_order(output, n->left);
             output << n->value << " ";
             post_order(output, n->right);
@@ -227,6 +230,7 @@ protected:
     typedef aa_tree<_Tp, _Comp>                                       self;
     using typename base::node_type;
     using base::_root;
+    using base::_nil;
 
 public:
     using typename base::size_type;
@@ -235,7 +239,18 @@ public:
     using typename base::const_reference;
     using typename base::difference_type;
 
-    aa_tree() :base() {;}
+    aa_tree() :base() {
+        _nil = new node_type(0);
+        _nil->left = _nil;
+        _nil->right = _nil;
+        _nil->level = 0;
+        _root = _nil;
+    }
+
+    ~aa_tree() {
+        base::release(_root);
+        delete _nil;
+    }
 
     void insert(const_reference value) {
         insert(_root, value);
@@ -251,10 +266,10 @@ public:
 
 private:
     // implement by recursive
-    void insert(node_type *&n, const_reference value) {
-        if (n == nullptr)
-            n = new node_type(value);
-        else {
+    void insert(node_type * &n, const_reference value) {
+        if (n == _nil) {
+            make_node(n, value);
+        } else {
             if (_comp(value, n->value)) {
                 insert(n->left, value);
             } else if (_comp(n->value, value)) {
@@ -271,11 +286,11 @@ private:
 
     }
 
-    //input: T, a node representing an AA tree that needs to be rebalanced.
-    //output: Another node representing the rebalanced AA tree.
-    void skew(node_type *&n) {
-        if (n != nullptr
-            && n->left != nullptr
+    // input: T, a node representing an AA tree that needs to be rebalanced.
+    // output: Another node representing the rebalanced AA tree.
+    void skew(node_type * &n) {
+        if (n != _nil
+            && n->left != _nil
             && n->left->level == n->level) {
             node_type *left = n->left;
             n->left = left->right;
@@ -284,12 +299,12 @@ private:
         }
     }
 
-    //input: T, a node representing an AA tree that needs to be rebalanced.
-    //output: Another node representing the rebalanced AA tree
-    void split(node_type *&n) {
-        if (n != nullptr
-            && n->right != nullptr
-            && n->right->right != nullptr
+    // input: T, a node representing an AA tree that needs to be rebalanced.
+    // output: Another node representing the rebalanced AA tree
+    void split(node_type * &n) {
+        if (n != _nil
+            && n->right != _nil
+            && n->right->right != _nil
             && n->level == n->right->right->level) {
             node_type * right = n->right;
             n->right = right->left;
@@ -300,6 +315,10 @@ private:
     }
 };
 
+    void make_node(node_type * &n, value_type value) {
+        n = new node_type(value, _nil, _nil);
+    }
+};
 
 // for test
 #include <iostream>
