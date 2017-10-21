@@ -15,6 +15,20 @@ int PascalCase = 0; // Invalid
 int underscore_case = 0; // Invalid
 ```
 
+#### Member Variables
+When naming the member variables of a class that are _private_, then add an underscore to the end of their name.
+
+```C++
+class Example
+{
+public:
+    Example();
+private:
+    int exampleVariable_; // Valid
+    int badVariable; // Invalid
+};
+```
+
 #### Functions
 Functions should follow the same conventions as variables.
 
@@ -29,7 +43,7 @@ int underscore_case(); // Invalid
 When naming classes, follow the rules of pascal case.
 
 ```C++
-class name(); // Invalid
+class name; // Invalid
 struct camelCase; // Invalid
 class PascalCase; // Valid
 struct underscore_case; // Invalid
@@ -95,3 +109,59 @@ When a class has both public and private members, then use the `class` keyword.
 
 ### Including Header Files
 When including header files, only include files that are portable across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
+
+### Functions
+
+#### Parameters
+When listing POD (Plain Old Data) types, then pass them by value. When listing user-defined types, then pass them by const reference. When a function has to modify a variable, then, and only then pass the variable by reference.
+
+```C++
+void exampleFunction(int pod, const Example& object, char& modifiableChar)
+{
+    // ...
+}
+```
+
+### Classes
+
+#### Order of Encapsulation
+When listing members of a class, list them in the order public, private, then protected.
+Encapsulation labels should be indented to the same level as the class. Add a space after the end of each label for readability.
+
+```C++
+class Example
+{
+public:
+    // ...
+    
+private:
+    // ...
+    
+protected:
+    // ...
+    
+};
+```
+
+### Order of Member Functions
+When listing member functions of a class, first list the main constructor, then secondary constructors, and then copy assignment/copy construction/move assignment/move construction functions.
+After this, add the destructor. Then, add a new line, and then list all members of the class.
+
+```C++
+class Example
+{
+private:
+    int value_;
+    
+public:
+    Example() {  }
+    Example(int value) { }
+    Example(const Example& other) { }
+    ~Example()
+    
+    void memberFunction();
+    
+};
+```
+
+When possible, try to create a logical separation of member functions for clarity.
