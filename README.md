@@ -10,26 +10,27 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* Artificial intelligence
-* Backtracking
-* Bit manipulation
-* Cellular automaton
-* Computational geometry
-* Cryptography
-* Data structures
-* Divide conquering
-* Dynamic programming
-* Graph algorithms
-* Greedy algorithms
-* Mathematical algorithms
-* Operating system
-* Randomized algorithms
-* Searching
-* Selecting
-* Sorting
-* Square root decomposition
-* String algorithms
-* Unclassified 👻
+* [Artificial intelligence](https://github.com/OpenGenus/cosmos/tree/master/code/artificial_intelligence)
+* [Backtracking](https://github.com/OpenGenus/cosmos/tree/master/code/backtracking)
+* [Bit manipulation](https://github.com/OpenGenus/cosmos/tree/master/code/bit-manipulation)
+* [Cellular automaton](https://github.com/OpenGenus/cosmos/tree/master/code/cellular_automaton)
+* [Computational geometry](https://github.com/OpenGenus/cosmos/tree/master/code/computational_geometry)
+* [Cryptography](https://github.com/OpenGenus/cosmos/tree/master/code/cryptography)
+* [Data structures](https://github.com/OpenGenus/cosmos/tree/master/code/data_structures)
+* [Design patterns](https://github.com/OpenGenus/cosmos/tree/master/code/design_pattern)
+* [Divide conquering](https://github.com/OpenGenus/cosmos/tree/master/code/divide_conquer)
+* [Dynamic programming](https://github.com/OpenGenus/cosmos/tree/master/code/dynamic_programming)
+* [Graph algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/graph-algorithms)
+* [Greedy algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/greedy-algorithms)
+* [Mathematical algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/mathematical-algorithms)
+* [Operating system](https://github.com/OpenGenus/cosmos/tree/master/code/operating_system)
+* [Randomized algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/randomized_algorithms)
+* [Searching](https://github.com/OpenGenus/cosmos/tree/master/code/search)
+* [Selecting](https://github.com/OpenGenus/cosmos/tree/master/code/selection-algorithms)
+* [Sorting](https://github.com/OpenGenus/cosmos/tree/master/code/sorting)
+* [Square root decomposition](https://github.com/OpenGenus/cosmos/tree/master/code/square_root_decomposition)
+* [String algorithms](https://github.com/OpenGenus/cosmos/tree/master/code/string-algorithms)
+* [Unclassified](https://github.com/OpenGenus/cosmos/tree/master/code/unclassified) 👻
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
