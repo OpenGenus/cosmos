@@ -369,12 +369,56 @@ private:
                 n->value = value;
             }
         }
-        skew(n);
-        split(n);
+        n = skew(n);
+        n = split(n);
     }
 
-    void erase(node_type *&n, const_reference value) {
+    void erase(node_type * &n, const_reference value) {
+        if (n != nil_)
+        {
+            if (comp_(value, n->value))
+            {
+                erase(n->left, value);
+            }
+            else if (comp_(n->value, value))
+            {
+                erase(n->right, value);
+            }
+            else
+            {
+                if (n->left != nil_ && n->right != nil_)
+                {
+                    node_type *leftMax = n->left;
+                    while (leftMax->right != nil_)
+                        leftMax = leftMax->right;
+                    n->value = leftMax->value;
+                    erase(n->left, n->value);
+                }
+                else     // 3 way, n is leaf then nullptr, otherwise n successor
+                {
+                    node_type *successor = n->left == nil_ ? n->right : n->left;
+                    delete n;
+                    n = successor;
+                    --sz_;
+                }
+            }
+        }
 
+        if (n != nil_
+            && (n->left->level < n->level - 1 || n->right->level < n->level - 1))
+        {
+            --n->level;
+            if (n->right->level > n->level)
+                n->right->level = n->level;
+            n = skew(n);
+            if (n->right != nil_)
+                n->right = skew(n->right);
+            if (n->right != nil_ && n->right != nil_)
+                n->right->right = skew(n->right->right);
+            n = split(n);
+            if (n->right != nil_)
+                n->right = split(n->right);
+        }
     }
 
     // input: T, a node representing an AA tree that needs to be rebalanced.
@@ -389,6 +433,8 @@ private:
             left->right = n;
             n = left;
         }
+
+        return n;
     }
 
     // input: T, a node representing an AA tree that needs to be rebalanced.
