@@ -70,6 +70,7 @@ protected:
 */
 
 #include <algorithm>
+#include <stack>
 
 template<typename _Derive, typename _Tp, typename _Comp = std::less<_Tp> >
 struct binary_tree_node {
@@ -140,10 +141,26 @@ protected:
 
     // post order release
     void release(node_type *&n) {
-        if (n) {
-            release(n->left);
-            release(n->right);
-            delete n;
+        if (n != nullptr) {
+            std::stack<node_type *> release_nodes{};
+            do {
+                while (n != nullptr) {
+                    release_nodes.push(n);
+                    n = n->left;
+                }
+                while (!release_nodes.empty() && release_nodes.top()->right == nullptr) {
+                    node_type *delete_node = release_nodes.top();
+                    release_nodes.pop();
+                    delete delete_node;
+                }
+                if (!release_nodes.empty()) {
+                    node_type *delete_node = release_nodes.top();
+                    node_type *right = release_nodes.top()->right;
+                    release_nodes.pop();
+                    n = right;
+                    delete delete_node;
+                }
+            } while (!release_nodes.empty() || n != nullptr);
         }
     }
 
