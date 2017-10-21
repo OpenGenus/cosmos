@@ -1,15 +1,15 @@
 #include <iostream>
-#include <conio.h>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
+class node{
+    public:
+        int info;
+        node *next;
+};
+
 int main()
 {
-
-	class node{
-		int info;
-		node *next;
-	};
 	node *start,*ptr,*head;				//start is the last node.
 	int c=1,data;
 	ptr=new node;
@@ -17,7 +17,7 @@ int main()
 	start=head=ptr;
 	while(c<3 && c>0){
 		cout<<"1.Insert\n2.Link List\n";
-		cin>>c;	
+		cin>>c;
 		switch(c){
 			case 1:
 				cout<<"Enter Data\n";
