@@ -21,26 +21,24 @@ node* insertNode(int data)
 void rightView(node* root)
 {
 	if(root==NULL)
-	return;
+	  return;
 	queue<node*> q;
 	q.push(root);
 	while(1)
 	{
 		int nodeCount=q.size();
 		if(nodeCount==0)
-		break;
+		  break;
 		while(nodeCount--)
 		{
 			node* root=q.front();
 			q.pop();
 			if(nodeCount==0)
-			{
-				printf("%d ",root->data);
-			}
+			  printf("%d ",root->data);
 			if(root->left!=NULL)
-			q.push(root->left);
+			  q.push(root->left);
 			if(root->right!=NULL)
-			q.push(root->right);
+			  q.push(root->right);
 		}
 	}
 }
