@@ -481,7 +481,26 @@ using namespace std;
 int main() {
     AATree<int> *aat = new AATree<int>;
 
+    if (!aat->empty())
+        cout << "error";
+
+    auto f = aat->find(3);
+    if (f != nullptr)
+        cout << "error";
+
+    f = aat->maximum();
+    if (f != nullptr)
+        cout << "error";
+
+    f = aat->minimum();
+    if (f != nullptr)
+        cout << "error";
+
     aat->insert(0);
+    f = aat->find(0);
+    if (f == nullptr)
+        cout << "error";
+
     aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
     cout << aat->size() << "\n\n";
     aat->insert(1);
@@ -535,6 +554,17 @@ int main() {
     aat->erase(8);
     aat->inOrder(cout); cout << "\n"; aat->preOrder(cout); cout << "\n";
     cout << aat->size() << "\n\n";
+
+    f = aat->maximum();
+    if (f == nullptr || f->value != 6)
+        cout << "error";
+
+    f = aat->minimum();
+    if (f == nullptr || f->value != 1)
+        cout << "error";
+
+    if (aat->empty())
+        cout << "error";
 
     delete aat;
 
