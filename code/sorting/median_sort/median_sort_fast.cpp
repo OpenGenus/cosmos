@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-
+#include <vector>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 int selectPivotIndex(const vector<int>& A, const int left, const int right) {

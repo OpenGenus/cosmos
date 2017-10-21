@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-
+#include <string>
+#include <iostream>
 /* Part of Cosmos by OpenGenus Foundation */
 
 using namespace std;
