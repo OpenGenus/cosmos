@@ -1,5 +1,5 @@
 // Part of Cosmos by OpenGenus Foundation
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 #define N 10000000
 int tree[N + 1], lazy[N + 1], A[N];
