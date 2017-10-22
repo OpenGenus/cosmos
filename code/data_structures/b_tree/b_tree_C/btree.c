@@ -173,7 +173,10 @@ void btree_ins(BTree* bt, TVal c)
             WriteBlock(bt, &brother, rc);
 
             if(bt->stack.head != -1)
+            {
+                c = median;
                 popStack(&bt->stack, &i, &buff);
+            }
 
             else
             {
