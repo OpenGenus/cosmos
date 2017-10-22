@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 void findUnique2(int *a,int n){
     
     int res=0;
@@ -30,17 +31,12 @@ void findUnique2(int *a,int n){
     printf("%d\n",secondNo);
     
 }
-
-
 int main(){
     
-    int n,i;
+    int n;
     int a[] = {1,3,5,6,3,2,1,2};
     n = sizeof(a)/sizeof(int);
     findUnique2(a,n);
-    
-    
-    return 0;
-    
-    
+     
+    return 0;    
 }
