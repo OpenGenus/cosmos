@@ -10,8 +10,8 @@ Use concise, pythonic, but **readable** code
 
 Variables
 ---
-When creating variables, use lowercase letters throughout the names. When you
-create a variable with more than one word in its name, use an underscore to
+When creating variables, use lowercase letters throughout the names. When
+creating a variable with more than one word in its name, use an underscore to
 separate the words. There is no need for type declaration in Python.
 
 **WRONG**
