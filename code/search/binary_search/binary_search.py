@@ -7,9 +7,9 @@ def binary_search(array,x):
 	a = 0
 	b = length - 1
 		
-	while a < b:
-		c = (b-a) // 2
-		if array[c] > x:
+	while a <= b:
+		c = (b+a) // 2
+		if array[c] < x:
 			a = c + 1
 		else:
 			b = c - 1
@@ -25,4 +25,4 @@ if __name__ == "__main__":
 	x = int(input("Enter a value to search: \n"))
 
 	array = [int(element) for element in array.strip().split(" ")]
-	binary_search(array,x)		
+	binary_search(array,x)	
