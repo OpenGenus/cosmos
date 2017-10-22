@@ -183,8 +183,24 @@ public void bar() {}
 
 Switch statements
 ---
-All switch cases should end with either a `break` or `return` keyword. Every switch statement should also contain a `default` case.
-
+All switch cases should end with either a `break` or `return` keyword. Every switch statement should also contain a `default` case for when
+the variable being checked does not match up with any of the cases in the statement.
+```Java
+/* Given a number, num, do something
+ * different depending on what num is
+ * (i.e. num is 1, 2, 3, or none)
+ */
+switch (num) {
+	case 1:  // Do something
+					 break;
+	case 2:  // Do something
+					 break;
+	case 3:  // Do something
+					 break;
+	default: // Do something
+					 break;
+}
+```
 Statements
 ---
 There should only be one statement per line. A statement is defined as ending in a semicolon, so this does not include control flow statements. The exceptions are a single statement that are delimited with braces, including anonymous methods and array instantiation.
