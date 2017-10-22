@@ -1,6 +1,6 @@
 // Given a binary number ( represented as a string ) find if the number is a multiple of three
 
-import java.util.*;
+import java.util.Scanner;
 
 public class IsMultipleOfThree {
 	/* 
