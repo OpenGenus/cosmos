@@ -5,6 +5,13 @@
 Given an array of integers `A`, find the length of the longest subsequence such
 that all the elements in the subsequence are sorted in increasing order.
 
+Examples:
+
+The lenght of LIS for `{3, 10, 2, 1, 20}` is 3, that is `{3, 10, 20}`.
+
+The lenght of LIS for `{10, 22, 9, 33, 21, 50, 41, 60, 80}` is 6,
+that is `{10, 22, 33, 50, 60, 80}`.
+
 ## Solution
 
 Let's define a function `f(n)` as the longest increasing subsequence that can be
