@@ -17,11 +17,11 @@ vector<ulli> collatz(ulli number){
 
                 if( number%2 == 1 ){
                       number = (3*number) + 1;
-                      seq.push_back(number)
+                      seq.push_back(number);
                 }
                 else{
                       number = number/2;
-                      seq.push_back(number)
+                      seq.push_back(number);
                 }
 
         }
