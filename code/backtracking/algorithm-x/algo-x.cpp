@@ -141,7 +141,7 @@ int main() {
 		{ 0 , 1 , 0 , 0 , 0 , 0 , 1 }
 	};
 
-	algo_x(m, std::vector<bool>{}, std::vector<bool>{}, std::vector<size_t>{});
-
-	return 0;
+    std::vector<size_t> solution;
+    algo_x(m, std::vector<bool>{}, std::vector<bool>{}, solution);
+    return 0;
 }

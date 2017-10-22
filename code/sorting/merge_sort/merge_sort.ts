@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation
 export default function MergeSort(items: number[]): number[] {
     return divide(items);
 }

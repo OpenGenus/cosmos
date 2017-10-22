@@ -1,5 +1,8 @@
 //Tree Sort implemented using C++
-#include<bits/stdc++.h>
+// Part of Cosmos by OpenGenus Foundation
+#include <vector>
+#include <iostream>
+
 using namespace std;
 struct Node
 {
@@ -34,31 +37,30 @@ void store(Node *root,int a[],int &i)
 		store(root->right,a,i);
 	}
 }
-void TreeSort(int a[], int n)
+void TreeSort(vector<int>& a)
 {
     struct Node *root = NULL;
  
     //Construct binary search tree
     root = insert(root, a[0]);
-    for (int i=1; i<n; i++)
+    for (int i=1; i<a.size(); i++)
         insert(root, a[i]);
  
     //Sorting the array using inorder traversal on BST
     int i = 0;
-    store(root, a , i);
+    store(root, a.data() , i);
 }
 
 int main()
 {
     
-    int a[] = {1,6,8,3,10,2,12};
-    int n = sizeof(a)/sizeof(a[0]);
+    vector<int> a{1,6,8,3,10,2,12};
  
-    TreeSort(a,n);
+    TreeSort(a);
     
     cout<<"The sorted array is :\n";
     //Printing the sorted array
-    for(int i=0;i<n;i++)
+    for(int i=0;i<a.size();i++)
     {
     	cout<<a[i]<<" ";
     }

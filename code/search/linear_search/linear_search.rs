@@ -4,7 +4,7 @@ fn search(vec: &[i32], n: i32) -> i32 {
             return i as i32; // Element found return index
         }
     }
-    -1 // If element not found return -1
+    return -1; // If element not found return -1
 }
 
 fn main() {
@@ -12,7 +12,7 @@ fn main() {
     let num = 56;
     let index =  search(&arr, num);
     if index != -1 {
-        println!("Found {}, at index {}", num, );
+        println!("Found {}, at index {}", num, index);
     }else {
         println!("{} not found!", num)
     }

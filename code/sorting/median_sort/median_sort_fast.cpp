@@ -1,7 +1,6 @@
-#include<bits/stdc++.h>
-
+#include <vector>
 using namespace std;
-
+// Part of Cosmos by OpenGenus Foundation
 int selectPivotIndex(const vector<int>& A, const int left, const int right) {
   const int mid = (left + right) / 2; // median of three
   if (A[left] > A[mid]) { // this is really insertion sort

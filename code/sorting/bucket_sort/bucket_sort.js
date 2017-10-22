@@ -1,4 +1,5 @@
 // InsertionSort to be used within bucket sort
+// Part of Cosmos by OpenGenus Foundation
 function insertionSort(array) {
   var length = array.length;
   

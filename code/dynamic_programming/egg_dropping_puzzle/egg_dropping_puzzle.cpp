@@ -20,7 +20,7 @@ int eggDrop(int n, int k) {
     
     // base cases
     if(k == 0) return 0; // if there is no floor, no attempt is necessary
-    if(k == 1) return 1; // if there is one fllor, just one attempt is necessary
+    if(k == 1) return 1; // if there is only one floor, just one attempt is necessary
     if(n == 1) return k; // with only one egg, k attempts are necessary
 
     // check if it is already computed

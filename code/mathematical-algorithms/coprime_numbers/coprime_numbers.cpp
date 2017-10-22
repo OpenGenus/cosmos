@@ -1,27 +1,29 @@
-#include <bits/stdc++.h>
+#include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
 
-int gcd(int i, int j)
+template<typename int_type>
+int_type gcd(int_type i, int_type j)
 {
         while(j != 0) {
-                int x = i;
+                int_type x = i;
                 i = j;
                 j = x % j;
         }
         return i;
 }
 
-bool isCoPrime(int i, int j)
+template<typename int_type>
+bool isCoPrime(int_type i, int_type j)
 {
-        return gcd(i,j) == 1;
+        return gcd<int_type>(i, j) == 1;
 }
 
 int main()
 {
-        int i,j;
+        long long i, j;
         cout << "Enter two numbers : ";
-        scanf("%d %d", &i, &j);
-        cout << isCoPrime(i,j) << endl;
+        scanf("%lld %lld", &i, &j);
+        cout << isCoPrime(i, j) << endl;
         return 0;
 }
