@@ -7,8 +7,10 @@
 ** @GITHUB LINK: https://github.com/vinayb21
 */
 
-import java.util.*;
-import java.io.*;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 class CountSetBits {
     
