@@ -1,7 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
+
 #define N 10e7
+
 vector<int> a(N + 1, 0);
 void make_seive()
 {
