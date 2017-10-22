@@ -58,7 +58,7 @@ int main(int argc, char const *argv[]) {
 
 
 /*
-*   For testing, we setup our nodes to form two sets (Refering to elements qith their indexes)
+*   For testing, we setup our nodes to form two sets (Refering to elements with their indexes)
       1     |    5
      / \    |   /|\
     0  2    |  4 6 7

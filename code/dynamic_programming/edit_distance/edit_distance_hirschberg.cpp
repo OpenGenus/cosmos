@@ -4,8 +4,11 @@
  Reference - Wikipedia-"Hirschberg's algorithm"
  */
 
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
-#include <bits/stdc++.h>
 using namespace std;
 
 //cost associated

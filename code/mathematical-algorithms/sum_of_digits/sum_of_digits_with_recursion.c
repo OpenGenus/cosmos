@@ -1,3 +1,6 @@
+//Part of Cosmos by OpenGenus Foundation
+#include<stdio.h>
+
 //loop
 int sumOfDigits(int number)
 {

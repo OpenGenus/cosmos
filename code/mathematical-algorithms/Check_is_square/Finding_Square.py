@@ -1,20 +1,40 @@
-import math
+# Part of Cosmos by OpenGenus Foundation
 
-def finding_square(num):
-    res = 0
-    num = int(num)
-    for i in range(num):
-        if(i*i==num):
-            res=1
-            break
-        if(i>math.sqrt(num)):
-            break
-    return res
+def checkIfSquare(n):
+	start = 0
+	end = int(n)
+	while start <= end:
 
-number = input("Enter a number: ")
-result = finding_square(number)
+		mid = (start + end)//2
+		val = mid*mid
 
-if(result==0):
-    print(number, "is NOT a perfect square")
+		if val == int(n):
+			return True
+		elif val < int(n):
+			start = mid+1
+		else:
+			end = mid-1
+
+	return False
+
+	
+import sys
+
+# determine python version
+version = sys.version_info[0]
+
+if version == 2:
+	print('Enter a positive number :')
+	n = raw_input()
+	if(checkIfSquare(n)):
+		print('Yes')
+	else:
+		print('No')
+
 else:
-    print(number, "is a perfect square")
+	print('Enter a positive number :')
+	n = input()
+	if(checkIfSquare(n)):
+		print('Yes')
+	else:
+		print('No')

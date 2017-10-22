@@ -1,56 +1,32 @@
-# Edit Distance
+# Edit distance
 
-Description
----
-In this problem, there are two strings `A` and `B`,
-and three operations that can be performed in them:
+## Description
 
-- Insert a character
-- Remove a character
-- Replace a character
+Edit distance is a way of quantifying how dissimilar two strings (e.g., words) are to one another by counting the minimum number of operations required to transform one string into the other. Edit distances find applications in natural language processing, where automatic spelling correction can determine candidate corrections for a misspelled word by selecting words from a dictionary that have a low distance to the word in question. In bioinformatics, it can be used to quantify the similarity of DNA sequences, which can be viewed as strings of the letters A, C, G and T.
 
-It is needed to find the minimum number of operations
-that need to be performed to make `A` and `B` equal.
+## Example
 
-Solution
----
-Let's denote by `m` the lenght of `A` and `n` the length of `B`.
-Let's call `f(m, n)` the minimum number of operations to make
-`A[0:m-1]` and `B[0:n-1]` equal.
+The Levenshtein distance between "kitten" and "sitting" is 3. A minimal edit script that transforms the former into the latter is:
 
-If we compare the last character of both strings,
-we will have two possibilities:
+kitten → sitten (substitution of "s" for "k")
 
-- The two characters are equal: then it is not necessary to make
-any operation in these characters and we just need to find the
-minimum answer between `A[0:m-2]` and `B[0:n-2]`, that is `f(m-1, n-1)`.
-- The characters are different: In this case we will need to use
-the operations in these characters. As an operation in a string
-has an equivalent operation in the other, we can just assume to
-operate in one of them, let's say the first. So we have three cases:
-  - Insert: make the last characters equal by adding `B[n-1]`
-to `A` and we can move to find solution between `A[0:m-1]` and `B[0:n-2]`,
-that is `f(m, n-1)`.
-  - Remove: remove `A[m-1]` and find solution between
-`A[0:m-2]` and `B[0:n-1]`, that is `f(m-1, n)`.
-  - Replace: make the last characters equal by making `A[m-1] = B[n-1]`
-and then we need to find solution between `A[0:m-2]` and `B[0:n-2]`,
-that is `f(m-1, n-1)`.
+sitten → sittin (substitution of "i" for "e")
 
-As we want the mimimum number of operations, we get miminum from
-the three possibilities.
+sittin → sitting (insertion of "g" at the end).
 
-So, summarizing it all, we can define the following algorithm:
-```
-f(m, 0) = m
-f(0, n) = n
+LCS distance (insertions and deletions only) gives a different distance and minimal edit script:
 
-f(m, n) = f(m-1, n-1) if A[m-1] == B[n-1]
-        = 1 + min( f(m, n-1), f(m-1, n), f(m-1, n-1) ) otherwise
-```
+delete k at 0
 
-The time and space complexities of this approach are O(m * n), by using
-tabulation or memoization to store already computed values of subproblems.
+insert s at 0
+
+delete e at 4
+
+insert i at 4
+
+insert g at 6
+
+for a total cost/distance of 5 operations.
 
 ---
 
