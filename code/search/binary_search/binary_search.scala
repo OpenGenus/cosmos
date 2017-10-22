@@ -3,8 +3,7 @@ package opengenus.cosmos.sorting
 import scala.annotation.tailrec
 
 object BinarySearch {
-  
-  
+    
   trait SearchResult
   case class Found(i: Int) extends SearchResult
   case object NotFound extends SearchResult
