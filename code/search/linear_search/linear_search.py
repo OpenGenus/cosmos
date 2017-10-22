@@ -1,26 +1,18 @@
-'''
-Part of Cosmos by OpenGenus Foundation
-'''
- 
-def search(arr, x):
- 
-    for i in range(len(arr)):
- 
-        if arr[i] == x:
-            return i
- 
-    return -1
+#Function to perform linear search on a given array
 
+def linear_search(array,x):
+	#initializing index and length place holder	
+	length = len(array)
+	for i in range(length):
+		if x == array[i]:
+			print("Position of " + str(x) + " is " + str(i))
+			return None
+	print(str(x) + " not found")
 
-
-arr = []
-elem = int(raw_input("insert how many elements you want:"))
-for i in range(0, elem):
-    arr.append(int(raw_input("Enter next no :")))
-  
-find = input("Enter the number you want to find")
-position = search(arr, find)
-if( position >= 0):
-	print("Position of " + str(find) + " is " + str(position))
-else:
-	print(str(find) + " not found")
+if __name__ == "__main__":
+	array = input("Enter elements of array with space as separator: \n")
+	x = int(input("Enter the number you want to find:\n"))
+	
+	#converting str into a list
+	array = [int(element) for element in array.strip().split(' ')]
+	linear_search(array,x)
