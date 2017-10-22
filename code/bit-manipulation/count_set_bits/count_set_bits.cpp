@@ -4,8 +4,8 @@ using namespace std;
 int count(int n){
 	int c = 0;
 	while (n) {
-		c += (n & 1);
-		n >>= 1;
+		c++;
+		n&=(n-1);
 	}
 	return c;
 }
@@ -14,12 +14,12 @@ int main() {
 	
 	int n;
 	cin >> n;
-	// manual
-	cout<<count(n);
-	// builtin
-	// this is c++ builtin function very less people know about this.
-    	std :: cout << __builtin_popcount(5); //will return 2
-	// avalable in c, c++
+	
+    #ifdef BUILTIN
+    cout << __builtin_popcount(n); // use builtin popcount
+    #else
+	cout<<count(n);// manual
+    #endif
 	
 	return 0;
 }

@@ -6,7 +6,8 @@ algorithm:- finds maximum bipartite matching for a given bipartite graph
             
 Part of Cosmos by OpenGenus Foundation
 */
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
     using namespace std;
     vector<int> adj[10000];
     bool mark[10000];

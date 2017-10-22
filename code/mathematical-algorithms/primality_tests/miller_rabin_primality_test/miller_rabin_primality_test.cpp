@@ -1,5 +1,6 @@
 // C++ program Miller-Rabin Primality test
-#include <bits/stdc++.h>
+#include <vector>
+
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // Utility function to do modular exponentiation.
