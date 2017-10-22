@@ -33,19 +33,16 @@
 - (void)sink:(NSMutableArray<NSNumber *> *)array at:(NSUInteger)indexA to:(NSUInteger)indexB {
     NSUInteger pMax;
     while ((indexA + 1) * 2 - 1 <= indexB) {
-        NSUInteger leftIndex = (indexA + 1) * 2 - 1;
-        NSUInteger rightIndex = (indexA + 1) * 2;
-        if (rightIndex <= indexB) {
-            if ([array[leftIndex] compare:array[rightIndex]] == NSOrderedDescending) {
-                pMax = leftIndex;
-            } else {
-                pMax = rightIndex;
-            }
+        NSUInteger l = (indexA + 1) * 2 - 1;
+        NSUInteger r = (indexA + 1) * 2;
+        if (r <= indexB && [array[l] compare:array[r]] == NSOrderedAscending) {
+            pMax = r;
         } else {
-            pMax = leftIndex;
+            pMax = l;
         }
         if ([array[indexA] compare:array[pMax]] == NSOrderedAscending) {
             [self swap:array at:indexA and:pMax];
+            indexA = pMax;
         } else {
             break;
         }
@@ -62,19 +59,15 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        int n = 0;
-        NSLog(@"What is the size of the array?");
-        scanf("%d", &n);
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:n];
-        NSLog(@"Enter elements of the array one by one:");
-        for (int i = 0; i < n; i++) {
-            int tmp;
-            scanf("%d", &tmp);
-            [array addObject:@(tmp)];
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 20; i++) {
+            int ran = arc4random() % 20 - 10;
+            [array addObject:@(ran)];
         }
+        NSLog(@"before: %@", array);
         HeapSort *hs = [[HeapSort alloc] init];
         [hs sort:array];
-        NSLog(@"%@", array);
+        NSLog(@"after: %@", array);
     }
     return 0;
 }
