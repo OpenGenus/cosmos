@@ -1,42 +1,29 @@
-'''
-Part of Cosmos by OpenGenus Foundation
-'''
+#Function to search x in an array using binary search
 
+def binary_search(array,x):
+	length = len(array)
+	
+	#index holders
+	a = 0
+	b = length - 1
+		
+	while a < b:
+		c = (b-a) // 2
+		if array[c] > x:
+			a = c + 1
+		else:
+			b = c - 1
 
-def binarySearchRecursive(arr, l, r, x):
-    if r >= l:
+	if array[c] != x or c == length:
+		print(str(x),"not found")
+	else:
+		print("Index of ",str(x),"is",str(c))
 
-        mid = l + int((r - l) / 2)
+if __name__ == "__main__":
+	#reading array and search element
+	array = input("Enter elements of array with sapce as separator: \n")
+	x = int(input("Enter a value to search: \n"))
 
-        if arr[mid] == x:
-            return mid
+	array = [int(element) for element in array.strip().split(" ")]
+	binary_search(array,x)		
 
-        elif arr[mid] > x:
-            return binarySearchRecursive(arr, l, mid - 1, x)
-
-        else:
-            return binarySearchRecursive(arr, mid + 1, r, x)
-
-    else:
-        return -1
-
-
-def binarySearchLoop(arr, l, r, x):
-    while l <= r:
-        mid = l + int((r - l) / 2)
-
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            r = mid - 1
-        else:
-            l = mid + 1
-
-    return -1
-
-
-arr = [1, 2, 3, 5]
-find = 3
-
-print("Position of ", find, " is ", binarySearchLoop(arr, 0, len(arr) - 1, find))
-print("Position of ", find, " is ", binarySearchRecursive(arr, 0, len(arr) - 1, find))
