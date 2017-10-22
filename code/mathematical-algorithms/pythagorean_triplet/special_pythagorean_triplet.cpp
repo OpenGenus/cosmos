@@ -2,8 +2,8 @@
 // Given N, Check if there exists any Pythagorean triplet for which a+b+c=N
 //Find maximum possible value of abc among all such Pythagorean triplets, If there is no such Pythagorean triplet print  -1.
 
-#include<bits/stdc++.h>
-#include<iostream>
+#include <iostream>
+
 using namespace std;
 #define opt std::ios_base::sync_with_stdio(false)
 typedef long long int ll; 
