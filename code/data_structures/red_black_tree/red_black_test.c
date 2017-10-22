@@ -5,7 +5,7 @@
  * info: red black tree
  */
 
-#include "red_black.h"
+#include "red_black_tree.h"
 
 #include <assert.h>
 #include <inttypes.h>

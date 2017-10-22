@@ -2,13 +2,9 @@ extern crate rand;
 use rand::Rng;
 
 fn swap(arr: &mut Vec<i64>, i: usize) {
-    let temp = arr.clone();
-    let a = &temp[i];
-    let b = &temp[i + 1];
-    arr.remove(i);
-    arr.insert(i, *b);
-    arr.remove(i + 1);
-    arr.insert(i + 1, *a);
+    let a = &arr[i];
+    arr[i] = arr[i + 1];
+    arr[i + 1] = *a;
 }
 
 fn randomize(arr: &Vec<i64>) -> Vec<i64> {

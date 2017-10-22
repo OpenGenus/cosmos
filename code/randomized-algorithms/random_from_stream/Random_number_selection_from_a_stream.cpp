@@ -1,7 +1,8 @@
-Randomly select a number from stream of numbers.
-#include<bits/stdc++.h>
- 
+// Randomly select a number from stream of numbers.
 // A function to randomly select a item from stream[0], stream[1], .. stream[i-1]
+#include <random>
+#include <iostream>
+using namespace std;
 int selectRandom(int x)
 {
     static int res;    // The resultant random number
@@ -31,7 +32,7 @@ int main()
     cin >> n;
     int stream[n];
     for (int i = 0; i < n; i++){
-      cin>>stream[i]];
+      cin>>stream[i];
     }
     // Use a different seed value for every run.
     srand(time(NULL));

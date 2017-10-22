@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
 // Part of Cosmos by OpenGenus Foundation
+#include <utility>
+#include <iostream>
+
 using namespace std; 
  
 typedef long long ll; 

@@ -14,9 +14,8 @@ class SinglyLinkedList<T> {
 		head = newNode; //Now set the new link to be the head
 	}
 
-	Node InsertNth(int data, int position) {
-
-		Node<Integer> newNode = new Node<>(data);
+	public Node insertNth(T data, int position) {
+		Node<T> newNode = new Node<>(data);
 
 		if (position == 0) {
 			newNode.next = head;

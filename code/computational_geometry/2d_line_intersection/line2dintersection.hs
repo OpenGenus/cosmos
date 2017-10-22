@@ -1,4 +1,4 @@
---
+-- computational geometry | 2D line intersecton | Haskell
 -- line2dintersection.hs
 -- @author Sidharth Mishra
 -- @description 2 dimensional line intersection program in Haskell

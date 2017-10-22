@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class PigeonHoleSort_Java {
+public class PigeonHoleSort {
 
 	public static void pigeonholeSort(int[] arr, int n) {
 		//initialize

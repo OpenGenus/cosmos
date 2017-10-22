@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-class UnionFind():
+class UnionFind:
 
     def __init__(self):
         self.parent = {}
@@ -13,8 +13,11 @@ class UnionFind():
             current_item = self.parent[current_item]
         return current_item
 
-    def find(self, a, b):
+    def connected(self, a, b):
         return self.root(a) == self.root(b)
+
+    def find(self, a):
+        return self.root(a)
 
     def union(self, a, b):
         if a not in self.parent:
@@ -44,7 +47,7 @@ def main():
     union_find.union(3, 9)
     for i in range(1, 9):
         for j in range(i + 1, 10):
-            state = "connected" if union_find.find(i, j) else "disconnected"
+            state = "connected" if union_find.connected(i, j) else "disconnected"
             print("{} and {} are {}".format(i, j, state))
 
 
