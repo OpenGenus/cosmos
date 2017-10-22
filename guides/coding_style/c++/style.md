@@ -205,13 +205,19 @@ class Example
 
 Order of Encapsulation
 ---
-When listing members of a class, list them in the order public, private, then protected.
-Encapsulation labels should be indented to the same level as the class. Add a space after the end of each label for readability.
+When listing members of a class, if possible (typedef/using maybe need primary define, but them still need respect following rules) list them in the order public, private, then protected.
+Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
 **Valid:**
 ```C++
 class Example
 {
+private:
+    typedef int INT;
+
+protected:
+    using typename BaseClass::size_type;
+    
 public:
     // ...
     
