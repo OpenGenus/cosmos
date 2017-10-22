@@ -192,13 +192,13 @@ the variable being checked does not match up with any of the cases in the statem
  */
 switch (num) {
 	case 1:  // Do something
-                break;
+                 break;
 	case 2:  // Do something
-                break;
+                 break;
 	case 3:  // Do something
-                break;
+                 break;
 	default: // Do something
-                break;
+                 break;
 }
 ```
 Statements
