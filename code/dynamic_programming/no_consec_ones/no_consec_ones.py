@@ -5,8 +5,6 @@
 
 
 def noConsecOnes(n):
-    ''' Returns number of binary strings of length n with no consec ones
-    '''
     a = [0 for x in range(n)] #number of strings ending with 0
     b = [0 for x in range(n)] #number of strings ending with 1
     
