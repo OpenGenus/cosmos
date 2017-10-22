@@ -114,3 +114,4 @@ fn main() {
         map.solveNqueen();
     }
 }
+

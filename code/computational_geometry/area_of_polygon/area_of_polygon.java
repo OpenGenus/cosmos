@@ -1,4 +1,4 @@
-public class area_of_polygon{
+public class AreaOfPolygon {
 
      public static void main(String []args){
         // input points {xPoints[i],yPoints[j]}

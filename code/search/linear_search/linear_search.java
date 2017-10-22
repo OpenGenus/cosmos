@@ -19,6 +19,17 @@ class Search
         return -1;
     }
     
+    // A recursive implementation of linear search
+    static int recLinSearch(int[] list, int key) {
+        return recLinSearch(list, key, 0);
+    }
+    
+    private static int recLinSearch(int[] list, int key, int index) {
+        if (index == list.length) return -1; // key not found at all
+        if (key == list[index]) return index; // key found at current index
+        return recLinSearch(list, key, index + 1); // else, keep moving through indices
+    }
+    
     public static void main(String args[])
     {
         Scanner sc=new Scanner(System.in);//OBject of scanner class to take input
@@ -35,5 +46,6 @@ class Search
         System.out.println("Enter the number you want to find");
         int find = sc.nextInt();
         System.out.println("Position of "+find+" is "+linearSearch(arr,find));
+        System.out.println("Position of "+find+" is "+recLinSearch(arr,find));
     }
 }

@@ -1,6 +1,8 @@
 //Tree Sort implemented using C++
 // Part of Cosmos by OpenGenus Foundation
-#include<bits/stdc++.h>
+#include <vector>
+#include <iostream>
+
 using namespace std;
 struct Node
 {

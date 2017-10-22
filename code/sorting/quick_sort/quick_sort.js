@@ -21,9 +21,11 @@ function  quickSort(a, low, high)
 	while (i <= j)
 	{
 		while (parseInt(a[i]) < pivot)
-		i++;
+			i++;
+
 		while (parseInt(a[j]) > pivot)
 			j--;
+
 		if (i <= j)
 		{
 			temp = a[i];

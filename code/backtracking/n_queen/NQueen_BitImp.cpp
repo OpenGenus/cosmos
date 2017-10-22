@@ -26,3 +26,4 @@ int main(){
 	Backtracking(0,0,0,0);
 	cout << "There are " << counter << " ways" <<endl;
 }
+

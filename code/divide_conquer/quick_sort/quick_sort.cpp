@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <cstdio>
 using namespace std;
 
 void swap(int* a, int* b)

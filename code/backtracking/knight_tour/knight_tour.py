@@ -63,3 +63,5 @@ if __name__ == '__main__':
         start = input('Start position: ')
         board = knights_tour(start, boardsize)
         print(boardstring(board, boardsize=boardsize))
+
+        

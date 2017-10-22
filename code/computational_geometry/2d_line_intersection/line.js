@@ -1,3 +1,4 @@
+// computational geometry | 2D line intersecton | JavaScript
 function intersection_by_points(x1, y1, x2, y2, x3, y3, x4, y4) {
     var x12 = x1 - x2
     var x34 = x3 - x4
