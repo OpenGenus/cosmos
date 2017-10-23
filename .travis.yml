@@ -1,23 +1,38 @@
-language: c
-compiler:
-  - gcc
-  
-before_script:
-  - chmod +x ./configure
+
 
 matrix:
   include:
-    # works on Precise and Trusty
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-      env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-
+    #For C using gcc
+    - language: c
+      compiler: gcc
+      before_script:
+        - chmod +x ./configure
+      os: linux
+        addons:
+          apt:
+            sources:
+              - ubuntu-toolchain-r-test
+            packages:
+              - g++-7
+        env:
+          - MATRIX_EVAL="CC=gcc-7"
+    
+    #For C using clang
+    - language: c
+      compiler: clang
+      before_script:
+        - chmod +x ./configure
+      os: linux
+        addons:
+          apt:
+            sources:
+              - llvm-toolchain-trusty-5.0
+            packages:
+              - clang-5.0
+        env:
+          - MATRIX_EVAL="CC=clang-5.0"
+          
+          
 before_install:
     - eval "${MATRIX_EVAL}"
 
