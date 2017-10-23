@@ -3,8 +3,8 @@ compiler:
   - gcc
 
 before_script:
-  chmod +x ./configure
-  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-  sudo apt-get update
-  sudo apt-get install gcc-7
+  - chmod +x ./configure
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update
+  - sudo apt-get install gcc-7
 
