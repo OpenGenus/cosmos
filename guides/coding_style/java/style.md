@@ -6,7 +6,7 @@ All braces should start on the same line as the method they are delimiting. If a
 
 ```Java
 if (true) {
-	/* 
+	/*
 	** Multiple lines
 	** of code
 	*/
@@ -18,7 +18,7 @@ while (true)
 if (true || false) {
 	// One line of code
 } else {
-	/* 
+	/*
 	** More than one line of code,
 	** so all blocks should be delimited.
 	*/
@@ -37,7 +37,8 @@ int[] arr = new int[] { 1, 2, 3 };
 
 Comments
 ---
-Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters.
+
+Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters. A special type of comment, called Javadoc commenting, should be implemented using the /\*\* \*/ delimiters. Javadoc comments are used with tags like @author, @param, and @return to document the purpose of methods and classes in code.
 
 ```Java
 // Single line comment, with space after slashes
@@ -47,9 +48,22 @@ Comments should have a space following the double slashes. Any multiline comment
 ** comment
 */
 
-/*
- * This is also
- * acceptable
+/**
+* Documentation
+* 
+* @version 1.0
+*/
+
+
+/**
+ *
+ * This is a Javadoc comment that
+ * is describing a method in a class
+ * that will modify a string
+ *
+ * @author myName
+ * @param word the string to be manipulated
+ * @return the modified string
  *
  */
 ```
