@@ -3,4 +3,4 @@ CFLAGS = -Wall
 SOURCES := $(shell find -name '*.c')
 
 test: $(SOURCES)
-	cc -o $@ $^ $(CFLAGS) 
+	$(CC) -o $@ $^ $(CFLAGS) 
