@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
+
 float Babylonian(float n)
 {  float s=n;//initial assumption is number itself
    float error = 0.000001; //this decides the accuracy of answer
