@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
 /*
 Counts the number of values between 0 and a given number that satisfy the condition x+n = x^n (0<=x<=n)
 */
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 long solve(long n) {

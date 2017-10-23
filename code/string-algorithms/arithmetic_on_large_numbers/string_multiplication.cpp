@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <iostream>
 using namespace std;
 
 string strAdd(string s, string r){
