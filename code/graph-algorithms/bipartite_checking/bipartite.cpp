@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <queue>
+
 using namespace std;
 
 int bipartite(int g[][10],int s,int n)

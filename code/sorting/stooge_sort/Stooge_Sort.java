@@ -1,7 +1,7 @@
 //This is a java program to sort numbers using Stooge Sort
 import java.util.Random;
  
-public class Stooge_Sort 
+public class StoogeSort 
 {
  
     public static int N = 20;

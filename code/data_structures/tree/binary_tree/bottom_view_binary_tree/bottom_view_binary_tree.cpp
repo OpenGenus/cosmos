@@ -1,4 +1,7 @@
-include<bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <climits>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // Tree node class
@@ -93,7 +96,7 @@ int main()
     root->right->right = new Node(25);
     root->left->right->left = new Node(10);
     root->left->right->right = new Node(14);
-    cout << "Bottom view of the given binary tree :\n"
+    cout << "Bottom view of the given binary tree :\n";
     bottomView(root);
     return 0;
 }
