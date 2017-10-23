@@ -7,4 +7,4 @@ c: $(C_SOURCES)
 CPP_SOURCES := $(shell find -name '*.cpp')
 
 cpp: $(CPP_SOURCES)
-	$(CC) -o $@ $^ $(CFLAGS) 
+	$(CXX) -o $@ $^ $(CFLAGS) 
