@@ -3,11 +3,12 @@ Your personal library of every algorithm and data structure code that you will e
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
 
-**Newton Polynomial**
+*Newton Polynomial*
 
 Okay. More information in this: [Newton Polynomial](https://en.wikipedia.org/wiki/Newton_polynomial)
 
 We release it with help divided differences. To verify the correct values, we set in x the difference between the first and second. Fo example:
+
 1
 
 2
