@@ -14,6 +14,7 @@ Following is the high-level structure of cosmos:
 * Backtracking
 * Bit manipulation
 * Cellular automaton
+* Compression algorithms
 * Computational geometry
 * Cryptography
 * Data structures
