@@ -6,7 +6,7 @@ matrix:
       before_script:
         - chmod +x ./configure
       script:
-        ./configure && make  && make c
+        ./configure && make c
       addons:
         apt:
           sources:
@@ -22,7 +22,7 @@ matrix:
       before_script:
         - chmod +x ./configure
       script:
-        ./configure && make  && make c
+        ./configure && make c
       addons:
         apt:
           sources:
@@ -31,6 +31,23 @@ matrix:
             - gcc-7
       env:
         - MATRIX_EVAL="CC=gcc-7"
+        
+    #C++ with gcc
+    - os: linux
+      language: cpp
+      install: make
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make cpp
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
         
 before_install:
     - eval "${MATRIX_EVAL}"
