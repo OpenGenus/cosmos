@@ -6,8 +6,8 @@ template<typename _Derive,
          typename _Tp,
          typename _Comp = std::less<_Tp> >
 struct BinaryTreeNode {
-    _Derive *left, *right;
     _Tp value;
+    _Derive *left, *right;
     BinaryTreeNode(_Tp v, _Derive *l = nullptr, _Derive *r = nullptr)
     :value(v), left(l), right(r);
 };
@@ -17,7 +17,7 @@ template<typename _Tp,
 struct AABinaryTreeNode :public BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp> {
     size_t level;
     AABinaryTreeNode(_Tp v, AABinaryTreeNode *l = nullptr, AABinaryTreeNode *r = nullptr)
-    :level(1), BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r);
+    :BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r), level(1);
 };
 
 template<typename _Tp,
@@ -129,14 +129,15 @@ private:
 */
 
 #include <algorithm>
+#include <functional>
 #include <stack>
 
 template<typename _Derive,
          typename _Tp,
          typename _Comp = std::less<_Tp> >
 struct BinaryTreeNode {
-    _Derive *left, *right;
     _Tp value;
+    _Derive *left, *right;
     BinaryTreeNode(_Tp v, _Derive *l = nullptr, _Derive *r = nullptr)
         :value(v), left(l), right(r) {};
 };
@@ -146,7 +147,7 @@ template<typename _Tp,
 struct AABinaryTreeNode :public BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp> {
     size_t level;
     AABinaryTreeNode(_Tp v, AABinaryTreeNode *l = nullptr, AABinaryTreeNode *r = nullptr)
-        :level(1), BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r) {};
+        :BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r), level(1) {};
 };
 
 template<typename _Tp,
