@@ -1,5 +1,29 @@
-# Cosmos Guides
-> Your personal library of every algorithm and data structure code that you will ever encounter
+# Ruby Installation Guide
+
+*How to install Ruby on your machine*
+
+### Installing RVM
+First, before installing Ruby, you must install Ruby Version Manager (RVM). The simplest way to do this is to enter the following in the console:
+
+`\curl -L https://get.rvm.io | bash -s stable`
+
+Once this command has run, you must restart you terminal.
+
+### Installing Ruby
+
+Once you have installed RVM as above, you can now install the most recent version of Ruby. To do this, you must enter the command:
+
+`rvm install ruby-2.4.2`
+
+*Note: you must enter the most recent Ruby version, you can check the latest version <a href="https://www.ruby-lang.org/en/downloads/">here</a>*
+
+You may be asked to enter you password to complete the installation.
+
+The final step is to ensure the RubyGems version is up to date. To do this type:
+
+`gem update --system`
+
+Now you have successfully installed and updated to the most recent version of Ruby!
 
 
 ---
@@ -9,3 +33,4 @@
 </p>
 
 ---
+

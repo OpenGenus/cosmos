@@ -1,6 +1,11 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <set>
+#include <utility>
+
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
+
 const int N = 1E4 + 1;
 vector<pair<int,int> > graph[N];
 set<pair<int,int> > pq;
