@@ -1,32 +1,31 @@
 matrix:
   include:
-    #For C using gcc
+      #For C using gcc
     - language: c
       compiler: gcc
       before_script:
         - chmod +x ./configure
-      os: linux
-        addons:
-          apt:
-            sources:
-              - ubuntu-toolchain-r-test
-            packages:
-              - g++-7
+      - os: linux
+          addons:
+            apt:
+              sources:
+                - ubuntu-toolchain-r-test
+              packages:
+                - g++-7
         env:
           - MATRIX_EVAL="CC=gcc-7"
-    
-    #For C using clang
+          
     - language: c
       compiler: clang
       before_script:
         - chmod +x ./configure
-      os: linux
-        addons:
-          apt:
-            sources:
-              - llvm-toolchain-trusty-5.0
-            packages:
-              - clang-5.0
+      - os: linux
+          addons:
+            apt:
+              sources:
+                - llvm-toolchain-trusty-5.0
+              packages:
+                - clang-5.0
         env:
           - MATRIX_EVAL="CC=clang-5.0"
           
