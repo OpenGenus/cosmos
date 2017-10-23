@@ -1,8 +1,7 @@
 // An efficient program to randomly select k items from a stream of n items
 // Part of Cosmos by OpenGenus Foundation
-#include <bits/stdc++.h>
-
- 
+#include <iostream> 
+using namespace std;
 
 void printArray(int stream[], int n)
 {
@@ -49,7 +48,7 @@ int main()
     cin >> n;
     int stream[n];
     for (int i = 0; i < n; i++)
-      cin>>stream[i]
+      cin>>stream[i];
     int k;
     cin >> k;
     selectKItems(stream, n, k);

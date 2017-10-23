@@ -2,7 +2,7 @@
 /* Created by Shubham Prasad Singh on 12/10/2017 */
 
 /* Check if a number is a power of 2 */
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 typedef long long ll;
 bool isPowerOf2(ll n)
