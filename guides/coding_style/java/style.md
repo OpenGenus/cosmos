@@ -37,6 +37,7 @@ int[] arr = new int[] { 1, 2, 3 };
 
 Comments
 ---
+
 Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters. A special type of comment, called Javadoc commenting, should be implemented using the /\*\* \*/ delimiters. Javadoc comments are used with tags like @author, @param, and @return to document the purpose of methods and classes in code.
 
 ```Java
@@ -47,11 +48,12 @@ Comments should have a space following the double slashes. Any multiline comment
 ** comment
 */
 
-/*
- * This is also
- * acceptable
- *
- */
+/**
+* Documentation
+* 
+* @version 1.0
+*/
+
 
 /**
  *
