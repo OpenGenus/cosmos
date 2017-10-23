@@ -49,5 +49,22 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
         
+    #C++ with clang
+    - os: linux
+      language: cpp
+      install: make
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make cpp
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CXX=clang++-5.0"
+        
 before_install:
     - eval "${MATRIX_EVAL}"
