@@ -6,5 +6,3 @@ compiler:
 before_script:
   chmod +x ./configure
 
-script:
-  ./configure & make
