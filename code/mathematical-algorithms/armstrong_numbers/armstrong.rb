@@ -1,7 +1,7 @@
 #created by AnkDos
 #You can Simply use '**' to cube ,ex. 3**3=27 ,so cube(remainder) can be written as (reminder**3) 
 def cube(num)
-    return num*num*num
+     num*num*num
 end
 
 def Is_armstrong(num)
@@ -15,12 +15,7 @@ def Is_armstrong(num)
    sum=sum+cube(reminder)
    num=quotient
  end
-if hold==sum
-    return true
-else 
-    return false
-end
-
+return hold==sum
 end
 
 puts"#{Is_armstrong(153)}"   #output => true
