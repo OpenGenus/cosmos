@@ -5,6 +5,8 @@ matrix:
       language: c
       before_script:
         - chmod +x ./configure
+      script:
+        ./configure && make  && make c
       addons:
         apt:
           sources:
@@ -19,6 +21,8 @@ matrix:
       language: c
       before_script:
         - chmod +x ./configure
+      script:
+        ./configure && make  && make c
       addons:
         apt:
           sources:
