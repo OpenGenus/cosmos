@@ -57,3 +57,17 @@ int main()
     printf("The diameter of tree is %d\n.", dist[endpoint2]);
 	return 0;
 }
+
+// INPUT
+// =====
+
+// Enter the number of nodes : 5
+// Enter the 4 edges (numbering is from 1 to 5)
+// 1 2
+// 3 1
+// 1 4
+// 5 1
+
+// OUTPUT
+// ======
+// The diameter of tree is 2.
