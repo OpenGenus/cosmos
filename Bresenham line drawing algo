@@ -1,0 +1,50 @@
+// Bresenham Algorithm
+using namespace std;
+#include<iostream>
+#include<graphics.h>
+int main()
+{
+  int x1,x2,y1,y2;
+  cout<<"\n\t\t *******First Point*******";
+  cout<<"\n\n\t\t Enter x-coordinates of first point : ";
+  cin>>x1;
+  cout<<"\n\t\t Enter y-coordinates of first point : ";
+  cin>>y1;
+  cout<<"\n\t\t *******Second Point*******";
+  cout<<"\n\n\t\t Enter x-coordinates of second point : ";
+  cin>>x2;
+  cout<<"\n\t\t Enter y-coordinates of second point : ";
+  cin>>y2;
+  cout<<"\n\n\t\t Therefore, the two points are ("<<x1<<","<<y1<<") and ("<<x2<<","<<y2<<") .";
+  
+  int dy=y2-y1;
+  int dx=x2-x1;
+  int d=(2*dy)-dx;
+  int de=2*dy;
+  int dne=(2*dy)-(2*dx); //deltta dne
+  int x=x1;
+  int y=y1;
+  cout<<"\n\n\t\t The line obtained by joining ("<<x1<<","<<y1<<") and ("<<x2<<","<<y2<<") is : ";
+
+  initwindow(400,300,"sampleee");
+  putpixel(x,y,RED);
+  while(x<x2)
+  {
+    if(d<=0)
+    {
+      d=d+de;
+      x=x+1;
+    }
+    else
+    {
+      d=d+dne;
+      x=x+1;
+      y=y+1;
+    }
+    putpixel(x,y,RED);
+  }
+
+  cout<<"\n\n\t\t ";
+  system("pause");
+  return 0;
+}
