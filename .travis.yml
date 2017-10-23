@@ -1,7 +1,8 @@
 language: c
 compiler:
   - gcc
-
+  - clang
+  
 before_script:
   - chmod +x ./configure
 
