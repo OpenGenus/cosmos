@@ -35,7 +35,6 @@ matrix:
     #C++ with gcc
     - os: linux
       language: cpp
-      install: make
       before_script:
         - chmod +x ./configure
       script:
@@ -52,7 +51,6 @@ matrix:
     #C++ with clang
     - os: linux
       language: cpp
-      install: make
       before_script:
         - chmod +x ./configure
       script:
