@@ -18,6 +18,9 @@ O(2*N), where N is a size of matrix
 #include <array>
 #include <math.h>
 
+/*
+Evalutates euclidean norm
+*/
 template <unsigned int S>
 double norm(const std::array<double, S> &x, const std::array<double, S> &y)
 {
@@ -29,6 +32,9 @@ double norm(const std::array<double, S> &x, const std::array<double, S> &y)
     return std::move(sqrt(result));
 }
 
+/*
+Method of Steepest Descent
+*/
 template <unsigned int S>
 std::array<double, S> steepestdescent(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b,
     const double e = 0.0001, const double step = 0.1, const unsigned int IterMax = 10000)
@@ -50,6 +56,9 @@ std::array<double, S> steepestdescent(const std::array<std::array<double, S>, S>
     return std::move(x);
 }
 
+/*
+Overloads operator << to display NxN size array
+*/
 template <unsigned int S>
 std::ostream &operator<<(std::ostream &stream, const std::array<std::array<double, S>, S> &A)
 {
@@ -64,6 +73,9 @@ std::ostream &operator<<(std::ostream &stream, const std::array<std::array<doubl
     return stream;
 }
 
+/*
+Overloads operator << to display Nx1 size array
+*/
 template <unsigned int S>
 std::ostream &operator<<(std::ostream &stream, const std::array<double, S> &x)
 {
@@ -74,6 +86,9 @@ std::ostream &operator<<(std::ostream &stream, const std::array<double, S> &x)
     return stream;
 }
 
+/*
+Multiplication of NxN and Nx1 matrix
+*/
 template <unsigned int S>
 std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b)
 {
@@ -90,6 +105,9 @@ std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, c
     return result;
 }
 
+/*
+Adds up two matrix
+*/
 template <unsigned int S>
 std::array<double, S> operator+(const std::array<double, S> &x, const std::array<double, S> &y)
 {
@@ -102,6 +120,9 @@ std::array<double, S> operator+(const std::array<double, S> &x, const std::array
     return std::move(result);
 }
 
+/*
+Subtrack two matrix
+*/
 template <unsigned int S>
 std::array<double, S> operator-(const std::array<double, S> &x, const std::array<double, S> &y)
 {
@@ -114,6 +135,9 @@ std::array<double, S> operator-(const std::array<double, S> &x, const std::array
     return std::move(result);
 }
 
+/*
+Multiplication of matrix and constant value
+*/
 template <unsigned int S>
 std::array<double, S> operator*(const double x, const std::array<double, S> &y)
 {
