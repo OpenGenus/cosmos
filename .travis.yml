@@ -6,7 +6,7 @@ compiler:
 before_script:
   chmod +x ./configure
 
-- os: linux
+os: linux
   addons:
     apt:
       sources:
