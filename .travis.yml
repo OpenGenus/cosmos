@@ -1,17 +1,10 @@
 language: c
 compiler:
-  - clang
   - gcc
 
 before_script:
   chmod +x ./configure
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  sudo apt-get update
+  sudo apt-get install gcc-7
 
-os: linux
-  addons:
-    apt:
-      sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-trusty-5.0
-      packages:
-        - g++-7
-        - clang-5.0
