@@ -9,8 +9,12 @@ class UnionFind:
 
     def root(self, a):
         current_item = a
+        path = []
         while self.parent[current_item] != current_item:
+            path.append(current_item)
             current_item = self.parent[current_item]
+        for node in path:
+            self.parent[node] = current_item
         return current_item
 
     def connected(self, a, b):
