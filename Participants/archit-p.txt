@@ -1,0 +1,5 @@
+name: Archit Pandey
+degree and year: 2nd Year BTech
+interests: playing tennis
+department: Computer Science
+
