@@ -1,5 +1,3 @@
-package com.phuwarin.hacktoberfest2017;
-
 import java.util.Scanner;
 
 /**
