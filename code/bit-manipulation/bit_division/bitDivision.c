@@ -1,6 +1,8 @@
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
-unsigned bitDivision(unsigned numerator, unsigned denominator) {
+unsigned 
+bitDivision(unsigned numerator, unsigned denominator)
+{
 
     unsigned current = 1;
     unsigned answer=0;
@@ -30,12 +32,14 @@ unsigned bitDivision(unsigned numerator, unsigned denominator) {
     return answer;
 }
 
-void test(){
+void 
+test(void) {
     int numerator = 23, denominator = 5;
     printf("%d\n", bitDivision(numerator,denominator));
 }
 
-int main() {
+int
+main(void) {
     test();
     return 0;
 }
