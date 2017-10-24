@@ -46,6 +46,18 @@ if one==1:
       # will
  # not
        # work
+elif one == 2:
+  # This
+    # is
+      # will
+ # not
+       # work
+else: 
+  # This
+    # is
+      # will
+ # not
+       # work
 ```
 
 **WRONG(2/2)**
@@ -55,10 +67,32 @@ if one==1:
                     # is
                     # bad
                     # code
+elif one == 2:
+                    # This
+                    # is
+                    # bad
+                    # code
+else: 
+                    # This
+                    # is
+                    # bad
+                    # code
 ```
 **RIGHT**
 ```Python
 if one==1:
+  # This
+  # is
+  # a
+  # code
+  # block
+elif one == 2:
+  # This
+  # is
+  # a
+  # code
+  # block
+else: 
   # This
   # is
   # a
