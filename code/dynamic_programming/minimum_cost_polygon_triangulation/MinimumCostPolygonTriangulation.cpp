@@ -2,21 +2,15 @@
 
 #include <iostream>
 #include <cmath>
-#define MAX 1000000.0
 
 using namespace std;
- 
+
 // Structure of a point in 2D plane
 struct Point
 {
-    int x, y;
+    int x;
+    int y;
 };
- 
-// Utility function to find minimum of two double values
-double min(double x, double y)
-{
-    return (x <= y)? x : y;
-}
  
 // A utility function to find distance between two points in a plane
 double dist(Point p1, Point p2)
@@ -40,6 +34,8 @@ double minCostPolygon(Point points[], int n)
  
    // table[i][j] stores cost of triangulation of points from i to j.
    double table[n][n];
+
+   static const int MAX = 1000000.0;
  
    for (int gap = 0; gap < n; gap++)
    {
@@ -52,7 +48,7 @@ double minCostPolygon(Point points[], int n)
               table[i][j] = MAX;
               for (int k = i+1; k < j; k++)
               {
-                double val = table[i][k] + table[k][j] + cost(points,i,j,k);
+                double val = table[i][k] + table[k][j] + cost(points, i, j, k);
                 if (table[i][j] > val)
                      table[i][j] = val;
               }
