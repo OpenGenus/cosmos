@@ -1,113 +1,64 @@
-/*
-   Part of Cosmos by OpenGenus Foundation
-
-   quick sort synopsis
-
-   template<typename _Random_Acccess_Iter, typename _Compare>
-   void quicksort_impl(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp);
-
-   template<typename _Random_Acccess_Iter, typename _Compare>
-   void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
-
-   template<typename _Random_Acccess_Iter,
-   typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
-   void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
-   */
-
-#include <functional>
-
-template<typename _Random_Acccess_Iter, typename _Compare>
-void quicksort_impl(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp) {
-	if (first < last) {
-		// first is pivot
-		_Random_Acccess_Iter i = first, j = last + 1;
-		while (true) {
-			while (i + 1 <= last && comp(*++i, *first))
-				;
-			while (j - 1 >= first && comp(*first, *--j))
-				;
-			if (i >= j)
-				break;
-			std::swap(*i, *j);
-		}
-		std::swap(*first, *j);
-		quicksort_impl(first, j - 1, comp);
-		quicksort_impl(j + 1, last, comp);
-	}
-}
-
-template<typename _Random_Acccess_Iter, typename _Compare>
-void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp) {
-	if (begin == end)
-		return;
-
-	--end;
-
-	return quicksort_impl(begin, end, comp);
-}
-
-template<typename _Random_Acccess_Iter,
-	typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
-	void quicksort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end) {
-		return quicksort(begin, end, std::less<_Tp>());
-	}
-
-/*
-// for test
-#include <iostream>
-#include <algorithm>
-#include <iomanip>
-#include <vector>
-#include <deque>
-#include <array>
-#include <string>
-
-void print(std::vector<int> &v) {
-for (size_t i = 0; i < v.size(); ++i)
-std::cout << std::setw(3) << v[i] << " ";
-std::cout << std::endl;
-}
-
-void print(int v[], size_t len) {
-for (size_t i = 0; i < len; ++i)
-std::cout << std::setw(3) << v[i] << " ";
-std::cout << std::endl;
-}
-
-int main()
-{
+#include <cstdio>
 using namespace std;
 
-vector<int> v, t;
-srand((unsigned)clock());
-
-int sz = 20 + rand() % 2;
-for (int i = 0; i < sz; i++)
-v.push_back(rand() % 10);
-t = v;
-
-quicksort(v.begin(), v.end());
-sort(t.begin(), t.end());
-for (int i = 0; i < sz; ++i)
-if (v.at(i) != t.at(i))
-cout << "error" << endl;
-
-cout << endl;
-
-sz = 20 + rand() % 2;
-float a[sz], b[sz];
-for (int i = 0; i < sz; i++) {
-a[i] = rand() % 10;
-b[i] = a[i];
+void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+ 
+/* This function takes last element as pivot, places
+   the pivot element at its correct position in sorted
+    array, and places all smaller (smaller than pivot)
+   to left of pivot and all greater elements to right
+   of pivot */
+int partition (int arr[], int low, int high)
+{
+    int pivot = arr[high];    // pivot
+    int i = (low - 1);  // Index of smaller element
+ 
+    for (int j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than or
+        // equal to pivot
+        if (arr[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
 }
 
-quicksort(a, a + sz);
-sort(b, b + sz);
-for (int i = 0; i < sz; ++i)
-if (a[i] != b[i])
-cout << "error" << endl;
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        /* pi is partitioning index, arr[p] is now
+           at right place */
+        int pi = partition(arr, low, high);
 
-return 0;
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
 }
-
-// */
+ 
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+int main()
+{
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    quickSort(arr, 0, n-1);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+}
