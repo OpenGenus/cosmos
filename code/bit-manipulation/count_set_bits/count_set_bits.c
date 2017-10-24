@@ -3,8 +3,8 @@
 int count_set_bits(int n){
 	int c = 0;
 	while (n) {
-		c += (n & 1);
-		n >>= 1;
+		c++;
+		n&=(n-1);
 	}
 	return c;
 }

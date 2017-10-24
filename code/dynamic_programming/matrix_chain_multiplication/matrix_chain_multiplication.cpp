@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include <climits>
+#include <cstdio>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 // Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
