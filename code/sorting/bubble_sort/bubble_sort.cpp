@@ -1,82 +1,34 @@
 /* Part of Cosmos by OpenGenus Foundation */
-//Sorting array element (The bubble sort)
-
-#include<iostream>
-
+#include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
-void bsort(int *,int);               //prototype
-void orderPointer(int *,int *);      //prototype
-
-//call by pointer
-void orderPointer(int * a,int * b)
+void bubble_sort(vector<int> &v)
 {
-    if(*a>*b)
-    {
-        int temp=*a;
-        *a=*b;
-        *b=temp;
-    }
-
+	while(1)
+	{
+		bool swapped = false;
+		for(int i = 0; i < v.size() - 1; ++i)
+		{
+			if (v[i] > v[i + 1])
+			{
+				swap(v[i], v[i + 1]);
+				swapped = true;
+			}
+		}
+		if (!swapped) { break; }
+	}
 }
 
-void bsort(int* ptr,int s)
-{
-    for(int i=0; i<s-1 ;++i)
-    {
-        for(int j=i+1; j<s ;++j)
-            orderPointer(ptr+i,ptr+j);
-
-
-    }
-
-}
-
+// Testing the implemented bubble sort
 int main()
 {
-    const int N=5;
-    int arr[N]={10,8,15,7,11};
-
-    bsort(arr,N);       //sort the array
-
-    for(int j=0; j<N ;++j)
-        cout<<arr[j]<<" ";
-    cout<<endl;
-
-    return 0;
+	vector<int> v { 2, 3, 1, 7, 6 };
+	bubble_sort(v);
+	for(int i = 0; i < v.size(); ++i)
+	{
+		cout << v[i] << " ";   
+	}
+	return 0;
 }
-
-
-/*
-Bubble sort algorithm (steps):
-algorithm compares the first two elements, and swaps the minimum number to be in beginning.
-    10 8 15 7 11
-    ---------------
-    first iteration
-    10 8 15 7 11
-    8 10 15 7 11
-    7 10 15 8 11
-    ---------------
-    second iteration
-    7 10 15 8 11
-    7 8  15 10 11
-    ---------------
-    third iteration
-    7 8  15 10 11
-    7 8  10 15 11
-    ---------------
-    fourth iteration
-    7 8  10 15 11
-    7 8  10 11 15
-    ---------------
-
-for(int i=0; i<N-1 ;++i)
-    {
-        for(int j=i+1; j<N ;++j)
-            order(ptr+i,ptr+j);
-
-    }
-*/
-
-
-

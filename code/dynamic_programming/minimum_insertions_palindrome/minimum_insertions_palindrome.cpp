@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cstring>
+#include<bits/stdc++.h>
 using namespace std;
 
 int min(int a,int b)

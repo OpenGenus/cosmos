@@ -12,7 +12,8 @@ Description: Given an array 1 ( outpu1 ), an array2 (output2) and a key
 original plane text:Paranoia is our profession
 */
 
-#include <iostream>
+#include<bits/stdc++.h>
+
 using namespace std;
 
 

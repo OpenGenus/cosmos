@@ -1,9 +1,6 @@
 //Number of insertion required to make a string palindrome using dynamic programming
-#include <cstring>
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
 int LCS(char *s,string r,int n,int m)
 {
 	int d[n+1][m+1];//d[i][j] contains length of LCS of s[0..i-1] and r[0..j-1] 

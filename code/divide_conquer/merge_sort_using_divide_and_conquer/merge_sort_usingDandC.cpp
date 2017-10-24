@@ -1,6 +1,5 @@
-#include <cstdlib>
-#include <cstdio>
-
+#include <bits/stdc++.h>
+ 
 int  _mergeSort(int arr[], int temp[], int left, int right);
 int merge(int arr[], int temp[], int left, int mid, int right);
  

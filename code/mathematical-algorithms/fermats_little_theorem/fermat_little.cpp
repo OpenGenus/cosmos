@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #define ll long long int 
 
 // Part of Cosmos by OpenGenus Foundation

@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <set>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 // Part of Cosmos by OpenGenus Foundation

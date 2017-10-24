@@ -1,5 +1,5 @@
 // A Lucas Theorem based solution to compute nCr % p
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 // Returns nCr % p.  In this Lucas Theorem based program,

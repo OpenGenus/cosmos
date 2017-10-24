@@ -1,4 +1,4 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 void nextgr(char num[],int n)

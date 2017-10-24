@@ -1,6 +1,5 @@
 //Part of Cosmos by OpenGenus Foundation
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Function to find nth magic numebr

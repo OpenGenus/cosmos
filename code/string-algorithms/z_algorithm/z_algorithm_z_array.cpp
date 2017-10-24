@@ -5,7 +5,7 @@
   s = abacaba => z[] = {-1,0,1,0,3,0,1}
   Part of Cosmos by OpenGenus Foundation
 */
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 #define mod 1000000007
 #define all(v) v.begin(),v.end()

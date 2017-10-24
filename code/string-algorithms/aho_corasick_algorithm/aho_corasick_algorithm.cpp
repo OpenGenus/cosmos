@@ -1,6 +1,5 @@
 #include<iostream>
-#include <queue>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 const int MAXC = 26;
 const int MAXS = 500;

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;
 

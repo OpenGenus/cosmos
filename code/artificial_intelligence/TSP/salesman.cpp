@@ -1,8 +1,4 @@
-#include <climits>
-#include <vector>
-#include <iostream>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 #define fio			std::ios_base::sync_with_stdio(false); cin.tie(NULL)
 #define ll 			long long

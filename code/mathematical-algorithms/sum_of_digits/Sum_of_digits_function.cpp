@@ -1,6 +1,6 @@
 //Part of Cosmos by OpenGenus Foundation
+#include<bits/stdc++.h>
 #include<iostream>
-
 using namespace std;
 long long int sum_of_digits(long long int n)
 {

@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-#include <algorithm>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 bool isSmaller(string str1, string str2){

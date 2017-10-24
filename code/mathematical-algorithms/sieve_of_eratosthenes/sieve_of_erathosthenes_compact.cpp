@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -26,7 +25,7 @@ int main(){
 
 	for(int i=2; i<n; ++i){
 		if(primes[i])
-			cout << i << '';
+			cout << i <<	' ';
 	}
 	cout << '\n';
 }

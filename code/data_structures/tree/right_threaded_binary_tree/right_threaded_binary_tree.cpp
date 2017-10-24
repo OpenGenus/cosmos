@@ -3,7 +3,7 @@
 Right-Threaded Binary Tree implementation in C++
 */
 //Author: Arpan Konar
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 #define REP(i,n) for(long long i=0;i<(n);i++)

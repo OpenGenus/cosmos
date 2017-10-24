@@ -3,8 +3,7 @@
 // Polynomials are passed as vectors with index of "i" is
 // coefficient of x^i in polynomial.
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 

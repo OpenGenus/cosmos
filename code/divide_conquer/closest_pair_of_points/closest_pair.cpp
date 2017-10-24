@@ -1,8 +1,4 @@
-#include <vector>
-#include <cmath>
-#include <iostream>
-#include <algorithm>
-#include <cfloat>
+#include <bits/stdc++.h>
 #define ll long long
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation

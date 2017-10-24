@@ -1,5 +1,4 @@
-#include <vector>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 void bubbleSort(vector<int> &v){

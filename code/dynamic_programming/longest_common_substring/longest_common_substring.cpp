@@ -3,9 +3,7 @@ Part of cosmos by OpenGenus organisation
 finding longest common substring between two strings by dynamic programming
 */
 
-#include <string>
-#include <iostream>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
 int longestCommonSubString(string s1, string s2) {
