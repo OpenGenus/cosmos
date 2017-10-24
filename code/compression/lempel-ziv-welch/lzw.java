@@ -39,21 +39,6 @@ class LZW{
             dict.put(i, Character.toString((char)i));
         }
 
-       /* int old = text.get(0);
-        text.remove(0);
-        String result = Character.toString((char)old);
-        String S = "", C = "";
-        for (Integer ch : text) {
-            if(dict.containsKey(ch)){
-                S = dict.get(ch);
-            }else {
-                S = Character.toString((char)old) + C;
-            }
-            result += S;
-            C = S.substring(0,1);
-            dict.put(old, C);
-            old = ch;
-        }*/
         String buffer = Character.toString((char)(int)text.get(0));
         String result = buffer;
         text.remove(0);
