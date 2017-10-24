@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/InfiniteCoder/cosmos.svg?branch=master)](https://travis-ci.org/InfiniteCoder/cosmos)
+[![Build Status](https://travis-ci.org/OpenGenus/cosmos.svg?branch=master)](https://travis-ci.org/OpenGenus/cosmos)
 
 # Cosmos
 > The universe of algorithm and data structures
