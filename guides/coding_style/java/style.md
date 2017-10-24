@@ -122,7 +122,7 @@ if (a == b && c < d)
 
 Variables
 ---
-All variables should be declared at the top of their scope, in the order shown below. Each set of variables with the same visibility should be grouped together and separated from other variable groups by a single space. In each group, variables of the same data type should be adjacent to one another. The exception are constants, which should always be declared at the top. All variables declared at the `class` scope should have one of the below modifiers.
+All variables should be declared at the top of their scope, in the order shown below. Each set of variables with the same visibility should be grouped together and separated from other variable groups by a single space. In each group, variables of the same data type should be adjacent to one another. The exception are constants, which should always be declared at the top. All variables declared at the `class` scope should have one of the below modifiers. Variables should have **meaningful** names unless used in a `for` loop.
 
 Order of member modifiers, according to the Java Language Specification:
 `public protected private abstract default static final transient volatile sychronized native strictfp`
