@@ -28,9 +28,9 @@
 
 12.Click OK on the 'Environment Variables' window.
 
-##You’ll now have Python running on your PC!
+## You’ll now have Python running on your PC!
 
-###If the above steps are not very clear to you for some reason, you might find steps on this link easier to follow as they include ###pictures of the installation procedure:
+### If the above steps are not very clear to you for some reason, you might find steps on this link easier to follow as they include pictures of the installation procedure:
 
 https://www.howtogeek.com/197947/how-to-install-python-on-windows/
 
