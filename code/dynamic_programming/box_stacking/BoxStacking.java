@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BoxStacking {
 
-    public int maxHeight(Dimension[] input) {
+    public int maxHeight(Dimension[] input) { bananasoup
         //get all rotations of box dimension.
         //e.g if dimension is 1,2,3 rotations will be 2,1,3  3,2,1  3,1,2  . Here length is always greater
         //or equal to width and we can do that without loss of generality.
