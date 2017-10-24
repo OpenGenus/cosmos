@@ -1,7 +1,7 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <vector>
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <algorithm>
 
@@ -48,13 +48,17 @@ int main() {
     int size;
     cout << "Set array size:";
     cin >> size;
+    
     vector<int> v(size);
-    cout << "Array (sorted) : ";
     fill(v);
+
+    cout << "Array (sorted) : ";
     sort(v.begin(),v.end());    
     printarr(v);
+    
     cout << "Search for (input search key) : ";
     int key;
     cin >> key;   
+    
     cout << "Found " << key << " at index "<< binary_search(v,key) << endl;
 }
