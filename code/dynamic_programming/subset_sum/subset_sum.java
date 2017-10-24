@@ -1,4 +1,6 @@
-// A Java programme for subset sum problem using Dynamic Programming.
+/* Part of Cosmos by OpenGenus Foundation */
+
+// A Java programm for subset sum problem using Dynamic Programming.
 class subset_sum
 {
 	static boolean isSubsetSum(int set[], int n, int sum)
