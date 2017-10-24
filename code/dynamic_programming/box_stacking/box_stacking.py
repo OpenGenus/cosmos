@@ -1,5 +1,5 @@
 '''
-Part of Cosmos by Open Genus Foundation
+Part of Cosmos by OpenGenus Foundation
 '''
 
 
@@ -65,7 +65,3 @@ if __name__ == '__main__':
     d2 = dimension(1, 2, 4)
 
     assert 11 == box_stack_max_height([d1, d2])
-
-
-
-
