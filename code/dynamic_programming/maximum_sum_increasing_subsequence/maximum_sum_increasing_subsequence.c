@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 #include <stdio.h>
 
 int maxSum(int arr[], int N)
