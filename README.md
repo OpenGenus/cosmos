@@ -44,13 +44,13 @@ The task of maintainers is to review pull requests, suggest further quality addi
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
 
-Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. [Join us at Slack](http://slack.opengenus.org/).
+Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you to subsequent contributions. [Join us at Slack](http://slack.opengenus.org/).
 
 # Contributions
 
 The success of our vision to bring knowledge offline depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
-When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
+When you contribute, your name with a link (if available) is added to our [list of contributors](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
 If contributing code, please refer to the available [style guides](/guides/coding_style).
 
