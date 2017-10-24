@@ -5,7 +5,10 @@ int hamming(int ar1[],int ar2[]);
 int input(int ar1[]);
 int count_ham(int ar[]);
 int n;
-int main(){
+
+int
+main(void)
+{
 	int ar1[BITS],ar2[BITS];
 	printf("Enter the number of bits(max 8-bits):");
 	scanf("%d",&n);
@@ -17,30 +20,36 @@ int main(){
 	return 0;
 }
 
-int input(int ar1[]){
+int
+input(int ar1[])
+{
 	int i;
-	for(i=0;i<n;i++){
-		scanf("%d",&ar1[i]);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &ar1[i]);
 	}
 
 }
-int count_ham(int ar[]){
+int
+count_ham(int ar[])
+{
 	int i,count=0;
-	for(i=0;i<n;i++){
-		if(ar[i]==1)
+	for (i = 0; i < n; i++) {
+		if (ar[i]==1)
 			count++;
 	}
 	return count;
 
 }
-int hamming(int ar1[],int ar2[]){
+int
+hamming(int ar1[],int ar2[])
+{
 	int i,count;
 	int res[BITS];
-	for(i=0;i<n;i++){
-		if((ar1[i]==1 && ar2[i]==0)||(ar1[i]==0 && ar2[i]==1)){
+	for (i = 0; i < n; i++) {
+		if ((ar1[i]==1 && ar2[i]==0)||(ar1[i]==0 && ar2[i]==1)) {
 			res[i] = 1;
 		}
-		else{
+		else {
 			res[i] = 0;
 		}
 	}
