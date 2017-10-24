@@ -1,38 +1,71 @@
+#include <string>
 #include <iostream>
 
-using namespace std;
-
+template<typename T>
 class Singleton
 {
-    public:
-        static Singleton& getInstance()
-        {
-            static Singleton instance;
-            return instance;
-        };
-    private:
-        Singleton() {};
+public:
+	static T* GetInstance();
+	static void destroy();
 
-        // C++ 03
-        // Methods are declared, although not implemented, in order to prevent copies of the singleton
-        Singleton(const Singleton&);
-        void operator=(const Singleton&);
+private:
 
+	Singleton(Singleton const&){};
+	Singleton& operator=(Singleton const&){};
 
-    public:
-        // C++ 11
-        // Same principle than above but for C++11
-        // Singleton(const Singleton&) = delete;
-        // void operator=(const Singleton&) = delete;
+protected:
+	static T* m_instance;
+
+	Singleton(){ m_instance = static_cast <T*> (this); };
+	~Singleton(){  };
 };
 
-//For tests purposes
-int main()
+template<typename T>
+T* Singleton<T>::m_instance = 0;
+
+template<typename T>
+T* Singleton<T>::GetInstance()
 {
-	Singleton& aInstance = Singleton::getInstance();
-	Singleton& aInstance2 = Singleton::getInstance();
-	cout << "&aInstance  : " << &aInstance << endl;
-	cout << "&aInstance2 : " << &aInstance2 << endl;
-	return 0;
+	if(!m_instance)
+	{
+		Singleton<T>::m_instance = new T();
+	}
+
+	return m_instance;
 }
 
+template<typename T>
+void Singleton<T>::destroy()
+{
+	delete Singleton<T>::m_instance;
+	Singleton<T>::m_instance = 0;
+}
+
+class TheCow: public Singleton<TheCow> 
+{
+public:
+	void SetSays(std::string &whatToSay)
+	{
+		whatISay = whatToSay;
+	};
+	void Speak(void)
+	{
+		std::cout << "I say" << whatISay << "!" << std::endl;
+	};
+private:
+	std::string whatISay;
+};
+
+void SomeFunction(void)
+{
+	std::string say("moo");
+	TheCow::GetInstance()->SetSays(say);
+}
+
+int main (int argc, char **argv)
+{
+	std::string say("meow");
+	TheCow::GetInstance()->SetSays(say);
+	SomeFunction();
+	TheCow::GetInstance()->Speak();
+}
