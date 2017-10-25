@@ -4,8 +4,8 @@
  linear search synopsis
 
 template<typename _Input_Iter,
-typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
-typename _Compare>
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
+         typename _Compare>
 _Input_Iter _linear_search(_Input_Iter begin,
                            _Input_Iter end,
                            _Tp const &find,
@@ -13,12 +13,12 @@ _Input_Iter _linear_search(_Input_Iter begin,
                            std::input_iterator_tag);
 
 template<typename _Input_Iter,
-typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
-typename _Compare>
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
+         typename _Compare>
 _Input_Iter linear_search(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp);
 
 template<typename _Input_Iter,
-typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
 _Input_Iter linear_search(_Input_Iter begin, _Input_Iter end, _Tp const &find);
  */
 
