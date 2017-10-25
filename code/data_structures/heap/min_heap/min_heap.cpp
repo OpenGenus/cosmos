@@ -27,7 +27,7 @@ public:
     minHeap(){
         v.push_back(-1);
     }
-    void push(int data){
+    void insert(int data){
         v.push_back(data);
         int i = v.size() - 1;
         int parent = i/2;
@@ -39,11 +39,11 @@ public:
         }
 
     }
-    int getMin(){
+    int top(){
         return v[1];
     }
 
-    void pop(){
+    void extractTop(){
 
         int last = v.size()-1;
         swap(v[1],v[last]);
@@ -64,13 +64,13 @@ int main(){
     cin >> data;
     minHeap h;
     while( data != -1){
-        h.push(data);
+        h.insert(data);
         cout<<"\nEnter data(-1 to exit) : ";
         cin >> data;
     }
 
     while(!h.isEmpty()){
-        cout << h.getMin() << " ";
+        cout << h.top() << " ";
         h.pop();
     }
     return 0;

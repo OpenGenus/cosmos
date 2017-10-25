@@ -95,7 +95,7 @@
 
      
 
-        private void minHeapify(int pos)
+        private void heapify(int pos)
 
         {
 
@@ -113,7 +113,7 @@
 
                         swap(pos, leftChild(pos));
 
-                        minHeapify(leftChild(pos));
+                        heapify(leftChild(pos));
 
                     }else
 
@@ -121,7 +121,7 @@
 
                         swap(pos, rightChild(pos));
 
-                        minHeapify(rightChild(pos));
+                        heapify(rightChild(pos));
 
                     }
 
@@ -185,7 +185,7 @@
 
             {
 
-                minHeapify(pos);
+                heapify(pos);
 
             }
 
@@ -201,7 +201,7 @@
 
             Heap[FRONT] = Heap[size--]; 
 
-            minHeapify(FRONT);
+            heapify(FRONT);
 
             return popped;
 
