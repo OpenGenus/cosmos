@@ -51,9 +51,9 @@ function intersection_by_line_euqation(line1, line2) {
 // Driver Program
 function main() {
     // 3x + 4y = 1
-    line1 = {'A':3, 'B':4, 'C':1}
+    var line1 = {'A':3, 'B':4, 'C':1}
     // 2x + 5y = 3
-    line2 = {'A':2, 'B':5, 'C':3}
+    var line2 = {'A':2, 'B':5, 'C':3}
 
     var intersection_point = intersection_by_line_euqation(line1, line2)
 
