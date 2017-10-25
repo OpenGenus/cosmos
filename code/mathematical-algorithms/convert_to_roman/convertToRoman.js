@@ -1,7 +1,8 @@
 /**
-*This method will convert a number into a roman numeral
-* @param {Number} num - number to convert
-* @return {String} - roman numeral of the number
+Part of Cosmos by OpenGenus Foundation 
+This method will convert a number into a roman numeral
+@param {Number} num - number to convert
+@return {String} - roman numeral of the number
 */
 
 function convertToRoman(num) {
