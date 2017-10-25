@@ -3,6 +3,8 @@ The Caesar Cipher is a simple cipher which changes each letter in a given phrase
 
 ## Example
 
+This example uses a right shift of 2.
+
 ```text
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 | | | | | | | | | | | | | | | | | | | | | | | | | |
