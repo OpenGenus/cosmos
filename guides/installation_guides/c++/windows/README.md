@@ -1,6 +1,6 @@
 # Cosmos Guide: Getting Ready to program in C++ in Windows
-b1. RT
-> The easiest way for a beginner to start working on his first C++ program is to get an IDE. In this tutorial We will use CodeBlocks.
+b2. RT
+The easiest way for a beginner to start working on his first C++ program is to get an IDE. In this tutorial We will use CodeBlocks.
 
 
 ---
