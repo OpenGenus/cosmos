@@ -41,6 +41,8 @@ class UnionFind:
             self.rank[b_root] += self.rank[a_root]
 
     def count(self, a):
+        if a not in self.parent:
+            return 0
         return self.rank[self.root(a)]
 
 
