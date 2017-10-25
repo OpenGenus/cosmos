@@ -16,11 +16,11 @@ int countNonConsecutiveOnes(int n)
  
 int main()
 {
-    int decimalValue;
-    cout<<"Enter a input decimal value: ";
-    cin>>decimalValue;
-    cout<<"\nCount of Binary representations of "<<decimalValue
+    int binaryStringLength;
+    cout<<"Enter the length of binary string: ";
+    cin>>binaryStringLength;
+    cout<<"\nCount of Binary representations of length "<<binaryStringLength
     <<" not having consecutive ones = ";
-    cout << countNonConsecutiveOnes(decimalValue) << endl;
+    cout << countNonConsecutiveOnes(binaryStringLength) << endl;
     return 0;
 }
