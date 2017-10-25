@@ -23,13 +23,14 @@ class UnionFind:
     def find(self, a):
         return self.root(a)
 
-    def union(self, a, b):
+    def create(self, a):
         if a not in self.parent:
             self.parent[a] = a
             self.rank[a] = 1
-        if b not in self.parent:
-            self.parent[b] = b
-            self.rank[b] = 1
+
+    def union(self, a, b):
+        self.create(a)
+        self.create(b)
         a_root = self.root(a)
         b_root = self.root(b)
         if self.rank[a_root] > self.rank[b_root]:
