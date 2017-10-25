@@ -3,15 +3,24 @@
 using namespace std;
 
 // Function to check squares
-int isSquare ( int n ){
+bool isSquare ( int n ){
 	
 	if ( n < 0 )
-		return 0;
+		return false;
 
 	//remove digits after decimal
 	int root = (int)round(sqrt(n)); 
 	
-	return ( root * root ) == n ;
+	bool is_square = false;
+	for(int i=root-2; i<root+2; i++)
+	{
+		if((i*i) == n)
+		{
+			is_square = true;
+			break;
+		}
+	}
+	return is_square;
 }
 
 
