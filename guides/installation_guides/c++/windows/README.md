@@ -3,9 +3,10 @@
 >The easiest way for a beginner to start working on his first C++ program is to get an IDE. In this tutorial we are going to use CodeBlocks. <br>
 ---
 >You can get Codeblocks from the Official Site: http://www.codeblocks.org/downloads <br>
-<img src="https://github.com/MoonfireSeco/hello-world/blob/master/saver.png">
 >Click on <b>Download the binary release</b> <br>
-
+<img src="https://github.com/MoonfireSeco/hello-world/blob/master/saver.png"> <br> <br>
+>Look after codeblocks's "mingw-setup.exe", it may be a different version than the one in the screenshot (16.01) but it's still the same thing <br>
+<img src="https://github.com/MoonfireSeco/hello-world/blob/master/chooser.png">
 ---
 
 <p align="center">
