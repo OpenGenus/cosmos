@@ -25,4 +25,3 @@ Once Codeblocks has been installed, an <b>Autodetection Compiler</b> prompt shou
 <p align="center">
 	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
 </p>
----
