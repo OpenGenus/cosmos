@@ -4,7 +4,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <conio.h>
 #include <float.h>
 #define R 524
 #define C 46
@@ -23,6 +22,7 @@ void main()
     for (i = 0; i < R; i++)                 /* read presence–absence data */
         for (j = 0; j < C; ++j)
             fscanf(fpi, "%d", &M[i][j]);
+            
     for (b = 0; b < MAX; ++b)                             /* initialize Jaccard matrix to zero */
     {
         for (j = 0; j < C; ++j) 
@@ -40,6 +40,7 @@ void main()
     for (j = 0; j < C; ++j)                             /* sum species */
         for (i = 0; i < R; ++i)
             S[j] += B[i][j];
+
     for (k = 0; k < C-1; ++k)                         /* calculated Jaccard’s index */
         for (j = k+1; j < C; ++j) 
         {
