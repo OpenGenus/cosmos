@@ -1,5 +1,5 @@
-# Cosmos Guides
-> Your personal library of every algorithm and data structure code that you will ever encounter
+# Cosmos Guide: Getting Ready to program in C++ in Windows
+> The easiest way for a beginner to start working on his first C++ program is to get an IDE. In this tutorial We will use CodeBlocks.
 
 
 ---
