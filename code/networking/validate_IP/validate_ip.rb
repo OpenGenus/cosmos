@@ -16,7 +16,7 @@ def validate_ip(ip_addresss)
   end
 end
 
-# Correct IP address
+# Correct IP address example
 p validate_ip('123.123.123.123')
-# Incorrect IP address
+# Incorrect IP address example
 p validate_ip('1234.123')
