@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+ 
+//Be Careful while checking all the codes.
 
 public class Conway extends JFrame {
 
