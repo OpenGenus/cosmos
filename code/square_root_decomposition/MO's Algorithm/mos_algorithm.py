@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
+# Part of Cosmos by OpenGenus Foundation
+
 """
 Given an Array A[0..N-1] of length N and Q queries over subarrays A[L_i:R_i].
 Answer all queries. For example, calculate the sum in each intervals [L_i, R_i).

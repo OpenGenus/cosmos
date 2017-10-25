@@ -1,6 +1,5 @@
 # Square Root Decomposition
 
-
 __Problem:__ Given an Array `A[0..N-1]` of length `N` and `Q` queries over intervals `[L_i...R_i)`.
 Answer all queries. For example, calculate the sum in each intervals `[L_i, R_i)`.
 
@@ -23,5 +22,5 @@ __Runtime:__
 
 __See also:__
 
-- [hackerrank](https://www.hackerrank.com/topics/mos-algorithm) 
+- [hackerrank](https://www.hackerrank.com/topics/mos-algorithm)
 - [hackerearth](https://www.hackerearth.com/practice/notes/mos-algorithm/)
