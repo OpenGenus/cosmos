@@ -35,7 +35,7 @@ public:
         v.push_back(-1);  /// Blocks position 0, we will start from 1
     }
 
-    void push(int data){
+    void insert(int data){
         v.push_back(data);
         int index = v.size()-1;
         int parent = index/2;
@@ -46,10 +46,10 @@ public:
         }
     }
 
-    int getTop(){
+    int top(){
         return v[1];
     }
-    void pop(){
+    void extractTop(){
         int last_index = v.size()-1;
         swap(v[1],v[last_index]);
         v.pop_back();
@@ -68,10 +68,10 @@ int main(){
     Heap h;
 
     for(int i=0;i<8;i++){
-        h.push(nos[i]);
+        h.insert(nos[i]);
     }
     while(!h.isEmpty()){
-        cout<< h.getTop()<<" ";
+        cout<< h.top()<<" ";
         h.pop();
     }
 
