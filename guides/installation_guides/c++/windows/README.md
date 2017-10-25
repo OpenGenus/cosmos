@@ -5,8 +5,8 @@
 >You can get Codeblocks from the Official Site: http://www.codeblocks.org/downloads <br>
 >Click on <b>Download the binary release</b> <br>
 <img src="https://github.com/MoonfireSeco/hello-world/blob/master/saver.png"> <br> <br>
->Look after codeblocks's <b>mingw-setup.exe</b>, it may be a different version than the one in the screenshot (16.01) but it does not matter.<br>
-<img src="https://github.com/MoonfireSeco/hello-world/blob/master/chooser.png">
+>Look after codeblocks's <b>mingw-setup.exe</b>, it may be a different version than the one in the screenshot (16.01) but it does not matter. Click on the <b>SourceForge</b><br>
+<img src="https://github.com/MoonfireSeco/hello-world/blob/master/chooser.png"> <br> <br>
 
 <p align="center">
 	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
