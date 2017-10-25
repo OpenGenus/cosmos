@@ -122,6 +122,7 @@ private:
 
 #include <algorithm>
 #include <functional>
+#include <memory>
 #include <stack>
 
 template<typename _Derive, typename _Tp, typename _Comp = std::less<_Tp> >
