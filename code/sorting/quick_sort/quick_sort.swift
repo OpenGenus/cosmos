@@ -1,42 +1,56 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// Part of Cosmos by OpenGenus Foundation
 
-//
-//  quick_sort.swift
-//  Created by DaiPei on 2017/10/11.
-//
+import Foundation;
 
-import Foundation
+func partition(_ arr: inout [UInt32], _ begin: Int, _ end: Int) -> Int {
+    var i = begin;
+    var j = end;
+    let pivot = arr[(i + j) / 2];
 
-func quickSort(_ array: inout [Int]) {
-    quickSort(&array, low: 0, high: array.count - 1)
-}
-
-private func quickSort(_ array: inout [Int], low: Int, high: Int) {
-    if low < high {
-        let div = partition(&array, low: low, high: high)
-        quickSort(&array, low: low, high: div - 1)
-        quickSort(&array, low: div + 1, high: high)
-    }
-}
-
-private func partition(_ array: inout [Int], low: Int, high: Int) -> Int {
-    var div = low
-    var p = low
-    let mid = (low + high) / 2
-    swap(&array, at: mid, and: high)
-    while p < high {
-        if array[p] < array[high] {
-            swap(&array, at: p, and: div)
-            div += 1
+    while i <= j {
+        while arr[i] < pivot {
+            i += 1;
         }
-        p += 1
+
+        while arr[j] > pivot {
+            j -= 1;
+        }
+
+        if i <= j {
+            arr.swapAt(i, j);
+            i += 1;
+            j -= 1;
+        }
     }
-    swap(&array, at: high, and: div)
-    return div
+    arr.swapAt(i, end);
+
+    return i;
 }
 
-private func swap(_ array: inout [Int], at indexA: Int, and indexB: Int) {
-    let tmp = array[indexA]
-    array[indexA] = array[indexB]
-    array[indexB] = tmp
+func quick_sort(_ arr: inout [UInt32], begin: Int, end: Int) {
+    if begin < end {
+        let index = partition(&arr, begin, end);
+        quick_sort(&arr, begin: begin, end: index - 1);
+        quick_sort(&arr, begin: index, end: end);
+    }
 }
+
+func test() {
+    print("Size of array: ", terminator: "");
+    let size = Int(readLine()!)!;
+    var arr = [UInt32]();
+
+    for _ in 1 ... size {
+        arr.append(arc4random_uniform(100));
+    }
+
+    print("Original: ");
+    print(arr);
+
+    quick_sort(&arr, begin: 0, end: size - 1);
+
+    print("Sorted: ");
+    print(arr);
+}
+
+test();
