@@ -3,7 +3,7 @@
 Part of Cosmos by OpenGenus Foundation
 */
 //Constraint: n<=10^6 and r<=10^6
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 #define M 1000001					
 long long mod=1000000007;			

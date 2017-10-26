@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <vector>
+#include <utility>
+
 using namespace std;
 int nodes,edges;
 // Path of Cosmos by OpenGenus Foundation

@@ -1,4 +1,4 @@
-﻿# Cosmos
+# Cosmos
 > The universe of algorithm and data structures
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
@@ -10,6 +10,7 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
+
 * [Artificial intelligence](https://github.com/OpenGenus/cosmos/tree/master/code/artificial_intelligence)
 * [Backtracking](https://github.com/OpenGenus/cosmos/tree/master/code/backtracking)
 * [Bit manipulation](https://github.com/OpenGenus/cosmos/tree/master/code/bit-manipulation)
@@ -44,7 +45,7 @@ The task of maintainers is to review pull requests, suggest further quality addi
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
 
-Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. [Join us at Slack](http://slack.opengenus.org/).
+Let us know that you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. [Join us at Slack](https://opengenus.slack.com).
 
 # Contributions
 
@@ -57,4 +58,3 @@ If contributing code, please refer to the available [style guides](/guides/codin
 # License
 
 We believe in freedom and improvement. [GNU General Public License v3.0](https://github.com/AdiChat/cosmos/blob/master/LICENSE)
-

@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 public class WaysToCoinChange {
 	public static int dynamic(int[] v, int amount) {
 		int[][] solution = new int[v.length + 1][amount + 1];
