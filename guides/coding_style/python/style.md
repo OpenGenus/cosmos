@@ -152,3 +152,7 @@ max_length, total
 ```Python
 MAX_LENGTH, TOTAL
 ```
+
+## Additional information:
+<a href='https://www.python.org/dev/peps/pep-0008/'>PEP 8 -- Style Guide for Python Code</a>
+PEP is Python Enhancement Proposal.
