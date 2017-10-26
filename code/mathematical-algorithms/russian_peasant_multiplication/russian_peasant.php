@@ -1,14 +1,22 @@
-<?php 
-function russianPeasant($a,$b){
+<?php
+/**
+ * @param int $a
+ * @param int $b
+ *
+ * @return int
+ */
+function russianPeasant($a, $b)
+{
     $res = 0;
-	while ($a >= 1){
-		if($a%2 !== 0 || $b%2 !== 0){
-            $res = $res + $b;
-		}
-        $a = $a/2;
-        $b = $b*2;
+    while ($b > 0){
+        if($b % 2 == 1){
+            $res += $a;
+        }
+        $a = $a << 1;
+        $b = $b >> 1;
     }
+
     return $res;
 }
 
-echo russianPeasant(6,4);
+echo russianPeasant(57,86);
