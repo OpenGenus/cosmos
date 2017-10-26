@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+Demi membina lingkungan yang terbuka dan ramah, kami sebagai kontributor dan pengelola berjanji untuk berpartisipasi dalam proyek kami dan komunitas kami sebagai pengalaman bebas pelecehan untuk semua orang, tanpa memandang usia, ukuran tubuh, kecacatan, etnisitas, identitas gender dan ekspresi, tingkat pengalaman, kewarganegaraan, penampilan pribadi, ras, agama, atau identitas dan orientasi seksual.
 
 ## Our Standards
 
