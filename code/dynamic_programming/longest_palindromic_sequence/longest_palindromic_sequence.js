@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 function longest_palindrome(str) {
   let longest = [];  // A table to store results of subproblems
 

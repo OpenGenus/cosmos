@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 //Number of insertion required to make a string palindrome using dynamic programming
 #include <cstring>
 #include <iostream>
