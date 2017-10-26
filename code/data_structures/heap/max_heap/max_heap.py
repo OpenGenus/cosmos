@@ -6,7 +6,7 @@ def right(i):
     return 2 * i + 2
 
 
-def max_heapify(a, i):
+def heapify(a, i):
     l = left(i)
     r = right(i)
     if l < len(a) and a[l] > a[i]:
@@ -17,11 +17,11 @@ def max_heapify(a, i):
         largest = r
     if largest != i:
         a[i], a[largest] = a[largest], a[i]
-        max_heapify(a, largest)
+        heapify(a, largest)
 
 def build_max_heap(a):
     for i in range((len(a) - 1) / 2, -1, -1):
-        max_heapify(a, i)
+        heapify(a, i)
 
 print "Enter the array of which you want to create a max heap"
 a = map(int, raw_input().split())

@@ -39,6 +39,18 @@ class SinglyLinkedList<T> {
 		return temp;
 	}
 
+	public void reverse(){
+		head = reverseList(head);
+	}
+
+	private Node reverseList(Node node){
+		if (node == null || node.next == null) return node;
+		Node reversedHead = reverseList(node.next);
+		node.next.next = node;
+		node.next = null;
+		return reversedHead;
+	}
+
 	public boolean isEmpty() {
 		return (head == null);
 	}

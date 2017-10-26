@@ -170,3 +170,16 @@ min_size = 10
 scores = evaluate_algorithm(dataset, decision_tree, n_folds, max_depth, min_size)
 print('Scores: %s' % scores)
 print('Mean Accuracy: %.3f%%' % (sum(scores)/float(len(scores))))
+
+# Evaluate algorithm by computing ROC (Receiver Operating Characteristic) and AUC (area the curve)
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+false_positve_rate, true_positive_rate = roc_curve(actual, predictions)
+roc_auc = auc(false_positve_rate, true_positive_rate)
+plt.plot(false_positve_rate, true_positive_rate, lw=1,
+		label='ROC curve (area = %0.2f)' % roc_auc[2])
+plt.title('Receiver operating characteristic example')
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()
+print ('AUC: %s' % roc_auc)

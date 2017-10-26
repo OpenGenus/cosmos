@@ -6,8 +6,33 @@ One statement per line
 
 Use Python3! Check the [current time until deactivation of Python2 here](https://pythonclock.org/)
 
-Use consise, pythonic, but **readable** code
+Use concise, pythonic, but **readable** code
 
+Variables
+---
+When creating variables, use lowercase letters throughout the names. When
+creating a variable with more than one word in its name, use an underscore to
+separate the words. There is no need for type declaration in Python.
+
+**WRONG**
+```Python
+# variable declaration statement here more reminiscent of Java
+int i = 0
+```
+
+**RIGHT**
+```Python
+# variable declaration and initialization
+number = 25
+
+# variable assignment
+number = 0
+
+# variables with more than one word in their name
+anagram_count = 0
+amount_of_pies = 200
+our_keyword = 'HelloWorld'
+```
 
 Code Blocks
 ---
@@ -75,7 +100,7 @@ if b:
 
 Functions
 ---
-Function names should be lowercase, with words seperated by underscores as necessary
+Function names should be lowercase, with words separated by underscores as necessary
 
 **WRONG**
 ```Python
@@ -97,7 +122,7 @@ def right_func(*args):
 
 Classes
 ---
-- Class names shoud use upper camel case
+- Class names should use upper camel case
 - Always use *self* for the first argument to instance methods
 
 **WRONG**
@@ -116,7 +141,7 @@ class RightClassName(object):
 
 Constants
 ---
-Constant variable names should be all uppercase, with words sperated by underscores
+Constant variable names should be all uppercase, with words separated by underscores
 
 **WRONG**
 ```Python
@@ -127,6 +152,3 @@ max_length, total
 ```Python
 MAX_LENGTH, TOTAL
 ```
-
-
-

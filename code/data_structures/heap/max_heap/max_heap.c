@@ -14,14 +14,14 @@
   int size = 0; // global array used for heapsort
 
 /*
-  The function percolatedown() is used for building the heap
+  The function down() is used for building the heap
   and for deleting the maximum element from the heap
   The parameters are:
   1. pos - index of the element to be inserted
   2. val - value to be compared with
   3. heap - the heap array
 */
-int percolatedown(int pos, int val, int heap[n])
+int down(int pos, int val, int heap[n])
 {
   int target = 0;
   while(2*pos<=n)
@@ -50,14 +50,14 @@ int percolatedown(int pos, int val, int heap[n])
 }
 
 /*
-  The function percolatedown2() is used for heapsort's
+  The function down2() is used for heapsort's
   delete functinality
   The parameters are:
   1. pos - index of the element to be inserted
   2. val - value to be compared with
   3. heap - the heap array
 */
-int percolatedown2(int pos, int val, int heap[size])
+int down2(int pos, int val, int heap[size])
 {
   int target = 0;
   while(2*pos<=size)
@@ -123,7 +123,7 @@ void printheap(int heap[n])
 */
 void deletemax(int heap[n])
 {
-  int newpos = percolatedown(1, heap[n+1], heap);
+  int newpos = down(1, heap[n+1], heap);
   heap[newpos] = heap[n+1];
 }
 
@@ -135,7 +135,7 @@ void deletemax(int heap[n])
 */
 void deletemax2(int heap[size])
 {
-  int newpos = percolatedown2(1, heap[size+1], heap);
+  int newpos = down2(1, heap[size+1], heap);
   heap[newpos] = heap[size+1];
 }
 

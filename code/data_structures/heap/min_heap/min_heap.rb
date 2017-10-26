@@ -19,7 +19,7 @@ class MinHeap
     last = @heap.pop
     @heap[0] = last
 
-    heapfy(0)
+    heapify(0)
     min
   end
 
@@ -44,7 +44,7 @@ class MinHeap
     end
   end
 
-  def heapfy(index)
+  def heapify(index)
     left = index * 2
     right = left + 1
     min = index
@@ -56,7 +56,7 @@ class MinHeap
       min_value = @heap[min]
       @heap[min] = @heap[index]
       @heap[index] = min_value
-      heapfy(min)
+      heapify(min)
     end
   end
 end

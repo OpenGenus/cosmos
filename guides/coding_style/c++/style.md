@@ -1,14 +1,14 @@
 # C++ Style Guide
 
-Code width and align
+Code width and alignment
 ===
-Try to limit code width to 100 number of columns.
+- Try to limit code width to 100 characters.
 
-To split lines as close to code width as possible of groupings (if a parameter is split, then all of parameters need split).
+- Split lines as close to the code width as possible (if a parameter is spli onto another line, then all of the parameters should be split).
 
-If width less than or equal to _code width_, then shold not split (unless split at return type), otherwise should split at comma.
+- If the width is less than or equal to the maximum code width, then do not split the line (unless split at return type or for readability).
 
-Template definition should be split.
+- Template definitions should be split.
 
 **Valid:**
 ```C++
@@ -94,7 +94,7 @@ int camelCase;
 
 Global Variables
 ---
-Global variables should be named using prefix 'g\_' and standard camel case.
+While global variables should be avoided for the most part, if they are necessary, then they should be named using prefix 'g\_' and standard camel case.
 
 **Valid:**
 ```C++
@@ -104,12 +104,12 @@ int g_camelCase;
 
 Constant Variables
 ---
-Constant variables should be named using upper case and separate by underscore.
+Constant variables should be named like normal variables, should use `const`/`constexpr`.
 
 **Valid:**
 ```C++
-int NAME;
-int CONSTANT_NAME;
+const int name;
+constexpr int constantName;
 ```
 
 Braces
@@ -160,8 +160,10 @@ ClassName objectName{ 1, 4 };
 Functions
 ===
 Functions should be named using standard camel case.
+
 Names
 ---
+
 **Valid:**
 ```C++
 int name();
@@ -205,14 +207,14 @@ class Example
 
 Order of Encapsulation
 ---
-When listing members of a class, if possible (typedef/using maybe need primary define, but them still need respect following rules) list them in the order public, private, then protected.
+When listing members of a class, if possible list them in the order public, private, then protected. If using typedefs/using for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
 Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
 **Valid:**
 ```C++
 class Example
 {
-private:
+private: // Or private
     typedef int INT;
 
 protected:
@@ -242,16 +244,39 @@ After this, add the destructor. Then, add a new line, and then list all members 
 ```C++
 class Example
 {
-private:
-    int value_;
-    
 public:
-    Example() {  }
+    Example() { }
     Example(int value) { }
     Example(const Example& other) { }
     ~Example()
     
     void memberFunction();
+
+private:
+    int value_;
     
+};
+```
+
+Enumerations
+===
+
+enum vs enum class
+---
+When dealing with enumerations, use `enum class`, not `enum` (Unless dealing with unnamed enumerations or C style code).
+
+Naming
+---
+
+Enumerations should be named like user-defined types with Pascal Case. The actual enumerators inside should be named using all caps and underscore separation.
+
+**Valid:**
+```C++
+enum class ExampleEnum
+{
+    ONE,
+    TWO_TWO,
+    THREE,
+    FOUR // No comma at the end
 };
 ```
