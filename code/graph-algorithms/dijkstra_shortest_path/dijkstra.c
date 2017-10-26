@@ -1,32 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <dirent.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
 const int N=1005; 			// maximum vertex
-int n;						// vertex 0~n
-const int INF=1000000009; 	// infinite length
-
-void dijkstra ( int mp[N][N], int start ) {
-	int dist[N];
-	bool flag[N];
-	for ( int i=0; i<N; i++ ) dist[i]=INF, flag[i]=0;
-	dis[start]=0;			//start from "start"
-	for ( int i=0; i<n-1; i++ ) {
-		int sml=INF,sml_i;
-		for ( int j=0; j<n; j++ ) 
+int n,m;					// vertex 0~n, m edges
+int u,v,c;
+const int INF=1000000009;	// infinite length
+int dist[N],flag[N];
+int mp[N][N];
+int i,j,sml,sml_i;
+void dijkstra ( int start ) {
+	for ( i=0; i<N; i++ ) dist[i]=INF, flag[i]=0;
+	dist[start]=0;			//start from "start"
+	for ( i=0; i<n-1; i++ ) {
+		sml=INF;
+		for ( j=0; j<n; j++ ) 
 			if ( flag[j]==0 && dist[j]<sml ) 
 				sml=dist[j],sml_i=j;
 		flag[sml_i]=1;
-		for ( int j=0; j<n; j++ ) {
+		for ( j=0; j<n; j++ ) {
 			if ( !flag[j] && mp[sml_i][j] && dist[sml_i]!=INF && dist[sml_i]+mp[sml_i][j]<dist[j] )
 				dist[j]=dist[sml_i]+mp[sml_i][j];
 		}
 	}
-	for ( int i=0; i<n; i++ ) printf("%d%c",dist[i],i==n-1?'\n':' ');
+	for ( i=0; i<n; i++ ) printf("%d%c",dist[i],i==n-1?'\n':' ');
+}
+void input () {
+	scanf("%d%d",&n,&m);
+	for ( i=0; i<m; i++ ) {
+		scanf("%d%d%d",&u,&v,&c);
+		// assume its undirected graph
+		mp[u][v]=c;
+		mp[v][u]=c;
+	}
+}
+int main () 
+{
+	return 0;
 }
