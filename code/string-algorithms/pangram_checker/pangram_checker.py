@@ -8,7 +8,7 @@ def pangram_checker(text):
 
     # Find which letters are present
     for c in text:
-        if isalpha(c):
+        if c.isalpha():
             c = c.lower()
             c = ord(c) - ord('a')
             alphabet[c] = True
