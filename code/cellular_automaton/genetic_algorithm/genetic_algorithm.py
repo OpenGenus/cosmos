@@ -98,6 +98,9 @@ if __name__ == "__main__":
   # Generate initial population. This will create a list of POP_SIZE strings,
   # each initialized to a sequence of random characters.
   population = random_population()
+  
+  
+  
 
   # Simulate all of the generations.
   for generation in xrange(GENERATIONS):
@@ -151,3 +154,8 @@ if __name__ == "__main__":
 
   print "Fittest String: %s" % fittest_string
   exit(0)
+  
+  #add population function
+  def population():
+      p=population.append(mutate(ind1)
+          return p
