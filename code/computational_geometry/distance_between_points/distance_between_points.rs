@@ -1,3 +1,4 @@
+//  computational geometry | Distance Between Two Points | Ruby
 struct Point {
     x: f64,
     y: f64

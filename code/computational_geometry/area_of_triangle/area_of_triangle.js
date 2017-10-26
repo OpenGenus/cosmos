@@ -1,3 +1,4 @@
+// computational geometry | area of triangle | JS
 // Part of Cosmos by OpenGenus Foundation
 // Author: Igor Antun
 // Github: @IgorAntun

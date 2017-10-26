@@ -1,3 +1,4 @@
+// computational geometry | halfplane intersection | C++
 #include <cmath>
 #include <iostream>
 #include <vector>

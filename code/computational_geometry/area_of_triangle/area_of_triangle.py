@@ -1,5 +1,5 @@
 #! /usr/local/bin/python3
-
+# computational geometry | area of triangle | Python
 # Part of Cosmos by OpenGenus Foundation
 # Programmer: Amariah Del Mar
 # Date Written: October 6th, 2017

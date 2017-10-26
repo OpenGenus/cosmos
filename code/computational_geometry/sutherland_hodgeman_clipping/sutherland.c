@@ -1,3 +1,4 @@
+// computational geometry | sutherland hodgeman clipping | C
 #include<stdio.h>
 #include<math.h>
 #include<graphics.h>

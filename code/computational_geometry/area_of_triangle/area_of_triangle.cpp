@@ -1,3 +1,4 @@
+// computational geometry | area of triangle | C++
 #include <iostream>
 typedef std::pair<double, double> point;
 

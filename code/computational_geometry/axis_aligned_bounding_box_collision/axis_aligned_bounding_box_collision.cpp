@@ -1,4 +1,5 @@
 #include <iostream>
+// computational geometry | axis aligned bounding box collision | C++
 // Part of Cosmos by OpenGenus Foundation
 struct Vector {
     int x;

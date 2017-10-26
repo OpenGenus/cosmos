@@ -1,3 +1,4 @@
+// computational geometry | area of triangle | Ruby
 struct Point {
     x: f64,
     y: f64

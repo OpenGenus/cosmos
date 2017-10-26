@@ -1,3 +1,4 @@
+# computational geometry | area of polygon | Python
 def area_of_polygon(verticeX,verticeY):
 	length = len(verticeX)
 	area=0.0

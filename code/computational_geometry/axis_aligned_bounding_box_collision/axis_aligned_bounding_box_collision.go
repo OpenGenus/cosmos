@@ -1,4 +1,5 @@
 package main
+// computational geometry | axis aligned bounding box collision | go
 // Part of Cosmos by OpenGenus Foundation
 
 import (

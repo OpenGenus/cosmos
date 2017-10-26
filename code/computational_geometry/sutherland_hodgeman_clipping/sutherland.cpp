@@ -1,3 +1,4 @@
+// computational geometry | sutherland hodgeman clipping | C++
 //
 //  main.cpp
 //  forfun

@@ -1,4 +1,5 @@
 package main
+//  computational geometry | Distance Between Two Points | go
 // Part of Cosmos by OpenGenus Foundation
 
 import (
