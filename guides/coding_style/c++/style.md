@@ -280,3 +280,8 @@ enum class ExampleEnum
     FOUR // No comma at the end
 };
 ```
+
+Additional Resource
+===
+https://gcc.gnu.org/wiki/CppConventions
+```
