@@ -1,3 +1,6 @@
+/*
+* Part of Cosmos by OpenGenus Foundation
+*/
 fn lonely_integer(a: &[i64]) -> i64 {
     let mut lonely = 0;
     
