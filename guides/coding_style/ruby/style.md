@@ -1,5 +1,6 @@
 # Ruby Style Guide
 ([Source](https://github.com/github/rubocop-github/blob/master/STYLEGUIDE.md))
+
 This style guide is licensed under the [MIT License](https://github.com/github/rubocop-github/blob/master/LICENSE).
 
 * Use soft-tabs with a two space indent.
