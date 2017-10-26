@@ -10,6 +10,11 @@ def binary_to_int(binary_input):
     integer_output : Integer
     """
     integer_output = 0
+    '''
+    it reads from the left most to the right most.
+    Eventually the left-most is going to have the largest value added 
+    to the integer output.
+    '''
     for digit in binary_input:
         integer_output = integer_output*2 + int(digit)
 
