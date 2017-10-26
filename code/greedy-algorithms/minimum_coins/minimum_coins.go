@@ -29,9 +29,9 @@ func main() {
 	}
 }
 
-func getMinimumCoins(value int, demons []int) []int {
+func getMinimumCoins(value int, denoms []int) []int {
 	var result []int
-	for _, d := range demons {
+	for _, d := range denoms {
 		for {
 			if value < d {
 				break

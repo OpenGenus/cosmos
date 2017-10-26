@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface FlashSort : NSObject
 
 - (void)sort:(NSMutableArray<NSNumber *> *)array;
@@ -49,7 +50,7 @@
     NSUInteger move = 0;
     NSUInteger j = 0;
     NSInteger k = m;
-    while (move < array.count - 1) {
+    while (move < array.count) {
         while (j >= pClass[k]) {
             j++;
             k = (NSInteger)(c * (array[j].integerValue - min)) + 1;
@@ -94,17 +95,39 @@
 
 @end
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        NSMutableArray *array = [NSMutableArray arrayWithCapacity:20];
-        for (int i = 0; i < 20; i++) {
-            int ran = arc4random() % 100;
-            [array addObject:@(ran)];
+@interface SortTester : NSObject
+
++ (BOOL)isSorted:(NSArray<NSNumber *> *)array;
+
+@end
+
+@implementation SortTester
+
++ (BOOL)isSorted:(NSArray<NSNumber *> *)array {
+    for (int i = 1; i < array.count; i++) {
+        if ([array[i] compare:array[i - 1]] == NSOrderedAscending) {
+            return NO;
         }
-        NSLog(@"before: %@", array);
-        FlashSort *fs = [[FlashSort alloc] init];
-        [fs sort:array];
-        NSLog(@"after: %@", array);
+    }
+    return YES;
+}
+
+@end
+
+int main(int argc, const char * argv[]) {
+    for (int j = 0; j < 100; j++) {
+        @autoreleasepool {
+            NSMutableArray *array = [NSMutableArray array];
+            for (int i = 0; i < 20; i++) {
+                int ran = arc4random() % 20 - 10;
+                [array addObject:@(ran)];
+            }
+            NSLog(@"before: %@", array);
+            FlashSort *fs = [[FlashSort alloc] init];
+            [fs sort:array];
+            NSLog(@"after: %@", array);
+            assert([SortTester isSorted:array]);
+        }
     }
     return 0;
 }

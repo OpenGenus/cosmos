@@ -1,6 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-#includen<stdio.h>
+#include<stdio.h>
 
 int hcf(int a, int h) 
 {

@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 # Dynamic Programming Python implementation of Matrix Chain Multiplication. 
 import sys
 import numpy as np

@@ -1,5 +1,5 @@
 /*
-Part of cosmos by OpenGenus organisation
+Part of Cosmos by OpenGenus Foundation
 finding longest common substring between two strings by dynamic programming
 */
 
