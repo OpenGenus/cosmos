@@ -1,10 +1,11 @@
 //  computational geometry | 2D line intersecton | C
+//  Path of Cosmos by OpenGenus Foundation
+
 //  main.c
 //  forfun
 //
 //  Created by Daniel Farley on 10/10/17.
 //  Copyright © 2017 Daniel Farley. All rights reserved.
-//  Path of Cosmos by OpenGenus Foundation
 
 #include <stdio.h>
 #include <stdlib.h>
