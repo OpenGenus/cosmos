@@ -1,5 +1,5 @@
 //  computational geometry | 2D line intersecton | C
-//  Path of Cosmos by OpenGenus Foundation
+//  Part of Cosmos by OpenGenus Foundation
 
 //  main.c
 //  forfun
