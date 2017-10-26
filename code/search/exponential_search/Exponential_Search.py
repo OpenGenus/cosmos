@@ -28,6 +28,6 @@ n = len(arr)
 x = 10
 result = exponentialSearch(arr, n, x)
 if result == -1:
-    print "Element not found in thye array"
+    print "Element not found in the array"
 else:
-    print "Element is present at index %d" %(result)
+    print "Element is present at index % d" % (result)
