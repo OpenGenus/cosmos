@@ -30,11 +30,9 @@ int main()
 			counter++;
 		}
 	}
-
-    for(int i=counter-1; i>=0; i--)
-    {
-      cout<<fact[i];
-    }
-    
+	for(int i=counter-1; i>=0; i--)
+	{
+		cout<<fact[i];
+	}
 	return 0;
 }
