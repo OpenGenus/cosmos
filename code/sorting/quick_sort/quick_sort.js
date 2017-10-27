@@ -1,43 +1,42 @@
-/*Part of Cosmos by OpenGenus Foundation*/
-//here a is the array name
+// Part of Cosmos by OpenGenus Foundation
+// here arr is the array to be sorted
 
-/*low is the initial index for sorting 
-i.e. 0 for sorting whole array*/
+// startIdx is the initial index from which to start sorting.
+// i.e. 0 for sorting whole array
 
-/*high is the ending index for sorting 
-i.e. array's length for sorting whole array*/
+// endIdx is the ending index from which to end sorting.
+// i.e. array's length for sorting whole array
 
-/*expected call for the function is as follows:
-quickSort(array, 0, array.length -1);*/
+// expected call for the function is as follows:
+// quickSort(array, 0, array.length - 1);
 
-function  quickSort(a, low, high)
+function  quickSort(arr, startIdx, endIdx)
 {
-	var i = low;
-	var j = high;
-	var temp;
-	var k = (low + high) / 2; //k is pivot index
-	var pivot = parseInt(a[k.toFixed()]); /*k may be a fraction, toFixed takes it to the nearest integer*/ 
-	
+	let i = startIdx,
+		j = endIdx,
+		temp,
+		k = (startIdx + endIdx) / 2, //k is pivot index
+		pivot = parseInt(arr[k.toFixed()]); /*k may be a fraction, toFixed takes it to the nearest integer*/
+
 	while (i <= j)
 	{
-		while (parseInt(a[i]) < pivot)
-		i++;
-		while (parseInt(a[j]) > pivot)
+		while (parseInt(arr[i]) < pivot)
+			i++;
+		while (parseInt(arr[j]) > pivot)
 			j--;
 		if (i <= j)
 		{
-			temp = a[i];
-			a[i] = a[j];
-			a[j] = temp;
+			temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
 			i++;
 			j--;
 		}
 	}
 
-	
-	if (low < j)
-		quickSort(a, low, j);
-	if (i < high)
-		quickSort(a, i, high);
-	return a;
+	if (startIdx < j)
+		quickSort(arr, startIdx, j);
+	if (i < endIdx)
+		quickSort(arr, i, endIdx);
+	return arr;
 }
