@@ -3,7 +3,7 @@
 #include <stack>
 #define NIL -1
 using namespace std;
-int count = 0;
+int totalCount = 0;
 class Edge
 {
     public:
@@ -98,7 +98,7 @@ void Graph::BCCUtil(int u, int disc[], int low[], list<Edge> *st,
                 cout << st->back().u << "--" << st->back().v;
                 st->pop_back();
                 cout << endl;
-                count++;
+                totalCount++;
             }
         }
    
@@ -145,7 +145,7 @@ void Graph::BCC()
         if(j == 1)
         {
             cout << endl;
-            count++;
+            totalCount++;
         }
     }
 }
@@ -168,6 +168,6 @@ int main()
     g.addEdge(8,9);g.addEdge(9,8);
     g.addEdge(10,11);g.addEdge(11,10);
     g.BCC();
-    cout << "Above are " << count << " biconnected components in graph";
+    cout << "Above are " << totalCount << " biconnected components in graph";
     return 0;
 }

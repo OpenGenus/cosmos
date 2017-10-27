@@ -1,4 +1,4 @@
-﻿/* Part of Cosmos by OpenGenus Foundation */
+/* Part of Cosmos by OpenGenus Foundation */
 using System;
 using System.Threading;
 using System.Linq;

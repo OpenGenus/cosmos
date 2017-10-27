@@ -1,4 +1,5 @@
 <?php
+// Part of Cosmos by OpenGenus Foundation
 function bucket_sort($my_array) {
   $n = sizeof($my_array);
   $buckets = array();

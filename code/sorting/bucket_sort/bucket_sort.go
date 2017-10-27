@@ -6,6 +6,8 @@ import (
 	"strconv"
 )
 
+// Part of Cosmos by OpenGenus Foundation
+
 func insertionSort(array []float64) {
 	for i := 0; i < len(array); i++ {
 		temp := array[i]

@@ -1,19 +1,20 @@
+# Part of Cosmos by OpenGenus Foundation
 def quickSort(arr):
-   quickSortHelper(arr,0,len(arr)-1)
+    quickSortHelper(arr, 0, len(arr) - 1)
 
-def quickSortHelper(arr,first,last):
-   if first<last:
+def quickSortHelper(arr, first, last):
+    if first < last:
 
-       splitpoint = partition(arr,first,last)
+        splitpoint = partition(arr, first, last)
 
-       quickSortHelper(arr,first,splitpoint-1)
-       quickSortHelper(arr,splitpoint+1,last)
+       quickSortHelper(arr, first, splitpoint - 1)
+       quickSortHelper(arr, splitpoint + 1, last)
 
 
-def partition(arr,first,last):
-   pivot = arr[first]
+def partition(arr, first, last):
+    pivot = arr[first]
 
-   left = first+1
+   left = first + 1
    right = last
 
    done = False

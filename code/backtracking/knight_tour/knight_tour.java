@@ -90,7 +90,8 @@ public class KnightsTour {
     private static void printResult() {
         for (int[] row : grid) {
             for (int i : row) {
-                if (i == -1) continue;
+                if (i == -1) 
+                   continue;
                 System.out.printf("%2d ", i);
             }
             System.out.println();

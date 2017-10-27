@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Part of Cosmos by OpenGenus Foundation
 func main() {
 	arr := []int{1, 6, 4, 7, 2, 8}
 	fmt.Printf("Before sort: %v\n", arr)

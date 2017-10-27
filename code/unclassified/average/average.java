@@ -2,6 +2,11 @@ import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
 class average
 {
+    /**
+    * @param arr array of integers to get the average of.
+    * @param n number of elements.
+    * @return the average calculated as sum(arr)/n
+    */
     static double avrg(int arr[], int n)
     {
         int sum = 0;
@@ -10,7 +15,7 @@ class average
         {
             sum += arr[i];
         }
-        avg = sum/n;
+        avg = (double)sum/n;
         return avg;
     }
     public static void main(String args[])
