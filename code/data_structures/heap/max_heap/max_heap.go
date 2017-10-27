@@ -24,7 +24,7 @@ func (h *MaxHeap) Push(value int) {
 func (h *MaxHeap) Top() int {
 	return h.data[0]
 }
-func (h *MaxHeap) ExtractMax() int {
+func (h *MaxHeap) ExtractTop() int {
 	index := len(h.data) - 1
 	max := h.Top()
 	h.data[0], h.data[index] = swap(h.data[0], h.data[index])

@@ -42,7 +42,7 @@ func flashSort(_ array: inout [Int]) {
     var j = 0
     var k = m
     // after this loop pClass[k] point to under bound of class k, it means every element is moved to the right class
-    while move < array.count - 1 {
+    while move < array.count {
         while j >= pClass[k] {
             j += 1
             k = Int(c * Double(array[j] - min)) + 1

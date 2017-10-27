@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 from functools import wraps
 
 def memo(f):
