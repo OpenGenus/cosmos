@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-#define MAX 500
+const int MAX =500;
 int multiply(int x, int res[], int res_size)
 {
 int carry = 0;
