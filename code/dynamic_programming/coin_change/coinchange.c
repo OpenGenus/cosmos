@@ -1,7 +1,7 @@
 // This program is for coin change problem of dynamic programming in C language.
 // Part of Cosmos by OpenGenus Foundation
 
-#include<stdio.h>
+#include <stdio.h>
 int count( int S[], int m, int n )
 {
     int i, j, x, y;
@@ -33,12 +33,12 @@ int count( int S[], int m, int n )
 }
 int main()
 {
-   int n;
-   cin>>n;
+   int m, n;
+   scanf("%d", &n);
    int arr[n];
    for(int i=0;i<n;++i)
-   cin>>arr[i];
-   cin>>m;
+      scanf("%d", &arr[i]);
+   scanf("%d", &m);
     printf(" %d ", count(arr, n, m));
     return 0;
 }
