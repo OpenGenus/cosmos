@@ -1,20 +1,7 @@
+# Part of Cosmos by OpenGenus Foundation
+
 def pangram_checker(text):
-    # Part of Cosmos by OpenGenus Foundation
-    # Arr is a list that contains a bool value
-    # for each letter if it appeared in the sentence
-    # If the entire list is true the string is a pangram.
-    arr = [False] * 26;
+    return {chr(i) for i in range(ord('a'), ord('z') + 1)}.issubset(text.lower())
 
-    for c in text :
-        if((c >= 'a' and c <= 'z') or (c >= 'A' and c <= 'Z')) :
-            # The character is a letter.
-            c = c.lower()
-            c = ord(c) - ord('a')
-            arr[c] = True
-
-    # Checking if arr is all true value
-    for index in arr :
-        if not index :
-            return False
-    
-    return True
+print(pangram_checker('hello')) # False
+print(pangram_checker('The quick brown fox jumps over the lazy dog')) # True
