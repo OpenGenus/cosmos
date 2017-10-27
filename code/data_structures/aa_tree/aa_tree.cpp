@@ -1,23 +1,22 @@
 /*
-    Part of Cosmos by OpenGenus Foundation
-    arne andersson tree synopsis
+ Part of Cosmos by OpenGenus Foundation
+ arne andersson tree synopsis
 
-template<typename _Derive,
-         typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Derive, typename _Tp, typename _Comp = std::less<_Tp> >
 struct BinaryTreeNode {
-    _Derive *left, *right;
     _Tp value;
-    BinaryTreeNode(_Tp v, _Derive *l = nullptr, _Derive *r = nullptr)
-    :value(v), left(l), right(r);
+    std::shared_ptr<_Derive> left, right;
+    BinaryTreeNode(_Tp v,
+                   std::shared_ptr<_Derive> l = nullptr,
+                   std::shared_ptr<_Derive> r = nullptr);
 };
 
-template<typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 struct AABinaryTreeNode :public BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp> {
     size_t level;
-    AABinaryTreeNode(_Tp v, AABinaryTreeNode *l = nullptr, AABinaryTreeNode *r = nullptr)
-    :level(1), BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r);
+    AABinaryTreeNode(_Tp v,
+                     std::shared_ptr<AABinaryTreeNode> l = nullptr,
+                     std::shared_ptr<AABinaryTreeNode> r = nullptr);
 };
 
 template<typename _Tp,
@@ -30,123 +29,119 @@ public:
     typedef value_type const &const_reference;
     typedef ptrdiff_t         difference_type;
     typedef size_t            size_type;
-
+    
 protected:
     typedef BinaryTree<_Tp, _Comp, _NodeType> self;
     typedef _NodeType                         node_type;
-
+    typedef std::shared_ptr<node_type>        p_node_type;
+    
 public:
-    BinaryTree(node_type *r = nullptr) :root_(r), sz_(0), comp_(_Comp()), release_(true);
- 
-    ~BinaryTree();
-
-    node_type const *maximum() const;
-
-    node_type const *minimum() const;
-
+    BinaryTree(p_node_type r = nullptr) :root_(r), sz_(0), comp_(_Comp()), release_(true);
+    
+    p_node_type const maximum() const;
+    
+    p_node_type const minimum() const;
+    
     size_type size() const;
-
+    
     bool empty() const;
-
+    
     void inOrder(std::ostream &output) const;
-
+    
     void preOrder(std::ostream &output) const;
-
+    
     void postOrder(std::ostream &output) const;
-
+    
 protected:
-    node_type *root_;
+    p_node_type root_;
     size_type sz_;
     _Comp comp_;
     bool release_;
-    node_type *nil_;
-
-    // post order release
-    void release(node_type * &n);
-
-    node_type *get(const_reference value);
-
-    node_type const *maximum(node_type const *n) const;
-
-    node_type const *minimum(node_type const *n) const;
-
-    void inOrder(std::ostream &output, node_type const *n) const;
-
-    void preOrder(std::ostream &output, node_type const *n) const;
-
-    void postOrder(std::ostream &output, node_type const *n) const;
+    p_node_type nil_;
+    
+    p_node_type get(const_reference value);
+    
+    p_node_type const maximum(p_node_type n) const;
+    
+    p_node_type const minimum(p_node_type n) const;
+    
+    void inOrder(std::ostream &output, p_node_type const n) const;
+    
+    void preOrder(std::ostream &output, p_node_type const n) const;
+    
+    void postOrder(std::ostream &output, p_node_type const n) const;
 };
 
-template<typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 class AATree :public BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > {
-
 private:
     typedef BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > base;
     typedef AATree<_Tp, _Comp>                                    self;
-
+    
 public:
     using typename base::size_type;
     using typename base::value_type;
     using typename base::reference;
     using typename base::const_reference;
     using typename base::difference_type;
-
+    
 protected:
+    using typename base::p_node_type;
     using typename base::node_type;
     using base::root_;
     using base::comp_;
     using base::nil_;
     using base::sz_;
-
+    
 public:
     AATree() :base();
-
-    ~AATree();
-
+    
     void insert(const_reference value);
-
+    
     void erase(const_reference value);
-
-    node_type const *find(const_reference value);
-
+    
+    p_node_type const find(const_reference value);
+    
 private:
     // implement by recursive
-    void insert(node_type * &n, const_reference value);
-
-    void erase(node_type * &n, const_reference value);
-
+    void insert(p_node_type &n, const_reference value);
+    
+    void erase(p_node_type &n, const_reference value);
+    
     // input: T, a node representing an AA tree that needs to be rebalanced.
     // output: Another node representing the rebalanced AA tree.
-    node_type *skew(node_type *n);
-
+    p_node_type skew(p_node_type n);
+    
     // input: T, a node representing an AA tree that needs to be rebalanced.
     // output: Another node representing the rebalanced AA tree
-    node_type *split(node_type *n);
-
-    void makeNode(node_type * &n, value_type value);
+    p_node_type split(p_node_type n);
+    
+    void makeNode(p_node_type &n, value_type value);
 };
-*/
+ */
 
 #include <algorithm>
+#include <functional>
+#include <memory>
 #include <stack>
 
-template<typename _Derive,
-         typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Derive, typename _Tp, typename _Comp = std::less<_Tp> >
 struct BinaryTreeNode {
-    _Derive *left, *right;
     _Tp value;
-    BinaryTreeNode(_Tp v, _Derive *l = nullptr, _Derive *r = nullptr)
+    std::shared_ptr<_Derive> left, right;
+    BinaryTreeNode(_Tp v,
+                   std::shared_ptr<_Derive> l = nullptr,
+                   std::shared_ptr<_Derive> r = nullptr)
         :value(v), left(l), right(r) {};
 };
 
-template<typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 struct AABinaryTreeNode :public BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp> {
     size_t level;
-    AABinaryTreeNode(_Tp v, AABinaryTreeNode *l = nullptr, AABinaryTreeNode *r = nullptr)
-        :level(1), BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r) {};
+    AABinaryTreeNode(_Tp v,
+                     std::shared_ptr<AABinaryTreeNode> l = nullptr,
+                     std::shared_ptr<AABinaryTreeNode> r = nullptr)
+        :BinaryTreeNode<AABinaryTreeNode<_Tp, _Comp>, _Tp, _Comp>(v, l, r), level(1) {};
 };
 
 template<typename _Tp,
@@ -163,16 +158,12 @@ public:
 protected:
     typedef BinaryTree<_Tp, _Comp, _NodeType> self;
     typedef _NodeType                         node_type;
+    typedef std::shared_ptr<node_type>        p_node_type;
 
 public:
+    BinaryTree(p_node_type r = nullptr) :root_(r), sz_(0), comp_(_Comp()), release_(true) {};
 
-    BinaryTree(node_type *r = nullptr) :root_(r), sz_(0), comp_(_Comp()), release_(true) {};
-
-    ~BinaryTree() {
-        release(root_);
-    }
-
-    node_type const *maximum() const {
+    p_node_type const maximum() const {
         auto f = maximum(root_);
         if (f == nil_)
             return nullptr;
@@ -180,7 +171,7 @@ public:
         return f;
     }
 
-    node_type const *minimum() const {
+    p_node_type const minimum() const {
         auto f = minimum(root_);
         if (f == nil_)
             return nullptr;
@@ -209,43 +200,16 @@ public:
     }
 
 protected:
-    node_type *root_;
+    p_node_type root_;
     size_type sz_;
     _Comp comp_;
     bool release_;
-    node_type *nil_;
+    p_node_type nil_;
 
-    // post order release
-    void release(node_type * &n) {
-        if (release_ == true)
+    p_node_type get(const_reference value) {
+        p_node_type n = root_;
+        while (n != nil_)
         {
-            std::stack<node_type *> releaseNodes{};
-            do {
-                while (n != nil_) {
-                    releaseNodes.push(n);
-                    n = n->left;
-                }
-                while (!releaseNodes.empty() && releaseNodes.top()->right == nil_) {
-                    node_type *deleteNode = releaseNodes.top();
-                    releaseNodes.pop();
-                    delete deleteNode;
-                }
-                if (!releaseNodes.empty())
-                {
-                    node_type *deleteNode = releaseNodes.top();
-                    node_type *right = releaseNodes.top()->right;
-                    releaseNodes.pop();
-                    n = right;
-                    delete deleteNode;
-                }
-            } while (!releaseNodes.empty() || n != nil_);
-        }
-        release_ = false;
-    }
-
-    node_type *get(const_reference value) {
-        node_type *n = root_;
-        while (n != nil_) {
             if (comp_(value, n->value))
             {
                 n = n->left;
@@ -263,7 +227,7 @@ protected:
         return n;
     }
 
-    node_type const *maximum(node_type const *n) const {
+    p_node_type const maximum(p_node_type n) const {
         if (n != nil_)
             while (n->right != nil_)
                 n = n->right;
@@ -271,7 +235,7 @@ protected:
         return n;
     }
 
-    node_type const *minimum(node_type const *n) const {
+    p_node_type const minimum(p_node_type n) const {
         if (n != nil_)
             while (n->left != nil_)
                 n = n->left;
@@ -279,7 +243,7 @@ protected:
         return n;
     }
 
-    void inOrder(std::ostream &output, node_type const *n) const {
+    void inOrder(std::ostream &output, p_node_type const n) const {
         if (n != nil_)
         {
             inOrder(output, n->left);
@@ -288,7 +252,7 @@ protected:
         }
     }
 
-    void preOrder(std::ostream &output, node_type const *n) const {
+    void preOrder(std::ostream &output, p_node_type const n) const {
         if (n != nil_)
         {
             output << n->value << " ";
@@ -297,7 +261,7 @@ protected:
         }
     }
 
-    void postOrder(std::ostream &output, node_type const *n) const {
+    void postOrder(std::ostream &output, p_node_type const n) const {
         if (n != nil_)
         {
             postOrder(output, n->left);
@@ -307,8 +271,7 @@ protected:
     }
 };
 
-template<typename _Tp,
-         typename _Comp = std::less<_Tp> >
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 class AATree :public BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > {
 private:
     typedef BinaryTree<_Tp, _Comp, AABinaryTreeNode<_Tp, _Comp> > base;
@@ -322,6 +285,7 @@ public:
     using typename base::difference_type;
 
 protected:
+    using typename base::p_node_type;
     using typename base::node_type;
     using base::root_;
     using base::comp_;
@@ -330,16 +294,11 @@ protected:
 
 public:
     AATree() :base() {
-        nil_ = new node_type(0);
+        nil_ = std::make_shared<node_type>(0);
         nil_->left = nil_;
         nil_->right = nil_;
         nil_->level = 0;
         root_ = nil_;
-    }
-
-    ~AATree() {
-        base::release(root_);
-        delete nil_;
     }
 
     void insert(const_reference value) {
@@ -350,7 +309,7 @@ public:
         erase(root_, value);
     }
 
-    node_type const *find(const_reference value) {
+    p_node_type const find(const_reference value) {
         auto f = base::get(value);
         if (f == nil_)
             return nullptr;
@@ -360,7 +319,7 @@ public:
 
 private:
     // implement by recursive
-    void insert(node_type * &n, const_reference value) {
+    void insert(p_node_type &n, const_reference value) {
         if (n == nil_)
         {
             makeNode(n, value);
@@ -385,7 +344,7 @@ private:
         n = split(n);
     }
 
-    void erase(node_type * &n, const_reference value) {
+    void erase(p_node_type &n, const_reference value) {
         if (n != nil_)
         {
             if (comp_(value, n->value))
@@ -400,7 +359,7 @@ private:
             {
                 if (n->left != nil_ && n->right != nil_)
                 {
-                    node_type *leftMax = n->left;
+                    p_node_type leftMax = n->left;
                     while (leftMax->right != nil_)
                         leftMax = leftMax->right;
                     n->value = leftMax->value;
@@ -408,8 +367,7 @@ private:
                 }
                 else     // 3 way, n is leaf then nullptr, otherwise n successor
                 {
-                    node_type *successor = n->left == nil_ ? n->right : n->left;
-                    delete n;
+                    p_node_type successor = n->left == nil_ ? n->right : n->left;
                     n = successor;
                     --sz_;
                 }
@@ -435,12 +393,12 @@ private:
 
     // input: T, a node representing an AA tree that needs to be rebalanced.
     // output: Another node representing the rebalanced AA tree.
-    node_type *skew(node_type *n) {
+    p_node_type skew(p_node_type n) {
         if (n != nil_
             && n->left != nil_
             && n->left->level == n->level)
         {
-            node_type *left = n->left;
+            p_node_type left = n->left;
             n->left = left->right;
             left->right = n;
             n = left;
@@ -451,13 +409,13 @@ private:
 
     // input: T, a node representing an AA tree that needs to be rebalanced.
     // output: Another node representing the rebalanced AA tree
-    node_type *split(node_type *n) {
+    p_node_type split(p_node_type n) {
         if (n != nil_
             && n->right != nil_
             && n->right->right != nil_
             && n->level == n->right->right->level)
         {
-            node_type *right = n->right;
+            p_node_type right = n->right;
             n->right = right->left;
             right->left = n;
             n = right;
@@ -467,19 +425,19 @@ private:
         return n;
     }
 
-    void makeNode(node_type * &n, value_type value) {
-        n = new node_type(value, nil_, nil_);
+    void makeNode(p_node_type &n, value_type value) {
+        n = std::make_shared<node_type>(value, nil_, nil_);
     }
 };
 
 /*
 // for test
 // test insert/erase/size function
-#include <iostream>
+ #include <iostream>
 using namespace std;
 
 int main() {
-    AATree<int> *aat = new AATree<int>;
+    std::shared_ptr<AATree<int> > aat = make_shared<AATree<int> >();
 
     if (!aat->empty())
         cout << "error";
@@ -565,8 +523,6 @@ int main() {
 
     if (aat->empty())
         cout << "error";
-
-    delete aat;
 
     return 0;
 }

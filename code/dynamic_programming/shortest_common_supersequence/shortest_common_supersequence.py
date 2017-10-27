@@ -1,3 +1,5 @@
+# Part of Cosmos by OpenGenus Foundation
+
 #shortest common supersequence using dp
 def min(a,b):
 	if(a>b):

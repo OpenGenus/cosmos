@@ -10,7 +10,7 @@ int max(int a, int b) {
 /**
  *  Return the first element in v
  *  that is greater than or equal
- *  to x in O(lg n).
+ *  to x in O(log n).
  */
 int lower_bound(int v[], int n, int x) {
     
@@ -34,7 +34,7 @@ int lower_bound(int v[], int n, int x) {
 int longest_bitonic_sequence(int v[], int n) {
     
     int lis[n]; // stores the longest increasing sequence that ends at ith position
-    int lds[n]; // strores the longest decreasing sequence that starts at ith position
+    int lds[n]; // stores the longest decreasing sequence that starts at ith position
     int tail[n], tailSize; // used to compute LIS and LDS
     int i;
     
@@ -80,7 +80,7 @@ int main() {
 
     // Expected output: 5
     printf("%d\n", longest_bitonic_sequence(v1, sizeof(v1)/sizeof(v1[0])));
-    //Expected output: 6 
+    // Expected output: 6 
     printf("%d\n", longest_bitonic_sequence(v2, sizeof(v2)/sizeof(v2[0])));
 
     return 0;
