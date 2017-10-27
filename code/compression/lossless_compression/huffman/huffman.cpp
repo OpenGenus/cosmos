@@ -38,13 +38,21 @@ public:
     Huffman()
         :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_();
 
-    std::string compression(std::string const &input);
+    std::string compression(std::string const &in);
 
     std::string compression(std::istream &in);
 
-    std::string decompression(std::string const &input);
+    void compression(std::string const &in, std::ostream &out);
 
-    void decompression(std::string const &input, std::ostream &out);
+    void compression(std::istream &in, std::ostream &out);
+
+    std::string decompression(std::string const &in);
+
+    std::string decompression(std::istream &in);
+
+    void decompression(std::string const &in, std::ostream &out);
+
+    void decompression(std::istream &in, std::ostream &out);
 
 private:
     freq_type frequency_;
@@ -158,30 +166,33 @@ public:
             power_.at(i - 1) = pow(2, GUARANTEE_BIT - i);
     };
 
-    std::string compression(std::string const &input) {
-        calculateFrequency(input);
+    std::string compression(std::string const &in) {
+        calculateFrequency(in);
         buildForest();
-        buildDictionary(input);
+        buildDictionary(in);
 
         // don't change order on this and next line
         // because stringToHex will calc. binary length
-        std::string res = stringToHex(input);
+        std::string res = stringToHex(in);
         res = addSeperateCode(exportHeader()) + res;
 
         return res;
     }
 
     std::string compression(std::istream &in) {
-        std::string s{};
-        char c;
-        while (in >> std::noskipws >> c)
-            s.push_back(c);
-
-        return compression(s);
+        return compression(readFile(in));
     }
 
-    std::string decompression(std::string const &input) {
-        std::pair<std::string, std::string> header_and_code = seperateHeaderAndCode(input);
+    void compression(std::string const &in, std::ostream &out) {
+        out << compression(in);
+    }
+
+    void compression(std::istream &in, std::ostream &out) {
+        out << compression(in);
+    }
+
+    std::string decompression(std::string const &in) {
+        std::pair<std::string, std::string> header_and_code = seperateHeaderAndCode(in);
         importHeader(header_and_code.first);
         std::string res = hexToBinary(header_and_code.second);
         res = restore(res);
@@ -189,8 +200,16 @@ public:
         return res;
     }
 
-    void decompression(std::string const &input, std::ostream &out) {
-        out << decompression(input);
+    std::string decompression(std::istream &in) {
+        return decompression(readFile(in));
+    }
+
+    void decompression(std::string const &in, std::ostream &out) {
+        out << decompression(in);
+    }
+
+    void decompression(std::istream &in, std::ostream &out) {
+        out << decompression(in);
     }
 
 private:
@@ -199,11 +218,20 @@ private:
     dictionary_type dictionary_;
     reverse_dictionary_type reverse_dictionary_;
     std::shared_ptr<tree_node_type> sentinel_;
-    size_type binary_bit_;
+    unsigned long long binary_bit_;
     std::vector<size_type> power_;
     const char DELIMITER = ' ';
-    const size_type GUARANTEE_BIT = sizeof(base_type) * 8;
-    const int HEX_BIT = 16;
+    const unsigned long long GUARANTEE_BIT = sizeof(base_type) * 8;
+    const unsigned long long HEX_BIT = 16;
+
+    std::string readFile(std::istream &in) {
+        std::string s{};
+        char c;
+        while (in >> std::noskipws >> c)
+            s.push_back(c);
+
+        return s;
+    }
 
     void calculateFrequency(std::string const &input) {
         char c;
@@ -325,7 +353,7 @@ private:
 
     std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str) {
         auto it = --str.begin();
-        int separate_count{};
+        size_type separate_count{};
         while (++it != str.end())
             if (separate_count == 4 && it + 1 != str.end() && *(it + 1) != ' ')
                 break;
@@ -388,7 +416,7 @@ private:
         auto it = str.begin();
         while (it != str.end() && *it != DELIMITER)
             ++it;
-        binary_bit_ = stoi(std::string{str.begin(), it});
+        binary_bit_ = stoull(std::string{str.begin(), it});
         if (it != str.end())
             ++it;
         importDictionary({it, str.end()});
@@ -469,7 +497,7 @@ private:
     std::string hexToBinary(std::string const &str) {
         std::stringstream in_ss{str};
         std::string res{}, s{};
-        size_type seat{}, p{};
+        size_type seat{}, g{};
         base_type c{};
         seat = 0 - 1;
         while (true)
@@ -477,15 +505,15 @@ private:
             if (++seat < str.size())
             {
                 in_ss >> s;
-                c = (stoull(s, 0, HEX_BIT));
-                p = 0 - 1;
+                c = static_cast<base_type>(stoull(s, 0, HEX_BIT));
+                g = 0 - 1;
             }
-            else if (p % GUARANTEE_BIT == 0)
+            else if (g % GUARANTEE_BIT == 0)
                 break;
-            while (++p < GUARANTEE_BIT)
-                if (c >= power_.at(p))
+            while (++g < GUARANTEE_BIT)
+                if (c >= power_.at(g))
                 {
-                    c -= power_.at(p);
+                    c -= power_.at(g);
                     res.push_back('1');
                 }
                 else
