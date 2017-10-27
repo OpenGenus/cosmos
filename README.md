@@ -18,11 +18,13 @@ Following is the high-level structure of cosmos:
 * Computational geometry
 * Cryptography
 * Data structures
+* Design patterns
 * Divide conquering
 * Dynamic programming
 * Graph algorithms
 * Greedy algorithms
 * Mathematical algorithms
+* Networking
 * Operating system
 * Randomized algorithms
 * Searching
