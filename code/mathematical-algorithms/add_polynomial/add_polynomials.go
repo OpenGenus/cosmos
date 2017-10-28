@@ -8,11 +8,11 @@ type PolyNode struct {
 	Pow   int
 }
 
-type Polynomail struct {
+type polynomial struct {
 	Data []PolyNode
 }
 
-func (p *Polynomail) AddNode(coeff, pow int) {
+func (p *polynomial) AddNode(coeff, pow int) {
 	//Find a sutible location.
 	index := -1
 	for i, data := range p.Data {
@@ -32,7 +32,7 @@ func (p *Polynomail) AddNode(coeff, pow int) {
 
 }
 
-func (p *Polynomail) Show() {
+func (p *polynomial) Show() {
 	for i, data := range p.Data {
 		if i != 0 {
 			fmt.Printf(" + ")
@@ -42,16 +42,16 @@ func (p *Polynomail) Show() {
 	fmt.Printf("\n")
 }
 
-func (p *Polynomail) Length() int {
+func (p *polynomial) Length() int {
 	return len(p.Data)
 }
 
-func (p *Polynomail) GetNode(index int) PolyNode {
+func (p *polynomial) GetNode(index int) PolyNode {
 	return p.Data[index]
 }
 
-func AddPolynomail(p1, p2 Polynomail) Polynomail {
-	ans := Polynomail{}
+func Addpolynomial(p1, p2 polynomial) polynomial {
+	ans := polynomial{}
 	i, j := 0, 0
 	for i, j = 0, 0; i < p1.Length() && j < p2.Length(); {
 		p1N := p1.GetNode(i)
@@ -90,15 +90,15 @@ func AddPolynomail(p1, p2 Polynomail) Polynomail {
 }
 
 func main() {
-	p1 := Polynomail{}
-	p2 := Polynomail{}
+	p1 := polynomial{}
+	p2 := polynomial{}
 
 	p1.AddNode(2, 11)
 	p1.AddNode(2, 5)
 	p1.AddNode(12, 4)
 	p1.AddNode(3, 1)
 	p1.AddNode(8, 2)
-	fmt.Printf("Polynomail one is ")
+	fmt.Printf("polynomial one is ")
 	p1.Show()
 
 	p2.AddNode(1, 7)
@@ -106,10 +106,10 @@ func main() {
 	p2.AddNode(3, 4)
 	p2.AddNode(4, 2)
 	p2.AddNode(8, 0)
-	fmt.Printf("Polynomail two is ")
+	fmt.Printf("polynomial two is ")
 	p2.Show()
 
-	ans := AddPolynomail(p1, p2)
-	fmt.Printf("The sum of above two Polynomail is ")
+	ans := Addpolynomial(p1, p2)
+	fmt.Printf("The sum of above two polynomial is ")
 	ans.Show()
 }
