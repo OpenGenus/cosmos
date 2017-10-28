@@ -20,6 +20,6 @@ object main {
 
   def main(args: Array[String]) = {
     val number: Int = 5
-    println(s"The factorial of ${number} is ${factorial(number)}")
+    println(s"The factorial of $number is ${factorial(number)}")
   }
 }
