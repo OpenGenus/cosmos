@@ -1,3 +1,4 @@
+# Cosmos
 
 ![alt text](https://i.imgur.com/EbHZd1J.png)
 # Jump Search  
@@ -12,3 +13,11 @@ Jump Search is a searching algorithm for sorted arrays. The idea is to skip some
 5. If the step value is greater than the target value, reverse linear search until value is found, or until previous is reached.
 
 [Jump Search Wikipedia](https://en.wikipedia.org/wiki/Jump_search)
+
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
