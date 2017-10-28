@@ -10,8 +10,8 @@ void main()
 {
     struct node
     {
-        int num;
-        struct node *ptr;
+        int num;          //cotains data value
+        struct node *ptr;  // links to next node in the list
     };
     typedef struct node NODE;
  
