@@ -1,0 +1,12 @@
+Usage:
+
+# Compilation:
+g++ generator.cpp -o generator &&
+g++ verifier.cpp -o verifier &&
+g++ alter.cpp -o alter
+
+# CRC Check PASS
+./generator < file | ./verifier
+
+# CRC Check FAIL
+./generator < file | ./alter 20 | ./verifier
