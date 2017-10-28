@@ -1,59 +1,127 @@
-#include<bits/stdc++.h>
-// Part of Cosmos by OpenGenus
-using namespace std;
-#define mod 1000000007
-#define all(v) v.begin(),v.end_()
-#define rep(i,a,b) for(i=(ll)a;i<(ll)b;i++)
-#define revrep(i,a,b) for(i=(ll)a;i>=(ll)b;i--)
-#define strep(it,v) for(it=v.begin();it!=v.end_();++it)
-#define ii pair<ll,ll>
-#define MP make_pair
-#define pb push_back
-#define f first
-#define se second
-#define ll long long int
-#define vi vector<ll>
-ll modexp(ll a,ll b){ ll res = 1; while(b > 0){  if(b & 1) res = (res * a);  a = (a * a);  b/=2;  }  return res; }
-#define rs resize
-long long readLI(){  register char c;  for(c = getchar(); !(c>='0' && c<='9'); c = getchar());  register long long a=c-'0';
-    for(c = getchar(); c>='0' && c<='9'; c = getchar())
-        a = (a<<3)+(a<<1)+c-'0';
-    return a;
-}
-const ll N = 100009;
-int n,i,j,sz;
-string a;
-ll next_[27][N],end_[N];
-void add(string a){
-    int v = 0;
-    for(int i = 0;i < (int)a.size();i++){
-       int c = a[i] - 'a';
-       if(next_[c][v] == -1)
-         v = next_[c][v] = ++sz;
-       else
-         v = next_[c][v];
-    }
-    ++end_[v];
-}
-bool search(string a){
-    int v = 0;
-    for(i = 0;i < (int)a.size();i++){
-       int c = a[i] - 'a';
-       if(next_[c][v] == -1) return false;
-       v = next_[c][v];
-    }
-    return end_[v] > 0;
-}
-int main()
+#include <array>
+#include <assert.h>
+#include <string>
+#include <memory>
+
+// only for test cases
+#include <vector>
+#include <iostream>
+
+class Trie 
 {
-   std::ios_base::sync_with_stdio(false); cin.tie(NULL);
-   cin>>n;
-   rep(i,0,27) for(int j = 0;j < N;j++) next_[i][j] = -1;
-   rep(i,0,n) cin>>a,add(a);
-   cin>>n;
-   while(n--){
-      cin>>a;
-      cout<<search(a)<<endl;
-   }
-   return 0;
+private:
+
+  class Node 
+  {
+    static constexpr std::array<char, 63> alphabet = { '\0', '0', '1', '2', '3', '4', '5', '6', '7',
+      '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+      'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+      'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+public:
+
+  void insert(std::string::const_iterator left, std::string::const_iterator right) 
+  {
+    auto& kid = kids[charToIndex(left == right ? '\0' : *left)];
+    if (kid == nullptr) 
+    {
+      nKids++;
+      kid = std::make_unique<Node>();
+    }
+    if (left != right) kid->insert(left+1, right);
+  }
+
+  int remove(std::string::const_iterator left, std::string::const_iterator right) 
+  {
+    int index = charToIndex(left == right ? '\0' : *left);
+    if (kids[index] != nullptr && (left == right || 0 == kids[index]->remove(left+1, right))) 
+    {
+      nKids--;
+      kids[index] = nullptr;
+    }
+    return nKids;
+  }
+
+  bool has(std::string::const_iterator left, std::string::const_iterator right) 
+  {
+    if (left == right) return kids[0] != nullptr;
+    auto& kid = kids[charToIndex(*left)];
+    if (kid == nullptr) return false;
+    return kid->has(left+1, right);
+  }
+
+  void dump(std::string prefix) 
+  {
+    if (kids[0] != nullptr) std::cout << prefix << '\n';
+    for (auto c : Node::alphabet) 
+    {
+      int index = charToIndex(c);
+      if (kids[index] != nullptr) kids[index]->dump(prefix + c);
+    }
+  }
+
+    int charToIndex(char c) 
+    {
+      int index = 0;
+      if (c == '\0') return index;
+      index++;
+      if (c >= '0' && c <= '9') return index + c - '0';
+      index += 1 + '9' - '0';
+      if (c >= 'A' && c <= 'Z') return index + c - 'A';
+      index += 1 + 'Z' - 'A';
+      if (c >= 'a' && c <= 'z') return index + c - 'a';
+
+      bool isInAlphabet = false;
+      assert(isInAlphabet);
+      return -1;
+    }
+
+    std::array<std::unique_ptr<Node>, alphabet.size()> kids;
+    int nKids = 0;
+  };
+
+  Node root;
+
+public:
+
+  void insert(const std::string& key) 
+  {
+    root.insert(key.begin(), key.end());
+  }
+
+  void remove(const std::string& key) 
+  {
+    root.remove(key.begin(), key.end());
+  }
+  
+  bool has(const std::string& key) 
+  {
+    return root.has(key.begin(), key.end());
+  }
+
+  void dump() 
+  {
+    root.dump(""); 
+  }
+};
+
+constexpr std::array<char, 63> Trie::Node::alphabet;
+
+int main() 
+{
+  std::vector<std::string> keys{ "cat", "case", "deaf", "deaf", "a", "an", "the", "" };
+
+  Trie trie;
+  for (auto& k : keys) trie.insert(k);
+
+  trie.dump();
+
+  assert(trie.has("cat"));
+
+  trie.remove(keys[0]);
+
+  assert(!trie.has("cat"));
+  for (int i = 1; i < keys.size(); i++) assert(trie.has(keys[i]));
+
+  return 0;
 }
