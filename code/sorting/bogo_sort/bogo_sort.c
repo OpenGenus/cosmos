@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 int isSorted(int *arr, int length);
 void shuffle(int *arr, int count);
