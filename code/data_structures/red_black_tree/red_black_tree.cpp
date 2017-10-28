@@ -7,16 +7,14 @@ enum Color {RED, BLACK};
 
 struct Node
 {
+    typedef std::shared_ptr<Node> p_node_type;
     int data;
     bool color;
-    std::shared_ptr<Node> left, right, parent;
+    p_node_type left, right, parent;
     
     // Constructor
-    Node(int data)
-    {
-        this->data = data;
-        left = right = parent = nullptr;
-    }
+    Node(int d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
+        :data(d), left(l), right(r), parent(p) {}
 };
 
 // Class to represent Red-Black Tree
@@ -32,7 +30,7 @@ protected:
     void fixViolation(p_node_type &, p_node_type &);
 public:
     // Constructor
-    RBTree() { root = nullptr; }
+    RBTree() :root(nullptr) {}
     void insert(const int &n);
     void inorder();
     void levelOrder();
