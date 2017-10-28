@@ -5,11 +5,14 @@ func fibonnaci(_ n: Int) -> Int {
 
 func fibonnaciMemoized(_ n: Int) -> Int {
     var cache = [0: 0, 1: 1]
-    if let number = cache[n] { 
-        return number
+    func fib(_ n: Int) -> Int {
+        if let number = cache[n] {
+            return number
+        }
+        cache[n] = fib(n-2) + fib(n-1)
+        return cache[n]!
     }
-    cache[n] = fibonnaciMemoized(n-2) + fibonnaciMemoized(n-1)
-    return cache[n]!
+    return fib(n)
 }
 
 if let argument = Int(CommandLine.arguments[1]) {
