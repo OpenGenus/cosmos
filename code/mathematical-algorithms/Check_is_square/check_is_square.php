@@ -1,4 +1,5 @@
 <?php
+// Part of Cosmos by OpenGenus Foundation 
 
 // function to check if a number is
 function check($numbers)
