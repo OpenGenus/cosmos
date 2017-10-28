@@ -15,7 +15,8 @@ struct AVLTree
     int size;
 };
 
-void AVLTreeInit(struct AVLTree *tree)
+void 
+AVLTreeInit(struct AVLTree *tree)
 {
     tree->root = NULL;
     tree->size = 0;
@@ -30,49 +31,56 @@ struct AVLTree *AVLTreeNew()
     return tree;
 }
 
-void _AVLNodeFree(struct AVLNode *current)
+void 
+AVLNodeFree(struct AVLNode *current)
 {
     if (current != NULL)
     {
-        _AVLNodeFree(current->left);
-        _AVLNodeFree(current->right);
+        AVLNodeFree(current->left);
+        AVLNodeFree(current->right);
         free(current);
         current = NULL;
     }
 }
 
-void AVLTreeClear(struct AVLTree *tree)
+void 
+AVLTreeClear(struct AVLTree *tree)
 {
-    _AVLNodeFree(tree->root);
+    AVLNodeFree(tree->root);
     tree->root = NULL;
     tree->size = 0;
 }
 
-void AVLTreeDelete(struct AVLTree *tree)
+void 
+AVLTreeDelete(struct AVLTree *tree)
 {
     AVLTreeClear(tree);
     free(tree);
     tree = NULL;
 }
 
-int AVLTreeSize(struct AVLTree *tree)
+int 
+AVLTreeSize(struct AVLTree *tree)
 {
     return tree->size;
 }
 
-int AVLTreeHeight(struct AVLTree *tree)
+int 
+AVLTreeHeight(struct AVLTree *tree)
 {
     return tree->root->height;
 }
 
-int _h(struct AVLNode *current)
+int 
+_h(struct AVLNode *current)
 {
     if (current == NULL)
         return -1;
     return current->height;
 }
 
-void _setHeight(struct AVLNode *current)
+void 
+_setHeight(struct AVLNode *current)
 {
     int leftHeight = _h(current->left);
     int rightHeight = _h(current->right);
@@ -107,7 +115,8 @@ struct AVLNode *_rotateRight(struct AVLNode *current)
     return newTop;
 }
 
-int _bf(struct AVLNode *current)
+int 
+_bf(struct AVLNode *current)
 {
     return _h(current->right) - _h(current->left);
 }
@@ -149,52 +158,47 @@ struct AVLNode *_AVLNodeAdd(struct AVLNode *current, int newValue)
         return newNode;
     }
     else if (newValue < current->value)
-    {
         current->left = _AVLNodeAdd(current->left, newValue);
-    }
+   
     else
-    {
         current->right = _AVLNodeAdd(current->right, newValue);
-    }
 
     return _balance(current);
 }
 
-void AVLTreeAdd(struct AVLTree *tree, int newValue)
+void 
+AVLTreeAdd(struct AVLTree *tree, int newValue)
 {
     tree->root = _AVLNodeAdd(tree->root, newValue);
     tree->size++;
 }
 
-int AVLTreeContains(struct AVLTree *tree, int value)
+int 
+AVLTreeContains(struct AVLTree *tree, int value)
 {
     struct AVLNode *current = tree->root;
 
     while (current != NULL)
     {
         if (value == current->value)
-        {
             return 1;
-        }
+
         else if (value < current->value)
-        {
             current = current->left;
-        }
+  
         else
-        {
             current = current->right;
-        }
     }
 
     return 0;
 }
 
-int _leftMost(struct AVLNode *current)
+int 
+_leftMost(struct AVLNode *current)
 {
     while (current->left != NULL)
-    {
-        current = current->left;
-    }
+           current = current->left;
+   
     return current->value;
 }
 
@@ -232,18 +236,16 @@ struct AVLNode *_AVLNodeRemove(struct AVLNode *current, int value)
         }
     }
     else if (value < current->value)
-    {
         current->left = _AVLNodeRemove(current->left, value);
-    }
+   
     else
-    {
         current->right = _AVLNodeRemove(current->right, value);
-    }
-
+    
     return _balance(current);
 }
 
-void AVLTreeRemove(struct AVLTree *tree, int value)
+void 
+AVLTreeRemove(struct AVLTree *tree, int value)
 {
     if (AVLTreeContains(tree, value))
     {
@@ -252,24 +254,25 @@ void AVLTreeRemove(struct AVLTree *tree, int value)
     }
 }
 
-int AVLTreeGetSmallest(struct AVLTree *tree)
+int 
+AVLTreeGetSmallest(struct AVLTree *tree)
 {
-    return _leftMost(tree->root);
+        return _leftMost(tree->root);
 }
 
-void AVLTreeRemoveSmallest(struct AVLTree *tree)
+void 
+AVLTreeRemoveSmallest(struct AVLTree *tree)
 {
     tree->root = _removeLeftMost(tree->root);
     tree->size--;
 }
 
-void AVLNodePrint(struct AVLNode *current)
+void 
+AVLNodePrint(struct AVLNode *current)
 {
     if (current == NULL)
-    {
         return;
-    }
-
+  
     printf("(");
     AVLNodePrint(current->left);
 
@@ -279,18 +282,18 @@ void AVLNodePrint(struct AVLNode *current)
     printf(")");
 }
 
-void AVLTreePrint(struct AVLTree *tree)
+void 
+AVLTreePrint(struct AVLTree *tree)
 {
     if (tree == NULL)
-    {
         return;
-    }
-
+    
     AVLNodePrint(tree->root);
     printf("\n");
 }
 
-int main()
+int 
+main()
 {
     struct AVLTree *tree = AVLTreeNew();
 
