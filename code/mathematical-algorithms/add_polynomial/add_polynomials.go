@@ -37,7 +37,7 @@ func (p *Polynomail) Show() {
 		if i != 0 {
 			fmt.Printf(" + ")
 		}
-		fmt.Printf("%d^%d", data.Coeff, data.Pow)
+		fmt.Printf("%dx^%d", data.Coeff, data.Pow)
 	}
 	fmt.Printf("\n")
 }
