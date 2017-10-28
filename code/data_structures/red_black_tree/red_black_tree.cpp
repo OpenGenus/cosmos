@@ -3,31 +3,33 @@
 #include <memory>
 using namespace std;
 
-template<typename DERIVE>
+template<typename _Tp, class _DERIVE>
 struct Node
 {
-    typedef std::shared_ptr<DERIVE> p_node_type;
-    int data;
+    typedef std::shared_ptr<_DERIVE> p_node_type;
+    _Tp data;
     p_node_type left, right;
-    Node(int d, p_node_type l = nullptr, p_node_type r = nullptr)
+    Node(_Tp d, p_node_type l = nullptr, p_node_type r = nullptr)
         :data(d), left(l), right(r) {}
 };
 
-struct RBNode : Node<RBNode>
+template<typename _Tp>
+struct RBNode : Node<_Tp, RBNode<_Tp>>
 {
     typedef std::shared_ptr<RBNode> p_node_type;
     p_node_type parent;
     bool color;
-    RBNode(int d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
-        :Node(d, l, r), parent(p), color(false) {}
+    RBNode(_Tp d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
+        :Node<_Tp, RBNode<_Tp>>(d, l, r), parent(p), color(false) {}
 };
 
 // Class to represent Red-Black Tree
+template<typename _Tp, typename _Comp = std::less<_Tp>>
 class RBTree
 {
 private:
     enum Color {RED, BLACK};
-    typedef RBNode node_type;
+    typedef RBNode<_Tp> node_type;
     typedef std::shared_ptr<node_type> p_node_type;
     p_node_type root;
 protected:
@@ -37,13 +39,13 @@ protected:
 public:
     // Constructor
     RBTree() :root(nullptr) {}
-    void insert(const int &n);
+    void insert(const _Tp &n);
     void inorder();
     void levelOrder();
 };
 
 // A recursive function to do level order traversal
-void inorderHelper(std::shared_ptr<RBNode> root)
+void inorderHelper(std::shared_ptr<RBNode<int>> root)
 {
     if (root == nullptr)
         return;
@@ -55,7 +57,7 @@ void inorderHelper(std::shared_ptr<RBNode> root)
 
 /* A utility function to insert a new node with given key
  in BST */
-std::shared_ptr<RBNode> BSTInsert(std::shared_ptr<RBNode> root, std::shared_ptr<RBNode> pt)
+std::shared_ptr<RBNode<int>> BSTInsert(std::shared_ptr<RBNode<int>> root, std::shared_ptr<RBNode<int>> pt)
 {
     /* If the tree is empty, return a new node */
     if (root == nullptr)
@@ -78,17 +80,17 @@ std::shared_ptr<RBNode> BSTInsert(std::shared_ptr<RBNode> root, std::shared_ptr<
 }
  
 // Utility function to do level order traversal
-void levelOrderHelper(std::shared_ptr<RBNode> root)
+void levelOrderHelper(std::shared_ptr<RBNode<int>> root)
 {
     if (root == nullptr)
         return;
     
-    std::queue<std::shared_ptr<RBNode>> q;
+    std::queue<std::shared_ptr<RBNode<int>>> q;
     q.push(root);
  
     while (!q.empty())
     {
-        std::shared_ptr<RBNode> temp = q.front();
+        std::shared_ptr<RBNode<int>> temp = q.front();
         cout << temp->data << "  ";
         q.pop();
         
@@ -100,7 +102,8 @@ void levelOrderHelper(std::shared_ptr<RBNode> root)
     }
 }
 
-void RBTree::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
     RBTree::p_node_type pt_right = pt->right;
     
@@ -124,7 +127,8 @@ void RBTree::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &pt)
     pt->parent = pt_right;
 }
 
-void RBTree::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
     RBTree::p_node_type pt_left = pt->left;
     
@@ -132,24 +136,25 @@ void RBTree::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &pt)
     
     if (pt->left != nullptr)
         pt->left->parent = pt;
- 
+    
     pt_left->parent = pt->parent;
     
     if (pt->parent == nullptr)
         root = pt_left;
- 
+    
     else if (pt == pt->parent->left)
         pt->parent->left = pt_left;
- 
+    
     else
         pt->parent->right = pt_left;
- 
+    
     pt_left->right = pt;
     pt->parent = pt_left;
 }
- 
+
 // This function fixes violations caused by BST insertion
-void RBTree::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
     RBTree::p_node_type parent_pt = nullptr;
     RBTree::p_node_type grand_parent_pt = nullptr;
@@ -242,7 +247,8 @@ void RBTree::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 }
  
 // Function to insert a new node with given data
-void RBTree::insert(const int &data)
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::insert(const _Tp &data)
 {
     RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
     
@@ -254,14 +260,16 @@ void RBTree::insert(const int &data)
 }
  
 // Function to do inorder and level order traversals
-void RBTree::inorder()     {  inorderHelper(root);}
-void RBTree::levelOrder()  {  levelOrderHelper(root); }
- 
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::inorder()     {  inorderHelper(root);}
+template<typename _Tp, typename _Comp>
+void RBTree<_Tp, _Comp>::levelOrder()  {  levelOrderHelper(root); }
+
 // Driver Code
 int main()
 {
-    RBTree tree;
- 
+    RBTree<int> tree;
+    
     tree.insert(7);
     tree.insert(6);
     tree.insert(5);
