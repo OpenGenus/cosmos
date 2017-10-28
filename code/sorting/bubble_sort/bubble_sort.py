@@ -29,3 +29,12 @@ def bubble_sort(alist):
         if num_swaps == 0:
                 is_sorted = True
     return alist
+
+# another solution
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
