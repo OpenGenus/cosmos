@@ -3,25 +3,31 @@
 #include <memory>
 using namespace std;
 
-enum Color {RED, BLACK};
-
+template<typename DERIVE>
 struct Node
 {
-    typedef std::shared_ptr<Node> p_node_type;
+    typedef std::shared_ptr<DERIVE> p_node_type;
     int data;
+    p_node_type left, right;
+    Node(int d, p_node_type l = nullptr, p_node_type r = nullptr)
+        :data(d), left(l), right(r) {}
+};
+
+struct RBNode : Node<RBNode>
+{
+    typedef std::shared_ptr<RBNode> p_node_type;
+    p_node_type parent;
     bool color;
-    p_node_type left, right, parent;
-    
-    // Constructor
-    Node(int d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
-        :data(d), left(l), right(r), parent(p) {}
+    RBNode(int d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
+        :Node(d, l, r), parent(p), color(false) {}
 };
 
 // Class to represent Red-Black Tree
 class RBTree
 {
 private:
-    typedef Node node_type;
+    enum Color {RED, BLACK};
+    typedef RBNode node_type;
     typedef std::shared_ptr<node_type> p_node_type;
     p_node_type root;
 protected:
@@ -37,7 +43,7 @@ public:
 };
 
 // A recursive function to do level order traversal
-void inorderHelper(std::shared_ptr<Node> root)
+void inorderHelper(std::shared_ptr<RBNode> root)
 {
     if (root == nullptr)
         return;
@@ -49,7 +55,7 @@ void inorderHelper(std::shared_ptr<Node> root)
 
 /* A utility function to insert a new node with given key
  in BST */
-std::shared_ptr<Node> BSTInsert(std::shared_ptr<Node> root, std::shared_ptr<Node> pt)
+std::shared_ptr<RBNode> BSTInsert(std::shared_ptr<RBNode> root, std::shared_ptr<RBNode> pt)
 {
     /* If the tree is empty, return a new node */
     if (root == nullptr)
@@ -72,17 +78,17 @@ std::shared_ptr<Node> BSTInsert(std::shared_ptr<Node> root, std::shared_ptr<Node
 }
  
 // Utility function to do level order traversal
-void levelOrderHelper(std::shared_ptr<Node> root)
+void levelOrderHelper(std::shared_ptr<RBNode> root)
 {
     if (root == nullptr)
         return;
     
-    std::queue<std::shared_ptr<Node>> q;
+    std::queue<std::shared_ptr<RBNode>> q;
     q.push(root);
  
     while (!q.empty())
     {
-        std::shared_ptr<Node> temp = q.front();
+        std::shared_ptr<RBNode> temp = q.front();
         cout << temp->data << "  ";
         q.pop();
         
