@@ -1,4 +1,4 @@
-package opengenus.cosmos.sorting
+package opengenus.cosmos.search
 
 import scala.annotation.tailrec
 
