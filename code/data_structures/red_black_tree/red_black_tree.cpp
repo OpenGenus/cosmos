@@ -1,59 +1,62 @@
 #include <iostream>
 #include <queue>
+#include <memory>
 using namespace std;
- 
+
 enum Color {RED, BLACK};
- 
+
 struct Node
 {
     int data;
     bool color;
-    Node *left, *right, *parent;
- 
+    std::shared_ptr<Node> left, right, parent;
+    
     // Constructor
     Node(int data)
     {
-       this->data = data;
-       left = right = parent = NULL;
+        this->data = data;
+        left = right = parent = nullptr;
     }
 };
- 
+
 // Class to represent Red-Black Tree
 class RBTree
 {
 private:
-    Node *root;
+    typedef Node node_type;
+    typedef std::shared_ptr<node_type> p_node_type;
+    p_node_type root;
 protected:
-    void rotateLeft(Node *&, Node *&);
-    void rotateRight(Node *&, Node *&);
-    void fixViolation(Node *&, Node *&);
+    void rotateLeft(p_node_type &, p_node_type &);
+    void rotateRight(p_node_type &, p_node_type &);
+    void fixViolation(p_node_type &, p_node_type &);
 public:
     // Constructor
-    RBTree() { root = NULL; }
+    RBTree() { root = nullptr; }
     void insert(const int &n);
     void inorder();
     void levelOrder();
 };
- 
+
 // A recursive function to do level order traversal
-void inorderHelper(Node *root)
+void inorderHelper(std::shared_ptr<Node> root)
 {
-    if (root == NULL)
+    if (root == nullptr)
         return;
- 
+    
     inorderHelper(root->left);
     cout << root->data << "  ";
     inorderHelper(root->right);
 }
- 
+
 /* A utility function to insert a new node with given key
-   in BST */
-Node* BSTInsert(Node* root, Node *pt)
+ in BST */
+std::shared_ptr<Node> BSTInsert(std::shared_ptr<Node> root, std::shared_ptr<Node> pt)
 {
     /* If the tree is empty, return a new node */
-    if (root == NULL)
-       return pt;
- 
+    if (root == nullptr)
+        return pt;
+    
     /* Otherwise, recur down the tree */
     if (pt->data < root->data)
     {
@@ -71,40 +74,40 @@ Node* BSTInsert(Node* root, Node *pt)
 }
  
 // Utility function to do level order traversal
-void levelOrderHelper(Node *root)
+void levelOrderHelper(std::shared_ptr<Node> root)
 {
-    if (root == NULL)
+    if (root == nullptr)
         return;
- 
-    std::queue<Node *> q;
+    
+    std::queue<std::shared_ptr<Node>> q;
     q.push(root);
  
     while (!q.empty())
     {
-        Node *temp = q.front();
+        std::shared_ptr<Node> temp = q.front();
         cout << temp->data << "  ";
         q.pop();
- 
-        if (temp->left != NULL)
+        
+        if (temp->left != nullptr)
             q.push(temp->left);
- 
-        if (temp->right != NULL)
+        
+        if (temp->right != nullptr)
             q.push(temp->right);
     }
 }
- 
-void RBTree::rotateLeft(Node *&root, Node *&pt)
+
+void RBTree::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
-    Node *pt_right = pt->right;
- 
+    RBTree::p_node_type pt_right = pt->right;
+    
     pt->right = pt_right->left;
- 
-    if (pt->right != NULL)
+    
+    if (pt->right != nullptr)
         pt->right->parent = pt;
  
     pt_right->parent = pt->parent;
- 
-    if (pt->parent == NULL)
+    
+    if (pt->parent == nullptr)
         root = pt_right;
  
     else if (pt == pt->parent->left)
@@ -116,19 +119,19 @@ void RBTree::rotateLeft(Node *&root, Node *&pt)
     pt_right->left = pt;
     pt->parent = pt_right;
 }
- 
-void RBTree::rotateRight(Node *&root, Node *&pt)
+
+void RBTree::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
-    Node *pt_left = pt->left;
- 
+    RBTree::p_node_type pt_left = pt->left;
+    
     pt->left = pt_left->right;
- 
-    if (pt->left != NULL)
+    
+    if (pt->left != nullptr)
         pt->left->parent = pt;
  
     pt_left->parent = pt->parent;
- 
-    if (pt->parent == NULL)
+    
+    if (pt->parent == nullptr)
         root = pt_left;
  
     else if (pt == pt->parent->left)
@@ -142,11 +145,11 @@ void RBTree::rotateRight(Node *&root, Node *&pt)
 }
  
 // This function fixes violations caused by BST insertion
-void RBTree::fixViolation(Node *&root, Node *&pt)
+void RBTree::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
-    Node *parent_pt = NULL;
-    Node *grand_parent_pt = NULL;
- 
+    RBTree::p_node_type parent_pt = nullptr;
+    RBTree::p_node_type grand_parent_pt = nullptr;
+    
     while ((pt != root) && (pt->color != BLACK) &&
            (pt->parent->color == RED))
     {
@@ -158,13 +161,13 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
             Parent of pt is left child of Grand-parent of pt */
         if (parent_pt == grand_parent_pt->left)
         {
- 
-            Node *uncle_pt = grand_parent_pt->right;
- 
+            
+            RBTree::p_node_type uncle_pt = grand_parent_pt->right;
+            
             /* Case : 1
-               The uncle of pt is also red
-               Only Recoloring required */
-            if (uncle_pt != NULL && uncle_pt->color == RED)
+             The uncle of pt is also red
+             Only Recoloring required */
+            if (uncle_pt != nullptr && uncle_pt->color == RED)
             {
                 grand_parent_pt->color = RED;
                 parent_pt->color = BLACK;
@@ -197,12 +200,12 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
            Parent of pt is right child of Grand-parent of pt */
         else
         {
-            Node *uncle_pt = grand_parent_pt->left;
- 
+            RBTree::p_node_type uncle_pt = grand_parent_pt->left;
+            
             /*  Case : 1
-                The uncle of pt is also red
-                Only Recoloring required */
-            if ((uncle_pt != NULL) && (uncle_pt->color == RED))
+             The uncle of pt is also red
+             Only Recoloring required */
+            if ((uncle_pt != nullptr) && (uncle_pt->color == RED))
             {
                 grand_parent_pt->color = RED;
                 parent_pt->color = BLACK;
@@ -237,8 +240,8 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
 // Function to insert a new node with given data
 void RBTree::insert(const int &data)
 {
-    Node *pt = new Node(data);
- 
+    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
+    
     // Do a normal BST insert
     root = BSTInsert(root, pt);
  
