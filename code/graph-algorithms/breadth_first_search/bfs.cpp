@@ -3,7 +3,7 @@
 #include <set>
 #include <queue>
 #define f first
-#definr s second
+#define s second
 
 /* Part of Cosmos by OpenGenus Foundation */
 void bfs(int start,								// the node that we are currently at
