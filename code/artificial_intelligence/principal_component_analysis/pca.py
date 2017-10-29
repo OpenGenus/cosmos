@@ -215,13 +215,20 @@ def principal_subspace_transformation(data, matrix_w):
     return transformed
 
 def main():
+    ''' Main function to perform Principal Component Analysis'''
+    # 1. Take the whole dataset consisting of dd-dimensional samples ignoring the class labels
     all_samples = generate_data()
+    # 2. Compute the dd-dimensional mean vector (i.e., the means for every dimension of the whole dataset)
     mean_vector = compute_mean_vector(all_samples)
+    # 3. Compute the scatter matrix (alternatively, the covariance matrix) of the whole data set
     scatter_matrix = compute_scatter_matrix(all_samples, mean_vector)
     cov_mat = compute_covariance_matrix(all_samples)
+    # 4. Compute eigenvectors and corresponding eigenvalues
     eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
     visualize_eigen(all_samples, eigen_vec)
+    # 5. Sort the eigenvectors by decreasing eigenvalues and choose kk eigenvectors with the largest eigenvalues.
     matrix_w = get_2_largest_eigen_vectors(eigen_vec, eigen_val)
+    # 6. Use this d×kd×k eigenvector matrix to transform the samples onto the new subspace.
     transformed = principal_subspace_transformation(all_samples, matrix_w)
     visulize_pca(transformed)
 
