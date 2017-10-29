@@ -1,12 +1,11 @@
 //Time Complexity : O((n+q)*sqrt(n))
 
-#include <bits/stdc++.h>
-#include<math.h>
-#includ<conio.h>
+#include <cmath>
+#include <cstdio>
+#include <vector>
 
 /* Part of Cosmos by OpenGenus Foundation */
 
- 
 #define ll long long int
 #define mod 1000000007
 #define show(a) for(i=0;i<a.size();i++) cout<<a[i]<<" ";
@@ -29,14 +28,15 @@ inline int sbt(int x){return __builtin_popcount(x);}
 using namespace std;
 int freq[1111111];
 int BLOCK;
+
 //Mo Sorting
 bool f(pair<int,pi> a, pair<int,pi> b){
     if(a.se.fi/BLOCK == b.se.fi/BLOCK)
         return a.se.se>b.se.se;
     return a.se.fi/BLOCK>b.se.fi/BLOCK;
 }
+
 int main() {
-	system("cls");
     //fast_io()
     int n;
     scanf("%d",&n);
@@ -83,12 +83,12 @@ int main() {
 	            ans--;
 	        e--;
 	    }
-	  
+
 		v[q[i].fi]=ans;
 	}
-	for(int i=0;i<Q;i++)
+
+	for (int i=0; i<Q; i++)
 	    printf("%d\n",v[i]);
-        getch();
+
 	return 0;
-	
 }
