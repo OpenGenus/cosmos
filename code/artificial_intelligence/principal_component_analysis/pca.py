@@ -17,6 +17,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d import proj3d
+from matplotlib.patches import FancyArrowPatch
 
 def visualize_data(data1, data2):
     ''' Create a 3D plot for data visualization '''
@@ -31,6 +32,40 @@ def visualize_data(data1, data2):
 
     plt.show()
 
+class Arrow3D(FancyArrowPatch):
+    ''' Arrow graphics class '''
+    def __init__(self, xs, ys, zs, *args, **kwargs):
+        FancyArrowPatch.__init__(self, (0,0), (0,0), *args, **kwargs)
+        self._verts3d = xs, ys, zs
+
+    def draw(self, renderer):
+        xs3d, ys3d, zs3d = self._verts3d
+        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
+        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
+        FancyArrowPatch.draw(self, renderer)
+
+def visualize_eigen(data, eig_vec_sc):
+    ''' Create 3D representation of the eigenvectors computed '''
+    # separate mean vector components
+    mean_x = np.mean(data[0,:])
+    mean_y = np.mean(data[1,:])
+    mean_z = np.mean(data[2,:])
+    # create figure
+    fig = plt.figure(figsize=(7,7))
+    ax = fig.add_subplot(111, projection='3d')
+
+    ax.plot(data[0,:], data[1,:], data[2,:], 'o', markersize=8, color='green', alpha=0.2)
+    ax.plot([mean_x], [mean_y], [mean_z], 'o', markersize=10, color='red', alpha=0.5)
+    for v in eig_vec_sc.T:
+        a = Arrow3D([mean_x, v[0]], [mean_y, v[1]], [mean_z, v[2]], mutation_scale=20, lw=3, arrowstyle="-|>", color="r")
+        ax.add_artist(a)
+    ax.set_xlabel('x_values')
+    ax.set_ylabel('y_values')
+    ax.set_zlabel('z_values')
+
+    plt.title('Eigenvectors')
+
+    plt.show()
 
 # Data Generation ------------------------------------------------------------
 def normalized_distributed_data(mean_value):
@@ -131,6 +166,7 @@ def main():
     scatter_matrix = compute_scatter_matrix(all_samples, mean_vector)
     cov_mat = compute_covariance_matrix(all_samples)
     eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
+    visualize_eigen(all_samples, eigen_vec)
 
 if __name__ == "__main__":
     main()
