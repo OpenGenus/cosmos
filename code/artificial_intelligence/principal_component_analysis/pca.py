@@ -95,6 +95,9 @@ def verify_eigen_values(scatter_matrix, eig_val_sc, eig_vec_sc):
         eigv = eig_vec_sc[:,i].reshape(1,3).T
         np.testing.assert_array_almost_equal(scatter_matrix.dot(eigv), eig_val_sc[i] * eigv,
                                              decimal=6, err_msg='', verbose=True)
+    # test eigen vectors module to equal one
+    for ev in eig_vec_sc:
+        np.testing.assert_array_almost_equal(1.0, np.linalg.norm(ev))
     return True
 
 def compute_eigen(scatter_matrix, cov_mat):
