@@ -2,8 +2,7 @@
  
 #include<stdio.h>
 #include<malloc.h>
- 
-struct node {
+ struct node {
     int n;
     int degree;
     struct node* parent;

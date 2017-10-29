@@ -31,11 +31,7 @@ void flashSort(int *arr, int size)
     int m = 0.43 * size; // Divide to m class
     float c = (float)(m - 1) / (max - min);
 
-    int *L = (int *)malloc(sizeof(int) * (m + 1));
-    for (int k = 0; k <= m; ++k)
-    {
-        L[k] = 0;
-    }
+    int *L = (int *)calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; ++i)
     {
         int k = c * (arr[i] - min) + 1;

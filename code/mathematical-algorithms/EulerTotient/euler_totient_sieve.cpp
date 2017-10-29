@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 const int MAXN = 1000000;

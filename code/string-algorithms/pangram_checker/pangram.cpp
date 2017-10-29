@@ -2,7 +2,7 @@
 	pangram.cpp
 	by Charles (@c650)
 
-	Path of Cosmos by OpenGenus Foundation
+	Part of Cosmos by OpenGenus Foundation
 */
 #include <iostream>
 

@@ -1,4 +1,4 @@
-/*
+/* computational geometry | area of polygon | C
  * @Author: Ayush Garg 
  * @Date: 2017-10-13 01:20:26 
  * @Last Modified by: Ayush Garg
@@ -16,7 +16,7 @@ typedef struct
 double calcArea(point a, point b, point c)
 {
     double tmp = ((a.x - b.x) * (c.y - b.y) - (a.y - b.y) * (c.x - b.x)) / 2;
-    return (tmp < 0) ? (-1 * tmp) : tmp;
+    return (tmp < 0) ? (-tmp) : tmp;
 }
 
 int main()

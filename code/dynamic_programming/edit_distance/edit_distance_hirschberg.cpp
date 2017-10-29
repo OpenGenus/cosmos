@@ -1,11 +1,14 @@
 /*
- Open-Genus/Cosmos  
+ Part of Cosmos by OpenGenus Foundation
  Dynamic-Programming + Divide & conquer for getting cost and aligned strings for problem of aligning two large strings
  Reference - Wikipedia-"Hirschberg's algorithm"
  */
 
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
-#include <bits/stdc++.h>
 using namespace std;
 
 //cost associated

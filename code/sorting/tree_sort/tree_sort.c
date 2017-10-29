@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <alloc.h>
 // Part of Cosmos by OpenGenus Foundation
 struct btreenode
@@ -20,7 +19,6 @@ void main( )
 
     bt = NULL ;
 
-    clrscr( ) ;
 
     printf ( "Binary tree sort.\n" ) ;
 
@@ -34,7 +32,6 @@ void main( )
     printf ( "\nIn-order traversal of binary tree:\n" ) ;
     inorder ( bt ) ;
 
-    getch( ) ;
 }
 
 void insert ( struct btreenode **sr, int num )

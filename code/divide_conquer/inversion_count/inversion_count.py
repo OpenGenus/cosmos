@@ -1,7 +1,7 @@
 '''
 
-Inversion count in a array using mergesort
-Part of Cosmos by OpenGenus Foundation
+divide conquer | inversion count | Python
+part of Cosmos by OpenGenus Foundation
 
 '''
 
@@ -10,7 +10,7 @@ def merge(left, right):
     i = 0
     j = 0
     inv_cnt = 0
-    
+
     while i < len(left) and j < len(right):
         if left[i] <= right[j]:
             merged_arr.append(left[i])
@@ -19,10 +19,10 @@ def merge(left, right):
             merged_arr.append(right[j])
             j += 1
             inv_cnt += (len(left) - i)
-    
+
     merged_arr += left[i:]
     merged_arr += right[j:]
-    
+
     return merged_arr, inv_cnt
 
 def merge_sort(arr): # this function will return a tuple as (sorted_array, inversion_count)
@@ -30,7 +30,7 @@ def merge_sort(arr): # this function will return a tuple as (sorted_array, inver
         mid = len(arr)//2;
         left = arr[:mid]
         right = arr[mid:]
-        
+
         left, left_inv_cnt = merge_sort(left)
         right, right_inv_cnt = merge_sort(right)
         merged, merged_inv_cnt = merge(left, right)

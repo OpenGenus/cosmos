@@ -1,4 +1,7 @@
-#include<bits/stdc++.h>
+//  divide conquer | quick sort | C++
+//  Part of Cosmos by OpenGenus Foundation
+
+#include <cstdio>
 using namespace std;
 
 void swap(int* a, int* b)
@@ -7,7 +10,7 @@ void swap(int* a, int* b)
     *a = *b;
     *b = t;
 }
- 
+
 /* This function takes last element as pivot, places
    the pivot element at its correct position in sorted
     array, and places all smaller (smaller than pivot)
@@ -17,7 +20,7 @@ int partition (int arr[], int low, int high)
 {
     int pivot = arr[high];    // pivot
     int i = (low - 1);  // Index of smaller element
- 
+
     for (int j = low; j <= high- 1; j++)
     {
         // If current element is smaller than or
@@ -44,7 +47,7 @@ void quickSort(int arr[], int low, int high)
         quickSort(arr, pi + 1, high);
     }
 }
- 
+
 void printArray(int arr[], int size)
 {
     int i;
@@ -52,7 +55,7 @@ void printArray(int arr[], int size)
         printf("%d ", arr[i]);
     printf("\n");
 }
- 
+
 int main()
 {
     int arr[] = {10, 7, 8, 9, 1, 5};

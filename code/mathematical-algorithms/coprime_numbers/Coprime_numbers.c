@@ -1,7 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-#includen<stdio.h> 
-#include<conio.h> 
+#include<stdio.h>
 
 int hcf(int a, int h) 
 {
@@ -30,6 +29,5 @@ int main()
     else
     {
         printf("\n%d and %d are not relatively prime or co prime numbers .",c,d);
-    }         
-    getch(); 
+    }        
 }

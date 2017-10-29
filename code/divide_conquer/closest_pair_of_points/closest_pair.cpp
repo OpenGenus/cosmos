@@ -1,8 +1,14 @@
-#include <bits/stdc++.h>
+//  divide conquer | structure to represent a point | C
+//  Part of Cosmos by OpenGenus Foundation
+
+#include <vector>
+#include <cmath>
+#include <iostream>
+#include <algorithm>
+#include <cfloat>
 #define ll long long
 using namespace std;
-// Part of Cosmos by OpenGenus Foundation
-// structure to represent a point
+
 struct point {
 	ll x;
 	ll y;
