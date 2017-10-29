@@ -129,7 +129,9 @@ void linkedlist::deleteElement(int d)
     {
         if(del->next->data==d)
         {
+            node* tmp = del->next;
             del->next=del->next->next;
+            delete tmp;
             return;
 
         }
