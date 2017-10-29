@@ -12,11 +12,11 @@ class LinkedQueue
   def enqueue(element)
     new_node = Node.new(element)
     @size += 1
-    unless @head
-      @head = new_node
+    if @head
+      @tail.next = new_node
       @tail = new_node
     else
-      @tail.next = new_node
+      @head = new_node
       @tail = new_node
     end
   end
@@ -26,11 +26,11 @@ class LinkedQueue
     removed = @head
     @head = @head.next
     @size -= 1
-    return removed.element
+    removed.element
   end
 
   def empty?
-    return @size == 0
+    @size == 0
   end
 
   def front
@@ -59,4 +59,4 @@ queue.enqueue(0)
 puts queue.dequeue
 puts queue.dequeue
 puts queue.front
-puts "Size: %d" % queue.size
+puts format('Size: %d', queue.size)

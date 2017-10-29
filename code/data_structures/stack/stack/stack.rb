@@ -11,11 +11,11 @@ class Stack
   end
 
   def pop
-    @items.pop()
+    @items.pop
   end
 
   def empty?
-    @items.size == 0
+    @items.empty?
   end
 
   def peek
