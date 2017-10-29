@@ -159,6 +159,24 @@ def compute_eigen(scatter_matrix, cov_mat):
 
     return eig_val_sc, eig_vec_sc
 
+def sort_eigen_vectors(eigen_vec, eigen_val):
+    '''
+        Sort eigen vectors by decreasing eigenvalues.
+        Eigen vectors with lower eigenvalues hold less information about the data distribution.
+    '''
+    # Make a list of (eigenvalue, eigenvector) tuples
+    eig_pairs = [(np.abs(eigen_val[i]), eigen_vec[:,i]) for i in range(len(eigen_val))]
+
+    # Sort the (eigenvalue, eigenvector) tuples from high to low
+    eig_pairs.sort(key=lambda x: x[0], reverse=True)
+
+    # Visually confirm that the list is correctly sorted by decreasing eigenvalues
+    print('Eigen values ordered in decreasing order:')
+    for pair in eig_pairs:
+        print(pair[0])
+
+    return eig_pairs
+
 
 def main():
     all_samples = generate_data()
@@ -167,6 +185,7 @@ def main():
     cov_mat = compute_covariance_matrix(all_samples)
     eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
     visualize_eigen(all_samples, eigen_vec)
+    eig_pairs = sort_eigen_vectors(eigen_vec, eigen_val)
 
 if __name__ == "__main__":
     main()
