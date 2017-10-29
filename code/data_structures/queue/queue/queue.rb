@@ -15,7 +15,7 @@ class Queue
   end
 
   def empty?
-    @items.size == 0
+    @items.empty?
   end
 
   def front
