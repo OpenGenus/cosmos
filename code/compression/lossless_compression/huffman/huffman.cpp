@@ -127,7 +127,8 @@ private:
 #include <bitset>
 
 template<typename _Tp>
-struct BinaryTreeNode {
+struct BinaryTreeNode
+{
     _Tp value;
     std::shared_ptr<BinaryTreeNode<_Tp> > left, right;
     BinaryTreeNode(_Tp v,
@@ -136,7 +137,8 @@ struct BinaryTreeNode {
 };
 
 template<typename _Tp>
-struct Comp {
+struct Comp
+{
 public:
     bool operator()(_Tp a, _Tp b) const {
         return a->value.first > b->value.first;
@@ -145,9 +147,11 @@ public:
 
 class HuffmanTest;
 
-class Huffman {
+class Huffman
+{
 private:
     typedef size_t                                                       size_type;
+    // base_type: support unsigned type that at least 2-bit
     typedef unsigned long long                                           base_type;
     typedef std::pair<char, size_type>                                   freq_node_type;
     typedef std::unordered_map<char, size_type>                          freq_type;
@@ -161,11 +165,7 @@ private:
 
 public:
     Huffman()
-        :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_() {
-        power_.resize(GUARANTEE_BIT);
-        for (auto i = GUARANTEE_BIT; i > 0; --i)
-            power_.at(i - 1) = pow(2, GUARANTEE_BIT - i);
-    };
+        :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_() {};
 
     std::string compression(std::string const &in) {
         calculateFrequency(in);
@@ -220,10 +220,10 @@ private:
     reverse_dictionary_type reverse_dictionary_;
     std::shared_ptr<tree_node_type> sentinel_;
     unsigned long long binary_bit_;
-    std::vector<size_type> power_;
     const char DELIMITER = ' ';
-    const unsigned long long GUARANTEE_BIT = sizeof(base_type) * 8;
-    const unsigned long long HEX_BIT = 16;
+    static constexpr unsigned long long GUARANTEE_BIT = sizeof(base_type) * 8;
+    static constexpr unsigned long long COMPRESSION_CODE_SEPERATE_BIT = GUARANTEE_BIT / 4;
+    static constexpr unsigned long long HEX_BIT = 16;
 
     std::string readFile(std::istream &in) {
         std::string s{};
@@ -465,44 +465,37 @@ private:
         while (in >> std::noskipws >> c)
             res.append(dictionary_.at(c));
         binary_bit_ = res.size();
+        while (res.size() % GUARANTEE_BIT)
+            res.push_back('0');
 
         return res;
     }
 
     // return string always fill 0 while size is not N * GUARANTEE_BIT
     std::string binaryToHex(std::string const &str) {
-        if (str.empty())
-            return {};
-
-        std::stringstream res{};
-        size_type seat{};
-        base_type c{};
-        while (true)
+        std::stringstream in_ss{str}, res{};
+        std::string str_temp;
+        std::bitset<GUARANTEE_BIT> bs;
+        while (in_ss >> std::setw(GUARANTEE_BIT) >> str_temp)
         {
-            if (seat < str.size())
-                c |= (str.at(seat) == '1') ? 1 : 0;
-            ++seat;
-            if ((seat % GUARANTEE_BIT) == 0)
-            {
-                res << std::hex << c << DELIMITER;
-                c = {};
-                if (seat >= str.size())
-                    break;
-            }
-            c <<= 1;
+            bs = std::bitset<GUARANTEE_BIT>(str_temp);
+            res << std::hex << std::setw(COMPRESSION_CODE_SEPERATE_BIT)
+                << std::setfill('0') << bs.to_ullong();
         }
 
         return res.str();
     }
 
     std::string hexToBinary(std::string const &str) {
-        std::stringstream in_ss{str};
-        std::string res{};
-        base_type c{};
-        const size_type sz = sizeof(base_type) * 8;
-        std::bitset<sz> bs;
-        while (in_ss >> std::hex >> c) {
-            bs = std::bitset<sz>(c);
+        std::stringstream in_ss{str}, ss_temp;
+        std::string res{}, str_temp;
+        base_type integer{};
+        std::bitset<GUARANTEE_BIT> bs;
+        while (in_ss >> std::setw(COMPRESSION_CODE_SEPERATE_BIT) >> str_temp)
+        {
+            ss_temp = std::stringstream(str_temp);
+            ss_temp >> std::hex >> integer;
+            bs = std::bitset<GUARANTEE_BIT>(integer);
             res.append(bs.to_string());
         }
         res.erase(res.begin() + binary_bit_, res.end());

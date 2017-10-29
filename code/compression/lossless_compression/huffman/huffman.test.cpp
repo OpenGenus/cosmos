@@ -1,7 +1,8 @@
 #include "huffman.cpp"
 
 // test only for Huffman::base_type is 64bit
-class HuffmanTest {
+class HuffmanTest
+{
 public:
     HuffmanTest() {
         testCalculateFrequency();
@@ -110,19 +111,19 @@ public:
         assert(res == "");
 
         res = huf.stringToBinary("a");
-        assert(res == "0");
+        assert(res == "0000000000000000000000000000000000000000000000000000000000000000");
 
         res = huf.stringToBinary("ab");
-        assert(res == "010");
+        assert(res == "0100000000000000000000000000000000000000000000000000000000000000");
 
         res = huf.stringToBinary("abc");
-        assert(res == "01011");
+        assert(res == "0101100000000000000000000000000000000000000000000000000000000000");
 
         res = huf.stringToBinary("abca");
-        assert(res == "010110");
+        assert(res == "0101100000000000000000000000000000000000000000000000000000000000");
 
         res = huf.stringToBinary("cbabc");
-        assert(res == "111001011");
+        assert(res == "1110010110000000000000000000000000000000000000000000000000000000");
     }
 
     void testBinaryToHex() {
@@ -138,46 +139,46 @@ public:
             expect.push_back('0');
         assert(res == "");
 
-        bin = "1011";
+        bin = "0000101100000000000000000000000000000000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "b000000000000000 ";
+        expect = "0b00000000000000";
         assert(res == expect);
 
-        bin = "10111110";
+        bin = "1011111000000000000000000000000000000000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "be00000000000000 ";
+        expect = "be00000000000000";
         assert(res == expect);
 
-        bin = "101111101001";
+        bin = "1011111010010000000000000000000000000000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "be90000000000000 ";
+        expect = "be90000000000000";
         assert(res == expect);
 
-        bin = "1011111010010111";
+        bin = "1011111010010111000000000000000000000000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "be97000000000000 ";
+        expect = "be97000000000000";
         assert(res == expect);
 
-        bin = "10111110100101111010011100101000";
+        bin = "1011111010010111101001110010100000000000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "be97a72800000000 ";
+        expect = "be97a72800000000";
         assert(res == expect);
 
-        bin = ("10111110100101111010011100101000111");
+        bin = "1011111010010111101001110010100011100000000000000000000000000000";
         huf.binary_bit_ = bin.size();
         res = huf.binaryToHex(bin);
-        expect = "be97a728e0000000 ";
+        expect = "be97a728e0000000";
         assert(res == expect);
 
-        bin = ("1011111010010111101001110010100011100100111010001011111110110101" \
-               "1011111010010111101001110010100011100100111010001011111110110101");
+        bin = "1011111010010111101001110010100011100100111010001011111110110101" \
+              "1011111010010111101001110010100011100100111010001011111110110101";
         huf.binary_bit_ = bin.size();
-        res = huf.binaryToHex(bin); expect = "be97a728e4e8bfb5 be97a728e4e8bfb5 ";
+        res = huf.binaryToHex(bin); expect = "be97a728e4e8bfb5be97a728e4e8bfb5";
         assert(res == expect);
     }
 
@@ -193,18 +194,18 @@ public:
         res = huf.hexToBinary(hex);
         assert(res == "");
 
-        hex = "b00000000000000 ";
+        hex = "0b00000000000000";
         huf.binary_bit_ = hex.size() * 4;
         res = huf.hexToBinary(hex);
         assert(res == "0000101100000000000000000000000000000000000000000000000000000000");
 
-        hex = "be97a728e4e8bfb5 be97a728e4e8bfb5 ";
+        hex = "be97a728e4e8bfb5be97a728e4e8bfb5";
         huf.binary_bit_ = hex.size() * 4;
         res = huf.hexToBinary(hex);
-        assert(res == ("1011111010010111101001110010100011" \
-                       "1001001110100010111111101101011011" \
-                       "1110100101111010011100101000111001" \
-                       "0011101000101111111011010110111110"));
+        assert(res == "10111110100101111010011100101000" \
+                      "11100100111010001011111110110101" \
+                      "10111110100101111010011100101000" \
+                      "11100100111010001011111110110101");
     }
 };
 
@@ -212,10 +213,12 @@ public:
 #include <fstream>
 #include <iterator>
 using namespace std;
-int main(int arg, char * *args) {
+int
+main(int arg, char * *args) {
     if (sizeof(Huffman::base_type) != 8)
     {
         cout << "the test require that Huffman::base_type based on 64bit\n";
+
         return 0;
     }
     HuffmanTest test;
@@ -244,9 +247,9 @@ int main(int arg, char * *args) {
     // in.open("input.png");
     // out.open("output.png", ios::out | ios::trunc);
     // if (in.fail() || out.fail())
-    //     cout << "error find file\n";
+    // cout << "error find file\n";
     // else
-    //     huf8.decompression(huf8.compression(in), out);
+    // huf8.decompression(huf8.compression(in), out);
     // in.close();
     // out.close();
 
