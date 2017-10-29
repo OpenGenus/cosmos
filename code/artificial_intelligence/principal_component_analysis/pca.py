@@ -67,6 +67,23 @@ def visualize_eigen(data, eig_vec_sc):
 
     plt.show()
 
+def visulize_pca(transformed):
+    '''
+        2D visualization of the principal components to evidence the dimensionality reduction.
+        The markers shows different classes of the original normalized_distributed_data().
+        Its valuable to notice that class classification is not made by the PCA.
+    '''
+    plt.plot(transformed[0,0:20], transformed[1,0:20], 'o', markersize=7, color='blue', alpha=0.5, label='class1')
+    plt.plot(transformed[0,20:40], transformed[1,20:40], '^', markersize=7, color='red', alpha=0.5, label='class2')
+    plt.xlim([-4,4])
+    plt.ylim([-4,4])
+    plt.xlabel('PC 1')
+    plt.ylabel('PC 2')
+    plt.legend()
+    plt.title('Transformed samples with class labels')
+
+    plt.show()
+
 # Data Generation ------------------------------------------------------------
 def normalized_distributed_data(mean_value):
     ''' Generate 3x20 datasets for PCA '''
@@ -203,6 +220,7 @@ def main():
     visualize_eigen(all_samples, eigen_vec)
     matrix_w = get_2_largest_eigen_vectors(eigen_vec, eigen_val)
     transformed = principal_subspace_transformation(all_samples, matrix_w)
+    visulize_pca(transformed)
 
 if __name__ == "__main__":
     main()
