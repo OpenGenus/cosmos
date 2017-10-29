@@ -18,8 +18,11 @@ def str_column_to_float(dataset, column):
 # Split a dataset into k folds
 def cross_validation_split(dataset, n_folds):
 	dataset_split = list()
+
 	dataset_copy = list(dataset)
+	
 	fold_size = int(len(dataset) / n_folds)
+	
 	for i in range(n_folds):
 		fold = list()
 		while len(fold) < fold_size:
