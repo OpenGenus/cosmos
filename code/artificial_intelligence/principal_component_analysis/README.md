@@ -2,7 +2,7 @@
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
 # Principal component analysis
-Solution to Principal Component Analysis Inspired by (Sebastian Raschka)[http://sebastianraschka.com/Articles/2014_pca_step_by_step.html]
+Solution to Principal Component Analysis Inspired by [Sebastian Raschka](http://sebastianraschka.com/Articles/2014_pca_step_by_step.html)
 
 The PCA approach may be summarized according to these steps:
 1. Take the whole dataset consisting of dd-dimensional samples ignoring the class labels
