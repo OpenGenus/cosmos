@@ -124,6 +124,7 @@ private:
 #include <unordered_map>
 #include <cassert>
 #include <iostream>
+#include <bitset>
 
 template<typename _Tp>
 struct BinaryTreeNode {
@@ -496,29 +497,13 @@ private:
 
     std::string hexToBinary(std::string const &str) {
         std::stringstream in_ss{str};
-        std::string res{}, s{};
-        size_type seat{}, g{};
+        std::string res{};
         base_type c{};
-        seat = 0 - 1;
-        while (true)
-        {
-            if (++seat < str.size())
-            {
-                in_ss >> s;
-                c = static_cast<base_type>(stoull(s, 0, HEX_BIT));
-                g = 0 - 1;
-            }
-            else if (g % GUARANTEE_BIT == 0)
-                break;
-            while (++g < GUARANTEE_BIT)
-                if (c >= power_.at(g))
-                {
-                    c -= power_.at(g);
-                    res.push_back('1');
-                }
-                else
-                    res.push_back('0');
-
+        const size_type sz = sizeof(base_type) * 8;
+        std::bitset<sz> bs;
+        while (in_ss >> std::hex >> c) {
+            bs = std::bitset<sz>(c);
+            res.append(bs.to_string());
         }
         res.erase(res.begin() + binary_bit_, res.end());
 
