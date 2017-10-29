@@ -53,7 +53,7 @@ def visualize_eigen(data, eig_vec_sc):
     # create figure
     fig = plt.figure(figsize=(7,7))
     ax = fig.add_subplot(111, projection='3d')
-
+    # plot eigen vectors centered at the mean value of the dataset
     ax.plot(data[0,:], data[1,:], data[2,:], 'o', markersize=8, color='green', alpha=0.2)
     ax.plot([mean_x], [mean_y], [mean_z], 'o', markersize=10, color='red', alpha=0.5)
     for v in eig_vec_sc.T:
