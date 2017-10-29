@@ -102,7 +102,6 @@ public class GaussianElimination {
 
     public static void main(String[] args) {
         double[][] myMatrix = {{3.0, 2.0, -5.0, -1.0}, {2.0, -1.0, 3.0, 13.0}, {1.0, 2.0, -1.0, 9.0}};
-        //int[][] myMatrix = {{49,7,49}, {42,6,42}};
         GaussianElimination reducer = new GaussianElimination(myMatrix);
         System.out.println("Original matrix: ");
         reducer.printArray(reducer.matrix);
