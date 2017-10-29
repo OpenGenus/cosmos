@@ -205,12 +205,6 @@ int main()
     li.display();
     //head->64->10->36->25->25->36->49->64->NULL
     //Notice :delete the first 49 ... not permission for duplicates
-
-    for(int i=0; li.size() ;++i)
-    {   if(li.deleteElement(49))
-            li.display();
-    }
-
     return 0;
 }
 
