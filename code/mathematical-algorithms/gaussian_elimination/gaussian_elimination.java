@@ -40,6 +40,7 @@ public class GaussianElimination {
             System.out.println("Dividing row " + i + " by " + divider);
             printArray(matrix);
             for (int ip = 0; ip < (cols); ip++) {
+                //Rounding for beautiful output but accuracy -0.1
                 double temp = matrix[i][ip] / divider;
                 double q = new BigDecimal(temp).setScale(1, RoundingMode.HALF_DOWN).doubleValue();
                 matrix[i][ip]  = q;
@@ -84,6 +85,7 @@ public class GaussianElimination {
     with the array multiplied by factor*/
     private void scaleSubtract(double[][] a, double[] row, int rowNum, double factor) {
         for (int i = 0; i < cols; i++) {
+            //Rounding for beautiful output but accuracy -0.1
             double temp = a[rowNum][i] - (row[i] * factor);
             double q = new BigDecimal(temp).setScale(1, RoundingMode.HALF_DOWN).doubleValue();
             a[rowNum][i] = q;
