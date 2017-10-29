@@ -13,21 +13,7 @@ The PCA approach may be summerized according to these steps:
 
 import numpy as np
 
-# generate a random seed
-# np.random.seed(782384239784)
-
-
-def normalized_distributed_data(mean_value):
-    ''' Generate 3x20 datasets for PCA '''
-    # mean vector
-    mu_vec1 = mean_value * np.ones(3)
-    # covariance matrix
-    cov_mat1 = np.array([[1,0,0],[0,1,0],[0,0,1]])
-    # generate uniformed distributed samples over the mean mu_vec
-    class_sample = np.random.multivariate_normal(mu_vec1, cov_mat1, 20).T
-    assert class_sample.shape == (3,20), "The matrix has not the dimensions 3x20"
-    return class_sample
-
+# Visualization ------------------------------------------------------------
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d import proj3d
@@ -45,6 +31,20 @@ def visualize_data(data1, data2):
 
     plt.show()
 
+
+# Data Generation ------------------------------------------------------------
+def normalized_distributed_data(mean_value):
+    ''' Generate 3x20 datasets for PCA '''
+    # mean vector
+    mu_vec1 = mean_value * np.ones(3)
+    # covariance matrix
+    cov_mat1 = np.array([[1,0,0],[0,1,0],[0,0,1]])
+    # generate uniformed distributed samples over the mean mu_vec
+    class_sample = np.random.multivariate_normal(mu_vec1, cov_mat1, 20).T
+    assert class_sample.shape == (3,20), "The matrix has not the dimensions 3x20"
+    return class_sample
+
+# PCA subroutines -----------------------------------------------------------
 def generate_data():
     '''
         Combine two 3x20 datasets ignoring their labels.
