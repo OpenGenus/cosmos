@@ -188,6 +188,12 @@ def get_2_largest_eigen_vectors(eigen_vec, eigen_val):
     print('Matrix W:\n', matrix_w)
     return matrix_w
 
+def principal_subspace_transformation(data, matrix_w):
+    ''' Transform data into a new subspace through the equation: transformed = matrix_w' * data '''
+    transformed = matrix_w.T.dot(data)
+    assert transformed.shape == (2,40), "The matrix is not 2x40 dimensional."
+    return transformed
+
 def main():
     all_samples = generate_data()
     mean_vector = compute_mean_vector(all_samples)
@@ -196,6 +202,7 @@ def main():
     eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
     visualize_eigen(all_samples, eigen_vec)
     matrix_w = get_2_largest_eigen_vectors(eigen_vec, eigen_val)
+    transformed = principal_subspace_transformation(all_samples, matrix_w)
 
 if __name__ == "__main__":
     main()
