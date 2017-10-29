@@ -1,16 +1,16 @@
 class Trie
   def insert(word)
-    return if word.size == 0
+    return if word.empty?
 
-    first, rest = word.split("".freeze, 2)
+    first, rest = word.split(''.freeze, 2)
     children[first].insert(rest)
   end
 
   def search(word)
-    return true if word.size == 0
+    return true if word.empty?
 
-    first, rest = word.split("".freeze, 2)
-    children.has_key?(first) && children[first].search(rest)
+    first, rest = word.split(''.freeze, 2)
+    children.key?(first) && children[first].search(rest)
   end
 
   private
@@ -24,8 +24,8 @@ end
 
 root = Trie.new
 
-root.insert "abc"
-root.insert "pqrs"
+root.insert 'abc'
+root.insert 'pqrs'
 
-puts root.search("abc") # => true
-puts root.search("xyz") # => false
+puts root.search('abc') # => true
+puts root.search('xyz') # => false
