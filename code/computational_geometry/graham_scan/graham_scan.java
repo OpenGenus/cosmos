@@ -1,7 +1,8 @@
 // computational geometry | graham scan | Java
+
 import java.util.*;
 
-public class Main {
+public class GrahamScan {
 
     public static class Point {
         private final int x;
