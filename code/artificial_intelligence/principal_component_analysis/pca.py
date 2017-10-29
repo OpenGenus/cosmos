@@ -26,6 +26,9 @@ def visualize_data(data1, data2):
     plt.rcParams['legend.fontsize'] = 10
     ax.plot(data1[0,:], data1[1,:], data1[2,:], 'o', markersize=8, color='blue', alpha=0.5, label='class1')
     ax.plot(data2[0,:], data2[1,:], data2[2,:], '^', markersize=8, alpha=0.5, color='red', label='class2')
+    ax.set_xlabel('x_values')
+    ax.set_ylabel('y_values')
+    ax.set_zlabel('z_values')
 
     plt.title('Samples for class 1 and class 2')
     ax.legend(loc='upper right')
