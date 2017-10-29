@@ -1,7 +1,7 @@
 /* C program to implement Binomial Heap tree */
  
 #include<stdio.h>
-#include<malloc.h>
+#include<stdlib.h>
  struct node {
     int n;
     int degree;
@@ -11,13 +11,13 @@
 };
  
 struct node* MAKE_bin_HEAP();
-int bin_LINK(struct node*, struct node*);
+void bin_LINK(struct node*, struct node*);
 struct node* CREATE_NODE(int);
 struct node* bin_HEAP_UNION(struct node*, struct node*);
 struct node* bin_HEAP_INSERT(struct node*, struct node*);
 struct node* bin_HEAP_MERGE(struct node*, struct node*);
 struct node* bin_HEAP_EXTRACT_MIN(struct node*);
-int REVERT_LIST(struct node*);
+void REVERT_LIST(struct node*);
 int DISPLAY(struct node*);
 struct node* FIND_NODE(struct node*, int);
 int bin_HEAP_DECREASE_KEY(struct node*, int, int);
@@ -34,7 +34,7 @@ struct node* MAKE_bin_HEAP() {
 struct node * H = NULL;
 struct node *Hr = NULL;
  
-int bin_LINK(struct node* y, struct node* z) {
+void bin_LINK(struct node* y, struct node* z) {
     y->parent = z;
     y->sibling = z->child;
     z->child = y;
@@ -142,6 +142,7 @@ int DISPLAY(struct node* H) {
         p = p->sibling;
     }
     printf("\n");
+    return 1;
 }
  
 struct node* bin_HEAP_EXTRACT_MIN(struct node* H1) {
@@ -181,7 +182,7 @@ struct node* bin_HEAP_EXTRACT_MIN(struct node* H1) {
     return x;
 }
  
-int REVERT_LIST(struct node* y) {
+void REVERT_LIST(struct node* y) {
     if (y->sibling != NULL) {
         REVERT_LIST(y->sibling);
         (y->sibling)->sibling = y;
@@ -232,6 +233,7 @@ int bin_HEAP_DECREASE_KEY(struct node* H, int i, int k) {
         z = z->parent;
     }
     printf("\nKEY REDUCED SUCCESSFULLY!");
+    return 1;
 }
  
 int bin_HEAP_DELETE(struct node* H, int k) {
@@ -243,8 +245,11 @@ int bin_HEAP_DELETE(struct node* H, int k) {
  
     bin_HEAP_DECREASE_KEY(H, k, -1000);
     np = bin_HEAP_EXTRACT_MIN(H);
-    if (np != NULL)
+    if (np != NULL) {
         printf("\nNODE DELETED SUCCESSFULLY");
+        return 1;
+    }
+    return 0;
 }
  
 int main() {
@@ -264,7 +269,7 @@ int main() {
     do {
         printf("\nMENU:-\n");
         printf(
-                "\n1)INSERT AN ELEMENT\n2)EXTRACT THE MINIMUM KEY NODE\n3)DECREASE A NODE KEY\n 4)DELETE A NODE\n5)QUIT\n");
+                "\n1)INSERT AN ELEMENT\n2)EXTRACT THE MINIMUM KEY NODE\n3)DECREASE A NODE KEY\n4)DELETE A NODE\n5)QUIT\n");
         scanf("%d", &l);
         switch (l) {
         case 1:
