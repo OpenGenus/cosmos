@@ -1,6 +1,6 @@
 import math
 
-def comb_sort(array):
+def combsort(array):
     gap = len(array)
     shrink = 1.3
     ordered = False
