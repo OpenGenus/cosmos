@@ -177,6 +177,16 @@ def sort_eigen_vectors(eigen_vec, eigen_val):
 
     return eig_pairs
 
+def get_2_largest_eigen_vectors(eigen_vec, eigen_val):
+    '''
+        Return 2 principal components eigen vectors.
+        The decision of which vectors are principals is made by their sorting
+    '''
+    eig_pairs = sort_eigen_vectors(eigen_vec, eigen_val)
+    # combine the two highest eigen vectors into matrix_w
+    matrix_w = np.hstack((eig_pairs[0][1].reshape(3,1), eig_pairs[1][1].reshape(3,1)))
+    print('Matrix W:\n', matrix_w)
+    return matrix_w
 
 def main():
     all_samples = generate_data()
@@ -185,7 +195,7 @@ def main():
     cov_mat = compute_covariance_matrix(all_samples)
     eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
     visualize_eigen(all_samples, eigen_vec)
-    eig_pairs = sort_eigen_vectors(eigen_vec, eigen_val)
+    matrix_w = get_2_largest_eigen_vectors(eigen_vec, eigen_val)
 
 if __name__ == "__main__":
     main()
