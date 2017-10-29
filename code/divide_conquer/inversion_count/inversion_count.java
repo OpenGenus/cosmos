@@ -1,3 +1,6 @@
+//  divide conquer | inversion count | Java
+//  Part of Cosmos by OpenGenus Foundation
+
 import java.util.Scanner;
 public class InversionCount {
     public static int merge(int a[], int p, int q,int r){

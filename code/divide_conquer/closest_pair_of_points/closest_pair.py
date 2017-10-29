@@ -1,17 +1,19 @@
+#  divide conquer | structure to represent a point | Python
+#  Part of Cosmos by OpenGenus Foundation
 
 from __future__ import generators
 
 def closestpair(L):
 	def square(x): return x*x
 	def sqdist(p,q): return square(p[0]-q[0])+square(p[1]-q[1])
-	
+
 	best = [sqdist(L[0],L[1]), (L[0],L[1])]
-	
+
 		d = sqdist(p,q)
 		if d < best[0]:
 			best[0] = d
 			best[1] = p,q
-			
+
 	def merge(A,B):
 		i = 0
 		j = 0
@@ -36,7 +38,7 @@ def closestpair(L):
 				if i+j < len(E):
 					testpair(E[i],E[i+j])
 		return L
-	
+
 	L.sort()
 	recur(L)
 	return best[1]
