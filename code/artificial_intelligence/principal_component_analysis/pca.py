@@ -1,6 +1,14 @@
 '''
 Solution to Principal Component Analysis Inspired by http://sebastianraschka.com/Articles/2014_pca_step_by_step.html
 Solution is proposed for Python 3, using numpy and matplotlib
+
+The PCA approach may be summerized according to these steps:
+1. Take the whole dataset consisting of dd-dimensional samples ignoring the class labels
+2. Compute the dd-dimensional mean vector (i.e., the means for every dimension of the whole dataset)
+3. Compute the scatter matrix (alternatively, the covariance matrix) of the whole data set
+4. Compute eigenvectors and corresponding eigenvalues
+5. Sort the eigenvectors by decreasing eigenvalues and choose kk eigenvectors with the largest eigenvalues.
+6. Use this d×kd×k eigenvector matrix to transform the samples onto the new subspace.
 '''
 
 import numpy as np
@@ -9,7 +17,7 @@ import numpy as np
 # np.random.seed(782384239784)
 
 
-def generate_data(mean_value):
+def normalized_distributed_data(mean_value):
     ''' Generate 3x20 datasets for PCA '''
     # mean vector
     mu_vec1 = mean_value * np.ones(3)
@@ -37,14 +45,89 @@ def visualize_data(data1, data2):
 
     plt.show()
 
-def main():
+def generate_data():
+    '''
+        Combine two 3x20 datasets ignoring their labels.
+        This is the data which will be analyzed by the PCA algorithm
+    '''
     # generate a mean 0 data
-    class1_sample = generate_data(0)
+    class1_sample = normalized_distributed_data(0)
     # generate a mean 1 data
-    class2_sample = generate_data(1)
+    class2_sample = normalized_distributed_data(1)
     # visualize data
     visualize_data(class1_sample, class2_sample)
+    # combine them into one structure
+    data = np.concatenate((class1_sample, class2_sample), axis=1)
+    assert data.shape == (3,40), "The matrix has not the dimensions 3x40"
+    return data
 
+def compute_mean_vector(data):
+    ''' Compute the mean vector for the dataset '''
+    mean_x = np.mean(data[0,:])
+    mean_y = np.mean(data[1,:])
+    mean_z = np.mean(data[2,:])
+
+    mean_vector = np.array([[mean_x],[mean_y],[mean_z]])
+    print('Mean Vector:\n', mean_vector)
+
+    return mean_vector
+
+def compute_scatter_matrix(data, mean_vector):
+    ''' Compute scatter matrix values '''
+    scatter_matrix = np.zeros((3,3))
+    for i in range(data.shape[1]):
+        scatter_matrix += (data[:,i].reshape(3,1) - mean_vector).dot((data[:,i].reshape(3,1) - mean_vector).T)
+    print('Scatter Matrix:\n', scatter_matrix)
+    return scatter_matrix
+
+def compute_covariance_matrix(data):
+    ''' Compute covariance matrix, an alternative to scatter matrix '''
+    cov_mat = np.cov([data[0,:],data[1,:],data[2,:]])
+    print('Covariance Matrix:\n', cov_mat)
+    return cov_mat
+
+def verify_eigen_values(scatter_matrix, eig_val_sc, eig_vec_sc):
+    '''
+        Verify if the eigen values of the scatter matrix were made correctly.
+        Test consists in asserting that the covariance and eigen vector product equals the eigen value and eigen vector.
+    '''
+    for i in range(len(eig_val_sc)):
+        eigv = eig_vec_sc[:,i].reshape(1,3).T
+        np.testing.assert_array_almost_equal(scatter_matrix.dot(eigv), eig_val_sc[i] * eigv,
+                                             decimal=6, err_msg='', verbose=True)
+    return True
+
+def compute_eigen(scatter_matrix, cov_mat):
+    ''' Compute eigen vectors and corresponding eigen values for the scatter and covariance matrix '''
+    # eigenvectors and eigenvalues for the from the scatter matrix
+    eig_val_sc, eig_vec_sc = np.linalg.eig(scatter_matrix)
+
+    # eigenvectors and eigenvalues for the from the covariance matrix
+    eig_val_cov, eig_vec_cov = np.linalg.eig(cov_mat)
+
+    for i in range(len(eig_val_sc)):
+        eigvec_sc = eig_vec_sc[:,i].reshape(1,3).T
+        eigvec_cov = eig_vec_cov[:,i].reshape(1,3).T
+        # assert if the scatter_matrix and covariance matrix eigen vectors are identical
+        assert eigvec_sc.all() == eigvec_cov.all(), 'Eigenvectors are not identical'
+
+        print('Eigenvector {}: \n{}'.format(i+1, eigvec_sc))
+        print('Eigenvalue {} from scatter matrix: {}'.format(i+1, eig_val_sc[i]))
+        print('Eigenvalue {} from covariance matrix: {}'.format(i+1, eig_val_cov[i]))
+        print('Scaling factor: ', eig_val_sc[i]/eig_val_cov[i])
+        print(40 * '-')
+
+    verify_eigen_values(scatter_matrix, eig_val_sc, eig_vec_sc)
+
+    return eig_val_sc, eig_vec_sc
+
+
+def main():
+    all_samples = generate_data()
+    mean_vector = compute_mean_vector(all_samples)
+    scatter_matrix = compute_scatter_matrix(all_samples, mean_vector)
+    cov_mat = compute_covariance_matrix(all_samples)
+    eigen_val, eigen_vec = compute_eigen(scatter_matrix, cov_mat)
 
 if __name__ == "__main__":
     main()
