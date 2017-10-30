@@ -46,54 +46,58 @@ void printMat(int mat[][9]){
 }
 
 
-bool solveSudoku(int mat[][9],int i,int j){
+bool solveSudoku(int mat[][9],int i,int j,long long int &cnt){
     ///Base Case
     if(i==9){
-        printMat(mat);
+        cnt++;
+        //Print one of the solutions
+        if(cnt == 1)
+          printMat(mat);
         return true;
     }
 
     ///Crossed the last  Cell in the row
     if(j==9){
-        return solveSudoku(mat,i+1,0);
+        return solveSudoku(mat,i+1,0,cnt);
     }
 
     ///Skip if filled cell
     if(mat[i][j]!=0){
-        return solveSudoku(mat,i,j+1);
+        return solveSudoku(mat,i,j+1,cnt);
     }
     ///White Cell
     ///Try to place every possible no
+    bool canSolve = false;
     for(int no=1;no<=9;no++){
         if(isPossible(mat,i,j,no)){
             ///Place the no - assuming solution is possible with this
             mat[i][j] = no;
-            bool isSolve=solveSudoku(mat,i,j+1);
-            if(isSolve){
-                return true;
-            }
+            canSolve |= solveSudoku(mat,i,j+1,cnt);
             ///loop will place the next no.
         }
+        //Backtrack to look for more solutions
+        mat[i][j] = 0;
     }
-    ///Backtracking
-    mat[i][j] = 0;
-    return false;
+
+    return canSolve;
 }
 
 int main(){
 
 	int mat[9][9] =
         	{{5,3,0,0,7,0,0,0,0},
-       	 	{6,0,0,1,9,5,0,0,0},
+       	 	{0,0,0,1,9,5,0,0,0},
 		{0,9,8,0,0,0,0,6,0},
-		{8,0,0,0,6,0,0,0,3},
-		{4,0,0,8,0,3,0,0,1},
-		{7,0,0,0,2,0,0,0,6},
+		{0,0,0,0,6,0,0,0,3},
+		{0,0,0,8,0,3,0,0,1},
+		{0,0,0,0,2,0,0,0,6},
 		{0,6,0,0,0,0,2,8,0},
 		{0,0,0,4,1,9,0,0,5},
 		{0,0,0,0,8,0,0,7,9}};
 	printMat(mat);
 	cout<<"Solution "<<endl;
-	solveSudoku(mat,0,0);
+	long long int cnt = 0;
+	solveSudoku(mat,0,0,cnt);
+	cout<<"There are "<<cnt<<" ways to solve this Sudoku Puzzle"<<endl;
 return 0;
 }
