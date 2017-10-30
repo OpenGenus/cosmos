@@ -1,30 +1,28 @@
-#include <iostream>
-#include <map>
-#include <set>
-#include <queue>
-
-/* Part of Cosmos by OpenGenus Foundation */
+#include<bits/stdc++.h>
+#define F first
+#define S second
+using namespace std;
 void bfs(int start,								// the node that we are currently at
-		 std::map<int, std::set<int>>& adjList,	// the adjacency list for each node
-		 std::map<int, bool>& visited,			// the 'visited' state for each node
-		 std::map<int, int>& distance			// the distance from the `start` node
+		map<int, set<int>>& adjList,	// the adjacency list for each node
+		map<int, bool>& visited,			// the 'visited' state for each node
+		map<int, int>& distance			// the distance from the `start` node
 		) {
 	// First, clear the distance map, so that only nodes that we can actually reach from the `start` appear in it at the end
 	distance.clear();
 
 	// This queue wil hold pairs of numbers of the form (nodeNumber, distance)
-	std::queue<std::pair<int, int>> Q;
+	queue<pair<int, int>> Q;
 
 	// Add the first node with distance 0 to the queue and mark it as visited
-	Q.push(std::make_pair(start, 0));
+	Q.push(make_pair(start, 0));
 	visited[start] = true;
 
 	// Repeat the algorithm until there are no more ndoes left to process
 	while (!Q.empty()) {
 		// Take the node from the front of the queue and pop it off the queue
 		auto entry = Q.front(); Q.pop();
-		int node = entry.first;
-		int dist = entry.second;
+		int node = entry.F;
+		int dist = entry.S;
 
 		// Put the distance to this node into the distance map (this is the minimal distance to this node)
 		distance[node] = dist;
@@ -34,13 +32,13 @@ void bfs(int start,								// the node that we are currently at
 			if (!visited[neighbour]) {
 				// Mark the neighbour node as visited
 				visited[neighbour] = true;
-				Q.push(std::make_pair(neighbour, dist + 1));
+				Q.push(make_pair(neighbour, dist + 1));
 			}
 		}
 	}
 }
 
-void addEdge(int a, int b, std::map<int, std::set<int>>& adjList) {
+void addEdge(int a, int b,map<int, set<int>>& adjList) {
 	adjList[a].insert(b);
 	adjList[b].insert(a);
 }
@@ -56,9 +54,9 @@ int main() {
 
 	8--9
 	*/
-	std::map<int, std::set<int>> adjList;
-	std::map<int, bool> visited;
-	std::map<int, int> dist;
+	map<int, set<int>> adjList;
+	map<int, bool> visited;
+	map<int, int> dist;
 	addEdge(1, 2, adjList);
 	addEdge(1, 3, adjList);
 	addEdge(2, 3, adjList);
@@ -77,7 +75,7 @@ int main() {
 
 	// Print the distance to all visited nodes
 	for (auto entry : dist) {
-		std::cout << "Distance from 1 to " << entry.first << " is " << entry.second << std::endl;
+		cout << "Distance from 1 to " << entry.F << " is " << entry.S<< endl;
 	}
 	return 0;
 }
