@@ -1,4 +1,4 @@
-# Contributors
+   # Contributors
 
 > Every work is great only because of its contributors
 
@@ -13,4 +13,5 @@ Thanks goes to these ❤️ wonderful people who made this possible:
 [<img src="https://avatars1.githubusercontent.com/u/26293279?v=4&s=460" width="100px;"/><br /><sub>Manan Manwani</sub>](https://github.com/manan904)<br /> | [<img src="https://avatars3.githubusercontent.com/u/22936570?v=4&s=400" width="100px;"/><br /><sub>Bhavesh Anand</sub>](https://github.com/bhaveshAn)<br /> | [<img src="https://avatars2.githubusercontent.com/u/24618078?v=4&s=400" width="100px;"/><br /><sub>Prashant Nigam</sub>](https://github.com/prashant0598)<br /> | [<img src="https://avatars2.githubusercontent.com/u/20587669?v=4&s=460" width="100px;"/><br /><sub>Vítor Gomes Chagas</sub>](https://github.com/Vitorvgc)<br /> | [<img src="https://avatars3.githubusercontent.com/u/12906090?v=4&s=460" width="100px;"/><br /><sub>Amit Singh</sub>](https://github.com/amitsin6h)<br /> | [<img src="https://avatars0.githubusercontent.com/u/6058114?v=4&s=400" width="100px;"/><br /><sub>Alabhya Vaibhav</sub>](https://github.com/AlabhyaVaibhav)<br /> | 
 [<img src="https://avatars1.githubusercontent.com/u/30810402?s=460&v=4" width="100px;"/><br /><sub>Arnav Borborah</sub>](https://github.com/arnavb)<br /> | [<img src="https://avatars2.githubusercontent.com/u/28451366?s=400&v=4" width="100px;"/><br /><sub>Yatharth Shah</sub>](https://github.com/yatharthshahjpr)<br /> | [<img src="https://avatars2.githubusercontent.com/u/16862997?v=4" width="100px;"/> <br /><sub>David Wu</sub>](https://github.com/Pl4gue)<br /> | [<img src="https://avatars3.githubusercontent.com/u/16002727?v=4" width="100px;"/> <br /><sub>Mohit Khare</sub>](https://github.com/mkfeuhrer)<br /> | [<img src="https://avatars0.githubusercontent.com/u/14811383?v=4" width="100px"/><br /><sub>Saif Ahmad</sub>](https://github.com/the-saif-ahmad)<br /> | [<img src="https://avatars0.githubusercontent.com/u/22833885?v=4" width="100px"/><br /><sub>Sanchit Jalan</sub>](https://github.com/Sanchit-20)<br /> | 
 [<img src="https://avatars3.githubusercontent.com/u/4724181?v=4" width="100px;"/><br /><sub>Yogesh Badhe</sub>](https://github.com/warlockz)<br /> |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+[<img src="https://instagram.fdel1-2.fna.fbcdn.net/t51.2885-19/s150x150/12965815_448071082056178_916038612_a.jpg      " width="100px;"/><br /><sub>Pranav Sharma</sub>]
+<!-- ALL-CONTRIBUTORS-LIST:END --!>
