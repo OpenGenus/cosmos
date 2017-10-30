@@ -42,10 +42,6 @@ public:
 
     void insert(const _Tp &n);
 
-    void inorder();
-
-    void levelOrder();
-
     std::string preOrder();
 
     std::string inOrder();
@@ -59,18 +55,6 @@ private:
 
     void fixViolation(p_node_type &, p_node_type &);
 };
-
-// A recursive function to do level order traversal
-void
-inorderHelper(std::shared_ptr<RBNode<int> > root)
-{
-    if (root == nullptr)
-        return;
-
-    inorderHelper(root->left);
-    cout << root->data << "  ";
-    inorderHelper(root->right);
-}
 
 /* A utility function to insert a new node with given key
  in BST */
@@ -95,30 +79,6 @@ BSTInsert(std::shared_ptr<RBNode<int> > root, std::shared_ptr<RBNode<int> > pt)
 
     /* return the (unchanged) node pointer */
     return root;
-}
-
-// Utility function to do level order traversal
-void
-levelOrderHelper(std::shared_ptr<RBNode<int> > root)
-{
-    if (root == nullptr)
-        return;
-
-    std::queue<std::shared_ptr<RBNode<int> > > q;
-    q.push(root);
-
-    while (!q.empty())
-    {
-        std::shared_ptr<RBNode<int> > temp = q.front();
-        cout << temp->data << "  ";
-        q.pop();
-
-        if (temp->left != nullptr)
-            q.push(temp->left);
-
-        if (temp->right != nullptr)
-            q.push(temp->right);
-    }
 }
 
 template<typename _Tp, typename _Comp>
@@ -272,19 +232,6 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
 
     // fix Red Black Tree violations
     fixViolation(root_, pt);
-}
-
-// Function to do inorder and level order traversals
-template<typename _Tp, typename _Comp>
-void
-RBTree<_Tp, _Comp>::inorder() {
-    inorderHelper(root_);
-}
-
-template<typename _Tp, typename _Comp>
-void
-RBTree<_Tp, _Comp>::levelOrder() {
-    levelOrderHelper(root_);
 }
 
 template<typename _Tp, typename _Comp>
