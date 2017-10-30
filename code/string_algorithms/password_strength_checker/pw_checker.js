@@ -18,7 +18,7 @@ function scorePassword(pass) {
         nonWords: /\W/.test(pass),
     }
 
-    variationCount = 0;
+    var variationCount = 0;
     for (var check in variations) {
         variationCount += (variations[check] == true) ? 1 : 0;
     }
