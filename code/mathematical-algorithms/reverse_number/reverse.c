@@ -6,9 +6,18 @@ int main()
 	scanf("%d", &num);
 	
 	printf("Reverse of number %d is: ", num);
-	while(num > 0) {
-		printf("%d", num % 10);
-		num = num / 10;
+	
+	if(num < 0){
+		printf("-");
+		num = -1 * num;
 	}
+	if(num != 0){
+    	while(num > 0) {
+    		printf("%d", num % 10);
+    		num = num / 10;
+    	}
+	}
+	else
+	    printf("0");
 	return 0;
 }
