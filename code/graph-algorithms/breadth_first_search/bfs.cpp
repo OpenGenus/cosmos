@@ -2,6 +2,8 @@
 #include <map>
 #include <set>
 #include <queue>
+#define f first
+#define s second
 
 /* Part of Cosmos by OpenGenus Foundation */
 void bfs(int start,								// the node that we are currently at
@@ -23,8 +25,8 @@ void bfs(int start,								// the node that we are currently at
 	while (!Q.empty()) {
 		// Take the node from the front of the queue and pop it off the queue
 		auto entry = Q.front(); Q.pop();
-		int node = entry.first;
-		int dist = entry.second;
+		int node = entry.f;
+		int dist = entry.s;
 
 		// Put the distance to this node into the distance map (this is the minimal distance to this node)
 		distance[node] = dist;
@@ -77,7 +79,7 @@ int main() {
 
 	// Print the distance to all visited nodes
 	for (auto entry : dist) {
-		std::cout << "Distance from 1 to " << entry.first << " is " << entry.second << std::endl;
+		std::cout << "Distance from 1 to " << entry.f << " is " << entry.s << std::endl;
 	}
 	return 0;
 }
