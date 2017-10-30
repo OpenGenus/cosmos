@@ -8,11 +8,7 @@ fn is_perfect(num: i32) -> bool {
         }
     }
 
-    if sum == num {
-        true
-    } else {
-        false
-    }
+    sum == num
 }
 
 fn main() {
