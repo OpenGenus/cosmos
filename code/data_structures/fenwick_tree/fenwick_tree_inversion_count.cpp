@@ -11,7 +11,7 @@ int query(int i){
 	}
 	return ans;
 }
-int update(int i){
+void update(int i){
 	for(;i <=n;i += i&(-i)){
 		BIT[i]++;
 	}
