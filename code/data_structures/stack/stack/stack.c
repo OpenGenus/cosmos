@@ -57,6 +57,42 @@ void stack_reverse(struct node **head, struct node **head_next)
         stack_reverse(head, head_next);
     }
 }
+//to reverse the stack without recursion
+void stack_reverse(struct node **head)
+{
+    struct node *temp, *prev;
+ 
+    if (*head == NULL)
+    {
+        printf("Stack does not exist\n");
+    }
+    else if ((*head)->next == NULL)
+    {
+        printf("Single node stack reversal brings no difference\n");
+    }
+    else if ((*head)->next->next == NULL)
+    {
+        (*head)->next->next = *head;
+        *head = (*head)->next;
+        (*head)->next->next = NULL;
+    }
+    else
+    {
+        prev = *head;
+        temp = (*head)->next;
+        *head = (*head)->next->next;
+        prev->next = NULL;
+        while ((*head)->next != NULL)
+        {
+            temp->next = prev;
+            prev = temp;
+            temp = *head;
+            *head = (*head)->next;
+        }
+        temp->next = prev;
+        (*head)->next = temp;
+    }
+}
  
 int main()
 {
