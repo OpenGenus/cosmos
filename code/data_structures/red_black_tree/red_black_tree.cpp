@@ -1,6 +1,9 @@
 #include <iostream>
 #include <queue>
 #include <memory>
+#include <cassert>
+#include <string>
+#include <stack>
 using namespace std;
 
 template<typename _Tp, class _DERIVE>
@@ -42,6 +45,10 @@ public:
     void inorder();
 
     void levelOrder();
+
+    std::string preOrder();
+
+    std::string inOrder();
 
 private:
     p_node_type root_;
@@ -280,25 +287,106 @@ RBTree<_Tp, _Comp>::levelOrder() {
     levelOrderHelper(root_);
 }
 
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::preOrder() {
+    if (root_ == nullptr)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    elem.append(std::to_string(st.top()->data));
+    while (!st.empty())
+    {
+        while (st.top()->left)
+        {
+            elem.append(std::to_string(st.top()->left->data));
+            st.push(st.top()->left);
+        }
+        while (!st.empty() && !st.top()->right)
+            st.pop();
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->right->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
+
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::inOrder() {
+    if (root_ == nullptr)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    while (!st.empty())
+    {
+        while (st.top()->left)
+            st.push(st.top()->left);
+        while (!st.empty() && !st.top()->right)
+        {
+            elem.append(std::to_string(st.top()->data));
+            st.pop();
+        }
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
+
+void
+test() {
+    std::shared_ptr<RBTree<int> > rbt;
+    rbt = make_shared<RBTree<int> >();
+    assert(rbt->preOrder() == "");
+    rbt->insert(1);
+    rbt->insert(4);
+    rbt->insert(7);
+    rbt->insert(10);
+    rbt->insert(2);
+    rbt->insert(6);
+    rbt->insert(8);
+    rbt->insert(3);
+    rbt->insert(5);
+    rbt->insert(9);
+    rbt->insert(100);
+    rbt->insert(40);
+    rbt->insert(30);
+    rbt->insert(20);
+    rbt->insert(15);
+    rbt->insert(50);
+    rbt->insert(60);
+    rbt->insert(70);
+    rbt->insert(80);
+    rbt->insert(63);
+    rbt->insert(67);
+    rbt->insert(65);
+    rbt->insert(69);
+    rbt->insert(37);
+    rbt->insert(33);
+    rbt->insert(35);
+    rbt->insert(31);
+    assert(rbt->inOrder() == "1234567891015203031333537405060636567697080100");
+    assert(rbt->preOrder() == "2074213659810156040333031373550806763657069100");
+}
+
 // Driver Code
 int
 main()
 {
-    RBTree<int> tree;
-
-    tree.insert(7);
-    tree.insert(6);
-    tree.insert(5);
-    tree.insert(4);
-    tree.insert(3);
-    tree.insert(2);
-    tree.insert(1);
-
-    cout << "Inoder Traversal of Created Tree\n";
-    tree.inorder();
-
-    cout << "\n\nLevel Order Traversal of Created Tree\n";
-    tree.levelOrder();
+    test();
 
     return 0;
 }
