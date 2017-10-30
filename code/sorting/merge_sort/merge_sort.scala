@@ -1,38 +1,27 @@
-object Main
-{
+package opengenus.cosmos.sorting
 
-  def merge(left: List[Int], right: List[Int]): List[Int] =
-  {
-    if (left.isEmpty)
-    {
-      return right
+object MergeSort {
+  
+  def apply[T](collection: List[T])(implicit ord: Ordering[T]): List[T] = {
+    
+    def merge(left: List[T], right: List[T]): List[T] = {
+      
+      (left, right) match {
+        case (Nil, right) => right
+        case (left, Nil) => left
+        case (leftHead::leftTail, rightHead::rightTail) => {
+          if(ord.lt(leftHead, rightHead)) leftHead::merge(leftTail, right) else rightHead::merge(left, rightTail)
+        }
+      }
+      
     }
-    else if (right.isEmpty)
-    {
-      return left
+    
+    collection match {
+      case head::Nil => collection
+      case _ => {
+        val (left, right) = collection.splitAt(collection.size/2)
+        merge(MergeSort(left), MergeSort(right))
+      }
     }
-
-    if (left.head < right.head)
-    {
-      return left.head :: merge(left.tail, right)
-    }
-    else
-    {
-      return right.head :: merge(left, right.tail)
-    }
-  }
-
-  def merge_sort(xs: List[Int]): List[Int] = {
-    if (xs.size == 1) {
-      return xs
-    }
-
-    merge(merge_sort(xs.slice(0, xs.size/2)), merge_sort(xs.slice(xs.size/2, xs.size)))
-  }
-
-  def main(args: Array[String]) =
-  {
-    println(merge(List(1,3,5), List(2,4,6)))
-    println(merge_sort(List(4,2,3,1,6,2,7,1,116,3,11,135)))
   }
 }
