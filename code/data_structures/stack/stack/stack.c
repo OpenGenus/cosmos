@@ -39,6 +39,10 @@ int pop(struct Stack* stack)
         return INT_MIN;
     return stack->array[stack->top--];
 }
+//this function will return the peak of the stack
+int peek() {
+   return stack[top];
+}
 int main()
 {
     struct Stack* stack = createStack(100);
