@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 // Prints Pascal's Triangle line by line
 const printTriangleByLine = function(numRows) {
   console.log(1);
