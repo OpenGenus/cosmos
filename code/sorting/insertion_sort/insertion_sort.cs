@@ -1,48 +1,131 @@
-/*
- * C# Program to Perform Insertion Sort
- */
-using System;
+ using System;
+
 using System.Collections.Generic;
+
 using System.Linq;
+
 using System.Text;
-using System.IO;
-namespace ConsoleApplication1
+
+ 
+
+namespace InsertionSort
+
 {
+
     class Program
+
     {
-        static void Main(string[] args)
+
+        static int InsertionSorting()
+
         {
-            int[] arr = new int[5] { 83, 12, 3, 34, 60 };
-            int i;
-            Console.WriteLine("The Array is :");
-            for (i = 0; i < 5; i++)
+
+            Console.Write("\nProgram for sorting a numeric array using Insertion Sorting");
+
+            Console.Write("\n\nEnter number of elements: ");
+
+            int max = Convert.ToInt32(Console.ReadLine());
+
+ 
+
+            int[] numarray = new int[max];
+
+ 
+
+            for (int i = 0; i < max; i++)
+
             {
-                Console.WriteLine(arr[i]);
+
+                Console.Write("\nEnter [" + (i + 1).ToString() + "] element: ");
+
+                numarray[i] = Convert.ToInt32(Console.ReadLine());
+
             }
-            insertsort(arr, 5);
-            Console.WriteLine("The Sorted Array is :");
-            for (i = 0; i < 5; i++)
-                Console.WriteLine(arr[i]); 
-            Console.ReadLine();
-        }        
-        static void insertsort(int[] data, int n)
-        {
-            int i, j;
-            for (i = 1; i < n; i++)
+
+ 
+
+            Console.Write("Input int array  : ");
+
+            for (int k = 0; k < max; k++)
+
+                Console.Write(numarray[k] + " ");
+
+            Console.Write("\n");
+
+ 
+
+            for (int i = 1; i < max; i++)
+
             {
-                int item = data[i];
-                int ins = 0;
-                for (j = i - 1; j >= 0 && ins != 1; )
+
+                int j = i;
+
+                while (j > 0)
+
                 {
-                    if (item < data[j])
+
+                    if (numarray[j - 1] > numarray[j])
+
                     {
-                        data[j + 1] = data[j];
+
+                        int temp = numarray[j - 1];
+
+                        numarray[j - 1] = numarray[j];
+
+                        numarray[j] = temp;
+
                         j--;
-                        data[j + 1] = item;
+
                     }
-                    else ins = 1;
+
+                    else
+
+                        break;
+
                 }
+
+                Console.Write("Iteration " + i.ToString() + ": ");
+
+                for (int k = 0; k < max; k++)
+
+                    Console.Write(numarray[k] + " ");
+
+                Console.Write("\n");
+
+                //Console.Write("/*** " + (i + 1).ToString() + " numbers from the begining of the array are input and they are sorted ***/\n");  
+
             }
+
+ 
+
+            Console.Write("\n\nThe numbers in ascending orders are given below:\n\n");
+
+            for (int i = 0; i < max; i++)
+
+            {
+
+                Console.Write("Sorted [" + (i + 1).ToString() + "] element: ");
+
+                Console.Write(numarray[i]);
+
+                Console.Write("\n");
+
+            }
+
+            return 0;
+
         }
+
+        static void Main(string[] args)
+
+        {
+
+            InsertionSorting();
+
+            Console.ReadLine();
+
+        }
+
     }
+
 }
