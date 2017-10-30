@@ -43,6 +43,21 @@ int pop(struct Stack* stack)
 int peek() {
    return stack[top];
 }
+//to rverse the stack
+void stack_reverse(struct node **head, struct node **head_next)
+{
+    struct node *temp;
+ 
+    if (*head_next != NULL)
+    {
+         temp = (*head_next)->next;
+        (*head_next)->next = (*head);
+        *head = *head_next;
+        *head_next = temp;
+        stack_reverse(head, head_next);
+    }
+}
+ 
 int main()
 {
     struct Stack* stack = createStack(100);
