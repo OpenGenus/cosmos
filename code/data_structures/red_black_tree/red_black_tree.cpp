@@ -54,12 +54,13 @@ private:
     void rotateRight(p_node_type &, p_node_type &);
 
     void fixViolation(p_node_type &, p_node_type &);
+
+    p_node_type insert(p_node_type root, p_node_type pt);
 };
 
-/* A utility function to insert a new node with given key
- in BST */
-std::shared_ptr<RBNode<int> >
-BSTInsert(std::shared_ptr<RBNode<int> > root, std::shared_ptr<RBNode<int> > pt)
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type
+RBTree<_Tp, _Comp>::insert(p_node_type root, p_node_type pt)
 {
     /* If the tree is empty, return a new node */
     if (root == nullptr)
@@ -68,12 +69,12 @@ BSTInsert(std::shared_ptr<RBNode<int> > root, std::shared_ptr<RBNode<int> > pt)
     /* Otherwise, recur down the tree */
     if (pt->data < root->data)
     {
-        root->left = BSTInsert(root->left, pt);
+        root->left = insert(root->left, pt);
         root->left->parent = root;
     }
     else if (pt->data > root->data)
     {
-        root->right = BSTInsert(root->right, pt);
+        root->right = insert(root->right, pt);
         root->right->parent = root;
     }
 
@@ -228,7 +229,7 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
     RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
 
     // Do a normal BST insert
-    root_ = BSTInsert(root_, pt);
+    root_ = insert(root_, pt);
 
     // fix Red Black Tree violations
     fixViolation(root_, pt);
