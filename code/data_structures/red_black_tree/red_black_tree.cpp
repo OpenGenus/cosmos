@@ -328,6 +328,20 @@ test() {
     rbt->insert(31);
     assert(rbt->inOrder() == "1234567891015203031333537405060636567697080100");
     assert(rbt->preOrder() == "2074213659810156040333031373550806763657069100");
+    rbt->erase(69);
+    rbt->erase(65);
+    rbt->erase(1);
+    rbt->erase(3);
+    rbt->erase(2);
+    rbt->erase(60);
+    assert(rbt->inOrder() == "4567891015203031333537405063677080100");
+    assert(rbt->preOrder() == "2075469810155033303137354080676370100");
+    rbt->erase(35);
+    rbt->erase(37);
+    rbt->erase(40);
+    rbt->erase(50);
+    assert(rbt->inOrder() == "45678910152030313363677080100");
+    assert(rbt->preOrder() == "20754698101567333130638070100");
 }
 
 // Driver Code
