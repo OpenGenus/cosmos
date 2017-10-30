@@ -93,6 +93,24 @@ void stack_reverse(struct node **head)
         (*head)->next = temp;
     }
 }
+//to destroy an element in stack
+void destroy()
+{
+    top1 = top;
+ 
+    while (top1 != NULL)
+    {
+        top1 = top->ptr;
+        free(top);
+        top = top1;
+        top1 = top1->ptr;
+    }
+    free(top1);
+    top = NULL;
+ 
+    printf("\n All stack elements destroyed");
+    count = 0;
+}
  
 int main()
 {
