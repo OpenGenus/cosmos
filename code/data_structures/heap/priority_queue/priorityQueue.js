@@ -107,7 +107,7 @@ function up(index) {
     let parentItem = this.data[parentIndex];
     let currentItem = this.data[index];
 
-    if (parentIndex === index || !this.compareFn(currentItem, parentItem) < 0) {
+    if (parentIndex === index || !(this.compareFn(currentItem, parentItem) < 0)) {
       break;
     }
     this.data.swap(parentIndex, index);
