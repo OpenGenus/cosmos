@@ -38,7 +38,13 @@ private:
 
 public:
     // Constructor
-    RBTree() :root_(nullptr), comp_(_Comp()) {}
+    RBTree() :root_(nullptr), sentinel_(std::make_shared<node_type>(0)), comp_(_Comp()) {
+        sentinel_->left = sentinel_;
+        sentinel_->right = sentinel_;
+        sentinel_->parent = sentinel_;
+        sentinel_->color = Color::BLACK;
+        root_ = sentinel_;
+    }
 
     void insert(const _Tp &n);
 
@@ -48,6 +54,7 @@ public:
 
 private:
     p_node_type root_;
+    p_node_type sentinel_;
     _Comp comp_;
 
     p_node_type &insert(p_node_type &root, p_node_type &pt);
@@ -64,7 +71,7 @@ template<typename _Tp, typename _Comp>
 void
 RBTree<_Tp, _Comp>::insert(const _Tp &data)
 {
-    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
+    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data, sentinel_, sentinel_);
 
     // Do a normal BST insert
     root_ = insert(root_, pt);
@@ -73,10 +80,18 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
     fixViolation(root_, pt);
 }
 
+// template<typename _Tp, typename _Comp>
+// typename RBTree<_Tp, _Comp>::p_node_type
+// RBTree<_Tp, _Comp>::find(const _Tp &data) {
+// auto pt = _find(data);
+//
+// return pt != sentinel_ ? pt : nullptr;
+// }
+
 template<typename _Tp, typename _Comp>
 std::string
 RBTree<_Tp, _Comp>::preOrder() {
-    if (root_ == nullptr)
+    if (root_ == sentinel_)
         return {};
     std::string elem{};
     std::stack<p_node_type> st{};
@@ -84,12 +99,12 @@ RBTree<_Tp, _Comp>::preOrder() {
     elem.append(std::to_string(st.top()->data));
     while (!st.empty())
     {
-        while (st.top()->left)
+        while (st.top()->left != sentinel_)
         {
             elem.append(std::to_string(st.top()->left->data));
             st.push(st.top()->left);
         }
-        while (!st.empty() && !st.top()->right)
+        while (!st.empty() && st.top()->right == sentinel_)
             st.pop();
         if (!st.empty())
         {
@@ -106,16 +121,16 @@ RBTree<_Tp, _Comp>::preOrder() {
 template<typename _Tp, typename _Comp>
 std::string
 RBTree<_Tp, _Comp>::inOrder() {
-    if (root_ == nullptr)
+    if (root_ == sentinel_)
         return {};
     std::string elem{};
     std::stack<p_node_type> st{};
     st.push(root_);
     while (!st.empty())
     {
-        while (st.top()->left)
+        while (st.top()->left != sentinel_)
             st.push(st.top()->left);
-        while (!st.empty() && !st.top()->right)
+        while (!st.empty() && st.top()->right == sentinel_)
         {
             elem.append(std::to_string(st.top()->data));
             st.pop();
@@ -137,8 +152,12 @@ typename RBTree<_Tp, _Comp>::p_node_type &
 RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
 {
     /* If the tree is empty, return a new node */
-    if (root == nullptr)
+    if (root == sentinel_)
+    {
+        pt->parent = root->parent;
+
         return pt;
+    }
 
     /* Otherwise, recur down the tree */
     if (comp_(pt->data, root->data))
@@ -164,12 +183,12 @@ RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &p
 
     pt->right = pt_right->left;
 
-    if (pt->right != nullptr)
+    if (pt->right != sentinel_)
         pt->right->parent = pt;
 
     pt_right->parent = pt->parent;
 
-    if (pt->parent == nullptr)
+    if (pt->parent == sentinel_)
         root = pt_right;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_right;
@@ -188,12 +207,12 @@ RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &
 
     pt->left = pt_left->right;
 
-    if (pt->left != nullptr)
+    if (pt->left != sentinel_)
         pt->left->parent = pt;
 
     pt_left->parent = pt->parent;
 
-    if (pt->parent == nullptr)
+    if (pt->parent == sentinel_)
         root = pt_left;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_left;
@@ -209,11 +228,10 @@ template<typename _Tp, typename _Comp>
 void
 RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
 {
-    RBTree::p_node_type parent_pt = nullptr;
-    RBTree::p_node_type grand_parent_pt = nullptr;
+    RBTree::p_node_type parent_pt = sentinel_;
+    RBTree::p_node_type grand_parent_pt = sentinel_;
 
-    while ((pt != root) && (pt->color != Color::BLACK)
-           && (pt->parent->color == Color::RED))
+    while (pt->color == Color::RED && pt->parent->color == Color::RED)
     {
         parent_pt = pt->parent;
         grand_parent_pt = pt->parent->parent;
@@ -227,7 +245,7 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
             /* Case : 1
              The uncle of pt is also red
              Only Recoloring required */
-            if (uncle_pt != nullptr && uncle_pt->color == Color::RED)
+            if (uncle_pt->color == Color::RED)
             {
                 grand_parent_pt->color = Color::RED;
                 parent_pt->color = Color::BLACK;
@@ -263,7 +281,7 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
             /*  Case : 1
              The uncle of pt is also red
              Only Recoloring required */
-            if ((uncle_pt != nullptr) && (uncle_pt->color == Color::RED))
+            if (uncle_pt->color == Color::RED)
             {
                 grand_parent_pt->color = Color::RED;
                 parent_pt->color = Color::BLACK;
