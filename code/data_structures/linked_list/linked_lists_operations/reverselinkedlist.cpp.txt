@@ -1,0 +1,76 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+typedef struct s{
+float data;
+struct s *next;
+} stack;
+stack * newnode();
+void create(int,stack **);
+void reverse(stack **);
+void print(stack *);
+int main()
+{
+	stack *head=NULL;
+	int x,n;
+	cout<<"Enter the number of elements"<<endl;
+	cin>>n;
+	cout<<"Enter elements"<<endl;
+	while(n--)
+	{
+	    cin>>x;
+		create(x,&head);
+	}
+	reverse(&head);
+	print(head);
+}
+
+stack * newnode()
+{
+	stack * x=(stack *)malloc(sizeof(stack));
+	x->next=NULL;
+	return x;
+}
+
+void create(int d,stack ** poi)
+{
+	stack *x=newnode();
+	x->data=d;
+	x->next=*poi;
+	(*poi)=x;
+}
+
+void reverse(stack **poi)
+{
+	stack *head=*poi;
+	int i=0;
+	while(head!=NULL)
+	{
+		i++;
+		head=head->next;
+	}
+	head=*poi;
+	int arr[i];
+	i=0;
+	while(head!=NULL)
+	{
+		arr[i]=head->data;
+		i++;
+		head=head->next;
+	}
+	stack *x=NULL;
+	while(i--)
+	{
+		create(arr[i],&x);
+	}
+	*poi=x;
+}
+
+void print(stack *head)
+{
+	while(head!=NULL)
+	{
+		cout<<(head->data)<<" ";
+		head=head->next;
+	}
+}

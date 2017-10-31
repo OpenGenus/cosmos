@@ -1,0 +1,262 @@
+// doing linear quadratic as well as double hashing and showing comparison between them using collisions occuring
+// insert n and m which is no. of input and maximum no. of keys
+//To insert 30 write INSERT 30
+//To delete 30 write DELETE 30
+// To search 30 write SEARCH 30
+
+
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int insertlinear(int *linear,int m,int key,int *z)   //inserting element in linear hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(linear[h1]==INT_MAX || linear[h1]==INT_MIN)
+		{
+			linear[h1]=key;
+			return h1;
+		}
+		*z=*z+1;
+		i++;
+		h1=(key+i)%m;
+	}
+	return -1;
+};
+
+int insertquadratic(int *quadratic,int m,int key,int *z)   //inserting element in quadratic hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(quadratic[h1]==INT_MAX || quadratic[h1]==INT_MIN)
+		{
+			quadratic[h1]=key;
+			return h1;
+		}
+		*z=*z+1;
+		i++;
+		h1=(key+i+3*i*i)%m;
+	}
+	return -1;
+};
+
+int insertdouble(int *doubleh,int m,int key,int *z)   //inserting element in double hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(doubleh[h1]==INT_MAX || doubleh[h1]==INT_MIN)
+		{
+			doubleh[h1]=key;
+			return h1;
+		}
+		*z=*z+1;
+		i++;
+		h1=(key%m+i*(1+key%(m-1)))%m;
+	}
+	return -1;
+};
+
+
+int searchlinear(int *linear,int m,int key)   //searching element in linear hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m && linear[h1]!=INT_MAX)
+	{
+		if(linear[h1]==key)
+		{
+			return h1;
+		}
+		i++;
+		h1=(key+i)%m;
+	}
+	return -1;
+};
+
+int searchquadratic(int *quadratic,int m,int key)    //searching element in quadratic hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m && quadratic[h1]!=INT_MAX)
+	{
+		if(quadratic[h1]==key)
+		{
+			return h1;
+		}
+		i++;
+		h1=(key+i+3*i*i)%m;
+	}
+	return -1;
+};
+
+
+int searchdouble(int *doubleh,int m,int key)    //searching element in double hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m && doubleh[h1]!=INT_MAX)
+	{
+		if(doubleh[h1]==key)
+		{
+			return h1;
+		}
+		i++;
+		h1=(key%m+i*(1+key%(m-1)))%m;
+	}
+	return -1;
+};
+
+int deletelinear(int *linear,int m,int key)    //deleting element in linear hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(linear[h1]==key)
+		{
+			linear[h1]=INT_MIN;
+			return h1;
+		}
+		i++;
+		h1=(key+i)%m;
+	}
+	return -1;
+};
+
+int deletequadratic(int *quadratic,int m,int key)   //deleting element in quadratic hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(quadratic[h1]==key)
+		{
+			quadratic[h1]=INT_MIN;
+			return h1;
+		}
+		i++;
+		h1=(key+i+3*i*i)%m;
+	}
+	return -1;
+};
+
+
+int deletedouble(int *doubleh,int m,int key)    //deleting element in double hashing
+{
+	int h1=key%m;
+	int i=0;
+	while(i<m)
+	{
+		if(doubleh[h1]==key)
+		{
+			doubleh[h1]=INT_MIN;
+			return h1;
+		}
+		i++;
+		h1=(key%m+i*(1+key%(m-1)))%m;
+	}
+	return -1;
+};
+
+
+
+int main()
+{
+	cout<<setprecision(2)<<fixed;
+	int n,m;
+	cin>>n>>m;
+	int linear[m];
+	int quadratic[m];
+	int doubleh[m];
+	int i;
+	for(i=0;i<m;i++)
+	{
+		linear[i]=INT_MAX;
+		quadratic[i]=INT_MAX;
+		doubleh[i]=INT_MAX;
+	}
+	int lincol=0;
+	int quadcol=0;
+	int doucol=0;
+	float number=0;
+	for(i=0;i<n;i++)    //running loop n times
+	{
+		string x;
+		int key,a,b,c;
+		cin>>x>>key;
+		if(x=="INSERT")   //if we have to input
+		{
+			number++;
+			a=insertlinear(linear,m,key,&lincol);
+			b=insertquadratic(quadratic,m,key,&quadcol);
+			c=insertdouble(doubleh,m,key,&doucol);
+			if(a!=-1)
+				cout<<key<<" INSERTED AT INDEX "<<a<<" IN LINEAR PROBING"<<endl;
+			else
+				cout<<key<<" CANNOT BE INSERTED IN LINEAR PROBING"<<endl;
+			if(b!=-1)
+				cout<<key<<" INSERTED AT INDEX "<<b<<" IN QUADRATIC PROBING"<<endl;
+			else
+				cout<<key<<" CANNOT BE INSERTED IN QUADRATIC PROBING"<<endl;
+			if(c!=-1)
+				cout<<key<<" INSERTED AT INDEX "<<c<<" IN DOUBLE HASHING"<<endl;
+			else
+				cout<<key<<" CANNOT BE INSERTED IN DOUBLE HASHING"<<endl;
+
+		}
+		else if(x=="SEARCH")   //if we have to search
+		{
+			a=searchlinear(linear,m,key);
+			b=searchquadratic(quadratic,m,key);
+			c=searchdouble(doubleh,m,key);
+			if(a!=-1)
+				cout<<key<<" FOUND AT INDEX "<<a<<" IN LINEAR PROBING"<<endl;
+			else
+				cout<<key<<" IS NOT PRESENT IN LINEAR PROBING"<<endl;
+			if(b!=-1)
+				cout<<key<<" FOUND AT INDEX "<<b<<" IN QUADRATIC PROBING"<<endl;
+			else
+				cout<<key<<" IS NOT PRESENT IN QUADRATIC PROBING"<<endl;
+			if(c!=-1)
+				cout<<key<<" FOUND AT INDEX "<<c<<" IN DOUBLE HASHING"<<endl;
+			else
+				cout<<key<<" IS NOT PRESENT IN DOUBLE HASHING"<<endl;
+		}
+		else if(x=="DELETE")   //if we have to delete
+		{
+			a=deletelinear(linear,m,key);
+			b=deletequadratic(quadratic,m,key);
+			c=deletedouble(doubleh,m,key);
+			if(a!=-1)
+				cout<<key<<" DELETED FROM INDEX "<<a<<" IN LINEAR PROBING"<<endl;
+			else
+				cout<<key<<" CANNOT BE DELETED IN LINEAR PROBING"<<endl;
+			if(b!=-1)
+				cout<<key<<" DELETED FROM INDEX "<<b<<" IN QUADRATIC PROBING"<<endl;
+			else
+				cout<<key<<" CANNOT BE DELETED IN QUADRATIC PROBING"<<endl;
+			if(c!=-1)
+				cout<<key<<" DELETED FROM INDEX "<<c<<" IN DOUBLE HASHING"<<endl;
+			else
+				cout<<key<<" CANNOT BE DELETED IN DOUBLE HASHING"<<endl;
+		}
+
+	}
+	//printing collisions
+	cout<<"TOTAL NUMBER OF COLLISIONS IN LINEAR PROBING "<<lincol<<endl;
+	cout<<"TOTAL NUMBER OF COLLISIONS IN QUADRATIC PROBING "<<quadcol<<endl;
+	cout<<"TOTAL NUMBER OF COLLISIONS IN DYNAMIC PROBING "<<doucol<<endl;
+//printing average collision
+	cout<<"AVERAGE NUMBER OF REHASING REQUIRED IS "<<lincol/number<<" IN LINEAR PROBING"<<endl;
+	cout<<"AVERAGE NUMBER OF REHASING REQUIRED IS "<<quadcol/number<<" IN QUADRATIC PROBING"<<endl;
+	cout<<"AVERAGE NUMBER OF REHASING REQUIRED IS "<<doucol/number<<" IN DOUBLE HASHING"<<endl;
+
+}
