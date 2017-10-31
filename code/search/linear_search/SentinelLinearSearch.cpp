@@ -12,15 +12,13 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void SentinalLinearSearch(std::vector<int> v,int n,int x)
+void sentinelLinearSearch(std::vector<int> v,int n,int x)
 {
 	int last,i=0;
 	last=v[n-1];
 	v[n-1]=x;
 	while(v[i]!=x)
-	{
 		i++;
-	}
 	if(i<n-1||last==x)
 		cout<<"found";
 	else
@@ -37,6 +35,6 @@ int main()
 		cin>>input;
 		v.push_back(input);
 	}
-	SentinalLinearSearch(v,n,x);
+	sentinelLinearSearch(v,n,x);
 	return 0;
 }
