@@ -1,0 +1,363 @@
+/*
+SEARCH,INSERT and DELETE are implemented.give number of operations and size of table followed by any of 3 operations with number
+Code outputs the average collisions in rehashing and shows which is better out of linera,quadratic and double hashing probing techniques*/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+void InsertL(int n,int a1[],int*c1,int m)
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==-1 || a1[k]==-999)
+	{
+		a1[k]=n;
+		cout<<n<<" INSERTED AT INDEX "<<k<<" IN LINEAR PROBING"<<endl;
+		break;
+	}
+	else
+	{
+	colli++;
+	k=(k+1)%m;
+	if(k==t)
+	{
+		cout<<n<<" CANNOT BE INSERTED IN LINEAR PROBING"<<endl;
+		break;
+	}
+	}	
+
+}
+(*c1)+=colli;
+}
+
+void InsertQ(int n,int a1[],int*c1,int m)
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==-1 || a1[k]==-999)
+	{
+		a1[k]=n;
+		cout<<n<<" INSERTED AT INDEX "<<k<<" IN QUADRATIC PROBING"<<endl;
+		break;
+	}
+	else
+	{
+	colli++;
+	k=(t+colli+3*colli*colli)%m;
+	if(colli==m)
+	{
+		cout<<n<<" CANNOT BE INSERTED IN QUADRATIC PROBING"<<endl;
+		break;
+	}
+	}	
+
+}
+(*c1)+=colli;
+}
+
+void InsertD(int n,int a1[],int*c1,int m)
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==-1 || a1[k]==-999)
+	{
+		a1[k]=n;
+		cout<<n<<" INSERTED AT INDEX "<<k<<" IN DOUBLE HASHING"<<endl;
+		break;
+	}
+	else
+	{
+	colli++;
+	k=(t+colli*(1+n%(m-1)))%m;
+	if(colli==m)
+	{
+		cout<<n<<" CANNOT BE INSERTED IN DOUBLE HASHING"<<endl;
+		break;
+	}
+	}	
+
+}
+(*c1)+=colli;
+}
+
+
+
+
+
+void Insert(int n,int m,int a1[],int a2[],int a3[],int*c1,int*c2,int*c3)
+{
+InsertL(n,a1,c1,m);
+InsertQ(n,a2,c2,m);
+InsertD(n,a3,c3,m);
+}
+
+void SearchL(int n,int m,int a1[])
+{
+int k=n%m;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		cout<<n<<" FOUND AT INDEX "<<k<<" IN LINEAR PROBING"<<endl;
+		break;
+	}
+	else if(a1[k]==-1)
+	{	
+		cout<<n<<" IS NOT PRESENT IN LINEAR PROBING"<<endl;
+		break;
+	}
+	else
+	{
+		k++;
+		if(k==t)
+		{
+		cout<<n<<" IS NOT PRESENT IN LINEAR PROBING"<<endl;
+		break;
+		}
+	}
+
+}
+}
+
+void SearchQ(int n,int m,int a1[])
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		cout<<n<<" FOUND AT INDEX "<<k<<" IN QUADRATIC PROBING"<<endl;
+		break;
+	
+	}
+	else if(a1[k]==-1)
+	{
+		cout<<n<<" IS NOT PRESENT IN QUADRATIC PROBING"<<endl;
+		break;
+	}
+	else
+	{
+		colli++;
+		k=(t+colli+3*colli*colli)%m;
+		if(colli==m)
+		{
+			cout<<n<<" IS NOT PRESENT IN QUADRATIC PROBING"<<endl;
+			break;
+		}
+	}	
+
+}
+}
+
+void SearchD(int n,int m,int a1[])
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		cout<<n<<" FOUND AT INDEX "<<k<<" IN DOUBLE HASHING"<<endl;
+		break;
+	
+	}
+	else if(a1[k]==-1)
+	{
+		cout<<n<<" IS NOT PRESENT IN DOUBLE HASHING"<<endl;
+		break;
+	}
+	else
+	{
+		colli++;
+		k=(t+colli*(1+n%(m-1)))%m;
+		if(colli==m)
+		{
+			cout<<n<<" IS NOT PRESENT IN DOUBLE HASHING"<<endl;
+			break;
+		}
+	}	
+
+}
+}
+
+
+void DeleteL(int n,int m,int a1[])
+{
+int k=n%m;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		a1[k]=-999;
+		cout<<n<<" DELETED FROM "<<k<<" IN LINEAR PROBING"<<endl;
+		break;
+	}
+	else if(a1[k]==-1)
+	{	
+		cout<<n<<" CANNOT BE DELETED IN LINEAR PROBING"<<endl;
+		break;
+	}
+	else
+	{
+		k++;
+		if(k==t)
+		{
+		cout<<n<<"  CANNOT BE DELETED IN LINEAR PROBING"<<endl;
+		break;
+		}
+	}
+
+}
+}
+
+void DeleteD(int n,int m,int a1[])
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		a1[k]=-999;
+		cout<<n<<" DELETED FROM "<<k<<" IN DOUBLE HASHING"<<endl;
+		break;
+	
+	}
+	else if(a1[k]==-1)
+	{
+		cout<<n<<" CANNOT BE DELETED IN DOUBLE HASHING"<<endl;
+		break;
+	}
+	else
+	{
+		colli++;
+		k=(t+colli*(1+n%(m-1)))%m;
+		if(colli==m)
+		{
+			cout<<n<<" CANNOT BE DELETED IN DOUBLE HASHING"<<endl;
+			break;
+		}
+	}	
+
+}
+}
+
+void DeleteQ(int n,int m,int a1[])
+{
+int k=n%m,colli=0;
+int t=n%m;
+while(1)
+{
+	if(a1[k]==n)
+	{
+		a1[k]=-999;
+		cout<<n<<" DELETED FROM "<<k<<" IN QUADRATIC PROBING"<<endl;
+		break;
+	
+	}
+	else if(a1[k]==-1)
+	{
+		cout<<n<<" CANNOT BE DELETED IN QUADRATIC PROBING"<<endl;
+		break;
+	}
+	else
+	{
+		colli++;
+		k=(t+colli+3*colli*colli)%m;
+		if(colli==m)
+		{
+			cout<<n<<" CANNOT BE DELETED IN QUADRATIC PROBING"<<endl;
+			break;
+		}
+	}	
+
+}
+}
+
+void Search(int n,int m,int a1[],int a2[],int a3[])
+{
+SearchL(n,m,a1);
+SearchQ(n,m,a2);
+SearchD(n,m,a3);
+}
+
+void Delete(int n,int m,int a1[],int a2[],int a3[])
+{
+DeleteL(n,m,a1);
+DeleteQ(n,m,a2);
+DeleteD(n,m,a3);
+}
+
+void CollisionDetails(int n1,int n2,int n3,int counter)
+{
+	cout<<"TOTAL NUMBER OF COLLISIONS IN LINEAR PROBING "<<n1<<endl;
+	cout<<"TOTAL NUMBER OF COLLISIONS IN QUADRATIC PROBING "<<n2<<endl;
+	cout<<"TOTAL NUMBER OF COLLISIONS IN DYNAMIC PROBING "<<n3<<endl;
+	
+	float m1=n1;
+	float m2=n2;
+	float m3=n3;
+	m1/=counter;
+	m2/=counter;
+	m3/=counter;
+	cout<<"AVERAGE NUMBER OF REHASHING REQUIRED IS "<<m1<<" IN LINEAR PROBING"<<endl;
+	cout<<"AVERAGE NUMBER OF REHASHING REQUIRED IS "<<m2<<" IN QUADRATIC PROBING"<<endl;
+	cout<<"AVERAGE NUMBER OF REHASHING REQUIRED IS "<<m3<<" IN DOUBLE HASHING"<<endl;
+	
+}
+
+int main()
+{
+	cout<<setprecision(2)<<fixed;
+	int n,m;
+	cin>>n>>m;
+
+	int a1[m];
+	int a2[m];
+	int a3[m];
+
+	for(int i=0;i<m;i++)
+	{
+	a1[i]=a2[i]=a3[i]=-1;
+	}
+
+	string a;
+	int b;
+	int counter=0;
+	int n1=0,n2=0,n3=0;
+	while(n--)
+	{
+		cin>>a>>b;
+		if(a=="INSERT")
+		{
+		Insert(b,m,a1,a2,a3,&n1,&n2,&n3);
+		counter++;
+		}
+		else if(a=="SEARCH")
+		{
+		Search(b,m,a1,a2,a3);
+		}
+		else if(a=="DELETE")
+		{
+		Delete(b,m,a1,a2,a3);
+		}
+	}
+	CollisionDetails(n1,n2,n3,counter);
+	
+	
+	
+	
+	return 0;
+}
+
