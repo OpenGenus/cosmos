@@ -4,14 +4,14 @@
 /* Check if a number is a power of 2 */
 #include<iostream>
 using namespace std;
-typedef long long ll;
-bool isPowerOf2(ll n)
+typedef long long int int64;
+bool isPowerOf2(int64 n)
 {
     return n && (!(n & (n-1)));
 }
 int main()
 {
-    ll n;
+    int64 n;
     cout<<"Enter a number\n";
     cin>>n;
     if(isPowerOf2(n))
