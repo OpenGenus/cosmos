@@ -9,7 +9,7 @@
 # console.log(isPerfectSquare(32)) // should output false
 # console.log(isPerfectSquare(64)) // should output true
 
-def perfect_square?(num) 
+def perfect_square?(num)
   Math.sqrt(num) % 1 == 0
 end
 
