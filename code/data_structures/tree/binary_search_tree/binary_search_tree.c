@@ -1,138 +1,168 @@
-//Author: Praveen Gupta
-// Part of Cosmos by OpenGenus Foundation
-#include<stdio.h>
-#include<stdlib.h>
+#include <iostream>
+using namespace std;
 
-//Defining Node
-typedef struct node{
+struct tnode
+{
 	int data;
-	struct node *left;
-	struct node *right;
+	tnode *left;
+	tnode *right;
+};
 
-}node;
+void insert(tnode **ref, int data)
+{
+	tnode *newn = new tnode;
+	newn->data = data;
 
-//Creates a new Node
-node *newNode(int data){
-	node *temp=(node *)malloc(sizeof(node));
-	temp->data=data;
-	temp->left=temp->right=NULL;
+	tnode *curr = *ref;
 
-	return temp;
+	if(curr == NULL)
+	{
+		*ref = newn;
+		return;
+	}
+
+	if(data < curr->data)
+	{
+		insert(&curr->left, data);
+	}
+	else if(data > curr->data)
+	{
+		insert(&curr->right, data);
+	}
+	else
+	{
+		cout<<"same value?"<<endl;
+		return;
+	}
+
+	return;
 }
 
-//Adds the new node to the appropriate position
-node *create(node *head,int data){
+void disp(tnode *ref, int key)
+{
+	tnode *curr = ref;
+	if(curr == NULL)
+		return;
 
-	if (head==NULL){
-		head = newNode(data);
+	switch(key)
+	{
+		case 1://preorder
+			cout<<curr->data<<endl;
+			disp(curr->left, key);
+			disp(curr->right, key);
+			break;
+
+		case 2://inorder
+			disp(curr->left, key);
+			cout<<curr->data<<endl;
+			disp(curr->right, key);
+			break;
+		case 3://postorder
+			disp(curr->left, key);
+			disp(curr->right, key);
+			cout<<curr->data<<endl;
+			break;
 	}
-	else if(data<=head->data){
-		head->left = create(head->left,data);
-	}
-	else{
-		head->right = create(head->right,data);
-	}
-	return head;
 }
 
-//Prints tree
-void print(node *head){
-	if(head==NULL)
+void search(tnode *ref, int key)
+{
+	tnode *curr = ref;
+	if(curr == NULL)
+	{
+		cout<<"not found!"<<endl;
+		return ;
+	}
+
+	if(curr->data == key)
+	{
+		cout<<"found!"<<endl;
+		return;
+	}
+	else
+	{
+		if(key < curr->data)
+			search(curr->left, key);
+		else
+			search(curr->right, key);
+	}
+}
+
+int minc = 0;
+
+void min(tnode *ref)
+{
+	tnode *curr = ref;
+	if(curr == NULL)
 	{
 		return;
 	}
-	printf("%d(",head->data );
-	print(head->left);
-	printf(" , ");
-	print(head->right);
-	printf(")");
-}
-
-//Searches for an element in the tree
-int search(node *head, int data){
-	if(head==NULL)
-		return 0;
-	if(head->data==data)
-		return 1;
-	if(data<head->data)
-		return search(head->left, data);
-	else
-		return search(head->right, data);
-}
-
-//Deletes a subtree with root as the parameter
-node *deleteTree(node *head){
-	if(head==NULL)
-		return NULL;
-
-	deleteTree(head->left);
-	deleteTree(head->right);
-	free(head);
-	return NULL;
-}
-
-//Deletes the node and its children's
-node *delete(node *head, int data){
-	if(head==NULL){
-		printf("Nor found\n");		
+	if(curr != NULL)
+	{
+		min(curr->left);
+		if(minc == 0)
+			cout<<curr->data<<endl;;
+		minc += 1;
+		return;
 	}
-
-	if(head->data==data){
-		head = deleteTree(head);
-	}
-	
-	else if(data<head->data)
-		head->left = delete(head->left, data);
-	
-	else
-		head->right = delete(head->right, data);
-
-	return head;
 }
-//Finds the height of the tree
-int height(node *head) 
+
+/*void remove(tnode **ref, int key)
 {
-   if (head==NULL) 
-       return 0;
-   else
-   {
-       /* compute the depth of each subtree */
-       int left_height = height(head->left);
-       int right_height = height(head->right);
- 
-       /* use the larger one */
-       if (left_height > right_height) 
-           return(left_height+1);
-       else return(right_height+1);
-   }
-} 
-int main(){
-node *head=NULL;
-
-	printf("Binary Search Tree\n");
-	int c,data;
-
-	again:
-	printf("\n1. Insert Node         2. Delete Node		  3.Search		4.Find height\n");
-	scanf("%d",&c);
-
-	switch(c){
-		case 1:	printf("Enter data\n");
-				scanf("%d",&data);
-				head=create(head,data);
-				break;
-
-		case 2:	printf("Enter data to delete\n");
-				scanf("%d",&data);
-				head = delete(head,data);
-				break;		
-
-		case 3: printf("Enter data to search\n");
-				scanf("%d",&data);
-				search(head,data) ? printf("Found in tree\n"):printf("Not Found in tree\n");
-		case 4: printf("The height of BST is: %d ",height(head));
+	tnode *curr = *ref;
+	if(curr == NULL)
+		return;
+	if(curr->data == key)
+	{
+		node *tracker = curr;
+		while(tracker != NULL)
+		{
+		}
 	}
-	print(head);
-	goto again;
-return 0;
+	else
+	{
+		if(key < curr->data)
+			search(curr->left, key);
+		else
+			search(curr->right, key);
+	}
+}*/
+
+void treeops()
+{
+	tnode *head = NULL;
+	int ch;
+	do
+	{
+	    cout<<"----\n0.Exit\n1.insert\n2.disp\n3.search\n4.min\n5.delete\n----"<<endl;
+	    cin>>ch;
+	    switch(ch)
+	    {
+	      case 0:
+	        break;
+	      case 1:
+	        int nodeval;
+	        cin>>nodeval;
+	        insert(&head, nodeval);
+	        break;
+	      case 2:
+	      	int dispch;
+	      	cout<<"\n1.preorder\n2.inorder\n3.postorder\n";
+	      	cin>>dispch;
+	        disp(head,dispch);
+	        break;
+	      case 3:
+	        cin>>nodeval;
+	        search(head, nodeval);
+	        break;
+	      case 4:
+	        min(head);
+	        break;
+	      case 5:
+	        //delete here
+	        break;
+	    }
+	}
+  while(ch != 0);
+  return;
 }
