@@ -3,11 +3,13 @@
 */
 
 /*
+ * Author: Visakh S
  * Input: The number of elements in an array, The element to be searched, An integer array.
  * Output: if found returns "found" else "not found", using the sentinel linear search algorithm.
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 void sentinal_linear_search(std::vector<int> v,int n,int x)
 {
