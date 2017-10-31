@@ -5,33 +5,24 @@
 
 using namespace std;
 
-void bsort(int *,int);               //prototype
-void orderPointer(int *,int *);      //prototype
-
-//call by pointer
-void orderPointer(int * a,int * b)
+void bsort(int *ptr,int s)
 {
-    if(*a>*b)
-    {
-        int temp=*a;
-        *a=*b;
-        *b=temp;
-    }
+int i,j;
+int temp;
+for(i=1;i<s;i++)
+ {
+  for(j=0;j<s-i;j++)
+   {
+    if(*(ptr+j)>*(ptr+j+1))
+     {
+      temp=*(ptr+j);
+      *(ptr+j)=*(ptr+j+1);
+      *(ptr+j+1)=temp;
+     }
+   }
 
 }
-
-void bsort(int* ptr,int s)
-{
-    for(int i=0; i<s-1 ;++i)
-    {
-        for(int j=i+1; j<s ;++j)
-            orderPointer(ptr+i,ptr+j);
-
-
-    }
-
 }
-
 int main()
 {
     const int N=5;
@@ -45,6 +36,7 @@ int main()
 
     return 0;
 }
+
 
 
 /*
