@@ -68,6 +68,14 @@ private:
     void rotateRight(p_node_type &);
 
     void fixViolation(p_node_type &);
+
+    p_node_type &successor(p_node_type &);
+
+    p_node_type &sibling(p_node_type &);
+
+    bool isLeftChild(p_node_type &);
+
+    bool isRightChild(p_node_type &);
 };
 
 // Function to insert a new node with given data
@@ -262,6 +270,28 @@ RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &pt)
     pt->parent = pt_left;
 }
 
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::successor(p_node_type & pt) {
+    p_node_type child = sentinel_;
+    if (pt->left != sentinel_)
+    {
+        child = pt->left;
+        while (child->right != sentinel_)
+            child = child->right;
+        swap(pt->data, child->data);
+    }
+    else if (pt->right != sentinel_)
+    {
+        child = pt->right;
+        while (child->left != sentinel_)
+            child = child->left;
+        swap(pt->data, child->data);
+    }
+
+    return sentinel_;
+}
+
 // This function fixes violations caused by BST insertion
 template<typename _Tp, typename _Comp>
 void
@@ -350,6 +380,24 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &pt)
     }
 
     root_->color = Color::BLACK;
+}
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::sibling(p_node_type & n) {
+    return n->parent->left != n ? n->parent->left : n->parent->right;
+}
+
+template<typename _Tp, typename _Comp>
+bool
+RBTree<_Tp, _Comp>::isLeftChild(p_node_type &n) {
+    return n == n->parent->left;
+}
+
+template<typename _Tp, typename _Comp>
+bool
+RBTree<_Tp, _Comp>::isRightChild(p_node_type &n) {
+    return n == n->parent->right;
 }
 
 void
