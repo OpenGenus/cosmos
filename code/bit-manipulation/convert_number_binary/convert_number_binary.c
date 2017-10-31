@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     long num, decimal_num, remainder, base = 1, binary = 0, no_of_1s = 0;
 
