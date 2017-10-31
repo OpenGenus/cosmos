@@ -48,6 +48,8 @@ public:
 
     void insert(const _Tp &n);
 
+    p_node_type find(const _Tp &);
+
     std::string preOrder();
 
     std::string inOrder();
@@ -58,6 +60,8 @@ private:
     _Comp comp_;
 
     p_node_type &insert(p_node_type &root, p_node_type &pt);
+
+    p_node_type &_find(const _Tp &data);
 
     void rotateLeft(p_node_type &, p_node_type &);
 
@@ -78,6 +82,14 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
 
     // fix Red Black Tree violations
     fixViolation(root_, pt);
+}
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type
+RBTree<_Tp, _Comp>::find(const _Tp &data) {
+    auto pt = _find(data);
+
+    return pt != sentinel_ ? pt : nullptr;
 }
 
 template<typename _Tp, typename _Comp>
@@ -165,6 +177,41 @@ RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
 
     /* return the (unchanged) node pointer */
     return root;
+}
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::_find(const _Tp &data)
+{
+    p_node_type pt = std::make_shared<RBTree::node_type>(data);
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    while (!st.empty())
+    {
+        if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+            return st.top();
+        while (st.top()->left != sentinel_)
+        {
+            st.push(st.top()->left);
+            if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+                return st.top();
+        }
+        while (!st.empty() && st.top()->right == sentinel_)
+            st.pop();
+        if (!st.empty())
+        {
+            if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+                return st.top();
+            else
+            {
+                p_node_type temp = st.top();
+                st.pop();
+                st.push(temp->right);
+            }
+        }
+    }
+
+    return sentinel_;
 }
 
 template<typename _Tp, typename _Comp>
@@ -310,6 +357,7 @@ test() {
     std::shared_ptr<RBTree<int> > rbt;
     rbt = make_shared<RBTree<int> >();
     assert(rbt->preOrder() == "");
+    assert(rbt->find(32) == nullptr);
     rbt->insert(1);
     rbt->insert(4);
     rbt->insert(7);
@@ -339,6 +387,9 @@ test() {
     rbt->insert(31);
     assert(rbt->inOrder() == "1234567891015203031333537405060636567697080100");
     assert(rbt->preOrder() == "2074213659810156040333031373550806763657069100");
+    assert(rbt->find(31) != nullptr);
+    assert(rbt->find(32) == nullptr);
+
     rbt->erase(69);
     rbt->erase(65);
     rbt->erase(1);
