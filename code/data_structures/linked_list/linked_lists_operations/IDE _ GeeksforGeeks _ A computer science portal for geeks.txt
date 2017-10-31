@@ -1,0 +1,111 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef struct Node node;
+
+struct Node{
+int data;
+struct Node* next;
+};
+
+node* crnode(){
+node *x=new node;
+x->next=NULL;
+return x;
+}
+
+void PrintList(node* head)
+{
+if(head!=NULL)
+{
+node*q=head;
+while(q!=NULL)
+{
+cout<<q->data<<" ";
+q=q->next;
+}
+}
+}
+
+
+node* Create(node *head)
+{
+int c,p=0;
+node *n,*cur;
+int count=0;
+cout<<"Enter the number of elements:"<<endl;
+cin>>count;
+cout<<"Enter the elements :"<<endl;
+while(count--)
+{
+cin>>c;
+if(p==0)
+{
+head=crnode();
+head->data=c;
+cur=head;
+p++;
+}
+else
+{
+n=crnode();
+n->data=c;
+cur->next=n;
+cur=n;
+}
+}
+return head;
+}
+
+node* Reverse(node *head)
+{
+if(head!=NULL)
+{
+node *a=head;
+while(a->next!=NULL)
+a=a->next;
+node *q=head,*z,*y,*h;
+int p=0;
+while(q->next!=NULL)
+{
+if(!p)
+{
+y=q;
+z=q->next;
+q=q->next;
+y->next=NULL;
+p++;
+}
+else
+{
+h=z;
+q=q->next;
+z->next=y;
+z=q;
+y=h;
+}
+}
+z->next=y;
+return a;
+}
+else
+return head;
+}
+
+
+
+
+
+int main()
+{
+	node *head;
+	head=NULL;
+	head=Create(head);
+	head=Reverse(head);
+	cout<<"List in reverse order:"<<endl;
+	PrintList(head);
+	return 0;
+	
+	
+
+}
