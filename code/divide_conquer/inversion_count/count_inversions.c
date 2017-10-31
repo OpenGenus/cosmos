@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 
-int  _mergeSort(int arr[], int temp[], int left, int right);
+int _mergeSort(int arr[], int temp[], int left, int right);
 int merge(int arr[], int temp[], int left, int mid, int right);
 
 int mergeSort(int arr[], int array_size)
@@ -73,18 +73,18 @@ int merge(int arr[], int temp[], int left, int mid, int right)
 }
 
 
-int main(int argv, char** args)
+int main(int argc, char** argv)
 {
+  printf("Number of elements in array : ");
   int n;
+  scanf("%d", &n);
   int arr[n];
-  printf("Number of elements in array :");
-  scanf("%d",&n);
-  printf("elements in array:");
-  for (int x=0;x<n;x++)
+  printf("elements in array:\n");
+  for (int x=0; x<n; x++)
   {
-    scanf("%d",&arr[x]);
+    scanf("%d", &arr[x]);
   }
-  printf(" Number of inversions are %d \n", mergeSort(arr, n));
+  printf("Number of inversions are %d \n", mergeSort(arr, n));
   getchar();
   return 0;
 }
