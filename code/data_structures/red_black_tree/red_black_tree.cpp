@@ -56,12 +56,12 @@ private:
 
     void fixViolation(p_node_type &, p_node_type &);
 
-    p_node_type insert(p_node_type root, p_node_type pt);
+    p_node_type &insert(p_node_type &root, p_node_type &pt);
 };
 
 template<typename _Tp, typename _Comp>
-typename RBTree<_Tp, _Comp>::p_node_type
-RBTree<_Tp, _Comp>::insert(p_node_type root, p_node_type pt)
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
 {
     /* If the tree is empty, return a new node */
     if (root == nullptr)
