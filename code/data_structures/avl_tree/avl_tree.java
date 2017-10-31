@@ -207,6 +207,26 @@ class AVLTree
             preOrder(node.right);
         }
     }
+	
+	void inOrder(Node node)
+	{
+		if (node != null)
+		{
+			inOrder(node.left);
+			System.out.print(node.key + " ");
+			inOrder(node.right);
+		}
+	}
+	
+	void postOrder(Node node)
+	{
+		if (node != null)
+		{
+			postOrder(node.left);
+			postOrder(node.right);
+			System.out.print(node.key + " ");
+		}
+	}
  
     public static void main(String[] args)
     {
@@ -234,10 +254,26 @@ class AVLTree
         System.out.println("Preorder traversal of "+
                             "constructed tree is : ");
         tree.preOrder(tree.root);
+		System.out.println("");
+		System.out.println("Inorder traversal of "+
+                            "constructed tree is : ");
+        tree.inOrder(tree.root);
+		System.out.println("");
+		System.out.println("Postorder traversal of "+
+                            "constructed tree is : ");
+        tree.postOrder(tree.root);
+		System.out.println("");
         tree.root = tree.deleteNode(tree.root, 11);
-        System.out.println("");
         System.out.println("Preorder traversal after "+
-                           "deletion of 10 :");
+                           "deletion of 11 :");
         tree.preOrder(tree.root);
+		System.out.println("");
+		System.out.println("Inorder traversal after "+
+                           "deletion of 11 :");
+        tree.inOrder(tree.root);
+		System.out.println("");
+		System.out.println("Postorder traversal after "+
+                           "deletion of 11 :");
+        tree.postOrder(tree.root);
     }
 }
