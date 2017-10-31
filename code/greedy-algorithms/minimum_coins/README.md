@@ -13,6 +13,8 @@ It takes a value V and a set of coin's denomination D.
 
 Supposing we have infinite supply of each denomination, the algorithm returns the minimum set of coins C that makes the value V.
 
+NOTE: Finding the number of coins in the optimal set is an easier problem vs finding the coins in the solution. Some of the solutions presented here don't use a dynamic programming solution and result in a <span style="color:red">wrong answer</span> for `V=6` `D={5,2}` (the correct solution is `C={2, 2, 2}`).
+
 ### The algorithm in plain english:
 
     Assuming the set D is sorted in descending order
