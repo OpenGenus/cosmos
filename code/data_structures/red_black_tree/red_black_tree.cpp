@@ -80,14 +80,6 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
     fixViolation(root_, pt);
 }
 
-// template<typename _Tp, typename _Comp>
-// typename RBTree<_Tp, _Comp>::p_node_type
-// RBTree<_Tp, _Comp>::find(const _Tp &data) {
-// auto pt = _find(data);
-//
-// return pt != sentinel_ ? pt : nullptr;
-// }
-
 template<typename _Tp, typename _Comp>
 std::string
 RBTree<_Tp, _Comp>::preOrder() {
