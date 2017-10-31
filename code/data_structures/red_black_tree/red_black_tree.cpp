@@ -38,7 +38,7 @@ private:
 
 public:
     // Constructor
-    RBTree() :root_(nullptr) {}
+    RBTree() :root_(nullptr), comp_(_Comp()) {}
 
     void insert(const _Tp &n);
 
@@ -48,6 +48,7 @@ public:
 
 private:
     p_node_type root_;
+    _Comp comp_;
 
     void rotateLeft(p_node_type &, p_node_type &);
 
@@ -67,12 +68,12 @@ RBTree<_Tp, _Comp>::insert(p_node_type root, p_node_type pt)
         return pt;
 
     /* Otherwise, recur down the tree */
-    if (pt->data < root->data)
+    if (comp_(pt->data, root->data))
     {
         root->left = insert(root->left, pt);
         root->left->parent = root;
     }
-    else if (pt->data > root->data)
+    else if (comp_(root->data, pt->data))
     {
         root->right = insert(root->right, pt);
         root->right->parent = root;
