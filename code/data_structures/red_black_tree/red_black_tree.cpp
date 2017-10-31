@@ -50,14 +50,87 @@ private:
     p_node_type root_;
     _Comp comp_;
 
+    p_node_type &insert(p_node_type &root, p_node_type &pt);
+
     void rotateLeft(p_node_type &, p_node_type &);
 
     void rotateRight(p_node_type &, p_node_type &);
 
     void fixViolation(p_node_type &, p_node_type &);
-
-    p_node_type &insert(p_node_type &root, p_node_type &pt);
 };
+
+// Function to insert a new node with given data
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::insert(const _Tp &data)
+{
+    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
+
+    // Do a normal BST insert
+    root_ = insert(root_, pt);
+
+    // fix Red Black Tree violations
+    fixViolation(root_, pt);
+}
+
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::preOrder() {
+    if (root_ == nullptr)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    elem.append(std::to_string(st.top()->data));
+    while (!st.empty())
+    {
+        while (st.top()->left)
+        {
+            elem.append(std::to_string(st.top()->left->data));
+            st.push(st.top()->left);
+        }
+        while (!st.empty() && !st.top()->right)
+            st.pop();
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->right->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
+
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::inOrder() {
+    if (root_ == nullptr)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    while (!st.empty())
+    {
+        while (st.top()->left)
+            st.push(st.top()->left);
+        while (!st.empty() && !st.top()->right)
+        {
+            elem.append(std::to_string(st.top()->data));
+            st.pop();
+        }
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
 
 template<typename _Tp, typename _Comp>
 typename RBTree<_Tp, _Comp>::p_node_type &
@@ -220,79 +293,6 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
     }
 
     root->color = Color::BLACK;
-}
-
-// Function to insert a new node with given data
-template<typename _Tp, typename _Comp>
-void
-RBTree<_Tp, _Comp>::insert(const _Tp &data)
-{
-    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data);
-
-    // Do a normal BST insert
-    root_ = insert(root_, pt);
-
-    // fix Red Black Tree violations
-    fixViolation(root_, pt);
-}
-
-template<typename _Tp, typename _Comp>
-std::string
-RBTree<_Tp, _Comp>::preOrder() {
-    if (root_ == nullptr)
-        return {};
-    std::string elem{};
-    std::stack<p_node_type> st{};
-    st.push(root_);
-    elem.append(std::to_string(st.top()->data));
-    while (!st.empty())
-    {
-        while (st.top()->left)
-        {
-            elem.append(std::to_string(st.top()->left->data));
-            st.push(st.top()->left);
-        }
-        while (!st.empty() && !st.top()->right)
-            st.pop();
-        if (!st.empty())
-        {
-            elem.append(std::to_string(st.top()->right->data));
-            auto temp = st.top();
-            st.pop();
-            st.push(temp->right);
-        }
-    }
-
-    return elem;
-}
-
-template<typename _Tp, typename _Comp>
-std::string
-RBTree<_Tp, _Comp>::inOrder() {
-    if (root_ == nullptr)
-        return {};
-    std::string elem{};
-    std::stack<p_node_type> st{};
-    st.push(root_);
-    while (!st.empty())
-    {
-        while (st.top()->left)
-            st.push(st.top()->left);
-        while (!st.empty() && !st.top()->right)
-        {
-            elem.append(std::to_string(st.top()->data));
-            st.pop();
-        }
-        if (!st.empty())
-        {
-            elem.append(std::to_string(st.top()->data));
-            auto temp = st.top();
-            st.pop();
-            st.push(temp->right);
-        }
-    }
-
-    return elem;
 }
 
 void
