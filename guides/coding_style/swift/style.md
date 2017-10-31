@@ -100,8 +100,6 @@ For the above example using `UIGestureRecognizer`, 1 is unambiguous and preferre
 
 **Pro Tip:** You can use Xcode's jump bar to lookup methods with argument labels.
 
-![Methods in Xcode jump bar](screens/xcode-jump-bar.png)
-
 
 ### Class Prefixes
 
