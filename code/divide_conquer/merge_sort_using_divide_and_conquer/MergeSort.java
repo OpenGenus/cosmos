@@ -1,3 +1,6 @@
+//  divide conquer | merge sort using divide and conquer | Java
+//  Part of Cosmos by OpenGenus Foundation
+
 package mergesort;
 
 /**
@@ -21,7 +24,7 @@ public class MergeSort {
     public int getSize() {
         return size;
     }
-    
+
 
     public void merge(int left, int mid, int right) {
         int temp [] =new int[right-left+1];

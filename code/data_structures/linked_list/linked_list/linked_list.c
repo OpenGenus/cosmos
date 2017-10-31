@@ -3,10 +3,9 @@
  * Part of Cosmos by OpenGenus Foundation
  */
 #include <stdio.h>
-#include <malloc.h>
 #include <stdlib.h>
  
-void main()
+int main(void)
 {
     struct node
     {

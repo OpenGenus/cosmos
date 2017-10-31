@@ -1,3 +1,6 @@
+//  divide conquer | karatsuba multiplication | Java
+//  Part of Cosmos by OpenGenus Foundation
+
 import java.lang.*;
 import java.util.Scanner;
 
@@ -49,7 +52,7 @@ public class Multiply
 		ad=multiply(a,d,n/2);
 		bc=multiply(b,c,n/2);
 		ad_bc=add_str(ad,bc,n);
-		
+
 		for(i=1;i<=n;i++)
 			ac=ac+"0";
 		for(i=1;i<=n/2;i++)

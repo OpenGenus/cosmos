@@ -49,7 +49,7 @@ private func median5(_ array: inout [Int], left: Int, right: Int) -> Int {
                 }
             }
             swap(&array, at: p, and: i)
-            if p >= mid {
+            if i >= mid {
                 break
             }
         }

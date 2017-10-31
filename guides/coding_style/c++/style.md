@@ -4,7 +4,7 @@ Code width and alignment
 ===
 - Try to limit code width to 100 characters.
 
-- Split lines as close to the code width as possible (if a parameter is spli onto another line, then all of the parameters should be split).
+- Split lines as close to the code width as possible (if a parameter is split onto another line, then all of the parameters should be split).
 
 - If the width is less than or equal to the maximum code width, then do not split the line (unless split at return type or for readability).
 
@@ -94,7 +94,7 @@ int camelCase;
 
 Global Variables
 ---
-While global variables should be avoided for the most part, if they are necessary, then they should be named using prefix 'g\_' and standard camel case.
+While global variables should be avoided for the most part. If they are necessary, then they should be named using prefix 'g\_' and standard camel case.
 
 **Valid:**
 ```C++
@@ -104,7 +104,7 @@ int g_camelCase;
 
 Constant Variables
 ---
-Constant variables should be named like normal variables, should use `const`/`constexpr`.
+Constant variables should be named like normal variables and should use `const`/`constexpr`.
 
 **Valid:**
 ```C++
@@ -114,7 +114,7 @@ constexpr int constantName;
 
 Braces
 ===
-When using braces, put them on their own lines. For if statements and loops that have one line statements, omit the braces (unless between '}' and 'while' on do-while).
+When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless between `do` and `while` on do-while statements).
 
 **Valid:**
 ```C++
@@ -172,7 +172,7 @@ int camelCase();
 
 Parameters
 ---
-When listing POD (Plain Old Data) types, then pass them by value. When listing user-defined types, then pass them by const reference. When a function has to modify a variable, then, and only then pass the variable by reference.
+When listing POD (Plain Old Data) types, pass them by value. When listing user-defined types, pass them by `const` reference. When a function has to modify a variable, then, and only then pass the variable by reference.
 
 **Valid:**
 ```C++
@@ -186,7 +186,7 @@ Classes
 ===
 Names
 ---
-When naming classes, follow the rules of pascal case.
+When naming classes, follow the rules of PascalCase.
 
 **Valid:**
 ```C++
@@ -194,7 +194,7 @@ class PascalCase;
 struct PascalCase;
 ```
 
-When naming the member variables of a class that shold be _private_, and add an underscore to the end of their name.
+When naming the member variables of a class that should be _private_, add an underscore to the end of their name.
 
 **Valid:**
 ```C++
@@ -268,7 +268,7 @@ When dealing with enumerations, use `enum class`, not `enum` (Unless dealing wit
 Naming
 ---
 
-Enumerations should be named like user-defined types with Pascal Case. The actual enumerators inside should be named using all caps and underscore separation.
+Enumerations should be named like user-defined types with PascalCase. The actual enumerators inside should be named using all caps and underscore separation.
 
 **Valid:**
 ```C++
