@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+// Part of Cosmos by OpenGenus Foundation
 
 fn main() {
     // 2 results - for `7` and both `-3` numbers

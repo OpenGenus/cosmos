@@ -15,7 +15,7 @@ double getAverage(double num)
 void streamAverage(vector<double> arr)
 {
     double average = 0;
-    for(int i = 0; i < arr.size(); i++)
+    for(size_t i = 0; i < arr.size(); i++)
     {
         average  = getAverage(arr[i]);
         cout << "Average of " << i+1  << " numbers is " << average << endl;

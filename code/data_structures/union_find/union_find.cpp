@@ -9,13 +9,16 @@
 class UnionFind {
     std::vector<size_t> parent;
     std::vector<size_t> rank;
-
     size_t root(size_t node) {
         if (parent[node] == node) {
             return node;
         } else {
             return parent[node] = getParent(parent[node]);
         }
+    }
+
+    size_t getParent(size_t node) {
+        return parent[node];
     }
 
 public:
@@ -30,7 +33,7 @@ public:
     }
 
     // Connect vertices `a` and `b`.
-    void union(size_t a, size_t b) {
+    void Union(size_t a, size_t b) {
         a = root(a);
         b = root(b);
         if (a == b) {
@@ -47,7 +50,7 @@ public:
     }
 
     // Check if vertices `a` and `b` are in the same component.
-    bool connected(size_t a, size_t b) {
+    bool Connected(size_t a, size_t b) {
         return root(a) == root(b);
     }
 };
@@ -55,12 +58,12 @@ public:
 int main() {
     UnionFind unionFind(10);
 
-    unionFind.union(3, 4);
-    unionFind.union(3, 8);
-    unionFind.union(0, 8);
-    unionFind.union(1, 3);
-    unionFind.union(7, 9);
-    unionFind.union(5, 9);
+    unionFind.Union(3, 4);
+    unionFind.Union(3, 8);
+    unionFind.Union(0, 8);
+    unionFind.Union(1, 3);
+    unionFind.Union(7, 9);
+    unionFind.Union(5, 9);
 
     // Now the components are:
     // 0 1 3 4 8
@@ -70,7 +73,7 @@ int main() {
     
     for (size_t i = 0; i < 10; i++) {
         for (size_t j = i + 1; j < 10; j++) {
-            if (unionFind.connected(i, j)) {
+            if (unionFind.Connected(i, j)) {
                 std::cout << i << " and " << j << " are in the same component" << std::endl;
             }
         }

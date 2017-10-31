@@ -15,7 +15,7 @@ Gene.prototype.mutate = function(chance) {
     var upOrDown = Math.random() <= 0.5 ? -1 : 1;
     var newChar = String.fromCharCode(this.code.charCodeAt(index) + upOrDown);
     var newString = '';
-    for (i = 0; i < this.code.length; i++) {
+    for (var i = 0; i < this.code.length; i++) {
         if (i == index) newString += newChar;
         else newString += this.code[i];
     }
@@ -33,7 +33,7 @@ Gene.prototype.mate = function(gene) {
 };
 Gene.prototype.calcCost = function(compareTo) {
     var total = 0;
-    for (i = 0; i < this.code.length; i++) {
+    for (var i = 0; i < this.code.length; i++) {
         total += (this.code.charCodeAt(i) - compareTo.charCodeAt(i)) * (this.code.charCodeAt(i) - compareTo.charCodeAt(i));
     }
     this.cost = total;

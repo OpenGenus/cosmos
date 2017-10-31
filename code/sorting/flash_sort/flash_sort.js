@@ -77,4 +77,4 @@ function flash_sort(arr)
 }
   
 const arra = [3, 0, 2, 5, -1, 4, 1]; 
-console.log(flash_sort(arra, 0, 5));
+console.log(flash_sort(arra));

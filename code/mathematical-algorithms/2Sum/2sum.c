@@ -28,8 +28,9 @@ typedef struct AVLNode
 // helper function to return height of a node
 int getHeight(AVLNode* node)    
 {
-    if(node)    
+    if(node){
         return node->height;
+    }
     
     return -1;
 }
@@ -90,17 +91,14 @@ int AVLFind(AVLNode* root, int data)
 // function to insert a node into the AVL tree
 AVLNode* insertIntoAVL(AVLNode* root, int data)  
 {
-    if(root == NULL)   
-    {
-        AVLNode* newNode = malloc(sizeof(*newNode));
+    if(root == NULL) {
+        AVLNode* newNode = (AVLNode*)(malloc(sizeof(*newNode)));
         newNode->data = data;
         newNode->height = 0;
         newNode->left = newNode->right = NULL;
         root = newNode;
     }
-
-    else if(data < root->data)  
-    {
+    else if(data < root->data) {
         root->left = insertIntoAVL(root->left, data);
         if(getHeight(root->left) - getHeight(root->right) == 2) 
         {
@@ -110,10 +108,9 @@ AVLNode* insertIntoAVL(AVLNode* root, int data)
                 root = LR_rotation(root);
         }
     }
-
-    else if(data > root->data)  
-    {
+    else if(data > root->data) {
         root->right = insertIntoAVL(root->right, data);
+
         if(getHeight(root->right) - getHeight(root->left) == 2) 
         {
             if(data > root->right->data)
@@ -144,8 +141,10 @@ int twoSum(int array[], int size, int sum, int* a, int* b)
 {
 	int i;
 
-	AVLNode* map = malloc(sizeof(*map));
-	map->data = array[0];
+    AVLNode* map = (AVLNode*)(malloc(sizeof(*map)));
+    map->data = array[0];
+    map->height = 0;
+    map->left = map->right = NULL;
 
 	for(i = 1; i < size; ++i)
 	{
@@ -158,8 +157,9 @@ int twoSum(int array[], int size, int sum, int* a, int* b)
 			return 0;
 		}
 
-		else
+		else {
 			map = insertIntoAVL(map, array[i]);
+        }
 	}
 
 	deleteTree(map);
