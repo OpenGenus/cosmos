@@ -244,6 +244,13 @@ RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
         root->right = insert(root->right, pt);
         root->right->parent = root;
     }
+    else
+    {
+        pt->parent = root->parent;
+        pt->left = root->left;
+        pt->right = root->right;
+        pt->color = root->color;
+    }
 
     /* return the (unchanged) node pointer */
     return root;
