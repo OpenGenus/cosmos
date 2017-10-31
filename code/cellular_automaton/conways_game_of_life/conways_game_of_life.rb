@@ -2,8 +2,9 @@
 class GameOfLife
   attr_accessor :matrix, :rows, :columns
 
-  def initialize rows, columns
-    @rows, @columns = rows, columns
+  def initialize(rows, columns)
+    @rows = rows
+    @columns = columns
     @matrix = []
     rows.times do |row|
       @matrix[row] ||= []
@@ -19,12 +20,12 @@ class GameOfLife
       new_matrix[row] ||= []
       columns.times do |column|
         alive_neighbours_count = neighbours(row, column).count(true)
-        if !self.matrix[row][column] && alive_neighbours_count == 3
+        if !matrix[row][column] && alive_neighbours_count == 3
           new_matrix[row][column] = true
-        elsif self.matrix[row][column] && alive_neighbours_count != 2 && alive_neighbours_count != 3
+        elsif matrix[row][column] && alive_neighbours_count != 2 && alive_neighbours_count != 3
           new_matrix[row][column] = false
         else
-          new_matrix[row][column] = self.matrix[row][column]
+          new_matrix[row][column] = matrix[row][column]
         end
       end
     end
@@ -34,19 +35,19 @@ class GameOfLife
   def print_cells
     rows.times do |row|
       columns.times do |column|
-        matrix[row][column] ? print("O") : print("-")
+        matrix[row][column] ? print('O') : print('-')
       end
       print "\n"
     end
     print "\n"
   end
 
-  def neighbours row, column
+  def neighbours(row, column)
     neighbours = []
     rows_limit = matrix.count - 1
     columns_limit = matrix[0].count - 1
-    ([0, row-1].max..[rows_limit, row+1].min).to_a.each do |row_index|
-      ([0, column-1].max..[columns_limit, column+1].min).to_a.each do |column_index|
+    ([0, row - 1].max..[rows_limit, row + 1].min).to_a.each do |row_index|
+      ([0, column - 1].max..[columns_limit, column + 1].min).to_a.each do |column_index|
         neighbours << matrix[row_index][column_index] unless row_index == row && column_index == column
       end
     end

@@ -2,17 +2,14 @@
 
 def validate_ip(ip_addresss)
   components = ip_addresss.split('.')
-	
+
   if components.length != 4
     return false
   else
     components.each do |item|
-	  if !item.to_i.between?(0,255)
-	    return false
-	  end
-	
-  end
-  return true
+      return false unless item.to_i.between?(0, 255)
+    end
+    return true
   end
 end
 

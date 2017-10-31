@@ -5,8 +5,20 @@
 
 void Knapsack(int no, int wt, int pt[MAX], int weight[MAX])
 {
-	int knap[MAX][MAX] = {0}, x[MAX] = {0};
+	int knap[MAX][MAX], x[MAX] = {0};
+
 	int i, j;
+    //For item
+    for (i = 0; i <=no; i++)
+    {
+        knap[i][0] = 0;
+    }
+    //For weight
+    for (i = 0; i <=wt; i++)
+    {
+        knap[0][i] = 0;
+    }
+
 	for(i = 1; i <= no; i++)
 	{
 		for(j = 1; j <= wt; j++)
@@ -36,7 +48,7 @@ void Knapsack(int no, int wt, int pt[MAX], int weight[MAX])
 int main(int argc, char *argv[])
 {
 	int no, wt, pt[MAX] = {0}, weight[MAX] = {0};
-	int max_profit, i, j;
+	int i;
 
 	printf("Enter the no of objects :\n");
 	scanf("%d", &no);
