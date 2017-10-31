@@ -45,13 +45,13 @@ public:
         root_ = sentinel_;
     }
 
-    void insert(const _Tp &n);
+    void insert(_Tp const &n);
 
-    p_node_type find(const _Tp &);
+    p_node_type const find(_Tp const &);
 
-    std::string preOrder();
+    std::string preOrder() const;
 
-    std::string inOrder();
+    std::string inOrder() const;
 
 private:
     p_node_type root_;
@@ -60,7 +60,7 @@ private:
 
     p_node_type &insert(p_node_type &root, p_node_type &pt);
 
-    p_node_type &_find(const _Tp &data);
+    p_node_type &_find(_Tp const &data);
 
     void rotateLeft(p_node_type &);
 
@@ -68,31 +68,31 @@ private:
 
     void fixViolation(p_node_type &);
 
-    p_node_type &successor(p_node_type &);
+    p_node_type successor(p_node_type const &);
 
-    p_node_type &sibling(p_node_type &);
+    p_node_type &sibling(p_node_type const &);
 
-    bool isLeftChild(p_node_type &);
+    bool isLeftChild(p_node_type const &);
 
-    bool isRightChild(p_node_type &);
+    bool isRightChild(p_node_type const &);
 
-    void deleteCase1(p_node_type &);
+    void deleteCase1(p_node_type const &);
 
-    void deleteCase2(p_node_type &);
+    void deleteCase2(p_node_type const &);
 
-    void deleteCase3(p_node_type &);
+    void deleteCase3(p_node_type const &);
 
-    void deleteCase4(p_node_type &);
+    void deleteCase4(p_node_type const &);
 
-    void deleteCase5(p_node_type &);
+    void deleteCase5(p_node_type const &);
 
-    void deleteCase6(p_node_type &);
+    void deleteCase6(p_node_type const &);
 };
 
 // Function to insert a new node with given data
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::insert(const _Tp &data)
+RBTree<_Tp, _Comp>::insert(_Tp const &data)
 {
     RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data, sentinel_, sentinel_);
 
@@ -104,8 +104,8 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
 }
 
 template<typename _Tp, typename _Comp>
-typename RBTree<_Tp, _Comp>::p_node_type
-RBTree<_Tp, _Comp>::find(const _Tp &data) {
+typename RBTree<_Tp, _Comp>::p_node_type const
+RBTree<_Tp, _Comp>::find(_Tp const &data) {
     auto pt = _find(data);
 
     return pt != sentinel_ ? pt : nullptr;
@@ -113,7 +113,7 @@ RBTree<_Tp, _Comp>::find(const _Tp &data) {
 
 template<typename _Tp, typename _Comp>
 std::string
-RBTree<_Tp, _Comp>::preOrder() {
+RBTree<_Tp, _Comp>::preOrder() const {
     if (root_ == sentinel_)
         return {};
     std::string elem{};
@@ -143,7 +143,7 @@ RBTree<_Tp, _Comp>::preOrder() {
 
 template<typename _Tp, typename _Comp>
 std::string
-RBTree<_Tp, _Comp>::inOrder() {
+RBTree<_Tp, _Comp>::inOrder() const {
     if (root_ == sentinel_)
         return {};
     std::string elem{};
@@ -200,7 +200,7 @@ RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
 
 template<typename _Tp, typename _Comp>
 typename RBTree<_Tp, _Comp>::p_node_type &
-RBTree<_Tp, _Comp>::_find(const _Tp &data)
+RBTree<_Tp, _Comp>::_find(_Tp const & data)
 {
     p_node_type pt = std::make_shared<RBTree::node_type>(data);
     std::stack<p_node_type> st{};
@@ -223,7 +223,7 @@ RBTree<_Tp, _Comp>::_find(const _Tp &data)
                 return st.top();
             else
             {
-                p_node_type temp = st.top();
+                p_node_type &temp = st.top();
                 st.pop();
                 st.push(temp->right);
             }
@@ -282,25 +282,23 @@ RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &pt)
 }
 
 template<typename _Tp, typename _Comp>
-typename RBTree<_Tp, _Comp>::p_node_type &
-RBTree<_Tp, _Comp>::successor(p_node_type & pt) {
+typename RBTree<_Tp, _Comp>::p_node_type
+RBTree<_Tp, _Comp>::successor(p_node_type const &pt) {
     p_node_type child = sentinel_;
     if (pt->left != sentinel_)
     {
         child = pt->left;
         while (child->right != sentinel_)
             child = child->right;
-        swap(pt->data, child->data);
     }
     else if (pt->right != sentinel_)
     {
         child = pt->right;
         while (child->left != sentinel_)
             child = child->left;
-        swap(pt->data, child->data);
     }
 
-    return sentinel_;
+    return child;
 }
 
 // This function fixes violations caused by BST insertion
@@ -395,32 +393,32 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &pt)
 
 template<typename _Tp, typename _Comp>
 typename RBTree<_Tp, _Comp>::p_node_type &
-RBTree<_Tp, _Comp>::sibling(p_node_type & n) {
+RBTree<_Tp, _Comp>::sibling(p_node_type const & n) {
     return n->parent->left != n ? n->parent->left : n->parent->right;
 }
 
 template<typename _Tp, typename _Comp>
 bool
-RBTree<_Tp, _Comp>::isLeftChild(p_node_type &n) {
+RBTree<_Tp, _Comp>::isLeftChild(p_node_type const &n) {
     return n == n->parent->left;
 }
 
 template<typename _Tp, typename _Comp>
 bool
-RBTree<_Tp, _Comp>::isRightChild(p_node_type &n) {
+RBTree<_Tp, _Comp>::isRightChild(p_node_type const &n) {
     return n == n->parent->right;
 }
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase1(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase1(p_node_type const &n) {
     if (n->parent != sentinel_)
         deleteCase2(n);
 }
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase2(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase2(p_node_type const &n) {
     auto s = sibling(n);
     if (s->color == Color::RED)
     {
@@ -436,7 +434,7 @@ RBTree<_Tp, _Comp>::deleteCase2(p_node_type &n) {
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase3(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase3(p_node_type const &n) {
     auto s = sibling(n);
     if (n->parent->color == Color::BLACK
         && s->color == Color::BLACK
@@ -452,7 +450,7 @@ RBTree<_Tp, _Comp>::deleteCase3(p_node_type &n) {
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase4(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase4(p_node_type const &n) {
     auto s = sibling(n);
     if (n->parent->color == Color::RED
         && s->color == Color::BLACK
@@ -468,7 +466,7 @@ RBTree<_Tp, _Comp>::deleteCase4(p_node_type &n) {
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase5(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase5(p_node_type const &n) {
     auto s = sibling(n);
     if (s->color == Color::BLACK)
     {
@@ -494,7 +492,7 @@ RBTree<_Tp, _Comp>::deleteCase5(p_node_type &n) {
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::deleteCase6(p_node_type &n) {
+RBTree<_Tp, _Comp>::deleteCase6(p_node_type const &n) {
     auto s = sibling(n);
     s->color = n->parent->color;
     n->parent->color = Color::BLACK;
