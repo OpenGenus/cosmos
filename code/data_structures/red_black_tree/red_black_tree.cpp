@@ -416,6 +416,106 @@ RBTree<_Tp, _Comp>::isRightChild(p_node_type &n) {
     return n == n->parent->right;
 }
 
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase1(p_node_type &n) {
+    if (n->parent != sentinel_)
+        deleteCase2(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase2(p_node_type &n) {
+    auto s = sibling(n);
+    if (s->color == Color::RED)
+    {
+        n->parent->color = Color::RED;
+        s->color = Color::BLACK;
+        if (isLeftChild(n))
+            rotateLeft(n->parent);
+        else
+            rotateRight(n->parent);
+    }
+    deleteCase3(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase3(p_node_type &n) {
+    auto s = sibling(n);
+    if (n->parent->color == Color::BLACK
+        && s->color == Color::BLACK
+        && s->left->color == Color::BLACK
+        && s->right->color == Color::BLACK)
+    {
+        s->color = Color::RED;
+        deleteCase1(n->parent);
+    }
+    else
+        deleteCase4(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase4(p_node_type &n) {
+    auto s = sibling(n);
+    if (n->parent->color == Color::RED
+        && s->color == Color::BLACK
+        && s->left->color == Color::BLACK
+        && s->right->color == Color::BLACK)
+    {
+        s->color = Color::RED;
+        n->parent->color = Color::BLACK;
+    }
+    else
+        deleteCase5(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase5(p_node_type &n) {
+    auto s = sibling(n);
+    if (s->color == Color::BLACK)
+    {
+        if (isLeftChild(n)
+            && s->right->color == Color::BLACK
+            && s->left->color == Color::RED)
+        {
+            s->color = Color::RED;
+            s->left->color = Color::BLACK;
+            rotateRight(s);
+        }
+        else if (isRightChild(n)
+                 && s->left->color == Color::BLACK
+                 && s->right->color == Color::RED)
+        {
+            s->color = Color::RED;
+            s->right->color = Color::BLACK;
+            rotateLeft(s);
+        }
+    }
+    deleteCase6(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase6(p_node_type &n) {
+    auto s = sibling(n);
+    s->color = n->parent->color;
+    n->parent->color = Color::BLACK;
+
+    if (isLeftChild(n))
+    {
+        s->right->color = Color::BLACK;
+        rotateLeft(n->parent);
+    }
+    else
+    {
+        s->left->color = Color::BLACK;
+        rotateRight(n->parent);
+    }
+}
+
 void
 test() {
     std::shared_ptr<RBTree<int> > rbt;
