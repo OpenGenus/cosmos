@@ -106,6 +106,7 @@ RBTree<_Tp, _Comp>::insert(_Tp const &data)
     // fix Red Black Tree violations
     fixViolation(pt);
 }
+
 template<typename _Tp, typename _Comp>
 void
 RBTree<_Tp, _Comp>::erase(_Tp const &data) {
@@ -132,14 +133,9 @@ RBTree<_Tp, _Comp>::deleteOneNode(p_node_type &pt) {
     p_node_type child = pt->left != sentinel_ ? pt->left : pt->right;
     if (pt->parent == sentinel_)
     {
-        if (child == sentinel_)
-            root_ = pt;
-        else
-        {
-            root_ = child;
-            root_->parent = sentinel_;
-            root_->color = Color::BLACK;
-        }
+        root_ = child;
+        root_->parent = sentinel_;
+        root_->color = Color::BLACK;
     }
     else
     {
