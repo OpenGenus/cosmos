@@ -7,14 +7,13 @@ def nthMagicNo(n):
     ans=0
     while(n):
         pow = pow*5
-
+        
         # If last bit of n is set
         if (n & 1):
             ans += pow
-
         # proceed to next bit
         n >>= 1;
     return ans
 
-n = int(input())
+n = raw_input() #<---- Input Here
 print(nthMagicNo(n))
