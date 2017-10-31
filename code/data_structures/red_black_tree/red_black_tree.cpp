@@ -63,11 +63,11 @@ private:
 
     p_node_type &_find(const _Tp &data);
 
-    void rotateLeft(p_node_type &, p_node_type &);
+    void rotateLeft(p_node_type &);
 
-    void rotateRight(p_node_type &, p_node_type &);
+    void rotateRight(p_node_type &);
 
-    void fixViolation(p_node_type &, p_node_type &);
+    void fixViolation(p_node_type &);
 };
 
 // Function to insert a new node with given data
@@ -81,7 +81,7 @@ RBTree<_Tp, _Comp>::insert(const _Tp &data)
     root_ = insert(root_, pt);
 
     // fix Red Black Tree violations
-    fixViolation(root_, pt);
+    fixViolation(pt);
 }
 
 template<typename _Tp, typename _Comp>
@@ -216,7 +216,7 @@ RBTree<_Tp, _Comp>::_find(const _Tp &data)
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &pt)
 {
     RBTree::p_node_type pt_right = pt->right;
 
@@ -228,7 +228,7 @@ RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &p
     pt_right->parent = pt->parent;
 
     if (pt->parent == sentinel_)
-        root = pt_right;
+        root_ = pt_right;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_right;
     else
@@ -240,7 +240,7 @@ RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &root, RBTree::p_node_type &p
 
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &pt)
 {
     RBTree::p_node_type pt_left = pt->left;
 
@@ -252,7 +252,7 @@ RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &
     pt_left->parent = pt->parent;
 
     if (pt->parent == sentinel_)
-        root = pt_left;
+        root_ = pt_left;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_left;
     else
@@ -265,7 +265,7 @@ RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &root, RBTree::p_node_type &
 // This function fixes violations caused by BST insertion
 template<typename _Tp, typename _Comp>
 void
-RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type &pt)
+RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &pt)
 {
     RBTree::p_node_type parent_pt = sentinel_;
     RBTree::p_node_type grand_parent_pt = sentinel_;
@@ -298,7 +298,7 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
                  Left-rotation required */
                 if (pt == parent_pt->right)
                 {
-                    rotateLeft(root, parent_pt);
+                    rotateLeft(parent_pt);
                     pt = parent_pt;
                     parent_pt = pt->parent;
                 }
@@ -306,7 +306,7 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
                 /* Case : 3
                  pt is left child of its parent
                  Right-rotation required */
-                rotateRight(root, grand_parent_pt);
+                rotateRight(grand_parent_pt);
                 swap(parent_pt->color, grand_parent_pt->color);
                 pt = parent_pt;
             }
@@ -334,7 +334,7 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
                  Right-rotation required */
                 if (pt == parent_pt->left)
                 {
-                    rotateRight(root, parent_pt);
+                    rotateRight(parent_pt);
                     pt = parent_pt;
                     parent_pt = pt->parent;
                 }
@@ -342,14 +342,14 @@ RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &root, RBTree::p_node_type 
                 /* Case : 3
                  pt is right child of its parent
                  Left-rotation required */
-                rotateLeft(root, grand_parent_pt);
+                rotateLeft(grand_parent_pt);
                 swap(parent_pt->color, grand_parent_pt->color);
                 pt = parent_pt;
             }
         }
     }
 
-    root->color = Color::BLACK;
+    root_->color = Color::BLACK;
 }
 
 void
