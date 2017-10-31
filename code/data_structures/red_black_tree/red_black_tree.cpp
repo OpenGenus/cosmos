@@ -47,6 +47,8 @@ public:
 
     void insert(_Tp const &n);
 
+    void erase(_Tp const &n);
+
     p_node_type const find(_Tp const &);
 
     std::string preOrder() const;
@@ -76,6 +78,8 @@ private:
 
     bool isRightChild(p_node_type const &);
 
+    void deleteOneNode(p_node_type &);
+
     void deleteCase1(p_node_type const &);
 
     void deleteCase2(p_node_type const &);
@@ -101,6 +105,57 @@ RBTree<_Tp, _Comp>::insert(_Tp const &data)
 
     // fix Red Black Tree violations
     fixViolation(pt);
+}
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::erase(_Tp const &data) {
+    RBTree::p_node_type delete_node = _find(data);
+
+    // found
+    if (delete_node != sentinel_)
+    {
+        // only root
+        if (delete_node->left == sentinel_)
+            deleteOneNode(delete_node);
+        else
+        {
+            p_node_type smallest = successor(delete_node);
+            swap(delete_node->data, smallest->data);
+            deleteOneNode(smallest);
+        }
+    }
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteOneNode(p_node_type &pt) {
+    p_node_type child = pt->left != sentinel_ ? pt->left : pt->right;
+    if (pt->parent == sentinel_)
+    {
+        if (child == sentinel_)
+            root_ = pt;
+        else
+        {
+            root_ = child;
+            root_->parent = sentinel_;
+            root_->color = Color::BLACK;
+        }
+    }
+    else
+    {
+        if (isLeftChild(pt))
+            pt->parent->left = child;
+        else
+            pt->parent->right = child;
+        child->parent = pt->parent;
+        if (pt->color == Color::BLACK)
+        {
+            if (child->color == Color::RED)
+                child->color = Color::BLACK;
+            else
+                deleteCase1(child);
+        }
+    }
 }
 
 template<typename _Tp, typename _Comp>
