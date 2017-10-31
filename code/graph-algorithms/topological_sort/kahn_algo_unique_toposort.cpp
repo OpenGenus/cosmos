@@ -1,5 +1,11 @@
 // Sample problem for using this algorithm - UVA 11060 Beverages
-#include<bits/stdc++.h>
+#include <cstdio>
+#include <iostream>
+#include <map>
+#include <set>
+#include <string>
+#include <vector>
+
 #define all(a) a.begin(),a.end()
 #define ll long long
 #define inp(a) scanf("%d",&a)
@@ -7,7 +13,7 @@
 #define inp2(a) scanf("%lld",&a)
 #define out2(a) printf("%lld\n",a)
 #define arrinput(a,n) for(int i=0;i<n;i++) scanf("%d",&a[i]);
-#define pii pair<int,int> 
+#define pii pair<int,int>
 #define piii pair<int,pair<int,int> >
 #define vi vector<int>
 #define rep(i,start,n) for(int i=start;i<n;i++)
@@ -51,7 +57,7 @@ void kahnalgo() {
 				q.insert(mp(i,alcohols[i]));
 				inDegree[alcohols[i]] = -1;
 			}
-		}	
+		}
 	}
 }
 int main()
@@ -77,6 +83,6 @@ int main()
 		kahnalgo();
 		printf(".\n\n");
 		getchar();
-	} 
+	}
     return 0;
 }
