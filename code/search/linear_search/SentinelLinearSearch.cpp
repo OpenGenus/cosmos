@@ -4,6 +4,7 @@
 
 /*
  * Author: Visakh S
+ * Github: visakhsuku
  * Input: The number of elements in an array, The element to be searched, An integer array.
  * Output: if found returns "found" else "not found", using the sentinel linear search algorithm.
 */
@@ -11,7 +12,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void sentinal_linear_search(std::vector<int> v,int n,int x)
+void SentinalLinearSearch(std::vector<int> v,int n,int x)
 {
 	int last,i=0;
 	last=v[n-1];
@@ -36,6 +37,6 @@ int main()
 		cin>>input;
 		v.push_back(input);
 	}
-	sentinal_linear_search(v,n,x);
+	SentinalLinearSearch(v,n,x);
 	return 0;
 }
