@@ -51,10 +51,10 @@ llu mergeSort(int v[], int lo, int hi) {
 
 llu inversions(int v[], int lo, int hi) {
 	int size = hi-lo+1, u[size];
-	for(int i = lo; i <= hi; i++) {
-		u[i] = v[i];
+	for(int i = 0; i < size; i++) {
+		u[i] = v[i+lo];
 	}
-	return mergeSort(u, 0, size);
+	return mergeSort(u, 0, size-1);
 }
 
 int main() {
