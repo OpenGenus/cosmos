@@ -1,0 +1,137 @@
+// First line will contain an integer n denoting number of elements in array. 
+//Second line will contain n space separated positive integers. 
+//Following lines will contain either “I followed by an integer x” for inserting x in the heap or 
+//“D” for deleteMin operation. 
+//q for quit
+
+#include<iostream>
+using namespace std;
+void BuildHeap(int *H,int n);
+void partialheap(int *H,int i,int n);
+int minimum(int *H,int i,int n);
+void swap(int *H,int a,int b);
+void insert(int *H,int *n,int x);
+void printHeap(int *H,int n);
+int deletemin(int *H,int *n);
+int main()
+{
+int n;
+cin>>n;
+int H[100];
+int i;
+for(i=1;i<=n;i++)
+	cin>>H[i];
+BuildHeap(H,n);  // building heap
+printHeap(H,n);  // printing heap
+char t;
+int x;
+cin>>t;
+int s;
+while(t!='q')
+{
+	if(t=='I' || t=='i')    
+	{
+		cin>>x;
+		cout<<x<<" is inserted"<<endl<<endl;
+		insert(H,&n,x);     //inserting in heap
+		printHeap(H,n);    //printing in heap
+	}
+	else if(t=='D' || t=='d')
+	{
+		s=deletemin(H,&n);   //deleting in heap
+		cout<<s<<" is deleted"<<endl<<endl;      
+		printHeap(H,n);     //printing in heap
+	}
+	cin>>t;
+}
+
+}
+
+
+void BuildHeap(int *H,int n)   //buildheap
+{
+int k;
+if(n%3==2)
+	k=(n+1)/3;
+else
+	k=n/3;
+int i;
+for(i=k;i>=1;i--)
+	partialheap(H,i,n);       //min heapify at i index
+}
+
+void partialheap(int *H,int i,int n)     //min heapify at i index
+{
+	int min=minimum(H,i,n);    //finding minimum from parent and child
+	if(min!=i)
+	{
+		swap(H,i,min);  //swaping minimum and i index
+		partialheap(H,min,n);  //partial heap at child
+	}
+}
+
+int minimum(int *H,int i,int n)    //finding minimum between child and parent
+{
+	int a=3*i-1;
+	int b=3*i;
+	int c=3*i+1;
+	int k=i;
+	if(  a<=n  &&  H[a]<H[k] )
+		k=a;
+	if(   b<=n && H[b]<H[k]  )
+		k=b;
+	if(  c<=n && H[c]<H[k] )
+		k=c;
+
+	return k;
+	
+}
+
+void swap(int *H,int a,int b)    //swaping two elements with index a and b
+{
+	int t=H[a];
+	H[a]=H[b];
+	H[b]=t;
+
+}
+
+
+void insert(int *H,int *n,int x)     //inserting element
+{
+	*n=(*n)+1;
+	H[*n]=x;
+	int k=*n;
+	int parent;
+	if(k%3==2)
+		parent=(k+1)/3;
+	else
+		parent=k/3;
+	while(parent>=1 && H[parent]>H[k])   //loop until parent is reached or minheap is formed
+	{
+		swap(H,parent,k);
+		k=parent;
+		if(k%3==2)
+			parent=(k+1)/3;
+		else
+			parent=k/3;
+	}
+}
+
+
+void printHeap(int *H,int n)     //printing heap
+{	int i;
+	for(i=1;i<=n;i++)
+		cout<<H[i]<<" ";
+	cout<<endl<<endl;
+
+}
+
+int deletemin(int *H,int *n)   //deleting min
+{
+	int k=H[1];
+	int t=H[*n];
+	*n=*n-1;
+	H[1]=t;
+	partialheap(H,1,*n);
+	return k;
+}
