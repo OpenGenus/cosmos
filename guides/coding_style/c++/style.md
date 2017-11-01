@@ -290,3 +290,29 @@ enum class ExampleEnum : long
     FOUR // No comma at the end
 };
 ```
+
+Alias
+===
+
+using vs typedef
+---
+When dealing with aliases, use `using`, not `typedef`.
+
+`using` can be read almost as an english sentence.
+
+More easily define alias with template.
+
+[more comparison](http://www.stroustrup.com/C++11FAQ.html#template-alias)
+
+Naming
+---
+
+Aliases should be named like lowercase or lowercase_with_underscore.
+
+**Valid:**
+```C++
+using vec_i = std::vector<int>;
+
+template<typename _T>
+using vec_two = std::vector<std::vector<_T>>;
+```
