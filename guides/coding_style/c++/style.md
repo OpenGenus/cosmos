@@ -270,11 +270,21 @@ Naming
 
 Enumerations should be named like user-defined types with PascalCase. The actual enumerators inside should be named using all caps and underscore separation.
 
+Warning: if you dealing with low-level operation, and need use explicit type convertion, you must be careful about underlying type (default is the `int` it at least 2-bytes).
+
 **Valid:**
 ```C++
 enum class ExampleEnum
 {
     ONE,
+    TWO_TWO,
+    THREE,
+    FOUR // No comma at the end
+};
+
+enum class ExampleEnum : long
+{
+    ONE = 0,
     TWO_TWO,
     THREE,
     FOUR // No comma at the end
