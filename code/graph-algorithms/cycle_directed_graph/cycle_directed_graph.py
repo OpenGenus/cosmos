@@ -6,55 +6,52 @@ class Graph:
         self.v = v
         self.adj = defaultdict(list)
 
-    def addEdge(self, u, v):
+    def add_edge(self, u, v):
         self.adj[u].append(v)
 
-    def findParent(self, v, setMap):
-        if setMap[v] == -1:
-            return v
-        else:
-            return self.findParent(setMap[v], setMap)
+    def find_parent(self, v, set_map):
+        return v if set_map[v] == -1 else self.find_parent(set_map[v], set_map)
 
-    def union(self, u, v, setMap):
-        x = self.findParent(u, setMap)
-        y = self.findParent(v, setMap)
-        setMap[x] = y
+    def union(self, u, v, set_map):
+        x = self.find_parent(u, set_map)
+        y = self.find_parent(v, set_map)
+        set_map[x] = y
     
-    def hasCycle(self):
-        setMap = [-1] * self.v
+    def is_cyclic(self):
+        set_map = [-1] * self.v
         visited = [False] * self.v
 
         for u, vs in self.adj.items():
             # assume there's only one edge
             for v in vs:
-                x = self.findParent(u, setMap)
-                y = self.findParent(v, setMap)
+                x = self.find_parent(u, set_map)
+                y = self.find_parent(v, set_map)
                 if x == y:
                     return True
-                self.union(x, y, setMap)
+                self.union(x, y, set_map)
 
             
-        # print(setMap)
+        # print(set_map)
         return False
 
 
     
 if __name__ == '__main__':
     g = Graph(4)
-    g.addEdge(0, 1)
-    g.addEdge(1, 2)
-    g.addEdge(2, 3)
+    g.add_edge(0, 1)
+    g.add_edge(1, 2)
+    g.add_edge(2, 3)
 
-    print(g.hasCycle())
-    g.addEdge(3, 0)
-    print(g.hasCycle())
+    print(g.is_cyclic())
+    g.add_edge(3, 0)
+    print(g.is_cyclic())
 
     g = Graph(4)
-    g.addEdge(0, 1)
-    g.addEdge(0, 2)
-    g.addEdge(1, 2)
-    g.addEdge(2, 0)
-    g.addEdge(2, 3)
-    g.addEdge(3, 3)
+    g.add_edge(0, 1)
+    g.add_edge(0, 2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 3)
 
-    print(g.hasCycle())
+    print(g.is_cyclic())
