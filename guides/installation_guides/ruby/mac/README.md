@@ -25,6 +25,7 @@ The final step is to ensure the RubyGems version is up to date. To do this type:
 
 Now you have successfully installed and updated to the most recent version of Ruby!
 
+Note: If you try install a old ruby version maybe you can get a ssl error. You can solve it with rvm install `ruby-x.x.x --disable-binaries`
 
 ---
 
