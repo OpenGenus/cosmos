@@ -1,16 +1,17 @@
 #include <iostream>
+#include <memory>
 using namespace std;
 
 class IFlyBehavior
 {
-	public :
+public :
 	virtual ~IFlyBehavior(){}
 	virtual void fly() = 0;
 };
 
 class FlyWithWings : public IFlyBehavior
 {
-	public :
+public :
 	void fly()
 	{
 		cout << "I fly with wings!" << endl;
@@ -19,7 +20,7 @@ class FlyWithWings : public IFlyBehavior
 
 class FlyNoWay : public IFlyBehavior
 {
-	public :
+public :
 	void fly() 
 	{
 		cout << "I don't fly, buddy." << endl;
@@ -28,14 +29,14 @@ class FlyNoWay : public IFlyBehavior
 
 class IQuackBehavior 
 {
-	public :
+public :
 	virtual ~IQuackBehavior(){}
 	virtual void quack() = 0;
 };
 
 class Quack : public IQuackBehavior
 {
-	public :
+public :
 	void quack()
 	{
 		cout << "Quack!" << endl;
@@ -44,7 +45,7 @@ class Quack : public IQuackBehavior
 
 class Squeak : public IQuackBehavior
 {
-	public :
+public :
 	void quack() 
 	{
 		cout << "Squeak!" << endl;
@@ -53,7 +54,7 @@ class Squeak : public IQuackBehavior
 
 class MuteQuack : public IQuackBehavior
 {
-	public :
+public :
 	void quack()
 	{
 		cout << "I'm a mute duck." << endl;
@@ -62,9 +63,7 @@ class MuteQuack : public IQuackBehavior
 
 class Duck 
 {
-	public :
-	IFlyBehavior* flyBehavior;
-	IQuackBehavior* quackBehavior;
+public :
 	
 	Duck()
 	{
@@ -96,11 +95,20 @@ class Duck
 	{
 		cout << "I'm a generic duck!" << endl;
 	}
+    
+    ~Duck() 
+    {
+        delete flyBehavior;
+        delete quackBehavior;
+    }
+protected :
+	IFlyBehavior* flyBehavior;
+	IQuackBehavior* quackBehavior;
 };
 
 class FlyingQuackingDuck : public Duck
 {
-	public :
+public :
 		FlyingQuackingDuck() 
 		{
 			flyBehavior = new FlyWithWings();
@@ -114,7 +122,7 @@ class FlyingQuackingDuck : public Duck
 
 class MuteFlylessDuck : public Duck
 {
-	public :
+public :
 		MuteFlylessDuck() 
 		{
 			flyBehavior = new FlyNoWay();
