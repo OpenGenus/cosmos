@@ -318,7 +318,7 @@ class Demo
 private:
    using VecI = std::vector<int>;
    // ... 
-}
+};
 
 void foo()
 {
