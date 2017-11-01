@@ -298,11 +298,13 @@ using vs typedef
 ---
 When dealing with aliases, use `using`, not `typedef`.
 
-`using` can be read almost as an english sentence.
+Don't put alias in `public`, unless the aliases is guaranteed to always be the same as the type it's currently aliased to.
 
-More easily define alias with template.
+- `using` can be read almost as an english sentence.
 
-[more comparison](http://www.stroustrup.com/C++11FAQ.html#template-alias)
+- More easily define alias with template.
+
+- [more comparison](http://www.stroustrup.com/C++11FAQ.html#template-alias)
 
 Naming
 ---
@@ -311,8 +313,17 @@ Aliases should be named like PascalCase.
 
 **Valid:**
 ```C++
-using VecI = std::vector<int>;
+class Demo
+{
+private:
+   using VecI = std::vector<int>;
+   // ... 
+}
 
-template<typename _T>
-using VecTwo = std::vector<std::vector<_T>>;
+void foo()
+{
+   template<typename _T>
+   using VecTwo = std::vector<std::vector<_T>>;
+   // ...
+}
 ```
