@@ -37,6 +37,11 @@ Now, the array is already sorted, but our algorithm does not know if it is compl
 ## Further reading
 [Wikipedia - Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)
 
+Best video tutorial
+https://www.youtube.com/watch?v=Jdtq5uKz-w4
+
+Well explained
+http://www.geeksforgeeks.org/bubble-sort/
 ---
 
 <p align="center">
