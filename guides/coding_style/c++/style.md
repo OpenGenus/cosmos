@@ -307,12 +307,12 @@ More easily define alias with template.
 Naming
 ---
 
-Aliases should be named like lowercase or lowercase_with_underscore.
+Aliases should be named like PascalCase.
 
 **Valid:**
 ```C++
-using vec_i = std::vector<int>;
+using VecI = std::vector<int>;
 
 template<typename _T>
-using vec_two = std::vector<std::vector<_T>>;
+using VecTwo = std::vector<std::vector<_T>>;
 ```
