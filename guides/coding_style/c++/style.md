@@ -300,11 +300,11 @@ When dealing with aliases, use `using`, not `typedef`.
 
 Don't put alias in `public`, unless the aliases is guaranteed to always be the same as the type it's currently aliased to.
 
-- `using` can be read almost as an english sentence.
+- The `using` declaration can be read almost as an English sentence.
 
-- More easily define alias with template.
+- More easily declare an alias with template.
 
-- [more comparison](http://www.stroustrup.com/C++11FAQ.html#template-alias)
+- [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
 
 Naming
 ---
