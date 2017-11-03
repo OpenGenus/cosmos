@@ -1,6 +1,6 @@
 # Python Installation Guide
 
-*How to isntall Python on your machine*
+*How to install Python on your machine*
 
 As with most Linux distributions, Python comes installed by default. Despite that, the installed version could be different with the one that you need or some packages may not be installed.
 
