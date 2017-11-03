@@ -6,7 +6,7 @@
 
 /* Part of Cosmos by OpenGenus Foundation */
 
- 
+ //pagal hai ka bhai mo's padhta hai
 #define ll long long int
 #define mod 1000000007
 #define show(a) for(i=0;i<a.size();i++) cout<<a[i]<<" ";
