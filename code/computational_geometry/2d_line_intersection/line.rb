@@ -21,6 +21,7 @@ def intersection_point
          p2 =  ((@x1*@y2-@y1*@x2)*(@y3-@y4)-(@y1-@y2)*(@x3*@y4-@y3*@x4))/@denom
          return "#{p1},#{p2}"
 end
+    
 end
 
 obj = Line_interserction.new(10,3,20,3,10,5,20,5)        #=> Cordinate points (x1,y1,x2,y2,x3,y3,x4,y4)
