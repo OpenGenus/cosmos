@@ -23,7 +23,7 @@ int lis(int v[], int n) {
 // Bottom-up O(n*log(n)) approach
 int lis2(int v[], int n) {
     // tail[i] stores the value of the lower possible value
-    // of the last element in a incresing sequence of size i
+    // of the last element in a increasing sequence of size i
     vector<int> tail;
     for(int i = 0; i < n; ++i) {
         vector<int>::iterator it = lower_bound(tail.begin(), tail.end(), v[i]);

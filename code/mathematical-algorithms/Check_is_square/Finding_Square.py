@@ -17,7 +17,6 @@ def checkIfSquare(n):
 
 	return False
 
-	
 import sys
 
 # determine python version

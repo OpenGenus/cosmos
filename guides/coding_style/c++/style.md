@@ -1,14 +1,14 @@
 # C++ Style Guide
 
-Code width and align
+Code width and alignment
 ===
-Try to limit code width to 100 number of columns.
+- Try to limit code width to 100 characters.
 
-To split lines as close to code width as possible of groupings (if a parameter is split, then all of parameters need split).
+- Split lines as close to the code width as possible (if a parameter is split onto another line, then all of the parameters should be split).
 
-If width less than or equal to _code width_, then shold not split (unless split at return type), otherwise should split at comma.
+- If the width is less than or equal to the maximum code width, then do not split the line (unless split at return type or for readability).
 
-Template definition should be split.
+- Template definitions should be split.
 
 **Valid:**
 ```C++
@@ -94,7 +94,7 @@ int camelCase;
 
 Global Variables
 ---
-Global variables should be named using prefix 'g\_' and standard camel case.
+While global variables should be avoided for the most part. If they are necessary, then they should be named using prefix 'g\_' and standard camel case.
 
 **Valid:**
 ```C++
@@ -104,17 +104,17 @@ int g_camelCase;
 
 Constant Variables
 ---
-Constant variables should be named using upper case and separate by underscore.
+Constant variables should be named like normal variables and should use `const`/`constexpr`.
 
 **Valid:**
 ```C++
-int NAME;
-int CONSTANT_NAME;
+const int name;
+constexpr int constantName;
 ```
 
 Braces
 ===
-When using braces, put them on their own lines. For if statements and loops that have one line statements, omit the braces (unless between '}' and 'while' on do-while).
+When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless between `do` and `while` on do-while statements).
 
 **Valid:**
 ```C++
@@ -160,8 +160,10 @@ ClassName objectName{ 1, 4 };
 Functions
 ===
 Functions should be named using standard camel case.
+
 Names
 ---
+
 **Valid:**
 ```C++
 int name();
@@ -170,7 +172,7 @@ int camelCase();
 
 Parameters
 ---
-When listing POD (Plain Old Data) types, then pass them by value. When listing user-defined types, then pass them by const reference. When a function has to modify a variable, then, and only then pass the variable by reference.
+When listing POD (Plain Old Data) types, pass them by value. When listing user-defined types, pass them by `const` reference. When a function has to modify a variable, then, and only then pass the variable by reference.
 
 **Valid:**
 ```C++
@@ -184,7 +186,7 @@ Classes
 ===
 Names
 ---
-When naming classes, follow the rules of pascal case.
+When naming classes, follow the rules of PascalCase.
 
 **Valid:**
 ```C++
@@ -192,7 +194,7 @@ class PascalCase;
 struct PascalCase;
 ```
 
-When naming the member variables of a class that shold be _private_, and add an underscore to the end of their name.
+When naming the member variables of a class that should be _private_, add an underscore to the end of their name.
 
 **Valid:**
 ```C++
@@ -205,14 +207,14 @@ class Example
 
 Order of Encapsulation
 ---
-When listing members of a class, if possible (typedef/using maybe need primary define, but them still need respect following rules) list them in the order public, private, then protected.
+When listing members of a class, if possible list them in the order public, private, then protected. If using typedefs/using for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
 Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
 **Valid:**
 ```C++
 class Example
 {
-private:
+private: // Or private
     typedef int INT;
 
 protected:
@@ -242,16 +244,86 @@ After this, add the destructor. Then, add a new line, and then list all members 
 ```C++
 class Example
 {
-private:
-    int value_;
-    
 public:
-    Example() {  }
+    Example() { }
     Example(int value) { }
     Example(const Example& other) { }
     ~Example()
     
     void memberFunction();
+
+private:
+    int value_;
     
 };
+```
+
+Enumerations
+===
+
+enum vs enum class
+---
+When dealing with enumerations, use `enum class`, not `enum` (Unless dealing with unnamed enumerations or C style code).
+
+Naming
+---
+
+Enumerations should be named like user-defined types with PascalCase. The actual enumerators inside should be named using all caps and underscore separation.
+
+Warning: if you dealing with low-level operation, and need use explicit type convertion, you must be careful about underlying type (default is the `int` it at least 2-bytes).
+
+**Valid:**
+```C++
+enum class ExampleEnum
+{
+    ONE,
+    TWO_TWO,
+    THREE,
+    FOUR // No comma at the end
+};
+
+enum class ExampleEnum : long
+{
+    ONE = 0,
+    TWO_TWO,
+    THREE,
+    FOUR // No comma at the end
+};
+```
+
+Alias
+===
+
+using vs typedef
+---
+When dealing with aliases, use `using`, not `typedef`.
+
+Don't put alias in `public`, unless the aliases is guaranteed to always be the same as the type it's currently aliased to.
+
+- The `using` declaration can be read almost as an English sentence.
+
+- More easily declare an alias with template.
+
+- [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
+
+Naming
+---
+
+Aliases should be named like PascalCase.
+
+**Valid:**
+```C++
+class Demo
+{
+private:
+   using VecI = std::vector<int>;
+   // ... 
+};
+
+void foo()
+{
+   template<typename _T>
+   using VecTwo = std::vector<std::vector<_T>>;
+   // ...
+}
 ```

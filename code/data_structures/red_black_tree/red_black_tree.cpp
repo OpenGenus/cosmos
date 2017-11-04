@@ -1,273 +1,568 @@
 #include <iostream>
-#include <queue>
+#include <memory>
+#include <cassert>
+#include <string>
+#include <stack>
 using namespace std;
- 
-enum Color {RED, BLACK};
- 
+
+template<typename _Tp, class _DERIVE>
 struct Node
 {
-    int data;
-    bool color;
-    Node *left, *right, *parent;
- 
-    // Constructor
-    Node(int data)
-    {
-       this->data = data;
-       left = right = parent = NULL;
-    }
+    typedef std::shared_ptr<_DERIVE> p_node_type;
+    _Tp data;
+    p_node_type left, right;
+    Node(_Tp d, p_node_type l = nullptr, p_node_type r = nullptr)
+        :data(d), left(l), right(r) {}
 };
- 
+
+template<typename _Tp>
+struct RBNode :Node<_Tp, RBNode<_Tp> >
+{
+    enum class Color {RED, BLACK};
+    typedef std::shared_ptr<RBNode> p_node_type;
+    p_node_type parent;
+    Color color;
+    RBNode(_Tp d, p_node_type l = nullptr, p_node_type r = nullptr, p_node_type p = nullptr)
+        :Node<_Tp, RBNode<_Tp> >(d, l, r), parent(p), color(Color::RED) {}
+};
+
 // Class to represent Red-Black Tree
+template<typename _Tp, typename _Comp = std::less<_Tp> >
 class RBTree
 {
 private:
-    Node *root;
-protected:
-    void rotateLeft(Node *&, Node *&);
-    void rotateRight(Node *&, Node *&);
-    void fixViolation(Node *&, Node *&);
+    typedef RBNode<_Tp> node_type;
+    typedef std::shared_ptr<node_type> p_node_type;
+    typedef typename RBNode<_Tp>::Color Color;
+
 public:
     // Constructor
-    RBTree() { root = NULL; }
-    void insert(const int &n);
-    void inorder();
-    void levelOrder();
+    RBTree() :root_(nullptr), sentinel_(std::make_shared<node_type>(0)), comp_(_Comp()) {
+        sentinel_->left = sentinel_;
+        sentinel_->right = sentinel_;
+        sentinel_->parent = sentinel_;
+        sentinel_->color = Color::BLACK;
+        root_ = sentinel_;
+    }
+
+    void insert(_Tp const &n);
+
+    void erase(_Tp const &n);
+
+    p_node_type const find(_Tp const &);
+
+    std::string preOrder() const;
+
+    std::string inOrder() const;
+
+private:
+    p_node_type root_;
+    p_node_type sentinel_;
+    _Comp comp_;
+
+    p_node_type &insert(p_node_type &root, p_node_type &pt);
+
+    p_node_type &_find(_Tp const &data);
+
+    void rotateLeft(p_node_type &);
+
+    void rotateRight(p_node_type &);
+
+    void fixViolation(p_node_type &);
+
+    p_node_type successor(p_node_type const &);
+
+    p_node_type &sibling(p_node_type const &);
+
+    bool isLeftChild(p_node_type const &);
+
+    bool isRightChild(p_node_type const &);
+
+    void deleteOneNode(p_node_type &);
+
+    void deleteCase1(p_node_type const &);
+
+    void deleteCase2(p_node_type const &);
+
+    void deleteCase3(p_node_type const &);
+
+    void deleteCase4(p_node_type const &);
+
+    void deleteCase5(p_node_type const &);
+
+    void deleteCase6(p_node_type const &);
 };
- 
-// A recursive function to do level order traversal
-void inorderHelper(Node *root)
+
+// Function to insert a new node with given data
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::insert(_Tp const &data)
 {
-    if (root == NULL)
-        return;
- 
-    inorderHelper(root->left);
-    cout << root->data << "  ";
-    inorderHelper(root->right);
+    RBTree::p_node_type pt = std::make_shared<RBTree::node_type>(data, sentinel_, sentinel_);
+
+    // Do a normal BST insert
+    root_ = insert(root_, pt);
+
+    // fix Red Black Tree violations
+    fixViolation(pt);
 }
- 
-/* A utility function to insert a new node with given key
-   in BST */
-Node* BSTInsert(Node* root, Node *pt)
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::erase(_Tp const &data) {
+    RBTree::p_node_type delete_node = _find(data);
+
+    // found
+    if (delete_node != sentinel_)
+    {
+        // only root
+        if (delete_node->left == sentinel_)
+            deleteOneNode(delete_node);
+        else
+        {
+            p_node_type smallest = successor(delete_node);
+            swap(delete_node->data, smallest->data);
+            deleteOneNode(smallest);
+        }
+    }
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteOneNode(p_node_type &pt) {
+    p_node_type child = pt->left != sentinel_ ? pt->left : pt->right;
+    if (pt->parent == sentinel_)
+    {
+        root_ = child;
+        root_->parent = sentinel_;
+        root_->color = Color::BLACK;
+    }
+    else
+    {
+        if (isLeftChild(pt))
+            pt->parent->left = child;
+        else
+            pt->parent->right = child;
+        child->parent = pt->parent;
+        if (pt->color == Color::BLACK)
+        {
+            if (child->color == Color::RED)
+                child->color = Color::BLACK;
+            else
+                deleteCase1(child);
+        }
+    }
+}
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type const
+RBTree<_Tp, _Comp>::find(_Tp const &data) {
+    auto pt = _find(data);
+
+    return pt != sentinel_ ? pt : nullptr;
+}
+
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::preOrder() const {
+    if (root_ == sentinel_)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    elem.append(std::to_string(st.top()->data));
+    while (!st.empty())
+    {
+        while (st.top()->left != sentinel_)
+        {
+            elem.append(std::to_string(st.top()->left->data));
+            st.push(st.top()->left);
+        }
+        while (!st.empty() && st.top()->right == sentinel_)
+            st.pop();
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->right->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
+
+template<typename _Tp, typename _Comp>
+std::string
+RBTree<_Tp, _Comp>::inOrder() const {
+    if (root_ == sentinel_)
+        return {};
+    std::string elem{};
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    while (!st.empty())
+    {
+        while (st.top()->left != sentinel_)
+            st.push(st.top()->left);
+        while (!st.empty() && st.top()->right == sentinel_)
+        {
+            elem.append(std::to_string(st.top()->data));
+            st.pop();
+        }
+        if (!st.empty())
+        {
+            elem.append(std::to_string(st.top()->data));
+            auto temp = st.top();
+            st.pop();
+            st.push(temp->right);
+        }
+    }
+
+    return elem;
+}
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::insert(p_node_type & root, p_node_type & pt)
 {
     /* If the tree is empty, return a new node */
-    if (root == NULL)
-       return pt;
- 
-    /* Otherwise, recur down the tree */
-    if (pt->data < root->data)
+    if (root == sentinel_)
     {
-        root->left  = BSTInsert(root->left, pt);
+        pt->parent = root->parent;
+
+        return pt;
+    }
+
+    /* Otherwise, recur down the tree */
+    if (comp_(pt->data, root->data))
+    {
+        root->left = insert(root->left, pt);
         root->left->parent = root;
     }
-    else if (pt->data > root->data)
+    else if (comp_(root->data, pt->data))
     {
-        root->right = BSTInsert(root->right, pt);
+        root->right = insert(root->right, pt);
         root->right->parent = root;
     }
- 
+    else
+    {
+        pt->parent = root->parent;
+        pt->left = root->left;
+        pt->right = root->right;
+        pt->color = root->color;
+    }
+
     /* return the (unchanged) node pointer */
     return root;
 }
- 
-// Utility function to do level order traversal
-void levelOrderHelper(Node *root)
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::_find(_Tp const & data)
 {
-    if (root == NULL)
-        return;
- 
-    std::queue<Node *> q;
-    q.push(root);
- 
-    while (!q.empty())
+    p_node_type pt = std::make_shared<RBTree::node_type>(data);
+    std::stack<p_node_type> st{};
+    st.push(root_);
+    while (!st.empty())
     {
-        Node *temp = q.front();
-        cout << temp->data << "  ";
-        q.pop();
- 
-        if (temp->left != NULL)
-            q.push(temp->left);
- 
-        if (temp->right != NULL)
-            q.push(temp->right);
+        if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+            return st.top();
+        while (st.top()->left != sentinel_)
+        {
+            st.push(st.top()->left);
+            if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+                return st.top();
+        }
+        while (!st.empty() && st.top()->right == sentinel_)
+            st.pop();
+        if (!st.empty())
+        {
+            if (comp_(st.top()->data, pt->data) == comp_(pt->data, st.top()->data))
+                return st.top();
+            else
+            {
+                p_node_type &temp = st.top();
+                st.pop();
+                st.push(temp->right);
+            }
+        }
     }
+
+    return sentinel_;
 }
- 
-void RBTree::rotateLeft(Node *&root, Node *&pt)
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::rotateLeft(RBTree::p_node_type &pt)
 {
-    Node *pt_right = pt->right;
- 
+    RBTree::p_node_type pt_right = pt->right;
+
     pt->right = pt_right->left;
- 
-    if (pt->right != NULL)
+
+    if (pt->right != sentinel_)
         pt->right->parent = pt;
- 
+
     pt_right->parent = pt->parent;
- 
-    if (pt->parent == NULL)
-        root = pt_right;
- 
+
+    if (pt->parent == sentinel_)
+        root_ = pt_right;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_right;
- 
     else
         pt->parent->right = pt_right;
- 
+
     pt_right->left = pt;
     pt->parent = pt_right;
 }
- 
-void RBTree::rotateRight(Node *&root, Node *&pt)
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::rotateRight(RBTree::p_node_type &pt)
 {
-    Node *pt_left = pt->left;
- 
+    RBTree::p_node_type pt_left = pt->left;
+
     pt->left = pt_left->right;
- 
-    if (pt->left != NULL)
+
+    if (pt->left != sentinel_)
         pt->left->parent = pt;
- 
+
     pt_left->parent = pt->parent;
- 
-    if (pt->parent == NULL)
-        root = pt_left;
- 
+
+    if (pt->parent == sentinel_)
+        root_ = pt_left;
     else if (pt == pt->parent->left)
         pt->parent->left = pt_left;
- 
     else
         pt->parent->right = pt_left;
- 
+
     pt_left->right = pt;
     pt->parent = pt_left;
 }
- 
-// This function fixes violations caused by BST insertion
-void RBTree::fixViolation(Node *&root, Node *&pt)
-{
-    Node *parent_pt = NULL;
-    Node *grand_parent_pt = NULL;
- 
-    while ((pt != root) && (pt->color != BLACK) &&
-           (pt->parent->color == RED))
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type
+RBTree<_Tp, _Comp>::successor(p_node_type const &pt) {
+    p_node_type child = sentinel_;
+    if (pt->left != sentinel_)
     {
- 
+        child = pt->left;
+        while (child->right != sentinel_)
+            child = child->right;
+    }
+    else if (pt->right != sentinel_)
+    {
+        child = pt->right;
+        while (child->left != sentinel_)
+            child = child->left;
+    }
+
+    return child;
+}
+
+// This function fixes violations caused by BST insertion
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::fixViolation(RBTree::p_node_type &pt)
+{
+    RBTree::p_node_type parent_pt = sentinel_;
+    RBTree::p_node_type grand_parent_pt = sentinel_;
+
+    while (pt->color == Color::RED && pt->parent->color == Color::RED)
+    {
         parent_pt = pt->parent;
         grand_parent_pt = pt->parent->parent;
- 
+
         /*  Case : A
-            Parent of pt is left child of Grand-parent of pt */
+         Parent of pt is left child of Grand-parent of pt */
         if (parent_pt == grand_parent_pt->left)
         {
- 
-            Node *uncle_pt = grand_parent_pt->right;
- 
+            RBTree::p_node_type uncle_pt = grand_parent_pt->right;
+
             /* Case : 1
-               The uncle of pt is also red
-               Only Recoloring required */
-            if (uncle_pt != NULL && uncle_pt->color == RED)
+             The uncle of pt is also red
+             Only Recoloring required */
+            if (uncle_pt->color == Color::RED)
             {
-                grand_parent_pt->color = RED;
-                parent_pt->color = BLACK;
-                uncle_pt->color = BLACK;
+                grand_parent_pt->color = Color::RED;
+                parent_pt->color = Color::BLACK;
+                uncle_pt->color = Color::BLACK;
                 pt = grand_parent_pt;
             }
- 
             else
             {
                 /* Case : 2
-                   pt is right child of its parent
-                   Left-rotation required */
+                 pt is right child of its parent
+                 Left-rotation required */
                 if (pt == parent_pt->right)
                 {
-                    rotateLeft(root, parent_pt);
+                    rotateLeft(parent_pt);
                     pt = parent_pt;
                     parent_pt = pt->parent;
                 }
- 
+
                 /* Case : 3
-                   pt is left child of its parent
-                   Right-rotation required */
-                rotateRight(root, grand_parent_pt);
+                 pt is left child of its parent
+                 Right-rotation required */
+                rotateRight(grand_parent_pt);
                 swap(parent_pt->color, grand_parent_pt->color);
                 pt = parent_pt;
             }
         }
- 
         /* Case : B
-           Parent of pt is right child of Grand-parent of pt */
+         Parent of pt is right child of Grand-parent of pt */
         else
         {
-            Node *uncle_pt = grand_parent_pt->left;
- 
+            RBTree::p_node_type uncle_pt = grand_parent_pt->left;
+
             /*  Case : 1
-                The uncle of pt is also red
-                Only Recoloring required */
-            if ((uncle_pt != NULL) && (uncle_pt->color == RED))
+             The uncle of pt is also red
+             Only Recoloring required */
+            if (uncle_pt->color == Color::RED)
             {
-                grand_parent_pt->color = RED;
-                parent_pt->color = BLACK;
-                uncle_pt->color = BLACK;
+                grand_parent_pt->color = Color::RED;
+                parent_pt->color = Color::BLACK;
+                uncle_pt->color = Color::BLACK;
                 pt = grand_parent_pt;
             }
             else
             {
                 /* Case : 2
-                   pt is left child of its parent
-                   Right-rotation required */
+                 pt is left child of its parent
+                 Right-rotation required */
                 if (pt == parent_pt->left)
                 {
-                    rotateRight(root, parent_pt);
+                    rotateRight(parent_pt);
                     pt = parent_pt;
                     parent_pt = pt->parent;
                 }
- 
+
                 /* Case : 3
-                   pt is right child of its parent
-                   Left-rotation required */
-                rotateLeft(root, grand_parent_pt);
+                 pt is right child of its parent
+                 Left-rotation required */
+                rotateLeft(grand_parent_pt);
                 swap(parent_pt->color, grand_parent_pt->color);
                 pt = parent_pt;
             }
         }
     }
- 
-    root->color = BLACK;
+
+    root_->color = Color::BLACK;
 }
- 
-// Function to insert a new node with given data
-void RBTree::insert(const int &data)
-{
-    Node *pt = new Node(data);
- 
-    // Do a normal BST insert
-    root = BSTInsert(root, pt);
- 
-    // fix Red Black Tree violations
-    fixViolation(root, pt);
+
+template<typename _Tp, typename _Comp>
+typename RBTree<_Tp, _Comp>::p_node_type &
+RBTree<_Tp, _Comp>::sibling(p_node_type const & n) {
+    return n->parent->left != n ? n->parent->left : n->parent->right;
 }
- 
-// Function to do inorder and level order traversals
-void RBTree::inorder()     {  inorderHelper(root);}
-void RBTree::levelOrder()  {  levelOrderHelper(root); }
- 
-// Driver Code
-int main()
-{
-    RBTree tree;
- 
-    tree.insert(7);
-    tree.insert(6);
-    tree.insert(5);
-    tree.insert(4);
-    tree.insert(3);
-    tree.insert(2);
-    tree.insert(1);
- 
-    cout << "Inoder Traversal of Created Tree\n";
-    tree.inorder();
- 
-    cout << "\n\nLevel Order Traversal of Created Tree\n";
-    tree.levelOrder();
- 
-    return 0;
+
+template<typename _Tp, typename _Comp>
+bool
+RBTree<_Tp, _Comp>::isLeftChild(p_node_type const &n) {
+    return n == n->parent->left;
+}
+
+template<typename _Tp, typename _Comp>
+bool
+RBTree<_Tp, _Comp>::isRightChild(p_node_type const &n) {
+    return n == n->parent->right;
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase1(p_node_type const &n) {
+    if (n->parent != sentinel_)
+        deleteCase2(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase2(p_node_type const &n) {
+    auto s = sibling(n);
+    if (s->color == Color::RED)
+    {
+        n->parent->color = Color::RED;
+        s->color = Color::BLACK;
+        if (isLeftChild(n))
+            rotateLeft(n->parent);
+        else
+            rotateRight(n->parent);
+    }
+    deleteCase3(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase3(p_node_type const &n) {
+    auto s = sibling(n);
+    if (n->parent->color == Color::BLACK
+        && s->color == Color::BLACK
+        && s->left->color == Color::BLACK
+        && s->right->color == Color::BLACK)
+    {
+        s->color = Color::RED;
+        deleteCase1(n->parent);
+    }
+    else
+        deleteCase4(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase4(p_node_type const &n) {
+    auto s = sibling(n);
+    if (n->parent->color == Color::RED
+        && s->color == Color::BLACK
+        && s->left->color == Color::BLACK
+        && s->right->color == Color::BLACK)
+    {
+        s->color = Color::RED;
+        n->parent->color = Color::BLACK;
+    }
+    else
+        deleteCase5(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase5(p_node_type const &n) {
+    auto s = sibling(n);
+    if (s->color == Color::BLACK)
+    {
+        if (isLeftChild(n)
+            && s->right->color == Color::BLACK
+            && s->left->color == Color::RED)
+        {
+            s->color = Color::RED;
+            s->left->color = Color::BLACK;
+            rotateRight(s);
+        }
+        else if (isRightChild(n)
+                 && s->left->color == Color::BLACK
+                 && s->right->color == Color::RED)
+        {
+            s->color = Color::RED;
+            s->right->color = Color::BLACK;
+            rotateLeft(s);
+        }
+    }
+    deleteCase6(n);
+}
+
+template<typename _Tp, typename _Comp>
+void
+RBTree<_Tp, _Comp>::deleteCase6(p_node_type const &n) {
+    auto s = sibling(n);
+    s->color = n->parent->color;
+    n->parent->color = Color::BLACK;
+
+    if (isLeftChild(n))
+    {
+        s->right->color = Color::BLACK;
+        rotateLeft(n->parent);
+    }
+    else
+    {
+        s->left->color = Color::BLACK;
+        rotateRight(n->parent);
+    }
 }

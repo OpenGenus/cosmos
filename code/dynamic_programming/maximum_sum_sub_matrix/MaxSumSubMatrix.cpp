@@ -1,4 +1,4 @@
-// Part of OpenGenus/Cosmos
+// Part of Cosmos by OpenGenus Foundation
 // Author: Karan Chawla
 // 15th Oct '17
 #include <iostream>

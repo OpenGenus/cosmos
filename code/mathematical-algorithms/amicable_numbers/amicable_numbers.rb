@@ -10,5 +10,4 @@ def ami_check(num1, num2)
   end
 end
 
-
-puts ami_check(66928, 66992)
+puts ami_check(66_928, 66_992)
