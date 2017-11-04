@@ -1,4 +1,5 @@
-//Part of Cosmos by Open Genus Foundation
+// dynamic programming | box stacking | Java
+// Part of Cosmos by OpenGenus Foundation
 
 import java.util.Arrays;
 
