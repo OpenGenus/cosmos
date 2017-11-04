@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | edit distance | Java
+// Part of Cosmos by OpenGenus Foundation
 
 import java.util.Scanner;
 

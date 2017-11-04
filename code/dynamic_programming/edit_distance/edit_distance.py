@@ -1,7 +1,8 @@
-# A top-down DP Python program to find minimum number
-# of operations to convert str1 to str2
+# dynamic programming | edit distance | Python
 # Part of Cosmos by OpenGenus Foundation
 
+# A top-down DP Python program to find minimum number
+# of operations to convert str1 to str2
 def editDistance(str1, str2):
     
     def editDistance(str1, str2, m, n, memo):
