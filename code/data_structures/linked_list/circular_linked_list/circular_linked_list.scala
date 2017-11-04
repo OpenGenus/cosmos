@@ -7,18 +7,18 @@ class CircularLinkedList[T]
 {
   var first: Node[T] = null
 
-  def search(elem: T): Node[T] =
+  def search(elem: T): Option[Node[T]] =
   {
     var currentNode = first
     while (currentNode.key != elem)
     {
       if (currentNode.next == first)
       {
-        throw new IllegalStateException("Could not find element " + elem)
+        return None
       }
       currentNode = currentNode.next
     }
-    currentNode
+    Some(currentNode)
   }
 
   def +=(newData: T) =
@@ -44,15 +44,21 @@ class CircularLinkedList[T]
 
   def -=(elem: T) =
   {
-    var currentNode = search(elem)
-    var previousNode = first
-    while (previousNode.next != currentNode)
+    var nodeOption = search(elem)
+    nodeOption match
     {
-      previousNode = previousNode.next
-    }
+      case Some(currentNode) =>
+        var previousNode = first
+        while (previousNode.next != currentNode)
+        {
+          previousNode = previousNode.next
+        }
 
-    previousNode.next = currentNode.next
-    currentNode.next = null
+        previousNode.next = currentNode.next
+        currentNode.next = null
+
+      case None =>
+    }
   }
 
   override def toString = {
@@ -68,7 +74,7 @@ class CircularLinkedList[T]
   }
 }
 
-object circular_linked_list
+object circularLinkedList
 {
   def main(args: Array[String])
   {
