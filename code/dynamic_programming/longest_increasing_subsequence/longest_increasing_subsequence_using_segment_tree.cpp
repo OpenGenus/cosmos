@@ -1,3 +1,4 @@
+/* Part of Cosmos by OpenGenus Foundation */
 
 // Finding the Longest Increasing Subsequence using  Segment Tree
 

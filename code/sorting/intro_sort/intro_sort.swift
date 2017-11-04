@@ -48,29 +48,34 @@ private func partition(_ array: inout [Int], low: Int, high: Int) -> Int {
 private func heapSort(_ array: inout [Int], from a: Int, to b: Int) {
     // create heap
     for i in stride(from: (a + b) / 2, to: a - 1, by: -1) {
-        sink(array: &array, at: i, to: b)
+        sink(&array, at: i, from: a, to: b)
     }
     // sort core
     for i in stride(from: b, to: a, by: -1) {
         swap(&array, at: i, and: a)
-        sink(array: &array, at: a, to: i - 1)
+        sink(&array, at: a, from: a, to: i - 1)
     }
 }
 
-private func sink(array: inout [Int], at indexA: Int, to indexB: Int) {
-    var i = indexA
-    while (i + 1) * 2 - 1 <= indexB {
-        let leftChild = (i + 1) * 2 - 1
-        let rightChild = (i + 1) * 2
-        let pMax: Int
-        if rightChild <= indexB && array[leftChild] < array[rightChild] {
-            pMax = rightChild
+private func sink(_ array: inout [Int], at x: Int, from a: Int, to b: Int) {
+    let b1 = b - a + 1
+    var i = x
+    var i1 = i - a + 1
+    while 2 * i1 <= b1 {
+        let l1 = 2 * i1
+        let r1 = 2 * i1 + 1
+        let l = l1 + a - 1
+        let r = r1 + a - 1
+        let p: Int
+        if r <= b && array[l] < array[r] {
+            p = r
         } else {
-            pMax = leftChild
+            p = l
         }
-        if (array[pMax] > array[i]) {
-            swap(&array, at: pMax, and: i)
-            i = pMax
+        if array[p] > array[i] {
+            swap(&array, at: p, and: i)
+            i = p
+            i1 = i - a + 1
         } else {
             break
         }

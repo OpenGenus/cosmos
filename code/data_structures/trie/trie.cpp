@@ -1,4 +1,7 @@
-#include<bits/stdc++.h>
+#include<cstdio>
+#include<string>
+#include<iostream>
+
 // Part of Cosmos by OpenGenus
 using namespace std;
 #define mod 1000000007
@@ -15,7 +18,7 @@ using namespace std;
 #define vi vector<ll>
 ll modexp(ll a,ll b){ ll res = 1; while(b > 0){  if(b & 1) res = (res * a);  a = (a * a);  b/=2;  }  return res; }
 #define rs resize
-long long readLI(){  register char c;  for(c = getchar(); !(c>='0' && c<='9'); c = getchar());  register long long a=c-'0';
+long long readLI(){  register char c;  for(c = getchar(); !(c>='0' && c<='9'); c = getchar()){}  register long long a=c-'0';
     for(c = getchar(); c>='0' && c<='9'; c = getchar())
         a = (a<<3)+(a<<1)+c-'0';
     return a;

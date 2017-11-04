@@ -4,10 +4,7 @@
 CHARS_HASH = Hash[('a'..'z').to_a.zip((0..25).to_a)]
 
 def caesar(string, shift)
-
-  if shift > 25
-    shift = 25
-  end
+  shift = 25 if shift > 25
 
   text = string.downcase.split('')
   encoded = []
@@ -27,7 +24,6 @@ def caesar(string, shift)
   end
 
   encoded.join('')
-
 end
 
 # Test!

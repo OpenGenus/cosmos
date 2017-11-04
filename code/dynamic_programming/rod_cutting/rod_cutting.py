@@ -1,5 +1,5 @@
 
-# Part of Cosmos by Open Genus Foundation
+# Part of Cosmos by OpenGenus Foundation
 # Code contributed by Debajyoti Halder
 
 # A Dynamic Programming solution for Rod cutting problem

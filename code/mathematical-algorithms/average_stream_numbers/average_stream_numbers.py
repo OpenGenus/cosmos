@@ -8,6 +8,4 @@ def main() :
         for i in range(len(L)) :
                 avg = newAvg(avg, (i + 1), L[i])
                 print(avg)
-        
-
 main()

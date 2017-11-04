@@ -32,7 +32,7 @@ Array.prototype.equals = function(other) {
 }
 
 function test() {
-    scenarios = [
+    var scenarios = [
         {value: 100, denoms: [50, 25, 10, 5, 1],      result: [50, 50]},
         {value: 101, denoms: [50, 25, 10, 5, 1],      result: [50, 50, 1]},
         {value: 77,  denoms: [50, 25, 10, 5, 1],      result: [50, 25, 1, 1]},

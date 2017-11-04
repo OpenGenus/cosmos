@@ -1,9 +1,5 @@
-/* 
-
-  Javasctipt implementation of 
-  Inversion count in an array using mergesort
-  
-*/
+//  divide conquer | inversion count | Javascript
+//  Part of Cosmos by OpenGenus Foundation
 
 function mergeSort(arr, size)
 {
@@ -17,11 +13,11 @@ function mergeSortHelper(arr, temp, left, right){
   if (right > left)
   {
     mid = (right + left)/2;
-  
+
     /* sum the number of inversions from all parts */
     inv_count  = mergeSortHelper(arr, temp, left, mid);
     inv_count += mergeSortHelper(arr, temp, mid+1, right);
-  
+
     inv_count += merge(arr, temp, left, mid+1, right);
   }
   return inv_count;
@@ -30,10 +26,10 @@ function mergeSortHelper(arr, temp, left, right){
 function merge(arr, temp, left, mid, right)
 {
   var inv_count = 0;
-  
+
   var i = left;
-  var j = mid;  
-  var k = left; 
+  var j = mid;
+  var k = left;
 
   while ((i <= mid - 1) && (j <= right))
   {
@@ -44,22 +40,22 @@ function merge(arr, temp, left, mid, right)
     else
     {
       temp[k++] = arr[j++];
-  
+
      /* remaining elements in subarray arr[i] to arr[mid] are sorted and grater than arr[j] */
       inv_count = inv_count + (mid - i);
     }
   }
-  
+
   /* Copy remaining elements*/
   while (i <= mid - 1)
     temp[k++] = arr[i++];
   while (j <= right)
     temp[k++] = arr[j++];
-  
+
   /*merge into original array*/
   for (i=left; i <= right; i++)
     arr[i] = temp[i];
-  
+
   return inv_count;
 }
 
