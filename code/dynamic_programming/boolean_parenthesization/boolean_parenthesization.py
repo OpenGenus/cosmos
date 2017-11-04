@@ -1,3 +1,6 @@
+# dynamic programming | boolean parenthesization | Python
+# Part of Cosmos by OpenGenus Foundation
+
 # Dynamic programming implementation of the boolean
 # parenthesization problem using 'T' and 'F' as characters
 # and '&', '|' and '^' as the operators
