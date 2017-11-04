@@ -18,4 +18,3 @@ def print_taxi_numbers(n):
        print x
 if __name__ == '__main__':
     print_taxi_numbers(10)
-    
