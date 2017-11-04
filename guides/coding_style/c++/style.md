@@ -270,6 +270,8 @@ Naming
 
 Enumerations should be named like user-defined types with PascalCase. The actual enumerators inside should be named using all caps and underscore separation.
 
+Warning: if you dealing with low-level operation, and need use explicit type convertion, you must be careful about underlying type (default is the `int` it at least 2-bytes).
+
 **Valid:**
 ```C++
 enum class ExampleEnum
@@ -279,4 +281,49 @@ enum class ExampleEnum
     THREE,
     FOUR // No comma at the end
 };
+
+enum class ExampleEnum : long
+{
+    ONE = 0,
+    TWO_TWO,
+    THREE,
+    FOUR // No comma at the end
+};
+```
+
+Alias
+===
+
+using vs typedef
+---
+When dealing with aliases, use `using`, not `typedef`.
+
+Don't put alias in `public`, unless the aliases is guaranteed to always be the same as the type it's currently aliased to.
+
+- The `using` declaration can be read almost as an English sentence.
+
+- More easily declare an alias with template.
+
+- [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
+
+Naming
+---
+
+Aliases should be named like PascalCase.
+
+**Valid:**
+```C++
+class Demo
+{
+private:
+   using VecI = std::vector<int>;
+   // ... 
+};
+
+void foo()
+{
+   template<typename _T>
+   using VecTwo = std::vector<std::vector<_T>>;
+   // ...
+}
 ```
