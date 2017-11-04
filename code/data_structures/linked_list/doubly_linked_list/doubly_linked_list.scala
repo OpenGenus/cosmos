@@ -8,18 +8,18 @@ class DoublyLinkedList[T]
 
   private var first: Node[T] = null
 
-  def search(elem: T): Node[T] =
+  def search(elem: T): Option[Node[T]] =
   {
     var currentNode = first
     while (currentNode.key != elem)
     {
       if (currentNode.next == null)
       {
-        throw new IllegalStateException("Could not find element " + elem)
+        return None
       }
       currentNode = currentNode.next
     }
-    currentNode
+    Some(currentNode)
   }
 
   def +=(newData: T) =
@@ -39,23 +39,29 @@ class DoublyLinkedList[T]
 
   def -=(elem: T) =
   {
-    var currentNode = search(elem)
+    var nodeOption = search(elem)
 
-    //Check if this node is the tail
-    if (currentNode.next == null)
+    nodeOption match
     {
-      var newTail = currentNode.prev
-      currentNode.prev = null
-      newTail.next = null
-    }
-    else
-    {
-      var nextNode = currentNode.next
-      var prevNode = currentNode.prev
-      nextNode.prev = prevNode
-      prevNode.next = nextNode
-      currentNode.prev = null
-      currentNode.next = null
+      case Some(currentNode) =>
+        //Check if this node is the tail
+        if (currentNode.next == null)
+        {
+          var newTail = currentNode.prev
+          currentNode.prev = null
+          newTail.next = null
+        }
+        else
+        {
+          var nextNode = currentNode.next
+          var prevNode = currentNode.prev
+          nextNode.prev = prevNode
+          prevNode.next = nextNode
+          currentNode.prev = null
+          currentNode.next = null
+        }
+
+      case None =>
     }
   }
 
@@ -72,7 +78,7 @@ class DoublyLinkedList[T]
   }
 }
 
-object doubly_linked_list
+object doublyLinkedList
 {
   def main(args: Array[String])
   {
