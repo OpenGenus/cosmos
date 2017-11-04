@@ -1,6 +1,8 @@
-import numpy as np
+# dynamic programming | binomial coefficient | Python
 # Part of Cosmos by OpenGenus Foundation
-#implementation using dynamic programming
+import numpy as np
+
+# implementation using dynamic programming
 def binomialCoefficient(n, k, C=None):
 	if k<0 or n<0:
 		raise ValueError('n,k must not be less than 0')
@@ -21,7 +23,7 @@ def binomialCoefficient(n, k, C=None):
 
 	return C[n,k]
 
-#test
+# test
 # print(binomialCoefficient(10,3))
 # print(binomialCoefficient(10,6))
 # print(binomialCoefficient(10,4))

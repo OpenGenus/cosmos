@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | binomial coefficient | C++
+// Part of Cosmos by OpenGenus Foundation
 
 #include <iostream>
 #include <vector>
