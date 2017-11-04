@@ -4,27 +4,24 @@
 using namespace std;
 
 // Function to check squares
-int isSquare ( int n ){
-	
-	if ( n < 0 )
-		return 0;
+bool isSquare ( int n ){
 
 	//remove digits after decimal
-	int root = (int)round(sqrt(n)); 
+	int truncRoot = static_cast<int>(sqrt(n));
 	
-	return ( root * root ) == n ;
+	return (n >= 0) && (( truncRoot * truncRoot ) == n );
 }
 
 
 int main()
 {
 	int t;
-	cout<<"Enter no. of test cases"<<endl;
+	cout<<"Enter the no. of test cases"<<endl;
 	cin>>t;
 	while(t--)
 	{
 		int n;
-		cout<<"Enter the number"<<endl;
+		cout<<"Enter the number: "<<endl;
 		cin>>n;
 
 		cout << ( isSquare (n) ? "YES" : "NO" ) << endl;
