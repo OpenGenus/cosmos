@@ -1,14 +1,18 @@
 #include<iostream>
 using namespace std;
 
-// Eveerytime you work with Append or Push function, there is a corner case. That when a NULL node is passed you have to return a node that points to the given value. There are two ways you can do, if you receive the double pointer as an argument or if you are returning node.
+// Everytime you work with Append or Push function, there is a corner case.
+// When a NULL Node is passed you have to return a Node that points to the given value.
+// There are two ways to achieve this:
+// 1. Receive the double pointer as an argument.
+// 2. Return the new Node.
 
-struct node{
+struct Node{
     int data;
-    struct node* next;
+    Node* next;
 };
 
-void printList(struct node *head){
+void printList( Node *head){
     while(head){
         cout<<head->data<<" ";
         head = head->next;
@@ -16,41 +20,41 @@ void printList(struct node *head){
     cout<<endl;
 }
 
-void push(struct node** headref, int x){
-    struct node* head = *headref;
-    struct node* newNode = new node();
+void push( Node** headref, int x){
+    Node* head = *headref;
+    Node* newNode = new Node();
     newNode->data = x;
     newNode->next = head;
     *headref = newNode;
 }
 
 
-void pushAfter(struct node* prev_node, int data){
-    struct node* newNode= new node();
+void pushAfter(Node* prev_Node, int data){
+    Node* newNode= new Node();
     newNode->data =data;
-    newNode->next = prev_node->next;
-    prev_node->next = newNode;
+    newNode->next = prev_Node->next;
+    prev_Node->next = newNode;
 }
 
-void append(struct node** headref, int x){
-    node* head = *headref;
-    if(head==NULL){
-        struct node* newNode = new node();
+void append( Node** headref, int x){
+    Node* head = *headref;
+    if(head==nullptr){
+        Node* newNode = new Node();
         newNode->data = x;
-        newNode->next = NULL;
+        newNode->next = nullptr;
         *headref= newNode;
         return;
     }
     while(head->next){
         head= head->next;
     }
-    node *temp = new node();
+    Node *temp = new Node();
     head->next = temp;
     temp->data = x;
 }
 
 int main(){
-    node *head =nullptr;
+    Node *head =nullptr;
     append(&head, 5);
     append(&head, 10);
     push(&head, 2);
