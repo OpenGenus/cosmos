@@ -6,8 +6,8 @@ function sd(arr) { // calculate standard deviation of array of numbers
 		arr_square_sum += arr[i] * arr[i]; // sum of squares of values in array
 	}
 	
-	arr_mean = arr_sum/arr.length; // this is E[X]
-	arr_square_mean = arr_square_sum/arr.length; // this is E[X^2]
+	var arr_mean = arr_sum/arr.length; // this is E[X]
+	var arr_square_mean = arr_square_sum/arr.length; // this is E[X^2]
 	var variance = arr_square_mean - arr_mean * arr_mean; // Var(X) = E[X^2] - E[X]^2
 	
 	return Math.sqrt(variance);

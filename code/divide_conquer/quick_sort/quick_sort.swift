@@ -1,4 +1,5 @@
-// Part of Cosmos by OpenGenus Foundation
+//  divide conquer | quick sort | Swift
+//  Part of Cosmos by OpenGenus Foundation
 
 import Foundation;
 

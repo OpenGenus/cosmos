@@ -1,9 +1,9 @@
 #include <stdio.h>
- 
-void main()
+
+int main(void)
 {
     long num, decimal_num, remainder, base = 1, binary = 0, no_of_1s = 0;
- 
+
     printf("Enter a decimal integer \n");
     scanf("%ld", &num);
     decimal_num = num;
@@ -19,7 +19,8 @@ void main()
         num = num / 2;
         base = base * 10;
     }
-    printf("Input number is = %d\n", decimal_num);
+    printf("Input number is = %ld\n", decimal_num);
     printf("Its binary equivalent is = %ld\n", binary);
-    printf("No.of 1's in the binary number is = %d\n", no_of_1s);
+    printf("No.of 1's in the binary number is = %ld\n", no_of_1s);
+    return 0;
 }

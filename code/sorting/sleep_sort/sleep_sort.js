@@ -24,7 +24,7 @@ function sleepSort(array) {
 
 // Generate 100 random numbers for sorting.
 randoms = [];
-for (i = 0; i < 100; ++i) {
+for (var i = 0; i < 100; ++i) {
     // Random number between 1 - 100
     randomInt = Math.floor((Math.random()*100) + 1);
     randoms.push(randomInt); 

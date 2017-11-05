@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus Foundation 
 //-- Function to check if a number is square
 //-- Accepts integers, and converts it internally to float
 use std::f64;

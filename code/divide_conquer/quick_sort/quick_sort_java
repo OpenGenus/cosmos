@@ -1,10 +1,13 @@
+//  divide conquer | quick sort | Java
+//  Part of Cosmos by OpenGenus Foundation
+
 public class QuickSort {
 	private int []v;
 	private int n;
 
 	public String toString() {
 		String result = "";
-		
+
 		for(int i = 0; i < n; i++) {
 			result += v[i] + " ";
 		}
@@ -50,7 +53,7 @@ public class QuickSort {
 		for(int i = 0; i < 10; i++) {
 			obj.v[i] = 10 - i;
 		}
-		
+
 		System.out.println(obj);
 		obj.quickSort(obj, 0, obj.n - 1);
 		System.out.println(obj);

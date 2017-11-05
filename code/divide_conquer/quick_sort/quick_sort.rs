@@ -1,8 +1,11 @@
+//  divide conquer | quick sort | Rust
+//  Part of Cosmos by OpenGenus Foundation
+
 fn quick_sort(mut arr :Vec<i32>,low :usize, high :usize) -> Vec<i32> {
 
     if low < high {
         let mid = partition(&mut arr, low, high);
-        
+
         let arr = quick_sort(arr.clone(),low,mid);
         let arr = quick_sort(arr,mid+1,high);
         return arr
@@ -14,7 +17,7 @@ fn partition(arr : &mut Vec<i32>, low :usize, high :usize) -> usize {
     let pivot = arr[low];
     let mut i = low ;
     let mut j = high;
-    
+
     loop {
         while arr[i] < pivot && arr[i] != pivot {
             i += 1;

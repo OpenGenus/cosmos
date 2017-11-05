@@ -1,4 +1,5 @@
-// Part of Cosmos by OpenGenus Foundation
+//  divide conquer | inversion count | C++
+//  Part of Cosmos by OpenGenus Foundation
 
 #include<iostream>
 using namespace std;
@@ -20,7 +21,7 @@ int main()
  return 0;
 }
 
-//merge 
+//merge
 int merge(int arr[],int l,int m,int r)
 {
  int len,i,j,k,c[100],count=0;
@@ -33,22 +34,22 @@ int merge(int arr[],int l,int m,int r)
   if(arr[j]<=arr[k])
   {
    c[i++]=arr[j++];
-   
+
   }
   else
   {
    c[i++]=arr[k++];
    count+=m-j;
-   
+
   }
-  
+
  }
- 
+
  while(j<=m-1)
  {
   c[i++]=arr[j++];
  }
- 
+
  while(k<=r)
  {
   c[i++]=arr[k++];
@@ -58,7 +59,7 @@ int merge(int arr[],int l,int m,int r)
  {
   arr[l++]=c[i++];
  }
- 
+
  return count;
 }
 
@@ -72,10 +73,8 @@ int mergesort(int arr[],int l,int r)
   x+=mergesort(arr,l,m);
   y+=mergesort(arr,m+1,r);
   z+=merge(arr,l,m+1,r);
-  
+
  }
- 
+
  return x+y+z;
 }
-
-

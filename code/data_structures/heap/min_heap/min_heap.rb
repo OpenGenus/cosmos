@@ -32,10 +32,11 @@ class MinHeap
   end
 
   private
-  def up_heap(index)
-    parent_index = index/2
 
-    if(@heap[parent_index] > @heap[index])
+  def up_heap(index)
+    parent_index = index / 2
+
+    if @heap[parent_index] > @heap[index]
       parent = @heap[parent_index]
       @heap[parent_index] = @heap[index]
       @heap[index] = parent
