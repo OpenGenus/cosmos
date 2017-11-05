@@ -1,10 +1,7 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-//Append or Push function k saath khelne mai hamesha ek ye corner case hoga that in case the element passed is NULL, then you have to essentially add a node and return. There are two ways you can do, if you receive the double pointer as an argument or if you are returning node.
-
-#include <bits/stdc++.h>
-using namespace std;
+// Eveerytime you work with Append or Push function, there is a corner case. That when a NULL node is passed you have to return a node that points to the given value. There are two ways you can do, if you receive the double pointer as an argument or if you are returning node.
 
 struct node{
     int data;
@@ -42,7 +39,7 @@ void append(struct node** headref, int x){
         newNode->data = x;
         newNode->next = NULL;
         *headref= newNode;
-    return;
+        return;
     }
     while(head->next){
         head= head->next;
@@ -53,13 +50,11 @@ void append(struct node** headref, int x){
 }
 
 int main(){
-    node *head =NULL;
+    node *head =nullptr;
     append(&head, 5);
     append(&head, 10);
     push(&head, 2);
     pushAfter(head->next, 4);
     printList(head);
-
-
     return 0;
 }
