@@ -11,6 +11,6 @@ def is_circular(self, head):
 		while slow is not fast:
 			slow = slow.next
 			fast = fast.next.next
-		return true
+		return True
 	except:
-		return false
+		return False
