@@ -1,21 +1,19 @@
-=begin
-    Part of Cosmos by OpenGenus Foundation
-=end
+#     Part of Cosmos by OpenGenus Foundation
 
 def InsertionSort(arr)
-    n = arr.length
-    i = 1
-    while i < n
-        key = arr[i]
-        j = i-1
-        while j >=0 and key < arr[j]
-            arr[j+1] = arr[j]
-            j -= 1
-        end
-        arr[j+1] = key
-        i += 1
+  n = arr.length
+  i = 1
+  while i < n
+    key = arr[i]
+    j = i - 1
+    while (j >= 0) && (key < arr[j])
+      arr[j + 1] = arr[j]
+      j -= 1
     end
-    return arr
+    arr[j + 1] = key
+    i += 1
+  end
+  arr
 end
 
 arr = [3, 1, 5, 8, 11, 10, 23, 24, -1]

@@ -19,13 +19,11 @@ def bucket_sort(input, bucket_size = DEFAULT_BUCKET_SIZE)
   end
 
   # sort buckets
-  buckets.each do |bucket|
-    bucket.sort!
-  end
+  buckets.each(&:sort!)
 
   buckets.flatten.join(' ')
 end
-puts "Enter a list of numbers seprated by space"
+puts 'Enter a list of numbers seprated by space'
 
 list = gets
 print bucket_sort(list)
