@@ -1,4 +1,4 @@
-﻿# Cosmos
+# Cosmos
 > The universe of algorithm and data structures
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
@@ -10,27 +10,30 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* Artificial intelligence
-* Backtracking
-* Bit manipulation
-* Cellular automaton
-* Compression algorithms
-* Computational geometry
-* Cryptography
-* Data structures
-* Divide conquering
-* Dynamic programming
-* Graph algorithms
-* Greedy algorithms
-* Mathematical algorithms
-* Operating system
-* Randomized algorithms
-* Searching
-* Selecting
-* Sorting
-* Square root decomposition
-* String algorithms
-* Unclassified 👻
+
+* [Artificial intelligence](code/artificial_intelligence/)
+* [Backtracking](code/backtracking/)
+* [Bit manipulation](code/bit-manipulation/)
+* [Cellular automaton](code/cellular_automaton/)
+* [Compression algorithms](code/compression/)
+* [Computational geometry](code/computational_geometry/)
+* [Cryptography](code/cryptography/)
+* [Data structures](code/data_structures/)
+* [Design pattern](code/design_pattern/)
+* [Divide conquering](code/divide_conquer/)
+* [Dynamic programming](code/dynamic_programming/)
+* [Graph algorithms](code/graph-algorithms/)
+* [Greedy algorithms](code/greedy-algorithms/)
+* [Mathematical algorithms](code/mathematical-algorithms/)
+* [Networking](code/networking/)
+* [Operating system](code/operating_system/)
+* [Randomized algorithms](code/randomized-algorithms/)
+* [Searching](code/search/)
+* [Selecting](code/selection-algorithms/)
+* [Sorting](code/sorting/)
+* [Square root decomposition](code/square_root_decomposition/)
+* [String algorithms](code/string-algorithms/)
+* [Unclassified](code/unclassified/) 👻
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
