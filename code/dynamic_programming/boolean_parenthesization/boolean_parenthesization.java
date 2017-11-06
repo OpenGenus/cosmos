@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | boolean parenthesization | Java
+// Part of Cosmos by OpenGenus Foundation
 
 /*** Dynamic programming implementation of the boolean
  * parenthesization problem using 'T' and 'F' as characters

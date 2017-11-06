@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | coin change | Java
+// Part of Cosmos by OpenGenus Foundation
 
 public class WaysToCoinChange {
 	public static int dynamic(int[] v, int amount) {
