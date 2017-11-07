@@ -2,7 +2,7 @@
 
 #include <bits/stdc++.h>
 #include<math.h>
-#includ<conio.h>
+#include<conio.h>
 
 /* Part of Cosmos by OpenGenus Foundation */
 
