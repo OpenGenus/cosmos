@@ -5,7 +5,7 @@
 
 #include "lgraph_struct.h"
 
-// ---------------------------GETTERS-----------------------------------------//
+/* ---------------------------GETTERS-----------------------------------------*/
 inline size_t gLG_NbNodes(L_Graph* graph) { return (graph->n); }
 inline LG_Node* gLG_NodesArray(L_Graph* graph) { return (graph->nodes); }
 inline LG_Node* gLG_Node(L_Graph* graph, size_t ID) { return (&graph->nodes[ID]); }
@@ -20,7 +20,7 @@ inline OneEdge* gEdgesList_Next(OneEdge* edge) { return (edge->next); }
 
 inline void Node_incDegree(LG_Node* node) { node->edges.degree++; }
 
-// ----------------------------SETTERS----------------------------------------//
+/* ----------------------------SETTERS----------------------------------------*/
 inline void sLG_NbNodes(L_Graph* graph, size_t n) { graph->n = n; }
 inline void sLG_NodesArray(L_Graph* graph, LG_Node* nodes) { graph->nodes = nodes; }
 
@@ -31,7 +31,7 @@ inline void sNode_EdgesHead(LG_Node* node, OneEdge* head) { node->edges.l_edgesH
 inline void sEdge_DestNode(OneEdge* edge, int nodeID) { edge->nodeID = nodeID; }
 inline void sEdgesList_Next(OneEdge* edge, OneEdge* next) { edge->next = next; }
 
-// -------------------------ALLOCATION FUNCTIONS------------------------------//
+/* -------------------------ALLOCATION FUNCTIONS------------------------------*/
 
 /*
  * Creates a new graph with adjacency-list representation.
@@ -46,15 +46,14 @@ int
 createLGraph(size_t n, L_Graph* graph)
 {
   LG_Node* nodes = malloc(sizeof(*graph->nodes) * n);
-  if(nodes == NULL)
+  if (nodes == NULL)
     return (-1);
 
   sLG_NbNodes(graph, n);
   sLG_NodesArray(graph, nodes);
 
   int i;
-  for(i = 0; i < n; ++i)
-  {
+  for (i = 0; i < n; ++i) {
     sNode_ID(&nodes[i], i);
     initEdgesList(&nodes[i], -1);
   }
@@ -74,7 +73,7 @@ freeLGraph(L_Graph* graph)
 
   LG_Node* nodes = gLG_NodesArray(graph);
 
-  for(i = 0; i < gLG_NbNodes(graph); ++i)
+  for (i = 0; i < gLG_NbNodes(graph); ++i)
     freeEdgesList(&nodes[i]);
 
   free(nodes);
@@ -93,7 +92,7 @@ createEdge(size_t node_ID)
 {
   OneEdge* ret = malloc(sizeof(*ret));
 
-  if(ret == NULL)
+  if (ret == NULL)
     return NULL;
 
   sEdge_DestNode(ret, node_ID);
@@ -113,14 +112,12 @@ createEdge(size_t node_ID)
 int
 initEdgesList(LG_Node* node, int head_ID)
 {
-  if(head_ID < 0)
-  {
+  if (head_ID < 0) {
     sNode_degree(node, 0);
     sNode_EdgesHead(node, NULL);
   }
 
-  else
-  {
+  else {
     sNode_degree(node, 1);
 
     OneEdge* head = createEdge(head_ID);
@@ -144,8 +141,7 @@ freeEdgesList(LG_Node* node)
   OneEdge *p = gNode_EdgesHead(node),
           *next;
 
-  while(p != NULL)
-  {
+  while (p != NULL) {
     next = gEdgesList_Next(p);
 
     free(p);
@@ -153,7 +149,7 @@ freeEdgesList(LG_Node* node)
   }
 }
 
-// --------------------------ADDING EDGES-------------------------------------//
+/* --------------------------ADDING EDGES-------------------------------------*/
 
 /*
  * Add a new directed edge to the graph, connecting src to dest.
@@ -167,7 +163,7 @@ freeEdgesList(LG_Node* node)
 int
 LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID)
 {
-  if(src_ID >= gLG_NbNodes(graph) || dest_ID >= gLG_NbNodes(graph))
+  if (src_ID >= gLG_NbNodes(graph) || dest_ID >= gLG_NbNodes(graph))
     return (-1);
 
   return Node_addDEdge(gLG_Node(graph, src_ID), dest_ID);
@@ -186,11 +182,11 @@ Node_addDEdge(LG_Node* srcNode, size_t dest_ID)
 {
   OneEdge* head = gNode_EdgesHead(srcNode);
 
-  if(head == NULL)
+  if (head == NULL)
     return (initEdgesList(srcNode, dest_ID));
 
   OneEdge* newHead = createEdge(dest_ID);
-  if(newHead == NULL)
+  if (newHead == NULL)
     return (-1);
 
   sEdgesList_Next(newHead, head);
@@ -210,14 +206,14 @@ Node_addDEdge(LG_Node* srcNode, size_t dest_ID)
 int
 LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2)
 {
-  if(LGraph_addDEdge(graph, id1, id2) == -1)
+  if (LGraph_addDEdge(graph, id1, id2) == -1)
     return (-1);
 
   /* Loop */
-  if(id1 == id2)
+  if (id1 == id2)
     return (0);
 
-  if(LGraph_addDEdge(graph, id2, id1) == -1)
+  if (LGraph_addDEdge(graph, id2, id1) == -1)
     return (-1);
 
   return (0);
@@ -232,15 +228,15 @@ LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2)
  */
 int
 Node_addUEdge(LG_Node* node1, LG_Node* node2)
-{
-  if(Node_addDEdge(node1, gNode_ID(node2)) == -1)
+{ 
+  if (Node_addDEdge(node1, gNode_ID(node2)) == -1)
     return (-1);
 
   /* Loop */
-  if(node1 == node2)
+  if (node1 == node2)
     return (0);
 
-  if(Node_addDEdge(node2, gNode_ID(node1)) == -1)
+  if (Node_addDEdge(node2, gNode_ID(node1)) == -1)
     return (-1);
 
   return (0);
