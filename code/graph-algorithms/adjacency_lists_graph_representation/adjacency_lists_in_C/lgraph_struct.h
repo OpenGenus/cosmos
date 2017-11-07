@@ -51,33 +51,60 @@ typedef struct
 
 } L_Graph;
 
-// ---------------------------GETTERS-----------------------------------------//
-size_t gLG_NbNodes(L_Graph* graph);
-LG_Node* gLG_NodesArray(L_Graph* graph);
-LG_Node* gLG_Node(L_Graph* graph, size_t ID);
+/* ---------------------------GETTERS-----------------------------------------*/
+size_t 
+gLG_NbNodes(L_Graph* graph);
 
-size_t gNode_ID(LG_Node* node);
-N_Edges* gNode_EdgesList(LG_Node* node);
-int gNode_degree(LG_Node* node);
-OneEdge* gNode_EdgesHead(LG_Node* node);
+LG_Node* 
+gLG_NodesArray(L_Graph* graph);
 
-int gEdge_DestNode(OneEdge* edge);
-OneEdge* gEdgesList_Next(OneEdge* edge);
+LG_Node* 
+gLG_Node(L_Graph* graph, size_t ID);
 
-void Node_incDegree(LG_Node* node);
+size_t 
+gNode_ID(LG_Node* node);
 
-// ----------------------------SETTERS----------------------------------------//
-void sLG_NbNodes(L_Graph* graph, size_t n);
-void sLG_NodesArray(L_Graph* graph, LG_Node* nodes);
+N_Edges* 
+gNode_EdgesList(LG_Node* node);
 
-void sNode_ID(LG_Node* node, size_t ID);
-void sNode_degree(LG_Node* node, int degree);
-void sNode_EdgesHead(LG_Node* node, OneEdge* head);
+int 
+gNode_degree(LG_Node* node);
 
-void sEdge_DestNode(OneEdge* edge, int nodeID);
-void sEdgesList_Next(OneEdge* edge, OneEdge* next);
+OneEdge* 
+gNode_EdgesHead(LG_Node* node);
 
-// -------------------------ALLOCATION FUNCTIONS------------------------------//
+int 
+gEdge_DestNode(OneEdge* edge);
+
+OneEdge* 
+gEdgesList_Next(OneEdge* edge);
+
+void 
+Node_incDegree(LG_Node* node);
+
+/* ----------------------------SETTERS----------------------------------------*/
+void 
+sLG_NbNodes(L_Graph* graph, size_t n);
+
+void 
+sLG_NodesArray(L_Graph* graph, LG_Node* nodes);
+
+void 
+sNode_ID(LG_Node* node, size_t ID);
+
+void 
+sNode_degree(LG_Node* node, int degree);
+
+void 
+sNode_EdgesHead(LG_Node* node, OneEdge* head);
+
+void 
+sEdge_DestNode(OneEdge* edge, int nodeID);
+
+void 
+sEdgesList_Next(OneEdge* edge, OneEdge* next);
+
+/* -------------------------ALLOCATION FUNCTIONS------------------------------*/
 
 /*
  * Creates a new graph with adjacency-list representation.
@@ -88,14 +115,16 @@ void sEdgesList_Next(OneEdge* edge, OneEdge* next);
  * @return 0 on success.
  *         -1 when malloc error.
  */
-int createLGraph(size_t n, L_Graph* graph);
+int 
+createLGraph(size_t n, L_Graph* graph);
 
 /*
  * Frees the given graph.
  *
  * @graph The graph to free.
  */
-void freeLGraph(L_Graph* graph);
+void 
+freeLGraph(L_Graph* graph);
 
 /*
  * Allocate a new edge.
@@ -104,7 +133,8 @@ void freeLGraph(L_Graph* graph);
  * @return A pointer to the new edge on success.
  *         NULL on failure.
  */
-OneEdge* createEdge(size_t node_ID);
+OneEdge* 
+createEdge(size_t node_ID);
 
 /*
  * Inits edges list of a node.
@@ -114,16 +144,18 @@ OneEdge* createEdge(size_t node_ID);
  *          Give a negative value to avoid head.
  * @return 0 on success, -1 on failure.
  */
-int initEdgesList(LG_Node* node, int head_ID);
+int 
+initEdgesList(LG_Node* node, int head_ID);
 
 /*
  * Frees the edges list of the given node.
  *
  * @node A pointer to the node.
  */
-void freeEdgesList(LG_Node* node);
+void 
+freeEdgesList(LG_Node* node);
 
-// --------------------------ADDING EDGES-------------------------------------//
+/* --------------------------ADDING EDGES-------------------------------------*/
 
 /*
  * Add a new directed edge to the graph, connecting src to dest.
@@ -134,7 +166,8 @@ void freeEdgesList(LG_Node* node);
  *
  * @return 0 on success, -1 on failure.
  */
-int LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID);
+int 
+LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID);
 
 /*
  * Connect srcNode to dest_ID by a directed edge.
@@ -144,7 +177,8 @@ int LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID);
  *
  * @return 0 on success, -1 on failure.
  */
-int Node_addDEdge(LG_Node* srcNode, size_t dest_ID);
+int 
+Node_addDEdge(LG_Node* srcNode, size_t dest_ID);
 
 /*
  * Add a new undirected edge to the graph, connecting id1 & id2.
@@ -155,7 +189,8 @@ int Node_addDEdge(LG_Node* srcNode, size_t dest_ID);
  *
  * @return 0 on success, -1 on failure.
  */
-int LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2);
+int 
+LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2);
 
 /*
  * Add an undirected edge between node1 & node2.
@@ -164,6 +199,7 @@ int LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2);
  * @node2 a node.
  * @return 0 on success, -1 on failure.
  */
-int Node_addUEdge(LG_Node* node1, LG_Node* node2);
+int 
+Node_addUEdge(LG_Node* node1, LG_Node* node2);
 
 #endif // GRAPH_STRUCT
