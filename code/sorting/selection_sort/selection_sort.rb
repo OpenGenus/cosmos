@@ -14,6 +14,6 @@ def SelectionSort(arr)
   end
 end
 
-arr = ([95,39.5,35,75,85,69].shuffle) 
+arr = [95, 39.5, 35, 75, 85, 69].shuffle
 SelectionSort(arr)
 puts "After Sorting from Selection Sort.Sorted array is: #{arr.inspect}"
