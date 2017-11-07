@@ -1,3 +1,8 @@
+/*
+ * Part of Cosmos by OpenGenus Foundation.
+ * Author : ABDOUS Kamel
+ */
+
 #include <stdio.h>
 #include "lgraph_struct.h"
 
