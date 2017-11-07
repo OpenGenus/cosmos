@@ -1,13 +1,13 @@
 # Part of Cosmos by OpenGenus Foundation
 class Array
   def heap_sort
-    self.heapify
-    the_end = self.length - 1
+    heapify
+    the_end = length - 1
 
     while the_end > 0
       self[the_end], self[0] = self[0], self[the_end]
       the_end -= 1
-      self.sift_down(0, the_end)
+      sift_down(0, the_end)
     end
 
     self
@@ -15,10 +15,10 @@ class Array
 
   def heapify
     # the_start is the last parent node
-    the_start = (self.length - 2) / 2
+    the_start = (length - 2) / 2
 
     while the_start >= 0
-      self.sift_down(the_start, self.length - 1)
+      sift_down(the_start, length - 1)
       the_start -= 1
     end
 
@@ -32,13 +32,9 @@ class Array
       child = root * 2 + 1
       swap = root
 
-      if self[swap] < self[child]
-        swap = child
-      end
+      swap = child if self[swap] < self[child]
 
-      if child + 1 <= the_end && self[swap] < self[child + 1]
-        swap = child + 1
-      end
+      swap = child + 1 if child + 1 <= the_end && self[swap] < self[child + 1]
 
       if swap != root
         self[root], self[swap] = self[swap], self[root]
@@ -50,5 +46,5 @@ class Array
   end
 end
 
-random_names = File.readlines("randomnames.txt")
+random_names = File.readlines('randomnames.txt')
 puts random_names.heap_sort
