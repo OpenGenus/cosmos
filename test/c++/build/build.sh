@@ -5,5 +5,5 @@ sh_dir=$(dirname "$0")
 
 for file in "$@"
 do
-    `g++-7 $sh_dir"/test-main.cpp.o" "$file" -o "$file.o" -Wall`
+    `g++-7 $sh_dir"/test_main.cpp.o" "$file" -o "$file.o" -Wall`
 done
