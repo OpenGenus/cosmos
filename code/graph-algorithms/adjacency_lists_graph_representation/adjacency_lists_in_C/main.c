@@ -6,7 +6,8 @@
 #include <stdio.h>
 #include "lgraph_struct.h"
 
-void main()
+void 
+main()
 {
   L_Graph g;
   createLGraph(5, &g);
@@ -20,16 +21,14 @@ void main()
   LG_Node* n;
   OneEdge* p;
 
-  for(i = 0; i < gLG_NbNodes(&g); ++i)
-  {
+  for (i = 0; i < gLG_NbNodes(&g); ++i) {
     n = gLG_Node(&g, i);
     p = gNode_EdgesHead(n);
 
     printf("%d\n", gNode_ID(n));
 
     // Looping over the adjacency-list
-    while(p != NULL)
-    {
+    while (p != NULL) {
       printf("%d\n", gEdge_DestNode(p));
       p = gEdgesList_Next(p);
     }
