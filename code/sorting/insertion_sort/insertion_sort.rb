@@ -1,6 +1,6 @@
 #     Part of Cosmos by OpenGenus Foundation
 
-def InsertionSort(arr)
+def insertion_sort(arr)
   n = arr.length
   i = 1
   while i < n
@@ -19,4 +19,4 @@ end
 arr = [3, 1, 5, 8, 11, 10, 23, 24, -1]
 
 puts "Unsorted Array: #{arr}"
-puts "Sorted Array after Insertion Sort: #{InsertionSort(arr)}"
+puts "Sorted Array after Insertion Sort: #{insertion_sort(arr)}"

@@ -1,4 +1,4 @@
-class Line_interserction
+class LineInterserction
   def initialize(x1, y1, x2, y2, x3, y3, x4, y4)
     @x1 = x1
     @x2 = x2
@@ -22,7 +22,7 @@ class Line_interserction
   end
 end
 
-obj = Line_interserction.new(10, 3, 20, 3, 10, 5, 20, 5) #=> Cordinate points (x1,y1,x2,y2,x3,y3,x4,y4)
+obj = LineInterserction.new(10, 3, 20, 3, 10, 5, 20, 5) #=> Cordinate points (x1,y1,x2,y2,x3,y3,x4,y4)
 if obj.is_parallel == false
   puts "Intersection Point: #{obj.intersection_point}"
 else
