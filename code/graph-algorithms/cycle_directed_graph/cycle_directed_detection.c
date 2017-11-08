@@ -81,7 +81,7 @@ rearArcsDC(L_Graph* graph, size_t node_ID, DC_Color* dc_colors)
   return(0);
 }
 
-void 
+int
 main()
 {
   L_Graph g;
@@ -97,4 +97,6 @@ main()
   printf("%d\n", cycleDirectedDetection(&g));
 
   freeLGraph(&g);
+  
+  return (0);
 }
