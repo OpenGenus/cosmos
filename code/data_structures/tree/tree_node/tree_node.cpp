@@ -1,6 +1,6 @@
 /*
  Part of Cosmos by OpenGenus Foundation
- 
+
  tree node synopsis
 
 // for normal binary tree
@@ -10,7 +10,9 @@ struct TreeNode
     _Tp val;
     std::shared_ptr<TreeNode> left;
     std::shared_ptr<TreeNode> right;
-    TreeNode(_Tp v, std::shared_ptr<TreeNode> l = nullptr, std::shared_ptr<TreeNode> r = nullptr);
+    TreeNode(_Tp v,
+             std::shared_ptr<TreeNode> l = nullptr,
+             std::shared_ptr<TreeNode> r = nullptr);
 };
 
 // for derivative binary tree (e.g., avl tree, splay tree)
@@ -45,7 +47,9 @@ struct TreeNode
     _Tp val;
     std::shared_ptr<TreeNode> left;
     std::shared_ptr<TreeNode> right;
-    TreeNode(_Tp v, std::shared_ptr<TreeNode> l = nullptr, std::shared_ptr<TreeNode> r = nullptr)
+    TreeNode(_Tp v,
+             std::shared_ptr<TreeNode> l = nullptr,
+             std::shared_ptr<TreeNode> r = nullptr)
         :val(v), left(l), right(r) {}
 };
 
@@ -62,12 +66,12 @@ struct __BaseTreeNode
 };
 
 template<typename _Tp>
-struct DerivativeTreeNode :__BaseTreeNode<_Tp, DerivativeTreeNode<_Tp> >
+struct DerivativeTreeNode :__BaseTreeNode<_Tp, DerivativeTreeNode<_Tp>>
 {
     DerivativeTreeNode(_Tp v,
                        std::shared_ptr<DerivativeTreeNode> l = nullptr,
                        std::shared_ptr<DerivativeTreeNode> r = nullptr)
-        :__BaseTreeNode<_Tp, DerivativeTreeNode<_Tp> >(v, l, r) {}
+        :__BaseTreeNode<_Tp, DerivativeTreeNode<_Tp>>(v, l, r) {}
 };
 
 #endif // TREE_NODE_POLICY

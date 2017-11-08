@@ -24,7 +24,7 @@ private:
 #ifndef TREE_COMPARER
 #define TREE_COMPARER
 
-template<typename _Tp, typename _Comp = std::equal_to<_Tp> >
+template<typename _Tp, typename _Comp = std::equal_to<_Tp>>
 class TreeComparer
 {
 public:

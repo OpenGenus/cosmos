@@ -7,7 +7,7 @@
 
 TEST_CASE("check two tree is same", "[isSameTree]") {
     TreeSerializer serializer;
-    std::shared_ptr<TreeNode<int> > root_a, root_b;
+    std::shared_ptr<TreeNode<int>> root_a, root_b;
     TreeComparer<int> comparer;
 
     SECTION("has empty tree") {
