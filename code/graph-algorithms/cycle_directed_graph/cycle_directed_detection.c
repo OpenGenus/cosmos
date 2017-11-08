@@ -72,9 +72,10 @@ rearArcsDC(L_Graph* graph, size_t node_ID, DC_Color* dc_colors)
       break;
 
     default:
-      edge = gEdgesList_Next(edge);
       break;
     }
+    
+    edge = gEdgesList_Next(edge);
   }
 
   dc_colors[node_ID] = DC_BLACK;
