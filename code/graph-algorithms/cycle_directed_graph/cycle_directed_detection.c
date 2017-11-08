@@ -18,33 +18,6 @@ typedef uint8_t DC_Color; /* Deep course colors */
 #define DC_BLACK 2 /* The exploration of the node has ended */
 
 /*
- * Let G = (S, A).
- * Detects in O(S + A) if the graph contains a directed cycle.
- *
- * @graph A graph represented by adjacency lists.
- * @return 1 if a there's a directed cycle. 0 otherwise.
- */
-int
-cycleDirectedDetection(L_Graph* graph)
-{
-  DC_Color* dc_colors = calloc(gLG_NbNodes(graph), sizeof(*dc_colors));
-
-  size_t i;
-  for (i = 0; i < gLG_NbNodes(graph); ++i) {
-    /* A sufficient condition for detecting a directed cycle is that a deep course
-       finds a rear arc. */
-    if (dc_colors[i] == DC_WHITE && rearArcsDC(graph, i, dc_colors)) {
-      free(dc_colors);
-      return (1);
-    }
-  }
-
-  /* The mentioned condition is also necessary */
-  free(dc_colors);
-  return (0);
-}
-
-/*
  * Deep course subroutine of cycle directed detection.
  *
  * @graph The graph on which we work.
@@ -80,6 +53,33 @@ rearArcsDC(L_Graph* graph, size_t node_ID, DC_Color* dc_colors)
 
   dc_colors[node_ID] = DC_BLACK;
   return(0);
+}
+
+/*
+ * Let G = (S, A).
+ * Detects in O(S + A) if the graph contains a directed cycle.
+ *
+ * @graph A graph represented by adjacency lists.
+ * @return 1 if a there's a directed cycle. 0 otherwise.
+ */
+int
+cycleDirectedDetection(L_Graph* graph)
+{
+  DC_Color* dc_colors = calloc(gLG_NbNodes(graph), sizeof(*dc_colors));
+
+  size_t i;
+  for (i = 0; i < gLG_NbNodes(graph); ++i) {
+    /* A sufficient condition for detecting a directed cycle is that a deep course
+       finds a rear arc. */
+    if (dc_colors[i] == DC_WHITE && rearArcsDC(graph, i, dc_colors)) {
+      free(dc_colors);
+      return (1);
+    }
+  }
+
+  /* The mentioned condition is also necessary */
+  free(dc_colors);
+  return (0);
 }
 
 int
