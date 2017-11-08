@@ -31,44 +31,45 @@ public:
     using CNodeType = TreeNode<_Tp> const;
     using PCNodeType = std::shared_ptr<CNodeType>;
 
-    bool isSameTree(PCNodeType const &p, PCNodeType const &q) const {
-        std::stack<PCNodeType> stp, stq;
-        stp.push(p);
-        stq.push(q);
+    bool isSameTree(PCNodeType const &f, PCNodeType const &s) const {
+        std::stack<PCNodeType> first, second;
+        first.push(f);
+        second.push(s);
 
         // DFS
-        while (!stp.empty() || !stq.empty())
+        while (!first.empty() || !second.empty())
         {
             // mining left
-            while (stp.top() != nullptr
-                   || stq.top() != nullptr)
+            while (first.top()!=nullptr
+                   || second.top()!=nullptr)
             {
                 // check not same node and not same value
-                if (stp.top() == nullptr
-                    || stq.top() == nullptr
-                    || !comp_(stp.top()->val, stq.top()->val))
+                if (first.top()==nullptr
+                    || second.top()==nullptr
+                    || !comp_(first.top()->val, second.top()->val))
                     return false;
 
-                stp.push(stp.top()->left);
-                stq.push(stq.top()->left);
+                first.push(first.top()->left);
+                second.push(second.top()->left);
             }
 
             // escape if top is empty or right is empty
-            while (!stp.empty()
-                   && ((stp.top() == nullptr && stq.top() == nullptr)
-                       || (stp.top()->right == nullptr && stq.top()->right == nullptr)))
+            while (!first.empty()
+                   && ((first.top()==nullptr && second.top()==nullptr)
+                       || (first.top()->right==nullptr && second.top()->right==nullptr)))
             {
-                stp.pop();
-                stq.pop();
+                first.pop();
+                second.pop();
             }
 
-            if (!stp.empty())
+            if (!first.empty())
             {
-                auto right_p = stp.top()->right, right_q = stq.top()->right;
-                stp.pop();
-                stq.pop();
-                stp.push(right_p);
-                stq.push(right_q);
+                auto first_right = first.top()->right,
+                     second_right = second.top()->right;
+                first.pop();
+                second.pop();
+                first.push(first_right);
+                second.push(second_right);
             }
         }
 
