@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <functional>
+#include <utility>
 #include "catch.hpp"
 #include "tree_comparer.cpp"
 #include "../tree_serializer/tree_serializer.cpp"
