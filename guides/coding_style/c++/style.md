@@ -40,6 +40,9 @@ Including Header Files
 ===
 When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
 
+Please pay attention to that if the header is _not in use_, then do not include it (if only implementation use it, then include the file in .cpp, not .hpp).
+
+
 Comments
 ===
 Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
@@ -69,6 +72,14 @@ public:
 }
 */
 ```
+
+Namespace
+===
+When using namespace, please pay attention to `name collision`(also `name conflict`):
+
+- In header files, do NOT use `using` directive or declaration.
+
+- In implementation files, please also minimize the visibility.
 
 Macros
 ===
