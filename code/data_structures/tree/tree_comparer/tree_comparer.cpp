@@ -8,9 +8,9 @@ class TreeComparer
 {
 public:
     using CNodeType = TreeNode<_Tp> const;
-    using CPCNodeType = std::shared_ptr<CNodeType> const;
+    using PCNodeType = std::shared_ptr<CNodeType>;
 
-    bool isSameTree(CPCNodeType p, CPCNodeType q) const;
+    bool isSameTree(PCNodeType p, PCNodeType q) const;
 
 private:
     _Comp comp_;
@@ -29,10 +29,10 @@ class TreeComparer
 {
 public:
     using CNodeType = TreeNode<_Tp> const;
-    using CPCNodeType = std::shared_ptr<CNodeType> const;
+    using PCNodeType = std::shared_ptr<CNodeType>;
 
-    bool isSameTree(CPCNodeType p, CPCNodeType q) const {
-        std::stack<CPCNodeType> stp, stq;
+    bool isSameTree(PCNodeType const &p, PCNodeType const &q) const {
+        std::stack<PCNodeType> stp, stq;
         stp.push(p);
         stq.push(q);
 
