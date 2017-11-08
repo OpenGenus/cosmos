@@ -45,7 +45,7 @@ Pay attention to whether the header is _not in use_, and do not include it if so
 **Valid**
 ```C++
 // sample1.hpp
-#include <vector>       // ok, use the vector be return type
+#include <vector>       // ok, return type is vector
 
 template<typename Ty>
 std::vector<Ty> toVector(Ty t[], size_t sz);
@@ -98,7 +98,7 @@ public:
 
 Namespaces
 ===
-When using namespace, pay attention to `name collisions/name conflicts`):
+When using namespace, pay attention to name collisions/name conflicts:
 
 In header files, do NOT use `using` directive or declaration.
 
