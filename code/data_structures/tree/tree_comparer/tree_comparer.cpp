@@ -17,9 +17,10 @@ private:
 };
  */
 
-#include "../tree_node/tree_node.cpp"
 #include <stack>
 #include <functional>
+#include <memory>
+#include "../tree_node/tree_node.cpp"
 
 #ifndef TREE_COMPARER
 #define TREE_COMPARER

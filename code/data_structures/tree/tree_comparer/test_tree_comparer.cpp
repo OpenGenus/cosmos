@@ -1,9 +1,12 @@
 #ifndef TEST_TREE_COMPARER
 #define TEST_TREE_COMPARER
 
+#include <memory>
+#include <functional>
 #include "catch.hpp"
-#include "tree_serializer.cpp"
 #include "tree_comparer.cpp"
+#include "../tree_serializer/tree_serializer.cpp"
+#include "../tree_node/tree_node.cpp"
 
 TEST_CASE("check two tree is same", "[isSameTree]") {
     TreeSerializer serializer;
