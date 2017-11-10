@@ -1,5 +1,5 @@
 def inverse_factorial(num)
-  num = num.to_f
+  num = num.to_f   
   i = 2.0
   j = 0  
   while i <= num 
