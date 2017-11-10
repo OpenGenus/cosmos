@@ -18,7 +18,7 @@
 // public
 template<typename _Ty, typename _Compare, class _TreeNode>
 auto
-PathSum<_Ty, _Compare, _TreeNode>::countPathsOfSum(PNode<_Ty> root, _Ty sum) -> size_type {
+PathSum<_Ty, _Compare, _TreeNode>::countPathsOfSum(PNode<_Ty> root, _Ty sum)->size_type {
     if (path_type_ == PathType::Whole)
     {
         return getPathsOfSum(root, sum).size();
@@ -56,7 +56,7 @@ PathSum<_Ty, _Compare, _TreeNode>::getPathsOfSumUp(PNode<_Ty> root,
                                                    _Ty prev_sum,
                                                    _Ty const &sum,
                                                    std::vector<std::vector<_Ty>> &res) {
-    if (root!=nullptr)
+    if (root != nullptr)
     {
         auto &curr = prev;
         curr.push_back(root->val);
@@ -80,7 +80,7 @@ PathSum<_Ty, _Compare, _TreeNode>::getPathsOfSumUp(PNode<_Ty> root,
                 res.push_back(curr);
             }
         }
-        
+
         getPathsOfSumUp(root->left, curr, curr_sum, sum, res);
         getPathsOfSumUp(root->right, curr, curr_sum, sum, res);
     }

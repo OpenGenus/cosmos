@@ -10,9 +10,7 @@
 #include <functional>
 #include "utility/tree_node.cpp"
 
-template<typename _Ty,
-         typename _Compare = std::equal_to<_Ty>,
-         class _TreeNode = TreeNode<_Ty>>
+template<typename _Ty, typename _Compare = std::equal_to<_Ty>, class _TreeNode = TreeNode<_Ty>>
 class PathSum
 {
 private:
@@ -23,7 +21,12 @@ private:
     using size_type = size_t;
 
 public:
-    enum class PathType {Whole, Part};
+    enum class PathType
+    {
+        Whole,
+        Part
+    };
+
     PathSum(PathType py = PathType::Whole) :compare_(_Compare()), path_type_(py) {};
 
     ~PathSum() = default;
