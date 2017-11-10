@@ -7,9 +7,10 @@
  * to use this algorithm.
  */
 
-#include "lgraph_utils.h"
+#include "lgraph_struct.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
 
 typedef uint8_t DC_Color; /* Deep course colors */
 
