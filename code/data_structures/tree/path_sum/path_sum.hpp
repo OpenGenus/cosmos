@@ -8,7 +8,7 @@
 #include <memory>
 #include <vector>
 #include <functional>
-#include "utility/tree_node.cpp"
+#include "../tree_node/tree_node.cpp"
 
 template<typename _Ty, typename _Compare = std::equal_to<_Ty>, class _TreeNode = TreeNode<_Ty>>
 class PathSum
