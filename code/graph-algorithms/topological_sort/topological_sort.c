@@ -9,7 +9,7 @@
  */
 
 #include <stdio.h>
-#include "include/lgraph_struct.h"
+#include "lgraph_struct.h"
 
 /* Deep course colors */
 typedef enum
