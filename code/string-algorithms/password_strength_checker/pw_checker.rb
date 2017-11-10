@@ -12,17 +12,17 @@ def check_pass(password)
   has_especial_char = pattern_special_char =~ password
   has_min_length = password.size >= 8
 
-  is_strong_pass = (has_number != nil) && (has_min_length != false) && (has_upcase_letter != nil) &&
-   (has_downcase_letter != nil) && (has_especial_char != nil)
+  is_strong_pass = !has_number.nil? && (has_min_length != false) && !has_upcase_letter.nil? &&
+   !has_downcase_letter.nil? && !has_especial_char.nil?
 
-  puts "The password doesn't the minimum length" if (has_min_length == false)
-  puts "The password doesn't have a number digit" if (has_number == nil)
-  puts "The password doesn't have any upper case letter" if (has_upcase_letter == nil)
-  puts "The password doesn't have any down case letter" if (has_downcase_letter == nil)
-  puts "The password doesn't have any special character" if (has_especial_char == nil)
+  puts "The password doesn't have the minimum length" if !has_min_length
+  puts "The password doesn't have a number digit" if has_number.nil?
+  puts "The password doesn't have any uppercase letter" if has_upcase_letter.nil?
+  puts "The password doesn't have any lowercase letter" if has_downcase_letter.nil?
+  puts "The password doesn't have any special character" if has_especial_char.nil?
 
   is_strong_pass
 end
 
 password = "XmkA78Ji#"
-check_pass password
+puts check_pass password
