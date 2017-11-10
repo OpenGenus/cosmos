@@ -3,7 +3,7 @@
  * Author : ABDOUS Kamel
  */
 
-#include "../include/lgraph_struct.h"
+#include "lgraph_struct.h"
 
 /* ---------------------------GETTERS-----------------------------------------*/
 inline size_t gLG_NbNodes(L_Graph* graph) { return (graph->n); }
