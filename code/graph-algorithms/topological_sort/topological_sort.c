@@ -111,7 +111,7 @@ main()
   printf("%d\n\n", topologicalSort(&g, s));
 
   int i;
-  for(i = 0; i < S; ++i)
+  for (i = 0; i < S; ++i)
     printf("%d\n", s[i]);
 
   freeLGraph(&g);
