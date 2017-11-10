@@ -95,7 +95,8 @@ topologicalSort(L_Graph* graph, Node_ID* sortedNodes)
 
 #define S 5
 
-int main()
+int 
+main()
 {
   L_Graph g;
   createLGraph(S, &g);
@@ -114,5 +115,5 @@ int main()
     printf("%d\n", s[i]);
 
   freeLGraph(&g);
-  return 0;
+  return (0);
 }
