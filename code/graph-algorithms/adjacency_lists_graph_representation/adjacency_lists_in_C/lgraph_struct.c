@@ -3,14 +3,14 @@
  * Author : ABDOUS Kamel
  */
 
-#include "lgraph_struct.h"
+#include "../include/lgraph_struct.h"
 
 /* ---------------------------GETTERS-----------------------------------------*/
 inline size_t gLG_NbNodes(L_Graph* graph) { return (graph->n); }
 inline LG_Node* gLG_NodesArray(L_Graph* graph) { return (graph->nodes); }
-inline LG_Node* gLG_Node(L_Graph* graph, size_t ID) { return (&graph->nodes[ID]); }
+inline LG_Node* gLG_Node(L_Graph* graph, Node_ID ID) { return (&graph->nodes[ID]); }
 
-inline size_t gNode_ID(LG_Node* node) { return (node->ID); }
+inline Node_ID gNode_ID(LG_Node* node) { return (node->ID); }
 inline N_Edges* gNode_EdgesList(LG_Node* node) { return (&node->edges); }
 inline int gNode_degree(LG_Node* node) { return (node->edges.degree); }
 inline OneEdge* gNode_EdgesHead(LG_Node* node) { return (node->edges.l_edgesHead); }
@@ -24,7 +24,7 @@ inline void Node_incDegree(LG_Node* node) { node->edges.degree++; }
 inline void sLG_NbNodes(L_Graph* graph, size_t n) { graph->n = n; }
 inline void sLG_NodesArray(L_Graph* graph, LG_Node* nodes) { graph->nodes = nodes; }
 
-inline void sNode_ID(LG_Node* node, size_t ID) { node->ID = ID; }
+inline void sNode_ID(LG_Node* node, Node_ID ID) { node->ID = ID; }
 inline void sNode_degree(LG_Node* node, int degree) { node->edges.degree = degree; }
 inline void sNode_EdgesHead(LG_Node* node, OneEdge* head) { node->edges.l_edgesHead = head; }
 
@@ -52,7 +52,7 @@ createLGraph(size_t n, L_Graph* graph)
   sLG_NbNodes(graph, n);
   sLG_NodesArray(graph, nodes);
 
-  int i;
+  Node_ID i;
   for (i = 0; i < n; ++i) {
     sNode_ID(&nodes[i], i);
     initEdgesList(&nodes[i], -1);
@@ -69,7 +69,7 @@ createLGraph(size_t n, L_Graph* graph)
 void
 freeLGraph(L_Graph* graph)
 {
-  int i;
+  Node_ID i;
 
   LG_Node* nodes = gLG_NodesArray(graph);
 
@@ -88,7 +88,7 @@ freeLGraph(L_Graph* graph)
  *         NULL on failure.
  */
 OneEdge*
-createEdge(size_t node_ID)
+createEdge(Node_ID node_ID)
 {
   OneEdge* ret = malloc(sizeof(*ret));
 
@@ -161,7 +161,7 @@ freeEdgesList(LG_Node* node)
  * @return 0 on success, -1 on failure.
  */
 int
-LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID)
+LGraph_addDEdge(L_Graph* graph, Node_ID src_ID, Node_ID dest_ID)
 {
   if (src_ID >= gLG_NbNodes(graph) || dest_ID >= gLG_NbNodes(graph))
     return (-1);
@@ -178,7 +178,7 @@ LGraph_addDEdge(L_Graph* graph, size_t src_ID, size_t dest_ID)
  * @return 0 on success, -1 on failure.
  */
 int
-Node_addDEdge(LG_Node* srcNode, size_t dest_ID)
+Node_addDEdge(LG_Node* srcNode, Node_ID dest_ID)
 {
   OneEdge* head = gNode_EdgesHead(srcNode);
 
@@ -204,7 +204,7 @@ Node_addDEdge(LG_Node* srcNode, size_t dest_ID)
  * @return 0 on success, -1 on failure.
  */
 int
-LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2)
+LGraph_addUEdge(L_Graph* graph, Node_ID id1, Node_ID id2)
 {
   if (LGraph_addDEdge(graph, id1, id2) == -1)
     return (-1);
@@ -228,7 +228,7 @@ LGraph_addUEdge(L_Graph* graph, size_t id1, size_t id2)
  */
 int
 Node_addUEdge(LG_Node* node1, LG_Node* node2)
-{ 
+{
   if (Node_addDEdge(node1, gNode_ID(node2)) == -1)
     return (-1);
 
