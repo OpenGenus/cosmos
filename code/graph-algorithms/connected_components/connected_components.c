@@ -73,12 +73,13 @@ getConnectedComponents(L_Graph* graph, size_t* connectedComps)
   }
 
   free(dc_colors);
-  return curComp;
+  return (curComp);
 }
 
 #define S 5
 
-int main()
+int 
+main()
 {
   L_Graph g;
   createLGraph(S, &g);
@@ -93,9 +94,9 @@ int main()
   printf("%d\n\n", getConnectedComponents(&g, s));
 
   Node_ID i;
-  for(i = 0; i < S; ++i)
+  for (i = 0; i < S; ++i)
     printf("%d\n", s[i]);
 
   freeLGraph(&g);
-  return 0;
+  return (0);
 }
