@@ -56,7 +56,7 @@ private:
 template<typename _Type,
          typename _Compare = std::less<_Type>,
          class NodeType = DerivativeNode<_Type>>
-class splay_tree
+class SplayTree
 {
 private:
     using SPNodeType = std::shared_ptr<NodeType>;
@@ -68,7 +68,7 @@ public:
     using SizeType = size_t;
     using DifferenceType = ptrdiff_t;
 
-    splay_tree() :root_(nullptr), size_(0), compare_(_Compare())
+    SplayTree() :root_(nullptr), size_(0), compare_(_Compare())
 
     SizeType insert(ConstReference value);
 
@@ -192,7 +192,7 @@ private:
 template<typename _Type,
          typename _Compare = std::less<_Type>,
          class NodeType = DerivativeNode<_Type>>
-class splay_tree
+class SplayTree
 {
 private:
     using SPNodeType = std::shared_ptr<NodeType>;
@@ -204,7 +204,7 @@ public:
     using SizeType = size_t;
     using DifferenceType = ptrdiff_t;
 
-    splay_tree() :root_(nullptr), size_(0), compare_(_Compare()) {;}
+    SplayTree() :root_(nullptr), size_(0), compare_(_Compare()) {;}
 
     SizeType insert(ConstReference value) {
         SPNodeType n = root_, parent = nullptr;
@@ -520,7 +520,7 @@ std::fstream input, ans;
 int main() {
     using namespace std;
 
-    std::shared_ptr<splay_tree<int>> st = std::make_shared<splay_tree<int>>();
+    std::shared_ptr<SplayTree<int>> st = std::make_shared<SplayTree<int>>();
 
     input.open("/sample.txt");
     ans.open("/output.txt", ios::out | ios::trunc);
