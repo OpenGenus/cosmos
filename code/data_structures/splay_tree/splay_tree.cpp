@@ -44,14 +44,14 @@ private:
         DerivativeNode(value_type v,
                        std::shared_ptr<DerivativeNode> l = nullptr,
                        std::shared_ptr<DerivativeNode> r = nullptr,
-                       std::shared_ptr<DerivativeNode> p = nullptr);
+                       std::weak_ptr<DerivativeNode> p = std::weak_ptr<DerivativeNode>());
 
         std::shared_ptr<DerivativeNode> parent();
 
         void parent(std::shared_ptr<DerivativeNode> p);
 
     private:
-        std::shared_ptr<DerivativeNode> parent_;
+        std::weak_ptr<DerivativeNode> parent_;
     };
     using NodeType = struct DerivativeNode;
     using PSNodeType = std::shared_ptr<DerivativeNode>;
@@ -165,11 +165,11 @@ private:
         DerivativeNode(value_type v,
                        std::shared_ptr<DerivativeNode> l = nullptr,
                        std::shared_ptr<DerivativeNode> r = nullptr,
-                       std::shared_ptr<DerivativeNode> p = nullptr)
+                       std::weak_ptr<DerivativeNode> p = std::weak_ptr<DerivativeNode>())
             :Node<DerivativeNode>(v, l, r), parent_(p) {};
 
         std::shared_ptr<DerivativeNode> parent() {
-            return parent_;
+            return parent_.lock();
         }
 
         void parent(std::shared_ptr<DerivativeNode> p) {
@@ -177,7 +177,7 @@ private:
         }
 
     private:
-        std::shared_ptr<DerivativeNode> parent_;
+        std::weak_ptr<DerivativeNode> parent_;
     };
 
     using NodeType = struct DerivativeNode;
