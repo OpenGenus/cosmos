@@ -14,22 +14,45 @@ public:
 
 private:
     template<typename _Derivative>
-    struct Node {
-        value_type value;
-        std::shared_ptr<_Derivative> left, right;
+    class Node
+    {
+    public:
         Node(value_type v,
              std::shared_ptr<_Derivative> l = nullptr,
              std::shared_ptr<_Derivative> r = nullptr);
+
+        value_type value();
+
+        void value(value_type v);
+
+        std::shared_ptr<_Derivative> left();
+
+        void left(std::shared_ptr<_Derivative> l);
+
+        std::shared_ptr<_Derivative> right();
+
+        void right(std::shared_ptr<_Derivative> r);
+
+    private:
+        value_type value_;
+        std::shared_ptr<_Derivative> left_, right_;
     };
 
-    struct DerivativeNode :public Node<DerivativeNode> {
-        std::shared_ptr<DerivativeNode> parent;
+    class DerivativeNode :public Node<DerivativeNode>
+    {
+    public:
         DerivativeNode(value_type v,
                        std::shared_ptr<DerivativeNode> l = nullptr,
                        std::shared_ptr<DerivativeNode> r = nullptr,
                        std::shared_ptr<DerivativeNode> p = nullptr);
-    };
 
+        std::shared_ptr<DerivativeNode> parent();
+
+        void parent(std::shared_ptr<DerivativeNode> p);
+
+    private:
+        std::shared_ptr<DerivativeNode> parent_;
+    };
     using NodeType = struct DerivativeNode;
     using PSNodeType = std::shared_ptr<DerivativeNode>;
 
@@ -99,24 +122,62 @@ public:
 
 private:
     template<typename _Derivative>
-    struct Node
+    class Node
     {
-        value_type value;
-        std::shared_ptr<_Derivative> left, right;
+    public:
         Node(value_type v,
              std::shared_ptr<_Derivative> l = nullptr,
              std::shared_ptr<_Derivative> r = nullptr)
-            :value(v), left(l), right(r) {};
+            :value_(v), left_(l), right_(r) {};
+
+        value_type value() {
+            return value_;
+        }
+
+        void value(value_type v) {
+            value_ = v;
+        }
+
+        std::shared_ptr<_Derivative> left() {
+            return left_;
+        }
+
+        void left(std::shared_ptr<_Derivative> l) {
+            left_ = l;
+        }
+
+        std::shared_ptr<_Derivative> right() {
+            return right_;
+        }
+
+        void right(std::shared_ptr<_Derivative> r) {
+            right_ = r;
+        }
+
+    private:
+        value_type value_;
+        std::shared_ptr<_Derivative> left_, right_;
     };
 
-    struct DerivativeNode :public Node<DerivativeNode>
+    class DerivativeNode :public Node<DerivativeNode>
     {
-        std::shared_ptr<DerivativeNode> parent;
+    public:
         DerivativeNode(value_type v,
                        std::shared_ptr<DerivativeNode> l = nullptr,
                        std::shared_ptr<DerivativeNode> r = nullptr,
                        std::shared_ptr<DerivativeNode> p = nullptr)
-                      :Node<DerivativeNode>(v, l, r), parent(p) {};
+            :Node<DerivativeNode>(v, l, r), parent_(p) {};
+
+        std::shared_ptr<DerivativeNode> parent() {
+            return parent_;
+        }
+
+        void parent(std::shared_ptr<DerivativeNode> p) {
+            parent_ = p;
+        }
+
+    private:
+        std::shared_ptr<DerivativeNode> parent_;
     };
 
     using NodeType = struct DerivativeNode;
@@ -130,35 +191,35 @@ public:
         while (n)
         {
             parent = n;
-            if (compare_(n->value, value))
+            if (compare_(n->value(), value))
             {
-                n = n->right;
+                n = n->right();
             }
-            else if (compare_(value, n->value))
+            else if (compare_(value, n->value()))
             {
-                n = n->left;
+                n = n->left();
             }
             else
             {
-                n->value = value;
+                n->value(value);
 
                 return 0;
             }
         }
         n = std::make_shared<NodeType>(value);
-        n->parent = parent;
+        n->parent(parent);
 
         if (parent == nullptr)
         {
             root_ = n;
         }
-        else if (compare_(parent->value, n->value))
+        else if (compare_(parent->value(), n->value()))
         {
-            parent->right = n;
+            parent->right(n);
         }
         else
         {
-            parent->left = n;
+            parent->left(n);
         }
         splay(n);
         ++size_;
@@ -171,26 +232,26 @@ public:
         if (n)
         {
             splay(n);
-            if (n->left == nullptr)
+            if (n->left() == nullptr)
             {
-                replace(n, n->right);
+                replace(n, n->right());
             }
-            else if (n->right == nullptr)
+            else if (n->right() == nullptr)
             {
-                replace(n, n->left);
+                replace(n, n->left());
             }
             else
             {
-                PSNodeType min = minimum(n->right);
-                if (min->parent != n)
+                PSNodeType min = minimum(n->right());
+                if (min->parent() != n)
                 {
-                    replace(min, min->right);
-                    min->right = n->right;
-                    min->right->parent = min;
+                    replace(min, min->right());
+                    min->right(n->right());
+                    min->right()->parent(min);
                 }
                 replace(n, min);
-                min->left = n->left;
-                min->left->parent = min;
+                min->left(n->left());
+                min->left()->parent(min);
             }
             --size_;
 
@@ -238,38 +299,38 @@ private:
     _Compare compare_;
 
     PSNodeType splay(PSNodeType n) {
-        while (n && n->parent)
+        while (n && n->parent())
         {
-            if (!n->parent->parent)             // zig step
+            if (!n->parent()->parent())             // zig step
             {
-                if (n->parent->left == n)
+                if (n->parent()->left() == n)
                 {
-                    rightRotate(n->parent);
+                    rightRotate(n->parent());
                 }
                 else
                 {
-                    leftRotate(n->parent);
+                    leftRotate(n->parent());
                 }
             }
-            else if (n->parent->left == n && n->parent->parent->left == n->parent)
+            else if (n->parent()->left() == n && n->parent()->parent()->left() == n->parent())
             {
-                rightRotate(n->parent->parent);
-                rightRotate(n->parent);
+                rightRotate(n->parent()->parent());
+                rightRotate(n->parent());
             }
-            else if (n->parent->right == n && n->parent->parent->right == n->parent)
+            else if (n->parent()->right() == n && n->parent()->parent()->right() == n->parent())
             {
-                leftRotate(n->parent->parent);
-                leftRotate(n->parent);
+                leftRotate(n->parent()->parent());
+                leftRotate(n->parent());
             }
-            else if (n->parent->right == n && n->parent->parent->left == n->parent)
+            else if (n->parent()->right() == n && n->parent()->parent()->left() == n->parent())
             {
-                leftRotate(n->parent);
-                rightRotate(n->parent);
+                leftRotate(n->parent());
+                rightRotate(n->parent());
             }
             else
             {
-                rightRotate(n->parent);
-                leftRotate(n->parent);
+                rightRotate(n->parent());
+                leftRotate(n->parent());
             }
         }
 
@@ -277,84 +338,84 @@ private:
     }
 
     void leftRotate(PSNodeType n) {
-        PSNodeType right = n->right;
+        PSNodeType right = n->right();
         if (right)
         {
-            n->right = right->left;
-            if (right->left)
+            n->right(right->left());
+            if (right->left())
             {
-                right->left->parent = n;
+                right->left()->parent(n);
             }
-            right->parent = n->parent;
+            right->parent(n->parent());
         }
 
-        if (n->parent == nullptr)
+        if (n->parent() == nullptr)
         {
             root_ = right;
         }
-        else if (n == n->parent->left)
+        else if (n == n->parent()->left())
         {
-            n->parent->left = right;
+            n->parent()->left(right);
         }
         else
         {
-            n->parent->right = right;
+            n->parent()->right(right);
         }
 
         if (right)
         {
-            right->left = n;
+            right->left(n);
         }
-        n->parent = right;
+        n->parent(right);
     }
 
     void rightRotate(PSNodeType n) {
-        PSNodeType left = n->left;
+        PSNodeType left = n->left();
         if (left)
         {
-            n->left = left->right;
-            if (left->right)
+            n->left(left->right());
+            if (left->right())
             {
-                left->right->parent = n;
+                left->right()->parent(n);
             }
-            left->parent = n->parent;
+            left->parent(n->parent());
         }
 
-        if (n->parent == nullptr)
+        if (n->parent() == nullptr)
         {
             root_ = left;
         }
-        else if (n == n->parent->left)
+        else if (n == n->parent()->left())
         {
-            n->parent->left = left;
+            n->parent()->left(left);
         }
         else
         {
-            n->parent->right = left;
+            n->parent()->right(left);
         }
         if (left)
         {
-            left->right = n;
+            left->right(n);
         }
-        n->parent = left;
+        n->parent(left);
     }
 
     void replace(PSNodeType old, PSNodeType new_) {
-        if (old->parent == nullptr)
+        if (old->parent() == nullptr)
         {
             root_ = new_;
         }
-        else if (old == old->parent->left)
+        else if (old == old->parent()->left())
         {
-            old->parent->left = new_;
+            old->parent()->left(new_);
         }
         else
         {
-            old->parent->right = new_;
+            old->parent()->right(new_);
         }
         if (new_)
         {
-            new_->parent = old->parent;
+            new_->parent(old->parent());
         }
     }
 
@@ -362,13 +423,13 @@ private:
         PSNodeType n = root_;
         while (n)
         {
-            if (compare_(n->value, value))
+            if (compare_(n->value(), value))
             {
-                n = n->right;
+                n = n->right();
             }
-            else if (compare_(value, n->value))
+            else if (compare_(value, n->value()))
             {
-                n = n->left;
+                n = n->left();
             }
             else
             {
@@ -384,7 +445,7 @@ private:
     SizeType height(PSNodeType n) const {
         if (n)
         {
-            return 1 + std::max(height(n->left), height(n->right));
+            return 1 + std::max(height(n->left()), height(n->right()));
         }
         else
         {
@@ -395,8 +456,8 @@ private:
     PSNodeType minimum(PSNodeType n) const {
         if (n)
         {
-            while (n->left)
-                n = n->left;
+            while (n->left())
+                n = n->left();
         }
 
         return n;
@@ -405,8 +466,8 @@ private:
     PSNodeType maximum(PSNodeType n) const {
         if (n)
         {
-            while (n->right)
-                n = n->right;
+            while (n->right())
+                n = n->right();
         }
 
         return n;
@@ -415,18 +476,18 @@ private:
     void inorderTravel(std::ostream &output, PSNodeType n) const {
         if (n)
         {
-            inorderTravel(output, n->left);
-            output << n->value << " ";
-            inorderTravel(output, n->right);
+            inorderTravel(output, n->left());
+            output << n->value() << " ";
+            inorderTravel(output, n->right());
         }
     }
 
     void preorderTravel(std::ostream &output, PSNodeType n) const {
         if (n)
         {
-            output << n->value << " ";
-            preorderTravel(output, n->left);
-            preorderTravel(output, n->right);
+            output << n->value() << " ";
+            preorderTravel(output, n->left());
+            preorderTravel(output, n->right());
         }
     }
 };
