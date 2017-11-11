@@ -6,11 +6,11 @@
 template<typename _Tp, typename _Comp = std::less<_Tp> >
 class splay_tree {
 public:
-    typedef _Tp               value_type;
-    typedef value_type &      reference;
-    typedef value_type const &const_reference;
-    typedef size_t            size_type;
-    typedef ptrdiff_t         difference_type;
+    using value_type = _Tp;
+    using reference = value_type &;
+    using const_reference = value_type const&;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
 
 private:
     template<typename derive>
@@ -30,8 +30,8 @@ private:
                   std::shared_ptr<iter_tree> p = nullptr);
     };
 
-    typedef struct iter_tree           tree_type;
-    typedef std::shared_ptr<iter_tree> p_tree_type;
+    using NodeType = struct DerivativeNode;
+    using PSNodeType = std::shared_ptr<DerivativeNode>;
 
 public:
     splay_tree() :_root(nullptr), _sz(0), _comp(_Comp());
@@ -87,14 +87,15 @@ private:
 #include <algorithm>
 #include <memory>
 
-template<typename _Tp, typename _Comp = std::less<_Tp> >
-class splay_tree {
+template<typename _Tp, typename _Comp = std::less<_Tp>>
+class splay_tree
+{
 public:
-    typedef _Tp               value_type;
-    typedef value_type &      reference;
-    typedef value_type const &const_reference;
-    typedef size_t            size_type;
-    typedef ptrdiff_t         difference_type;
+    using value_type = _Tp;
+    using reference = value_type &;
+    using const_reference = value_type const &;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
 
 private:
     template<typename derive>
@@ -105,17 +106,18 @@ private:
             :value(v), left(l), right(r) {};
     };
 
-    struct iter_tree :public tree<iter_tree> {
-        std::shared_ptr<iter_tree> parent;
-        iter_tree(value_type v,
-                  std::shared_ptr<iter_tree> l = nullptr,
-                  std::shared_ptr<iter_tree> r = nullptr,
-                  std::shared_ptr<iter_tree> p = nullptr)
-            :tree<iter_tree>(v, l, r), parent(p) {};
+    struct DerivativeTreeNode :public TreeNode<DerivativeTreeNode>
+    {
+        std::shared_ptr<DerivativeTreeNode> parent;
+        DerivativeTreeNode(value_type v,
+                           std::shared_ptr<DerivativeTreeNode> l = nullptr,
+                           std::shared_ptr<DerivativeTreeNode> r = nullptr,
+                           std::shared_ptr<DerivativeTreeNode> p = nullptr)
+            :TreeNode<DerivativeTreeNode>(v, l, r), parent(p) {};
     };
 
-    typedef struct iter_tree           tree_type;
-    typedef std::shared_ptr<iter_tree> p_tree_type;
+    using NodeType = struct DerivativeNode;
+    using PSNodeType = std::shared_ptr<DerivativeNode>;
 
 public:
     splay_tree() :_root(nullptr), _sz(0), _comp(_Comp()) {;}
@@ -277,7 +279,9 @@ private:
         {
             n->right = right->left;
             if (right->left)
+            {
                 right->left->parent = n;
+            }
             right->parent = n->parent;
         }
 
@@ -295,7 +299,9 @@ private:
         }
 
         if (right)
+        {
             right->left = n;
+        }
         n->parent = right;
     }
 
@@ -305,7 +311,9 @@ private:
         {
             n->left = left->right;
             if (left->right)
+            {
                 left->right->parent = n;
+            }
             left->parent = n->parent;
         }
 
@@ -322,7 +330,9 @@ private:
             n->parent->right = left;
         }
         if (left)
+        {
             left->right = n;
+        }
         n->parent = left;
     }
 
@@ -340,7 +350,9 @@ private:
             old->parent->right = new_;
         }
         if (new_)
+        {
             new_->parent = old->parent;
+        }
     }
 
     p_tree_type get(const_reference value) {
@@ -379,16 +391,20 @@ private:
 
     p_tree_type minimum(p_tree_type n) const {
         if (n)
+        {
             while (n->left)
                 n = n->left;
+        }
 
         return n;
     }
 
     p_tree_type maximum(p_tree_type n) const {
         if (n)
+        {
             while (n->right)
                 n = n->right;
+        }
 
         return n;
     }
@@ -420,7 +436,7 @@ std::fstream input, ans;
 int main() {
     using namespace std;
 
-    std::shared_ptr<splay_tree<int> > st = std::make_shared<splay_tree<int> >();
+    std::shared_ptr<splay_tree<int>> st = std::make_shared<splay_tree<int>>();
 
     input.open("/sample.txt");
     ans.open("/output.txt", ios::out | ios::trunc);
