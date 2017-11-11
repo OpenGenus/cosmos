@@ -40,6 +40,32 @@ Including Header Files
 ===
 When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
 
+Pay attention to whether the header is _not in use_, and do not include it if so. If only the implementation uses it, then include the file in .cpp, not .hpp.
+
+**Valid**
+```C++
+// sample1.hpp
+#include <vector>       // ok, return type is vector
+
+template<typename Ty>
+std::vector<Ty> toVector(Ty t[], size_t sz);
+
+
+// sample2.hpp
+class ListHelp {
+    void sort();
+}
+
+// sample2.cpp
+#include "sample2.hpp"
+#include <utility>      // ok, only use the swap function in implementation
+using namespace std;
+
+void ListHelp::sort() {
+    // use the swap function
+}
+```
+
 Comments
 ===
 Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
@@ -68,6 +94,37 @@ public:
     typedef Allocator                                allocator_type;
 }
 */
+```
+
+Namespaces
+===
+When using namespace, pay attention to name collisions/name conflicts:
+
+In header files, do NOT use `using` directive or declaration.
+
+**Valid**
+```C++
+// sample1.hpp
+#include <vector>
+
+// ok, if users include this file, they also need declare std namespace to use member of vector
+template<typename Ty>
+std::vector<Ty> toVector(Ty t[], size_t sz);
+
+
+// sample2.hpp
+class ListHelp {
+    void sort();
+}
+
+// sample2.cpp
+#include "sample2.hpp"
+#include <utility>
+using namespace std;    // ok, users will include .hpp not .cpp
+
+void ListHelp::sort() {
+    // may use the swap function
+}
 ```
 
 Macros
