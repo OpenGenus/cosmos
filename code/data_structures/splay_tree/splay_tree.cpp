@@ -3,6 +3,56 @@
 
  splay tree synopsis
 
+template<typename _Type, class _Derivative>
+class Node
+{
+protected:
+    using SPNodeType = std::shared_ptr<_Derivative>;
+    using ValueType = _Type;
+
+public:
+    Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr);
+
+    ValueType value();
+
+    void value(ValueType v);
+
+    SPNodeType left();
+
+    void left(SPNodeType l);
+
+    SPNodeType right();
+
+    void right(SPNodeType r);
+
+protected:
+    ValueType value_;
+    std::shared_ptr<_Derivative> left_, right_;
+};
+
+template<typename _Type>
+class DerivativeNode :public Node<_Type, DerivativeNode<_Type>>
+{
+private:
+    using BaseNode = Node<_Type, DerivativeNode<_Type>>;
+    using SPNodeType = typename BaseNode::SPNodeType;
+    using WPNodeType = std::weak_ptr<DerivativeNode>;
+    using ValueType = typename BaseNode::ValueType;
+
+public:
+    DerivativeNode(ValueType v,
+                   SPNodeType l = nullptr,
+                   SPNodeType r = nullptr,
+                   WPNodeType p = WPNodeType());
+
+    SPNodeType parent();
+
+    void parent(SPNodeType p);
+
+private:
+    WPNodeType parent_;
+};
+
 template<typename _Type,
          typename _Compare = std::less<_Type>,
          class NodeType = DerivativeNode<_Type>>
@@ -70,6 +120,74 @@ private:
 #include <functional>
 #include <algorithm>
 #include <memory>
+
+template<typename _Type, class _Derivative>
+class Node
+{
+protected:
+    using SPNodeType = std::shared_ptr<_Derivative>;
+    using ValueType = _Type;
+
+public:
+    Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
+        :value_(v), left_(l), right_(r) {};
+
+    ValueType value() {
+        return value_;
+    }
+
+    void value(ValueType v) {
+        value_ = v;
+    }
+
+    SPNodeType left() {
+        return left_;
+    }
+
+    void left(SPNodeType l) {
+        left_ = l;
+    }
+
+    SPNodeType right() {
+        return right_;
+    }
+
+    void right(SPNodeType r) {
+        right_ = r;
+    }
+
+protected:
+    ValueType value_;
+    std::shared_ptr<_Derivative> left_, right_;
+};
+
+template<typename _Type>
+class DerivativeNode :public Node<_Type, DerivativeNode<_Type>>
+{
+private:
+    using BaseNode = Node<_Type, DerivativeNode<_Type>>;
+    using SPNodeType = typename BaseNode::SPNodeType;
+    using WPNodeType = std::weak_ptr<DerivativeNode>;
+    using ValueType = typename BaseNode::ValueType;
+
+public:
+    DerivativeNode(ValueType v,
+                   SPNodeType l = nullptr,
+                   SPNodeType r = nullptr,
+                   WPNodeType p = WPNodeType())
+        :BaseNode(v, l, r), parent_(p) {};
+
+    SPNodeType parent() {
+        return parent_.lock();
+    }
+
+    void parent(SPNodeType p) {
+        parent_ = p;
+    }
+
+private:
+    WPNodeType parent_;
+};
 
 template<typename _Type,
          typename _Compare = std::less<_Type>,
