@@ -3,71 +3,77 @@
 
  splay tree synopsis
 
-template<typename _Tp, typename _Compare = std::less<_Tp> >
-class splay_tree {
+template<typename _Type, typename _Compare = std::less<_Type>>
+class splay_tree
+{
 public:
-    using value_type = _Tp;
-    using reference = value_type &;
-    using const_reference = value_type const&;
+    using ValueType = _Type;
+    using Reference = ValueType &;
+    using ConstReference = ValueType const &;
     using SizeType = size_t;
-    using difference_type = ptrdiff_t;
+    using DifferenceType = ptrdiff_t;
 
 private:
     template<typename _Derivative>
     class Node
     {
+    private:
+        using SPNodeType = std::shared_ptr<_Derivative>;
+
     public:
-        Node(value_type v,
-             std::shared_ptr<_Derivative> l = nullptr,
-             std::shared_ptr<_Derivative> r = nullptr);
+        Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr);
 
-        value_type value();
+        ValueType value();
 
-        void value(value_type v);
+        void value(ValueType v);
 
-        std::shared_ptr<_Derivative> left();
+        SPNodeType left();
 
-        void left(std::shared_ptr<_Derivative> l);
+        void left(SPNodeType l);
 
-        std::shared_ptr<_Derivative> right();
+        SPNodeType right();
 
-        void right(std::shared_ptr<_Derivative> r);
+        void right(SPNodeType r);
 
     private:
-        value_type value_;
+        ValueType value_;
         std::shared_ptr<_Derivative> left_, right_;
     };
 
     class DerivativeNode :public Node<DerivativeNode>
     {
+    private:
+        using SPNodeType = std::shared_ptr<DerivativeNode>;
+        using WPNodeType = std::weak_ptr<DerivativeNode>;
+
     public:
-        DerivativeNode(value_type v,
-                       std::shared_ptr<DerivativeNode> l = nullptr,
-                       std::shared_ptr<DerivativeNode> r = nullptr,
-                       std::weak_ptr<DerivativeNode> p = std::weak_ptr<DerivativeNode>());
+        DerivativeNode(ValueType v,
+                       SPNodeType l = nullptr,
+                       SPNodeType r = nullptr,
+                       WPNodeType p = WPNodeType());
 
-        std::shared_ptr<DerivativeNode> parent();
+        SPNodeType parent();
 
-        void parent(std::shared_ptr<DerivativeNode> p);
+        void parent(SPNodeType p);
 
     private:
-        std::weak_ptr<DerivativeNode> parent_;
+        WPNodeType parent_;
     };
     using NodeType = struct DerivativeNode;
-    using PSNodeType = std::shared_ptr<DerivativeNode>;
+    using SPNodeType = std::shared_ptr<DerivativeNode>;
 
 public:
-    splay_tree() :root_(nullptr), size_(0), compare_(_Compare());
+    splay_tree() :root_(nullptr), size_(0), compare_(_Compare())
 
-    SizeType insert(const_reference value);
+    SizeType insert(ConstReference value);
 
-    SizeType erase(const_reference value);
+    SizeType erase(ConstReference value);
 
-    PSNodeType find(const_reference value);
+    SPNodeType find(ConstReference value);
 
-    PSNodeType minimum() const;
+    SPNodeType minimum() const;
 
-    PSNodeType maximum() const;
+    SPNodeType maximum() const;
 
     SizeType height() const;
 
@@ -80,29 +86,29 @@ public:
     void preorderTravel(std::ostream &output) const;
 
 private:
-    PSNodeType root_;
+    SPNodeType root_;
     SizeType size_;
     _Compare compare_;
 
-    PSNodeType splay(PSNodeType n);
+    SPNodeType splay(SPNodeType n);
 
-    void leftRotate(PSNodeType n);
+    void leftRotate(SPNodeType n);
 
-    void rightRotate(PSNodeType n);
+    void rightRotate(SPNodeType n);
 
-    void replace(PSNodeType old, PSNodeType new_);
+    void replace(SPNodeType old, SPNodeType new_);
 
-    PSNodeType get(const_reference value);
+    SPNodeType get(ConstReference value);
 
-    SizeType height(PSNodeType n) const;
+    SizeType height(SPNodeType n) const;
 
-    PSNodeType minimum(PSNodeType n) const;
+    SPNodeType minimum(SPNodeType n) const;
 
-    PSNodeType maximum(PSNodeType n) const;
+    SPNodeType maximum(SPNodeType n) const;
 
-    void inorderTravel(std::ostream &output, PSNodeType n) const;
+    void inorderTravel(std::ostream &output, SPNodeType n) const;
 
-    void preorderTravel(std::ostream &output, PSNodeType n) const;
+    void preorderTravel(std::ostream &output, SPNodeType n) const;
 };
  */
 
@@ -114,80 +120,85 @@ template<typename _Type, typename _Compare = std::less<_Type>>
 class splay_tree
 {
 public:
-    using value_type = _Type;
-    using reference = value_type &;
-    using const_reference = value_type const &;
+    using ValueType = _Type;
+    using Reference = ValueType &;
+    using ConstReference = ValueType const &;
     using SizeType = size_t;
-    using difference_type = ptrdiff_t;
+    using DifferenceType = ptrdiff_t;
 
 private:
     template<typename _Derivative>
     class Node
     {
+    private:
+        using SPNodeType = std::shared_ptr<_Derivative>;
+
     public:
-        Node(value_type v,
-             std::shared_ptr<_Derivative> l = nullptr,
-             std::shared_ptr<_Derivative> r = nullptr)
+        Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
             :value_(v), left_(l), right_(r) {};
 
-        value_type value() {
+        ValueType value() {
             return value_;
         }
 
-        void value(value_type v) {
+        void value(ValueType v) {
             value_ = v;
         }
 
-        std::shared_ptr<_Derivative> left() {
+        SPNodeType left() {
             return left_;
         }
 
-        void left(std::shared_ptr<_Derivative> l) {
+        void left(SPNodeType l) {
             left_ = l;
         }
 
-        std::shared_ptr<_Derivative> right() {
+        SPNodeType right() {
             return right_;
         }
 
-        void right(std::shared_ptr<_Derivative> r) {
+        void right(SPNodeType r) {
             right_ = r;
         }
 
     private:
-        value_type value_;
+        ValueType value_;
         std::shared_ptr<_Derivative> left_, right_;
     };
 
     class DerivativeNode :public Node<DerivativeNode>
     {
+    private:
+        using SPNodeType = std::shared_ptr<DerivativeNode>;
+        using WPNodeType = std::weak_ptr<DerivativeNode>;
+
     public:
-        DerivativeNode(value_type v,
-                       std::shared_ptr<DerivativeNode> l = nullptr,
-                       std::shared_ptr<DerivativeNode> r = nullptr,
-                       std::weak_ptr<DerivativeNode> p = std::weak_ptr<DerivativeNode>())
+        DerivativeNode(ValueType v,
+                       SPNodeType l = nullptr,
+                       SPNodeType r = nullptr,
+                       WPNodeType p = WPNodeType())
             :Node<DerivativeNode>(v, l, r), parent_(p) {};
 
-        std::shared_ptr<DerivativeNode> parent() {
+        SPNodeType parent() {
             return parent_.lock();
         }
 
-        void parent(std::shared_ptr<DerivativeNode> p) {
+        void parent(SPNodeType p) {
             parent_ = p;
         }
 
     private:
-        std::weak_ptr<DerivativeNode> parent_;
+        WPNodeType parent_;
     };
 
     using NodeType = struct DerivativeNode;
-    using PSNodeType = std::shared_ptr<DerivativeNode>;
+    using SPNodeType = std::shared_ptr<DerivativeNode>;
 
 public:
     splay_tree() :root_(nullptr), size_(0), compare_(_Compare()) {;}
 
-    SizeType insert(const_reference value) {
-        PSNodeType n = root_, parent = nullptr;
+    SizeType insert(ConstReference value) {
+        SPNodeType n = root_, parent = nullptr;
         while (n)
         {
             parent = n;
@@ -227,8 +238,8 @@ public:
         return 1;
     }
 
-    SizeType erase(const_reference value) {
-        PSNodeType n = get(value);
+    SizeType erase(ConstReference value) {
+        SPNodeType n = get(value);
         if (n)
         {
             splay(n);
@@ -242,7 +253,7 @@ public:
             }
             else
             {
-                PSNodeType min = minimum(n->right());
+                SPNodeType min = minimum(n->right());
                 if (min->parent() != n)
                 {
                     replace(min, min->right());
@@ -261,15 +272,15 @@ public:
         return 0;
     }
 
-    PSNodeType find(const_reference value) {
+    SPNodeType find(ConstReference value) {
         return get(value);
     }
 
-    PSNodeType minimum() const {
+    SPNodeType minimum() const {
         return minimum(root_);
     }
 
-    PSNodeType maximum() const {
+    SPNodeType maximum() const {
         return maximum(root_);
     }
 
@@ -294,11 +305,11 @@ public:
     }
 
 private:
-    PSNodeType root_;
+    SPNodeType root_;
     SizeType size_;
     _Compare compare_;
 
-    PSNodeType splay(PSNodeType n) {
+    SPNodeType splay(SPNodeType n) {
         while (n && n->parent())
         {
             if (!n->parent()->parent())             // zig step
@@ -337,8 +348,8 @@ private:
         return n;
     }
 
-    void leftRotate(PSNodeType n) {
-        PSNodeType right = n->right();
+    void leftRotate(SPNodeType n) {
+        SPNodeType right = n->right();
         if (right)
         {
             n->right(right->left());
@@ -369,8 +380,8 @@ private:
         n->parent(right);
     }
 
-    void rightRotate(PSNodeType n) {
-        PSNodeType left = n->left();
+    void rightRotate(SPNodeType n) {
+        SPNodeType left = n->left();
         if (left)
         {
             n->left(left->right());
@@ -400,7 +411,7 @@ private:
         n->parent(left);
     }
 
-    void replace(PSNodeType old, PSNodeType new_) {
+    void replace(SPNodeType old, SPNodeType new_) {
         if (old->parent() == nullptr)
         {
             root_ = new_;
@@ -419,8 +430,8 @@ private:
         }
     }
 
-    PSNodeType get(const_reference value) {
-        PSNodeType n = root_;
+    SPNodeType get(ConstReference value) {
+        SPNodeType n = root_;
         while (n)
         {
             if (compare_(n->value(), value))
@@ -442,7 +453,7 @@ private:
         return nullptr;
     }
 
-    SizeType height(PSNodeType n) const {
+    SizeType height(SPNodeType n) const {
         if (n)
         {
             return 1 + std::max(height(n->left()), height(n->right()));
@@ -453,7 +464,7 @@ private:
         }
     }
 
-    PSNodeType minimum(PSNodeType n) const {
+    SPNodeType minimum(SPNodeType n) const {
         if (n)
         {
             while (n->left())
@@ -463,7 +474,7 @@ private:
         return n;
     }
 
-    PSNodeType maximum(PSNodeType n) const {
+    SPNodeType maximum(SPNodeType n) const {
         if (n)
         {
             while (n->right())
@@ -473,7 +484,7 @@ private:
         return n;
     }
 
-    void inorderTravel(std::ostream &output, PSNodeType n) const {
+    void inorderTravel(std::ostream &output, SPNodeType n) const {
         if (n)
         {
             inorderTravel(output, n->left());
@@ -482,7 +493,7 @@ private:
         }
     }
 
-    void preorderTravel(std::ostream &output, PSNodeType n) const {
+    void preorderTravel(std::ostream &output, SPNodeType n) const {
         if (n)
         {
             output << n->value() << " ";
