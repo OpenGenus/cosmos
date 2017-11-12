@@ -21,7 +21,7 @@ namespace lipogram_checker
                 int index = str.IndexOf(alphabets[i]);
 
                 if (index < 0 || index > str.Length)
-                    count ++;
+                    count++;
             }
             return count;
         }
