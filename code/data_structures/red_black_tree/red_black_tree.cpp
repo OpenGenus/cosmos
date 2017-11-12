@@ -8,27 +8,29 @@ using namespace std;
 template<typename _Type, class _Derivative>
 struct Node
 {
-    typedef std::shared_ptr<_Derivative> SPNodeType;
-    _Type data;
+    using ValueType = _Type;
+    using SPNodeType = std::shared_ptr<_Derivative>;
+    ValueType value;
     SPNodeType left, right;
-    Node(_Type d, SPNodeType l = nullptr, SPNodeType r = nullptr)
-        :data(d), left(l), right(r) {}
+    Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
+        :value(v), left(l), right(r) {}
 };
 
 template<typename _Type>
 struct RBNode :Node<_Type, RBNode<_Type>>
 {
+    using ValueType = _Type;
+    using SPNodeType = std::shared_ptr<RBNode>;
     enum class Color
     {
         RED,
         BLACK
     };
 
-    typedef std::shared_ptr<RBNode> SPNodeType;
     SPNodeType parent;
     Color color;
-    RBNode(_Type d, SPNodeType l = nullptr, SPNodeType r = nullptr, SPNodeType p = nullptr)
-        :Node<_Type, RBNode<_Type>>(d, l, r), parent(p), color(Color::RED) {}
+    RBNode(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr, SPNodeType p = nullptr)
+        :Node<_Type, RBNode<_Type>>(v, l, r), parent(p), color(Color::RED) {}
 };
 
 // Class to represent Red-Black Tree
@@ -67,7 +69,7 @@ private:
 
     SPNodeType &insert(SPNodeType &root, SPNodeType &pt);
 
-    SPNodeType &_find(_Type const &data);
+    SPNodeType &_find(_Type const &value);
 
     void rotateLeft(SPNodeType &);
 
@@ -98,12 +100,12 @@ private:
     void deleteCase6(SPNodeType const &);
 };
 
-// Function to insert a new node with given data
+// Function to insert a new node with given value
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::insert(_Type const &data)
+RBTree<_Type, _Compare>::insert(_Type const &value)
 {
-    SPNodeType pt = std::make_shared<NodeType>(data, sentinel_, sentinel_);
+    SPNodeType pt = std::make_shared<NodeType>(value, sentinel_, sentinel_);
 
     // Do a normal BST insert
     root_ = insert(root_, pt);
@@ -114,8 +116,8 @@ RBTree<_Type, _Compare>::insert(_Type const &data)
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::erase(_Type const &data) {
-    SPNodeType delete_node = _find(data);
+RBTree<_Type, _Compare>::erase(_Type const &value) {
+    SPNodeType delete_node = _find(value);
 
     // found
     if (delete_node != sentinel_)
@@ -128,7 +130,7 @@ RBTree<_Type, _Compare>::erase(_Type const &data) {
         else
         {
             SPNodeType smallest = successor(delete_node);
-            swap(delete_node->data, smallest->data);
+            swap(delete_node->value, smallest->value);
             deleteOneNode(smallest);
         }
     }
@@ -171,8 +173,8 @@ RBTree<_Type, _Compare>::deleteOneNode(SPNodeType &pt) {
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::find(_Type const &data)->SPNodeType const {
-    SPNodeType pt = _find(data);
+RBTree<_Type, _Compare>::find(_Type const &value)->SPNodeType const {
+    SPNodeType pt = _find(value);
 
     return pt != sentinel_ ? pt : nullptr;
 }
@@ -187,19 +189,19 @@ RBTree<_Type, _Compare>::preOrder() const {
     std::string elem{};
     std::stack<SPNodeType> st{};
     st.push(root_);
-    elem.append(std::to_string(st.top()->data));
+    elem.append(std::to_string(st.top()->value));
     while (!st.empty())
     {
         while (st.top()->left != sentinel_)
         {
-            elem.append(std::to_string(st.top()->left->data));
+            elem.append(std::to_string(st.top()->left->value));
             st.push(st.top()->left);
         }
         while (!st.empty() && st.top()->right == sentinel_)
             st.pop();
         if (!st.empty())
         {
-            elem.append(std::to_string(st.top()->right->data));
+            elem.append(std::to_string(st.top()->right->value));
             auto temp = st.top();
             st.pop();
             st.push(temp->right);
@@ -225,12 +227,12 @@ RBTree<_Type, _Compare>::inOrder() const {
             st.push(st.top()->left);
         while (!st.empty() && st.top()->right == sentinel_)
         {
-            elem.append(std::to_string(st.top()->data));
+            elem.append(std::to_string(st.top()->value));
             st.pop();
         }
         if (!st.empty())
         {
-            elem.append(std::to_string(st.top()->data));
+            elem.append(std::to_string(st.top()->value));
             auto temp = st.top();
             st.pop();
             st.push(temp->right);
@@ -253,12 +255,12 @@ RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
     }
 
     /* Otherwise, recur down the tree */
-    if (compare_(pt->data, root->data))
+    if (compare_(pt->value, root->value))
     {
         root->left = insert(root->left, pt);
         root->left->parent = root;
     }
-    else if (compare_(root->data, pt->data))
+    else if (compare_(root->value, pt->value))
     {
         root->right = insert(root->right, pt);
         root->right->parent = root;
@@ -277,21 +279,21 @@ RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::_find(_Type const &data)->SPNodeType &
+RBTree<_Type, _Compare>::_find(_Type const &value)->SPNodeType &
 {
-    SPNodeType pt = std::make_shared<NodeType>(data);
+    SPNodeType pt = std::make_shared<NodeType>(value);
     std::stack<SPNodeType> st{};
     st.push(root_);
     while (!st.empty())
     {
-        if (compare_(st.top()->data, pt->data) == compare_(pt->data, st.top()->data))
+        if (compare_(st.top()->value, pt->value) == compare_(pt->value, st.top()->value))
         {
             return st.top();
         }
         while (st.top()->left != sentinel_)
         {
             st.push(st.top()->left);
-            if (compare_(st.top()->data, pt->data) == compare_(pt->data, st.top()->data))
+            if (compare_(st.top()->value, pt->value) == compare_(pt->value, st.top()->value))
             {
                 return st.top();
             }
@@ -300,7 +302,7 @@ RBTree<_Type, _Compare>::_find(_Type const &data)->SPNodeType &
             st.pop();
         if (!st.empty())
         {
-            if (compare_(st.top()->data, pt->data) == compare_(pt->data, st.top()->data))
+            if (compare_(st.top()->value, pt->value) == compare_(pt->value, st.top()->value))
             {
                 return st.top();
             }
