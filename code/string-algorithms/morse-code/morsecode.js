@@ -1,3 +1,6 @@
+// String algorithms | morse code | javascript
+// Part of OpenGenus Foundation
+
 const TO_MORSE_MAP = {
     'A': '.-',
     'B': '-...',
