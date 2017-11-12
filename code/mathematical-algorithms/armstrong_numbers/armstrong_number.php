@@ -9,10 +9,8 @@ function is_armstrong($number)
     $sum += $digit * $digit * $digit;
     $dupli/=10;
   }
-  if ($sum == $number)
-    return true;
-  else
-    return false;
+  
+  return $sum == $number;
 }
 
 
