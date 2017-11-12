@@ -21,7 +21,8 @@ def sort(number, maxNumber):
         n *= 10
         k = 0
 
-number = [34,3212,51,52,612,456,12,31,412,123, 1, 3]
+
+number = [34, 3212, 51, 52, 612, 456, 12, 31, 412, 123, 1, 3]
 
 print("before sorting", number)
 sort(number, max(number))
