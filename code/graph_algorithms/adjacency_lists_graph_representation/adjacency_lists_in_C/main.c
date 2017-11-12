@@ -17,7 +17,7 @@ main()
   LGraph_addUEdge(&g, 3, 3);
   LGraph_addDEdge(&g, 1, 0);
 
-  int i;
+  Node_ID i;
   LG_Node* n;
   OneEdge* p;
 

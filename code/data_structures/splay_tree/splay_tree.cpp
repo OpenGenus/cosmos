@@ -3,52 +3,86 @@
 
  splay tree synopsis
 
-template<typename _Tp, typename _Comp = std::less<_Tp> >
-class splay_tree {
+template<typename _Type, class _Derivative>
+class Node
+{
+protected:
+    using SPNodeType = std::shared_ptr<_Derivative>;
+    using ValueType = _Type;
+
 public:
-    typedef _Tp               value_type;
-    typedef value_type &      reference;
-    typedef value_type const &const_reference;
-    typedef size_t            size_type;
-    typedef ptrdiff_t         difference_type;
+    Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr);
+
+    ValueType value();
+
+    void value(ValueType v);
+
+    SPNodeType left();
+
+    void left(SPNodeType l);
+
+    SPNodeType right();
+
+    void right(SPNodeType r);
+
+protected:
+    ValueType value_;
+    std::shared_ptr<_Derivative> left_, right_;
+};
+
+template<typename _Type>
+class DerivativeNode :public Node<_Type, DerivativeNode<_Type>>
+{
+private:
+    using BaseNode = Node<_Type, DerivativeNode<_Type>>;
+    using SPNodeType = typename BaseNode::SPNodeType;
+    using WPNodeType = std::weak_ptr<DerivativeNode>;
+    using ValueType = typename BaseNode::ValueType;
+
+public:
+    DerivativeNode(ValueType v,
+                   SPNodeType l = nullptr,
+                   SPNodeType r = nullptr,
+                   WPNodeType p = WPNodeType());
+
+    SPNodeType parent();
+
+    void parent(SPNodeType p);
 
 private:
-    template<typename derive>
-    struct tree {
-        value_type value;
-        std::shared_ptr<derive> left, right;
-        tree(value_type v,
-             std::shared_ptr<derive> l = nullptr,
-             std::shared_ptr<derive> r = nullptr);
-    };
+    WPNodeType parent_;
+};
 
-    struct iter_tree :public tree<iter_tree> {
-        std::shared_ptr<iter_tree> parent;
-        iter_tree(value_type v,
-                  std::shared_ptr<iter_tree> l = nullptr,
-                  std::shared_ptr<iter_tree> r = nullptr,
-                  std::shared_ptr<iter_tree> p = nullptr);
-    };
-
-    typedef struct iter_tree           tree_type;
-    typedef std::shared_ptr<iter_tree> p_tree_type;
+template<typename _Type,
+         typename _Compare = std::less<_Type>,
+         class NodeType = DerivativeNode<_Type>>
+class SplayTree
+{
+private:
+    using SPNodeType = std::shared_ptr<NodeType>;
 
 public:
-    splay_tree() :_root(nullptr), _sz(0), _comp(_Comp());
+    using ValueType = _Type;
+    using Reference = ValueType &;
+    using ConstReference = ValueType const &;
+    using SizeType = size_t;
+    using DifferenceType = ptrdiff_t;
 
-    size_type insert(const_reference value);
+    SplayTree() :root_(nullptr), size_(0), compare_(_Compare())
 
-    size_type erase(const_reference value);
+    SizeType insert(ConstReference value);
 
-    p_tree_type find(const_reference value);
+    SizeType erase(ConstReference value);
 
-    p_tree_type minimum() const;
+    SPNodeType find(ConstReference value);
 
-    p_tree_type maximum() const;
+    SPNodeType minimum() const;
 
-    size_type height() const;
+    SPNodeType maximum() const;
 
-    size_type size() const;
+    SizeType height() const;
+
+    SizeType size() const;
 
     bool empty() const;
 
@@ -57,29 +91,29 @@ public:
     void preorderTravel(std::ostream &output) const;
 
 private:
-    p_tree_type _root;
-    size_type _sz;
-    _Comp _comp;
+    SPNodeType root_;
+    SizeType size_;
+    _Compare compare_;
 
-    p_tree_type splay(p_tree_type n);
+    SPNodeType splay(SPNodeType n);
 
-    void leftRotate(p_tree_type n);
+    void leftRotate(SPNodeType n);
 
-    void rightRotate(p_tree_type n);
+    void rightRotate(SPNodeType n);
 
-    void replace(p_tree_type old, p_tree_type new_);
+    void replace(SPNodeType old, SPNodeType new_);
 
-    p_tree_type get(const_reference value);
+    SPNodeType get(ConstReference value);
 
-    size_type height(p_tree_type n) const;
+    SizeType height(SPNodeType n) const;
 
-    p_tree_type minimum(p_tree_type n) const;
+    SPNodeType minimum(SPNodeType n) const;
 
-    p_tree_type maximum(p_tree_type n) const;
+    SPNodeType maximum(SPNodeType n) const;
 
-    void inorderTravel(std::ostream &output, p_tree_type n) const;
+    void inorderTravel(std::ostream &output, SPNodeType n) const;
 
-    void preorderTravel(std::ostream &output, p_tree_type n) const;
+    void preorderTravel(std::ostream &output, SPNodeType n) const;
 };
  */
 
@@ -87,107 +121,159 @@ private:
 #include <algorithm>
 #include <memory>
 
-template<typename _Tp, typename _Comp = std::less<_Tp> >
-class splay_tree {
+template<typename _Type, class _Derivative>
+class Node
+{
+protected:
+    using SPNodeType = std::shared_ptr<_Derivative>;
+    using ValueType = _Type;
+
 public:
-    typedef _Tp               value_type;
-    typedef value_type &      reference;
-    typedef value_type const &const_reference;
-    typedef size_t            size_type;
-    typedef ptrdiff_t         difference_type;
+    Node(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
+        :value_(v), left_(l), right_(r) {};
+
+    ValueType value() {
+        return value_;
+    }
+
+    void value(ValueType v) {
+        value_ = v;
+    }
+
+    SPNodeType left() {
+        return left_;
+    }
+
+    void left(SPNodeType l) {
+        left_ = l;
+    }
+
+    SPNodeType right() {
+        return right_;
+    }
+
+    void right(SPNodeType r) {
+        right_ = r;
+    }
+
+protected:
+    ValueType value_;
+    std::shared_ptr<_Derivative> left_, right_;
+};
+
+template<typename _Type>
+class DerivativeNode :public Node<_Type, DerivativeNode<_Type>>
+{
+private:
+    using BaseNode = Node<_Type, DerivativeNode<_Type>>;
+    using SPNodeType = typename BaseNode::SPNodeType;
+    using WPNodeType = std::weak_ptr<DerivativeNode>;
+    using ValueType = typename BaseNode::ValueType;
+
+public:
+    DerivativeNode(ValueType v,
+                   SPNodeType l = nullptr,
+                   SPNodeType r = nullptr,
+                   WPNodeType p = WPNodeType())
+        :BaseNode(v, l, r), parent_(p) {};
+
+    SPNodeType parent() {
+        return parent_.lock();
+    }
+
+    void parent(SPNodeType p) {
+        parent_ = p;
+    }
 
 private:
-    template<typename derive>
-    struct tree {
-        value_type value;
-        std::shared_ptr<derive> left, right;
-        tree(value_type v, std::shared_ptr<derive> l = nullptr, std::shared_ptr<derive> r = nullptr)
-            :value(v), left(l), right(r) {};
-    };
+    WPNodeType parent_;
+};
 
-    struct iter_tree :public tree<iter_tree> {
-        std::shared_ptr<iter_tree> parent;
-        iter_tree(value_type v,
-                  std::shared_ptr<iter_tree> l = nullptr,
-                  std::shared_ptr<iter_tree> r = nullptr,
-                  std::shared_ptr<iter_tree> p = nullptr)
-            :tree<iter_tree>(v, l, r), parent(p) {};
-    };
-
-    typedef struct iter_tree           tree_type;
-    typedef std::shared_ptr<iter_tree> p_tree_type;
+template<typename _Type,
+         typename _Compare = std::less<_Type>,
+         class NodeType = DerivativeNode<_Type>>
+class SplayTree
+{
+private:
+    using SPNodeType = std::shared_ptr<NodeType>;
 
 public:
-    splay_tree() :_root(nullptr), _sz(0), _comp(_Comp()) {;}
+    using ValueType = _Type;
+    using Reference = ValueType &;
+    using ConstReference = ValueType const &;
+    using SizeType = size_t;
+    using DifferenceType = ptrdiff_t;
 
-    size_type insert(const_reference value) {
-        p_tree_type n = _root, parent = nullptr;
+    SplayTree() :root_(nullptr), size_(0), compare_(_Compare()) {;}
+
+    SizeType insert(ConstReference value) {
+        SPNodeType n = root_, parent = nullptr;
         while (n)
         {
             parent = n;
-            if (_comp(n->value, value))
+            if (compare_(n->value(), value))
             {
-                n = n->right;
+                n = n->right();
             }
-            else if (_comp(value, n->value))
+            else if (compare_(value, n->value()))
             {
-                n = n->left;
+                n = n->left();
             }
             else
             {
-                n->value = value;
+                n->value(value);
 
                 return 0;
             }
         }
-        n = std::make_shared<tree_type>(value);
-        n->parent = parent;
+        n = std::make_shared<NodeType>(value);
+        n->parent(parent);
 
         if (parent == nullptr)
         {
-            _root = n;
+            root_ = n;
         }
-        else if (_comp(parent->value, n->value))
+        else if (compare_(parent->value(), n->value()))
         {
-            parent->right = n;
+            parent->right(n);
         }
         else
         {
-            parent->left = n;
+            parent->left(n);
         }
         splay(n);
-        ++_sz;
+        ++size_;
 
         return 1;
     }
 
-    size_type erase(const_reference value) {
-        p_tree_type n = get(value);
+    SizeType erase(ConstReference value) {
+        SPNodeType n = get(value);
         if (n)
         {
             splay(n);
-            if (n->left == nullptr)
+            if (n->left() == nullptr)
             {
-                replace(n, n->right);
+                replace(n, n->right());
             }
-            else if (n->right == nullptr)
+            else if (n->right() == nullptr)
             {
-                replace(n, n->left);
+                replace(n, n->left());
             }
             else
             {
-                p_tree_type min = minimum(n->right);
-                if (min->parent != n)
+                SPNodeType min = minimum(n->right());
+                if (min->parent() != n)
                 {
-                    replace(min, min->right);
-                    min->right = n->right;
-                    min->right->parent = min;
+                    replace(min, min->right());
+                    min->right(n->right());
+                    min->right()->parent(min);
                 }
                 replace(n, min);
-                min->left = n->left;
-                min->left->parent = min;
+                min->left(n->left());
+                min->left()->parent(min);
             }
-            --_sz;
+            --size_;
 
             return 1;
         }
@@ -195,165 +281,175 @@ public:
         return 0;
     }
 
-    p_tree_type find(const_reference value) {
+    SPNodeType find(ConstReference value) {
         return get(value);
     }
 
-    p_tree_type minimum() const {
-        return minimum(_root);
+    SPNodeType minimum() const {
+        return minimum(root_);
     }
 
-    p_tree_type maximum() const {
-        return maximum(_root);
+    SPNodeType maximum() const {
+        return maximum(root_);
     }
 
-    size_type height() const {
-        return height(_root);
+    SizeType height() const {
+        return height(root_);
     }
 
-    size_type size() const {
-        return _sz;
+    SizeType size() const {
+        return size_;
     }
 
     bool empty() const {
-        return _sz == 0;
+        return size_ == 0;
     }
 
     void inorderTravel(std::ostream &output) const {
-        inorderTravel(output, _root);
+        inorderTravel(output, root_);
     }
 
     void preorderTravel(std::ostream &output) const {
-        preorderTravel(output, _root);
+        preorderTravel(output, root_);
     }
 
 private:
-    p_tree_type _root;
-    size_type _sz;
-    _Comp _comp;
+    SPNodeType root_;
+    SizeType size_;
+    _Compare compare_;
 
-    p_tree_type splay(p_tree_type n) {
-        while (n && n->parent)
+    SPNodeType splay(SPNodeType n) {
+        while (n && n->parent())
         {
-            if (!n->parent->parent)             // zig step
+            if (!n->parent()->parent())             // zig step
             {
-                if (n->parent->left == n)
+                if (n->parent()->left() == n)
                 {
-                    rightRotate(n->parent);
+                    rightRotate(n->parent());
                 }
                 else
                 {
-                    leftRotate(n->parent);
+                    leftRotate(n->parent());
                 }
             }
-            else if (n->parent->left == n && n->parent->parent->left == n->parent)
+            else if (n->parent()->left() == n && n->parent()->parent()->left() == n->parent())
             {
-                rightRotate(n->parent->parent);
-                rightRotate(n->parent);
+                rightRotate(n->parent()->parent());
+                rightRotate(n->parent());
             }
-            else if (n->parent->right == n && n->parent->parent->right == n->parent)
+            else if (n->parent()->right() == n && n->parent()->parent()->right() == n->parent())
             {
-                leftRotate(n->parent->parent);
-                leftRotate(n->parent);
+                leftRotate(n->parent()->parent());
+                leftRotate(n->parent());
             }
-            else if (n->parent->right == n && n->parent->parent->left == n->parent)
+            else if (n->parent()->right() == n && n->parent()->parent()->left() == n->parent())
             {
-                leftRotate(n->parent);
-                rightRotate(n->parent);
+                leftRotate(n->parent());
+                rightRotate(n->parent());
             }
             else
             {
-                rightRotate(n->parent);
-                leftRotate(n->parent);
+                rightRotate(n->parent());
+                leftRotate(n->parent());
             }
         }
 
         return n;
     }
 
-    void leftRotate(p_tree_type n) {
-        p_tree_type right = n->right;
+    void leftRotate(SPNodeType n) {
+        SPNodeType right = n->right();
         if (right)
         {
-            n->right = right->left;
-            if (right->left)
-                right->left->parent = n;
-            right->parent = n->parent;
+            n->right(right->left());
+            if (right->left())
+            {
+                right->left()->parent(n);
+            }
+            right->parent(n->parent());
         }
 
-        if (n->parent == nullptr)
+        if (n->parent() == nullptr)
         {
-            _root = right;
+            root_ = right;
         }
-        else if (n == n->parent->left)
+        else if (n == n->parent()->left())
         {
-            n->parent->left = right;
+            n->parent()->left(right);
         }
         else
         {
-            n->parent->right = right;
+            n->parent()->right(right);
         }
 
         if (right)
-            right->left = n;
-        n->parent = right;
+        {
+            right->left(n);
+        }
+        n->parent(right);
     }
 
-    void rightRotate(p_tree_type n) {
-        p_tree_type left = n->left;
+    void rightRotate(SPNodeType n) {
+        SPNodeType left = n->left();
         if (left)
         {
-            n->left = left->right;
-            if (left->right)
-                left->right->parent = n;
-            left->parent = n->parent;
+            n->left(left->right());
+            if (left->right())
+            {
+                left->right()->parent(n);
+            }
+            left->parent(n->parent());
         }
 
-        if (n->parent == nullptr)
+        if (n->parent() == nullptr)
         {
-            _root = left;
+            root_ = left;
         }
-        else if (n == n->parent->left)
+        else if (n == n->parent()->left())
         {
-            n->parent->left = left;
+            n->parent()->left(left);
         }
         else
         {
-            n->parent->right = left;
+            n->parent()->right(left);
         }
         if (left)
-            left->right = n;
-        n->parent = left;
+        {
+            left->right(n);
+        }
+        n->parent(left);
     }
 
-    void replace(p_tree_type old, p_tree_type new_) {
-        if (old->parent == nullptr)
+    void replace(SPNodeType old, SPNodeType new_) {
+        if (old->parent() == nullptr)
         {
-            _root = new_;
+            root_ = new_;
         }
-        else if (old == old->parent->left)
+        else if (old == old->parent()->left())
         {
-            old->parent->left = new_;
+            old->parent()->left(new_);
         }
         else
         {
-            old->parent->right = new_;
+            old->parent()->right(new_);
         }
         if (new_)
-            new_->parent = old->parent;
+        {
+            new_->parent(old->parent());
+        }
     }
 
-    p_tree_type get(const_reference value) {
-        p_tree_type n = _root;
+    SPNodeType get(ConstReference value) {
+        SPNodeType n = root_;
         while (n)
         {
-            if (_comp(n->value, value))
+            if (compare_(n->value(), value))
             {
-                n = n->right;
+                n = n->right();
             }
-            else if (_comp(value, n->value))
+            else if (compare_(value, n->value()))
             {
-                n = n->left;
+                n = n->left();
             }
             else
             {
@@ -366,10 +462,10 @@ private:
         return nullptr;
     }
 
-    size_type height(p_tree_type n) const {
+    SizeType height(SPNodeType n) const {
         if (n)
         {
-            return 1 + std::max(height(n->left), height(n->right));
+            return 1 + std::max(height(n->left()), height(n->right()));
         }
         else
         {
@@ -377,37 +473,41 @@ private:
         }
     }
 
-    p_tree_type minimum(p_tree_type n) const {
-        if (n)
-            while (n->left)
-                n = n->left;
-
-        return n;
-    }
-
-    p_tree_type maximum(p_tree_type n) const {
-        if (n)
-            while (n->right)
-                n = n->right;
-
-        return n;
-    }
-
-    void inorderTravel(std::ostream &output, p_tree_type n) const {
+    SPNodeType minimum(SPNodeType n) const {
         if (n)
         {
-            inorderTravel(output, n->left);
-            output << n->value << " ";
-            inorderTravel(output, n->right);
+            while (n->left())
+                n = n->left();
+        }
+
+        return n;
+    }
+
+    SPNodeType maximum(SPNodeType n) const {
+        if (n)
+        {
+            while (n->right())
+                n = n->right();
+        }
+
+        return n;
+    }
+
+    void inorderTravel(std::ostream &output, SPNodeType n) const {
+        if (n)
+        {
+            inorderTravel(output, n->left());
+            output << n->value() << " ";
+            inorderTravel(output, n->right());
         }
     }
 
-    void preorderTravel(std::ostream &output, p_tree_type n) const {
+    void preorderTravel(std::ostream &output, SPNodeType n) const {
         if (n)
         {
-            output << n->value << " ";
-            preorderTravel(output, n->left);
-            preorderTravel(output, n->right);
+            output << n->value() << " ";
+            preorderTravel(output, n->left());
+            preorderTravel(output, n->right());
         }
     }
 };
@@ -420,7 +520,7 @@ std::fstream input, ans;
 int main() {
     using namespace std;
 
-    std::shared_ptr<splay_tree<int> > st = std::make_shared<splay_tree<int> >();
+    std::shared_ptr<SplayTree<int>> st = std::make_shared<SplayTree<int>>();
 
     input.open("/sample.txt");
     ans.open("/output.txt", ios::out | ios::trunc);

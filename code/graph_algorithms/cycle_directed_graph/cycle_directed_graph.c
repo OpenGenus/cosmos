@@ -12,11 +12,14 @@
 #include <stdio.h>
 #include <stdint.h>
 
-typedef uint8_t DC_Color; /* Deep course colors */
+/* Deep course colors */
+typedef enum
+{
+  DC_WHITE, /* The exploration of the node didn't start yet */
+  DC_GREY, /* The node is in exploration */
+  DC_BLACK /* The exploration of the node has ended */
 
-#define DC_WHITE 0 /* The exploration of the node didn't start yet */
-#define DC_GREY 1 /* The node is in exploration */
-#define DC_BLACK 2 /* The exploration of the node has ended */
+} DC_Color;
 
 /*
  * Deep course subroutine of cycle directed detection.
@@ -27,7 +30,7 @@ typedef uint8_t DC_Color; /* Deep course colors */
  * @return 1 if we find a rear arc. 0 otherwise.
  */
 static int
-rearArcsDC(L_Graph* graph, size_t node_ID, DC_Color* dc_colors)
+rearArcsDC(L_Graph* graph, Node_ID node_ID, DC_Color* dc_colors)
 {
   dc_colors[node_ID] = DC_GREY;
 
@@ -68,7 +71,7 @@ cycleDirectedDetection(L_Graph* graph)
 {
   DC_Color* dc_colors = calloc(gLG_NbNodes(graph), sizeof(*dc_colors));
 
-  size_t i;
+  Node_ID i;
   for (i = 0; i < gLG_NbNodes(graph); ++i) {
     /* A sufficient condition for detecting a directed cycle is that a deep course
        finds a rear arc. */
