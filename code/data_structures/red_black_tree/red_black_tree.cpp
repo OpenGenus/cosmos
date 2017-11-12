@@ -120,7 +120,7 @@ private:
 
     SPNodeType &insert(SPNodeType &root, SPNodeType &pt);
 
-    SPNodeType &_find(_Type const &value);
+    SPNodeType _find(_Type const &value);
 
     void rotateLeft(SPNodeType const &);
 
@@ -332,7 +332,7 @@ RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::_find(_Type const &value)->SPNodeType &
+RBTree<_Type, _Compare>::_find(_Type const &value)->SPNodeType
 {
     auto pt = std::make_shared<NodeType>(value);
     std::stack<SPNodeType> st{};
