@@ -23,6 +23,7 @@ except NameError:  # for python 3.x
     user_input = input('Enter the number: ')
     pass
 
+
 print("\n----- Iterative Approach -----")
 new_str = replace_0_5_iterative(user_input)
 print("Modified number: " + new_str)
