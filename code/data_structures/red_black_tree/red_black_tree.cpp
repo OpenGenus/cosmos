@@ -16,27 +16,33 @@ public:
     BaseNode(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
         :value_(v), left_(l), right_(r) {}
 
-    ValueType value() {
+    ValueType value()
+    {
         return value_;
     }
 
-    void value(ValueType v) {
+    void value(ValueType v)
+    {
         value_ = v;
     }
 
-    SPNodeType &left() {
+    SPNodeType &left()
+    {
         return left_;
     }
 
-    void left(SPNodeType l) {
+    void left(SPNodeType l)
+    {
         left_ = l;
     }
 
-    SPNodeType &right() {
+    SPNodeType &right()
+    {
         return right_;
     }
 
-    void right(SPNodeType r) {
+    void right(SPNodeType r)
+    {
         right_ = r;
     }
 
@@ -63,19 +69,23 @@ public:
     RBNode(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr, SPNodeType p = nullptr)
         :BaseNode<_Type, RBNode<_Type>>(v, l, r), parent_(p), color_(Color::RED) {}
 
-    SPNodeType parent() {
+    SPNodeType parent()
+    {
         return parent_.lock();
     }
 
-    void parent(SPNodeType p) {
+    void parent(SPNodeType p)
+    {
         parent_ = p;
     }
 
-    Color color() {
+    Color color()
+    {
         return color_;
     }
 
-    void color(Color c) {
+    void color(Color c)
+    {
         color_ = c;
     }
 
@@ -84,7 +94,6 @@ private:
     Color color_;
 };
 
-// Class to represent Red-Black Tree
 template<typename _Type, typename _Compare = std::less<_Type>>
 class RBTree
 {
@@ -94,8 +103,8 @@ private:
     typedef typename RBNode<_Type>::Color Color;
 
 public:
-    // Constructor
-    RBTree() :root_(nullptr), sentinel_(std::make_shared<NodeType>(0)), compare_(_Compare()) {
+    RBTree() :root_(nullptr), sentinel_(std::make_shared<NodeType>(0)), compare_(_Compare())
+    {
         sentinel_->left(sentinel_);
         sentinel_->right(sentinel_);
         sentinel_->parent(sentinel_);
@@ -151,29 +160,25 @@ private:
     void deleteCase6(SPNodeType const &);
 };
 
-// Function to insert a new node with given value
 template<typename _Type, typename _Compare>
 void
 RBTree<_Type, _Compare>::insert(_Type const &value)
 {
     SPNodeType pt = std::make_shared<NodeType>(value, sentinel_, sentinel_);
 
-    // Do a normal BST insert
     root_ = insert(root_, pt);
 
-    // fix Red Black Tree violations
     fixViolation(pt);
 }
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::erase(_Type const &value) {
+RBTree<_Type, _Compare>::erase(_Type const &value)
+{
     SPNodeType delete_node = _find(value);
 
-    // found
     if (delete_node != sentinel_)
     {
-        // only root
         if (delete_node->left() == sentinel_)
         {
             deleteOneNode(delete_node);
@@ -191,7 +196,8 @@ RBTree<_Type, _Compare>::erase(_Type const &value) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteOneNode(SPNodeType &pt) {
+RBTree<_Type, _Compare>::deleteOneNode(SPNodeType &pt)
+{
     auto child = pt->left() != sentinel_ ? pt->left() : pt->right();
     if (pt->parent() == sentinel_)
     {
@@ -226,7 +232,8 @@ RBTree<_Type, _Compare>::deleteOneNode(SPNodeType &pt) {
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::find(_Type const &value)->SPNodeType const {
+RBTree<_Type, _Compare>::find(_Type const &value)->SPNodeType const
+{
     auto pt = _find(value);
 
     return pt != sentinel_ ? pt : nullptr;
@@ -234,7 +241,8 @@ RBTree<_Type, _Compare>::find(_Type const &value)->SPNodeType const {
 
 template<typename _Type, typename _Compare>
 std::string
-RBTree<_Type, _Compare>::preOrder() const {
+RBTree<_Type, _Compare>::preOrder() const
+{
     if (root_ == sentinel_)
     {
         return {};
@@ -266,7 +274,8 @@ RBTree<_Type, _Compare>::preOrder() const {
 
 template<typename _Type, typename _Compare>
 std::string
-RBTree<_Type, _Compare>::inOrder() const {
+RBTree<_Type, _Compare>::inOrder() const
+{
     if (root_ == sentinel_)
     {
         return {};
@@ -299,7 +308,7 @@ template<typename _Type, typename _Compare>
 auto
 RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
 {
-    /* If the tree is empty, return a new node */
+    // If the tree is empty, return a new node
     if (root == sentinel_)
     {
         pt->parent(root->parent());
@@ -307,7 +316,7 @@ RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
         return pt;
     }
 
-    /* Otherwise, recur down the tree */
+    // Otherwise, recur down the tree
     if (compare_(pt->value(), root->value()))
     {
         root->left(insert(root->left(), pt));
@@ -326,7 +335,7 @@ RBTree<_Type, _Compare>::insert(SPNodeType &root, SPNodeType &pt)->SPNodeType &
         pt->color(root->color());
     }
 
-    /* return the (unchanged) node pointer */
+    // return the (unchanged) node pointer
     return root;
 }
 
@@ -439,7 +448,8 @@ RBTree<_Type, _Compare>::rotateRight(SPNodeType const &pt)
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::successor(SPNodeType const &pt)->SPNodeType {
+RBTree<_Type, _Compare>::successor(SPNodeType const &pt)->SPNodeType
+{
     auto child = sentinel_;
     if (pt->left() != sentinel_)
     {
@@ -457,7 +467,6 @@ RBTree<_Type, _Compare>::successor(SPNodeType const &pt)->SPNodeType {
     return child;
 }
 
-// This function fixes violations caused by BST insertion
 template<typename _Type, typename _Compare>
 void
 RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
@@ -470,15 +479,19 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
         parent_pt = pt->parent();
         grand_parent_pt = pt->parent()->parent();
 
-        /*  Case : A
-         Parent of pt is left child of Grand-parent of pt */
+        /*
+         Case : A
+         Parent of pt is left child of Grand-parent of pt
+         */
         if (parent_pt == grand_parent_pt->left())
         {
             auto uncle_pt = grand_parent_pt->right();
 
-            /* Case : 1
+            /*
+             Case : 1
              The uncle of pt is also red
-             Only Recoloring required */
+             Only Recoloring required
+             */
             if (uncle_pt->color() == Color::RED)
             {
                 grand_parent_pt->color(Color::RED);
@@ -488,9 +501,11 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
             }
             else
             {
-                /* Case : 2
+                /*
+                 Case : 2
                  pt is right child of its parent
-                 Left-rotation required */
+                 Left-rotation required
+                 */
                 if (pt == parent_pt->right())
                 {
                     rotateLeft(parent_pt);
@@ -498,9 +513,11 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
                     parent_pt = pt->parent();
                 }
 
-                /* Case : 3
+                /*
+                 Case : 3
                  pt is left child of its parent
-                 Right-rotation required */
+                 Right-rotation required
+                 */
                 rotateRight(grand_parent_pt);
                 auto temp = parent_pt->color();
                 parent_pt->color(grand_parent_pt->color());
@@ -508,15 +525,19 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
                 pt = parent_pt;
             }
         }
-        /* Case : B
-         Parent of pt is right child of Grand-parent of pt */
+        /*
+         Case : B
+         Parent of pt is right child of Grand-parent of pt
+         */
         else
         {
             auto uncle_pt = grand_parent_pt->left();
 
-            /*  Case : 1
+            /*
+             Case : 1
              The uncle of pt is also red
-             Only Recoloring required */
+             Only Recoloring required
+             */
             if (uncle_pt->color() == Color::RED)
             {
                 grand_parent_pt->color(Color::RED);
@@ -526,9 +547,11 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
             }
             else
             {
-                /* Case : 2
+                /*
+                 Case : 2
                  pt is left child of its parent
-                 Right-rotation required */
+                 Right-rotation required
+                 */
                 if (pt == parent_pt->left())
                 {
                     rotateRight(parent_pt);
@@ -536,9 +559,11 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
                     parent_pt = pt->parent();
                 }
 
-                /* Case : 3
+                /*
+                 Case : 3
                  pt is right child of its parent
-                 Left-rotation required */
+                 Left-rotation required
+                 */
                 rotateLeft(grand_parent_pt);
                 auto temp = parent_pt->color();
                 parent_pt->color(grand_parent_pt->color());
@@ -553,25 +578,29 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
 
 template<typename _Type, typename _Compare>
 auto
-RBTree<_Type, _Compare>::sibling(SPNodeType const &n)->SPNodeType & {
+RBTree<_Type, _Compare>::sibling(SPNodeType const &n)->SPNodeType &
+{
     return n->parent()->left() != n ? n->parent()->left() : n->parent()->right();
 }
 
 template<typename _Type, typename _Compare>
 bool
-RBTree<_Type, _Compare>::isLeftChild(SPNodeType const &n) {
+RBTree<_Type, _Compare>::isLeftChild(SPNodeType const &n)
+{
     return n == n->parent()->left();
 }
 
 template<typename _Type, typename _Compare>
 bool
-RBTree<_Type, _Compare>::isRightChild(SPNodeType const &n) {
+RBTree<_Type, _Compare>::isRightChild(SPNodeType const &n)
+{
     return n == n->parent()->right();
 }
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase1(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase1(SPNodeType const &n)
+{
     if (n->parent() != sentinel_)
     {
         deleteCase2(n);
@@ -580,7 +609,8 @@ RBTree<_Type, _Compare>::deleteCase1(SPNodeType const &n) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase2(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase2(SPNodeType const &n)
+{
     auto s = sibling(n);
     if (s->color() == Color::RED)
     {
@@ -600,7 +630,8 @@ RBTree<_Type, _Compare>::deleteCase2(SPNodeType const &n) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase3(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase3(SPNodeType const &n)
+{
     auto s = sibling(n);
     if (n->parent()->color() == Color::BLACK
         && s->color() == Color::BLACK
@@ -618,7 +649,8 @@ RBTree<_Type, _Compare>::deleteCase3(SPNodeType const &n) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase4(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase4(SPNodeType const &n)
+{
     auto s = sibling(n);
     if (n->parent()->color() == Color::RED
         && s->color() == Color::BLACK
@@ -636,7 +668,8 @@ RBTree<_Type, _Compare>::deleteCase4(SPNodeType const &n) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase5(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase5(SPNodeType const &n)
+{
     auto s = sibling(n);
     if (s->color() == Color::BLACK)
     {
@@ -662,7 +695,8 @@ RBTree<_Type, _Compare>::deleteCase5(SPNodeType const &n) {
 
 template<typename _Type, typename _Compare>
 void
-RBTree<_Type, _Compare>::deleteCase6(SPNodeType const &n) {
+RBTree<_Type, _Compare>::deleteCase6(SPNodeType const &n)
+{
     auto s = sibling(n);
     s->color(n->parent()->color());
     n->parent()->color(Color::BLACK);
