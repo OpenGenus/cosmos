@@ -17,7 +17,7 @@ struct HashTable<K, V> {
 impl<K, V> HashTable<K, V>
 where
     K: Hash + PartialEq + fmt::Display,
-    V: Hash + PartialEq + fmt::Display,
+    V: fmt::Display,
 {
     fn new(index: u64) -> Self {
         let mut empty_vec = Vec::new();
