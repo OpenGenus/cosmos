@@ -10,18 +10,17 @@ namespace password_strength_check
     {
         static bool chk_strength(string password)
         {
-            bool special_char = password.Any(ch => !char.IsLetterOrDigit(ch));
-            bool digit = password.Any(char.IsDigit);
-            bool uppercase = password.Any(char.IsUpper);
-            
-            if (password.Length < 8)
-                return false;
+            // first validating Length
+            // then validating special characters
+            // then validating digits
+            // and then it string has any upper case letter
 
-            if (!special_char || !digit || !uppercase)
+            if (password.Length < 8 || !password.Any(ch => !char.IsLetterOrDigit(ch)) || !password.Any(char.IsDigit) || !password.Any(char.IsUpper))
                 return false;
 
             return true;
         }
+
         static void Main(string[] args)
         {
             string passwd = "Gurk!rat1337";
