@@ -65,8 +65,7 @@ testTrueRecursive()
     se[3] = 3;
     assert((isPalindromeRecursive<map<int, int>::iterator,
                                   MapValueEqual,
-                                  GreaterEqual<map<int, int>>>(se.begin(),
-    se.end())));
+                                  GreaterEqual<map<int, int>>>(se.begin(), se.end())));
 }
 
 void
@@ -146,10 +145,12 @@ testTrueIterative()
 
     map<int, int> se;
     se[1] = 1; se[2] = 2; se[4] = 2; se[5] = 1;
-    assert((isPalindrome<map<int, int>::iterator, MapValueEqual,
+    assert((isPalindrome<map<int, int>::iterator,
+                         MapValueEqual,
                          GreaterEqual<map<int, int>>>(se.begin(), se.end())));
     se[3] = 3;
-    assert((isPalindrome<map<int, int>::iterator, MapValueEqual,
+    assert((isPalindrome<map<int, int>::iterator,
+                         MapValueEqual,
                          GreaterEqual<map<int, int>>>(se.begin(), se.end())));
 }
 
@@ -187,10 +188,12 @@ testFalseIterative()
 
     map<int, int> se;
     se[1] = 1; se[2] = 2; se[4] = 3; se[5] = 1;
-    assert(!(isPalindrome<map<int, int>::iterator, MapValueEqual,
+    assert(!(isPalindrome<map<int, int>::iterator,
+                          MapValueEqual,
                           GreaterEqual<map<int, int>>>(se.begin(), se.end())));
     se[3] = 3;
-    assert(!(isPalindrome<map<int, int>::iterator, MapValueEqual,
+    assert(!(isPalindrome<map<int, int>::iterator,
+                          MapValueEqual,
                           GreaterEqual<map<int, int>>>(se.begin(), se.end())));
 }
 
@@ -204,5 +207,4 @@ main()
 
     return 0;
 }
-
 // */

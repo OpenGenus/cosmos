@@ -13,9 +13,7 @@ isPalindromeRecursive(_InputIter begin, _InputIter end)
     if (_IterLess()(begin, end))
     {
         if (_ValueNotEqualTo()(*begin, *end))
-        {
             return false;
-        }
 
         return isPalindromeRecursive<_InputIter, _ValueNotEqualTo, _IterLess>(++begin, end);
     }
@@ -31,9 +29,7 @@ isPalindromeRecursive(_POD *begin, _POD *end)
     if (begin < end)
     {
         if (*begin != *end)
-        {
             return false;
-        }
 
         return isPalindromeRecursive<_POD>(++begin, end);
     }
@@ -49,10 +45,11 @@ isPalindromeIterative(_InputIter begin, _InputIter end)
 {
     --end;
     while (_IterLess()(begin, end))
+    {
         if (_ValueNotEqualTo()(*begin++, *end--))
-        {
             return false;
-        }
+    }
+
 
     return true;
 }
@@ -63,10 +60,10 @@ isPalindromeIterative(_POD *begin, _POD *end)
 {
     --end;
     while (begin < end)
+    {
         if (*begin++ != *end--)
-        {
             return false;
-        }
+    }
 
     return true;
 }
