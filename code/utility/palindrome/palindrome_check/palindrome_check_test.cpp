@@ -3,9 +3,9 @@
 #include <vector>
 #include <map>
 #include <cassert>
-#include "palindrom_check.cpp"
+#include "palindrome_check.cpp"
 using namespace std;
-using namespace palindrom_check;
+using namespace palindrome_check;
 
 // for test
 struct MapValueEqual

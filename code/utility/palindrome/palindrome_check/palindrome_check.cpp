@@ -2,7 +2,7 @@
 #include <type_traits>
 #include <functional>
 
-namespace palindrom_check{
+namespace palindrome_check{
 template<typename _InputIter,
          typename _ValueNotEqualTo = std::not_equal_to<typename _InputIter::value_type>,
          typename _IterLess = std::less<_InputIter>>
