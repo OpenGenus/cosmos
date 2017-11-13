@@ -1,8 +1,8 @@
 Catch2
 ===
-Assume you have the foo function in sample.cpp and want to test it, then you shold create test-sample.cpp and include sample.cpp, but DON'T re-define CATCH\_CONFIX\_MAIN.
+Assuming you have the foo function in sample.cpp and want to test it, you should create test-sample.cpp and include sample.cpp, but DON'T re-define CATCH\_CONFIX\_MAIN.
 
-Since Catch2 is a large file and it is no often change, we shold pre-compile it to save time.
+Since Catch2 is a large file and is not often changed, we should pre-compile it to save time.
 
 Sample
 ===
