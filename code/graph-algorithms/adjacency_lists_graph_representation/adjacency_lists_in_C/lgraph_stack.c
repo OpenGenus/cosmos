@@ -3,7 +3,7 @@
  * Author : ABDOUS Kamel
  */
 
-#include "../include/lgraph_stack.h"
+#include "lgraph_stack.h"
 
 /*
  * Creates a stack of size n.
