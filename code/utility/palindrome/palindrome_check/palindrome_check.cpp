@@ -26,7 +26,7 @@ bool
 isPalindromeRecursive(_POD *begin, _POD *end)
 {
     --end;
-    if (begin < end)
+    if (begin != end && begin < end)
     {
         if (*begin != *end)
             return false;
@@ -59,7 +59,7 @@ bool
 isPalindromeIterative(_POD *begin, _POD *end)
 {
     --end;
-    while (begin < end)
+    while (begin != end && begin < end)
     {
         if (*begin++ != *end--)
             return false;

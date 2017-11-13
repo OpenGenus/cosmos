@@ -28,6 +28,9 @@ struct GreaterEqual
 void
 testTrueRecursive()
 {
+    string sz = "";
+    assert(isPalindromeRecursive(sz.begin(), sz.end()));
+
     string s = "1221";
     assert(isPalindromeRecursive(s.begin(), s.end()));
     string s2 = "12321";
@@ -37,6 +40,9 @@ testTrueRecursive()
     assert(isPalindromeRecursive(v.begin(), v.end()));
     vector<int> v2 = {1, 2, 3, 2, 1};
     assert(isPalindromeRecursive(v2.begin(), v2.end()));
+
+    int *ivz = nullptr;
+    assert(isPalindromeRecursive(ivz, ivz));
 
     int *iv = new int(4);
     *iv = 1;
@@ -51,6 +57,9 @@ testTrueRecursive()
     *(iv2 + 3) = 2;
     *(iv2 + 4) = 1;
     assert(isPalindromeRecursive(iv2, iv2 + 5));
+
+    int ivaz[0];
+    assert(isPalindromeRecursive(ivaz, ivaz));
 
     int iva[4] = {1, 2, 2, 1};
     assert(isPalindromeRecursive(iva, iva + 4));
@@ -114,6 +123,9 @@ testFalseRecursive()
 void
 testTrueIterative()
 {
+    string sz = "";
+    assert(isPalindrome(sz.begin(), sz.end()));
+
     string s = "1221";
     assert(isPalindrome(s.begin(), s.end()));
     string s2 = "12321";
@@ -123,6 +135,9 @@ testTrueIterative()
     assert(isPalindrome(v.begin(), v.end()));
     vector<int> v2 = {1, 2, 3, 2, 1};
     assert(isPalindrome(v2.begin(), v2.end()));
+
+    int *ivz = nullptr;
+    assert(isPalindrome(ivz, ivz));
 
     int *iv = new int(4);
     *iv = 1;
@@ -137,6 +152,9 @@ testTrueIterative()
     *(iv2 + 3) = 2;
     *(iv2 + 4) = 1;
     assert(isPalindrome(iv2, iv2 + 5));
+
+    int ivaz[0];
+    assert(isPalindrome(ivaz, ivaz));
 
     int iva[4] = {1, 2, 2, 1};
     assert(isPalindrome(iva, iva + 4));
