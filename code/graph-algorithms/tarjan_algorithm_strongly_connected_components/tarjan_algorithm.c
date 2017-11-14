@@ -90,7 +90,7 @@ tarjanAlgoDC(L_Graph* graph, Node_ID node_ID, DC_Color* dc_colors, size_t* sConn
 /*
  * For each node of the graph, stores in sConnectedComps the ID of its strongly connected
  * component.
- * This algorithm is the Tarjan Algorithm & executes in thêta(S + A);
+ * This algorithm is the Tarjan Algorithm & executes in theta(S + A);
  *
  * @graph The directed graph.
  * @sConnectedComps An array of at least |S| elements.
@@ -122,13 +122,13 @@ tarjanAlgoConnectivity(L_Graph* graph, size_t* sConnectedComps)
   return (curComp);
 }
 
-#define S 5
+#define NB_NODES 5
 
 int
 main()
 {
   L_Graph g;
-  createLGraph(S, &g);
+  createLGraph(NB_NODES, &g);
 
   LGraph_addDEdge(&g, 1, 3);
   LGraph_addDEdge(&g, 2, 1);
@@ -137,12 +137,12 @@ main()
   LGraph_addDEdge(&g, 0, 3);
   LGraph_addDEdge(&g, 1, 0);
 
-  size_t s[S];
+  size_t s[NB_NODES];
 
   printf("%d\n\n", tarjanAlgoConnectivity(&g, s));
 
   Node_ID i;
-  for (i = 0; i < S; ++i)
+  for (i = 0; i < NB_NODES; ++i)
     printf("%d\n", s[i]);
 
   freeLGraph(&g);
