@@ -104,5 +104,5 @@ LG_StackPeek(LG_Stack* stack)
   if (LG_StackEmpty(stack))
     return (0);
 
-  return stack->nodes[stack->head];
+  return (stack->nodes[stack->head]);
 }
