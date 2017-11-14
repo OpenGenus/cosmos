@@ -1,4 +1,5 @@
 # Part of Cosmos by OpenGenus Foundation
+
 from __future__ import print_function
 
 def replace_0_5_iterative(user_input):
@@ -31,3 +32,4 @@ print("Modified number: " + new_str)
 print("\n----- Python Replace Approach -----")
 new_str = replace_0_5_pythonic(user_input)
 print("Modified number: " + new_str)
+
