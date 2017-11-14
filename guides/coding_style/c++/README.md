@@ -1,7 +1,6 @@
 # Cosmos Guides
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
-
 # C++ Style Guide
 
 Code width and alignment
@@ -175,7 +174,7 @@ constexpr int constantName;
 
 Braces
 ===
-When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless between `do` and `while` on do-while statements).
+When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless 1. between `do` and `while` on do-while statements, 2. dangling else).
 
 **Valid:**
 ```C++
@@ -186,26 +185,23 @@ int main()
         statement;
         statement;
     }
-    else if (condition)
-    {
-        statement;
-        statement;
-    }
     else
         statement;
 
-    while (condition)
+    if (condition)
     {
-        statement;
-        statement;
+        if (condition)
+            statement;
+        else
+            statement;
     }
 
     for (;condition;)
-       statement
+       statement;
 
     do
     {
-        statement
+        statement;
     } while (condition);
 }
 ```
