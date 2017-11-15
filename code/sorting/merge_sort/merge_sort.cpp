@@ -1,7 +1,7 @@
 /*
  Part of Cosmos by OpenGenus Foundation
 
- quick sort synopsis
+ merge sort synopsis
 
 template<typename _Random_Acccess_Iter>
 _Random_Acccess_Iter
