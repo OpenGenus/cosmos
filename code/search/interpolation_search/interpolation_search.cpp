@@ -46,9 +46,9 @@ interpolationSearch(_Random_Access_Iter begin,
         {
             // Now we will enquire the position keeping in mind the uniform distribution in mind
             auto pos = begin;
-            if (*end - *begin)
+            if (compare(*begin, *end))
             {
-                auto len = (ptrdiff_t)std::distance(begin, end) * (find - *begin) / (*end - *begin);
+                auto len = std::distance(begin, end) * (find - *begin) / (*end - *begin);
                 std::advance(pos, len);
             }
 
