@@ -1,4 +1,4 @@
-// This program is for coin change problem of dynamic programming in C language.
+// dynamic programming | coin change | C
 // Part of Cosmos by OpenGenus Foundation
 
 #include<stdio.h>

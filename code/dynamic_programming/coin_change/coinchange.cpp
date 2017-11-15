@@ -1,10 +1,10 @@
+// dynamic programming | coin change | C++
+// Part of Cosmos by OpenGenus Foundation
+
 #include<iostream>
 #include<vector>
 using namespace std;
 
-/*
- * Part of Cosmos by OpenGenus Foundation
-*/
 const int MAX=100;
 
 int coinWays(int amt,vector<int>& coins){

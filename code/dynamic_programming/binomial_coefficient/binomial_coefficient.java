@@ -1,6 +1,5 @@
+// dynamic programming | binomial coefficient | Java
 // Part of Cosmos by OpenGenus Foundation
-
-// Binomial coefficient using dynamic programming
 
 import java.io.*;
 import java.lang.*;

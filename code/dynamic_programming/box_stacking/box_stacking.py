@@ -1,7 +1,7 @@
 '''
+dynamic programming | box stacking | Python
 Part of Cosmos by OpenGenus Foundation
 '''
-
 
 from collections import namedtuple
 from itertools import permutations

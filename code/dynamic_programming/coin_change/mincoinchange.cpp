@@ -1,7 +1,8 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | coin change | C++
+// Part of Cosmos by OpenGenus Foundation
 
-// A C++ program tofind the minimum number of coins required from the list of given coins to make a given value
-//Given a value V, if we want to make change for V cents, and we have infinite supply of each of C = { C1, C2, .. , Cm} 
+// A C++ program to find the minimum number of coins required from the list of given coins to make a given value
+// Given a value V, if we want to make change for V cents, and we have infinite supply of each of C = { C1, C2, .. , Cm} 
 // valued coins, what is the minimum number of coins to make the change?
 #include<iostream>
 using namespace std;

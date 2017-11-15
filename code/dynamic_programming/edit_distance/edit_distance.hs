@@ -1,8 +1,9 @@
-module EditDistance where
-import Data.Array
-
+--- dynamic programming | edit distance | Haskell
 --- Part of Cosmos by OpenGenus
 --- Adapted from http://jelv.is/blog/Lazy-Dynamic-Programming/ 
+
+module EditDistance where
+import Data.Array
 
 editDistance :: String -> String -> Int
 editDistance a b = d m n

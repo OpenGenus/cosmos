@@ -1,4 +1,7 @@
-/* Part of Cosmos by OpenGenus Foundation */
+/*
+ * dynamic programming | edit distance | C
+ * Part of Cosmos by OpenGenus Foundation
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

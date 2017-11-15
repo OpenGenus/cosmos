@@ -1,20 +1,16 @@
 def bogosort(arr)
-  arr.shuffle! while !in_order?(arr)
+  arr.shuffle! until in_order?(arr)
   arr
 end
 
 def in_order?(arr)
-  if arr.empty?
-      return true
-  end
+  return true if arr.empty?
   last = arr[0]
-  arr[1...arr.length].each do | x |
-    if x < last
-      return false
-    end
+  arr[1...arr.length].each do |x|
+    return false if x < last
     last = x
   end
-  return true
+  true
 end
 
 p bogosort([3, 2, 1])

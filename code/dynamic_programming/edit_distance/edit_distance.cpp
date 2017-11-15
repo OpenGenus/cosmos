@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// dynamic programming | edit distance | C++
+// Part of Cosmos by OpenGenus Foundation
 
 #include <iostream>
 
