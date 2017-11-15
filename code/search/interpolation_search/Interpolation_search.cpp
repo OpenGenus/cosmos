@@ -1,63 +1,76 @@
-#include<iostream>
-#include<algorithm>
-using namespace std;
+/*
+ Part of Cosmos by OpenGenus Foundation
 
-// If x is present in arr[0..n-1], then returns
-// index of it, else returns -1.
+ interpolation search synopsis
 
-long long int interpolation_search(int arr[],int n,int x)
+ warning: in order to follow the convention of STL, the interface is [begin, end) !!!
+
+ // [begin, end)
+template<typename _Random_Access_Iter,
+         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+interpolation_search(_Random_Access_Iter begin,
+                     _Random_Access_Iter end,
+                     _Type const &find,
+                     _Compare compare);
+
+// [begin, end)
+template<typename _Random_Access_Iter,
+         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+interpolation_search(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
+ */
+
+#include <algorithm>
+
+// [begin, end)
+template<typename _Random_Access_Iter,
+         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+interpolation_search(_Random_Access_Iter begin,
+                     _Random_Access_Iter end,
+                     _Type const &find,
+                     _Compare compare)
 {
-	int low=0,high=n-1;
+    auto not_found = end;
 
-	//Beacuse the array is sorted, element has to be present in range
-	//made by corner i.e low and high
+    if (begin != end)
+    {
+        --end;
 
-	while ((low<=high) and (x>=arr[low]) and (x<=arr[high]))
-	{
-		// Now we will enquire the position keeping in mind the uniform distribution in mind
-		int pos=low+(((double)(high-low)/(arr[high]-arr[low]))*(x-arr[low]));
+        // TODO: replace '<=' with '!=' or else to be more useful,
+        // (e.g., allow input iterator can be passed)
+        while (begin <= end)
+        {
+            // Now we will enquire the position keeping in mind the uniform distribution in mind
+            auto pos = begin;
+            if (*end - *begin)
+            {
+                auto len = (ptrdiff_t)std::distance(begin, end) * (find - *begin) / (*end - *begin);
+                std::advance(pos, len);
+            }
 
-        // If x is larger, x is in upper part
-        if (arr[pos]<x)
-            low=pos+1;
+            if (pos < begin || pos > end)
+                break;
+            else if (compare(*pos, find))
+                begin = ++pos;
+            else if (compare(find, *pos))
+                end = --pos;
+            else
+                return pos;
+        }
+    }
 
-        // If x is smaller, x is in lower part
-        else if(arr[pos]>x)
-            high=pos-1;
-
-        // Target found
-        else
-            return pos;
-	}
-	return -1;
+    return not_found;
 }
 
-int main()
+// [begin, end)
+template<typename _Random_Access_Iter,
+         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+interpolation_search(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find)
 {
-	int n;
-	cout<<"Please enter the number of elements in array\n";
-	cin>>n;
-	int arr[n];
-
-	cout<<"Please enter "<<n<<" numbers for arrays\n";
-	for(int i=0;i<n;i++)
-	{
-		cin>>arr[i];
-	}
-
-	// For Interpolation search we need to sort the array
-	sort(arr,arr+n);
-
-	cout<<"Enter the number you want to search\n";
-	int x;// Target number
-	cin>>x;
-
-	 int index=interpolation_search(arr, n, x);
-
-    // If element was found
-    if (index != -1)
-        cout<<"Element found at index "<<index<<" in sorted array\n";
-    else
-        cout<<"Element not found.\n";
-    return 0;
+    return interpolation_search(begin, end, find, std::less<_Type>());
 }
