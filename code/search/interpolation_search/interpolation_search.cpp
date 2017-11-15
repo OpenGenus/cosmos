@@ -22,7 +22,7 @@ _Random_Access_Iter
 interpolationSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
  */
 
-#include <algorithm>
+#include <functional>
 
 // [begin, end)
 template<typename _Random_Access_Iter,
