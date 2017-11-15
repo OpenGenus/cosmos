@@ -1,3 +1,4 @@
+
 # Rabin Karp Algorithm in python using hash values
 # d is the number of characters in input alphabet
 d = 2560
@@ -8,6 +9,7 @@ def search(pat, txt, q):
     N = len(txt)
     i = 0
     j = 0
+
     p = 0
     t = 0
     h = 1
@@ -38,5 +40,6 @@ def search(pat, txt, q):
 # Driver program to test the above function
 txt = "ALL WORLDS IS A STAGE AND ALL OF US ARE A PART OF THE PLAY"
 pat = "ALL"
+
 q = 101  # A prime number
 search(pat, txt, q)
