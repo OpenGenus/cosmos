@@ -34,7 +34,7 @@ interpolationSearch(_Random_Access_Iter begin,
                      _Type const &find,
                      _Compare compare)
 {
-    auto not_found = end;
+    auto notFound = end;
 
     if (begin != end)
     {
@@ -63,7 +63,7 @@ interpolationSearch(_Random_Access_Iter begin,
         }
     }
 
-    return not_found;
+    return notFound;
 }
 
 // [begin, end)
