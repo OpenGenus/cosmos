@@ -10,7 +10,7 @@ template<typename _Random_Access_Iter,
          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Compare>
 _Random_Access_Iter
-interpolation_search(_Random_Access_Iter begin,
+interpolationSearch(_Random_Access_Iter begin,
                      _Random_Access_Iter end,
                      _Type const &find,
                      _Compare compare);
@@ -19,7 +19,7 @@ interpolation_search(_Random_Access_Iter begin,
 template<typename _Random_Access_Iter,
          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
 _Random_Access_Iter
-interpolation_search(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
+interpolationSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
  */
 
 #include <algorithm>
@@ -29,7 +29,7 @@ template<typename _Random_Access_Iter,
          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Compare>
 _Random_Access_Iter
-interpolation_search(_Random_Access_Iter begin,
+interpolationSearch(_Random_Access_Iter begin,
                      _Random_Access_Iter end,
                      _Type const &find,
                      _Compare compare)
@@ -70,7 +70,7 @@ interpolation_search(_Random_Access_Iter begin,
 template<typename _Random_Access_Iter,
          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
 _Random_Access_Iter
-interpolation_search(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find)
+interpolationSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find)
 {
-    return interpolation_search(begin, end, find, std::less<_Type>());
+    return interpolationSearch(begin, end, find, std::less<_Type>());
 }
