@@ -2,8 +2,9 @@
 
 # A Bloom filter implementation in python
 
+
 class bloomFilter:
-    def __init__(self, size = 1000, hashFunctions = None):
+    def __init__(self, size=1000, hashFunctions=None):
         """ Construct a bloom filter with size bits(default: 1000) and the associated hashFunctions.
             Default hash function is i.e. hash(e)%size.
         """
@@ -11,11 +12,11 @@ class bloomFilter:
         self.M = size
         if hashFunctions is None:
             self.k = 1
-            self.hashFunctions = [lambda e, size : hash(e) % size]
+            self.hashFunctions = [lambda e, size: hash(e) % size]
         else:
             self.k = len(hashFunctions)
             self.hashFunctions = hashFunctions
-        
+
     def add(self, value):
         """ Insert value in bloom filter"""
         for hf in self.hashFunctions:
@@ -31,6 +32,7 @@ class bloomFilter:
                 return False
         return True
 
+
 # Example of usage
 bf = bloomFilter()
 
@@ -43,4 +45,3 @@ if "Francis" in bf:
 
 if "Zoe" not in bf:
     print("Zoe is not in BloomFilter :(")
-    
