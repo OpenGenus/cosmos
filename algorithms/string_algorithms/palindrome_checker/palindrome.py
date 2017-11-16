@@ -7,7 +7,6 @@ def isPalindromeRecursive(string):
         return False
     return isPalindromeRecursive(string[1:len(string) - 1])
 
-
 def isPalindromeReverse(string):
     return string == string[::-1]
 
