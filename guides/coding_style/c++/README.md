@@ -25,8 +25,8 @@
 - [Functions](#functions)
 - [Classes](#classes)
 - [Enumerations](#enumerations)
-- [Alias](#alias)
-- [Indentation](#indentation)
+- [Aliases](#aliases)
+- [Indentations](#indentations)
 
 ## Code width and alignment
 - Try to limit code width to 100 characters.
@@ -350,7 +350,7 @@ When dealing with enumerations, use `enum class`, not `enum` (Unless dealing wit
 
 Warning: if you dealing with low-level operation, and need use explicit type convertion, you must be careful about underlying type (default is the `int` it at least 2-bytes).
 
-## Alias
+## Aliases
 ### using vs typedef
 When dealing with aliases, use `using`, not `typedef`.
 
@@ -362,7 +362,7 @@ Don't put alias in `public`, unless the aliases is guaranteed to always be the s
 
 - [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
 
-## Indentation
+## Indentations
 Use only spaces, and indent 4 spaces at a time.
 
 We use spaces for indentation. Do not use tabs in our code.
