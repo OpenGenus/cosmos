@@ -26,6 +26,7 @@
 - [Classes](#classes)
 - [Enumerations](#enumerations)
 - [Alias](#alias)
+- [Indentation](#indentation)
 
 ## Code width and alignment
 - Try to limit code width to 100 characters.
@@ -361,7 +362,7 @@ Don't put alias in `public`, unless the aliases is guaranteed to always be the s
 
 - [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
 
-## Space vs. Tabs
+## Indentation
 Use only spaces, and indent 4 spaces at a time.
 
 We use spaces for indentation. Do not use tabs in our code.
