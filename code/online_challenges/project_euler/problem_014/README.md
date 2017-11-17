@@ -5,7 +5,7 @@
 The following iterative sequence is defined for the set of positive integers:
 
 _n_ → _n_/2 (_n_ is even)
-_n_ → 3_n_ + 1 (_n_ is odd)
+_n_ → 3 _n_ + 1 (_n_ is odd)
 
 Using the rule above and starting with 13, we generate the following sequence:
 
