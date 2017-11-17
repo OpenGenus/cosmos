@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 // Part of Cosmos by OpenGenus Foundation
+// Initial code by GelaniNijraj
+// Debug by adeen-s
 int find_max(int* number, int length){
 	int i, max = number[0];
 	for(i = 0; i < length; i++)
@@ -11,13 +13,13 @@ int find_max(int* number, int length){
 int* sort(int* number, int length){
 	int i, j;
 	int k = 0, n = 1, max, lsd;
-	int** temp = malloc(sizeof(int) * length);
+	int** temp = (int **)malloc(sizeof(int) * length);
 	int* order;
 
 	max = find_max(number, length);
 	for(i = 0; i < length; i++)
-		temp[i] = calloc(length, sizeof(int));
-	order = calloc(length, sizeof(int));
+		temp[i] = (int *)calloc(length, sizeof(int));
+	order = (int *)calloc(length, sizeof(int));
 	while(n <= max){
 		for(i = 0; i < length; i++){
 			lsd = (number[i] / n) % 10;

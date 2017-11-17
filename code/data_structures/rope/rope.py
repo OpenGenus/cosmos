@@ -14,16 +14,16 @@ class node:
             return len(self.data)
         tmp = self.weight
         if self.right:
-            return tmp+self.right.size()
+            return tmp + self.right.size()
 
     def addChild(self, side, node):
         node.parent = self
         nodeSize = node.size()
 
-        if side=="left":
+        if side == "left":
             self.left = node
             self.weight = nodeSize
-        elif side=="right":
+        elif side == "right":
             self.right = node
 
         tmp = self
@@ -34,11 +34,11 @@ class node:
 
     def removeChild(self, side):
         result = None
-        if side=="left":
+        if side == "left":
             result = self.left
             self.left = None
             self.weight = 0
-        elif side=="right":
+        elif side == "right":
             result = self.right
             self.right = None
         nodeSize = result.size()
@@ -49,6 +49,7 @@ class node:
             tmp = tmp.parent
         return result
 
+
 class Rope:
     def __init__(self, text=None):
         if text:
@@ -58,7 +59,7 @@ class Rope:
 
     def Index(self, ind, node=self.head):
         if node.weight <= ind:
-            return self.Index(ind-node.weight, node.right)
+            return self.Index(ind - node.weight, node.right)
         elif node.left:
             return self.Index(ind, node.left)
         else:
@@ -77,7 +78,7 @@ class Rope:
         #Lookup the node with the index
         while True:
             if tmp.weight <= ind and tmp.right:
-                ind = ind-tmp.weight
+                ind = ind - tmp.weight
                 tmp = tmp.right
             elif tmp.left:
                 tmp = tmp.left
@@ -121,7 +122,7 @@ class Rope:
         while len(splitOff) > 0:
             rightRope.insert(0, splitOff.pop(0))
         return rightRope
-        
+
     def insert(self, ind, rope):
         rightSide = self.split(ind)
         self.concat(rope)
@@ -131,5 +132,6 @@ class Rope:
         rightSide = self.split(ind_right)
         self.split(ind_left)
         self.concat(rightSide)
+
 
 ROPE = Rope()
