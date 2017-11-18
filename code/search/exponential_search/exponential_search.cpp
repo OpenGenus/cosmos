@@ -80,15 +80,10 @@ exponentialSearchImpl(_Random_Access_Iter begin,
     if (begin != end)
     {
         if (!comp(*begin, find))
-        {
-            if (!comp(find, *begin))
-                return begin;
-            else
-                return end;
-        }
+            return (!comp(find, *begin)) ? begin : end;
 
         auto blockBegin = begin;
-        size_t offset = 1;
+        auto offset = 1;
         while (blockBegin < end && comp(*blockBegin, find))
         {
             std::advance(blockBegin, offset);

@@ -42,18 +42,18 @@ jumpSearchImpl(_Random_Access_Iter begin,
 {
     if (begin != end)
     {
-        size_t dist = std::distance(begin, end);
-        size_t sqrt = static_cast<size_t>(std::sqrt(dist));
+        auto dist = std::distance(begin, end);
+        auto sqrtDist = static_cast<size_t>(std::sqrt(dist));
         auto curr = begin;
 
         // 1. Finding the block where element is
         while (curr < end && comp(*curr, find))
-            std::advance(curr, sqrt);
+            std::advance(curr, sqrtDist);
         if (curr != begin)
-            std::advance(curr, -sqrt);
+            std::advance(curr, -sqrtDist);
 
         // 2. Doing a linear search for find in block
-        while (curr < end && sqrt-- > 0 && comp(*curr, find))
+        while (curr < end && sqrtDist-- > 0 && comp(*curr, find))
             std::advance(curr, 1);
 
         // 3. If element is found
