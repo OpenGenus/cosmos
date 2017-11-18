@@ -1,31 +1,28 @@
-def base(a,y):
+def base_check(a,y):
     ans=''
     while a>0 :
         ans+=str(a%y)
         a=a//y   
-    ans=ans[::-1]
-    return (ans)
+    return ans==ans[::-1]
     
-def pal(x,b):
+def palindrome(x,base):
     x=str(x)
     if x!=x[::-1]:
-        return (False)
+        return False
     else:
         x=int(x)
-        x=base(x,b)
+        x=base_check(x,base)
         x=(str(x))
         if x!=x[::-1]:
-            return (False)
+            return False
         else:
-            return (True)
+            return True
                
-a=int(1000000)
-b=int(2)
+number=1000000
+base=2
 sum=0
-for i in range(1,a+1):
-    if pal(i,b):
+for i in range(1,number+1):
+    if palindrome(i,base):
         sum+=i
-    else:
-        pass
 print (sum)
     
