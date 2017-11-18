@@ -9,8 +9,8 @@
 #include <algorithm>
 #include "fibonacci_search.cpp"
 
-#define InputIteratorContainer;
-#define SearchFunc fibonacciSearch;
+#define InputIteratorContainer
+#define SearchFunc fibonacciSearch
 
 #ifdef InputIteratorContainer
 #define Container list
