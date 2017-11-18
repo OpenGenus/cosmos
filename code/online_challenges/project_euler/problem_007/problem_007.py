@@ -1,19 +1,20 @@
-from math import*
-def IsPrime(n):
-	if n == 2:
-		return 1
-	elif n % 2 == 0:
-		return 0
-	
-	i = 3
-	range = int( math.sqrt(n) ) + 1
-	while( i < range ):
-		if( n % i == 0):
-			return 0
-		i += 1
-	return 1
-N,T = 1,3
-while N < 10001:
-	if IsPrime(T):
-		N+=1
-	T+=2
+i = 3
+n = s = 1
+while (i <= 10001):
+    if (s == 1):
+        x = 6*n -1
+        s = 0
+    else:
+        x = 6*n +1
+        s = 1
+        n = n + 1
+    r = x**.5
+    p = 1
+    t = 3
+    while (t <= r):
+        if (x%t == 0):
+            p = 0
+        t = t + 2
+    if (p == 1):
+        i = i + 1
+print x
