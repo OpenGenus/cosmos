@@ -59,8 +59,8 @@ public func fibonacciSearch(_ numberArray: [Int],_ x: Int, _ n: Int) -> Int {
  Utility function that returns the minimum number between two ints.
 
  - parameters:
- - x: An int to check to see if it's the minimum number.
- - y: An int to check to see if it's the minimum number.
+    - x: An int to check to see if it's the minimum number.
+    - y: An int to check to see if it's the minimum number.
 
  - returns:
  An int that is the minimum number between the two ints.
