@@ -1,44 +1,128 @@
-#include <iostream>
+/*
+ Part of Cosmos by OpenGenus Foundation
 
-using namespace std;
+ jump search synopsis
 
-int main() {
-    int array[] = {1,2,3,4,5,6,7,8,9,10}; // array of elements
+ warning: in order to follow the convention of STL, the interface is [begin, end) !!!
 
-    int valToFind = 4; // the number to find in the array
+template<typename _Random_Access_Iter, typename _Comp,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Difference = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+std::pair<_Random_Access_Iter, bool>
+binarySearchImpl(_Random_Access_Iter first,
+                 _Random_Access_Iter last,
+                 _Tp const &find,
+                 _Comp comp,
+                 std::random_access_iterator_tag);
 
-    int upperLimit = 1;
-    int sizeOfArray = sizeof(array)/sizeof(array[0]);
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+exponentialSearchImpl(_Random_Access_Iter begin,
+                      _Random_Access_Iter end,
+                      _Tp const &find,
+                      _Compare comp,
+                      std::random_access_iterator_tag);
 
-    // Calculate the upperLimit index for binary search
-    while(upperLimit < sizeOfArray && array[upperLimit] <= valToFind) {
-        upperLimit = upperLimit * 2;
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+exponentialSearch(_Random_Access_Iter begin,
+                  _Random_Access_Iter end,
+                  _Tp const &find,
+                  _Compare comp);
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+exponentialSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find);
+ */
+
+#include <functional>
+
+template<typename _Random_Access_Iter, typename _Comp,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Difference = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+std::pair<_Random_Access_Iter, bool>
+binarySearchImpl(_Random_Access_Iter first,
+                 _Random_Access_Iter last,
+                 _Tp const &find,
+                 _Comp comp,
+                 std::random_access_iterator_tag)
+{
+    while (first <= last)
+    {
+        auto mid = first + (last - first) / 2;
+
+        if (comp(*mid, find))
+            first = mid + 1;
+        else if (comp(find, *mid))
+            last = mid - 1;
+        else
+            return std::make_pair(mid, true);
     }
 
-    // Implement binary search from index 0 to upperLimit
-    bool foundElement = false;
-    int index;
-    int low = 0;
-    int high = upperLimit;
+    return std::make_pair(last, false);
+}
 
-    // Implement search from [low...high] until the element is found and value of low is less than high
-    while(low <= high && !foundElement) {
-        int mid = low + (high - low) / 2;
-        if(array[mid] == valToFind) { //Element found!
-            index = mid; // index of the element in the array
-            foundElement = true;
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+exponentialSearchImpl(_Random_Access_Iter begin,
+                      _Random_Access_Iter end,
+                      _Tp const &find,
+                      _Compare comp,
+                      std::random_access_iterator_tag)
+{
+    if (begin != end)
+    {
+        if (!comp(*begin, find))
+            return (!comp(find, *begin)) ? begin : end;
+
+        auto blockBegin = begin;
+        auto offset = 1;
+        while (blockBegin < end && comp(*blockBegin, find))
+        {
+            std::advance(blockBegin, offset);
+            offset *= 2;
         }
-        if (array[mid] >= valToFind) {
-            high = mid - 1;
-        } else { // array[mid] < valToFind
-            low = mid + 1;
-        }
+
+        auto blockEnd = blockBegin < end ? blockBegin : end;
+        std::advance(blockBegin, -1 * (offset / 2));
+
+        auto res = binarySearchImpl(blockBegin,
+                                    blockEnd,
+                                    find,
+                                    comp,
+                                    std::random_access_iterator_tag());
+        if (res.second)
+            return res.first;
     }
 
-    if(foundElement)
-        cout << "The entered element " << valToFind << " exists at index " << index << ".\n";
-    else
-        cout << "The entered element " << valToFind << " doesn't exist in the array.\n";
+    return end;
+}
 
-    return 0;
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+exponentialSearch(_Random_Access_Iter begin,
+                  _Random_Access_Iter end,
+                  _Tp const &find,
+                  _Compare comp)
+{
+    auto category = typename std::iterator_traits<_Random_Access_Iter>::iterator_category();
+
+    return exponentialSearchImpl(begin, end, find, comp, category);
+}
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+exponentialSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find)
+{
+    return exponentialSearch(begin, end, find, std::less<_Tp>());
 }
