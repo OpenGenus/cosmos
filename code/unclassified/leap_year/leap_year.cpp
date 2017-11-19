@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-bool is_leap(int year)
+bool isLeap(int year)
 {
    return (year%4 == 0 && year%100 != 0) || year%400 == 0; 
 }
@@ -18,7 +18,7 @@ int main()
 
    while(year <= year_2)
    {
-      if(is_leap(year))
+      if(isLeap(year))
       {
          cout<<year<<endl;
       }
