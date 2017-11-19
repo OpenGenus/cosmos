@@ -330,13 +330,13 @@ void BST::inOrder(BinaryTreeNode *node)
 int main()
 {
 /* Let's create the following BST
-**				 4
-**              / \
-**			   2   5
-**			  / \   \
-**			 1   3	 7
-**					/ \
-**				   6   8
+	**		 4
+	**              / \
+	**	       2   5
+	**	      / \   \
+	**           1   3   7
+	**                  / \
+	**		   6   8
 */
 	BST *tree = new BST();
 	tree->Add(4);
@@ -365,11 +365,11 @@ int main()
 	
 	tree->Remove(5);
 	/* The tree after removing node with value 5
-	**				  4
+	**		  4
 	**              /   \
-	**			   2     7
-	**			  / \   / \
-	**			 1   3 6   8
+	**	      2       7
+	**	    /   \   /   \
+	**         1     3 6     8
 	*/
 
 	delete tree;
