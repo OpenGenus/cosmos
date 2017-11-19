@@ -2,7 +2,7 @@
 
 from __future__ import division, print_function  # if python 2.x used
 
-def is_lapindrome(string):
+def isLapindrome(string):
 	mid = len(string) // 2;
 	delim = mid
 	if len(string)%2 == 1:
@@ -19,7 +19,7 @@ def is_lapindrome(string):
 
 test_case = "xyzyx"
 
-if is_lapindrome(test_case):
+if isLapindrome(test_case):
 	print("Lapindrome")
 else:
 	print("Not a Lapindrome")
