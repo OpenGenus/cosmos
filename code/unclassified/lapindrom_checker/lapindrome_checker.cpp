@@ -24,13 +24,10 @@ int main()
     string test_case = "addbbadd";
  
     if (isLapindrome(test_case))
-    {
        cout<<"lapindrome\n";
-    }
+
     else
-    {
        cout<<"not a lapindrome\n";
-    }
 
     return 0;
 }
