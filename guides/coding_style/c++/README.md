@@ -101,6 +101,8 @@ Put one space:
 
 - Between condition and its opening brace.
 
+- Around initializer of class constructor;
+
 Remove spaces:
 
 - In whitespace-only line.
