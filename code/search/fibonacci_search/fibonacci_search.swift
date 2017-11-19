@@ -14,7 +14,7 @@
  - returns:
  An int that is the index of the element in the array unless its not found and then -1 is returned.
  */
-public func fibonacciSearch(_ numberArray: [Int],_ x: Int, _ n: Int) -> Int {
+func fibonacciSearch(_ numberArray: [Int], _ x: Int, _ n: Int) -> Int {
     var fibM2 = 0 //(m-2)'th Fibonacci number
     var fibM1 = 1 //(m-1)'th Fibonacci number
     var fibM = fibM2 + fibM1 //m'th Fibonacci
@@ -32,12 +32,12 @@ public func fibonacciSearch(_ numberArray: [Int],_ x: Int, _ n: Int) -> Int {
     // Continue looping until the index of element in the array is found
     while(fibM > 1){
         let i = minimumNumber(offset+fibM2, n-1)
-        if(numberArray[i] < x){
+        if numberArray[i] < x {
             fibM = fibM1
             fibM1 = fibM2
             fibM2 = fibM - fibM1
             offset = i
-        } else if (numberArray[i] > x) {
+        } else if numberArray[i] > x {
             fibM = fibM2
             fibM1 = fibM1 - fibM2
             fibM2 = fibM - fibM1
@@ -47,7 +47,7 @@ public func fibonacciSearch(_ numberArray: [Int],_ x: Int, _ n: Int) -> Int {
     }
 
     // If the element is found then return the offset plus 1
-    if (fibM1 == 1 && numberArray[offset+1] == x){
+    if fibM1 == 1 && numberArray[offset+1] == x {
         return offset + 1
     }
 
@@ -65,6 +65,6 @@ public func fibonacciSearch(_ numberArray: [Int],_ x: Int, _ n: Int) -> Int {
  - returns:
  An int that is the minimum number between the two ints.
  */
-private func minimumNumber(_ x: Int,_ y: Int) -> Int {
-    return (x <= y) ? x : y
+private func minimumNumber(_ x: Int, _ y: Int) -> Int {
+    return x <= y ? x : y
 }
