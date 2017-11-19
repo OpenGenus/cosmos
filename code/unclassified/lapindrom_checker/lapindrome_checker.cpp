@@ -25,7 +25,6 @@ int main()
  
     if (isLapindrome(test_case))
        cout<<"lapindrome\n";
-
     else
        cout<<"not a lapindrome\n";
 
