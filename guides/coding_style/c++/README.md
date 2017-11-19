@@ -5,28 +5,56 @@
 > All demonstrates are VALID version
 
 ## Index
-- [Code width and alignment](#code-width-and-alignment)
-- [Including Header Files](#including-header-files)
 - [Comments](#comments)
-- [Namespaces](#namespaces)
+- [Code width and alignment](#code-width-and-alignment)
+- [Indentations](#indentations)
+- [Braces](#braces)
 - [Naming](#naming)
   <details open>
     <summary>categories</summary>
     <ul>
-        <li><a href="#file-names">File Names</a></li>
-        <li><a href="#type-names">Type Names</a></li>
-        <li><a href="#variable-names">Variable Names</a></li>
-        <li><a href="#function-names">Function Names</a></li>
-        <li><a href="#macro-names">Macro Names</a></li>
-        <li><a href="#exceptions-to-naming-rules">Exceptions to Naming Rules</a></li>
+        <li><a href="#file-names">File names</a></li>
+        <li><a href="#type-names">Type names</a></li>
+        <li><a href="#variable-names">Variable names</a></li>
+        <li><a href="#function-names">Function names</a></li>
+        <li><a href="#macro-names">Macro names</a></li>
+        <li><a href="#exceptions-to-naming-rules">Exceptions to naming rules</a></li>
     </ul>
   </details>
-- [Braces](#braces)
+- [Including header files](#including-header-files)
+- [Namespaces](#namespaces)
 - [Functions](#functions)
 - [Classes](#classes)
 - [Enumerations](#enumerations)
 - [Aliases](#aliases)
-- [Indentations](#indentations)
+
+## Comments
+Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
+
+```C++
+// Example text
+
+/*
+ *
+ * Multiline comment
+ *
+ */
+
+/*
+
+ Simple multiline comment
+
+ vector synopsis
+
+template <class T, class Allocator = allocator<T> >
+class vector
+{
+public:
+    using value_type = T;
+    using allocator_type = Allocator;
+}
+*/
+```
 
 ## Code width and alignment
 - Try to limit code width to 100 characters.
@@ -62,92 +90,50 @@ cloneTwo(const container<T,Allocator>& x,
          const container<T,Allocator>& z);
 ```
 
-## Including Header Files
-When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
+## Indentations
+Use only spaces, and indent 4 spaces at a time.
 
-Pay attention to whether the header is _not in use_, and do not include it if so. If only the implementation uses it, then include the file in .cpp, not .hpp.
+We use spaces for indentation. Do not use tabs in our code.
 
 ```C++
-// sample1.hpp
-#include <vector>       // ok, return type is vector
-
-template<typename Ty>
-std::vector<Ty> toVector(Ty t[], size_t sz);
-
-
-// sample2.hpp
-class ListHelp
-{
-    void sort();
-};
-
-// sample2.cpp
-#include "sample2.hpp"
-#include <utility>      // ok, only use the swap function in implementation
-using namespace std;
-
-void ListHelp::sort()
-{
-    // use the swap function
+bool predicateFunc(vector<int> vec) {
+    for (; condition; )     //  4 spaces
+        if (condition)      //  8 spaces
+            return false;   // 12 spaces
+                            //  0 spaces
+    return true;            //  4 spaces
 }
 ```
 
-## Comments
-Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
+## Braces
+When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless 1. between `do` and `while` on do-while statements, 2. dangling else).
 
 ```C++
-// Example text
-
-/*
- *
- * Multiline comment
- *
- */
- 
-/*
- 
- Simple multiline comment
- 
- vector synopsis
- 
-template <class T, class Allocator = allocator<T> >
-class vector
+int main()
 {
-public:
-    using value_type = T;
-    using allocator_type = Allocator;
-}
-*/
-```
+    if (condition) 
+    {
+        statement;
+        statement;
+    }
+    else
+        statement;
 
-## Namespaces
-When using namespace, pay attention to name collisions/name conflicts:
+    if (condition)
+    {
+        if (condition)
+            statement;
+        else
+            statement;
+    }
 
-In header files, do not use `using` directive or declaration.
+    for (;condition;)
+       statement;
 
-```C++
-// sample1.hpp
-#include <vector>
-
-// ok, if users include this file, they also need declare std namespace to use member of vector
-template<typename Ty>
-std::vector<Ty> toVector(Ty t[], size_t sz);
-
-
-// sample2.hpp
-class ListHelp
-{
-    void sort();
-}
-
-// sample2.cpp
-#include "sample2.hpp"
-#include <utility>
-using namespace std;    // ok, users will include .hpp not .cpp
-
-void ListHelp::sort()
-{
-    // may use the swap function
+    do
+    {
+        statement;
+    } while (condition);
 }
 ```
 
@@ -159,10 +145,10 @@ int currentIter;    // the certain universally-known abbrs ("Iter") are OK
 int numberDnsConnections;    // ok, most people know what "DNS" stands for
 ```
 
-### File Names
+### File names
 C++ file should end in .cpp and header file should end in .hpp (do not end in .h).
 
-### Type Names
+### Type names
 Types should be named like PascalCase.
 
 ```C++
@@ -178,7 +164,7 @@ enum PascalCase;
 enum class PascalCase;
 ```
 
-### Variable Names
+### Variable names
 Local variables should be named using standard camelCase.
 
 ```C++
@@ -216,7 +202,7 @@ enum class ExampleEnum
 };
 ```
 
-### Function Names
+### Function names
 Functions should be named using standard camelCase.
 
 ```C++
@@ -229,7 +215,7 @@ class PascalCase
 };
 ```
 
-### Macro Names
+### Macro names
 When naming macros, use uppercase for all the letters, and separate words by underscores.
 
 ```C++
@@ -237,7 +223,7 @@ When naming macros, use uppercase for all the letters, and separate words by und
 #define UPPERCASE_VALID
 ```
 
-### Exceptions to Naming Rules
+### Exceptions to naming rules
 If you are naming something that is analogous to an existing C++ entity then you can follow the existing naming convention scheme.
 ```C++
 sparse_hash_set<> ...  // STL-like entity; follows STL naming conventions
@@ -245,44 +231,65 @@ long BUFFER_MAX ...    // a constant, as in INT_MAX
 using diff_t ...       // as in ptrdiff_t
 ```
 
-## Braces
-When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless 1. between `do` and `while` on do-while statements, 2. dangling else).
+## Including header files
+When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
+
+Pay attention to whether the header is _not in use_, and do not include it if so. If only the implementation uses it, then include the file in .cpp, not .hpp.
 
 ```C++
-int main()
+// sample1.hpp
+#include <vector>       // ok, return type is vector
+
+template<typename Ty>
+std::vector<Ty> toVector(Ty t[], size_t sz);
+
+
+// sample2.hpp
+class ListHelp
 {
-    if (condition) 
-    {
-        statement;
-        statement;
-    }
-    else
-        statement;
+    void sort();
+};
 
-    if (condition)
-    {
-        if (condition)
-            statement;
-        else
-            statement;
-    }
+// sample2.cpp
+#include "sample2.hpp"
+#include <utility>      // ok, only use the swap function in implementation
+using namespace std;
 
-    for (;condition;)
-       statement;
-
-    do
-    {
-        statement;
-    } while (condition);
+void ListHelp::sort()
+{
+    // use the swap function
 }
 ```
 
-On a side note, for conditionals and loops, put a space between the keyword and the opening parentheses, and another space after the closing parentheses.
+## Namespaces
+When using namespace, pay attention to name collisions/name conflicts:
 
-When using class initialization with braces, then place a space after the opening brace, and before the closing brace.
+In header files, do not use `using` directive or declaration.
 
 ```C++
-ClassName objectName{ 1, 4 };
+// sample1.hpp
+#include <vector>
+
+// ok, if users include this file, they also need declare std namespace to use member of vector
+template<typename Ty>
+std::vector<Ty> toVector(Ty t[], size_t sz);
+
+
+// sample2.hpp
+class ListHelp
+{
+    void sort();
+}
+
+// sample2.cpp
+#include "sample2.hpp"
+#include <utility>
+using namespace std;    // ok, users will include .hpp not .cpp
+
+void ListHelp::sort()
+{
+    // may use the swap function
+}
 ```
 
 ## Functions
@@ -297,7 +304,7 @@ void exampleFunction(int pod, const Example& object, char& modifiableChar)
 ```
 
 ## Classes
-### Order of Encapsulation
+### Order of encapsulation
 When listing members of a class, if possible list them in the order public, private, then protected. If using `using` for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
 Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
@@ -321,7 +328,7 @@ protected:
 };
 ```
 
-### Order of Member Functions
+### Order of member functions
 When listing member functions of a class, first list the main constructor, then secondary constructors, and then copy assignment/copy construction/move assignment/move construction functions.
 After this, add the destructor. Then, add a new line, and then list all members of the class.
 
@@ -361,11 +368,6 @@ Don't put alias in `public`, unless the aliases is guaranteed to always be the s
 - More easily declare an alias with template.
 
 - [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
-
-## Indentations
-Use only spaces, and indent 4 spaces at a time.
-
-We use spaces for indentation. Do not use tabs in our code.
 
 
 ---
