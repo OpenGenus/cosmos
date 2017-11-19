@@ -13,16 +13,13 @@ def palindrome(x,base):
         x=int(x)
         x=base_check(x,base)
         x=(str(x))
-        if x!=x[::-1]:
-            return False
-        else:
-            return True
+        return x==x[::-1]
                
 number=1000000
 base=2
-sum=0
+answer=0
 for i in range(1,number+1):
     if palindrome(i,base):
-        sum+=i
-print (sum)
+        answer+=i
+print (answer)
     
