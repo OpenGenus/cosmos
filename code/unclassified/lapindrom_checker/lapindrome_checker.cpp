@@ -4,32 +4,33 @@
 #include <algorithm>   // used for sort()
 using namespace std;
 
-bool is_lapindrome(string str)
+bool isLapindrome(string str)
 {
-  int mid = str.length() / 2;
-  int delim = (str.length() % 2) == 0 ? mid : mid + 1;
+    int mid = str.length() / 2;
+    int delim = (str.length() % 2) == 0 ? mid : mid + 1;
 
-  string first_half = str.substr(0, mid);
-  string second_half = str.substr(delim);
+    string first_half = str.substr(0, mid);
+    string second_half = str.substr(delim);
 
-  sort(first_half.begin(), first_half.end());
-  sort(second_half.begin(), second_half.end());
+    sort(first_half.begin(), first_half.end());
+    sort(second_half.begin(), second_half.end());
 
-  return first_half == second_half;
+    return first_half == second_half;
 }
+
 
 int main()
 {
-   string test_case = "addbbadd";
+    string test_case = "addbbadd";
+ 
+    if (isLapindrome(test_case))
+    {
+       cout<<"lapindrome\n";
+    }
+    else
+    {
+       cout<<"not a lapindrome\n";
+    }
 
-   if (is_lapindrome(test_case))
-   {
-      cout<<"lapindrome\n";
-   }
-   else
-   {
-      cout<<"not a lapindrome\n";
-   }
-
-   return 0;
+    return 0;
 }
