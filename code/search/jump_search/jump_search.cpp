@@ -1,55 +1,84 @@
-// C++ program to implement Jump Search
- 
-#include <iostream>
+/*
+ Part of Cosmos by OpenGenus Foundation
+
+ jump search synopsis
+
+ warning: in order to follow the convention of STL, the interface is [begin, end) !!!
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+jumpSearchImpl(_Random_Access_Iter begin,
+               _Random_Access_Iter end,
+               _Tp const &find,
+               _Compare comp,
+               std::random_access_iterator_tag);
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find, _Compare comp);
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find);
+ */
+
+#include <functional>
 #include <cmath>
-using namespace std;
- 
-int jumpSearch(int arr[], int x, int n)
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+jumpSearchImpl(_Random_Access_Iter begin,
+               _Random_Access_Iter end,
+               _Tp const &find,
+               _Compare comp,
+               std::random_access_iterator_tag)
 {
-    // Finding block size to be jumped
-    int step = sqrt(n);
- 
-    // Finding the block where element is
-    // present (if it is present)
-    int prev = 0;
-    while (arr[min(step, n)-1] < x)
+    if (begin != end)
     {
-        prev = step;
-        step += sqrt(n);
-        if (prev >= n)
-            return -1;
+        auto dist = std::distance(begin, end);
+        auto sqrtDist = static_cast<size_t>(std::sqrt(dist));
+        auto curr = begin;
+
+        // 1. Finding the block where element is
+        while (curr < end && comp(*curr, find))
+            std::advance(curr, sqrtDist);
+        if (curr != begin)
+            std::advance(curr, -sqrtDist);
+
+        // 2. Doing a linear search for find in block
+        while (curr < end && sqrtDist-- > 0 && comp(*curr, find))
+            std::advance(curr, 1);
+
+        // 3. If element is found
+        if (!comp(*curr, find) && !comp(find, *curr))
+            return curr;
     }
- 
-    // Doing a linear search for x in block
-    // beginning with prev.
-    while (arr[prev] < x)
-    {
-        prev++;
- 
-        // If we reached next block or end of
-        // array, element is not present.
-        if (prev == min(step, n))
-            return -1;
-    }
-    // If element is found
-    if (arr[prev] == x)
-        return prev;
- 
-    return -1;
+
+    return end;
 }
- 
-// Driver program to test function
-int main()
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Compare>
+_Random_Access_Iter
+jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find, _Compare comp)
 {
-    int arr[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21,
-                 34, 55, 89, 144, 233, 377, 610 };
-    int x = 55;
-    int n = sizeof(arr) / sizeof(arr[0]);
-     
-    // Find the index of 'x' using Jump Search
-    int index = jumpSearch(arr, x, n);
- 
-    // Print the index where 'x' is located
-    cout << "\nNumber " << x << " is at index " << index;
-    return 0;
+    auto category = typename std::iterator_traits<_Random_Access_Iter>::iterator_category();
+
+    return jumpSearchImpl(begin, end, find, comp, category);
+}
+
+template<typename _Random_Access_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+_Random_Access_Iter
+jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find)
+{
+    return jumpSearch(begin, end, find, std::less<_Tp>());
 }

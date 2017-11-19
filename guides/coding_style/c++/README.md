@@ -2,9 +2,33 @@
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
 # C++ Style Guide
+> All demonstrates are VALID version
 
-Code width and alignment
-===
+## Index
+- [Code width and alignment](#code-width-and-alignment)
+- [Including Header Files](#including-header-files)
+- [Comments](#comments)
+- [Namespaces](#namespaces)
+- [Naming](#naming)
+  <details open>
+    <summary>categories</summary>
+    <ul>
+        <li><a href="#file-names">File Names</a></li>
+        <li><a href="#type-names">Type Names</a></li>
+        <li><a href="#variable-names">Variable Names</a></li>
+        <li><a href="#function-names">Function Names</a></li>
+        <li><a href="#macro-names">Macro Names</a></li>
+        <li><a href="#exceptions-to-naming-rules">Exceptions to Naming Rules</a></li>
+    </ul>
+  </details>
+- [Braces](#braces)
+- [Functions](#functions)
+- [Classes](#classes)
+- [Enumerations](#enumerations)
+- [Aliases](#aliases)
+- [Indentations](#indentations)
+
+## Code width and alignment
 - Try to limit code width to 100 characters.
 
 - Split lines as close to the code width as possible (if a parameter is split onto another line, then all of the parameters should be split).
@@ -13,7 +37,6 @@ Code width and alignment
 
 - Template definitions should be split.
 
-**Valid:**
 ```C++
 // n <= 100 columns
 bool operator==(container<T,Allocator> x, container<T,Allocator> y);
@@ -39,13 +62,11 @@ cloneTwo(const container<T,Allocator>& x,
          const container<T,Allocator>& z);
 ```
 
-Including Header Files
-===
+## Including Header Files
 When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
 
 Pay attention to whether the header is _not in use_, and do not include it if so. If only the implementation uses it, then include the file in .cpp, not .hpp.
 
-**Valid**
 ```C++
 // sample1.hpp
 #include <vector>       // ok, return type is vector
@@ -55,25 +76,25 @@ std::vector<Ty> toVector(Ty t[], size_t sz);
 
 
 // sample2.hpp
-class ListHelp {
+class ListHelp
+{
     void sort();
-}
+};
 
 // sample2.cpp
 #include "sample2.hpp"
 #include <utility>      // ok, only use the swap function in implementation
 using namespace std;
 
-void ListHelp::sort() {
+void ListHelp::sort()
+{
     // use the swap function
 }
 ```
 
-Comments
-===
+## Comments
 Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
 
-**Valid:**
 ```C++
 // Example text
 
@@ -93,19 +114,17 @@ template <class T, class Allocator = allocator<T> >
 class vector
 {
 public:
-    typedef T                                        value_type;
-    typedef Allocator                                allocator_type;
+    using value_type = T;
+    using allocator_type = Allocator;
 }
 */
 ```
 
-Namespaces
-===
+## Namespaces
 When using namespace, pay attention to name collisions/name conflicts:
 
-In header files, do NOT use `using` directive or declaration.
+In header files, do not use `using` directive or declaration.
 
-**Valid**
 ```C++
 // sample1.hpp
 #include <vector>
@@ -116,7 +135,8 @@ std::vector<Ty> toVector(Ty t[], size_t sz);
 
 
 // sample2.hpp
-class ListHelp {
+class ListHelp
+{
     void sort();
 }
 
@@ -125,58 +145,109 @@ class ListHelp {
 #include <utility>
 using namespace std;    // ok, users will include .hpp not .cpp
 
-void ListHelp::sort() {
+void ListHelp::sort()
+{
     // may use the swap function
 }
 ```
 
-Macros
-===
-When naming macros, use uppercase for all the letters, and separate words by underscores.
-
-**Valid:**
+## Naming
+Names should be descriptive and avoid abbreviation (unless that most people know what mean for), and abbreviation should like .
 ```C++
-#define VALID
-#define UPPERCASE_VALID
+int errorFlag;
+int currentIter;    // the certain universally-known abbrs ("Iter") are OK
+int numberDnsConnections;    // ok, most people know what "DNS" stands for
 ```
 
-Variables
-===
-Local Variables
----
-Local variables should be named using standard camel case.
+### File Names
+C++ file should end in .cpp and header file should end in .hpp (do not end in .h).
 
-**Valid:**
+### Type Names
+Types should be named like PascalCase.
+
+```C++
+using VecI = std::vector<int>;
+template<typename _T>
+using VecTwo = std::vector<std::vector<_T>>;
+
+class PascalCase;
+struct PascalCase;
+union PascalCase;
+
+enum PascalCase;
+enum class PascalCase;
+```
+
+### Variable Names
+Local variables should be named using standard camelCase.
+
 ```C++
 int name;
 int camelCase;
 ```
 
-Global Variables
----
-While global variables should be avoided for the most part. If they are necessary, then they should be named using prefix 'g\_' and standard camel case.
+Global variables should be avoided for the most part. If they are necessary, then they should be named using prefix 'g\_' and standard camelCase.
 
-**Valid:**
 ```C++
 int g_name;
 int g_camelCase;
 ```
 
-Constant Variables
----
-Constant variables should be named like normal variables and should use `const`/`constexpr`.
+Class members should be _private_, add an underscore to the end of their name.
 
-**Valid:**
 ```C++
-const int name;
-constexpr int constantName;
+class PascalCase;
+{
+    int name_;
+    int camelCase_;
+};
 ```
 
-Braces
-===
+Constant variables should be named using PascalCase.
+
+```C++
+const int Name;
+constexpr int VariableName;
+
+enum class ExampleEnum
+{
+    One,
+    TwoTwo
+};
+```
+
+### Function Names
+Functions should be named using standard camelCase.
+
+```C++
+int name();
+int camelCase();
+
+class PascalCase
+{
+    int doSomething();
+};
+```
+
+### Macro Names
+When naming macros, use uppercase for all the letters, and separate words by underscores.
+
+```C++
+#define VALID
+#define UPPERCASE_VALID
+```
+
+### Exceptions to Naming Rules
+If you are naming something that is analogous to an existing C++ entity then you can follow the existing naming convention scheme.
+```C++
+sparse_hash_set<> ...  // STL-like entity; follows STL naming conventions
+long BUFFER_MAX ...    // a constant, as in INT_MAX
+using diff_t ...       // as in ptrdiff_t
+```
+
+## Braces
 When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless 1. between `do` and `while` on do-while statements, 2. dangling else).
 
-**Valid:**
 ```C++
 int main()
 {
@@ -214,24 +285,10 @@ When using class initialization with braces, then place a space after the openin
 ClassName objectName{ 1, 4 };
 ```
 
-Functions
-===
-Functions should be named using standard camel case.
-
-Names
----
-
-**Valid:**
-```C++
-int name();
-int camelCase();
-```
-
-Parameters
----
+## Functions
+### Parameters
 When listing POD (Plain Old Data) types, pass them by value. When listing user-defined types, pass them by `const` reference. When a function has to modify a variable, then, and only then pass the variable by reference.
 
-**Valid:**
 ```C++
 void exampleFunction(int pod, const Example& object, char& modifiableChar)
 {
@@ -239,40 +296,16 @@ void exampleFunction(int pod, const Example& object, char& modifiableChar)
 }
 ```
 
-Classes
-===
-Names
----
-When naming classes, follow the rules of PascalCase.
-
-**Valid:**
-```C++
-class PascalCase;
-struct PascalCase;
-```
-
-When naming the member variables of a class that should be _private_, add an underscore to the end of their name.
-
-**Valid:**
-```C++
-class Example
-{
-    int name_;
-    int camelCase_;
-};
-```
-
-Order of Encapsulation
----
-When listing members of a class, if possible list them in the order public, private, then protected. If using typedefs/using for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
+## Classes
+### Order of Encapsulation
+When listing members of a class, if possible list them in the order public, private, then protected. If using `using` for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
 Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
-**Valid:**
 ```C++
 class Example
 {
-private: // Or private
-    typedef int INT;
+private:
+    using Int = int;
 
 protected:
     using typename BaseClass::size_type;
@@ -285,19 +318,16 @@ private:
     
 protected:
     // ...
-    
 };
 ```
 
-Order of Member Functions
----
+### Order of Member Functions
 When listing member functions of a class, first list the main constructor, then secondary constructors, and then copy assignment/copy construction/move assignment/move construction functions.
 After this, add the destructor. Then, add a new line, and then list all members of the class.
 
 * When possible, try to create a logical separation of member functions for clarity.
 * If a class has all public members (not member functions), then use the `struct` keyword, otherwise use the `class` keyword.
 
-**Valid:**
 ```C++
 class Example
 {
@@ -311,48 +341,17 @@ public:
 
 private:
     int value_;
-    
 };
 ```
 
-Enumerations
-===
-
-enum vs enum class
----
+## Enumerations
+### enum vs enum class
 When dealing with enumerations, use `enum class`, not `enum` (Unless dealing with unnamed enumerations or C style code).
-
-Naming
----
-
-Enumerations should be named like user-defined types with PascalCase. The actual enumerators inside should be named using all caps and underscore separation.
 
 Warning: if you dealing with low-level operation, and need use explicit type convertion, you must be careful about underlying type (default is the `int` it at least 2-bytes).
 
-**Valid:**
-```C++
-enum class ExampleEnum
-{
-    ONE,
-    TWO_TWO,
-    THREE,
-    FOUR // No comma at the end
-};
-
-enum class ExampleEnum : long
-{
-    ONE = 0,
-    TWO_TWO,
-    THREE,
-    FOUR // No comma at the end
-};
-```
-
-Alias
-===
-
-using vs typedef
----
+## Aliases
+### using vs typedef
 When dealing with aliases, use `using`, not `typedef`.
 
 Don't put alias in `public`, unless the aliases is guaranteed to always be the same as the type it's currently aliased to.
@@ -363,27 +362,10 @@ Don't put alias in `public`, unless the aliases is guaranteed to always be the s
 
 - [See more comparisons](http://www.stroustrup.com/C++11FAQ.html#template-alias)
 
-Naming
----
+## Indentations
+Use only spaces, and indent 4 spaces at a time.
 
-Aliases should be named like PascalCase.
-
-**Valid:**
-```C++
-class Demo
-{
-private:
-   using VecI = std::vector<int>;
-   // ... 
-};
-
-void foo()
-{
-   template<typename _T>
-   using VecTwo = std::vector<std::vector<_T>>;
-   // ...
-}
-```
+We use spaces for indentation. Do not use tabs in our code.
 
 
 ---

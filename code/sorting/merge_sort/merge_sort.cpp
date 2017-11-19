@@ -1,88 +1,81 @@
-#include <iostream>
+/*
+ Part of Cosmos by OpenGenus Foundation
+
+ merge sort synopsis
+
+template<typename _Random_Acccess_Iter>
+_Random_Acccess_Iter
+advance(_Random_Acccess_Iter it, ptrdiff_t n);
+
+template<typename _Random_Acccess_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type,
+         typename _Compare = std::less<_Tp>>
+void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
+
+template<typename _Random_Acccess_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
+void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
+ */
+
 #include <vector>
-#include <algorithm>
+#include <iterator>
 
-using namespace std;
-
-// Part of Cosmos by OpenGenus Foundation
-/* Function to merge the two halves arr[l..m] and arr[m+1..r] of array arr[] */
-void merge(vector<int> &arr, int l, int m, int r)
+namespace merge_sort {
+template<typename _Random_Acccess_Iter>
+_Random_Acccess_Iter
+advance(_Random_Acccess_Iter it, ptrdiff_t n)
 {
-    int i, j, k;
-    int n1 = m - l + 1;
-    int n2 =  r - m;
+    std::advance(it, n);
 
-    /* create temp arrays */
-    vector<int> L(n1);
-    vector<int> R(n2);
+    return it;
+}
 
-    /* Copy data to temp arrays L[] and R[] */
-    for(i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for(j = 0; j < n2; j++)
-        R[j] = arr[m + 1+ j];
+template<typename _Random_Acccess_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type,
+         typename _Compare = std::less<_Tp>>
+void
+mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
+{
+    using std::distance;
+    using std::vector;
 
-    /* Merge the temp arrays back into arr[l..r]*/
-    i = 0;
-    j = 0;
-    k = l;
-    while (i < n1 && j < n2)
+    if (begin != end)
     {
-        if (L[i] <= R[j])
+        _Random_Acccess_Iter leftMin, leftMax, rightMin, rightMax;
+        auto length = distance(begin, end);
+        vector<_Tp> tmp(length);
+
+        // bottom-up version
+        for (auto i = 1; i < distance(begin, end); i *= 2)
         {
-            arr[k] = L[i];
-            i++;
-        }
-        else
-        {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
-    }
+            auto last = end;
+            advance(last, -1 * i);
+            for (leftMin = begin; leftMin < last; leftMin = rightMax)
+            {
+                rightMin = leftMax = advance(leftMin, i);
+                rightMax = advance(leftMax, i);
 
-    /* Copy the remaining elements of L[], if there are any */
-    while (i < n1)
-    {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
+                // prevent overflow, if length is now 2^n
+                if (rightMax > end)
+                    rightMax = end;
 
-    /* Copy the remaining elements of R[], if there are any */
-    while (j < n2)
-    {
-        arr[k] = R[j];
-        j++;
-        k++;
+                auto next = 0;
+                while (leftMin < leftMax && rightMin < rightMax)
+                    tmp[next++] = comp(*rightMin, *leftMin) ? *rightMin++ : *leftMin++;
+                while (leftMin < leftMax)
+                    *--rightMin = *--leftMax;
+                while (next > 0)
+                    *--rightMin = tmp[--next];
+            }
+        }
     }
 }
 
-/* l is for left index and r is right index of the sub-array
-  of arr to be sorted */
-void mergeSort(vector<int> &arr, int l, int r)
+template<typename _Random_Acccess_Iter,
+         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
+void
+mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end)
 {
-    if (l < r)
-    {
-        int m = l+(r-l)/2; //Same as (l+r)/2, but avoids overflow for large l and h
-        mergeSort(arr, l, m);
-        mergeSort(arr, m+1, r);
-        merge(arr, l, m, r);
-    }
+    mergeSort(begin, end, std::less<_Tp>());
 }
-
-int main()
-{
-        vector<int> inputArray;
-        for(int i=0;cin >> i;)
-        {
-            inputArray.push_back(i);
-        }
-        mergeSort(inputArray,0,inputArray.size()-1);
-        for(int i=0;i<inputArray.size();i++)
-        {
-            cout<<inputArray[i]<<" ";
-        }
-        cout<<endl;
-        return 0;
 }
