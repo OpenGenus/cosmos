@@ -6,7 +6,7 @@
 
 ## Index
 - [Comments](#comments)
-- [Code width and alignment](#code-width-and-alignment)
+- [Code Width and Alignment](#code-width-and-alignment)
 - [Spaces](#spaces)
 - [Indentations](#indentations)
 - [Newlines](#newlines)
@@ -15,15 +15,15 @@
   <details open>
     <summary>categories</summary>
     <ul>
-        <li><a href="#file-names">File names</a></li>
-        <li><a href="#type-names">Type names</a></li>
-        <li><a href="#variable-names">Variable names</a></li>
-        <li><a href="#function-names">Function names</a></li>
-        <li><a href="#macro-names">Macro names</a></li>
-        <li><a href="#exceptions-to-naming-rules">Exceptions to naming rules</a></li>
+        <li><a href="#file-names">File Names</a></li>
+        <li><a href="#type-names">Type Names</a></li>
+        <li><a href="#variable-names">Variable Names</a></li>
+        <li><a href="#function-names">Function Names</a></li>
+        <li><a href="#macro-names">Macro Names</a></li>
+        <li><a href="#exceptions-to-naming-rules">Exceptions to Naming Rules</a></li>
     </ul>
   </details>
-- [Including header files](#including-header-files)
+- [Including Header Files](#including-header-files)
 - [Namespaces](#namespaces)
 - [Functions](#functions)
 - [Classes](#classes)
@@ -58,7 +58,7 @@ public:
 */
 ```
 
-## Code width and alignment
+## Code Width and Alignment
 - Try to limit code width to 100 characters.
 
 - Split lines as close to the code width as possible (if a parameter is split onto another line, then all of the parameters should be split).
@@ -230,10 +230,10 @@ int currentIter;    // the certain universally-known abbrs ("Iter") are OK
 int numberDnsConnections;    // ok, most people know what "DNS" stands for
 ```
 
-### File names
+### File Names
 C++ file should end in .cpp and header file should end in .hpp (do not end in .h).
 
-### Type names
+### Type Names
 Types should be named like PascalCase.
 
 ```C++
@@ -249,7 +249,7 @@ enum PascalCase;
 enum class PascalCase;
 ```
 
-### Variable names
+### Variable Names
 Local variables should be named using standard camelCase.
 
 ```C++
@@ -287,7 +287,7 @@ enum class ExampleEnum
 };
 ```
 
-### Function names
+### Function Names
 Functions should be named using standard camelCase.
 
 ```C++
@@ -300,7 +300,7 @@ class PascalCase
 };
 ```
 
-### Macro names
+### Macro Names
 When naming macros, use uppercase for all the letters, and separate words by underscores.
 
 ```C++
@@ -308,7 +308,7 @@ When naming macros, use uppercase for all the letters, and separate words by und
 #define UPPERCASE_VALID
 ```
 
-### Exceptions to naming rules
+### Exceptions to Naming Rules
 If you are naming something that is analogous to an existing C++ entity then you can follow the existing naming convention scheme.
 ```C++
 sparse_hash_set<> ...  // STL-like entity; follows STL naming conventions
@@ -316,7 +316,7 @@ long BUFFER_MAX ...    // a constant, as in INT_MAX
 using diff_t ...       // as in ptrdiff_t
 ```
 
-## Including header files
+## Including Header Files
 When including header files, only include files that are _portable_ across all compilers (Unless where applicable). Do not include `<bits/stdc++.h>`.
 
 Pay attention to whether the header is _not in use_, and do not include it if so. If only the implementation uses it, then include the file in .cpp, not .hpp.
@@ -347,15 +347,15 @@ void ListHelp::sort()
 ```
 
 ## Namespaces
-When using namespace, pay attention to name collisions/name conflicts:
+When using namespaces, pay attention to name collisions/name conflicts:
 
-In header files, do not use `using` directive or declaration.
+In header files, do not use a `using` directive or declaration.
 
 ```C++
 // sample1.hpp
 #include <vector>
 
-// ok, if users include this file, they also need declare std namespace to use member of vector
+// ok, if users include this file, they also need to declare std namespace to use member of vector
 template<typename Ty>
 std::vector<Ty> toVector(Ty t[], size_t sz);
 
