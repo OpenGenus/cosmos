@@ -7,7 +7,9 @@
 ## Index
 - [Comments](#comments)
 - [Code width and alignment](#code-width-and-alignment)
+- [Spaces](#spaces)
 - [Indentations](#indentations)
+- [Newlines](#newlines)
 - [Braces](#braces)
 - [Naming](#naming)
   <details open>
@@ -90,6 +92,40 @@ cloneTwo(const container<T,Allocator>& x,
          const container<T,Allocator>& z);
 ```
 
+## Spaces
+Put one space:
+
+- After commas.
+
+- Between operators.
+
+- Between condition and its opening brace.
+
+Remove spaces:
+
+- In whitespace-only line.
+
+- After opening brace/parenthese, and before closing brace/parenthes.
+
+- Between empty braces, and parentheses.
+
+Be clear, the demo not follow the Newline rules:
+```C++
+while ()    // 1 space between while and '(', 0 space between parentheses.
+{           // 0 space after opening brace-only line.
+
+    if (true)                   // 1 space between if and '('.
+    {
+        ClassName obj{1, 2, 3}; // 0 space after '{', before '}'.
+
+        int i = (1 + 1) * 1;    // 1 space around '=', '+', and '*'.
+
+        doSomthing(obj, i, 1);  // 1 space after commas.
+    }
+
+}           // 0 space after closing brace-only line.
+```
+
 ## Indentations
 Use only spaces, and indent 4 spaces at a time.
 
@@ -100,9 +136,58 @@ bool predicateFunc(vector<int> vec) {
     for (; condition; )     //  4 spaces
         if (condition)      //  8 spaces
             return false;   // 12 spaces
-                            //  0 spaces
+                            // none space
     return true;            //  4 spaces
 }
+```
+
+## Newlines
+Add newline:
+
+- Between two functions, classes, and conditions.
+
+- After `#define`, `#include`.
+
+- Between preconditions and its scope (ignore between preconditions).
+
+```C++
+#include <iostream>
+
+#ifndef DDD     // no newline between #ifndef and #define line
+#define DDD
+
+int func1();
+
+int func2()
+{
+    int a{1}, b{0};
+    if (a == b)
+        // ...
+
+    while (a - b > 0)
+        // ...
+}
+
+class A;
+
+class B
+{
+public:
+    int func1();
+
+    int func2()
+    {
+        // ...
+    }
+
+private:
+    int v1;
+    bool v2;
+
+    int func3();
+}
+
+#endif
 ```
 
 ## Braces
