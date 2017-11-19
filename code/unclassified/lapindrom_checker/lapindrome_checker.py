@@ -1,7 +1,5 @@
 # part of cosmos by opengenus foundation
 
-from __future__ import division, print_function  # if python 2.x used
-
 def isLapindrome(string):
 	mid = len(string) // 2;
 	delim = mid
@@ -17,10 +15,15 @@ def isLapindrome(string):
 	return first_half == second_half
 
 
-test_case = "xyzyx"
+testCase1 = "xyzyx"
+testCase2 = "abcdbba"
 
-if isLapindrome(test_case):
+if isLapindrome(testCase1):
 	print("Lapindrome")
 else:
 	print("Not a Lapindrome")
 
+if isLapindrome(testCase2):
+        print("Lapindrome")
+else:
+        print("Not a Lapindrome")
