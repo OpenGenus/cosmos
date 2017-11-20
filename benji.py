@@ -33,7 +33,7 @@ class MyFrame(wx.Frame):
             ico= wx.Icon('benji1.ico',wx.BITMAP_TYPE_ICO)
             self.SetIcon(ico)
             my_sizer=wx.BoxSizer(wx.VERTICAL)
-            lbl=wx.StaticText(panel,label="Welcome to IMF,Ethan.See the world on a monitor, in a closet")
+            lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
             my_sizer.Add(lbl,0,wx.ALL,6)
             self.txt=wx.TextCtrl(panel,style=wx.TE_PROCESS_ENTER,size=(400,40))
             self.txt.SetFocus()
@@ -41,7 +41,7 @@ class MyFrame(wx.Frame):
             my_sizer.Add(self.txt,0,wx.ALL,6)
             panel.SetSizer(my_sizer)
             self.Show()
-            speak.Speak('''Hi Ethan! Going on a mission?''')
+            speak.Speak('''Hi Agent! BENJI at your service''')
      
         def OnEnter(self,event):
             put=self.txt.GetValue()
@@ -62,6 +62,7 @@ class MyFrame(wx.Frame):
                     print("could not request results from IMF archives;{0}".format(RE))
                 except:
                     print("Unknown error occurred!")
+         
          #Play song on  Youtube
             if put.startswith('play '):
                 try:
@@ -78,7 +79,13 @@ class MyFrame(wx.Frame):
                     webbrowser.open('https://www.youtube.com'+hit)
                 except:
                     print('Sorry Ethan. Looks like its not working!')
-         #Open a webpage
+        #Who are you?
+            elif put.startswith('who are you '):
+                try: 
+                    speak.Speak("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
+                except:
+                    print('Error. Try reading the ReadMe to know about me!')
+        #Open a webpage
             elif put.startswith('open '):
                 try:
                     speak.Speak("opening "+link[1])
@@ -97,14 +104,21 @@ class MyFrame(wx.Frame):
         #Wikipedia
             elif put.startswith('wiki '):
                 try:
-                    put=put.split()
-                    put=''.join(put[2:])
-                    print(wikipedia.summary(put))
-                    speak.Speak('searched Wikipedia for'+put)
+                    link='+'.join(link[1:])
+                    say=link.replace('+',' ')
+                    speak.Speak("Wikipedia search for"+say)
+                    webbrowser.open('https://en.wikipedia.org/wiki/'+link)
                 except:
-                    print('Net is an issue!')
-    
-    #News of various press agencies
+                	print('Wikipedia could not either find the article or your Third-world connection is unstable')
+       #Lock the device 
+            elif put.startswith('secure '):
+                try:
+                        speak.Speak("locking the device")
+                        ctypes.windll.user32.LockWorkStation()
+                except :
+                print('Cannot lock device')  
+
+        #News of various press agencies
             elif put.startswith('aljazeera '):
                 try:
                     jsonObj=urlopen('''  https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3''')
