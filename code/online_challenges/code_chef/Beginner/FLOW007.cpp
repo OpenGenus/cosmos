@@ -1,6 +1,6 @@
 // part of cosmos from opengenus foundation
 
-// problem code link https://www.codechef.com/problems/FLOW006
+// problem code link https://www.codechef.com/problems/FLOW007
 
 
 #include <iostream>
