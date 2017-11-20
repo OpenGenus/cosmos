@@ -1,7 +1,7 @@
 # cosmos
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
-# Tridiagonal matrix
+# Jacobi method
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
 
