@@ -19,45 +19,42 @@ using std::endl;
 
 struct BinaryTreeNode
 {
-	int _value;
+	int value;
 
-	BinaryTreeNode *_Left;
-	BinaryTreeNode *_Right;
+	BinaryTreeNode *Left;
+	BinaryTreeNode *Right;
 
-	BinaryTreeNode() : _value(0), _Left(nullptr), _Right(nullptr)
-	{	}
+	BinaryTreeNode() : value(0), Left(nullptr), Right(nullptr) { }
 
-	BinaryTreeNode(int value) : _value(value), _Left(nullptr), _Right(nullptr)
-	{	}
+	BinaryTreeNode(int value) : value(value), Left(nullptr), Right(nullptr) { }
 };
 
 class BST
 {
 public:
-	BST() : _Root(nullptr), _count(0) {	}
-	~BST() { Clear(_Root); }
+	BST() : Root_(nullptr), count_(0) {	}
+	~BST() { Clear(Root_); }
 
 	void Add(int);
 	void Remove(int);
-	int FindSmallest(void);
+	int FindSmallest();
 	void Clear(BinaryTreeNode *);
 	bool Contains(int);
-	int Count(void) { return _count; }
+	int Count() { return count_; }
 
-	BinaryTreeNode * Root(void) { return _Root; }
+	BinaryTreeNode * Root() { return Root_; }
 
 	void preOrder(BinaryTreeNode *);
 	void postOrder(BinaryTreeNode *);
 	void inOrder(BinaryTreeNode *);
 
 private:
-	int _count;
-	BinaryTreeNode *_Root;
-
+	int count_;
+	BinaryTreeNode *Root_;
 	void AddTo(BinaryTreeNode *, const int &);
 
 	void RemoveFrom(BinaryTreeNode *, const int &);
-	void RemoveRoot(void);
+	void RemoveRoot();
 	void RemoveMatch(BinaryTreeNode *, BinaryTreeNode *, bool);
 
 	int FindSmallestFrom(BinaryTreeNode *);
@@ -66,69 +63,69 @@ private:
 
 void BST::Add(int value)
 {
-	if (_Root == nullptr)
+	if (Root_ == nullptr)
 	{
-		_Root = new BinaryTreeNode(value);
-		_count++;
+		Root_ = new BinaryTreeNode(value);
+		++count_;
 	}
 	else
 	{
-		AddTo(_Root, value);
+		AddTo(Root_, value);
 	}
 }
 
 void BST::AddTo(BinaryTreeNode *node, const int &value)
 {
-	if (value < node->_value)
+	if (value < node->value)
 	{
-		if (node->_Left == nullptr)
+		if (node->Left == nullptr)
 		{
-			node->_Left = new BinaryTreeNode(value);
-			_count++;
+			node->Left = new BinaryTreeNode(value);
+			++count_;
 		}
 		else
 		{
-			AddTo(node->_Left, value);
+			AddTo(node->Left, value);
 		}
 	}
 	else
 	{
-		if (node->_Right == nullptr)
+		if (node->Right == nullptr)
 		{
-			node->_Right = new BinaryTreeNode(value);
-			_count++;
+			node->Right = new BinaryTreeNode(value);
+			++count_;
 		}
 		else
 		{
-			AddTo(node->_Right, value);
+			AddTo(node->Right, value);
 		}
 	}
 }
 
 void BST::Remove(int value)
 {
-	RemoveFrom(_Root, value);
+	RemoveFrom(Root_, value);
 }
 
 void BST::RemoveFrom(BinaryTreeNode *current, const int &value)
 {
 	if (current != nullptr)
 	{
-		if (current->_value == value)
+		if (current->value == value)
 			RemoveRoot();
 		else
 		{
-			if (value < current->_value && current->_Left != nullptr)
+			if (value < current->value && current->Left != nullptr)
 			{
-				current->_Left->_value == value ?
-					RemoveMatch(current, current->_Left, true) :
-					RemoveFrom(current->_Left, value);
+				current->Left->value == value ?
+					RemoveMatch(current, current->Left, true) :
+					RemoveFrom(current->Left, value);
 			}
-			else if (value > current->_value && current->_Right != nullptr)
+			else if (value > current->value && current->Right != nullptr)
 			{
-				current->_Right->_value == value ?
-					RemoveMatch(current, current->_Right, false) :
-					RemoveFrom(current->_Left, value);
+				current->Right->value == value ?
+					RemoveMatch(current, current->Right, false) :
+					RemoveFrom(current->Left, value);
 			}
 			else
 				cout << "The value " << value << "wasn't found in the tree." << endl;
@@ -138,99 +135,97 @@ void BST::RemoveFrom(BinaryTreeNode *current, const int &value)
 		cout << "Tree is empty!" << endl;
 }
 
-void BST::RemoveRoot(void)
+void BST::RemoveRoot()
 {
-	if (_Root != nullptr)
+	if (Root_ != nullptr)
 	{
-		BinaryTreeNode *current = _Root;
-		int rootValue = _Root->_value;
+		BinaryTreeNode *current = Root_;
+		int rootValue = Root_->value;
 		int smallestInRightSubtree = 0;
 
 		// Case 0: The root has no children.
-		if (_Root->_Left == nullptr && _Root->_Right == nullptr)
+		if (Root_->Left == nullptr && Root_->Right == nullptr)
 		{
-			_Root = nullptr;
+			Root_ = nullptr;
 			delete current;
-			--_count;
+			--count_;
 		}
 
 		// Case 1: The root has only one child.
-		else if (_Root->_Left != nullptr && _Root->_Right == nullptr)
+		else if (Root_->Left != nullptr && Root_->Right == nullptr)
 		{
-			_Root = _Root->_Left;
-			current->_Left = nullptr;
+			Root_ = Root_->Left;
+			current->Left = nullptr;
 			delete current;
-			--_count;
+			--count_;
 			cout << "The root node with value " << rootValue << "was deleted." <<
-					"The new root contains value - " << _Root->_value << endl;
+					"The new root contains value - " << Root_->value << endl;
 		}
-		else if (_Root->_Left == nullptr && _Root->_Right != nullptr)
+		else if (Root_->Left == nullptr && Root_->Right != nullptr)
 		{
-			_Root = _Root->_Right;
-			current->_Right = nullptr;
+			Root_ = Root_->Right;
+			current->Right = nullptr;
 			delete current;
-			--_count;
+			--count_;
 			cout << "The root node with value " << rootValue << "was deleted." <<
-					"The new root contains value - " << _Root->_value << endl;
+					"The new root contains value - " << Root_->value << endl;
 		}
 
 		//Case 2: The root has two children.
 		else 
 		{
-			smallestInRightSubtree = FindSmallestFrom(_Root->_Right);
-			RemoveFrom(_Root, smallestInRightSubtree);
-			_Root->_value = smallestInRightSubtree;
-			--_count;
+			smallestInRightSubtree = FindSmallestFrom(Root_->Right);
+			RemoveFrom(Root_, smallestInRightSubtree);
+			Root_->value = smallestInRightSubtree;
+			--count_;
 			cout << "The root containing value " << rootValue <<
-					" was overwritten with " << _Root->_value << endl;
+					" was overwritten with " << Root_->value << endl;
 		}
 	}
 	else
-	{
 		cout << "The tree is empty!" << endl;
-	}
 }
 
 void BST::RemoveMatch(BinaryTreeNode *parent, BinaryTreeNode *match, bool left)
 {
-	if (_Root != nullptr)
+	if (Root_ != nullptr)
 	{
 		BinaryTreeNode *current = new BinaryTreeNode();
-		int matchValue = match->_value;
+		int matchValue = match->value;
 		int smallestInRightSubtree = 0;
 
 		//Case 0 : The match node have no children.
-		if (match->_Left == nullptr && match->_Right == nullptr)
+		if (match->Left == nullptr && match->Right == nullptr)
 		{
 			current = match;
-			left == true ? parent->_Left == nullptr : 
-						   parent->_Right == nullptr;
+			left == true ? parent->Left == nullptr : 
+						   parent->Right == nullptr;
 			delete current;
-			--_count;
+			--count_;
 			cout << "The node containing value " << matchValue <<
 					" was removed" << endl;
 		}
 
 		// Case 1: Matching node has one child.
-		else if (match->_Left != nullptr && match->_Right == nullptr)
+		else if (match->Left != nullptr && match->Right == nullptr)
 		{
-			left == true ? parent->_Left = match->_Left :
-				parent->_Right = match->_Left;
-			match->_Left = nullptr;
+			left == true ? parent->Left = match->Left :
+						   parent->Right = match->Left;
+			match->Left = nullptr;
 			current = match;
 			delete current;
-			--_count;
+			--count_;
 			cout << "The node containing value " << matchValue <<
 				" was removed" << endl;
 		}
-		else if (match->_Left == nullptr && match->_Right != nullptr)
+		else if (match->Left == nullptr && match->Right != nullptr)
 		{
-			left == true ? parent->_Left = match->_Right :
-						   parent->_Right = match->_Right;
-			match->_Right = nullptr;
+			left == true ? parent->Left = match->Right :
+						   parent->Right = match->Right;
+			match->Right = nullptr;
 			current = match;
 			delete current;
-			--_count;
+			--count_;
 			cout << "The node containing value " << matchValue <<
 					" was removed" << endl;
 		}
@@ -238,20 +233,18 @@ void BST::RemoveMatch(BinaryTreeNode *parent, BinaryTreeNode *match, bool left)
 		// Case 2: The matching node has two children.
 		else
 		{
-			smallestInRightSubtree = FindSmallestFrom(match->_Right);
+			smallestInRightSubtree = FindSmallestFrom(match->Right);
 			RemoveFrom(match, smallestInRightSubtree);
-			match->_value = smallestInRightSubtree;
+			match->value = smallestInRightSubtree;
 		}
 	}
 	else
-	{
 		cout << "Can't remove match. The tree is empty!" << endl;
-	}
 }
 
-int BST::FindSmallest(void)
+int BST::FindSmallest()
 {
-	return FindSmallestFrom(_Root);
+	return FindSmallestFrom(Root_);
 }
 
 int BST::FindSmallestFrom(BinaryTreeNode *current)
@@ -263,10 +256,10 @@ int BST::FindSmallestFrom(BinaryTreeNode *current)
 	}
 	else
 	{
-		if (current->_Left != nullptr)
-			return FindSmallestFrom(current->_Left);
+		if (current->Left != nullptr)
+			return FindSmallestFrom(current->Left);
 		else
-			return current->_value;
+			return current->value;
 	}
 
 }
@@ -274,25 +267,25 @@ int BST::FindSmallestFrom(BinaryTreeNode *current)
 bool BST::Contains(int value)
 {
 	BinaryTreeNode *current = new BinaryTreeNode();
-	current = _Root;
-	while (current != nullptr)
+	current = Root_;
+	while (current)
 	{
-		if (value < current->_value)
-			current = current->_Left;
-		else if (value > current->_value)
-			current = current->_Right;
+		if (value < current->value)
+			current = current->Left;
+		else if (value > current->value)
+			current = current->Right;
 		else
 			break;
 	}
-	return current == nullptr ? false : true;
+	return current ? true : false;
 }
 
 void BST::Clear(BinaryTreeNode *node)
 {
 	if (node != nullptr)
 	{
-		Clear(node->_Left);
-		Clear(node->_Right);
+		Clear(node->Left);
+		Clear(node->Right);
 		delete node;
 	}
 }
@@ -301,9 +294,9 @@ void BST::preOrder(BinaryTreeNode *node)
 {
 	if (node != nullptr)
 	{
-		cout << node->_value << " ";
-		preOrder(node->_Left);
-		preOrder(node->_Right);
+		cout << node->value << " ";
+		preOrder(node->Left);
+		preOrder(node->Right);
 	}
 }
 
@@ -311,9 +304,9 @@ void BST::postOrder(BinaryTreeNode *node)
 {
 	if (node != nullptr)
 	{
-		postOrder(node->_Left);
-		postOrder(node->_Right);
-		cout << node->_value << " ";
+		postOrder(node->Left);
+		postOrder(node->Right);
+		cout << node->value << " ";
 	}
 }
 
@@ -321,57 +314,56 @@ void BST::inOrder(BinaryTreeNode *node)
 {
 	if (node != nullptr)
 	{
-		inOrder(node->_Left);
-		cout << node->_value << " ";
-		inOrder(node->_Right);
+		inOrder(node->Left);
+		cout << node->value << " ";
+		inOrder(node->Right);
 	}
 }
 
 int main()
 {
-/* Let's create the following BST
-**				 4
-**              / \
-**			   2   5
-**			  / \   \
-**			 1   3	 7
-**					/ \
-**				   6   8
-*/
-	BST *tree = new BST();
-	tree->Add(4);
-	tree->Add(2);
-	tree->Add(1);
-	tree->Add(3);
-	tree->Add(5);
-	tree->Add(7);
-	tree->Add(6);
-	tree->Add(8);
+	//	Let's create the following BST
+	//			 4
+	//          / \
+	//		   2   5
+	//		  / \   \
+	//		 1   3	 7
+	//				/ \
+	//			   6   8
+
+	BST tree;
+	tree.Add(4);
+	tree.Add(2);
+	tree.Add(1);
+	tree.Add(3);
+	tree.Add(5);
+	tree.Add(7);
+	tree.Add(6);
+	tree.Add(8);
 
 	cout << "PreOrder Traversal: ";
-	tree->preOrder(tree->Root());
+	tree.preOrder(tree.Root());
 	cout << endl;
 
 	cout << "PostOrder Traversal: ";
-	tree->postOrder(tree->Root());
+	tree.postOrder(tree.Root());
 	cout << endl;
 
 	cout << "InOrder Traversal: ";
-	tree->inOrder(tree->Root());
+	tree.inOrder(tree.Root());
 	cout << endl;
 
 	cout << "The smallest value in the tree is " << 
-			tree->FindSmallest() << endl;
+			tree.FindSmallest() << endl;
 	
-	tree->Remove(5);
-	/* The tree after removing node with value 5
-	**				  4
-	**              /   \
-	**			   2     7
-	**			  / \   / \
-	**			 1   3 6   8
-	*/
+	tree.Remove(5);
+	//The tree after removing node with value 5
+	//				  4
+	//              /   \
+	//			   2     7
+	//			  / \   / \
+	//			 1   3 6   8
+	
 
-	delete tree;
 	return 0;
 }
