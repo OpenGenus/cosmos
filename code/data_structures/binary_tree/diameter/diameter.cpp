@@ -5,17 +5,27 @@
 
 template<typename _TreeNode>
 size_t
-diameterRecursive(_TreeNode node, size_t &maximum);
+diameter(_TreeNode node);
 
 template<typename _TreeNode>
 size_t
-diameter(_TreeNode node);
+diameterRecursive(_TreeNode node, size_t &maximum);
  */
 
 #include <algorithm>
 #include <memory>
 #include <stack>
 #include "../tree_node/tree_node.cpp"
+
+template<typename _TreeNode>
+size_t
+diameter(_TreeNode node)
+{
+    size_t res{};
+    diameterRecursive(node, res);
+
+    return res;
+}
 
 template<typename _TreeNode>
 size_t
@@ -37,14 +47,4 @@ diameterRecursive(_TreeNode node, size_t &maximum)
     }
 
     return 0;
-}
-
-template<typename _TreeNode>
-size_t
-diameter(_TreeNode node)
-{
-    size_t res{};
-    diameterRecursive(node, res);
-
-    return res;
 }
