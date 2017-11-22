@@ -47,7 +47,7 @@ int fibSearch(int ar[], int x, int n)
 		if(x < ar[i]){
 			nextNum = nextNum - firstPreceding;
 			firstPreceding = firstPreceding - secondPreceding;
-			firstPreceding = firstPreceding - secondPreceding;
+			secondPreceding = nextNum - firstPreceding;
 		}
 		else if(x > ar[i]){
 			nextNum = firstPreceding;
@@ -59,7 +59,7 @@ int fibSearch(int ar[], int x, int n)
 			return i;
 		}
 	}
-	if(secondPreceding == 1 && ar[range+1] == x){
+	if(firstPreceding && ar[range+1] == x){
 		return range + 1;
 	}
 	return -1;
