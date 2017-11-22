@@ -1,3 +1,6 @@
+// search | fibonacci search | c
+// Part of Cosmos by OpenGenus Foundation
+
 /*
 ar -> Array name
 n -> Array size
