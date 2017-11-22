@@ -1,3 +1,6 @@
+// dynamic programming | binomial coefficient | javascript js
+// Part of Cosmos by OpenGenus Foundation
+
 /*Call the function with desired values of n and k.
 'ar' is the array name.*/
 
