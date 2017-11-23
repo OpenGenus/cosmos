@@ -12,11 +12,53 @@
 #include <iostream>
 #include <list>
 #include <vector>
-using namespace std;
 
 const size_t RandomSize = 100000 + rand() % 2;
+const size_t SmallRandomSize = RandomSize / 100;
 
-// const size_t RandomSize = 10000;
+auto getRandomVector = ([](size_t sz = RandomSize)
+{
+    // init
+    std::vector<int> vec(sz);
+    size_t i = 0 - 1;
+    while (++i < sz)
+        vec.at(i) = static_cast<int>(i);
+
+    // randomize
+    i = 0 - 1;
+    while (++i < sz)
+    {
+        auto r = rand() % vec.size();
+        auto temp = vec.at(i);
+        vec.at(i) = vec.at(r);
+        vec.at(r) = temp;
+    }
+
+    return vec;
+});
+
+auto copyRandom = ([](std::vector<int> const &vec)
+{
+    XorLinkedList<int> xlist;
+    for_each(vec.begin(), vec.end(), [&](int v)
+    {
+        xlist.push_back(v);
+    });
+
+    return xlist;
+});
+
+auto isSame = ([](std::list<int> expect, XorLinkedList<int> actual)
+{
+    CHECK(expect.size() == actual.size());
+    CHECK(expect.empty() == actual.empty());
+
+    auto eit = expect.begin();
+    auto ait = actual.begin();
+
+    while (eit != expect.end())
+        CHECK(*eit++ == *ait++);
+});
 
 TEST_CASE("-ctors converts and its types")
 {
@@ -278,6 +320,7 @@ TEST_CASE("-ctors converts and its types")
 
 TEST_CASE("const semantic")
 {
+    using std::is_const;
     SECTION("iterators")
     {
         SECTION("non-const")
@@ -431,7 +474,7 @@ TEST_CASE("const semantic")
         }
     }
 
-    SECTION("references")
+    SECTION("element access")
     {
         SECTION("non-const")
         {
@@ -453,95 +496,94 @@ TEST_CASE("const semantic")
     }
 }
 
-TEST_CASE("list funcs")
+TEST_CASE("element access rely on [push]")
 {
-    auto getRandomVector = ([]()
-    {
-        // init
-        vector<int> vec(RandomSize);
-        size_t i = 0 - 1;
-        while (++i < RandomSize)
-            vec.at(i) = static_cast<int>(i);
-
-        // randomize
-        i = 0 - 1;
-        while (++i < RandomSize)
-        {
-            auto r = rand() % vec.size();
-            auto temp = vec.at(i);
-            vec.at(i) = vec.at(r);
-            vec.at(r) = temp;
-        }
-
-        return vec;
-    });
-
-    auto copyRandom = ([](std::vector<int> const &vec)
+    SECTION("while empty")
     {
         XorLinkedList<int> xlist;
+        CHECK_THROWS(xlist.back());
+        CHECK_THROWS(xlist.front());
+    }
+
+    SECTION("one node")
+    {
+        XorLinkedList<int> xlist;
+        xlist.push_back(1);
+        CHECK(xlist.front() == 1);
+        CHECK(xlist.back() == 1);
+    }
+
+    SECTION("two nodes")
+    {
+        XorLinkedList<int> xlist;
+        xlist.push_back(1);
+        xlist.push_back(2);
+        CHECK(xlist.front() == 1);
+        CHECK(xlist.back() == 2);
+        xlist.push_front(3);
+        CHECK(xlist.front() == 3);
+        CHECK(xlist.back() == 2);
+    }
+}
+
+TEST_CASE("capcity rely on [push/pop]")
+{
+    XorLinkedList<int> xlist;
+    CHECK(xlist.empty());
+    CHECK(xlist.size() == 0);
+    xlist.clear();
+    CHECK(xlist.empty());
+    CHECK(xlist.size() == 0);
+
+    SECTION("random actions")
+    {
+        auto vec = getRandomVector();
+
+        XorLinkedList<int> xlist;
+        int expectSize = 0;
+
         for_each(vec.begin(), vec.end(), [&](int v)
         {
-            xlist.push_back(v);
-        });
-
-        return xlist;
-    });
-
-    SECTION("[size/empty] rely on [push/pop]")
-    {
-        XorLinkedList<int> xlist;
-        CHECK(xlist.empty());
-        CHECK(xlist.size() == 0);
-        xlist.clear();
-        CHECK(xlist.empty());
-        CHECK(xlist.size() == 0);
-
-        SECTION("random actions")
-        {
-            auto vec = getRandomVector();
-
-            XorLinkedList<int> xlist;
-            int expectSize = 0;
-
-            for_each(vec.begin(), vec.end(), [&](int v)
+            if (!(rand() % 3))                                              // times: let pop be
+                                                                            // more
             {
-                if (!(rand() % 3))                            // times: let pop be more
+                if (rand() % 2)
+                    xlist.push_back(v);
+                else
+                    xlist.push_front(v);
+                ++expectSize;
+            }
+            else
+            {
+                if (rand() % 2)
                 {
-                    if (rand() % 2)
-                        xlist.push_back(v);
+                    if (expectSize == 0)
+                        CHECK_THROWS(xlist.pop_back());
                     else
-                        xlist.push_front(v);
-                    ++expectSize;
+                    {
+                        CHECK_NOTHROW(xlist.pop_back());
+                        --expectSize;
+                    }
                 }
                 else
                 {
-                    if (rand() % 2)
-                    {
-                        if (expectSize == 0)
-                            CHECK_THROWS(xlist.pop_back());
-                        else
-                        {
-                            CHECK_NOTHROW(xlist.pop_back());
-                            --expectSize;
-                        }
-                    }
+                    if (expectSize == 0)
+                        CHECK_THROWS(xlist.pop_front());
                     else
                     {
-                        if (expectSize == 0)
-                            CHECK_THROWS(xlist.pop_front());
-                        else
-                        {
-                            CHECK_NOTHROW(xlist.pop_front());
-                            --expectSize;
-                        }
+                        CHECK_NOTHROW(xlist.pop_front());
+                        --expectSize;
                     }
                 }
-                CHECK(xlist.size() == expectSize);
-                CHECK((expectSize ^ xlist.empty()));
-            });
-        }
+            }
+            CHECK(xlist.size() == expectSize);
+            CHECK((expectSize ^ xlist.empty()));
+        });
     }
+}
 
+TEST_CASE("modifiers")
+{
     SECTION("[clear] rely on [push_back]")
     {
         SECTION("while empty")
@@ -574,36 +616,6 @@ TEST_CASE("list funcs")
             xlist.push_back(1);
             xlist.push_back(2);
             xlist.push_back(3);
-        }
-    }
-
-    SECTION("front/back rely on [push]")
-    {
-        SECTION("while empty")
-        {
-            XorLinkedList<int> xlist;
-            CHECK_THROWS(xlist.back());
-            CHECK_THROWS(xlist.front());
-        }
-
-        SECTION("one node")
-        {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 1);
-        }
-
-        SECTION("two nodes")
-        {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 2);
-            xlist.push_front(3);
-            CHECK(xlist.front() == 3);
-            CHECK(xlist.back() == 2);
         }
     }
 
@@ -672,7 +684,7 @@ TEST_CASE("list funcs")
                 auto vec = getRandomVector();
 
                 XorLinkedList<int> xlist;
-                list<int> actualList;
+                std::list<int> actualList;
                 for_each(vec.begin(), vec.end(), [&](int v)
                 {
                     if (rand() % 2)
@@ -729,7 +741,7 @@ TEST_CASE("list funcs")
                 auto vec = getRandomVector();
 
                 XorLinkedList<int> xlist;
-                list<int> actualList;
+                std::list<int> actualList;
                 for_each(vec.begin(), vec.end(), [&](int v)
                 {
                     xlist.push_back(v);
@@ -754,14 +766,14 @@ TEST_CASE("list funcs")
             }
         }
 
-        SECTION("random push/pop rely on[front/back]")
+        SECTION("random push/pop rely on [front/back]")
         {
             SECTION("push times is larger than")
             {
                 auto vec = getRandomVector();
 
                 XorLinkedList<int> xlist;
-                list<int> actualList;
+                std::list<int> actualList;
                 for_each(vec.begin(), vec.end(), [&](int v)
                 {
                     if (rand() % 3)
@@ -813,7 +825,7 @@ TEST_CASE("list funcs")
                 auto vec = getRandomVector();
 
                 XorLinkedList<int> xlist;
-                list<int> actualList;
+                std::list<int> actualList;
                 for_each(vec.begin(), vec.end(), [&](int v)
                 {
                     if (!(rand() % 3))
@@ -862,9 +874,9 @@ TEST_CASE("list funcs")
         }
     }
 
-    SECTION("begin/rbegin/end/rend rely on [push_back]")
+    SECTION("[iterator] rely on [push_back]")
     {
-        SECTION("random move (op++ more than op--) rely on [push_back]")
+        SECTION("random move (i++ more than i--) rely on [push_back]")
         {
             SECTION("iterator")
             {
@@ -1010,7 +1022,7 @@ TEST_CASE("list funcs")
             }
         }
 
-        SECTION("random move (op-- more than op++) rely on [push_back]")
+        SECTION("random move (i-- more than i++) rely on [push_back]")
         {
             SECTION("iterator")
             {
@@ -1154,7 +1166,7 @@ TEST_CASE("list funcs")
         {
             auto vec = getRandomVector();
             XorLinkedList<int> xlist = copyRandom(vec);
-            vector<int>::reverse_iterator vrb(vec.begin());
+            std::vector<int>::reverse_iterator vrb(vec.begin());
             XorLinkedList<int>::const_reverse_iterator xrb(xlist.begin());
             auto vb = vrb.base();
             auto xb = xrb.base();
@@ -1168,7 +1180,376 @@ TEST_CASE("list funcs")
         }
     }
 
-    SECTION("[reverse]")
+    SECTION("empty list")
+    {
+        XorLinkedList<int> xlist;
+        xlist.clear();
+
+        CHECK_THROWS(xlist.front());
+        CHECK_THROWS(xlist.back());
+        CHECK_THROWS(xlist.pop_front());
+        CHECK_THROWS(xlist.pop_back());
+        CHECK(xlist.size() == 0);
+        CHECK(xlist.empty());
+    }
+
+    SECTION("[insert] rely on [op/begin/end/size/push_back/clear]")
+    {
+        std::list<int> expect;
+        XorLinkedList<int> actual;
+        int v;
+        size_t sz;
+        auto li = getRandomVector(SmallRandomSize);
+
+        SECTION("insert(const_iterator, value_type const &)")
+        {
+            SECTION("to empty")
+            {
+                expect.clear();
+                actual.clear();
+
+                v = rand();
+
+                expect.insert(expect.end(), v);
+                actual.insert(actual.end(), v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before begin")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(expect.begin(), v);
+                actual.insert(actual.begin(), v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(expect.end(), v);
+                actual.insert(actual.end(), v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(++expect.begin(), v);
+                actual.insert(++actual.begin(), v);
+
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("insert(const_iterator, value_type &&)")
+        {
+            SECTION("to empty")
+            {
+                expect.clear();
+                actual.clear();
+
+                v = rand();
+
+                expect.insert(expect.end(), std::move(v));
+                actual.insert(actual.end(), std::move(v));
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before begin")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(expect.begin(), std::move(v));
+                actual.insert(actual.begin(), std::move(v));
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(expect.end(), std::move(v));
+                actual.insert(actual.end(), std::move(v));
+
+                isSame(expect, actual);
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+
+                expect.insert(++expect.begin(), std::move(v));
+                actual.insert(++actual.begin(), std::move(v));
+
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("insert(const_iterator, size_type, value_type const&)")
+        {
+            SECTION("to empty")
+            {
+                expect.clear();
+                actual.clear();
+
+                v = rand();
+                sz = rand() % 10 + SmallRandomSize;
+
+                expect.insert(expect.end(), sz, v);
+                actual.insert(actual.end(), sz, v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before begin")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+                sz = rand() % 10 + SmallRandomSize;
+
+                expect.insert(expect.begin(), sz, v);
+                actual.insert(actual.begin(), sz, v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+                sz = rand() % 10 + SmallRandomSize;
+
+                expect.insert(expect.end(), sz, v);
+                actual.insert(actual.end(), sz, v);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+                sz = rand() % 10 + SmallRandomSize;
+
+                expect.insert(++expect.begin(), sz, v);
+                actual.insert(++actual.begin(), sz, v);
+
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("insert(const_iterator, initilizer_list)")
+        {
+            SECTION("to empty")
+            {
+                expect.clear();
+                actual.clear();
+
+                auto il = {rand(), rand(), rand(), rand(), rand()};
+
+                expect.insert(expect.end(), il);
+                actual.insert(actual.end(), il);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before begin")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                auto il = {rand(), rand(), rand(), rand(), rand()};
+
+                expect.insert(expect.begin(), il);
+                actual.insert(actual.begin(), il);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                auto il = {rand(), rand(), rand(), rand(), rand()};
+
+                expect.insert(expect.end(), il);
+                actual.insert(actual.end(), il);
+
+                isSame(expect, actual);
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                auto il = {rand(), rand(), rand(), rand(), rand()};
+
+                expect.insert(++expect.begin(), il);
+                actual.insert(++actual.begin(), il);
+
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("insert(const_iterator, iterator, iterator)")
+        {
+            SECTION("to empty")
+            {
+                expect.clear();
+                actual.clear();
+
+                li = getRandomVector(SmallRandomSize);
+
+                expect.insert(expect.end(), li.begin(), li.end());
+                actual.insert(actual.end(), li.begin(), li.end());
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before begin")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                li = getRandomVector(SmallRandomSize);
+
+                expect.insert(expect.begin(), li.begin(), li.end());
+                actual.insert(actual.begin(), li.begin(), li.end());
+
+                isSame(expect, actual);
+            }
+
+            SECTION("before end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                li = getRandomVector(SmallRandomSize);
+
+                expect.insert(expect.end(), li.begin(), li.end());
+                actual.insert(actual.end(), li.begin(), li.end());
+
+                isSame(expect, actual);
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                li = getRandomVector(SmallRandomSize);
+
+                expect.insert(++expect.begin(), li.begin(), li.end());
+                actual.insert(++actual.begin(), li.begin(), li.end());
+
+                isSame(expect, actual);
+            }
+        }
+    }
+
+    SECTION("[erase] rely on [...]")
+    {
+        // todo
+    }
+}
+
+TEST_CASE("operations")
+{
+    SECTION("[reverse] rely on [empty/size/begin/end/front/back/push_back/push_front]")
     {
         SECTION("empty")
         {
@@ -1275,7 +1656,7 @@ TEST_CASE("list funcs")
             auto vec = getRandomVector();
 
             XorLinkedList<int> xlist;
-            list<int> expectList;
+            std::list<int> expectList;
             while (!vec.empty())
             {
                 auto v = vec.back();
@@ -1328,20 +1709,10 @@ TEST_CASE("list funcs")
             }
         }
     }
+}
 
-    SECTION("empty list")
-    {
-        XorLinkedList<int> xlist;
-        xlist.clear();
-
-        CHECK_THROWS(xlist.front());
-        CHECK_THROWS(xlist.back());
-        CHECK_THROWS(xlist.pop_front());
-        CHECK_THROWS(xlist.pop_back());
-        CHECK(xlist.size() == 0);
-        CHECK(xlist.empty());
-    }
-
+TEST_CASE("others")
+{
     SECTION("random nodes")
     {
         // todo: test more functions insert/find/unique/sort/erase
@@ -1350,7 +1721,7 @@ TEST_CASE("list funcs")
 
         XorLinkedList<int> xlist;
         int expectSize = 1;
-        list<int> expectList;
+        std::list<int> expectList;
         expectList.push_front(vec.front());
         xlist.push_front(vec.front());
         for_each(++vec.begin(), vec.end(), [&](int v)
