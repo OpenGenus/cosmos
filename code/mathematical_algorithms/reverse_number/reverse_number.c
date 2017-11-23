@@ -7,7 +7,7 @@ int reverse_number(int n){
 		ans += n % 10;
 		n /= 10;
 	}
-    return ans;
+	return ans;
 }
 
 int main(){
