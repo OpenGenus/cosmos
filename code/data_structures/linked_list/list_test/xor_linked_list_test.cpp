@@ -37,7 +37,7 @@ auto getRandomVector = ([](size_t sz = RandomSize)
     return vec;
 });
 
-auto copyRandom = ([](std::vector<int> const &vec)
+auto copyRandom = ([](const std::vector<int> &vec)
 {
     XorLinkedList<int> xlist;
     for_each(vec.begin(), vec.end(), [&](int v)
@@ -183,7 +183,7 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const begin")
         {
-            std::list<int> const expect;
+            const std::list<int> expect;
 
             std::list<int>::const_iterator expectIt2(expect.begin());
             std::list<int>::const_reverse_iterator expectIt4(expect.begin());
@@ -195,7 +195,7 @@ TEST_CASE("-ctors converts and its types")
 
             std::list<int>::const_reverse_iterator expectCRIt4(expect.crbegin());
 
-            XorLinkedList<int> const actual;
+            const XorLinkedList<int> actual;
 
             XorLinkedList<int>::const_iterator actualIt2(actual.begin());
             XorLinkedList<int>::const_reverse_iterator actualIt4(actual.begin());
@@ -210,7 +210,7 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const begin errors")
         {
-            std::list<int> const expect;
+            const std::list<int> expect;
 
             // std::list<int>::iterator expectIt1(expect.begin());
             // std::list<int>::reverse_iterator expectIt3(expect.begin());
@@ -226,7 +226,7 @@ TEST_CASE("-ctors converts and its types")
             // std::list<int>::const_iterator expectCRIt2(expect.crbegin());
             // std::list<int>::reverse_iterator expectCRIt3(expect.crbegin());
 
-            XorLinkedList<int> const actual;
+            const XorLinkedList<int> actual;
 
             // XorLinkedList<int>::iterator actualIt1(actual.begin());
             // XorLinkedList<int>::reverse_iterator actualIt3(actual.begin());
@@ -245,7 +245,7 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const end")
         {
-            std::list<int> const expect;
+            const std::list<int> expect;
 
             std::list<int>::const_iterator expectIt2(expect.end());
             std::list<int>::const_reverse_iterator expectIt4(expect.end());
@@ -257,7 +257,7 @@ TEST_CASE("-ctors converts and its types")
 
             std::list<int>::const_reverse_iterator expectCRIt4(expect.crend());
 
-            XorLinkedList<int> const actual;
+            const XorLinkedList<int> actual;
 
             XorLinkedList<int>::const_iterator actualIt2(actual.end());
             XorLinkedList<int>::const_reverse_iterator actualIt4(actual.end());
@@ -272,7 +272,7 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const end error")
         {
-            std::list<int> const expect;
+            const std::list<int> expect;
 
             // std::list<int>::iterator expectIt1(expect.end());
             // std::list<int>::reverse_iterator expectIt3(expect.end());
@@ -288,7 +288,7 @@ TEST_CASE("-ctors converts and its types")
             // std::list<int>::const_iterator expectCRIt2(expect.crend());
             // std::list<int>::reverse_iterator expectCRIt3(expect.crend());
 
-            XorLinkedList<int> const actual;
+            const XorLinkedList<int> actual;
 
             // XorLinkedList<int>::iterator actualIt1(actual.end());
             // XorLinkedList<int>::reverse_iterator actualIt3(actual.end());
@@ -397,8 +397,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            XorLinkedList<int> const actual;
-            std::list<int> const expect;
+            const XorLinkedList<int> actual;
+            const std::list<int> expect;
 
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
@@ -487,8 +487,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            XorLinkedList<int> const actual;
-            std::list<int> const expect;
+            const XorLinkedList<int> actual;
+            const std::list<int> expect;
 
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
@@ -544,8 +544,7 @@ TEST_CASE("capcity rely on [push/pop]")
 
         for_each(vec.begin(), vec.end(), [&](int v)
         {
-            if (!(rand() % 3))                                              // times: let pop be
-                                                                            // more
+            if (!(rand() % 3))
             {
                 if (rand() % 2)
                     xlist.push_back(v);
@@ -1197,11 +1196,13 @@ TEST_CASE("modifiers")
     {
         std::list<int> expect;
         XorLinkedList<int> actual;
+        std::list<int>::iterator eres;
+        XorLinkedList<int>::iterator ares;
         int v;
         size_t sz;
         auto li = getRandomVector(SmallRandomSize);
 
-        SECTION("insert(const_iterator, value_type const &)")
+        SECTION("insert(const_iterator, const value_type &)")
         {
             SECTION("to empty")
             {
@@ -1328,14 +1329,16 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(++expect.begin(), std::move(v));
-                actual.insert(++actual.begin(), std::move(v));
+                eres = expect.insert(++expect.begin(), std::move(v));
+                ares = actual.insert(++actual.begin(), std::move(v));
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
         }
 
-        SECTION("insert(const_iterator, size_type, value_type const&)")
+        SECTION("insert(const_iterator, size_type, const value_type &)")
         {
             SECTION("to empty")
             {
