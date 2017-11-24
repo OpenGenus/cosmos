@@ -16,36 +16,36 @@
 const size_t RandomSize = 100000 + rand() % 2;
 const size_t SmallRandomSize = RandomSize / 100;
 
-auto getRandomVector = ([](size_t sz = RandomSize)
+auto getRandomValueContainer = ([](size_t sz = RandomSize)
 {
     // init
-    std::vector<int> vec(sz);
+    std::vector<int> container(sz);
     size_t i = 0 - 1;
     while (++i < sz)
-        vec.at(i) = static_cast<int>(i);
+        container.at(i) = static_cast<int>(i);
 
     // randomize
     i = 0 - 1;
     while (++i < sz)
     {
-        auto r = rand() % vec.size();
-        auto temp = vec.at(i);
-        vec.at(i) = vec.at(r);
-        vec.at(r) = temp;
+        auto r = rand() % container.size();
+        auto temp = container.at(i);
+        container.at(i) = container.at(r);
+        container.at(r) = temp;
     }
 
-    return vec;
+    return container;
 });
 
-auto copyRandom = ([](const std::vector<int> &vec)
+auto copyContainerToList = ([](const std::vector<int> &container)
 {
-    XorLinkedList<int> xlist;
-    for_each(vec.begin(), vec.end(), [&](int v)
+    XorLinkedList<int> actual;
+    for_each(container.begin(), container.end(), [&](int v)
     {
-        xlist.push_back(v);
+        actual.push_back(v);
     });
 
-    return xlist;
+    return actual;
 });
 
 auto isSame = ([](std::list<int> expect, XorLinkedList<int> actual)
@@ -53,11 +53,11 @@ auto isSame = ([](std::list<int> expect, XorLinkedList<int> actual)
     CHECK(expect.size() == actual.size());
     CHECK(expect.empty() == actual.empty());
 
-    auto eit = expect.begin();
-    auto ait = actual.begin();
+    auto expectIt = expect.begin();
+    auto actualIt = actual.begin();
 
-    while (eit != expect.end())
-        CHECK(*eit++ == *ait++);
+    while (expectIt != expect.end())
+        CHECK(*expectIt++ == *actualIt++);
 });
 
 TEST_CASE("-ctors converts and its types")
@@ -308,13 +308,13 @@ TEST_CASE("-ctors converts and its types")
 
     SECTION("container")
     {
-        std::list<int> l1;
-        std::list<int> l2(l1);
-        std::list<int> l3{1, 2, 3};
+        std::list<int> expect1;
+        std::list<int> expect2(expect1);
+        std::list<int> expect3{1, 2, 3};
 
-        XorLinkedList<int> x1;
-        XorLinkedList<int> x2(x1);
-        XorLinkedList<int> x3{1, 2, 3};
+        XorLinkedList<int> actual1;
+        XorLinkedList<int> actual2(actual1);
+        XorLinkedList<int> actual3{1, 2, 3};
     }
 }
 
@@ -325,8 +325,8 @@ TEST_CASE("const semantic")
     {
         SECTION("non-const")
         {
-            XorLinkedList<int> actual;
             std::list<int> expect;
+            XorLinkedList<int> actual;
 
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
@@ -397,8 +397,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            const XorLinkedList<int> actual;
             const std::list<int> expect;
+            const XorLinkedList<int> actual;
 
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
@@ -469,8 +469,8 @@ TEST_CASE("const semantic")
 
         SECTION("find")
         {
-            XorLinkedList<int> li;
-            CHECK_FALSE(is_const<decltype(li.find(1))>());
+            XorLinkedList<int> actual;
+            CHECK_FALSE(is_const<decltype(actual.find(1))>());
         }
     }
 
@@ -478,8 +478,8 @@ TEST_CASE("const semantic")
     {
         SECTION("non-const")
         {
-            XorLinkedList<int> actual;
             std::list<int> expect;
+            XorLinkedList<int> actual;
 
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
@@ -487,8 +487,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            const XorLinkedList<int> actual;
             const std::list<int> expect;
+            const XorLinkedList<int> actual;
 
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
@@ -500,56 +500,56 @@ TEST_CASE("element access rely on [push]")
 {
     SECTION("while empty")
     {
-        XorLinkedList<int> xlist;
-        CHECK_THROWS(xlist.back());
-        CHECK_THROWS(xlist.front());
+        XorLinkedList<int> actual;
+        CHECK_THROWS(actual.back());
+        CHECK_THROWS(actual.front());
     }
 
     SECTION("one node")
     {
-        XorLinkedList<int> xlist;
-        xlist.push_back(1);
-        CHECK(xlist.front() == 1);
-        CHECK(xlist.back() == 1);
+        XorLinkedList<int> actual;
+        actual.push_back(1);
+        CHECK(actual.front() == 1);
+        CHECK(actual.back() == 1);
     }
 
     SECTION("two nodes")
     {
-        XorLinkedList<int> xlist;
-        xlist.push_back(1);
-        xlist.push_back(2);
-        CHECK(xlist.front() == 1);
-        CHECK(xlist.back() == 2);
-        xlist.push_front(3);
-        CHECK(xlist.front() == 3);
-        CHECK(xlist.back() == 2);
+        XorLinkedList<int> actual;
+        actual.push_back(1);
+        actual.push_back(2);
+        CHECK(actual.front() == 1);
+        CHECK(actual.back() == 2);
+        actual.push_front(3);
+        CHECK(actual.front() == 3);
+        CHECK(actual.back() == 2);
     }
 }
 
 TEST_CASE("capcity rely on [push/pop]")
 {
-    XorLinkedList<int> xlist;
-    CHECK(xlist.empty());
-    CHECK(xlist.size() == 0);
-    xlist.clear();
-    CHECK(xlist.empty());
-    CHECK(xlist.size() == 0);
+    XorLinkedList<int> actual;
+    CHECK(actual.empty());
+    CHECK(actual.size() == 0);
+    actual.clear();
+    CHECK(actual.empty());
+    CHECK(actual.size() == 0);
 
     SECTION("random actions")
     {
-        auto vec = getRandomVector();
+        auto container = getRandomValueContainer();
 
-        XorLinkedList<int> xlist;
+        XorLinkedList<int> actual;
         int expectSize = 0;
 
-        for_each(vec.begin(), vec.end(), [&](int v)
+        for_each(container.begin(), container.end(), [&](int v)
         {
             if (!(rand() % 3))
             {
                 if (rand() % 2)
-                    xlist.push_back(v);
+                    actual.push_back(v);
                 else
-                    xlist.push_front(v);
+                    actual.push_front(v);
                 ++expectSize;
             }
             else
@@ -557,26 +557,26 @@ TEST_CASE("capcity rely on [push/pop]")
                 if (rand() % 2)
                 {
                     if (expectSize == 0)
-                        CHECK_THROWS(xlist.pop_back());
+                        CHECK_THROWS(actual.pop_back());
                     else
                     {
-                        CHECK_NOTHROW(xlist.pop_back());
+                        CHECK_NOTHROW(actual.pop_back());
                         --expectSize;
                     }
                 }
                 else
                 {
                     if (expectSize == 0)
-                        CHECK_THROWS(xlist.pop_front());
+                        CHECK_THROWS(actual.pop_front());
                     else
                     {
-                        CHECK_NOTHROW(xlist.pop_front());
+                        CHECK_NOTHROW(actual.pop_front());
                         --expectSize;
                     }
                 }
             }
-            CHECK(xlist.size() == expectSize);
-            CHECK((expectSize ^ xlist.empty()));
+            CHECK(actual.size() == expectSize);
+            CHECK((expectSize ^ actual.empty()));
         });
     }
 }
@@ -587,34 +587,34 @@ TEST_CASE("modifiers")
     {
         SECTION("while empty")
         {
-            XorLinkedList<int> xlist;
-            xlist.clear();
+            XorLinkedList<int> actual;
+            actual.clear();
         }
 
         SECTION("after actions")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            xlist.clear();
-            xlist.push_back(3);
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            actual.push_back(2);
+            actual.clear();
+            actual.push_back(3);
         }
 
         SECTION("before destruct")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            xlist.push_back(3);
-            xlist.clear();
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            actual.push_back(2);
+            actual.push_back(3);
+            actual.clear();
         }
 
         SECTION("while destruct")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            xlist.push_back(3);
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            actual.push_back(2);
+            actual.push_back(3);
         }
     }
 
@@ -624,81 +624,81 @@ TEST_CASE("modifiers")
         {
             SECTION("push front")
             {
-                XorLinkedList<int> xlist;
-                xlist.push_front(111);
-                CHECK(xlist.front() == 111);
-                CHECK(xlist.back() == 111);
-                CHECK(*xlist.begin() == 111);
-                CHECK(*--xlist.end() == 111);
+                XorLinkedList<int> actual;
+                actual.push_front(111);
+                CHECK(actual.front() == 111);
+                CHECK(actual.back() == 111);
+                CHECK(*actual.begin() == 111);
+                CHECK(*--actual.end() == 111);
 
-                xlist.push_front(222);
-                CHECK(xlist.front() == 222);
-                CHECK(xlist.back() == 111);
-                CHECK(*xlist.begin() == 222);
-                CHECK(*++xlist.begin() == 111);
-                CHECK(*--xlist.end() == 111);
-                CHECK(*---- xlist.end() == 222);
+                actual.push_front(222);
+                CHECK(actual.front() == 222);
+                CHECK(actual.back() == 111);
+                CHECK(*actual.begin() == 222);
+                CHECK(*++actual.begin() == 111);
+                CHECK(*--actual.end() == 111);
+                CHECK(*---- actual.end() == 222);
 
-                xlist.push_front(333);
-                CHECK(xlist.front() == 333);
-                CHECK(xlist.back() == 111);
-                CHECK(*xlist.begin() == 333);
-                CHECK(*++xlist.begin() == 222);
-                CHECK(*++++ xlist.begin() == 111);
-                CHECK(*--xlist.end() == 111);
-                CHECK(*---- xlist.end() == 222);
-                CHECK(*------ xlist.end() == 333);
+                actual.push_front(333);
+                CHECK(actual.front() == 333);
+                CHECK(actual.back() == 111);
+                CHECK(*actual.begin() == 333);
+                CHECK(*++actual.begin() == 222);
+                CHECK(*++++ actual.begin() == 111);
+                CHECK(*--actual.end() == 111);
+                CHECK(*---- actual.end() == 222);
+                CHECK(*------ actual.end() == 333);
             }
 
             SECTION("push back")
             {
-                XorLinkedList<int> xlist;
-                xlist.push_back(111);
-                CHECK(xlist.front() == 111);
-                CHECK(xlist.back() == 111);
-                CHECK(*xlist.begin() == 111);
-                CHECK(*--xlist.end() == 111);
+                XorLinkedList<int> actual;
+                actual.push_back(111);
+                CHECK(actual.front() == 111);
+                CHECK(actual.back() == 111);
+                CHECK(*actual.begin() == 111);
+                CHECK(*--actual.end() == 111);
 
-                xlist.push_back(222);
-                CHECK(xlist.front() == 111);
-                CHECK(xlist.back() == 222);
-                CHECK(*xlist.begin() == 111);
-                CHECK(*++xlist.begin() == 222);
-                CHECK(*--xlist.end() == 222);
-                CHECK(*---- xlist.end() == 111);
+                actual.push_back(222);
+                CHECK(actual.front() == 111);
+                CHECK(actual.back() == 222);
+                CHECK(*actual.begin() == 111);
+                CHECK(*++actual.begin() == 222);
+                CHECK(*--actual.end() == 222);
+                CHECK(*---- actual.end() == 111);
 
-                xlist.push_back(333);
-                CHECK(xlist.front() == 111);
-                CHECK(xlist.back() == 333);
-                CHECK(*xlist.begin() == 111);
-                CHECK(*++xlist.begin() == 222);
-                CHECK(*++++ xlist.begin() == 333);
-                CHECK(*--xlist.end() == 333);
-                CHECK(*---- xlist.end() == 222);
-                CHECK(*------ xlist.end() == 111);
+                actual.push_back(333);
+                CHECK(actual.front() == 111);
+                CHECK(actual.back() == 333);
+                CHECK(*actual.begin() == 111);
+                CHECK(*++actual.begin() == 222);
+                CHECK(*++++ actual.begin() == 333);
+                CHECK(*--actual.end() == 333);
+                CHECK(*---- actual.end() == 222);
+                CHECK(*------ actual.end() == 111);
             }
 
             SECTION("random push")
             {
-                auto vec = getRandomVector();
+                auto container = getRandomValueContainer();
 
-                XorLinkedList<int> xlist;
-                std::list<int> actualList;
-                for_each(vec.begin(), vec.end(), [&](int v)
+                std::list<int> expect;
+                XorLinkedList<int> actual;
+                for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 2)
                     {
-                        xlist.push_back(v);
-                        actualList.push_back(v);
+                        actual.push_back(v);
+                        expect.push_back(v);
                     }
                     else
                     {
-                        xlist.push_front(v);
-                        actualList.push_front(v);
+                        actual.push_front(v);
+                        expect.push_front(v);
                     }
 
-                    CHECK(xlist.front() == actualList.front());
-                    CHECK(xlist.back() == actualList.back());
+                    CHECK(actual.front() == expect.front());
+                    CHECK(actual.back() == expect.back());
                 });
             }
         }
@@ -710,56 +710,56 @@ TEST_CASE("modifiers")
 
             SECTION("pop_back")
             {
-                XorLinkedList<int> xlist;
-                CHECK_THROWS(xlist.pop_back());
+                XorLinkedList<int> actual;
+                CHECK_THROWS(actual.pop_back());
 
-                xlist.push_back(111);
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_THROWS(xlist.front());
-                CHECK_THROWS(xlist.back());
+                actual.push_back(111);
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_THROWS(actual.front());
+                CHECK_THROWS(actual.back());
 
-                xlist.push_back(111);
-                xlist.push_back(222);
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_THROWS(xlist.front());
-                CHECK_THROWS(xlist.back());
+                actual.push_back(111);
+                actual.push_back(222);
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_THROWS(actual.front());
+                CHECK_THROWS(actual.back());
 
-                xlist.push_back(111);
-                xlist.push_back(222);
-                xlist.push_back(333);
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_NOTHROW(xlist.pop_back());
-                CHECK_THROWS(xlist.front());
-                CHECK_THROWS(xlist.back());
+                actual.push_back(111);
+                actual.push_back(222);
+                actual.push_back(333);
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_NOTHROW(actual.pop_back());
+                CHECK_THROWS(actual.front());
+                CHECK_THROWS(actual.back());
             }
 
             SECTION("random pop")
             {
-                auto vec = getRandomVector();
+                auto container = getRandomValueContainer();
 
-                XorLinkedList<int> xlist;
-                std::list<int> actualList;
-                for_each(vec.begin(), vec.end(), [&](int v)
+                std::list<int> expect;
+                XorLinkedList<int> actual;
+                for_each(container.begin(), container.end(), [&](int v)
                 {
-                    xlist.push_back(v);
-                    actualList.push_back(v);
+                    actual.push_back(v);
+                    expect.push_back(v);
                 });
 
-                while (!actualList.empty())
+                while (!expect.empty())
                 {
-                    CHECK(xlist.front() == actualList.front());
-                    CHECK(xlist.back() == actualList.back());
+                    CHECK(actual.front() == expect.front());
+                    CHECK(actual.back() == expect.back());
                     if (rand() % 2)
                     {
-                        xlist.pop_back();
-                        actualList.pop_back();
+                        actual.pop_back();
+                        expect.pop_back();
                     }
                     else
                     {
-                        xlist.pop_front();
-                        actualList.pop_front();
+                        actual.pop_front();
+                        expect.pop_front();
                     }
                 }
             }
@@ -769,104 +769,104 @@ TEST_CASE("modifiers")
         {
             SECTION("push times is larger than")
             {
-                auto vec = getRandomVector();
+                auto container = getRandomValueContainer();
 
-                XorLinkedList<int> xlist;
-                std::list<int> actualList;
-                for_each(vec.begin(), vec.end(), [&](int v)
+                std::list<int> expect;
+                XorLinkedList<int> actual;
+                for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 3)
                     {
                         if (rand() % 2)
                         {
-                            xlist.push_back(v);
-                            actualList.push_back(v);
+                            actual.push_back(v);
+                            expect.push_back(v);
                         }
                         else
                         {
-                            xlist.push_front(v);
-                            actualList.push_front(v);
+                            actual.push_front(v);
+                            expect.push_front(v);
                         }
                     }
                     else
                     {
                         if (rand() % 2)
                         {
-                            if (actualList.empty())
-                                CHECK_THROWS(xlist.pop_back());
+                            if (expect.empty())
+                                CHECK_THROWS(actual.pop_back());
                             else
                             {
-                                CHECK_NOTHROW(xlist.pop_back());
-                                actualList.pop_back();
+                                CHECK_NOTHROW(actual.pop_back());
+                                expect.pop_back();
                             }
                         }
                         else
                         {
-                            if (actualList.empty())
-                                CHECK_THROWS(xlist.pop_front());
+                            if (expect.empty())
+                                CHECK_THROWS(actual.pop_front());
                             else
                             {
-                                CHECK_NOTHROW(xlist.pop_front());
-                                actualList.pop_front();
+                                CHECK_NOTHROW(actual.pop_front());
+                                expect.pop_front();
                             }
                         }
                     }
-                    if (!actualList.empty())
+                    if (!expect.empty())
                     {
-                        CHECK(xlist.front() == actualList.front());
-                        CHECK(xlist.back() == actualList.back());
+                        CHECK(actual.front() == expect.front());
+                        CHECK(actual.back() == expect.back());
                     }
                 });
             }
 
             SECTION("pop times is larger than")
             {
-                auto vec = getRandomVector();
+                auto container = getRandomValueContainer();
 
-                XorLinkedList<int> xlist;
-                std::list<int> actualList;
-                for_each(vec.begin(), vec.end(), [&](int v)
+                std::list<int> expect;
+                XorLinkedList<int> actual;
+                for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (!(rand() % 3))
                     {
                         if (rand() % 2)
                         {
-                            xlist.push_back(v);
-                            actualList.push_back(v);
+                            actual.push_back(v);
+                            expect.push_back(v);
                         }
                         else
                         {
-                            xlist.push_front(v);
-                            actualList.push_front(v);
+                            actual.push_front(v);
+                            expect.push_front(v);
                         }
                     }
                     else
                     {
                         if (rand() % 2)
                         {
-                            if (actualList.empty())
-                                CHECK_THROWS(xlist.pop_back());
+                            if (expect.empty())
+                                CHECK_THROWS(actual.pop_back());
                             else
                             {
-                                CHECK_NOTHROW(xlist.pop_back());
-                                actualList.pop_back();
+                                CHECK_NOTHROW(actual.pop_back());
+                                expect.pop_back();
                             }
                         }
                         else
                         {
-                            if (actualList.empty())
-                                CHECK_THROWS(xlist.pop_front());
+                            if (expect.empty())
+                                CHECK_THROWS(actual.pop_front());
                             else
                             {
-                                CHECK_NOTHROW(xlist.pop_front());
-                                actualList.pop_front();
+                                CHECK_NOTHROW(actual.pop_front());
+                                expect.pop_front();
                             }
                         }
                     }
-                    if (!actualList.empty())
+                    if (!expect.empty())
                     {
-                        CHECK(xlist.front() == actualList.front());
-                        CHECK(xlist.back() == actualList.back());
+                        CHECK(actual.front() == expect.front());
+                        CHECK(actual.back() == expect.back());
                     }
                 });
             }
@@ -881,26 +881,26 @@ TEST_CASE("modifiers")
             {
                 SECTION("++i/--i")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = xlist.begin();
-                    auto expectIt = vec.begin();
-                    while (expectIt < vec.end())
+                    auto actualIt = actual.begin();
+                    auto expectIt = expect.begin();
+                    while (expectIt < expect.end())
                     {
-                        if (expectIt < vec.begin())
+                        if (expectIt < expect.begin())
                         {
                             ++expectIt;
                             ++actualIt;
                         }
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
 
                         if (rand() % 3) // times: ++ > --
                         {
                             auto temp = expectIt;
-                            if (++temp < vec.end())    // is not lastest
+                            if (++temp < expect.end())    // is not lastest
                                 CHECK(*(++actualIt) == *(++expectIt));
                             else
                             {
@@ -909,43 +909,43 @@ TEST_CASE("modifiers")
                                 break;
                             }
                         }
-                        else if (expectIt > vec.begin())
+                        else if (expectIt > expect.begin())
                             CHECK(*(--actualIt) == *(--expectIt));
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
 
                 SECTION("i++/i--")
                 {
-                    auto vec = getRandomVector();
+                    auto expect = getRandomValueContainer();
 
-                    XorLinkedList<int> xlist;
-                    for_each(vec.begin(), vec.end(), [&](int v)
+                    XorLinkedList<int> actual;
+                    for_each(expect.begin(), expect.end(), [&](int v)
                     {
-                        xlist.push_back(v);
+                        actual.push_back(v);
                     });
 
-                    auto actualIt = xlist.begin();
-                    auto expectIt = vec.begin();
-                    while (expectIt < vec.end())
+                    auto actualIt = actual.begin();
+                    auto expectIt = expect.begin();
+                    while (expectIt < expect.end())
                     {
-                        if (expectIt < vec.begin())
+                        if (expectIt < expect.begin())
                         {
                             ++expectIt;
                             ++actualIt;
                         }
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
 
                         if (rand() % 3) // times: ++ > --
                             CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > vec.begin())
+                        else if (expectIt > expect.begin())
                             CHECK(*(actualIt--) == *(expectIt--));
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
@@ -955,26 +955,26 @@ TEST_CASE("modifiers")
             {
                 SECTION("++i/--i")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = xlist.rbegin();
-                    auto expectIt = vec.rbegin();
-                    while (expectIt < vec.rend())
+                    auto actualIt = actual.rbegin();
+                    auto expectIt = expect.rbegin();
+                    while (expectIt < expect.rend())
                     {
-                        if (expectIt < vec.rbegin())
+                        if (expectIt < expect.rbegin())
                         {
                             ++expectIt;
                             ++actualIt;
                         }
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
 
                         if (rand() % 3) // times: ++ > --
                         {
                             auto temp = expectIt;
-                            if (++temp < vec.rend())   // is not lastest
+                            if (++temp < expect.rend())   // is not lastest
                                 CHECK(*(++actualIt) == *(++expectIt));
                             else
                             {
@@ -983,38 +983,38 @@ TEST_CASE("modifiers")
                                 break;
                             }
                         }
-                        else if (expectIt > vec.rbegin())
+                        else if (expectIt > expect.rbegin())
                             CHECK(*(--actualIt) == *(--expectIt));
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
 
                 SECTION("i++/i--")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = xlist.rbegin();
-                    auto expectIt = vec.rbegin();
-                    while (expectIt < vec.rend())
+                    auto actualIt = actual.rbegin();
+                    auto expectIt = expect.rbegin();
+                    while (expectIt < expect.rend())
                     {
-                        if (expectIt < vec.rbegin())
+                        if (expectIt < expect.rbegin())
                         {
                             ++expectIt;
                             ++actualIt;
                         }
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
 
                         if (rand() % 3) // times: ++ > --
                             CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > vec.rbegin())
+                        else if (expectIt > expect.rbegin())
                             CHECK(*(actualIt--) == *(expectIt--));
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
@@ -1027,26 +1027,26 @@ TEST_CASE("modifiers")
             {
                 SECTION("++i/--i rely on [push_back]")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = --xlist.end();
-                    auto expectIt = --vec.end();
-                    while (expectIt > vec.begin())
+                    auto actualIt = --actual.end();
+                    auto expectIt = --expect.end();
+                    while (expectIt > expect.begin())
                     {
-                        if (expectIt >= vec.end())
+                        if (expectIt >= expect.end())
                         {
                             --expectIt;
                             --actualIt;
                         }
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
 
                         if (!(rand() % 3)) // times: ++ < --
                         {
                             auto temp = expectIt;
-                            if (++temp < vec.end())
+                            if (++temp < expect.end())
                                 CHECK(*(++actualIt) == *(++expectIt));
                             else
                             {
@@ -1055,38 +1055,38 @@ TEST_CASE("modifiers")
                                 break;
                             }
                         }
-                        else if (expectIt > vec.begin())
+                        else if (expectIt > expect.begin())
                             CHECK(*(--actualIt) == *(--expectIt));
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
 
                 SECTION("i++/i-- rely on [push_back]")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = --xlist.end();
-                    auto expectIt = --vec.end();
-                    while (expectIt > vec.begin())
+                    auto actualIt = --actual.end();
+                    auto expectIt = --expect.end();
+                    while (expectIt > expect.begin())
                     {
-                        if (expectIt >= vec.end())
+                        if (expectIt >= expect.end())
                         {
                             --expectIt;
                             --actualIt;
                         }
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
 
                         if (!(rand() % 3)) // times: ++ < --
                             CHECK(*actualIt++ == *expectIt++);
-                        else if (expectIt > vec.begin())
+                        else if (expectIt > expect.begin())
                             CHECK(*actualIt-- == *expectIt--);
 
-                        if (expectIt > --vec.begin() && expectIt < vec.end())
+                        if (expectIt > --expect.begin() && expectIt < expect.end())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
@@ -1096,25 +1096,25 @@ TEST_CASE("modifiers")
             {
                 SECTION("++i/--i rely on [push_back]")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = xlist.rbegin();
-                    auto expectIt = vec.rbegin();
-                    while (expectIt > vec.rbegin())
+                    auto actualIt = actual.rbegin();
+                    auto expectIt = expect.rbegin();
+                    while (expectIt > expect.rbegin())
                     {
-                        if (expectIt >= vec.rend())
+                        if (expectIt >= expect.rend())
                         {
                             --expectIt;
                             --actualIt;
                         }
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
 
                         if (!(rand() % 3)) // times: ++ < --
                         {
-                            auto temp = expectIt;
-                            if (++temp < vec.rend())
+                            auto expectItTemp = expectIt;
+                            if (++expectItTemp < expect.rend())
                                 CHECK(*(++actualIt) == *(++expectIt));
                             else
                             {
@@ -1123,38 +1123,38 @@ TEST_CASE("modifiers")
                                 break;
                             }
                         }
-                        else if (expectIt > vec.rbegin())
+                        else if (expectIt > expect.rbegin())
                             CHECK(*(--actualIt) == *(--expectIt));
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
 
                 SECTION("i++/i-- rely on [push_back]")
                 {
-                    auto vec = getRandomVector();
-                    auto xlist = copyRandom(vec);
+                    auto expect = getRandomValueContainer();
+                    auto actual = copyContainerToList(expect);
 
-                    auto actualIt = xlist.rbegin();
-                    auto expectIt = vec.rbegin();
-                    while (expectIt > vec.rbegin())
+                    auto actualIt = actual.rbegin();
+                    auto expectIt = expect.rbegin();
+                    while (expectIt > expect.rbegin())
                     {
-                        if (expectIt >= vec.rend())
+                        if (expectIt >= expect.rend())
                         {
                             --expectIt;
                             --actualIt;
                         }
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
 
                         if (!(rand() % 3)) // times: ++ < --
                             CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > vec.rbegin())
+                        else if (expectIt > expect.rbegin())
                             CHECK(*(actualIt--) == *(expectIt--));
 
-                        if (expectIt > --vec.rbegin() && expectIt < vec.rend())
+                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
                             CHECK(*actualIt == *expectIt);
                     }
                 }
@@ -1163,44 +1163,44 @@ TEST_CASE("modifiers")
 
         SECTION("[reverse iterator: base] rely on [++/--]")
         {
-            auto vec = getRandomVector();
-            XorLinkedList<int> xlist = copyRandom(vec);
-            std::vector<int>::reverse_iterator vrb(vec.begin());
-            XorLinkedList<int>::const_reverse_iterator xrb(xlist.begin());
-            auto vb = vrb.base();
-            auto xb = xrb.base();
+            auto expect = getRandomValueContainer();
+            XorLinkedList<int> actual = copyContainerToList(expect);
+            std::vector<int>::reverse_iterator expectReverseBegin(expect.begin());
+            XorLinkedList<int>::const_reverse_iterator actualReverseBegin(actual.begin());
+            auto expectBaseBegin = expectReverseBegin.base();
+            auto actualBaseBegin = actualReverseBegin.base();
 
-            while (vb != vec.end())
+            while (expectBaseBegin != expect.end())
             {
-                CHECK(*vb == *xb);
-                ++vb;
-                ++xb;
+                CHECK(*expectBaseBegin == *actualBaseBegin);
+                ++expectBaseBegin;
+                ++actualBaseBegin;
             }
         }
     }
 
     SECTION("empty list")
     {
-        XorLinkedList<int> xlist;
-        xlist.clear();
+        XorLinkedList<int> actual;
+        actual.clear();
 
-        CHECK_THROWS(xlist.front());
-        CHECK_THROWS(xlist.back());
-        CHECK_THROWS(xlist.pop_front());
-        CHECK_THROWS(xlist.pop_back());
-        CHECK(xlist.size() == 0);
-        CHECK(xlist.empty());
+        CHECK_THROWS(actual.front());
+        CHECK_THROWS(actual.back());
+        CHECK_THROWS(actual.pop_front());
+        CHECK_THROWS(actual.pop_back());
+        CHECK(actual.size() == 0);
+        CHECK(actual.empty());
     }
 
     SECTION("[insert] rely on [op/begin/end/size/push_back/clear]")
     {
         std::list<int> expect;
         XorLinkedList<int> actual;
-        std::list<int>::iterator eres;
-        XorLinkedList<int>::iterator ares;
-        int v;
+        std::list<int>::iterator expectReturnPos;
+        XorLinkedList<int>::iterator actualReturnPos;
+        int randomValue;
         size_t sz;
-        auto li = getRandomVector(SmallRandomSize);
+        auto ilist = getRandomValueContainer(SmallRandomSize);
 
         SECTION("insert(const_iterator, const value_type &)")
         {
@@ -1209,13 +1209,13 @@ TEST_CASE("modifiers")
                 expect.clear();
                 actual.clear();
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.end(), v);
-                ares = actual.insert(actual.end(), v);
+                expectReturnPos = expect.insert(expect.end(), randomValue);
+                actualReturnPos = actual.insert(actual.end(), randomValue);
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1223,17 +1223,17 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.begin(), v);
-                ares = actual.insert(actual.begin(), v);
+                expectReturnPos = expect.insert(expect.begin(), randomValue);
+                actualReturnPos = actual.insert(actual.begin(), randomValue);
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1241,17 +1241,17 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.end(), v);
-                ares = actual.insert(actual.end(), v);
+                expectReturnPos = expect.insert(expect.end(), randomValue);
+                actualReturnPos = actual.insert(actual.end(), randomValue);
 
-                CHECK(eres == --expect.end());
-                CHECK(ares == --actual.end());
+                CHECK(expectReturnPos == --expect.end());
+                CHECK(actualReturnPos == --actual.end());
                 isSame(expect, actual);
             }
 
@@ -1259,20 +1259,20 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(++expect.begin(), v);
-                ares = actual.insert(++actual.begin(), v);
+                expectReturnPos = expect.insert(++expect.begin(), randomValue);
+                actualReturnPos = actual.insert(++actual.begin(), randomValue);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1284,13 +1284,13 @@ TEST_CASE("modifiers")
                 expect.clear();
                 actual.clear();
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.end(), std::move(v));
-                ares = actual.insert(actual.end(), std::move(v));
+                expectReturnPos = expect.insert(expect.end(), std::move(randomValue));
+                actualReturnPos = actual.insert(actual.end(), std::move(randomValue));
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1298,17 +1298,17 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.begin(), std::move(v));
-                ares = actual.insert(actual.begin(), std::move(v));
+                expectReturnPos = expect.insert(expect.begin(), std::move(randomValue));
+                actualReturnPos = actual.insert(actual.begin(), std::move(randomValue));
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1316,17 +1316,17 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(expect.end(), std::move(v));
-                ares = actual.insert(actual.end(), std::move(v));
+                expectReturnPos = expect.insert(expect.end(), std::move(randomValue));
+                actualReturnPos = actual.insert(actual.end(), std::move(randomValue));
 
-                CHECK(eres == --expect.end());
-                CHECK(ares == --actual.end());
+                CHECK(expectReturnPos == --expect.end());
+                CHECK(actualReturnPos == --actual.end());
                 isSame(expect, actual);
             }
 
@@ -1334,20 +1334,20 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
 
-                eres = expect.insert(++expect.begin(), std::move(v));
-                ares = actual.insert(++actual.begin(), std::move(v));
+                expectReturnPos = expect.insert(++expect.begin(), std::move(randomValue));
+                actualReturnPos = actual.insert(++actual.begin(), std::move(randomValue));
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1361,22 +1361,22 @@ TEST_CASE("modifiers")
 
                 SECTION("size is 0")
                 {
-                    v = rand();
+                    randomValue = rand();
                     sz = 0;
 
-                    eres = expect.insert(expect.end(), sz, v);
-                    ares = actual.insert(actual.end(), sz, v);
+                    expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.end(), sz, randomValue);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                v = rand();
+                randomValue = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                eres = expect.insert(expect.end(), sz, v);
-                ares = actual.insert(actual.end(), sz, v);
+                expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                actualReturnPos = actual.insert(actual.end(), sz, randomValue);
 
                 auto tempe = expect.end();
                 auto tempa = actual.end();
@@ -1386,8 +1386,8 @@ TEST_CASE("modifiers")
                     --tempe;
                     --tempa;
                 }
-                CHECK(eres == tempe);
-                CHECK(ares == tempa);
+                CHECK(expectReturnPos == tempe);
+                CHECK(actualReturnPos == tempa);
                 isSame(expect, actual);
             }
 
@@ -1395,31 +1395,31 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("size is 0")
                 {
-                    v = rand();
+                    randomValue = rand();
                     sz = 0;
 
-                    eres = expect.insert(expect.begin(), sz, v);
-                    ares = actual.insert(actual.begin(), sz, v);
+                    expectReturnPos = expect.insert(expect.begin(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.begin(), sz, randomValue);
 
-                    CHECK(eres == expect.begin());
-                    CHECK(ares == actual.begin());
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
                     isSame(expect, actual);
                 }
 
-                v = rand();
+                randomValue = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                eres = expect.insert(expect.begin(), sz, v);
-                ares = actual.insert(actual.begin(), sz, v);
+                expectReturnPos = expect.insert(expect.begin(), sz, randomValue);
+                actualReturnPos = actual.insert(actual.begin(), sz, randomValue);
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1427,28 +1427,28 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("size is 0")
                 {
-                    v = rand();
+                    randomValue = rand();
                     sz = 0;
 
-                    eres = expect.insert(expect.end(), sz, v);
-                    ares = actual.insert(actual.end(), sz, v);
+                    expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.end(), sz, randomValue);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                v = rand();
+                randomValue = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                eres = expect.insert(expect.end(), sz, v);
-                ares = actual.insert(actual.end(), sz, v);
+                expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                actualReturnPos = actual.insert(actual.end(), sz, randomValue);
 
                 auto tempe = expect.end();
                 auto tempa = actual.end();
@@ -1458,8 +1458,8 @@ TEST_CASE("modifiers")
                     --tempe;
                     --tempa;
                 }
-                CHECK(eres == tempe);
-                CHECK(ares == tempa);
+                CHECK(expectReturnPos == tempe);
+                CHECK(actualReturnPos == tempa);
                 isSame(expect, actual);
             }
 
@@ -1467,34 +1467,34 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("size is 0")
                 {
-                    v = rand();
+                    randomValue = rand();
                     sz = 0;
 
-                    eres = expect.insert(++expect.begin(), sz, v);
-                    ares = actual.insert(++actual.begin(), sz, v);
+                    expectReturnPos = expect.insert(++expect.begin(), sz, randomValue);
+                    actualReturnPos = actual.insert(++actual.begin(), sz, randomValue);
 
-                    CHECK(eres == ++expect.begin());
-                    CHECK(ares == ++actual.begin());
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.begin());
                     isSame(expect, actual);
                 }
 
-                v = rand();
+                randomValue = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                eres = expect.insert(++expect.begin(), sz, v);
-                ares = actual.insert(++actual.begin(), sz, v);
+                expectReturnPos = expect.insert(++expect.begin(), sz, randomValue);
+                actualReturnPos = actual.insert(++actual.begin(), sz, randomValue);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1502,21 +1502,21 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                v = rand();
+                randomValue = rand();
                 sz = 1;
 
-                eres = expect.insert(++expect.begin(), sz, v);
-                ares = actual.insert(++actual.begin(), sz, v);
+                expectReturnPos = expect.insert(++expect.begin(), sz, randomValue);
+                actualReturnPos = actual.insert(++actual.begin(), sz, randomValue);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1530,23 +1530,23 @@ TEST_CASE("modifiers")
 
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.end(), il);
-                    ares = actual.insert(actual.end(), il);
+                    expectReturnPos = expect.insert(expect.end(), ilist);
+                    actualReturnPos = actual.insert(actual.end(), ilist);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                auto il = {rand(), rand(), rand(), rand(), rand()};
+                auto ilist = {rand(), rand(), rand(), rand(), rand()};
 
-                eres = expect.insert(expect.end(), il);
-                ares = actual.insert(actual.end(), il);
+                expectReturnPos = expect.insert(expect.end(), ilist);
+                actualReturnPos = actual.insert(actual.end(), ilist);
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1554,29 +1554,29 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.begin(), il);
-                    ares = actual.insert(actual.begin(), il);
+                    expectReturnPos = expect.insert(expect.begin(), ilist);
+                    actualReturnPos = actual.insert(actual.begin(), ilist);
 
-                    CHECK(eres == expect.begin());
-                    CHECK(ares == actual.begin());
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
                     isSame(expect, actual);
                 }
 
-                auto il = {rand(), rand(), rand(), rand(), rand()};
+                auto ilist = {rand(), rand(), rand(), rand(), rand()};
 
-                eres = expect.insert(expect.begin(), il);
-                ares = actual.insert(actual.begin(), il);
+                expectReturnPos = expect.insert(expect.begin(), ilist);
+                actualReturnPos = actual.insert(actual.begin(), ilist);
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1584,29 +1584,29 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.end(), il);
-                    ares = actual.insert(actual.end(), il);
+                    expectReturnPos = expect.insert(expect.end(), ilist);
+                    actualReturnPos = actual.insert(actual.end(), ilist);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                auto il = {rand(), rand(), rand(), rand(), rand()};
+                auto ilist = {rand(), rand(), rand(), rand(), rand()};
 
-                eres = expect.insert(expect.end(), il);
-                ares = actual.insert(actual.end(), il);
+                expectReturnPos = expect.insert(expect.end(), ilist);
+                actualReturnPos = actual.insert(actual.end(), ilist);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1614,32 +1614,32 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(++expect.begin(), il);
-                    ares = actual.insert(++actual.begin(), il);
+                    expectReturnPos = expect.insert(++expect.begin(), ilist);
+                    actualReturnPos = actual.insert(++actual.begin(), ilist);
 
-                    CHECK(eres == ++expect.begin());
-                    CHECK(ares == ++actual.begin());
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.begin());
                     isSame(expect, actual);
                 }
 
-                auto il = {rand(), rand(), rand(), rand(), rand()};
+                auto ilist = {rand(), rand(), rand(), rand(), rand()};
 
-                eres = expect.insert(++expect.begin(), il);
-                ares = actual.insert(++actual.begin(), il);
+                expectReturnPos = expect.insert(++expect.begin(), ilist);
+                actualReturnPos = actual.insert(++actual.begin(), ilist);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1647,20 +1647,20 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                auto il = {rand()};
+                auto ilist = {rand()};
 
-                eres = expect.insert(++expect.begin(), il);
-                ares = actual.insert(++actual.begin(), il);
+                expectReturnPos = expect.insert(++expect.begin(), ilist);
+                actualReturnPos = actual.insert(++actual.begin(), ilist);
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1674,23 +1674,23 @@ TEST_CASE("modifiers")
 
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.end(), il);
-                    ares = actual.insert(actual.end(), il);
+                    expectReturnPos = expect.insert(expect.end(), ilist);
+                    actualReturnPos = actual.insert(actual.end(), ilist);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                li = getRandomVector(SmallRandomSize);
+                ilist = getRandomValueContainer(SmallRandomSize);
 
-                eres = expect.insert(expect.end(), li.begin(), li.end());
-                ares = actual.insert(actual.end(), li.begin(), li.end());
+                expectReturnPos = expect.insert(expect.end(), ilist.begin(), ilist.end());
+                actualReturnPos = actual.insert(actual.end(), ilist.begin(), ilist.end());
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1698,29 +1698,29 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.begin(), il);
-                    ares = actual.insert(actual.begin(), il);
+                    expectReturnPos = expect.insert(expect.begin(), ilist);
+                    actualReturnPos = actual.insert(actual.begin(), ilist);
 
-                    CHECK(eres == expect.begin());
-                    CHECK(ares == actual.begin());
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
                     isSame(expect, actual);
                 }
 
-                li = getRandomVector(SmallRandomSize);
+                ilist = getRandomValueContainer(SmallRandomSize);
 
-                eres = expect.insert(expect.begin(), li.begin(), li.end());
-                ares = actual.insert(actual.begin(), li.begin(), li.end());
+                expectReturnPos = expect.insert(expect.begin(), ilist.begin(), ilist.end());
+                actualReturnPos = actual.insert(actual.begin(), ilist.begin(), ilist.end());
 
-                CHECK(eres == expect.begin());
-                CHECK(ares == actual.begin());
+                CHECK(expectReturnPos == expect.begin());
+                CHECK(actualReturnPos == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1728,29 +1728,29 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(expect.end(), il);
-                    ares = actual.insert(actual.end(), il);
+                    expectReturnPos = expect.insert(expect.end(), ilist);
+                    actualReturnPos = actual.insert(actual.end(), ilist);
 
-                    CHECK(eres == expect.end());
-                    CHECK(ares == actual.end());
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                li = getRandomVector(SmallRandomSize);
+                ilist = getRandomValueContainer(SmallRandomSize);
 
-                eres = expect.insert(expect.end(), li.begin(), li.end());
-                ares = actual.insert(actual.end(), li.begin(), li.end());
+                expectReturnPos = expect.insert(expect.end(), ilist.begin(), ilist.end());
+                actualReturnPos = actual.insert(actual.end(), ilist.begin(), ilist.end());
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1758,32 +1758,32 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> il = {};
+                    std::initializer_list<int> ilist = {};
 
-                    eres = expect.insert(++expect.begin(), il);
-                    ares = actual.insert(++actual.begin(), il);
+                    expectReturnPos = expect.insert(++expect.begin(), ilist);
+                    actualReturnPos = actual.insert(++actual.begin(), ilist);
 
-                    CHECK(eres == ++expect.begin());
-                    CHECK(ares == ++actual.end());
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.end());
                     isSame(expect, actual);
                 }
 
-                li = getRandomVector(SmallRandomSize);
+                ilist = getRandomValueContainer(SmallRandomSize);
 
-                eres = expect.insert(++expect.begin(), li.begin(), li.end());
-                ares = actual.insert(++actual.begin(), li.begin(), li.end());
+                expectReturnPos = expect.insert(++expect.begin(), ilist.begin(), ilist.end());
+                actualReturnPos = actual.insert(++actual.begin(), ilist.begin(), ilist.end());
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1791,20 +1791,20 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
-                v = rand();
-                expect.push_back(v);
-                actual.push_back(v);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
 
-                li = {1};
+                ilist = {1};
 
-                eres = expect.insert(++expect.begin(), li.begin(), li.end());
-                ares = actual.insert(++actual.begin(), li.begin(), li.end());
+                expectReturnPos = expect.insert(++expect.begin(), ilist.begin(), ilist.end());
+                actualReturnPos = actual.insert(++actual.begin(), ilist.begin(), ilist.end());
 
-                CHECK(eres == ++expect.begin());
-                CHECK(ares == ++actual.begin());
+                CHECK(expectReturnPos == ++expect.begin());
+                CHECK(actualReturnPos == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1822,159 +1822,159 @@ TEST_CASE("operations")
     {
         SECTION("empty")
         {
-            XorLinkedList<int> xlist;
-            CHECK(xlist.empty());
-            CHECK(xlist.size() == 0);
-            CHECK(xlist.begin() == xlist.end());
+            XorLinkedList<int> actual;
+            CHECK(actual.empty());
+            CHECK(actual.size() == 0);
+            CHECK(actual.begin() == actual.end());
 
-            xlist.reverse();
-            CHECK(xlist.empty());
-            CHECK(xlist.size() == 0);
-            CHECK(xlist.begin() == xlist.end());
+            actual.reverse();
+            CHECK(actual.empty());
+            CHECK(actual.size() == 0);
+            CHECK(actual.begin() == actual.end());
         }
 
         SECTION("one nodes")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 1);
-            CHECK(xlist.size() == 1);
-            CHECK_FALSE(xlist.empty());
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            CHECK(actual.front() == 1);
+            CHECK(actual.back() == 1);
+            CHECK(actual.size() == 1);
+            CHECK_FALSE(actual.empty());
 
-            xlist.reverse();
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 1);
-            CHECK(xlist.size() == 1);
-            CHECK_FALSE(xlist.empty());
+            actual.reverse();
+            CHECK(actual.front() == 1);
+            CHECK(actual.back() == 1);
+            CHECK(actual.size() == 1);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK_THROWS(xlist.front());
-            CHECK_THROWS(xlist.back());
-            CHECK(xlist.size() == 0);
-            CHECK(xlist.empty());
+            actual.pop_back();
+            CHECK_THROWS(actual.front());
+            CHECK_THROWS(actual.back());
+            CHECK(actual.size() == 0);
+            CHECK(actual.empty());
         }
 
         SECTION("two nodes")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 2);
-            CHECK(xlist.size() == 2);
-            CHECK_FALSE(xlist.empty());
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            actual.push_back(2);
+            CHECK(actual.front() == 1);
+            CHECK(actual.back() == 2);
+            CHECK(actual.size() == 2);
+            CHECK_FALSE(actual.empty());
 
-            xlist.reverse();
-            CHECK(xlist.front() == 2);
-            CHECK(xlist.back() == 1);
-            CHECK(xlist.size() == 2);
-            CHECK_FALSE(xlist.empty());
+            actual.reverse();
+            CHECK(actual.front() == 2);
+            CHECK(actual.back() == 1);
+            CHECK(actual.size() == 2);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK(xlist.front() == 2);
-            CHECK(xlist.back() == 2);
-            CHECK(xlist.size() == 1);
-            CHECK_FALSE(xlist.empty());
+            actual.pop_back();
+            CHECK(actual.front() == 2);
+            CHECK(actual.back() == 2);
+            CHECK(actual.size() == 1);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK_THROWS(xlist.front());
-            CHECK_THROWS(xlist.back());
-            CHECK(xlist.size() == 0);
-            CHECK(xlist.empty());
+            actual.pop_back();
+            CHECK_THROWS(actual.front());
+            CHECK_THROWS(actual.back());
+            CHECK(actual.size() == 0);
+            CHECK(actual.empty());
         }
 
         SECTION("three nodes")
         {
-            XorLinkedList<int> xlist;
-            xlist.push_back(1);
-            xlist.push_back(2);
-            xlist.push_back(3);
-            CHECK(xlist.front() == 1);
-            CHECK(xlist.back() == 3);
-            CHECK(xlist.size() == 3);
-            CHECK_FALSE(xlist.empty());
+            XorLinkedList<int> actual;
+            actual.push_back(1);
+            actual.push_back(2);
+            actual.push_back(3);
+            CHECK(actual.front() == 1);
+            CHECK(actual.back() == 3);
+            CHECK(actual.size() == 3);
+            CHECK_FALSE(actual.empty());
 
-            xlist.reverse();
-            CHECK(xlist.front() == 3);
-            CHECK(xlist.back() == 1);
-            CHECK(xlist.size() == 3);
-            CHECK_FALSE(xlist.empty());
+            actual.reverse();
+            CHECK(actual.front() == 3);
+            CHECK(actual.back() == 1);
+            CHECK(actual.size() == 3);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK(xlist.front() == 3);
-            CHECK(xlist.back() == 2);
-            CHECK(xlist.size() == 2);
-            CHECK_FALSE(xlist.empty());
+            actual.pop_back();
+            CHECK(actual.front() == 3);
+            CHECK(actual.back() == 2);
+            CHECK(actual.size() == 2);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK(xlist.front() == 3);
-            CHECK(xlist.back() == 3);
-            CHECK(xlist.size() == 1);
-            CHECK_FALSE(xlist.empty());
+            actual.pop_back();
+            CHECK(actual.front() == 3);
+            CHECK(actual.back() == 3);
+            CHECK(actual.size() == 1);
+            CHECK_FALSE(actual.empty());
 
-            xlist.pop_back();
-            CHECK_THROWS(xlist.front());
-            CHECK_THROWS(xlist.back());
-            CHECK(xlist.size() == 0);
-            CHECK(xlist.empty());
+            actual.pop_back();
+            CHECK_THROWS(actual.front());
+            CHECK_THROWS(actual.back());
+            CHECK(actual.size() == 0);
+            CHECK(actual.empty());
         }
 
         SECTION("random nodes")
         {
-            auto vec = getRandomVector();
+            auto container = getRandomValueContainer();
 
-            XorLinkedList<int> xlist;
-            std::list<int> expectList;
-            while (!vec.empty())
+            std::list<int> expect;
+            XorLinkedList<int> actual;
+            while (!container.empty())
             {
-                auto v = vec.back();
+                auto v = container.back();
                 if (rand() % 2)
                 {
                     if (rand() % 2)
                     {
-                        xlist.push_back(v);
-                        expectList.push_back(v);
+                        actual.push_back(v);
+                        expect.push_back(v);
                     }
                     else
                     {
-                        xlist.push_front(v);
-                        expectList.push_front(v);
+                        actual.push_front(v);
+                        expect.push_front(v);
                     }
                 }
                 else
                 {
                     if (rand() % 2)
                     {
-                        if (!expectList.empty())
+                        if (!expect.empty())
                         {
-                            xlist.pop_back();
-                            expectList.pop_back();
+                            actual.pop_back();
+                            expect.pop_back();
                         }
                     }
-                    else if (!expectList.empty())
+                    else if (!expect.empty())
                     {
-                        xlist.pop_front();
-                        expectList.pop_front();
+                        actual.pop_front();
+                        expect.pop_front();
                     }
                 }
-                if (!expectList.empty())
+                if (!expect.empty())
                 {
-                    xlist.reverse();
-                    reverse(xlist.begin(), xlist.end());
-                    xlist.reverse();
-                    reverse(xlist.begin(), xlist.end());
-                    xlist.reverse();
-                    reverse(expectList.begin(), expectList.end());
+                    actual.reverse();
+                    reverse(actual.begin(), actual.end());
+                    actual.reverse();
+                    reverse(actual.begin(), actual.end());
+                    actual.reverse();
+                    reverse(expect.begin(), expect.end());
                 }
-                CHECK(xlist.size() == expectList.size());
-                CHECK((expectList.size() ^ xlist.empty()));
-                if (!expectList.empty())
+                CHECK(actual.size() == expect.size());
+                CHECK((expect.size() ^ actual.empty()));
+                if (!expect.empty())
                 {
-                    CHECK(expectList.front() == xlist.front());
-                    CHECK(expectList.back() == xlist.back());
+                    CHECK(expect.front() == actual.front());
+                    CHECK(expect.back() == actual.back());
                 }
-                vec.pop_back();
+                container.pop_back();
             }
         }
     }
@@ -1986,26 +1986,26 @@ TEST_CASE("others")
     {
         // todo: test more functions insert/find/unique/sort/erase
 
-        auto vec = getRandomVector();
+        auto container = getRandomValueContainer();
 
-        XorLinkedList<int> xlist;
+        XorLinkedList<int> actual;
         int expectSize = 1;
-        std::list<int> expectList;
-        expectList.push_front(vec.front());
-        xlist.push_front(vec.front());
-        for_each(++vec.begin(), vec.end(), [&](int v)
+        expectListContainer expect;
+        expect.push_front(container.front());
+        actual.push_front(container.front());
+        for_each(++container.begin(), container.end(), [&](int v)
         {
             if (rand() % 2)
             {
                 if (rand() % 2)
                 {
-                    xlist.push_back(v);
-                    expectList.push_back(v);
+                    actual.push_back(v);
+                    expect.push_back(v);
                 }
                 else
                 {
-                    xlist.push_front(v);
-                    expectList.push_front(v);
+                    actual.push_front(v);
+                    expect.push_front(v);
                 }
                 ++expectSize;
             }
@@ -2014,32 +2014,32 @@ TEST_CASE("others")
                 if (rand() % 2)
                 {
                     if (expectSize == 0)
-                        CHECK_THROWS(xlist.pop_back());
+                        CHECK_THROWS(actual.pop_back());
                     else
                     {
-                        CHECK_NOTHROW(xlist.pop_back());
-                        CHECK_NOTHROW(expectList.pop_back());
+                        CHECK_NOTHROW(actual.pop_back());
+                        CHECK_NOTHROW(expect.pop_back());
                         --expectSize;
                     }
                 }
                 else
                 {
                     if (expectSize == 0)
-                        CHECK_THROWS(xlist.pop_front());
+                        CHECK_THROWS(actual.pop_front());
                     else
                     {
-                        CHECK_NOTHROW(xlist.pop_front());
-                        CHECK_NOTHROW(expectList.pop_front());
+                        CHECK_NOTHROW(actual.pop_front());
+                        CHECK_NOTHROW(expect.pop_front());
                         --expectSize;
                     }
                 }
             }
-            CHECK(xlist.size() == expectSize);
-            CHECK((expectSize ^ xlist.empty()));
-            if (!expectList.empty())
+            CHECK(actual.size() == expectSize);
+            CHECK((expectSize ^ actual.empty()));
+            if (!expect.empty())
             {
-                CHECK(expectList.front() == xlist.front());
-                CHECK(expectList.back() == xlist.back());
+                CHECK(expect.front() == actual.front());
+                CHECK(expect.back() == actual.back());
             }
         });
     }
