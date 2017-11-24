@@ -13,13 +13,16 @@
 #include <list>
 #include <vector>
 
+using vectorContainer = std::vector<int>;
+using expectListContainer = std::list<int>;
+using actualListContainer = XorLinkedList<int>;
 const size_t RandomSize = 100000 + rand() % 2;
 const size_t SmallRandomSize = RandomSize / 100;
 
 auto getRandomValueContainer = ([](size_t sz = RandomSize)
 {
     // init
-    std::vector<int> container(sz);
+    vectorContainer container(sz);
     size_t i = 0 - 1;
     while (++i < sz)
         container.at(i) = static_cast<int>(i);
@@ -37,9 +40,9 @@ auto getRandomValueContainer = ([](size_t sz = RandomSize)
     return container;
 });
 
-auto copyContainerToList = ([](const std::vector<int> &container)
+auto copyContainerToList = ([](const vectorContainer &container)
 {
-    XorLinkedList<int> actual;
+    actualListContainer actual;
     for_each(container.begin(), container.end(), [&](int v)
     {
         actual.push_back(v);
@@ -48,7 +51,7 @@ auto copyContainerToList = ([](const std::vector<int> &container)
     return actual;
 });
 
-auto isSame = ([](std::list<int> expect, XorLinkedList<int> actual)
+auto isSame = ([](expectListContainer expect, actualListContainer actual)
 {
     CHECK(expect.size() == actual.size());
     CHECK(expect.empty() == actual.empty());
@@ -67,254 +70,254 @@ TEST_CASE("-ctors converts and its types")
     {
         SECTION("begin")
         {
-            std::list<int> expect;
-            std::list<int>::iterator expectIt1(expect.begin());
-            std::list<int>::const_iterator expectIt2(expect.begin());
-            std::list<int>::reverse_iterator expectIt3(expect.begin());
-            std::list<int>::const_reverse_iterator expectIt4(expect.begin());
+            expectListContainer expect;
+            expectListContainer::iterator expectIt1(expect.begin());
+            expectListContainer::const_iterator expectIt2(expect.begin());
+            expectListContainer::reverse_iterator expectIt3(expect.begin());
+            expectListContainer::const_reverse_iterator expectIt4(expect.begin());
 
-            std::list<int>::const_iterator expectCIt2(expect.cbegin());
-            std::list<int>::const_reverse_iterator expectCIt4(expect.cbegin());
+            expectListContainer::const_iterator expectCIt2(expect.cbegin());
+            expectListContainer::const_reverse_iterator expectCIt4(expect.cbegin());
 
-            std::list<int>::reverse_iterator expectRIt3(expect.rbegin());
-            std::list<int>::const_reverse_iterator expectRIt4(expect.rbegin());
+            expectListContainer::reverse_iterator expectRIt3(expect.rbegin());
+            expectListContainer::const_reverse_iterator expectRIt4(expect.rbegin());
 
-            std::list<int>::const_reverse_iterator expectCRIt4(expect.crbegin());
+            expectListContainer::const_reverse_iterator expectCRIt4(expect.crbegin());
 
-            XorLinkedList<int> actual;
-            XorLinkedList<int>::iterator actualIt1(actual.begin());
-            XorLinkedList<int>::const_iterator actualIt2(actual.begin());
-            XorLinkedList<int>::reverse_iterator actualIt3(actual.begin());
-            XorLinkedList<int>::const_reverse_iterator actualIt4(actual.begin());
+            actualListContainer actual;
+            actualListContainer::iterator actualIt1(actual.begin());
+            actualListContainer::const_iterator actualIt2(actual.begin());
+            actualListContainer::reverse_iterator actualIt3(actual.begin());
+            actualListContainer::const_reverse_iterator actualIt4(actual.begin());
 
-            XorLinkedList<int>::const_iterator actualCIt2(actual.cbegin());
-            XorLinkedList<int>::const_reverse_iterator actualCIt4(actual.cbegin());
+            actualListContainer::const_iterator actualCIt2(actual.cbegin());
+            actualListContainer::const_reverse_iterator actualCIt4(actual.cbegin());
 
-            XorLinkedList<int>::reverse_iterator actualRIt3(actual.rbegin());
-            XorLinkedList<int>::const_reverse_iterator actualRIt4(actual.rbegin());
+            actualListContainer::reverse_iterator actualRIt3(actual.rbegin());
+            actualListContainer::const_reverse_iterator actualRIt4(actual.rbegin());
 
-            XorLinkedList<int>::const_reverse_iterator actualCRIt4(actual.crbegin());
+            actualListContainer::const_reverse_iterator actualCRIt4(actual.crbegin());
         }
 
         SECTION("begin errors")
         {
-            std::list<int> expect;
+            expectListContainer expect;
 
-            // std::list<int>::iterator expectCIt1(expect.cbegin());
-            // std::list<int>::reverse_iterator expectCIt3(expect.cbegin());
+            // expectListContainer::iterator expectCIt1(expect.cbegin());
+            // expectListContainer::reverse_iterator expectCIt3(expect.cbegin());
             //
-            // std::list<int>::iterator expectRIt1(expect.rbegin());
-            // std::list<int>::const_iterator expectRIt2(expect.rbegin());
+            // expectListContainer::iterator expectRIt1(expect.rbegin());
+            // expectListContainer::const_iterator expectRIt2(expect.rbegin());
             //
-            // std::list<int>::iterator expectCRIt1(expect.crbegin());
-            // std::list<int>::const_iterator expectCRIt2(expect.crbegin());
-            // std::list<int>::reverse_iterator expectCRIt3(expect.crbegin());
+            // expectListContainer::iterator expectCRIt1(expect.crbegin());
+            // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
+            // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
 
-            XorLinkedList<int> actual;
+            actualListContainer actual;
 
-            // XorLinkedList<int>::iterator actualCIt1(actual.cbegin());
-            // XorLinkedList<int>::reverse_iterator actualCIt3(actual.cbegin());
+            // testListContainer::iterator actualCIt1(actual.cbegin());
+            // testListContainer::reverse_iterator actualCIt3(actual.cbegin());
 
-            // XorLinkedList<int>::iterator actualRIt1(actual.rbegin());
-            // XorLinkedList<int>::const_iterator actualRIt2(actual.rbegin());
+            // testListContainer::iterator actualRIt1(actual.rbegin());
+            // testListContainer::const_iterator actualRIt2(actual.rbegin());
 
-            // XorLinkedList<int>::iterator actualCRIt1(actual.crbegin());
-            // XorLinkedList<int>::const_iterator actualCRIt2(actual.crbegin());
-            // XorLinkedList<int>::reverse_iterator actualCRIt3(actual.crbegin());
+            // testListContainer::iterator actualCRIt1(actual.crbegin());
+            // testListContainer::const_iterator actualCRIt2(actual.crbegin());
+            // testListContainer::reverse_iterator actualCRIt3(actual.crbegin());
         }
 
         SECTION("end")
         {
-            std::list<int> expect;
-            std::list<int>::iterator expectIt1(expect.end());
-            std::list<int>::const_iterator expectIt2(expect.end());
-            std::list<int>::reverse_iterator expectIt3(expect.end());
-            std::list<int>::const_reverse_iterator expectIt4(expect.end());
+            expectListContainer expect;
+            expectListContainer::iterator expectIt1(expect.end());
+            expectListContainer::const_iterator expectIt2(expect.end());
+            expectListContainer::reverse_iterator expectIt3(expect.end());
+            expectListContainer::const_reverse_iterator expectIt4(expect.end());
 
-            std::list<int>::const_iterator expectCIt2(expect.cend());
-            std::list<int>::const_reverse_iterator expectCIt4(expect.cend());
+            expectListContainer::const_iterator expectCIt2(expect.cend());
+            expectListContainer::const_reverse_iterator expectCIt4(expect.cend());
 
-            std::list<int>::reverse_iterator expectRIt3(expect.rend());
-            std::list<int>::const_reverse_iterator expectRIt4(expect.rend());
+            expectListContainer::reverse_iterator expectRIt3(expect.rend());
+            expectListContainer::const_reverse_iterator expectRIt4(expect.rend());
 
-            std::list<int>::const_reverse_iterator expectCRIt4(expect.crend());
+            expectListContainer::const_reverse_iterator expectCRIt4(expect.crend());
 
-            XorLinkedList<int> actual;
-            XorLinkedList<int>::iterator actualIt1(actual.end());
-            XorLinkedList<int>::const_iterator actualIt2(actual.end());
-            XorLinkedList<int>::reverse_iterator actualIt3(actual.end());
-            XorLinkedList<int>::const_reverse_iterator actualIt4(actual.end());
+            actualListContainer actual;
+            actualListContainer::iterator actualIt1(actual.end());
+            actualListContainer::const_iterator actualIt2(actual.end());
+            actualListContainer::reverse_iterator actualIt3(actual.end());
+            actualListContainer::const_reverse_iterator actualIt4(actual.end());
 
-            XorLinkedList<int>::const_iterator actualCIt2(actual.cend());
-            XorLinkedList<int>::const_reverse_iterator actualCIt4(actual.cend());
+            actualListContainer::const_iterator actualCIt2(actual.cend());
+            actualListContainer::const_reverse_iterator actualCIt4(actual.cend());
 
-            XorLinkedList<int>::reverse_iterator actualRIt3(actual.rend());
-            XorLinkedList<int>::const_reverse_iterator actualRIt4(actual.rend());
+            actualListContainer::reverse_iterator actualRIt3(actual.rend());
+            actualListContainer::const_reverse_iterator actualRIt4(actual.rend());
 
-            XorLinkedList<int>::const_reverse_iterator actualCRIt4(actual.crend());
+            actualListContainer::const_reverse_iterator actualCRIt4(actual.crend());
         }
 
         SECTION("end error")
         {
-            std::list<int> expect;
+            expectListContainer expect;
 
-            // std::list<int>::iterator expectCIt1(expect.cend());
-            // std::list<int>::reverse_iterator expectCIt3(expect.cend());
+            // expectListContainer::iterator expectCIt1(expect.cend());
+            // expectListContainer::reverse_iterator expectCIt3(expect.cend());
             //
-            // std::list<int>::iterator expectRIt1(expect.rend());
-            // std::list<int>::const_iterator expectRIt2(expect.rend());
+            // expectListContainer::iterator expectRIt1(expect.rend());
+            // expectListContainer::const_iterator expectRIt2(expect.rend());
             //
-            // std::list<int>::iterator expectCRIt1(expect.crend());
-            // std::list<int>::const_iterator expectCRIt2(expect.crend());
-            // std::list<int>::reverse_iterator expectCRIt3(expect.crend());
+            // expectListContainer::iterator expectCRIt1(expect.crend());
+            // expectListContainer::const_iterator expectCRIt2(expect.crend());
+            // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
 
-            XorLinkedList<int> actual;
+            actualListContainer actual;
 
-            // XorLinkedList<int>::iterator actualCIt1(actual.cend());
-            // XorLinkedList<int>::reverse_iterator actualCIt3(actual.cend());
+            // testListContainer::iterator actualCIt1(actual.cend());
+            // testListContainer::reverse_iterator actualCIt3(actual.cend());
             //
-            // XorLinkedList<int>::iterator actualRIt1(actual.rend());
-            // XorLinkedList<int>::const_iterator actualRIt2(actual.rend());
+            // testListContainer::iterator actualRIt1(actual.rend());
+            // testListContainer::const_iterator actualRIt2(actual.rend());
             //
-            // XorLinkedList<int>::iterator actualCRIt1(actual.crend());
-            // XorLinkedList<int>::const_iterator actualCRIt2(actual.crend());
-            // XorLinkedList<int>::reverse_iterator actualCRIt3(actual.crend());
+            // testListContainer::iterator actualCRIt1(actual.crend());
+            // testListContainer::const_iterator actualCRIt2(actual.crend());
+            // testListContainer::reverse_iterator actualCRIt3(actual.crend());
         }
 
         SECTION("const begin")
         {
-            const std::list<int> expect;
+            const expectListContainer expect;
 
-            std::list<int>::const_iterator expectIt2(expect.begin());
-            std::list<int>::const_reverse_iterator expectIt4(expect.begin());
+            expectListContainer::const_iterator expectIt2(expect.begin());
+            expectListContainer::const_reverse_iterator expectIt4(expect.begin());
 
-            std::list<int>::const_iterator expectCIt2(expect.cbegin());
-            std::list<int>::const_reverse_iterator expectCIt4(expect.cbegin());
+            expectListContainer::const_iterator expectCIt2(expect.cbegin());
+            expectListContainer::const_reverse_iterator expectCIt4(expect.cbegin());
 
-            std::list<int>::const_reverse_iterator expectRIt4(expect.rbegin());
+            expectListContainer::const_reverse_iterator expectRIt4(expect.rbegin());
 
-            std::list<int>::const_reverse_iterator expectCRIt4(expect.crbegin());
+            expectListContainer::const_reverse_iterator expectCRIt4(expect.crbegin());
 
-            const XorLinkedList<int> actual;
+            const actualListContainer actual;
 
-            XorLinkedList<int>::const_iterator actualIt2(actual.begin());
-            XorLinkedList<int>::const_reverse_iterator actualIt4(actual.begin());
+            actualListContainer::const_iterator actualIt2(actual.begin());
+            actualListContainer::const_reverse_iterator actualIt4(actual.begin());
 
-            XorLinkedList<int>::const_iterator actualCIt2(actual.cbegin());
-            XorLinkedList<int>::const_reverse_iterator actualCIt4(actual.cbegin());
+            actualListContainer::const_iterator actualCIt2(actual.cbegin());
+            actualListContainer::const_reverse_iterator actualCIt4(actual.cbegin());
 
-            XorLinkedList<int>::const_reverse_iterator actualRIt4(actual.rbegin());
+            actualListContainer::const_reverse_iterator actualRIt4(actual.rbegin());
 
-            XorLinkedList<int>::const_reverse_iterator actualCRIt4(actual.crbegin());
+            actualListContainer::const_reverse_iterator actualCRIt4(actual.crbegin());
         }
 
         SECTION("const begin errors")
         {
-            const std::list<int> expect;
+            const expectListContainer expect;
 
-            // std::list<int>::iterator expectIt1(expect.begin());
-            // std::list<int>::reverse_iterator expectIt3(expect.begin());
+            // expectListContainer::iterator expectIt1(expect.begin());
+            // expectListContainer::reverse_iterator expectIt3(expect.begin());
             //
-            // std::list<int>::iterator expectCIt1(expect.cbegin());
-            // std::list<int>::reverse_iterator expectCIt3(expect.cbegin());
+            // expectListContainer::iterator expectCIt1(expect.cbegin());
+            // expectListContainer::reverse_iterator expectCIt3(expect.cbegin());
             //
-            // std::list<int>::iterator expectRIt1(expect.rbegin());
-            // std::list<int>::const_iterator expectRIt2(expect.rbegin());
-            // std::list<int>::reverse_iterator expectRIt3(expect.rbegin());
+            // expectListContainer::iterator expectRIt1(expect.rbegin());
+            // expectListContainer::const_iterator expectRIt2(expect.rbegin());
+            // expectListContainer::reverse_iterator expectRIt3(expect.rbegin());
             //
-            // std::list<int>::iterator expectCRIt1(expect.crbegin());
-            // std::list<int>::const_iterator expectCRIt2(expect.crbegin());
-            // std::list<int>::reverse_iterator expectCRIt3(expect.crbegin());
+            // expectListContainer::iterator expectCRIt1(expect.crbegin());
+            // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
+            // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
 
-            const XorLinkedList<int> actual;
+            const actualListContainer actual;
 
-            // XorLinkedList<int>::iterator actualIt1(actual.begin());
-            // XorLinkedList<int>::reverse_iterator actualIt3(actual.begin());
+            // testListContainer::iterator actualIt1(actual.begin());
+            // testListContainer::reverse_iterator actualIt3(actual.begin());
             //
-            // XorLinkedList<int>::iterator actualCIt1(actual.cbegin());
-            // XorLinkedList<int>::reverse_iterator actualCIt3(actual.cbegin());
+            // testListContainer::iterator actualCIt1(actual.cbegin());
+            // testListContainer::reverse_iterator actualCIt3(actual.cbegin());
             //
-            // XorLinkedList<int>::iterator actualRIt1(actual.rbegin());
-            // XorLinkedList<int>::const_iterator actualRIt2(actual.rbegin());
-            // XorLinkedList<int>::reverse_iterator actualRIt3(actual.rbegin());
+            // testListContainer::iterator actualRIt1(actual.rbegin());
+            // testListContainer::const_iterator actualRIt2(actual.rbegin());
+            // testListContainer::reverse_iterator actualRIt3(actual.rbegin());
             //
-            // XorLinkedList<int>::iterator actualCRIt1(actual.crbegin());
-            // XorLinkedList<int>::const_iterator actualCRIt2(actual.crbegin());
-            // XorLinkedList<int>::reverse_iterator actualCRIt3(actual.crbegin());
+            // testListContainer::iterator actualCRIt1(actual.crbegin());
+            // testListContainer::const_iterator actualCRIt2(actual.crbegin());
+            // testListContainer::reverse_iterator actualCRIt3(actual.crbegin());
         }
 
         SECTION("const end")
         {
-            const std::list<int> expect;
+            const expectListContainer expect;
 
-            std::list<int>::const_iterator expectIt2(expect.end());
-            std::list<int>::const_reverse_iterator expectIt4(expect.end());
+            expectListContainer::const_iterator expectIt2(expect.end());
+            expectListContainer::const_reverse_iterator expectIt4(expect.end());
 
-            std::list<int>::const_iterator expectCIt2(expect.cend());
-            std::list<int>::const_reverse_iterator expectCIt4(expect.cend());
+            expectListContainer::const_iterator expectCIt2(expect.cend());
+            expectListContainer::const_reverse_iterator expectCIt4(expect.cend());
 
-            std::list<int>::const_reverse_iterator expectRIt4(expect.rend());
+            expectListContainer::const_reverse_iterator expectRIt4(expect.rend());
 
-            std::list<int>::const_reverse_iterator expectCRIt4(expect.crend());
+            expectListContainer::const_reverse_iterator expectCRIt4(expect.crend());
 
-            const XorLinkedList<int> actual;
+            const actualListContainer actual;
 
-            XorLinkedList<int>::const_iterator actualIt2(actual.end());
-            XorLinkedList<int>::const_reverse_iterator actualIt4(actual.end());
+            actualListContainer::const_iterator actualIt2(actual.end());
+            actualListContainer::const_reverse_iterator actualIt4(actual.end());
 
-            XorLinkedList<int>::const_iterator actualCIt2(actual.cend());
-            XorLinkedList<int>::const_reverse_iterator actualCIt4(actual.cend());
+            actualListContainer::const_iterator actualCIt2(actual.cend());
+            actualListContainer::const_reverse_iterator actualCIt4(actual.cend());
 
-            XorLinkedList<int>::const_reverse_iterator actualRIt4(actual.rend());
+            actualListContainer::const_reverse_iterator actualRIt4(actual.rend());
 
-            XorLinkedList<int>::const_reverse_iterator actualCRIt4(actual.crend());
+            actualListContainer::const_reverse_iterator actualCRIt4(actual.crend());
         }
 
         SECTION("const end error")
         {
-            const std::list<int> expect;
+            const expectListContainer expect;
 
-            // std::list<int>::iterator expectIt1(expect.end());
-            // std::list<int>::reverse_iterator expectIt3(expect.end());
+            // expectListContainer::iterator expectIt1(expect.end());
+            // expectListContainer::reverse_iterator expectIt3(expect.end());
             //
-            // std::list<int>::iterator expectCIt1(expect.cend());
-            // std::list<int>::reverse_iterator expectCIt3(expect.cend());
+            // expectListContainer::iterator expectCIt1(expect.cend());
+            // expectListContainer::reverse_iterator expectCIt3(expect.cend());
             //
-            // std::list<int>::iterator expectRIt1(expect.rend());
-            // std::list<int>::const_iterator expectRIt2(expect.rend());
-            // std::list<int>::reverse_iterator expectRIt3(expect.rend());
+            // expectListContainer::iterator expectRIt1(expect.rend());
+            // expectListContainer::const_iterator expectRIt2(expect.rend());
+            // expectListContainer::reverse_iterator expectRIt3(expect.rend());
             //
-            // std::list<int>::iterator expectCRIt1(expect.crend());
-            // std::list<int>::const_iterator expectCRIt2(expect.crend());
-            // std::list<int>::reverse_iterator expectCRIt3(expect.crend());
+            // expectListContainer::iterator expectCRIt1(expect.crend());
+            // expectListContainer::const_iterator expectCRIt2(expect.crend());
+            // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
 
-            const XorLinkedList<int> actual;
+            const actualListContainer actual;
 
-            // XorLinkedList<int>::iterator actualIt1(actual.end());
-            // XorLinkedList<int>::reverse_iterator actualIt3(actual.end());
+            // testListContainer::iterator actualIt1(actual.end());
+            // testListContainer::reverse_iterator actualIt3(actual.end());
             //
-            // XorLinkedList<int>::iterator actualCIt1(actual.cend());
-            // XorLinkedList<int>::reverse_iterator actualCIt3(actual.cend());
+            // testListContainer::iterator actualCIt1(actual.cend());
+            // testListContainer::reverse_iterator actualCIt3(actual.cend());
             //
-            // XorLinkedList<int>::iterator actualRIt1(actual.rend());
-            // XorLinkedList<int>::const_iterator actualRIt2(actual.rend());
-            // XorLinkedList<int>::reverse_iterator actualRIt3(actual.rend());
+            // testListContainer::iterator actualRIt1(actual.rend());
+            // testListContainer::const_iterator actualRIt2(actual.rend());
+            // testListContainer::reverse_iterator actualRIt3(actual.rend());
             //
-            // XorLinkedList<int>::iterator actualCRIt1(actual.crend());
-            // XorLinkedList<int>::const_iterator actualCRIt2(actual.crend());
-            // XorLinkedList<int>::reverse_iterator actualCRIt3(actual.crend());
+            // testListContainer::iterator actualCRIt1(actual.crend());
+            // testListContainer::const_iterator actualCRIt2(actual.crend());
+            // testListContainer::reverse_iterator actualCRIt3(actual.crend());
         }
     }
 
     SECTION("container")
     {
-        std::list<int> expect1;
-        std::list<int> expect2(expect1);
-        std::list<int> expect3{1, 2, 3};
+        expectListContainer expect1;
+        expectListContainer expect2(expect1);
+        expectListContainer expect3{1, 2, 3};
 
-        XorLinkedList<int> actual1;
-        XorLinkedList<int> actual2(actual1);
-        XorLinkedList<int> actual3{1, 2, 3};
+        actualListContainer actual1;
+        actualListContainer actual2(actual1);
+        actualListContainer actual3{1, 2, 3};
     }
 }
 
@@ -325,8 +328,8 @@ TEST_CASE("const semantic")
     {
         SECTION("non-const")
         {
-            std::list<int> expect;
-            XorLinkedList<int> actual;
+            expectListContainer expect;
+            actualListContainer actual;
 
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
@@ -397,8 +400,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            const std::list<int> expect;
-            const XorLinkedList<int> actual;
+            const expectListContainer expect;
+            const actualListContainer actual;
 
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
@@ -469,7 +472,7 @@ TEST_CASE("const semantic")
 
         SECTION("find")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             CHECK_FALSE(is_const<decltype(actual.find(1))>());
         }
     }
@@ -478,8 +481,8 @@ TEST_CASE("const semantic")
     {
         SECTION("non-const")
         {
-            std::list<int> expect;
-            XorLinkedList<int> actual;
+            expectListContainer expect;
+            actualListContainer actual;
 
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
@@ -487,8 +490,8 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            const std::list<int> expect;
-            const XorLinkedList<int> actual;
+            const expectListContainer expect;
+            const actualListContainer actual;
 
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
@@ -500,14 +503,14 @@ TEST_CASE("element access rely on [push]")
 {
     SECTION("while empty")
     {
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         CHECK_THROWS(actual.back());
         CHECK_THROWS(actual.front());
     }
 
     SECTION("one node")
     {
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         actual.push_back(1);
         CHECK(actual.front() == 1);
         CHECK(actual.back() == 1);
@@ -515,7 +518,7 @@ TEST_CASE("element access rely on [push]")
 
     SECTION("two nodes")
     {
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         actual.push_back(1);
         actual.push_back(2);
         CHECK(actual.front() == 1);
@@ -528,7 +531,7 @@ TEST_CASE("element access rely on [push]")
 
 TEST_CASE("capcity rely on [push/pop]")
 {
-    XorLinkedList<int> actual;
+    actualListContainer actual;
     CHECK(actual.empty());
     CHECK(actual.size() == 0);
     actual.clear();
@@ -539,7 +542,7 @@ TEST_CASE("capcity rely on [push/pop]")
     {
         auto container = getRandomValueContainer();
 
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         int expectSize = 0;
 
         for_each(container.begin(), container.end(), [&](int v)
@@ -587,13 +590,13 @@ TEST_CASE("modifiers")
     {
         SECTION("while empty")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.clear();
         }
 
         SECTION("after actions")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.clear();
@@ -602,7 +605,7 @@ TEST_CASE("modifiers")
 
         SECTION("before destruct")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -611,7 +614,7 @@ TEST_CASE("modifiers")
 
         SECTION("while destruct")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -624,7 +627,7 @@ TEST_CASE("modifiers")
         {
             SECTION("push front")
             {
-                XorLinkedList<int> actual;
+                actualListContainer actual;
                 actual.push_front(111);
                 CHECK(actual.front() == 111);
                 CHECK(actual.back() == 111);
@@ -652,7 +655,7 @@ TEST_CASE("modifiers")
 
             SECTION("push back")
             {
-                XorLinkedList<int> actual;
+                actualListContainer actual;
                 actual.push_back(111);
                 CHECK(actual.front() == 111);
                 CHECK(actual.back() == 111);
@@ -682,8 +685,8 @@ TEST_CASE("modifiers")
             {
                 auto container = getRandomValueContainer();
 
-                std::list<int> expect;
-                XorLinkedList<int> actual;
+                expectListContainer expect;
+                actualListContainer actual;
                 for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 2)
@@ -710,7 +713,7 @@ TEST_CASE("modifiers")
 
             SECTION("pop_back")
             {
-                XorLinkedList<int> actual;
+                actualListContainer actual;
                 CHECK_THROWS(actual.pop_back());
 
                 actual.push_back(111);
@@ -739,8 +742,8 @@ TEST_CASE("modifiers")
             {
                 auto container = getRandomValueContainer();
 
-                std::list<int> expect;
-                XorLinkedList<int> actual;
+                expectListContainer expect;
+                actualListContainer actual;
                 for_each(container.begin(), container.end(), [&](int v)
                 {
                     actual.push_back(v);
@@ -771,8 +774,8 @@ TEST_CASE("modifiers")
             {
                 auto container = getRandomValueContainer();
 
-                std::list<int> expect;
-                XorLinkedList<int> actual;
+                expectListContainer expect;
+                actualListContainer actual;
                 for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 3)
@@ -823,8 +826,8 @@ TEST_CASE("modifiers")
             {
                 auto container = getRandomValueContainer();
 
-                std::list<int> expect;
-                XorLinkedList<int> actual;
+                expectListContainer expect;
+                actualListContainer actual;
                 for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (!(rand() % 3))
@@ -921,7 +924,7 @@ TEST_CASE("modifiers")
                 {
                     auto expect = getRandomValueContainer();
 
-                    XorLinkedList<int> actual;
+                    actualListContainer actual;
                     for_each(expect.begin(), expect.end(), [&](int v)
                     {
                         actual.push_back(v);
@@ -1164,9 +1167,9 @@ TEST_CASE("modifiers")
         SECTION("[reverse iterator: base] rely on [++/--]")
         {
             auto expect = getRandomValueContainer();
-            XorLinkedList<int> actual = copyContainerToList(expect);
-            std::vector<int>::reverse_iterator expectReverseBegin(expect.begin());
-            XorLinkedList<int>::const_reverse_iterator actualReverseBegin(actual.begin());
+            actualListContainer actual = copyContainerToList(expect);
+            vectorContainer::reverse_iterator expectReverseBegin(expect.begin());
+            actualListContainer::const_reverse_iterator actualReverseBegin(actual.begin());
             auto expectBaseBegin = expectReverseBegin.base();
             auto actualBaseBegin = actualReverseBegin.base();
 
@@ -1181,7 +1184,7 @@ TEST_CASE("modifiers")
 
     SECTION("empty list")
     {
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         actual.clear();
 
         CHECK_THROWS(actual.front());
@@ -1194,10 +1197,10 @@ TEST_CASE("modifiers")
 
     SECTION("[insert] rely on [op/begin/end/size/push_back/clear]")
     {
-        std::list<int> expect;
-        XorLinkedList<int> actual;
-        std::list<int>::iterator expectReturnPos;
-        XorLinkedList<int>::iterator actualReturnPos;
+        expectListContainer expect;
+        actualListContainer actual;
+        expectListContainer::iterator expectReturnPos;
+        actualListContainer::iterator actualReturnPos;
         int randomValue;
         size_t sz;
         auto ilist = getRandomValueContainer(SmallRandomSize);
@@ -1822,7 +1825,7 @@ TEST_CASE("operations")
     {
         SECTION("empty")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             CHECK(actual.empty());
             CHECK(actual.size() == 0);
             CHECK(actual.begin() == actual.end());
@@ -1835,7 +1838,7 @@ TEST_CASE("operations")
 
         SECTION("one nodes")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             CHECK(actual.front() == 1);
             CHECK(actual.back() == 1);
@@ -1857,7 +1860,7 @@ TEST_CASE("operations")
 
         SECTION("two nodes")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             CHECK(actual.front() == 1);
@@ -1886,7 +1889,7 @@ TEST_CASE("operations")
 
         SECTION("three nodes")
         {
-            XorLinkedList<int> actual;
+            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -1924,8 +1927,8 @@ TEST_CASE("operations")
         {
             auto container = getRandomValueContainer();
 
-            std::list<int> expect;
-            XorLinkedList<int> actual;
+            expectListContainer expect;
+            actualListContainer actual;
             while (!container.empty())
             {
                 auto v = container.back();
@@ -1988,10 +1991,11 @@ TEST_CASE("others")
 
         auto container = getRandomValueContainer();
 
-        XorLinkedList<int> actual;
+        actualListContainer actual;
         int expectSize = 1;
         expectListContainer expect;
         expect.push_front(container.front());
+
         actual.push_front(container.front());
         for_each(++container.begin(), container.end(), [&](int v)
         {
