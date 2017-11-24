@@ -10,10 +10,17 @@
 #ifndef XOR_LINKED_LIST_CPP
 #define XOR_LINKED_LIST_CPP
 
-#include <memory>
-#include <functional>
 #include <iterator>
-#include <iostream>
+#include <algorithm>
+
+template<typename _Type, typename _Compare = std::less<_Type>>
+class XorLinkedList;
+
+template<class _Type>
+class ListIter;
+
+template<class _Type>
+class ListConstIter;
 
 template<typename _Type>
 class __Node
@@ -25,24 +32,12 @@ private:
 public:
     explicit __Node(value_type value) :value_(value), around_(nullptr) {}
 
-    inline SPNode around(SPNode const &around)
-    {
-        return reinterpret_cast<SPNode>(reinterpret_cast<uintptr_t>(around) ^
-                                        reinterpret_cast<uintptr_t>(around_));
-    }
-
-    inline void around(SPNode const &prev, SPNode const &next)
-    {
-        around_ = reinterpret_cast<void *>(reinterpret_cast<uintptr_t>(prev) ^
-                                           reinterpret_cast<uintptr_t>(next));
-    }
-
     inline value_type &value()
     {
         return value_;
     }
 
-    inline value_type const &value() const
+    inline const value_type &value() const
     {
         return value_;
     }
@@ -55,13 +50,23 @@ public:
 private:
     value_type value_;
     void *around_;
+
+    inline SPNode around(const SPNode &around)
+    {
+        return reinterpret_cast<SPNode>(reinterpret_cast<uintptr_t>(around) ^
+                                        reinterpret_cast<uintptr_t>(around_));
+    }
+
+    inline void around(const SPNode &prev, const SPNode &next)
+    {
+        this->around_ = reinterpret_cast<void *>(reinterpret_cast<uintptr_t>(prev) ^
+                                                 reinterpret_cast<uintptr_t>(next));
+    }
+
+    friend XorLinkedList<value_type>;
+    friend ListIter<value_type>;
+    friend ListConstIter<value_type>;
 };
-
-template<typename _Type, typename _Compare = std::less<_Type>>
-class XorLinkedList;
-
-template<class _Type>
-class ListConstIter;
 
 template<class _Type>
 class ListIter :public std::iterator<std::bidirectional_iterator_tag, _Type>
@@ -80,9 +85,9 @@ private:
 public:
     ListIter() {}
 
-    explicit ListIter(NodePtr node, NodePtr prev) :curr_(node), prev_(prev) {}
+    explicit ListIter(NodePtr prev, NodePtr curr) :prev_(prev), curr_(curr) {}
 
-    ListIter(const Self &it) :curr_(it.curr_), prev_(it.prev_) {}
+    ListIter(const Self &it) :prev_(it.prev_), curr_(it.curr_) {}
 
     reference operator*()
     {
@@ -128,18 +133,19 @@ public:
         return temp;
     }
 
-    bool operator==(Self const &other) const
+    bool operator==(const Self &other) const
     {
         return curr_ == other.curr_;
     }
 
-    bool operator!=(Self const &other) const
+    bool operator!=(const Self &other) const
     {
         return curr_ != other.curr_;
     }
 
 private:
-    NodePtr curr_, prev_;
+    NodePtr prev_, curr_;
+
     friend XorLinkedList<value_type>;
     friend ListConstIter<value_type>;
 };
@@ -150,21 +156,21 @@ class ListConstIter :public std::iterator<std::bidirectional_iterator_tag, _Type
 public:
     using value_type = _Type;
     using difference_type = ptrdiff_t;
-    using pointer = _Type const *;
-    using reference = _Type const &;
+    using pointer = const _Type *;
+    using reference = const _Type &;
     using iterator_category = std::bidirectional_iterator_tag;
 
 private:
     using NodePtr = __Node<value_type> *;
     using Self = ListConstIter<value_type>;
-    using iterator = ListIter<value_type>;
+    using Iter = ListIter<value_type>;
 
 public:
     ListConstIter() {}
 
-    explicit ListConstIter(NodePtr node, NodePtr prev) :curr_(node), prev_(prev) {}
+    explicit ListConstIter(NodePtr prev, NodePtr curr) :prev_(prev), curr_(curr) {}
 
-    ListConstIter(const iterator &it) :curr_(it.curr_), prev_(it.prev_) {}
+    ListConstIter(const Iter &it) :prev_(it.prev_), curr_(it.curr_) {}
 
     reference operator*() const
     {
@@ -210,18 +216,24 @@ public:
         return temp;
     }
 
-    bool operator==(Self const &other) const
+    bool operator==(const Self &other) const
     {
         return curr_ == other.curr_;
     }
 
-    bool operator!=(Self const &other) const
+    bool operator!=(const Self &other) const
     {
         return curr_ != other.curr_;
     }
 
-public:
-    NodePtr curr_, prev_;
+private:
+    NodePtr prev_, curr_;
+
+    Iter constCast()
+    {
+        return Iter(prev_, curr_);
+    }
+
     friend XorLinkedList<value_type>;
 };
 
@@ -237,29 +249,33 @@ public:
     using value_type = _Type;
     using size_type = size_t;
     using difference_type = ptrdiff_t;
-    using pointer = value_type const *;
-    using const_pointer = value_type const *;
+    using pointer = const value_type *;
+    using const_pointer = const value_type *;
     using reference = value_type &;
-    using const_reference = value_type const &;
+    using const_reference = const value_type &;
 
     using iterator = ListIter<value_type>;
     using const_iterator = ListConstIter<value_type>;
     using reverse_iterator = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-    explicit XorLinkedList() :begin_(new Node(0)), end_(begin_), sz_(0)
-    {}
-
-    XorLinkedList(Self const &list) :begin_(new Node(0)), end_(begin_), sz_(0)
+    explicit XorLinkedList() :sz_(0)
     {
+        construct();
+    }
+
+    XorLinkedList(const Self &list) :sz_(0)
+    {
+        construct();
         for_each(list.begin(), list.end(), [&](value_type v)
         {
             push_back(v);
         });
     };
 
-    XorLinkedList(std::initializer_list<value_type> &&vs) :begin_(new Node(0)), end_(begin_), sz_(0)
+    XorLinkedList(std::initializer_list<value_type> &&vs) :sz_(0)
     {
+        construct();
         std::for_each(vs.begin(), vs.end(), [&](value_type v)
         {
             push_back(v);
@@ -269,7 +285,7 @@ public:
     ~XorLinkedList()
     {
         clear();
-        delete end_;
+        destruct();
     }
 
     inline reference front();
@@ -280,19 +296,30 @@ public:
 
     inline const_reference back() const;
 
-    void push_front(value_type const &v);
+    void push_front(const value_type &v);
 
-    void push_back(value_type const &v);
+    void push_back(const value_type &v);
 
     void pop_front();
 
     void pop_back();
 
-    void insert(iterator pos, value_type const &v);
+    iterator insert(const_iterator pos, const value_type &v);
 
-    void erase(iterator pos);
+    iterator insert(const_iterator pos, size_type size, const value_type &v);
 
-    iterator find(value_type const &v);
+    iterator insert(const_iterator pos, value_type &&v);
+
+    iterator insert(const_iterator pos, std::initializer_list<value_type> il);
+
+    template<typename _InputIt>
+    iterator insert(const_iterator pos, _InputIt first, _InputIt last);
+
+    iterator erase(const_iterator pos);
+
+    iterator erase(const_iterator begin, const_iterator end);
+
+    iterator find(const value_type &v);
 
     void reverse();
 
@@ -333,18 +360,16 @@ public:
     const_reverse_iterator crend() const;
 
 private:
-    NodePtr begin_, end_;
+    NodePtr prevOfBegin_, end_, nextOfEnd_;
     size_type sz_;
 
-    inline void insertToEmpty(value_type const &v);
+    inline void construct();
 
-    inline NodePtr insertBetween(NodePtr &prev, NodePtr &curr, value_type const &v);
+    inline void destruct();
 
-    inline void eraseOnlyOne();
+    inline iterator insertImpl(const_iterator pos, const value_type &v);
 
-    inline void eraseNode(NodePtr &popNode, NodePtr &prev);
-
-    inline NodePtr &findPrev(NodePtr &node);
+    inline iterator eraseImpl(const_iterator pos);
 };
 
 template<typename _Type, typename _Compare>
@@ -354,7 +379,7 @@ XorLinkedList<_Type, _Compare>::front()->reference
     if (empty())
         throw "the list is empty !";
 
-    return begin_->value();
+    return prevOfBegin_->around(nextOfEnd_)->value();
 }
 
 template<typename _Type, typename _Compare>
@@ -364,7 +389,7 @@ XorLinkedList<_Type, _Compare>::back()->reference
     if (empty())
         throw "the list is empty !";
 
-    return end_->around(begin_)->value();
+    return end_->around(nextOfEnd_)->value();
 }
 
 template<typename _Type, typename _Compare>
@@ -383,22 +408,16 @@ XorLinkedList<_Type, _Compare>::back() const->const_reference
 
 template<typename _Type, typename _Compare>
 void
-XorLinkedList<_Type, _Compare>::push_front(value_type const &v)
+XorLinkedList<_Type, _Compare>::push_front(const value_type &v)
 {
-    if (empty())
-        insertToEmpty(v);
-    else
-        insert(begin(), v);
+    insert(begin(), v);
 }
 
 template<typename _Type, typename _Compare>
 void
-XorLinkedList<_Type, _Compare>::push_back(value_type const &v)
+XorLinkedList<_Type, _Compare>::push_back(const value_type &v)
 {
-    if (empty())
-        insertToEmpty(v);
-    else
-        insert(end(), v);
+    insert(end(), v);
 }
 
 template<typename _Type, typename _Compare>
@@ -422,56 +441,138 @@ XorLinkedList<_Type, _Compare>::pop_back()
 }
 
 template<typename _Type, typename _Compare>
-inline void
-XorLinkedList<_Type, _Compare>::insert(iterator pos, value_type const &v)
+inline auto
+XorLinkedList<_Type, _Compare>::insert(const_iterator pos, const value_type &v)->iterator
 {
-    if (empty())
-        insertToEmpty(v);
-    else
-        insertBetween(pos.prev_, pos.curr_, v);
-}
-
-template<typename _Type, typename _Compare>
-inline void
-XorLinkedList<_Type, _Compare>::erase(iterator pos)
-{
-    if (pos != end())
-    {
-        if (size() == 1)
-            eraseOnlyOne();
-        else
-            eraseNode(pos.prev_, pos.curr_);
-    }
+    return insertImpl(pos, v);
 }
 
 template<typename _Type, typename _Compare>
 inline auto
-XorLinkedList<_Type, _Compare>::find(value_type const &v)->iterator
+XorLinkedList<_Type, _Compare>::insert(const_iterator pos, size_type size, const value_type &v)
+->iterator
 {
-    return std::find(begin(), end(), v);
+    if (size == 0)
+        return pos.constCast();
+
+    auto curr = insert(pos, v);
+    auto firstOfInsert = curr;
+    ++curr;
+    while (--size)
+        curr = ++insert(curr, v);
+
+    return firstOfInsert;
+}
+
+template<typename _Type, typename _Compare>
+inline auto
+XorLinkedList<_Type, _Compare>::insert(const_iterator pos, value_type &&v)->iterator
+{
+    return insertImpl(pos, v);
+}
+
+template<typename _Type, typename _Compare>
+inline auto
+XorLinkedList<_Type, _Compare>::insert(const_iterator pos, std::initializer_list<value_type> il)
+->iterator
+{
+    if (il.begin() == il.end())
+        return pos.constCast();
+
+    auto curr = insert(pos, *il.begin());
+    auto firstOfInsert = curr;
+    ++curr;
+    auto begin = il.begin();
+    ++begin;
+    std::for_each(begin, il.end(), [&](value_type v)
+    {
+        curr = ++insert(curr, v);
+    });
+
+    return firstOfInsert;
+}
+
+template<typename _Type, typename _Compare>
+template<typename _InputIt>
+inline auto
+XorLinkedList<_Type, _Compare>::insert(const_iterator pos, _InputIt first, _InputIt last)
+->iterator
+{
+    auto curr = insert(pos, *first);
+    auto firstOfInsert = curr;
+    ++curr;
+    auto begin = first;
+    ++begin;
+    std::for_each(begin, last, [&](value_type it)
+    {
+        curr = ++insert(curr, it);
+    });
+
+    return firstOfInsert;
+}
+
+template<typename _Type, typename _Compare>
+inline auto
+XorLinkedList<_Type, _Compare>::erase(const_iterator pos)->iterator
+{
+    if (pos != end())
+        return eraseImpl(pos);
+
+    return end();
+}
+
+template<typename _Type, typename _Compare>
+inline auto
+XorLinkedList<_Type, _Compare>::erase(const_iterator first, const_iterator last)->iterator
+{
+    while (first != last)
+        erase(first++);
+
+    return first.constCast();
+}
+
+template<typename _Type, typename _Compare>
+inline auto
+XorLinkedList<_Type, _Compare>::find(const value_type &v)->iterator
+{
+    auto curr = prevOfBegin_->around(nextOfEnd_), prev = prevOfBegin_;
+    while (curr != end_)
+    {
+        if (v == curr->value())
+            return iterator(prev, curr);
+        ++curr;
+        ++prev;
+    }
+
+    return end();
 }
 
 template<typename _Type, typename _Compare>
 inline void
 XorLinkedList<_Type, _Compare>::reverse()
 {
-    if (!empty())
-        begin_ = end_->around(begin_);
+    std::swap(prevOfBegin_, end_);
 }
 
 template<typename _Type, typename _Compare>
 inline void
 XorLinkedList<_Type, _Compare>::clear()
 {
-    auto b = begin();
-    while (b != end())
+    NodePtr begin = prevOfBegin_, nextOfBegin;
+    begin = begin->around(nextOfEnd_);
+
+    while (begin != end_)
     {
-        iterator temp = b;
-        ++b;
-        delete temp.curr_;
+        nextOfBegin = begin->around(prevOfBegin_);
+
+        prevOfBegin_->around(nextOfEnd_, nextOfBegin);
+        nextOfBegin->around(prevOfBegin_, nextOfBegin->around(begin));
+
+        delete begin;
+        begin = nextOfBegin;
     }
-    end_->around(nullptr, nullptr);
-    begin_ = end_;
+
+    sz_ = 0;
 }
 
 template<typename _Type, typename _Compare>
@@ -492,117 +593,108 @@ template<typename _Type, typename _Compare>
 inline bool
 XorLinkedList<_Type, _Compare>::empty() const
 {
-    return begin_ == end_;
+    return prevOfBegin_->around(nextOfEnd_) == end_;
 }
 
 template<typename _Type, typename _Compare>
-void
-XorLinkedList<_Type, _Compare>::insertToEmpty(value_type const &v)
+inline void
+XorLinkedList<_Type, _Compare>::construct()
 {
-    begin_ = new Node(v);
-    ++sz_;
+    end_ = new Node(0);
+    prevOfBegin_ = new Node(0);
+    nextOfEnd_ = new Node(0);
+
+    end_->around(prevOfBegin_, nextOfEnd_);
+    prevOfBegin_->around(nextOfEnd_, end_);
+    nextOfEnd_->around(end_, prevOfBegin_);
+}
+
+template<typename _Type, typename _Compare>
+inline void
+XorLinkedList<_Type, _Compare>::destruct()
+{
+    delete prevOfBegin_;
+    delete end_;
+    delete nextOfEnd_;
 }
 
 template<typename _Type, typename _Compare>
 inline auto
-XorLinkedList<_Type, _Compare>::insertBetween(NodePtr &prev, NodePtr &curr, value_type const &v)
-->NodePtr
+XorLinkedList<_Type, _Compare>::insertImpl(const_iterator pos, const value_type &v)
+->iterator
 {
+    auto curr = pos.curr_;
+    auto prev = pos.prev_;
+
     auto nextOfNext = curr->around(prev);
     auto prevOfPrev = prev->around(curr);
     auto newCurr = new Node(v);
     newCurr->around(prev, curr);
     curr->around(newCurr, nextOfNext);
     prev->around(prevOfPrev, newCurr);
-    if (curr == begin_)
-        begin_ = newCurr;
     ++sz_;
 
-    return newCurr;
+    return iterator(prev, prev->around(prevOfPrev));
 }
 
 template<typename _Type, typename _Compare>
-void
-XorLinkedList<_Type, _Compare>::eraseOnlyOne()
+auto
+XorLinkedList<_Type, _Compare>::eraseImpl(const_iterator pos)->iterator
 {
-    delete begin_;
-    end_->around(nullptr, nullptr);
-    begin_ = end_;
-    --sz_;
-}
+    auto curr = pos.curr_;
+    auto prev = pos.prev_;
 
-template<typename _Type, typename _Compare>
-void
-XorLinkedList<_Type, _Compare>::eraseNode(NodePtr &prev, NodePtr &curr)
-{
-    auto insteadNode = curr->around(prev);
-    auto nextOfInsteadNode = insteadNode->around(curr);
-    auto prevOfPrevNode = prev->around(curr);
-    insteadNode->around(prev, nextOfInsteadNode);
-    prev->around(prevOfPrevNode, insteadNode);
+    auto nextOfCurr = curr->around(prev);
+    auto nextOfNext = nextOfCurr->around(curr);
+    auto prevOfPrev = prev->around(curr);
+    nextOfCurr->around(prev, nextOfNext);
+    prev->around(prevOfPrev, nextOfCurr);
     delete curr;
-    if (curr == begin_)
-        begin_ = insteadNode;
     --sz_;
-}
 
-template<typename _Type, typename _Compare>
-inline auto
-XorLinkedList<_Type, _Compare>::findPrev(NodePtr &node)->NodePtr &
-{
-    NodePtr &curr = begin_;
-    NodePtr &prev = end_;
-    while (curr != end_)
-    {
-        if (curr == node)
-            return prev;
-        curr = curr->around(prev);
-        prev = curr;
-    }
-
-    return node;
+    return iterator(prev, curr);
 }
 
 template<typename _Type, typename _Compare>
 inline auto
 XorLinkedList<_Type, _Compare>::begin()->iterator
 {
-    return iterator(begin_, end_);
+    return iterator(prevOfBegin_, prevOfBegin_->around(nextOfEnd_));
 }
 
 template<typename _Type, typename _Compare>
 auto
 XorLinkedList<_Type, _Compare>::begin() const->const_iterator
 {
-    return const_iterator(begin_, end_);
+    return const_iterator(prevOfBegin_, prevOfBegin_->around(nextOfEnd_));
 }
 
 template<typename _Type, typename _Compare>
 auto
 XorLinkedList<_Type, _Compare>::cbegin() const->const_iterator
 {
-    return const_iterator(begin_, end_);
+    return const_iterator(prevOfBegin_, prevOfBegin_->around(nextOfEnd_));
 }
 
 template<typename _Type, typename _Compare>
 inline auto
 XorLinkedList<_Type, _Compare>::end()->iterator
 {
-    return iterator(end_, end_->around(begin_));
+    return iterator(end_->around(nextOfEnd_), end_);
 }
 
 template<typename _Type, typename _Compare>
 auto
 XorLinkedList<_Type, _Compare>::end() const->const_iterator
 {
-    return const_iterator(end_, end_->around(begin_));
+    return const_iterator(end_->around(nextOfEnd_), end_);
 }
 
 template<typename _Type, typename _Compare>
 auto
 XorLinkedList<_Type, _Compare>::cend() const->const_iterator
 {
-    return const_iterator(end_, end_->around(begin_));
+    return const_iterator(end_->around(nextOfEnd_), end_);
 }
 
 template<typename _Type, typename _Compare>
@@ -648,177 +740,3 @@ XorLinkedList<_Type, _Compare>::crend() const->const_reverse_iterator
 }
 
 #endif // XOR_LINKED_LIST_CPP
-
-// template<class _ListIterator>
-// class __ListReverseIterator;
-
-// template<class _ListIterator>
-// class __ListReverseIterator :public std::iterator<std::bidirectional_iterator_tag,
-// typename _ListIterator::value_type>
-// {
-// public:
-// using value_type = typename _ListIterator::value_type;
-// using difference_type = typename _ListIterator::difference_type;
-// using pointer = typename _ListIterator::pointer;
-// using reference = typename _ListIterator::reference;
-// using iterator_category = typename _ListIterator::iterator_category;
-
-// private:
-// using NodePtr = __Node<value_type> *;
-// using Base = _ListIterator;
-// using Self = __ListReverseIterator<Base>;
-
-// public:
-// __ListReverseIterator() {}
-
-// explicit __ListReverseIterator(Base it) :base_(it) {}
-
-// __ListReverseIterator(const Self &it) :base_(it.base_) {}
-
-// reference operator*()
-// {
-// auto next = base_;
-
-// return *++next;
-// }
-
-// pointer operator->()
-// {
-// auto next = base_;
-
-// return ++next.operator->();
-// }
-
-// Self &operator++()
-// {
-// --base_;
-
-// return *this;
-// }
-
-// Self operator++(int i)
-// {
-// base_--;
-
-// return *this;
-// }
-
-// Self &operator--()
-// {
-// ++base_;
-
-// return *this;
-// }
-
-// Self operator--(int i)
-// {
-// base_++;
-
-// return *this;
-// }
-
-// bool operator==(Self const &other) const
-// {
-// return base_ == other.base_;
-// }
-
-// bool operator!=(Self const &other) const
-// {
-// return base_ != other.base_;
-// }
-
-// Base base() const
-// {
-// return base_;
-// }
-
-// private:
-// Base base_;
-// friend XorLinkedList<value_type>;
-// };
-
-// template<class _ListConstIterator>
-// class __ListConstReverseIterator :public std::iterator<std::bidirectional_iterator_tag,
-// typename _ListConstIterator::value_type>
-// {
-// public:
-// using value_type = typename _ListConstIterator::value_type;
-// using difference_type = typename _ListConstIterator::difference_type;
-// using pointer = typename _ListConstIterator::pointer;
-// using reference = typename _ListConstIterator::reference;
-// using iterator_category = typename _ListConstIterator::iterator_category;
-
-// private:
-// using NodePtr = __Node<value_type> *;
-// using Base = _ListConstIterator;
-// using Self = __ListConstReverseIterator<Base>;
-// using iterator = __ListReverseIterator<Base>;
-
-// public:
-// __ListConstReverseIterator() {}
-
-// explicit __ListConstReverseIterator(Base it) :base_(it) {}
-
-// __ListConstReverseIterator(const iterator &it) :base_(it.base_) {}
-
-// reference operator*() const
-// {
-// auto next = base_;
-
-// return *++next;
-// }
-
-// pointer operator->() const
-// {
-// auto next = base_;
-
-// return ++next.operator->();
-// }
-
-// Self &operator++()
-// {
-// --base_;
-
-// return *this;
-// }
-
-// Self operator++(int i)
-// {
-// base_--;
-
-// return *this;
-// }
-
-// Self &operator--()
-// {
-// ++base_;
-
-// return *this;
-// }
-
-// Self operator--(int i)
-// {
-// base_++;
-
-// return *this;
-// }
-
-// bool operator==(Self const &other) const
-// {
-// return base_ == other.base_;
-// }
-
-// bool operator!=(Self const &other) const
-// {
-// return base_ != other.base_;
-// }
-
-// Base base() const
-// {
-// return base_;
-// }
-
-// private:
-// Base base_;
-// friend XorLinkedList<value_type>;
-// };
