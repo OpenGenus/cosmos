@@ -1776,7 +1776,7 @@ TEST_CASE("modifiers")
                     actualReturnPos = actual.insert(++actual.begin(), ilist);
 
                     CHECK(expectReturnPos == ++expect.begin());
-                    CHECK(actualReturnPos == ++actual.end());
+                    CHECK(actualReturnPos == ++actual.begin());
                     isSame(expect, actual);
                 }
 
