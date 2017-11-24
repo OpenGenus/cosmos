@@ -43,12 +43,31 @@ auto getRandomValueContainer = ([](size_t sz = RandomSize)
 auto copyContainerToList = ([](const vectorContainer &container)
 {
     actualListContainer actual;
-    for_each(container.begin(), container.end(), [&](int v)
+    std::for_each(container.begin(), container.end(), [&](int v)
     {
         actual.push_back(v);
     });
 
     return actual;
+});
+
+auto copyRandomPartContainerToExpectAndActualList =
+    ([](const vectorContainer &container, expectListContainer &expect, actualListContainer &actual)
+{
+    std::for_each(container.begin(), container.end(), [&](int v)
+    {
+        if (rand() % 2)
+        {
+            expect.push_back(v);
+            actual.push_back(v);
+        }
+    });
+    auto begin = container.begin();
+    while (expect.size() < 10)
+    {
+        expect.push_back(*begin);
+        actual.push_back(*begin++);
+    }
 });
 
 auto isSame = ([](expectListContainer expect, actualListContainer actual)
@@ -640,17 +659,17 @@ TEST_CASE("modifiers")
                 CHECK(*actual.begin() == 222);
                 CHECK(*++actual.begin() == 111);
                 CHECK(*--actual.end() == 111);
-                CHECK(*---- actual.end() == 222);
+                CHECK(*----actual.end() == 222);
 
                 actual.push_front(333);
                 CHECK(actual.front() == 333);
                 CHECK(actual.back() == 111);
                 CHECK(*actual.begin() == 333);
                 CHECK(*++actual.begin() == 222);
-                CHECK(*++++ actual.begin() == 111);
+                CHECK(*++++actual.begin() == 111);
                 CHECK(*--actual.end() == 111);
-                CHECK(*---- actual.end() == 222);
-                CHECK(*------ actual.end() == 333);
+                CHECK(*----actual.end() == 222);
+                CHECK(*------actual.end() == 333);
             }
 
             SECTION("push back")
@@ -668,17 +687,17 @@ TEST_CASE("modifiers")
                 CHECK(*actual.begin() == 111);
                 CHECK(*++actual.begin() == 222);
                 CHECK(*--actual.end() == 222);
-                CHECK(*---- actual.end() == 111);
+                CHECK(*----actual.end() == 111);
 
                 actual.push_back(333);
                 CHECK(actual.front() == 111);
                 CHECK(actual.back() == 333);
                 CHECK(*actual.begin() == 111);
                 CHECK(*++actual.begin() == 222);
-                CHECK(*++++ actual.begin() == 333);
+                CHECK(*++++actual.begin() == 333);
                 CHECK(*--actual.end() == 333);
-                CHECK(*---- actual.end() == 222);
-                CHECK(*------ actual.end() == 111);
+                CHECK(*----actual.end() == 222);
+                CHECK(*------actual.end() == 111);
             }
 
             SECTION("random push")
@@ -1813,9 +1832,179 @@ TEST_CASE("modifiers")
         }
     }
 
-    SECTION("[erase] rely on [...]")
+    SECTION("[erase] rely on [push_back/begin/end/op/size]")
     {
-        // todo
+        vectorContainer container = getRandomValueContainer();
+        expectListContainer expect;
+        actualListContainer actual;
+        expectListContainer::iterator expectReturnPos;
+        actualListContainer::iterator actualReturnPos;
+        int randomValue;
+        size_t sz;
+        auto ilist = getRandomValueContainer(SmallRandomSize);
+
+        SECTION("erase(const_iterator)")
+        {
+            SECTION("from empty")
+            {
+                /*
+                 erase(end()) is undefined, refer to:
+                 http://en.cppreference.com/w/cpp/container/list/erase
+                 */
+            }
+
+            SECTION("first one")
+            {
+                SECTION("size is 1")
+                {
+                    expect.clear();
+                    actual.clear();
+                    randomValue = rand();
+                    expect.push_back(randomValue);
+                    actual.push_back(randomValue);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("random size")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
+            }
+
+            SECTION("last one")
+            {
+                SECTION("size is 1")
+                {
+                    expect.clear();
+                    actual.clear();
+                    randomValue = rand();
+                    expect.push_back(randomValue);
+                    actual.push_back(randomValue);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("random size")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(--expect.end());
+                    actualReturnPos = actual.erase(--actual.end());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                expectReturnPos = expect.erase(----expect.end());
+                actualReturnPos = actual.erase(----actual.end());
+
+                CHECK(expectReturnPos == --expect.end());
+                CHECK(actualReturnPos == --actual.end());
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("erase(const_iterator, const_iterator)")
+        {
+            SECTION("from empty")
+            {
+                /*
+                 erase(end(), end()) is undefined, refer to:
+                 http://en.cppreference.com/w/cpp/container/list/erase
+                 */
+            }
+
+            SECTION("size is 1")
+            {
+                expect.clear();
+                actual.clear();
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+
+                expectReturnPos = expect.erase(expect.begin(), expect.end());
+                actualReturnPos = actual.erase(actual.begin(), actual.end());
+
+                CHECK(expectReturnPos == expect.end());
+                CHECK(actualReturnPos == actual.end());
+                isSame(expect, actual);
+            }
+
+            SECTION("random size")
+            {
+                SECTION("[begin : end)")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(expect.begin(), ++++++expect.begin());
+                    actualReturnPos = actual.erase(actual.begin(), ++++++actual.begin());
+
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
+
+                SECTION("(begin : end)")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(++++++expect.begin(), ------expect.end());
+                    actualReturnPos = actual.erase(++++++actual.begin(), ------actual.end());
+
+                    CHECK(expectReturnPos == ------expect.end());
+                    CHECK(actualReturnPos == ------actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("(begin : end]")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(++++++expect.begin(), expect.end());
+                    actualReturnPos = actual.erase(++++++actual.begin(), actual.end());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+            }
+        }
     }
 }
 
