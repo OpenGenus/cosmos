@@ -41,5 +41,5 @@ function fibonacciSearch(ar,x,n) {
 
 }
 function min(a,b) {
-	a > b ? return b : return a;
+	return a>b?b:a;
 }
