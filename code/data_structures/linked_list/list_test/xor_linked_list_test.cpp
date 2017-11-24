@@ -1211,9 +1211,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.end(), v);
-                actual.insert(actual.end(), v);
+                eres = expect.insert(expect.end(), v);
+                ares = actual.insert(actual.end(), v);
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1227,9 +1229,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.begin(), v);
-                actual.insert(actual.begin(), v);
+                eres = expect.insert(expect.begin(), v);
+                ares = actual.insert(actual.begin(), v);
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1243,9 +1247,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.end(), v);
-                actual.insert(actual.end(), v);
+                eres = expect.insert(expect.end(), v);
+                ares = actual.insert(actual.end(), v);
 
+                CHECK(eres == --expect.end());
+                CHECK(ares == --actual.end());
                 isSame(expect, actual);
             }
 
@@ -1262,9 +1268,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(++expect.begin(), v);
-                actual.insert(++actual.begin(), v);
+                eres = expect.insert(++expect.begin(), v);
+                ares = actual.insert(++actual.begin(), v);
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1278,9 +1286,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.end(), std::move(v));
-                actual.insert(actual.end(), std::move(v));
+                eres = expect.insert(expect.end(), std::move(v));
+                ares = actual.insert(actual.end(), std::move(v));
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1294,9 +1304,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.begin(), std::move(v));
-                actual.insert(actual.begin(), std::move(v));
+                eres = expect.insert(expect.begin(), std::move(v));
+                ares = actual.insert(actual.begin(), std::move(v));
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1310,9 +1322,11 @@ TEST_CASE("modifiers")
 
                 v = rand();
 
-                expect.insert(expect.end(), std::move(v));
-                actual.insert(actual.end(), std::move(v));
+                eres = expect.insert(expect.end(), std::move(v));
+                ares = actual.insert(actual.end(), std::move(v));
 
+                CHECK(eres == --expect.end());
+                CHECK(ares == --actual.end());
                 isSame(expect, actual);
             }
 
@@ -1348,9 +1362,19 @@ TEST_CASE("modifiers")
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                expect.insert(expect.end(), sz, v);
-                actual.insert(actual.end(), sz, v);
+                eres = expect.insert(expect.end(), sz, v);
+                ares = actual.insert(actual.end(), sz, v);
 
+                auto tempe = expect.end();
+                auto tempa = actual.end();
+                ++sz;
+                while (--sz)
+                {
+                    --tempe;
+                    --tempa;
+                }
+                CHECK(eres == tempe);
+                CHECK(ares == tempa);
                 isSame(expect, actual);
             }
 
@@ -1365,9 +1389,11 @@ TEST_CASE("modifiers")
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                expect.insert(expect.begin(), sz, v);
-                actual.insert(actual.begin(), sz, v);
+                eres = expect.insert(expect.begin(), sz, v);
+                ares = actual.insert(actual.begin(), sz, v);
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1382,9 +1408,19 @@ TEST_CASE("modifiers")
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                expect.insert(expect.end(), sz, v);
-                actual.insert(actual.end(), sz, v);
+                eres = expect.insert(expect.end(), sz, v);
+                ares = actual.insert(actual.end(), sz, v);
 
+                auto tempe = expect.end();
+                auto tempa = actual.end();
+                ++sz;
+                while (--sz)
+                {
+                    --tempe;
+                    --tempa;
+                }
+                CHECK(eres == tempe);
+                CHECK(ares == tempa);
                 isSame(expect, actual);
             }
 
@@ -1402,9 +1438,11 @@ TEST_CASE("modifiers")
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
-                expect.insert(++expect.begin(), sz, v);
-                actual.insert(++actual.begin(), sz, v);
+                eres = expect.insert(++expect.begin(), sz, v);
+                ares = actual.insert(++actual.begin(), sz, v);
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1418,9 +1456,11 @@ TEST_CASE("modifiers")
 
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
-                expect.insert(expect.end(), il);
-                actual.insert(actual.end(), il);
+                eres = expect.insert(expect.end(), il);
+                ares = actual.insert(actual.end(), il);
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1434,9 +1474,11 @@ TEST_CASE("modifiers")
 
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
-                expect.insert(expect.begin(), il);
-                actual.insert(actual.begin(), il);
+                eres = expect.insert(expect.begin(), il);
+                ares = actual.insert(actual.begin(), il);
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1450,9 +1492,11 @@ TEST_CASE("modifiers")
 
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
-                expect.insert(expect.end(), il);
-                actual.insert(actual.end(), il);
+                eres = expect.insert(expect.end(), il);
+                ares = actual.insert(actual.end(), il);
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1469,9 +1513,11 @@ TEST_CASE("modifiers")
 
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
-                expect.insert(++expect.begin(), il);
-                actual.insert(++actual.begin(), il);
+                eres = expect.insert(++expect.begin(), il);
+                ares = actual.insert(++actual.begin(), il);
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
         }
@@ -1485,9 +1531,11 @@ TEST_CASE("modifiers")
 
                 li = getRandomVector(SmallRandomSize);
 
-                expect.insert(expect.end(), li.begin(), li.end());
-                actual.insert(actual.end(), li.begin(), li.end());
+                eres = expect.insert(expect.end(), li.begin(), li.end());
+                ares = actual.insert(actual.end(), li.begin(), li.end());
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1501,9 +1549,11 @@ TEST_CASE("modifiers")
 
                 li = getRandomVector(SmallRandomSize);
 
-                expect.insert(expect.begin(), li.begin(), li.end());
-                actual.insert(actual.begin(), li.begin(), li.end());
+                eres = expect.insert(expect.begin(), li.begin(), li.end());
+                ares = actual.insert(actual.begin(), li.begin(), li.end());
 
+                CHECK(eres == expect.begin());
+                CHECK(ares == actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1517,9 +1567,11 @@ TEST_CASE("modifiers")
 
                 li = getRandomVector(SmallRandomSize);
 
-                expect.insert(expect.end(), li.begin(), li.end());
-                actual.insert(actual.end(), li.begin(), li.end());
+                eres = expect.insert(expect.end(), li.begin(), li.end());
+                ares = actual.insert(actual.end(), li.begin(), li.end());
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
 
@@ -1536,9 +1588,11 @@ TEST_CASE("modifiers")
 
                 li = getRandomVector(SmallRandomSize);
 
-                expect.insert(++expect.begin(), li.begin(), li.end());
-                actual.insert(++actual.begin(), li.begin(), li.end());
+                eres = expect.insert(++expect.begin(), li.begin(), li.end());
+                ares = actual.insert(++actual.begin(), li.begin(), li.end());
 
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
         }
