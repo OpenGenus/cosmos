@@ -515,20 +515,22 @@ template<typename _Type, typename _Compare>
 inline auto
 XorLinkedList<_Type, _Compare>::erase(const_iterator pos)->iterator
 {
-    if (pos != end())
-        return eraseImpl(pos);
-
-    return end();
+    return eraseImpl(pos);
 }
 
 template<typename _Type, typename _Compare>
 inline auto
 XorLinkedList<_Type, _Compare>::erase(const_iterator first, const_iterator last)->iterator
 {
-    while (first != last)
-        erase(first++);
+    auto diff = std::distance(first, last);
+    if (diff == 0)
+        return first.constCast(); // check what is std return
 
-    return first.constCast();
+    auto firstAfterEraseIter = first;
+    while (diff--)
+        firstAfterEraseIter = eraseImpl(firstAfterEraseIter);
+
+    return firstAfterEraseIter.constCast();
 }
 
 template<typename _Type, typename _Compare>
@@ -652,7 +654,7 @@ XorLinkedList<_Type, _Compare>::eraseImpl(const_iterator pos)->iterator
     delete curr;
     --sz_;
 
-    return iterator(prev, curr);
+    return iterator(prev, nextOfCurr);
 }
 
 template<typename _Type, typename _Compare>
