@@ -69,30 +69,31 @@ public:
 
 ```C++
 // n <= 100 columns
-bool operator==(container<T,Allocator> x, container<T,Allocator> y);
+bool operator==(Container<Type, Allocator> x, Container<T, Allocator> y);
 
 bool
-operator==(container<T,Allocator> x, container<T,Allocator> y);
+operator==(Container<Type, Allocator> x, Container<T, Allocator> y);
 
-template<class T, class Allocator>
-bool operator==(container<T,Allocator> x, container<T,Allocator> y);
+template<class OtherType, class OtherAllocator>
+bool operator==(Container<OtherType, OtherAllocator> x, Container<OtherType, OtherAllocator> y);
 
-template<class T, class Allocator>
+template<class OtherType, class OtherAllocator>
 bool
-operator==(container<T,Allocator> x, container<T,Allocator> y);
+operator==(Container<OtherType, OtherAllocator> x, Container<OtherType, OtherAllocator> y);
 
 // n > 100 columns
-void cloneTwo(container<Type, Allocator> foo,
-              container<Type, Allocator> bar,
-              container<Type, Allocator> baz);
+void cloneTwo(Container<Type, Allocator> foo,
+              Container<Type, Allocator> bar,
+              Container<Type, Allocator> baz);
 
+template<class OtherType, class OtherAllocator>
 void
-cloneTwo(container<Type, Allocator> foo,
-         container<Type, Allocator> bar,
-         container<Type, Allocator> baz);
+cloneTwo(Container<OtherType, OtherAllocator> foo,
+         Container<OtherType, OtherAllocator> bar,
+         Container<OtherType, OtherAllocator> baz);
 ```
 
-- The pointers `*` `**` and references `&` `&&` `*&` should be part of the variable name (also if variable name is not declared) or qualifier. Add a space between previous types or qualifiers (unless `**`, `&&`, and `*&`).
+- The pointers `*` `**` and references `&` `&&` `*&` should be part of the variable/function name (even if variable name is not declared) or qualifier. Add a space between previous types or qualifiers (unless `**`, `&&`, and `*&`).
 
 ```C++
 // pointers and references
@@ -103,39 +104,38 @@ int *&rpa = pa;
 int **ppa = &pa;
 int &&rr = 0;
 
-operator==(int *x, int *y);
-{
-    // ...
-}
+bool operator==(int *x, int *y);
 
-operator==(int *const *x, int *const *y)
-{
-    // ...
-}
+bool operator==(int *const *x, int *const *y);
 
-operator==(int *&, int *&);
+bool operator==(const int **const x, const int **const y);
 
-operator==(int &&, int &&);
+bool &getReference();
+
+bool *&getPointer();
+
+bool *const getConstPointer();
+
+bool *const &getReferenceOfConstPointer();
+
+// even if variable name is not declared
+bool operator==(int *&, int *&);
+
+bool operator==(int &&, int &&);
 ```
 
-- The `const` qualifiers should be on the right hand side of its target but be on left of the type.
+- The `const` qualifier should be on the right hand side of its target but to the left of the type.
 
 ```C++
 class Dummy
-{
-public:
-    const int value() const
-    {
-        return value_;
-    }
+{   
+    const int value() const;
 
-    void value(const int *const v)
-    {
-        value_ = *v;
-    }
+    void value(const int *const v);
 
-private:
-    int value_;
+    int *getPointer();
+
+    const int *const *getOtherPointer() const;
 };
 ```
 
