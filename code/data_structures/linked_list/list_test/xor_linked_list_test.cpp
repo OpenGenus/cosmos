@@ -1359,6 +1359,19 @@ TEST_CASE("modifiers")
                 expect.clear();
                 actual.clear();
 
+                SECTION("size is 0")
+                {
+                    v = rand();
+                    sz = 0;
+
+                    eres = expect.insert(expect.end(), sz, v);
+                    ares = actual.insert(actual.end(), sz, v);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
+
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
@@ -1385,6 +1398,19 @@ TEST_CASE("modifiers")
                 v = rand();
                 expect.push_back(v);
                 actual.push_back(v);
+
+                SECTION("size is 0")
+                {
+                    v = rand();
+                    sz = 0;
+
+                    eres = expect.insert(expect.begin(), sz, v);
+                    ares = actual.insert(actual.begin(), sz, v);
+
+                    CHECK(eres == expect.begin());
+                    CHECK(ares == actual.begin());
+                    isSame(expect, actual);
+                }
 
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
@@ -1405,6 +1431,19 @@ TEST_CASE("modifiers")
                 expect.push_back(v);
                 actual.push_back(v);
 
+                SECTION("size is 0")
+                {
+                    v = rand();
+                    sz = 0;
+
+                    eres = expect.insert(expect.end(), sz, v);
+                    ares = actual.insert(actual.end(), sz, v);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
+
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
@@ -1435,6 +1474,19 @@ TEST_CASE("modifiers")
                 expect.push_back(v);
                 actual.push_back(v);
 
+                SECTION("size is 0")
+                {
+                    v = rand();
+                    sz = 0;
+
+                    eres = expect.insert(++expect.begin(), sz, v);
+                    ares = actual.insert(++actual.begin(), sz, v);
+
+                    CHECK(eres == ++expect.begin());
+                    CHECK(ares == ++actual.begin());
+                    isSame(expect, actual);
+                }
+
                 v = rand();
                 sz = rand() % 10 + SmallRandomSize;
 
@@ -1454,6 +1506,18 @@ TEST_CASE("modifiers")
                 expect.clear();
                 actual.clear();
 
+                SECTION("initializer_list is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.end(), il);
+                    ares = actual.insert(actual.end(), il);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
+
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
                 eres = expect.insert(expect.end(), il);
@@ -1471,6 +1535,18 @@ TEST_CASE("modifiers")
                 v = rand();
                 expect.push_back(v);
                 actual.push_back(v);
+
+                SECTION("initializer_list is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.begin(), il);
+                    ares = actual.insert(actual.begin(), il);
+
+                    CHECK(eres == expect.begin());
+                    CHECK(ares == actual.begin());
+                    isSame(expect, actual);
+                }
 
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
@@ -1490,6 +1566,18 @@ TEST_CASE("modifiers")
                 expect.push_back(v);
                 actual.push_back(v);
 
+                SECTION("initializer_list is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.end(), il);
+                    ares = actual.insert(actual.end(), il);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
+
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
                 eres = expect.insert(expect.end(), il);
@@ -1511,6 +1599,18 @@ TEST_CASE("modifiers")
                 expect.push_back(v);
                 actual.push_back(v);
 
+                SECTION("initializer_list is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(++expect.begin(), il);
+                    ares = actual.insert(++actual.begin(), il);
+
+                    CHECK(eres == ++expect.begin());
+                    CHECK(ares == ++actual.begin());
+                    isSame(expect, actual);
+                }
+
                 auto il = {rand(), rand(), rand(), rand(), rand()};
 
                 eres = expect.insert(++expect.begin(), il);
@@ -1528,6 +1628,18 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
+
+                SECTION("container is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.end(), il);
+                    ares = actual.insert(actual.end(), il);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
 
                 li = getRandomVector(SmallRandomSize);
 
@@ -1547,6 +1659,18 @@ TEST_CASE("modifiers")
                 expect.push_back(v);
                 actual.push_back(v);
 
+                SECTION("container is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.begin(), il);
+                    ares = actual.insert(actual.begin(), il);
+
+                    CHECK(eres == expect.begin());
+                    CHECK(ares == actual.begin());
+                    isSame(expect, actual);
+                }
+
                 li = getRandomVector(SmallRandomSize);
 
                 eres = expect.insert(expect.begin(), li.begin(), li.end());
@@ -1564,6 +1688,18 @@ TEST_CASE("modifiers")
                 v = rand();
                 expect.push_back(v);
                 actual.push_back(v);
+
+                SECTION("container is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(expect.end(), il);
+                    ares = actual.insert(actual.end(), il);
+
+                    CHECK(eres == expect.end());
+                    CHECK(ares == actual.end());
+                    isSame(expect, actual);
+                }
 
                 li = getRandomVector(SmallRandomSize);
 
@@ -1585,6 +1721,18 @@ TEST_CASE("modifiers")
                 v = rand();
                 expect.push_back(v);
                 actual.push_back(v);
+
+                SECTION("container is empty")
+                {
+                    std::initializer_list<int> il = {};
+
+                    eres = expect.insert(++expect.begin(), il);
+                    ares = actual.insert(++actual.begin(), il);
+
+                    CHECK(eres == ++expect.begin());
+                    CHECK(ares == ++actual.end());
+                    isSame(expect, actual);
+                }
 
                 li = getRandomVector(SmallRandomSize);
 
