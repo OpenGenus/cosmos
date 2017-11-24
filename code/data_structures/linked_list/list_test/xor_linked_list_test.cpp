@@ -1497,6 +1497,28 @@ TEST_CASE("modifiers")
                 CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
+
+            SECTION("size is 1")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                v = rand();
+                sz = 1;
+
+                eres = expect.insert(++expect.begin(), sz, v);
+                ares = actual.insert(++actual.begin(), sz, v);
+
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
+                isSame(expect, actual);
+            }
         }
 
         SECTION("insert(const_iterator, initilizer_list)")
@@ -1620,6 +1642,27 @@ TEST_CASE("modifiers")
                 CHECK(ares == ++actual.begin());
                 isSame(expect, actual);
             }
+
+            SECTION("size of initializer is 1")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                auto il = {rand()};
+
+                eres = expect.insert(++expect.begin(), il);
+                ares = actual.insert(++actual.begin(), il);
+
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
+                isSame(expect, actual);
+            }
         }
 
         SECTION("insert(const_iterator, iterator, iterator)")
@@ -1735,6 +1778,27 @@ TEST_CASE("modifiers")
                 }
 
                 li = getRandomVector(SmallRandomSize);
+
+                eres = expect.insert(++expect.begin(), li.begin(), li.end());
+                ares = actual.insert(++actual.begin(), li.begin(), li.end());
+
+                CHECK(eres == ++expect.begin());
+                CHECK(ares == ++actual.begin());
+                isSame(expect, actual);
+            }
+
+            SECTION("size of iterator is 1")
+            {
+                expect.clear();
+                actual.clear();
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+                v = rand();
+                expect.push_back(v);
+                actual.push_back(v);
+
+                li = {1};
 
                 eres = expect.insert(++expect.begin(), li.begin(), li.end());
                 ares = actual.insert(++actual.begin(), li.begin(), li.end());
