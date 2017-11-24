@@ -4,89 +4,117 @@
     diameter of tree synopsis
 
 template<typename _TreeNode>
-size_t diameter_impl(_TreeNode *node, size_t &max);
+size_t
+diameter(_TreeNode node);
 
 template<typename _TreeNode>
-size_t diameter(_TreeNode *node);
-*/
-
-#include <functional>
+void
+diameterIterative(_TreeNode const &node, size_t &maximum);
 
 template<typename _TreeNode>
-size_t diameter_impl(_TreeNode *node, size_t &max) {
-    if (node != nullptr) {
-        size_t left_max{}, right_max{};
-
-        // DFS
-        size_t left_height = diameter_impl(node->left, left_max);
-        size_t right_height = diameter_impl(node->right, right_max);
-
-        max = left_height + right_height + 1;
-        max = std::max(max, left_max);
-        max = std::max(max, right_max);
-
-        return std::max(left_height, right_height) + 1;
-    }
-
-    return 0;
-}
+size_t
+getDiameter(_TreeNode const &node);
 
 template<typename _TreeNode>
-size_t diameter(_TreeNode *node) {
+size_t
+getDeep(_TreeNode const &node);
+
+template<typename _TreeNode>
+size_t
+diameterRecursive(_TreeNode node, size_t &maximum);
+ */
+
+#include <algorithm>
+#include <memory>
+#include <stack>
+#include "../tree_node/tree_node.cpp"
+
+template<typename _TreeNode>
+size_t
+diameter(_TreeNode node)
+{
     size_t res{};
-    diameter_impl(node, res);
+    diameterIterative(node, res);
 
     return res;
 }
 
-/*
-// for test
-#include <iostream>
-
-struct node {
-    struct node *left;
-    struct node *right;
-    node() :left(nullptr), right(nullptr) {;}
-};
-int main()
+template<typename _TreeNode>
+void
+diameterIterative(_TreeNode const &node, size_t &maximum)
 {
-    using namespace std;
+    maximum = 0;
+    if (node != nullptr)
+    {
+        std::stack<_TreeNode> diameters;
+        diameters.push(node);
 
-//        root
-//        / \
-//       l   r
-//      / \
-//    ll   lr
-//    /     \
-//  lll     lrr
-//  /         \
-//llll       (lrrr) ->   test1: without=6(llll->r), test2: within=7(llll->lrrr)
+        // DFS
+        while (!diameters.empty())
+        {
+            while (diameters.top()->left() != nullptr)
+                diameters.push(diameters.top()->left());
+            while (!diameters.empty()
+                   && (diameters.top() == nullptr
+                       || diameters.top()->right() == nullptr))
+            {
+                if (diameters.top() == nullptr) // if back from right hand
+                    diameters.pop();
+                auto top = diameters.top();
+                maximum = std::max(maximum, static_cast<size_t>(getDiameter(top)));
+                top->value(static_cast<int>(getDeep(top)));
+                diameters.pop();
+            }
+            if (!diameters.empty())
+            {
+                auto right = diameters.top()->right();
+                diameters.push(nullptr);    // prevent visit two times when return to parent
+                diameters.push(right);
+            }
+        }
+    }
+}
 
-    node *root = nullptr;
-    if (diameter(root) != 0)
-        cout << "error" << endl;  // boundary test
-    root = new node();
+template<typename _TreeNode>
+size_t
+getDiameter(_TreeNode const &node)
+{
+    size_t res = 1;
+    res += node->left() ? node->left()->value() : 0;
+    res += node->right() ? node->right()->value() : 0;
 
-    node *l = new node(); root->left = l;
-    node *r = new node();
+    return res;
+}
 
-    node *ll = new node(); l->left = ll;
-    node *lr = new node(); l->right = lr;
+template<typename _TreeNode>
+size_t
+getDeep(_TreeNode const &node)
+{
+    size_t res = 1;
+    res += std::max(node->left() ? node->left()->value() : 0,
+                    node->right() ? node->right()->value() : 0);
 
-    node *lll = new node(); ll->left = lll;
-    node *lrr = new node(); lr->right = lrr;
+    return res;
+}
 
-    node *llll = new node(); lll->left = llll;
+template<typename _TreeNode>
+size_t
+diameterRecursive(_TreeNode node, size_t &maximum)
+{
+    if (node != nullptr)
+    {
+        size_t leftMax{}, rightMax{};
 
-    if (diameter(root) != 6)
-        cout << "error" << endl;
+        // DFS
+        size_t leftHeight = diameterRecursive(node->left(), leftMax);
+        size_t rightHeight = diameterRecursive(node->right(), rightMax);
 
-    node *lrrr = new node(); lrr->right = lrrr;
+        maximum = leftHeight + rightHeight + 1;
+        maximum = std::max(maximum, leftMax);
+        maximum = std::max(maximum, rightMax);
 
-    if (diameter(root) != 7)
-        cout << "error" << endl;
+        return std::max(leftHeight, rightHeight) + 1;
+    }
 
     return 0;
 }
-
-// */
