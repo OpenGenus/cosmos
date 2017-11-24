@@ -82,17 +82,17 @@ bool
 operator==(container<T,Allocator> x, container<T,Allocator> y);
 
 // n > 100 columns
-void cloneTwo(container<Type, Allocator> xxx,
-              container<Type, Allocator> yyy,
-              container<Type, Allocator> zzz);
+void cloneTwo(container<Type, Allocator> foo,
+              container<Type, Allocator> bar,
+              container<Type, Allocator> baz);
 
 void
-cloneTwo(container<Type, Allocator> xxx,
-         container<Type, Allocator> yyy,
-         container<Type, Allocator> zzz);
+cloneTwo(container<Type, Allocator> foo,
+         container<Type, Allocator> bar,
+         container<Type, Allocator> baz);
 ```
 
-- The pointers `*` `**` and references `&` `&&` `*&` should be part of variable name (also if variable name is not declared) or qualifier. Add space between previous type or qualifier (unless `**`, `&&`, and `*&`).
+- The pointers `*` `**` and references `&` `&&` `*&` should be part of the variable name (also if variable name is not declared) or qualifier. Add a space between previous types or qualifiers (unless `**`, `&&`, and `*&`).
 
 ```C++
 // pointers and references
@@ -118,7 +118,7 @@ operator==(int *&, int *&);
 operator==(int &&, int &&);
 ```
 
-- The `const` qualifiers should be on the right hand of its target but be left of type.
+- The `const` qualifiers should be on the right hand side of its target but be on left of the type.
 
 ```C++
 class Dummy
