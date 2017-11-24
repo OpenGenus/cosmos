@@ -92,6 +92,53 @@ cloneTwo(container<Type, Allocator> xxx,
          container<Type, Allocator> zzz);
 ```
 
+- The pointers `*` `**` and references `&` `&&` `*&` should be part of variable name (also if variable name is not declared) or qualifier. Add space between previous type or qualifier (unless `**`, `&&`, and `*&`).
+
+```C++
+// pointers and references
+int a = 0;
+
+int *pa = &a;
+int *&rpa = pa;
+int **ppa = &pa;
+int &&rr = 0;
+
+operator==(int *x, int *y);
+{
+    // ...
+}
+
+operator==(int *const *x, int *const *y)
+{
+    // ...
+}
+
+operator==(int *&, int *&);
+
+operator==(int &&, int &&);
+```
+
+- The `const` qualifiers should be on the right hand of its target but be left of type.
+
+```C++
+class Dummy
+{
+public:
+    const int value() const
+    {
+        return value_;
+    }
+
+    void value(const int *const v)
+    {
+        value_ = *v;
+    }
+
+private:
+    int value_;
+};
+```
+
 ## Spaces
 Put one space:
 
