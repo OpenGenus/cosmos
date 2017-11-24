@@ -82,14 +82,14 @@ bool
 operator==(container<T,Allocator> x, container<T,Allocator> y);
 
 // n > 100 columns
-void cloneTwo(const container<T,Allocator>& x,
-              const container<T,Allocator>& y,
-              const container<T,Allocator>& z);
+void cloneTwo(container<Type, Allocator> xxx,
+              container<Type, Allocator> yyy,
+              container<Type, Allocator> zzz);
 
 void
-cloneTwo(const container<T,Allocator>& x,
-         const container<T,Allocator>& y,
-         const container<T,Allocator>& z);
+cloneTwo(container<Type, Allocator> xxx,
+         container<Type, Allocator> yyy,
+         container<Type, Allocator> zzz);
 ```
 
 ## Spaces
