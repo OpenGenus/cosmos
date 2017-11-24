@@ -59,8 +59,8 @@ private:
 
     inline void around(const SPNode &prev, const SPNode &next)
     {
-        this->around_ = reinterpret_cast<void *>(reinterpret_cast<uintptr_t>(prev) ^
-                                                 reinterpret_cast<uintptr_t>(next));
+        around_ = reinterpret_cast<void *>(reinterpret_cast<uintptr_t>(prev) ^
+                                           reinterpret_cast<uintptr_t>(next));
     }
 
     friend XorLinkedList<value_type>;
