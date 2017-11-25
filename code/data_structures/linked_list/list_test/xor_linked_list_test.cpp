@@ -520,14 +520,7 @@ TEST_CASE("const semantic")
 
 TEST_CASE("element access rely on [push]")
 {
-    SECTION("while empty")
-    {
-        actualListContainer actual;
-        CHECK_THROWS(actual.back());
-        CHECK_THROWS(actual.front());
-    }
-
-    SECTION("one node")
+    SECTION("push one node")
     {
         actualListContainer actual;
         actual.push_back(1);
@@ -535,7 +528,7 @@ TEST_CASE("element access rely on [push]")
         CHECK(actual.back() == 1);
     }
 
-    SECTION("two nodes")
+    SECTION("push two nodes")
     {
         actualListContainer actual;
         actual.push_back(1);
@@ -578,23 +571,16 @@ TEST_CASE("capcity rely on [push/pop]")
             {
                 if (rand() % 2)
                 {
-                    if (expectSize == 0)
-                        CHECK_THROWS(actual.pop_back());
-                    else
+                    if (expectSize != 0)
                     {
                         CHECK_NOTHROW(actual.pop_back());
                         --expectSize;
                     }
                 }
-                else
+                else if (expectSize != 0)
                 {
-                    if (expectSize == 0)
-                        CHECK_THROWS(actual.pop_front());
-                    else
-                    {
-                        CHECK_NOTHROW(actual.pop_front());
-                        --expectSize;
-                    }
+                    CHECK_NOTHROW(actual.pop_front());
+                    --expectSize;
                 }
             }
             CHECK(actual.size() == expectSize);
@@ -733,7 +719,6 @@ TEST_CASE("modifiers")
             SECTION("pop_back")
             {
                 actualListContainer actual;
-                CHECK_THROWS(actual.pop_back());
 
                 actual.push_back(111);
                 CHECK_NOTHROW(actual.pop_back());
@@ -814,23 +799,16 @@ TEST_CASE("modifiers")
                     {
                         if (rand() % 2)
                         {
-                            if (expect.empty())
-                                CHECK_THROWS(actual.pop_back());
-                            else
+                            if (!expect.empty())
                             {
                                 CHECK_NOTHROW(actual.pop_back());
                                 expect.pop_back();
                             }
                         }
-                        else
+                        else if (!expect.empty())
                         {
-                            if (expect.empty())
-                                CHECK_THROWS(actual.pop_front());
-                            else
-                            {
-                                CHECK_NOTHROW(actual.pop_front());
-                                expect.pop_front();
-                            }
+                            CHECK_NOTHROW(actual.pop_front());
+                            expect.pop_front();
                         }
                     }
                     if (!expect.empty())
@@ -866,23 +844,16 @@ TEST_CASE("modifiers")
                     {
                         if (rand() % 2)
                         {
-                            if (expect.empty())
-                                CHECK_THROWS(actual.pop_back());
-                            else
+                            if (!expect.empty())
                             {
                                 CHECK_NOTHROW(actual.pop_back());
                                 expect.pop_back();
                             }
                         }
-                        else
+                        else if (!expect.empty())
                         {
-                            if (expect.empty())
-                                CHECK_THROWS(actual.pop_front());
-                            else
-                            {
-                                CHECK_NOTHROW(actual.pop_front());
-                                expect.pop_front();
-                            }
+                            CHECK_NOTHROW(actual.pop_front());
+                            expect.pop_front();
                         }
                     }
                     if (!expect.empty())
@@ -1208,8 +1179,6 @@ TEST_CASE("modifiers")
 
         CHECK_THROWS(actual.front());
         CHECK_THROWS(actual.back());
-        CHECK_THROWS(actual.pop_front());
-        CHECK_THROWS(actual.pop_back());
         CHECK(actual.size() == 0);
         CHECK(actual.empty());
     }
@@ -2206,25 +2175,18 @@ TEST_CASE("others")
             {
                 if (rand() % 2)
                 {
-                    if (expectSize == 0)
-                        CHECK_THROWS(actual.pop_back());
-                    else
+                    if (expectSize != 0)
                     {
                         CHECK_NOTHROW(actual.pop_back());
                         CHECK_NOTHROW(expect.pop_back());
                         --expectSize;
                     }
                 }
-                else
+                else if (expectSize != 0)
                 {
-                    if (expectSize == 0)
-                        CHECK_THROWS(actual.pop_front());
-                    else
-                    {
-                        CHECK_NOTHROW(actual.pop_front());
-                        CHECK_NOTHROW(expect.pop_front());
-                        --expectSize;
-                    }
+                    CHECK_NOTHROW(actual.pop_front());
+                    CHECK_NOTHROW(expect.pop_front());
+                    --expectSize;
                 }
             }
             CHECK(actual.size() == expectSize);
