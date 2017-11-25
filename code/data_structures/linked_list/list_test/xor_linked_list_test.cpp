@@ -723,15 +723,15 @@ TEST_CASE("modifiers")
 
                 actual.push_back(111);
                 CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS(actual.front());
-                CHECK_THROWS(actual.back());
+                CHECK_THROWS_AS(actual.front(), std::out_of_range);
+                CHECK_THROWS_AS(actual.back(), std::out_of_range);
 
                 actual.push_back(111);
                 actual.push_back(222);
                 CHECK_NOTHROW(actual.pop_back());
                 CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS(actual.front());
-                CHECK_THROWS(actual.back());
+                CHECK_THROWS_AS(actual.front(), std::out_of_range);
+                CHECK_THROWS_AS(actual.back(), std::out_of_range);
 
                 actual.push_back(111);
                 actual.push_back(222);
@@ -739,8 +739,8 @@ TEST_CASE("modifiers")
                 CHECK_NOTHROW(actual.pop_back());
                 CHECK_NOTHROW(actual.pop_back());
                 CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS(actual.front());
-                CHECK_THROWS(actual.back());
+                CHECK_THROWS_AS(actual.front(), std::out_of_range);
+                CHECK_THROWS_AS(actual.back(), std::out_of_range);
             }
 
             SECTION("random pop")
@@ -1178,8 +1178,8 @@ TEST_CASE("modifiers")
         actualListContainer actual;
         actual.clear();
 
-        CHECK_THROWS(actual.front());
-        CHECK_THROWS(actual.back());
+        CHECK_THROWS_AS(actual.front(), std::out_of_range);
+        CHECK_THROWS_AS(actual.back(), std::out_of_range);
         CHECK(actual.size() == 0);
         CHECK(actual.empty());
     }
@@ -2011,8 +2011,8 @@ TEST_CASE("operations")
             CHECK_FALSE(actual.empty());
 
             actual.pop_back();
-            CHECK_THROWS(actual.front());
-            CHECK_THROWS(actual.back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
             CHECK(actual.size() == 0);
             CHECK(actual.empty());
         }
@@ -2040,8 +2040,8 @@ TEST_CASE("operations")
             CHECK_FALSE(actual.empty());
 
             actual.pop_back();
-            CHECK_THROWS(actual.front());
-            CHECK_THROWS(actual.back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
             CHECK(actual.size() == 0);
             CHECK(actual.empty());
         }
@@ -2076,8 +2076,8 @@ TEST_CASE("operations")
             CHECK_FALSE(actual.empty());
 
             actual.pop_back();
-            CHECK_THROWS(actual.front());
-            CHECK_THROWS(actual.back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
             CHECK(actual.size() == 0);
             CHECK(actual.empty());
         }
