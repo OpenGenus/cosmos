@@ -12,6 +12,7 @@
 
 #include <iterator>
 #include <algorithm>
+#include <exception>
 
 template<typename _Type, typename _Compare = std::less<_Type>>
 class XorLinkedList;
@@ -377,7 +378,7 @@ inline auto
 XorLinkedList<_Type, _Compare>::front()->reference
 {
     if (empty())
-        throw "the list is empty !";
+        throw std::out_of_range("access to empty list !");
 
     return prevOfBegin_->around(nextOfEnd_)->value();
 }
@@ -387,7 +388,7 @@ inline auto
 XorLinkedList<_Type, _Compare>::back()->reference
 {
     if (empty())
-        throw "the list is empty !";
+        throw std::out_of_range("access to empty list !");
 
     return end_->around(nextOfEnd_)->value();
 }
