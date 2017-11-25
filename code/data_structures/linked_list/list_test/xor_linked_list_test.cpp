@@ -51,8 +51,9 @@ auto copyContainerToList = ([](const vectorContainer &container)
     return actual;
 });
 
-auto copyRandomPartContainerToExpectAndActualList =
-    ([](const vectorContainer &container, expectListContainer &expect, actualListContainer &actual)
+auto copyRandomPartContainerToExpectAndActualList = ([](const vectorContainer &container,
+                                                        expectListContainer &expect,
+                                                        actualListContainer &actual)
 {
     std::for_each(container.begin(), container.end(), [&](int v)
     {
@@ -557,7 +558,7 @@ TEST_CASE("capcity rely on [push/pop]")
         actualListContainer actual;
         int expectSize = 0;
 
-        for_each(container.begin(), container.end(), [&](int v)
+        std::for_each(container.begin(), container.end(), [&](int v)
         {
             if (!(rand() % 3))
             {
@@ -692,7 +693,7 @@ TEST_CASE("modifiers")
 
                 expectListContainer expect;
                 actualListContainer actual;
-                for_each(container.begin(), container.end(), [&](int v)
+                std::for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 2)
                     {
@@ -748,7 +749,7 @@ TEST_CASE("modifiers")
 
                 expectListContainer expect;
                 actualListContainer actual;
-                for_each(container.begin(), container.end(), [&](int v)
+                std::for_each(container.begin(), container.end(), [&](int v)
                 {
                     actual.push_back(v);
                     expect.push_back(v);
@@ -780,7 +781,7 @@ TEST_CASE("modifiers")
 
                 expectListContainer expect;
                 actualListContainer actual;
-                for_each(container.begin(), container.end(), [&](int v)
+                std::for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (rand() % 3)
                     {
@@ -825,7 +826,7 @@ TEST_CASE("modifiers")
 
                 expectListContainer expect;
                 actualListContainer actual;
-                for_each(container.begin(), container.end(), [&](int v)
+                std::for_each(container.begin(), container.end(), [&](int v)
                 {
                     if (!(rand() % 3))
                     {
@@ -915,7 +916,7 @@ TEST_CASE("modifiers")
                     auto expect = getRandomValueContainer();
 
                     actualListContainer actual;
-                    for_each(expect.begin(), expect.end(), [&](int v)
+                    std::for_each(expect.begin(), expect.end(), [&](int v)
                     {
                         actual.push_back(v);
                     });
@@ -2155,7 +2156,7 @@ TEST_CASE("others")
         expect.push_front(container.front());
 
         actual.push_front(container.front());
-        for_each(++container.begin(), container.end(), [&](int v)
+        std::for_each(++container.begin(), container.end(), [&](int v)
         {
             if (rand() % 2)
             {
