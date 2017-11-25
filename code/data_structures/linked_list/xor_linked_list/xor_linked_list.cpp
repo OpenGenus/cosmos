@@ -425,20 +425,16 @@ template<typename _Type, typename _Compare>
 void
 XorLinkedList<_Type, _Compare>::pop_front()
 {
-    if (empty())
-        throw "list is empty";
-    else
-        erase(begin());
+    // Calling pop_front on an empty container is undefined.
+    erase(begin());
 }
 
 template<typename _Type, typename _Compare>
 void
 XorLinkedList<_Type, _Compare>::pop_back()
 {
-    if (empty())
-        throw "list is empty";
-    else
-        erase(--end());
+    // Calling pop_back on an empty container is undefined.
+    erase(--end());
 }
 
 template<typename _Type, typename _Compare>
