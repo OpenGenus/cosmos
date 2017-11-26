@@ -268,7 +268,7 @@ public:
     XorLinkedList(const Self &list) :sz_(0)
     {
         construct();
-        for_each(list.begin(), list.end(), [&](value_type v)
+        std::for_each(list.begin(), list.end(), [&](value_type v)
         {
             push_back(v);
         });
