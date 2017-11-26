@@ -536,56 +536,19 @@ TEST_CASE("element access rely on [push]")
     }
 }
 
-TEST_CASE("capcity rely on [push/pop]")
-{
-    actualListContainer actual;
-    CHECK(actual.empty());
-    CHECK(actual.size() == 0);
-    actual.clear();
-    CHECK(actual.empty());
-    CHECK(actual.size() == 0);
-
-    SECTION("random actions")
-    {
-        auto container = getRandomValueContainer();
-
-        actualListContainer actual;
-        int expectSize = 0;
-
-        std::for_each(container.begin(), container.end(), [&](int v)
-        {
-            if (!(rand() % 3))
-            {
-                if (rand() % 2)
-                    actual.push_back(v);
-                else
-                    actual.push_front(v);
-                ++expectSize;
-            }
-            else
-            {
-                if (rand() % 2)
-                {
-                    if (expectSize != 0)
-                    {
-                        CHECK_NOTHROW(actual.pop_back());
-                        --expectSize;
-                    }
-                }
-                else if (expectSize != 0)
-                {
-                    CHECK_NOTHROW(actual.pop_front());
-                    --expectSize;
-                }
-            }
-            CHECK(actual.size() == expectSize);
-            CHECK((expectSize ^ actual.empty()));
-        });
-    }
-}
-
 TEST_CASE("modifiers")
 {
+    SECTION("empty list")
+    {
+        actualListContainer actual;
+        actual.clear();
+
+        CHECK_THROWS_AS(actual.front(), std::out_of_range);
+        CHECK_THROWS_AS(actual.back(), std::out_of_range);
+        CHECK(actual.size() == 0);
+        CHECK(actual.empty());
+    }
+
     SECTION("[clear] rely on [push_back]")
     {
         SECTION("while empty")
@@ -621,561 +584,179 @@ TEST_CASE("modifiers")
         }
     }
 
-    SECTION("[push/pop] rely on [clear/begin/end/front/back]")
+    SECTION("[erase] rely on [push_back/begin/end/op/size]")
     {
-        SECTION("push]")
-        {
-            SECTION("push front")
-            {
-                actualListContainer actual;
-                actual.push_front(111);
-                CHECK(actual.front() == 111);
-                CHECK(actual.back() == 111);
-                CHECK(*actual.begin() == 111);
-                CHECK(*--actual.end() == 111);
-
-                actual.push_front(222);
-                CHECK(actual.front() == 222);
-                CHECK(actual.back() == 111);
-                CHECK(*actual.begin() == 222);
-                CHECK(*++actual.begin() == 111);
-                CHECK(*--actual.end() == 111);
-                CHECK(*----actual.end() == 222);
-
-                actual.push_front(333);
-                CHECK(actual.front() == 333);
-                CHECK(actual.back() == 111);
-                CHECK(*actual.begin() == 333);
-                CHECK(*++actual.begin() == 222);
-                CHECK(*++++actual.begin() == 111);
-                CHECK(*--actual.end() == 111);
-                CHECK(*----actual.end() == 222);
-                CHECK(*------actual.end() == 333);
-            }
-
-            SECTION("push back")
-            {
-                actualListContainer actual;
-                actual.push_back(111);
-                CHECK(actual.front() == 111);
-                CHECK(actual.back() == 111);
-                CHECK(*actual.begin() == 111);
-                CHECK(*--actual.end() == 111);
-
-                actual.push_back(222);
-                CHECK(actual.front() == 111);
-                CHECK(actual.back() == 222);
-                CHECK(*actual.begin() == 111);
-                CHECK(*++actual.begin() == 222);
-                CHECK(*--actual.end() == 222);
-                CHECK(*----actual.end() == 111);
-
-                actual.push_back(333);
-                CHECK(actual.front() == 111);
-                CHECK(actual.back() == 333);
-                CHECK(*actual.begin() == 111);
-                CHECK(*++actual.begin() == 222);
-                CHECK(*++++actual.begin() == 333);
-                CHECK(*--actual.end() == 333);
-                CHECK(*----actual.end() == 222);
-                CHECK(*------actual.end() == 111);
-            }
-
-            SECTION("random push")
-            {
-                auto container = getRandomValueContainer();
-
-                expectListContainer expect;
-                actualListContainer actual;
-                std::for_each(container.begin(), container.end(), [&](int v)
-                {
-                    if (rand() % 2)
-                    {
-                        actual.push_back(v);
-                        expect.push_back(v);
-                    }
-                    else
-                    {
-                        actual.push_front(v);
-                        expect.push_front(v);
-                    }
-
-                    CHECK(actual.front() == expect.front());
-                    CHECK(actual.back() == expect.back());
-                });
-            }
-        }
-
-        SECTION("pop rely on [push_back/front/back]")
-        {
-            SECTION("pop_front")
-            {}
-
-            SECTION("pop_back")
-            {
-                actualListContainer actual;
-
-                actual.push_back(111);
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS_AS(actual.front(), std::out_of_range);
-                CHECK_THROWS_AS(actual.back(), std::out_of_range);
-
-                actual.push_back(111);
-                actual.push_back(222);
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS_AS(actual.front(), std::out_of_range);
-                CHECK_THROWS_AS(actual.back(), std::out_of_range);
-
-                actual.push_back(111);
-                actual.push_back(222);
-                actual.push_back(333);
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_NOTHROW(actual.pop_back());
-                CHECK_THROWS_AS(actual.front(), std::out_of_range);
-                CHECK_THROWS_AS(actual.back(), std::out_of_range);
-            }
-
-            SECTION("random pop")
-            {
-                auto container = getRandomValueContainer();
-
-                expectListContainer expect;
-                actualListContainer actual;
-                std::for_each(container.begin(), container.end(), [&](int v)
-                {
-                    actual.push_back(v);
-                    expect.push_back(v);
-                });
-
-                while (!expect.empty())
-                {
-                    CHECK(actual.front() == expect.front());
-                    CHECK(actual.back() == expect.back());
-                    if (rand() % 2)
-                    {
-                        actual.pop_back();
-                        expect.pop_back();
-                    }
-                    else
-                    {
-                        actual.pop_front();
-                        expect.pop_front();
-                    }
-                }
-            }
-        }
-
-        SECTION("random push/pop rely on [front/back]")
-        {
-            SECTION("push times is larger than")
-            {
-                auto container = getRandomValueContainer();
-
-                expectListContainer expect;
-                actualListContainer actual;
-                std::for_each(container.begin(), container.end(), [&](int v)
-                {
-                    if (rand() % 3)
-                    {
-                        if (rand() % 2)
-                        {
-                            actual.push_back(v);
-                            expect.push_back(v);
-                        }
-                        else
-                        {
-                            actual.push_front(v);
-                            expect.push_front(v);
-                        }
-                    }
-                    else
-                    {
-                        if (rand() % 2)
-                        {
-                            if (!expect.empty())
-                            {
-                                CHECK_NOTHROW(actual.pop_back());
-                                expect.pop_back();
-                            }
-                        }
-                        else if (!expect.empty())
-                        {
-                            CHECK_NOTHROW(actual.pop_front());
-                            expect.pop_front();
-                        }
-                    }
-                    if (!expect.empty())
-                    {
-                        CHECK(actual.front() == expect.front());
-                        CHECK(actual.back() == expect.back());
-                    }
-                });
-            }
-
-            SECTION("pop times is larger than")
-            {
-                auto container = getRandomValueContainer();
-
-                expectListContainer expect;
-                actualListContainer actual;
-                std::for_each(container.begin(), container.end(), [&](int v)
-                {
-                    if (!(rand() % 3))
-                    {
-                        if (rand() % 2)
-                        {
-                            actual.push_back(v);
-                            expect.push_back(v);
-                        }
-                        else
-                        {
-                            actual.push_front(v);
-                            expect.push_front(v);
-                        }
-                    }
-                    else
-                    {
-                        if (rand() % 2)
-                        {
-                            if (!expect.empty())
-                            {
-                                CHECK_NOTHROW(actual.pop_back());
-                                expect.pop_back();
-                            }
-                        }
-                        else if (!expect.empty())
-                        {
-                            CHECK_NOTHROW(actual.pop_front());
-                            expect.pop_front();
-                        }
-                    }
-                    if (!expect.empty())
-                    {
-                        CHECK(actual.front() == expect.front());
-                        CHECK(actual.back() == expect.back());
-                    }
-                });
-            }
-        }
-    }
-
-    SECTION("[iterator] rely on [push_back]")
-    {
-        SECTION("random move (i++ more than i--) rely on [push_back]")
-        {
-            SECTION("iterator")
-            {
-                SECTION("++i/--i")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = actual.begin();
-                    auto expectIt = expect.begin();
-                    while (expectIt < expect.end())
-                    {
-                        if (expectIt < expect.begin())
-                        {
-                            ++expectIt;
-                            ++actualIt;
-                        }
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (rand() % 3) // times: ++ > --
-                        {
-                            auto temp = expectIt;
-                            if (++temp < expect.end())    // is not lastest
-                                CHECK(*(++actualIt) == *(++expectIt));
-                            else
-                            {
-                                ++actualIt;
-                                ++expectIt;
-                                break;
-                            }
-                        }
-                        else if (expectIt > expect.begin())
-                            CHECK(*(--actualIt) == *(--expectIt));
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-
-                SECTION("i++/i--")
-                {
-                    auto expect = getRandomValueContainer();
-
-                    actualListContainer actual;
-                    std::for_each(expect.begin(), expect.end(), [&](int v)
-                    {
-                        actual.push_back(v);
-                    });
-
-                    auto actualIt = actual.begin();
-                    auto expectIt = expect.begin();
-                    while (expectIt < expect.end())
-                    {
-                        if (expectIt < expect.begin())
-                        {
-                            ++expectIt;
-                            ++actualIt;
-                        }
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (rand() % 3) // times: ++ > --
-                            CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > expect.begin())
-                            CHECK(*(actualIt--) == *(expectIt--));
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-            }
-
-            SECTION("reverse iterator")
-            {
-                SECTION("++i/--i")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = actual.rbegin();
-                    auto expectIt = expect.rbegin();
-                    while (expectIt < expect.rend())
-                    {
-                        if (expectIt < expect.rbegin())
-                        {
-                            ++expectIt;
-                            ++actualIt;
-                        }
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (rand() % 3) // times: ++ > --
-                        {
-                            auto temp = expectIt;
-                            if (++temp < expect.rend())   // is not lastest
-                                CHECK(*(++actualIt) == *(++expectIt));
-                            else
-                            {
-                                ++actualIt;
-                                ++expectIt;
-                                break;
-                            }
-                        }
-                        else if (expectIt > expect.rbegin())
-                            CHECK(*(--actualIt) == *(--expectIt));
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-
-                SECTION("i++/i--")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = actual.rbegin();
-                    auto expectIt = expect.rbegin();
-                    while (expectIt < expect.rend())
-                    {
-                        if (expectIt < expect.rbegin())
-                        {
-                            ++expectIt;
-                            ++actualIt;
-                        }
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (rand() % 3) // times: ++ > --
-                            CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > expect.rbegin())
-                            CHECK(*(actualIt--) == *(expectIt--));
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-            }
-        }
-
-        SECTION("random move (i-- more than i++) rely on [push_back]")
-        {
-            SECTION("iterator")
-            {
-                SECTION("++i/--i rely on [push_back]")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = --actual.end();
-                    auto expectIt = --expect.end();
-                    while (expectIt > expect.begin())
-                    {
-                        if (expectIt >= expect.end())
-                        {
-                            --expectIt;
-                            --actualIt;
-                        }
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (!(rand() % 3)) // times: ++ < --
-                        {
-                            auto temp = expectIt;
-                            if (++temp < expect.end())
-                                CHECK(*(++actualIt) == *(++expectIt));
-                            else
-                            {
-                                ++actualIt;
-                                ++expectIt;
-                                break;
-                            }
-                        }
-                        else if (expectIt > expect.begin())
-                            CHECK(*(--actualIt) == *(--expectIt));
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-
-                SECTION("i++/i-- rely on [push_back]")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = --actual.end();
-                    auto expectIt = --expect.end();
-                    while (expectIt > expect.begin())
-                    {
-                        if (expectIt >= expect.end())
-                        {
-                            --expectIt;
-                            --actualIt;
-                        }
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (!(rand() % 3)) // times: ++ < --
-                            CHECK(*actualIt++ == *expectIt++);
-                        else if (expectIt > expect.begin())
-                            CHECK(*actualIt-- == *expectIt--);
-
-                        if (expectIt > --expect.begin() && expectIt < expect.end())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-            }
-
-            SECTION("reverse iterator")
-            {
-                SECTION("++i/--i rely on [push_back]")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = actual.rbegin();
-                    auto expectIt = expect.rbegin();
-                    while (expectIt > expect.rbegin())
-                    {
-                        if (expectIt >= expect.rend())
-                        {
-                            --expectIt;
-                            --actualIt;
-                        }
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (!(rand() % 3)) // times: ++ < --
-                        {
-                            auto expectItTemp = expectIt;
-                            if (++expectItTemp < expect.rend())
-                                CHECK(*(++actualIt) == *(++expectIt));
-                            else
-                            {
-                                ++actualIt;
-                                ++expectIt;
-                                break;
-                            }
-                        }
-                        else if (expectIt > expect.rbegin())
-                            CHECK(*(--actualIt) == *(--expectIt));
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-
-                SECTION("i++/i-- rely on [push_back]")
-                {
-                    auto expect = getRandomValueContainer();
-                    auto actual = copyContainerToList(expect);
-
-                    auto actualIt = actual.rbegin();
-                    auto expectIt = expect.rbegin();
-                    while (expectIt > expect.rbegin())
-                    {
-                        if (expectIt >= expect.rend())
-                        {
-                            --expectIt;
-                            --actualIt;
-                        }
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-
-                        if (!(rand() % 3)) // times: ++ < --
-                            CHECK(*(actualIt++) == *(expectIt++));
-                        else if (expectIt > expect.rbegin())
-                            CHECK(*(actualIt--) == *(expectIt--));
-
-                        if (expectIt > --expect.rbegin() && expectIt < expect.rend())
-                            CHECK(*actualIt == *expectIt);
-                    }
-                }
-            }
-        }
-
-        SECTION("[reverse iterator: base] rely on [++/--]")
-        {
-            auto expect = getRandomValueContainer();
-            actualListContainer actual = copyContainerToList(expect);
-            vectorContainer::reverse_iterator expectReverseBegin(expect.begin());
-            actualListContainer::const_reverse_iterator actualReverseBegin(actual.begin());
-            auto expectBaseBegin = expectReverseBegin.base();
-            auto actualBaseBegin = actualReverseBegin.base();
-
-            while (expectBaseBegin != expect.end())
-            {
-                CHECK(*expectBaseBegin == *actualBaseBegin);
-                ++expectBaseBegin;
-                ++actualBaseBegin;
-            }
-        }
-    }
-
-    SECTION("empty list")
-    {
+        vectorContainer container = getRandomValueContainer();
+        expectListContainer expect;
         actualListContainer actual;
-        actual.clear();
+        expectListContainer::iterator expectReturnPos;
+        actualListContainer::iterator actualReturnPos;
+        int randomValue;
+        size_t sz;
+        auto ilist = getRandomValueContainer(SmallRandomSize);
 
-        CHECK_THROWS_AS(actual.front(), std::out_of_range);
-        CHECK_THROWS_AS(actual.back(), std::out_of_range);
-        CHECK(actual.size() == 0);
-        CHECK(actual.empty());
+        SECTION("erase(const_iterator)")
+        {
+            SECTION("from empty")
+            {
+                /*
+                 erase(end()) is undefined, refer to:
+                 http://en.cppreference.com/w/cpp/container/list/erase
+                 */
+            }
+
+            SECTION("first one")
+            {
+                SECTION("size is 1")
+                {
+                    expect.clear();
+                    actual.clear();
+                    randomValue = rand();
+                    expect.push_back(randomValue);
+                    actual.push_back(randomValue);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("random size")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
+            }
+
+            SECTION("last one")
+            {
+                SECTION("size is 1")
+                {
+                    expect.clear();
+                    actual.clear();
+                    randomValue = rand();
+                    expect.push_back(randomValue);
+                    actual.push_back(randomValue);
+
+                    expectReturnPos = expect.erase(expect.begin());
+                    actualReturnPos = actual.erase(actual.begin());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("random size")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(--expect.end());
+                    actualReturnPos = actual.erase(--actual.end());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+            }
+
+            SECTION("between of begin and end")
+            {
+                expect.clear();
+                actual.clear();
+                copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                expectReturnPos = expect.erase(---- expect.end());
+                actualReturnPos = actual.erase(---- actual.end());
+
+                CHECK(expectReturnPos == --expect.end());
+                CHECK(actualReturnPos == --actual.end());
+                isSame(expect, actual);
+            }
+        }
+
+        SECTION("erase(const_iterator, const_iterator)")
+        {
+            SECTION("from empty")
+            {
+                /*
+                 erase(end(), end()) is undefined, refer to:
+                 http://en.cppreference.com/w/cpp/container/list/erase
+                 */
+            }
+
+            SECTION("size is 1")
+            {
+                expect.clear();
+                actual.clear();
+                randomValue = rand();
+                expect.push_back(randomValue);
+                actual.push_back(randomValue);
+
+                expectReturnPos = expect.erase(expect.begin(), expect.end());
+                actualReturnPos = actual.erase(actual.begin(), actual.end());
+
+                CHECK(expectReturnPos == expect.end());
+                CHECK(actualReturnPos == actual.end());
+                isSame(expect, actual);
+            }
+
+            SECTION("random size")
+            {
+                SECTION("[begin : end)")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(expect.begin(), ++++++ expect.begin());
+                    actualReturnPos = actual.erase(actual.begin(), ++++++ actual.begin());
+
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
+
+                SECTION("(begin : end)")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(++++++ expect.begin(), ------ expect.end());
+                    actualReturnPos = actual.erase(++++++ actual.begin(), ------ actual.end());
+
+                    CHECK(expectReturnPos == ------ expect.end());
+                    CHECK(actualReturnPos == ------ actual.end());
+                    isSame(expect, actual);
+                }
+
+                SECTION("(begin : end]")
+                {
+                    expect.clear();
+                    actual.clear();
+                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+
+                    expectReturnPos = expect.erase(++++++ expect.begin(), expect.end());
+                    actualReturnPos = actual.erase(++++++ actual.begin(), actual.end());
+
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
+            }
+        }
     }
 
     SECTION("[insert] rely on [op/begin/end/size/push_back/clear]")
@@ -1796,178 +1377,591 @@ TEST_CASE("modifiers")
         }
     }
 
-    SECTION("[erase] rely on [push_back/begin/end/op/size]")
+    SECTION("pop rely on [push_back/front/back]")
     {
-        vectorContainer container = getRandomValueContainer();
-        expectListContainer expect;
-        actualListContainer actual;
-        expectListContainer::iterator expectReturnPos;
-        actualListContainer::iterator actualReturnPos;
-        int randomValue;
-        size_t sz;
-        auto ilist = getRandomValueContainer(SmallRandomSize);
-
-        SECTION("erase(const_iterator)")
+        SECTION("pop_back")
         {
-            SECTION("from empty")
+            actualListContainer actual;
+
+            actual.push_back(111);
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+
+            actual.push_back(111);
+            actual.push_back(222);
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+
+            actual.push_back(111);
+            actual.push_back(222);
+            actual.push_back(333);
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_NOTHROW(actual.pop_back());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+        }
+
+        SECTION("random pop")
+        {
+            auto container = getRandomValueContainer();
+
+            expectListContainer expect;
+            actualListContainer actual;
+            std::for_each(container.begin(), container.end(), [&](int v)
             {
-                /*
-                 erase(end()) is undefined, refer to:
-                 http://en.cppreference.com/w/cpp/container/list/erase
-                 */
-            }
+                actual.push_back(v);
+                expect.push_back(v);
+            });
 
-            SECTION("first one")
+            while (!expect.empty())
             {
-                SECTION("size is 1")
+                CHECK(actual.front() == expect.front());
+                CHECK(actual.back() == expect.back());
+                if (rand() % 2)
                 {
-                    expect.clear();
-                    actual.clear();
-                    randomValue = rand();
-                    expect.push_back(randomValue);
-                    actual.push_back(randomValue);
-
-                    expectReturnPos = expect.erase(expect.begin());
-                    actualReturnPos = actual.erase(actual.begin());
-
-                    CHECK(expectReturnPos == expect.end());
-                    CHECK(actualReturnPos == actual.end());
-                    isSame(expect, actual);
+                    actual.pop_back();
+                    expect.pop_back();
                 }
-
-                SECTION("random size")
+                else
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(expect.begin());
-                    actualReturnPos = actual.erase(actual.begin());
-
-                    CHECK(expectReturnPos == expect.begin());
-                    CHECK(actualReturnPos == actual.begin());
-                    isSame(expect, actual);
-                }
-            }
-
-            SECTION("last one")
-            {
-                SECTION("size is 1")
-                {
-                    expect.clear();
-                    actual.clear();
-                    randomValue = rand();
-                    expect.push_back(randomValue);
-                    actual.push_back(randomValue);
-
-                    expectReturnPos = expect.erase(expect.begin());
-                    actualReturnPos = actual.erase(actual.begin());
-
-                    CHECK(expectReturnPos == expect.end());
-                    CHECK(actualReturnPos == actual.end());
-                    isSame(expect, actual);
-                }
-
-                SECTION("random size")
-                {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(--expect.end());
-                    actualReturnPos = actual.erase(--actual.end());
-
-                    CHECK(expectReturnPos == expect.end());
-                    CHECK(actualReturnPos == actual.end());
-                    isSame(expect, actual);
+                    actual.pop_front();
+                    expect.pop_front();
                 }
             }
+        }
+    }
 
-            SECTION("between of begin and end")
+    SECTION("[push] rely on [clear/begin/end/front/back]")
+    {
+        SECTION("push front")
+        {
+            actualListContainer actual;
+            actual.push_front(111);
+            CHECK(actual.front() == 111);
+            CHECK(actual.back() == 111);
+            CHECK(*actual.begin() == 111);
+            CHECK(*--actual.end() == 111);
+
+            actual.push_front(222);
+            CHECK(actual.front() == 222);
+            CHECK(actual.back() == 111);
+            CHECK(*actual.begin() == 222);
+            CHECK(*++actual.begin() == 111);
+            CHECK(*--actual.end() == 111);
+            CHECK(*---- actual.end() == 222);
+
+            actual.push_front(333);
+            CHECK(actual.front() == 333);
+            CHECK(actual.back() == 111);
+            CHECK(*actual.begin() == 333);
+            CHECK(*++actual.begin() == 222);
+            CHECK(*++++ actual.begin() == 111);
+            CHECK(*--actual.end() == 111);
+            CHECK(*---- actual.end() == 222);
+            CHECK(*------ actual.end() == 333);
+        }
+
+        SECTION("push back")
+        {
+            actualListContainer actual;
+            actual.push_back(111);
+            CHECK(actual.front() == 111);
+            CHECK(actual.back() == 111);
+            CHECK(*actual.begin() == 111);
+            CHECK(*--actual.end() == 111);
+
+            actual.push_back(222);
+            CHECK(actual.front() == 111);
+            CHECK(actual.back() == 222);
+            CHECK(*actual.begin() == 111);
+            CHECK(*++actual.begin() == 222);
+            CHECK(*--actual.end() == 222);
+            CHECK(*---- actual.end() == 111);
+
+            actual.push_back(333);
+            CHECK(actual.front() == 111);
+            CHECK(actual.back() == 333);
+            CHECK(*actual.begin() == 111);
+            CHECK(*++actual.begin() == 222);
+            CHECK(*++++ actual.begin() == 333);
+            CHECK(*--actual.end() == 333);
+            CHECK(*---- actual.end() == 222);
+            CHECK(*------ actual.end() == 111);
+        }
+
+        SECTION("random push")
+        {
+            auto container = getRandomValueContainer();
+
+            expectListContainer expect;
+            actualListContainer actual;
+            std::for_each(container.begin(), container.end(), [&](int v)
             {
-                expect.clear();
-                actual.clear();
-                copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                if (rand() % 2)
+                {
+                    actual.push_back(v);
+                    expect.push_back(v);
+                }
+                else
+                {
+                    actual.push_front(v);
+                    expect.push_front(v);
+                }
 
-                expectReturnPos = expect.erase(----expect.end());
-                actualReturnPos = actual.erase(----actual.end());
+                CHECK(actual.front() == expect.front());
+                CHECK(actual.back() == expect.back());
+            });
+        }
+    }
 
-                CHECK(expectReturnPos == --expect.end());
-                CHECK(actualReturnPos == --actual.end());
-                isSame(expect, actual);
+    SECTION("random push/pop rely on [front/back]")
+    {
+        SECTION("push times is larger than")
+        {
+            auto container = getRandomValueContainer();
+
+            expectListContainer expect;
+            actualListContainer actual;
+            std::for_each(container.begin(), container.end(), [&](int v)
+            {
+                if (rand() % 3)
+                {
+                    if (rand() % 2)
+                    {
+                        actual.push_back(v);
+                        expect.push_back(v);
+                    }
+                    else
+                    {
+                        actual.push_front(v);
+                        expect.push_front(v);
+                    }
+                }
+                else
+                {
+                    if (rand() % 2)
+                    {
+                        if (!expect.empty())
+                        {
+                            CHECK_NOTHROW(actual.pop_back());
+                            expect.pop_back();
+                        }
+                    }
+                    else if (!expect.empty())
+                    {
+                        CHECK_NOTHROW(actual.pop_front());
+                        expect.pop_front();
+                    }
+                }
+                if (!expect.empty())
+                {
+                    CHECK(actual.front() == expect.front());
+                    CHECK(actual.back() == expect.back());
+                }
+            });
+        }
+
+        SECTION("pop times is larger than")
+        {
+            auto container = getRandomValueContainer();
+
+            expectListContainer expect;
+            actualListContainer actual;
+            std::for_each(container.begin(), container.end(), [&](int v)
+            {
+                if (!(rand() % 3))
+                {
+                    if (rand() % 2)
+                    {
+                        actual.push_back(v);
+                        expect.push_back(v);
+                    }
+                    else
+                    {
+                        actual.push_front(v);
+                        expect.push_front(v);
+                    }
+                }
+                else
+                {
+                    if (rand() % 2)
+                    {
+                        if (!expect.empty())
+                        {
+                            CHECK_NOTHROW(actual.pop_back());
+                            expect.pop_back();
+                        }
+                    }
+                    else if (!expect.empty())
+                    {
+                        CHECK_NOTHROW(actual.pop_front());
+                        expect.pop_front();
+                    }
+                }
+                if (!expect.empty())
+                {
+                    CHECK(actual.front() == expect.front());
+                    CHECK(actual.back() == expect.back());
+                }
+            });
+        }
+    }
+}
+
+TEST_CASE("capcity rely on [push/pop]")
+{
+    actualListContainer actual;
+    CHECK(actual.empty());
+    CHECK(actual.size() == 0);
+    actual.clear();
+    CHECK(actual.empty());
+    CHECK(actual.size() == 0);
+
+    SECTION("random actions")
+    {
+        auto container = getRandomValueContainer();
+
+        actualListContainer actual;
+        int expectSize = 0;
+
+        std::for_each(container.begin(), container.end(), [&](int v)
+        {
+            if (!(rand() % 3))
+            {
+                if (rand() % 2)
+                    actual.push_back(v);
+                else
+                    actual.push_front(v);
+                ++expectSize;
+            }
+            else
+            {
+                if (rand() % 2)
+                {
+                    if (expectSize != 0)
+                    {
+                        CHECK_NOTHROW(actual.pop_back());
+                        --expectSize;
+                    }
+                }
+                else if (expectSize != 0)
+                {
+                    CHECK_NOTHROW(actual.pop_front());
+                    --expectSize;
+                }
+            }
+            CHECK(actual.size() == expectSize);
+            CHECK((expectSize ^ actual.empty()));
+        });
+    }
+}
+
+TEST_CASE("iterator rely on [push_back]")
+{
+    SECTION("random move (i++ more than i--) rely on [push_back]")
+    {
+        SECTION("iterator")
+        {
+            SECTION("++i/--i")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = actual.begin();
+                auto expectIt = expect.begin();
+                while (expectIt < expect.end())
+                {
+                    if (expectIt < expect.begin())
+                    {
+                        ++expectIt;
+                        ++actualIt;
+                    }
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (rand() % 3) // times: ++ > --
+                    {
+                        auto temp = expectIt;
+                        if (++temp < expect.end())    // is not lastest
+                            CHECK(*(++actualIt) == *(++expectIt));
+                        else
+                        {
+                            ++actualIt;
+                            ++expectIt;
+                            break;
+                        }
+                    }
+                    else if (expectIt > expect.begin())
+                        CHECK(*(--actualIt) == *(--expectIt));
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+
+            SECTION("i++/i--")
+            {
+                auto expect = getRandomValueContainer();
+
+                actualListContainer actual;
+                std::for_each(expect.begin(), expect.end(), [&](int v)
+                {
+                    actual.push_back(v);
+                });
+
+                auto actualIt = actual.begin();
+                auto expectIt = expect.begin();
+                while (expectIt < expect.end())
+                {
+                    if (expectIt < expect.begin())
+                    {
+                        ++expectIt;
+                        ++actualIt;
+                    }
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (rand() % 3) // times: ++ > --
+                        CHECK(*(actualIt++) == *(expectIt++));
+                    else if (expectIt > expect.begin())
+                        CHECK(*(actualIt--) == *(expectIt--));
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+                }
             }
         }
 
-        SECTION("erase(const_iterator, const_iterator)")
+        SECTION("reverse iterator")
         {
-            SECTION("from empty")
+            SECTION("++i/--i")
             {
-                /*
-                 erase(end(), end()) is undefined, refer to:
-                 http://en.cppreference.com/w/cpp/container/list/erase
-                 */
-            }
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
 
-            SECTION("size is 1")
-            {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
-                expectReturnPos = expect.erase(expect.begin(), expect.end());
-                actualReturnPos = actual.erase(actual.begin(), actual.end());
-
-                CHECK(expectReturnPos == expect.end());
-                CHECK(actualReturnPos == actual.end());
-                isSame(expect, actual);
-            }
-
-            SECTION("random size")
-            {
-                SECTION("[begin : end)")
+                auto actualIt = actual.rbegin();
+                auto expectIt = expect.rbegin();
+                while (expectIt < expect.rend())
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                    if (expectIt < expect.rbegin())
+                    {
+                        ++expectIt;
+                        ++actualIt;
+                    }
 
-                    expectReturnPos = expect.erase(expect.begin(), ++++++expect.begin());
-                    actualReturnPos = actual.erase(actual.begin(), ++++++actual.begin());
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
 
-                    CHECK(expectReturnPos == expect.begin());
-                    CHECK(actualReturnPos == actual.begin());
-                    isSame(expect, actual);
-                }
+                    if (rand() % 3) // times: ++ > --
+                    {
+                        auto temp = expectIt;
+                        if (++temp < expect.rend())   // is not lastest
+                            CHECK(*(++actualIt) == *(++expectIt));
+                        else
+                        {
+                            ++actualIt;
+                            ++expectIt;
+                            break;
+                        }
+                    }
+                    else if (expectIt > expect.rbegin())
+                        CHECK(*(--actualIt) == *(--expectIt));
 
-                SECTION("(begin : end)")
-                {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(++++++expect.begin(), ------expect.end());
-                    actualReturnPos = actual.erase(++++++actual.begin(), ------actual.end());
-
-                    CHECK(expectReturnPos == ------expect.end());
-                    CHECK(actualReturnPos == ------actual.end());
-                    isSame(expect, actual);
-                }
-
-                SECTION("(begin : end]")
-                {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(++++++expect.begin(), expect.end());
-                    actualReturnPos = actual.erase(++++++actual.begin(), actual.end());
-
-                    CHECK(expectReturnPos == expect.end());
-                    CHECK(actualReturnPos == actual.end());
-                    isSame(expect, actual);
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
                 }
             }
+
+            SECTION("i++/i--")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = actual.rbegin();
+                auto expectIt = expect.rbegin();
+                while (expectIt < expect.rend())
+                {
+                    if (expectIt < expect.rbegin())
+                    {
+                        ++expectIt;
+                        ++actualIt;
+                    }
+
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (rand() % 3) // times: ++ > --
+                        CHECK(*(actualIt++) == *(expectIt++));
+                    else if (expectIt > expect.rbegin())
+                        CHECK(*(actualIt--) == *(expectIt--));
+
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+        }
+    }
+
+    SECTION("random move (i-- more than i++) rely on [push_back]")
+    {
+        SECTION("iterator")
+        {
+            SECTION("++i/--i rely on [push_back]")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = --actual.end();
+                auto expectIt = --expect.end();
+                while (expectIt > expect.begin())
+                {
+                    if (expectIt >= expect.end())
+                    {
+                        --expectIt;
+                        --actualIt;
+                    }
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (!(rand() % 3)) // times: ++ < --
+                    {
+                        auto temp = expectIt;
+                        if (++temp < expect.end())
+                            CHECK(*(++actualIt) == *(++expectIt));
+                        else
+                        {
+                            ++actualIt;
+                            ++expectIt;
+                            break;
+                        }
+                    }
+                    else if (expectIt > expect.begin())
+                        CHECK(*(--actualIt) == *(--expectIt));
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+
+            SECTION("i++/i-- rely on [push_back]")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = --actual.end();
+                auto expectIt = --expect.end();
+                while (expectIt > expect.begin())
+                {
+                    if (expectIt >= expect.end())
+                    {
+                        --expectIt;
+                        --actualIt;
+                    }
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (!(rand() % 3)) // times: ++ < --
+                        CHECK(*actualIt++ == *expectIt++);
+                    else if (expectIt > expect.begin())
+                        CHECK(*actualIt-- == *expectIt--);
+
+                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+        }
+
+        SECTION("reverse iterator")
+        {
+            SECTION("++i/--i rely on [push_back]")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = actual.rbegin();
+                auto expectIt = expect.rbegin();
+                while (expectIt > expect.rbegin())
+                {
+                    if (expectIt >= expect.rend())
+                    {
+                        --expectIt;
+                        --actualIt;
+                    }
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (!(rand() % 3)) // times: ++ < --
+                    {
+                        auto expectItTemp = expectIt;
+                        if (++expectItTemp < expect.rend())
+                            CHECK(*(++actualIt) == *(++expectIt));
+                        else
+                        {
+                            ++actualIt;
+                            ++expectIt;
+                            break;
+                        }
+                    }
+                    else if (expectIt > expect.rbegin())
+                        CHECK(*(--actualIt) == *(--expectIt));
+
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+
+            SECTION("i++/i-- rely on [push_back]")
+            {
+                auto expect = getRandomValueContainer();
+                auto actual = copyContainerToList(expect);
+
+                auto actualIt = actual.rbegin();
+                auto expectIt = expect.rbegin();
+                while (expectIt > expect.rbegin())
+                {
+                    if (expectIt >= expect.rend())
+                    {
+                        --expectIt;
+                        --actualIt;
+                    }
+
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+
+                    if (!(rand() % 3)) // times: ++ < --
+                        CHECK(*(actualIt++) == *(expectIt++));
+                    else if (expectIt > expect.rbegin())
+                        CHECK(*(actualIt--) == *(expectIt--));
+
+                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                        CHECK(*actualIt == *expectIt);
+                }
+            }
+        }
+    }
+
+    SECTION("[reverse iterator: base] rely on [++/--]")
+    {
+        auto expect = getRandomValueContainer();
+        actualListContainer actual = copyContainerToList(expect);
+        vectorContainer::reverse_iterator expectReverseBegin(expect.begin());
+        actualListContainer::const_reverse_iterator actualReverseBegin(actual.begin());
+        auto expectBaseBegin = expectReverseBegin.base();
+        auto actualBaseBegin = actualReverseBegin.base();
+
+        while (expectBaseBegin != expect.end())
+        {
+            CHECK(*expectBaseBegin == *actualBaseBegin);
+            ++expectBaseBegin;
+            ++actualBaseBegin;
         }
     }
 }
