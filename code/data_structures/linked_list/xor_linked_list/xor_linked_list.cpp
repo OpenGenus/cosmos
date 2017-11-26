@@ -5,6 +5,13 @@
 
  *** incomplete ***
 
+ Begin *** Iterator invalidation rules are NOT applicable. ***
+ [x] Insertion: all iterators and references unaffected.
+ [x] Erasure: only the iterators and references to the erased element is invalidated.
+ [o] Resizing: as per insert/erase.
+
+ Refer to: https://stackoverflow.com/questions/6438086/iterator-invalidation-rules
+ End *** Iterator invalidation rules are NOT applicable. ***
  */
 
 #ifndef XOR_LINKED_LIST_CPP
