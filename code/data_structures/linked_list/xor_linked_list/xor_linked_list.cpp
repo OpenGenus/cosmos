@@ -141,7 +141,7 @@ public:
 
     bool operator!=(const Self &other) const
     {
-        return curr_ != other.curr_;
+        return !(*this == other);
     }
 
 private:
@@ -224,7 +224,7 @@ public:
 
     bool operator!=(const Self &other) const
     {
-        return curr_ != other.curr_;
+        return !(*this == other);
     }
 
 private:
