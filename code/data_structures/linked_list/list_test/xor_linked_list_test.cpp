@@ -1379,6 +1379,32 @@ TEST_CASE("modifiers")
 
     SECTION("pop rely on [push_back/front/back]")
     {
+        SECTION("pop_front")
+        {
+            actualListContainer actual;
+
+            actual.push_back(111);
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+
+            actual.push_back(111);
+            actual.push_back(222);
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+
+            actual.push_back(111);
+            actual.push_back(222);
+            actual.push_back(333);
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_NOTHROW(actual.pop_front());
+            CHECK_THROWS_AS(actual.front(), std::out_of_range);
+            CHECK_THROWS_AS(actual.back(), std::out_of_range);
+        }
+
         SECTION("pop_back")
         {
             actualListContainer actual;
