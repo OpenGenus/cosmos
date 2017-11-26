@@ -438,14 +438,6 @@ template<typename _Type>
 auto
 XorLinkedList<_Type>::operator=(std::initializer_list<value_type> ilist)->Self &
 {
-    clear();
-    auto otherCurrIt = ilist.begin();
-    std::for_each(begin(), end(), [](iterator it)
-    {
-        *it = std::move(*otherCurrIt++);
-    });
-
-    return this;
 }
 
 // element access
