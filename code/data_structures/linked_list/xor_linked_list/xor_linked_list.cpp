@@ -320,8 +320,6 @@ public:
 
     iterator erase(const_iterator begin, const_iterator end);
 
-    iterator find(const value_type &v);
-
     void reverse();
 
     // void unique();
@@ -528,22 +526,6 @@ XorLinkedList<_Type, _Compare>::erase(const_iterator first, const_iterator last)
         firstAfterEraseIter = eraseImpl(firstAfterEraseIter);
 
     return firstAfterEraseIter.constCast();
-}
-
-template<typename _Type, typename _Compare>
-inline auto
-XorLinkedList<_Type, _Compare>::find(const value_type &v)->iterator
-{
-    auto curr = prevOfBegin_->around(nextOfEnd_), prev = prevOfBegin_;
-    while (curr != end_)
-    {
-        if (v == curr->value())
-            return iterator(prev, curr);
-        ++curr;
-        ++prev;
-    }
-
-    return end();
 }
 
 template<typename _Type, typename _Compare>

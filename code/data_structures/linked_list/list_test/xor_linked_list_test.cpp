@@ -489,12 +489,6 @@ TEST_CASE("const semantic")
             CHECK(is_const<decltype(*actual.crend().base())>()
                 == is_const<decltype(*expect.crend().base())>());
         }
-
-        SECTION("find")
-        {
-            actualListContainer actual;
-            CHECK_FALSE(is_const<decltype(actual.find(1))>());
-        }
     }
 
     SECTION("element access")
