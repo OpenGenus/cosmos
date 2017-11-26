@@ -289,6 +289,12 @@ public:
         destruct();
     }
 
+    Self&operator=(const Self &other);
+
+    Self&operator=(Self &&other);
+
+    Self&operator=(std::initializer_list<value_type> ilist);
+
     // element access
     inline reference back();
 
@@ -300,6 +306,12 @@ public:
 
     // modifiers
     void clear();
+
+    template<class ... Args>
+    reference emplace_back(Args&& ... args);
+
+    template<class ... Args>
+    reference emplace_front(Args&& ... args);
 
     iterator erase(const_iterator pos);
 
@@ -323,6 +335,12 @@ public:
     void push_back(const value_type &v);
 
     void push_front(const value_type &v);
+
+    void resize(size_type count);
+
+    void resize(size_type count, const value_type&value);
+
+    void swap(Self&other);
 
     // capacity
     inline bool empty() const;
@@ -357,7 +375,39 @@ public:
     const_reverse_iterator crend() const;
 
     // operations
+    void merge(Self&other);
+
+    void merge(Self&&other);
+
+    template<class Compare>
+    void merge(Self&other, Compare comp);
+
+    template<class Compare>
+    void merge(Self&&other, Compare comp);
+
     void reverse();
+
+    void sort();
+
+    template<class Compare>
+    void sort(Compare comp);
+
+    void splice(const_iterator pos, Self&other);
+
+    void splice(const_iterator pos, Self&&other);
+
+    void splice(const_iterator pos, Self&other, const_iterator it);
+
+    void splice(const_iterator pos, Self&&other, const_iterator it);
+
+    void splice(const_iterator pos, Self&other, const_iterator first, const_iterator last);
+
+    void splice(const_iterator pos, Self&&other, const_iterator first, const_iterator last);
+
+    void unique();
+
+    template<class BinaryPredicate>
+    void unique(BinaryPredicate p);
 
 private:
     NodePtr prevOfBegin_, end_, nextOfEnd_;
@@ -371,6 +421,32 @@ private:
 
     inline iterator eraseImpl(const_iterator pos);
 };
+
+template<typename _Type>
+auto
+XorLinkedList<_Type>::operator=(const Self &other)->Self &
+{
+}
+
+template<typename _Type>
+auto
+XorLinkedList<_Type>::operator=(Self &&other)->Self &
+{
+}
+
+template<typename _Type>
+auto
+XorLinkedList<_Type>::operator=(std::initializer_list<value_type> ilist)->Self &
+{
+    clear();
+    auto otherCurrIt = ilist.begin();
+    std::for_each(begin(), end(), [](iterator it)
+    {
+        *it = std::move(*otherCurrIt++);
+    });
+
+    return this;
+}
 
 // element access
 template<typename _Type>
@@ -427,6 +503,20 @@ XorLinkedList<_Type>::clear()
     }
 
     sz_ = 0;
+}
+
+template<typename _Type>
+template<class ... Args>
+auto
+XorLinkedList<_Type>::emplace_back(Args&& ... args)->reference
+{
+}
+
+template<typename _Type>
+template<class ... Args>
+auto
+XorLinkedList<_Type>::emplace_front(Args&& ... args)->reference
+{
 }
 
 template<typename _Type>
@@ -552,6 +642,24 @@ XorLinkedList<_Type>::push_front(const value_type &v)
     insert(begin(), v);
 }
 
+template<typename _Type>
+void
+XorLinkedList<_Type>::resize(size_type count)
+{
+}
+
+template<typename _Type>
+void
+XorLinkedList<_Type>::resize(size_type count, const value_type&value)
+{
+}
+
+template<typename _Type>
+void
+XorLinkedList<_Type>::swap(Self&other)
+{
+}
+
 // capacity
 template<typename _Type>
 inline bool
@@ -659,11 +767,108 @@ XorLinkedList<_Type>::crend() const->const_reverse_iterator
     return const_reverse_iterator(cbegin());
 }
 
+// operations
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::merge(Self&other)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::merge(Self&&other)
+{
+}
+
+template<typename _Type>
+template<class Compare>
+inline void
+XorLinkedList<_Type>::merge(Self&other, Compare comp)
+{
+}
+
+template<typename _Type>
+template<class Compare>
+inline void
+XorLinkedList<_Type>::merge(Self&&other, Compare comp)
+{
+}
+
 template<typename _Type>
 inline void
 XorLinkedList<_Type>::reverse()
 {
     std::swap(prevOfBegin_, end_);
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::sort()
+{
+}
+
+template<typename _Type>
+template<class Compare>
+inline void
+XorLinkedList<_Type>::sort(Compare comp)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos, Self&other)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos, Self&&other)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos, Self&other, const_iterator it)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos, Self&&other, const_iterator it)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos,
+                             Self&other,
+                             const_iterator first,
+                             const_iterator
+                             last)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::splice(const_iterator pos,
+                             Self&&other,
+                             const_iterator first,
+                             const_iterator
+                             last)
+{
+}
+
+template<typename _Type>
+inline void
+XorLinkedList<_Type>::unique()
+{
+}
+
+template<typename _Type>
+template<class BinaryPredicate>
+inline void
+XorLinkedList<_Type>::unique(BinaryPredicate p)
+{
 }
 
 // private functions
