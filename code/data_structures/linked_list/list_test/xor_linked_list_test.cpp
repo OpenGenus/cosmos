@@ -2136,6 +2136,42 @@ TEST_CASE("operations")
     }
 }
 
+TEST_CASE("stl compatible")
+{
+    vectorContainer container = getRandomValueContainer();
+    expectListContainer expect;
+    actualListContainer actual;
+    expectListContainer::iterator expectPos;
+    actualListContainer::iterator actualPos;
+    int randomValue;
+    size_t sz;
+    auto ilist = getRandomValueContainer(SmallRandomSize);
+
+    SECTION("std::for_each")
+    {
+        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+        expectPos = expect.begin();
+        std::for_each(actual.begin(), actual.end(), [&](int v)
+        {
+            CHECK(v == *expectPos++);
+        });
+    }
+
+    SECTION("std::find")
+    {
+        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+        CHECK(*actual.begin() == *std::find(actual.begin(), actual.end(), *expect.begin()));
+        CHECK(*++actual.begin() == *std::find(actual.begin(), actual.end(), *++expect.begin()));
+        CHECK(*--actual.end() == *std::find(actual.begin(), actual.end(), *--expect.end()));
+    }
+
+    SECTION("std::equal")
+    {
+        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+        CHECK(std::equal(expect.begin(), expect.end(), actual.begin()));
+    }
+}
+
 TEST_CASE("others")
 {
     SECTION("random nodes")
