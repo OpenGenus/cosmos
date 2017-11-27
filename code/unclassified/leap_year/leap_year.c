@@ -20,7 +20,7 @@ int main()
     scanf("%d",&year1);
     printf("Enter the second year year: ");
     scanf("%d",&year2);
-    printf("Leap years between %d and %d are : \n",year1,year2);
+    printf("The leap years between %d and %d are : \n",year1,year2);
     for(int i=year1 ; i<=year2 ; i++)
     {
         if(checkLeapYear(i))
