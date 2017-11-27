@@ -4,17 +4,17 @@ using namespace std;
 int main()
 {
     int n, max, tmp;
-    cout << "Enter numbers of elements : ";
+    cout << "Enter the number of elements : ";
     cin >> n;
-    cout << "Enter numbers\n";
+    cout << "Enter the numbers : \n";
     cin >> tmp;
     max = tmp;
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n - 1; ++i) {
         cin >> tmp;
-        if (max < tmp) {
+        if (tmp > max) {
             max = tmp;
         }
     }
-    cout << "Maximum is " << max << "\n";
+    cout << "The maximum value of your integers is" << max << "\n";
     return 0;
 }
