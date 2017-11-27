@@ -15,6 +15,6 @@ int main()
             max = tmp;
         }
     }
-    cout << "The maximum value of your integers is" << max << "\n";
+    cout << "The maximum value of your integers is " << max << "\n";
     return 0;
 }
