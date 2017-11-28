@@ -9,10 +9,8 @@ int main()
     int sum = 0;
     
     for (int i = 1; i < 1000000; ++i)
-    {
         if (isPalindrome(std::to_string(i)) && isPalindrome(convertBase2(i)))
             sum += i;
-    }
     std::cout << sum << "\n";
 }
 
