@@ -622,14 +622,17 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                copyRandomPartContainerToLists(randomContainer, expect, actual);
+                SECTION("random size")
+                {
+                    copyRandomPartContainerToLists(randomContainer, expect, actual);
 
-                expectReturnPos = expect.erase(--expect.end());
-                actualReturnPos = actual.erase(--actual.end());
+                    expectReturnPos = expect.erase(--expect.end());
+                    actualReturnPos = actual.erase(--actual.end());
 
-                CHECK(expectReturnPos == expect.end());
-                CHECK(actualReturnPos == actual.end());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.end());
+                    CHECK(actualReturnPos == actual.end());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("between of begin and end")
@@ -857,23 +860,26 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                randomValue = rand();
-                sz = rand() % 10 + SmallRandomSize;
-
-                expectReturnPos = expect.insert(expect.end(), sz, randomValue);
-                actualReturnPos = actual.insert(actual.end(), sz, randomValue);
-
-                auto tempe = expect.end();
-                auto tempa = actual.end();
-                ++sz;
-                while (--sz)
+                SECTION("size is non-zero")
                 {
-                    --tempe;
-                    --tempa;
+                    randomValue = rand();
+                    sz = rand() % 10 + SmallRandomSize;
+
+                    expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.end(), sz, randomValue);
+
+                    auto tempe = expect.end();
+                    auto tempa = actual.end();
+                    ++sz;
+                    while (--sz)
+                    {
+                        --tempe;
+                        --tempa;
+                    }
+                    CHECK(expectReturnPos == tempe);
+                    CHECK(actualReturnPos == tempa);
+                    isSame(expect, actual);
                 }
-                CHECK(expectReturnPos == tempe);
-                CHECK(actualReturnPos == tempa);
-                isSame(expect, actual);
             }
 
             SECTION("before begin")
@@ -895,15 +901,18 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                randomValue = rand();
-                sz = rand() % 10 + SmallRandomSize;
+                SECTION("size is non-zero")
+                {
+                    randomValue = rand();
+                    sz = rand() % 10 + SmallRandomSize;
 
-                expectReturnPos = expect.insert(expect.begin(), sz, randomValue);
-                actualReturnPos = actual.insert(actual.begin(), sz, randomValue);
+                    expectReturnPos = expect.insert(expect.begin(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.begin(), sz, randomValue);
 
-                CHECK(expectReturnPos == expect.begin());
-                CHECK(actualReturnPos == actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("before end")
@@ -925,23 +934,26 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                randomValue = rand();
-                sz = rand() % 10 + SmallRandomSize;
-
-                expectReturnPos = expect.insert(expect.end(), sz, randomValue);
-                actualReturnPos = actual.insert(actual.end(), sz, randomValue);
-
-                auto tempe = expect.end();
-                auto tempa = actual.end();
-                ++sz;
-                while (--sz)
+                SECTION("size is non-zero")
                 {
-                    --tempe;
-                    --tempa;
+                    randomValue = rand();
+                    sz = rand() % 10 + SmallRandomSize;
+
+                    expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                    actualReturnPos = actual.insert(actual.end(), sz, randomValue);
+
+                    auto tempe = expect.end();
+                    auto tempa = actual.end();
+                    ++sz;
+                    while (--sz)
+                    {
+                        --tempe;
+                        --tempa;
+                    }
+                    CHECK(expectReturnPos == tempe);
+                    CHECK(actualReturnPos == tempa);
+                    isSame(expect, actual);
                 }
-                CHECK(expectReturnPos == tempe);
-                CHECK(actualReturnPos == tempa);
-                isSame(expect, actual);
             }
 
             SECTION("between of begin and end")
@@ -966,15 +978,18 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                randomValue = rand();
-                sz = rand() % 10 + SmallRandomSize;
+                SECTION("size is non-zero")
+                {
+                    randomValue = rand();
+                    sz = rand() % 10 + SmallRandomSize;
 
-                expectReturnPos = expect.insert(++expect.begin(), sz, randomValue);
-                actualReturnPos = actual.insert(++actual.begin(), sz, randomValue);
+                    expectReturnPos = expect.insert(++expect.begin(), sz, randomValue);
+                    actualReturnPos = actual.insert(++actual.begin(), sz, randomValue);
 
-                CHECK(expectReturnPos == ++expect.begin());
-                CHECK(actualReturnPos == ++actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("size is 1")
@@ -1023,12 +1038,15 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                expectReturnPos = expect.insert(expect.end(), randomIlist);
-                actualReturnPos = actual.insert(actual.end(), randomIlist);
+                SECTION("initializer_list is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.end(), randomIlist);
+                    actualReturnPos = actual.insert(actual.end(), randomIlist);
 
-                CHECK(expectReturnPos == expect.begin());
-                CHECK(actualReturnPos == actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("before begin")
@@ -1045,12 +1063,15 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                expectReturnPos = expect.insert(expect.begin(), randomIlist);
-                actualReturnPos = actual.insert(actual.begin(), randomIlist);
+                SECTION("initializer_list is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.begin(), randomIlist);
+                    actualReturnPos = actual.insert(actual.begin(), randomIlist);
 
-                CHECK(expectReturnPos == expect.begin());
-                CHECK(actualReturnPos == actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("before end")
@@ -1067,12 +1088,15 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                expectReturnPos = expect.insert(expect.end(), randomIlist);
-                actualReturnPos = actual.insert(actual.end(), randomIlist);
+                SECTION("initializer_list is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.end(), randomIlist);
+                    actualReturnPos = actual.insert(actual.end(), randomIlist);
 
-                CHECK(expectReturnPos == ++++expect.begin());
-                CHECK(actualReturnPos == ++++actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == ++++expect.begin());
+                    CHECK(actualReturnPos == ++++actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("between of begin and end")
@@ -1089,12 +1113,15 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                expectReturnPos = expect.insert(++expect.begin(), randomIlist);
-                actualReturnPos = actual.insert(++actual.begin(), randomIlist);
+                SECTION("initializer_list is non-empty")
+                {
+                    expectReturnPos = expect.insert(++expect.begin(), randomIlist);
+                    actualReturnPos = actual.insert(++actual.begin(), randomIlist);
 
-                CHECK(expectReturnPos == ++expect.begin());
-                CHECK(actualReturnPos == ++actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("size of initializer is 1")
@@ -1123,6 +1150,7 @@ TEST_CASE("modifiers")
             {
                 expect.clear();
                 actual.clear();
+
                 SECTION("container is empty")
                 {
                     randomSmallContainer = {};
@@ -1699,6 +1727,7 @@ TEST_CASE("iterator rely on [push_back]")
         {
             auto actualIt = --actual.end();
             auto expectIt = --expectRandomContainer.end();
+
             SECTION("++i/--i rely on [push_back]")
             {
                 while (expectIt > expectRandomContainer.begin())
