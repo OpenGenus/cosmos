@@ -95,6 +95,8 @@ TEST_CASE("-ctors converts and its types")
 {
     expectListContainer expect;
     actualListContainer actual;
+    const expectListContainer cExpect;
+    const actualListContainer cActual;
 
     SECTION("iterator")
     {
@@ -139,15 +141,15 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
 
-            // testListContainer::iterator actualCIt1(actual.cbegin());
-            // testListContainer::reverse_iterator actualCIt3(actual.cbegin());
+            // actualListContainer::iterator actualCIt1(actual.cbegin());
+            // actualListContainer::reverse_iterator actualCIt3(actual.cbegin());
 
-            // testListContainer::iterator actualRIt1(actual.rbegin());
-            // testListContainer::const_iterator actualRIt2(actual.rbegin());
+            // actualListContainer::iterator actualRIt1(actual.rbegin());
+            // actualListContainer::const_iterator actualRIt2(actual.rbegin());
 
-            // testListContainer::iterator actualCRIt1(actual.crbegin());
-            // testListContainer::const_iterator actualCRIt2(actual.crbegin());
-            // testListContainer::reverse_iterator actualCRIt3(actual.crbegin());
+            // actualListContainer::iterator actualCRIt1(actual.crbegin());
+            // actualListContainer::const_iterator actualCRIt2(actual.crbegin());
+            // actualListContainer::reverse_iterator actualCRIt3(actual.crbegin());
         }
 
         SECTION("end")
@@ -191,123 +193,123 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::const_iterator expectCRIt2(expect.crend());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
 
-            // testListContainer::iterator actualCIt1(actual.cend());
-            // testListContainer::reverse_iterator actualCIt3(actual.cend());
+            // actualListContainer::iterator actualCIt1(actual.cend());
+            // actualListContainer::reverse_iterator actualCIt3(actual.cend());
             //
-            // testListContainer::iterator actualRIt1(actual.rend());
-            // testListContainer::const_iterator actualRIt2(actual.rend());
+            // actualListContainer::iterator actualRIt1(actual.rend());
+            // actualListContainer::const_iterator actualRIt2(actual.rend());
             //
-            // testListContainer::iterator actualCRIt1(actual.crend());
-            // testListContainer::const_iterator actualCRIt2(actual.crend());
-            // testListContainer::reverse_iterator actualCRIt3(actual.crend());
+            // actualListContainer::iterator actualCRIt1(actual.crend());
+            // actualListContainer::const_iterator actualCRIt2(actual.crend());
+            // actualListContainer::reverse_iterator actualCRIt3(actual.crend());
         }
 
         SECTION("const begin")
         {
-            expectListContainer::const_iterator expectIt2(expect.begin());
-            expectListContainer::const_reverse_iterator expectIt4(expect.begin());
+            const expectListContainer::const_iterator expectIt2(cExpect.begin());
+            const expectListContainer::const_reverse_iterator expectIt4(cExpect.begin());
 
-            expectListContainer::const_iterator expectCIt2(expect.cbegin());
-            expectListContainer::const_reverse_iterator expectCIt4(expect.cbegin());
+            const expectListContainer::const_iterator expectCIt2(cExpect.cbegin());
+            const expectListContainer::const_reverse_iterator expectCIt4(cExpect.cbegin());
 
-            expectListContainer::const_reverse_iterator expectRIt4(expect.rbegin());
+            const expectListContainer::const_reverse_iterator expectRIt4(cExpect.rbegin());
 
-            expectListContainer::const_reverse_iterator expectCRIt4(expect.crbegin());
+            const expectListContainer::const_reverse_iterator expectCRIt4(cExpect.crbegin());
 
-            actualListContainer::const_iterator actualIt2(actual.begin());
-            actualListContainer::const_reverse_iterator actualIt4(actual.begin());
+            const actualListContainer::const_iterator actualIt2(cActual.begin());
+            const actualListContainer::const_reverse_iterator actualIt4(cActual.begin());
 
-            actualListContainer::const_iterator actualCIt2(actual.cbegin());
-            actualListContainer::const_reverse_iterator actualCIt4(actual.cbegin());
+            const actualListContainer::const_iterator actualCIt2(cActual.cbegin());
+            const actualListContainer::const_reverse_iterator actualCIt4(cActual.cbegin());
 
-            actualListContainer::const_reverse_iterator actualRIt4(actual.rbegin());
+            const actualListContainer::const_reverse_iterator actualRIt4(cActual.rbegin());
 
-            actualListContainer::const_reverse_iterator actualCRIt4(actual.crbegin());
+            const actualListContainer::const_reverse_iterator actualCRIt4(cActual.crbegin());
         }
 
         SECTION("const begin errors")
         {
-            // expectListContainer::iterator expectIt1(expect.begin());
-            // expectListContainer::reverse_iterator expectIt3(expect.begin());
+            // const expectListContainer::iterator expectIt1(cExpect.begin());
+            // const expectListContainer::reverse_iterator expectIt3(cExpect.begin());
             //
-            // expectListContainer::iterator expectCIt1(expect.cbegin());
-            // expectListContainer::reverse_iterator expectCIt3(expect.cbegin());
+            // const expectListContainer::iterator expectCIt1(cExpect.cbegin());
+            // const expectListContainer::reverse_iterator expectCIt3(cExpect.cbegin());
             //
-            // expectListContainer::iterator expectRIt1(expect.rbegin());
-            // expectListContainer::const_iterator expectRIt2(expect.rbegin());
-            // expectListContainer::reverse_iterator expectRIt3(expect.rbegin());
+            // const expectListContainer::iterator expectRIt1(cExpect.rbegin());
+            // const expectListContainer::const_iterator expectRIt2(cExpect.rbegin());
+            // const expectListContainer::reverse_iterator expectRIt3(cExpect.rbegin());
             //
-            // expectListContainer::iterator expectCRIt1(expect.crbegin());
-            // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
-            // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
+            // const expectListContainer::iterator expectCRIt1(cExpect.crbegin());
+            // const expectListContainer::const_iterator expectCRIt2(cExpect.crbegin());
+            // const expectListContainer::reverse_iterator expectCRIt3(cExpect.crbegin());
 
-            // testListContainer::iterator actualIt1(actual.begin());
-            // testListContainer::reverse_iterator actualIt3(actual.begin());
+            // const actualListContainer::iterator actualIt1(cActual.begin());
+            // const actualListContainer::reverse_iterator actualIt3(cActual.begin());
             //
-            // testListContainer::iterator actualCIt1(actual.cbegin());
-            // testListContainer::reverse_iterator actualCIt3(actual.cbegin());
+            // const actualListContainer::iterator actualCIt1(cActual.cbegin());
+            // const actualListContainer::reverse_iterator actualCIt3(cActual.cbegin());
             //
-            // testListContainer::iterator actualRIt1(actual.rbegin());
-            // testListContainer::const_iterator actualRIt2(actual.rbegin());
-            // testListContainer::reverse_iterator actualRIt3(actual.rbegin());
+            // const actualListContainer::iterator actualRIt1(cActual.rbegin());
+            // const actualListContainer::const_iterator actualRIt2(cActual.rbegin());
+            // const actualListContainer::reverse_iterator actualRIt3(cActual.rbegin());
             //
-            // testListContainer::iterator actualCRIt1(actual.crbegin());
-            // testListContainer::const_iterator actualCRIt2(actual.crbegin());
-            // testListContainer::reverse_iterator actualCRIt3(actual.crbegin());
+            // const actualListContainer::iterator actualCRIt1(cActual.crbegin());
+            // const actualListContainer::const_iterator actualCRIt2(cActual.crbegin());
+            // const actualListContainer::reverse_iterator actualCRIt3(cActual.crbegin());
         }
 
         SECTION("const end")
         {
-            expectListContainer::const_iterator expectIt2(expect.end());
-            expectListContainer::const_reverse_iterator expectIt4(expect.end());
+            const expectListContainer::const_iterator expectIt2(cExpect.end());
+            const expectListContainer::const_reverse_iterator expectIt4(cExpect.end());
 
-            expectListContainer::const_iterator expectCIt2(expect.cend());
-            expectListContainer::const_reverse_iterator expectCIt4(expect.cend());
+            const expectListContainer::const_iterator expectCIt2(cExpect.cend());
+            const expectListContainer::const_reverse_iterator expectCIt4(cExpect.cend());
 
-            expectListContainer::const_reverse_iterator expectRIt4(expect.rend());
+            const expectListContainer::const_reverse_iterator expectRIt4(cExpect.rend());
 
-            expectListContainer::const_reverse_iterator expectCRIt4(expect.crend());
+            const expectListContainer::const_reverse_iterator expectCRIt4(cExpect.crend());
 
-            actualListContainer::const_iterator actualIt2(actual.end());
-            actualListContainer::const_reverse_iterator actualIt4(actual.end());
+            const actualListContainer::const_iterator actualIt2(cActual.end());
+            const actualListContainer::const_reverse_iterator actualIt4(cActual.end());
 
-            actualListContainer::const_iterator actualCIt2(actual.cend());
-            actualListContainer::const_reverse_iterator actualCIt4(actual.cend());
+            const actualListContainer::const_iterator actualCIt2(cActual.cend());
+            const actualListContainer::const_reverse_iterator actualCIt4(cActual.cend());
 
-            actualListContainer::const_reverse_iterator actualRIt4(actual.rend());
+            const actualListContainer::const_reverse_iterator actualRIt4(cActual.rend());
 
-            actualListContainer::const_reverse_iterator actualCRIt4(actual.crend());
+            const actualListContainer::const_reverse_iterator actualCRIt4(cActual.crend());
         }
 
         SECTION("const end error")
         {
-            // expectListContainer::iterator expectIt1(expect.end());
-            // expectListContainer::reverse_iterator expectIt3(expect.end());
+            // const expectListContainer::iterator expectIt1(cExpect.end());
+            // const expectListContainer::reverse_iterator expectIt3(cExpect.end());
             //
-            // expectListContainer::iterator expectCIt1(expect.cend());
-            // expectListContainer::reverse_iterator expectCIt3(expect.cend());
+            // const expectListContainer::iterator expectCIt1(cExpect.cend());
+            // const expectListContainer::reverse_iterator expectCIt3(cExpect.cend());
             //
-            // expectListContainer::iterator expectRIt1(expect.rend());
-            // expectListContainer::const_iterator expectRIt2(expect.rend());
-            // expectListContainer::reverse_iterator expectRIt3(expect.rend());
+            // const expectListContainer::iterator expectRIt1(cExpect.rend());
+            // const expectListContainer::const_iterator expectRIt2(cExpect.rend());
+            // const expectListContainer::reverse_iterator expectRIt3(cExpect.rend());
             //
-            // expectListContainer::iterator expectCRIt1(expect.crend());
-            // expectListContainer::const_iterator expectCRIt2(expect.crend());
-            // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
+            // const expectListContainer::iterator expectCRIt1(cExpect.crend());
+            // const expectListContainer::const_iterator expectCRIt2(cExpect.crend());
+            // const expectListContainer::reverse_iterator expectCRIt3(cExpect.crend());
 
-            // testListContainer::iterator actualIt1(actual.end());
-            // testListContainer::reverse_iterator actualIt3(actual.end());
+            // const actualListContainer::iterator actualIt1(cActual.end());
+            // const actualListContainer::reverse_iterator actualIt3(cActual.end());
             //
-            // testListContainer::iterator actualCIt1(actual.cend());
-            // testListContainer::reverse_iterator actualCIt3(actual.cend());
+            // const actualListContainer::iterator actualCIt1(cActual.cend());
+            // const actualListContainer::reverse_iterator actualCIt3(cActual.cend());
             //
-            // testListContainer::iterator actualRIt1(actual.rend());
-            // testListContainer::const_iterator actualRIt2(actual.rend());
-            // testListContainer::reverse_iterator actualRIt3(actual.rend());
+            // const actualListContainer::iterator actualRIt1(cActual.rend());
+            // const actualListContainer::const_iterator actualRIt2(cActual.rend());
+            // const actualListContainer::reverse_iterator actualRIt3(cActual.rend());
             //
-            // testListContainer::iterator actualCRIt1(actual.crend());
-            // testListContainer::const_iterator actualCRIt2(actual.crend());
-            // testListContainer::reverse_iterator actualCRIt3(actual.crend());
+            // const actualListContainer::iterator actualCRIt1(cActual.crend());
+            // const actualListContainer::const_iterator actualCRIt2(cActual.crend());
+            // const actualListContainer::reverse_iterator actualCRIt3(cActual.crend());
         }
     }
 
