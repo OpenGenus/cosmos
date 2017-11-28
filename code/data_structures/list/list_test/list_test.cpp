@@ -1643,9 +1643,7 @@ TEST_CASE("capcity rely on [push/pop]")
     actualListContainer actual;
     CHECK(actual.empty());
     CHECK(actual.size() == 0);
-    actual.clear();
-    CHECK(actual.empty());
-    CHECK(actual.size() == 0);
+    CHECK(actual.max_size() >= actual.size());
 
     SECTION("random actions")
     {
@@ -1681,6 +1679,7 @@ TEST_CASE("capcity rely on [push/pop]")
                 }
             }
             CHECK(actual.size() == expectSize);
+            CHECK(actual.max_size() >= expectSize);
             CHECK((expectSize ^ actual.empty()));
         });
     }
