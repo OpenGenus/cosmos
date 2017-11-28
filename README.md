@@ -7,11 +7,16 @@
 	<br>
 </h1>
 
+A digital assistant for your device that uses speech-recognition to obey your commands
+
+NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Code 2017](https://kwoc.kossiitkgp.in/) :tada:
+
 ### List of contents
 
 - [Declassified debrief](#declassified-debrief)
 - [Installation](#installation)
 - [Contributing](#contributing)
+- [Communicate](#communicate)
 - [License](#license)
 
 ### Declassified debrief 
@@ -36,7 +41,10 @@ P.S. We are trying to make B.E.N.J.I. work for Linux and MacOS too. Currently it
 [(Back to top)](#list-of-contents)
 
 Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! :smile: <br>
-B.E.N.J.I. is a project under the [Kharagpur Winter of Code 2017](https://kwoc.kossiitkgp.in/)
+
+### Communicate
+
+You will shortly be sent an invite to the Google discussion group after pinging me at dhruvgirishapte@gmail.com
 
 ### License
 
