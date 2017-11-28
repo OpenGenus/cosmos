@@ -41,7 +41,7 @@ public class Baconian {
 
         word = word.toLowerCase();
 
-        for(Character letter : word.toCharArray()) {
+        for (Character letter : word.toCharArray()) {
 
             results.append(this.cipherMap.get(letter.toString()));
 
@@ -57,13 +57,13 @@ public class Baconian {
 
         word = word.toLowerCase();
 
-        for(int start = 0; start < word.length() / 5; ++start) {
-
-            int startIndex = start * 5;
+        for (int start = 0; start < word.length() / 5; ++start) {
 
             StringBuilder code = new StringBuilder();
 
-            for(int index = startIndex; index < startIndex + 5; ++index) {
+            int startIndex = start * 5;
+
+            for (int index = startIndex; index < startIndex + 5; ++index) {
 
                 code.append(word.charAt(index));
 
