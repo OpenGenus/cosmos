@@ -10,10 +10,13 @@ int main()
     
     for (int i = 1; i < 1000000; ++i)
     {
-        std::string currentBinaryString = std::bitset<32>(i).to_string();
-        currentBinaryString.erase(0, currentBinaryString.find('1')); // Remove leading zeroes
-        if (isPalindrome(std::to_string(i)) && isPalindrome(currentBinaryString))
-            sum += i;
+        if (isPalindrome(std::to_string(i)))
+        {
+            std::string currentBinaryString = std::bitset<32>(i).to_string();
+            currentBinaryString.erase(0, currentBinaryString.find('1')); // Remove leading zeroes
+            if (isPalindrome(currentBinaryString))
+                sum += i;    
+        }
     }
     std::cout << sum << "\n";
 }
