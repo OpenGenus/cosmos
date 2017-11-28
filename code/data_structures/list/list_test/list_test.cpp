@@ -16,8 +16,16 @@
 using vectorContainer = std::vector<int>;
 using expectListContainer = std::list<int>;
 using actualListContainer = XorLinkedList<int>;
-const size_t RandomSize = 100000 + rand() % 2;
-const size_t SmallRandomSize = RandomSize / 100;
+static size_t RandomSize;
+static size_t SmallRandomSize;
+
+TEST_CASE("init")
+{
+    srand(static_cast<unsigned int>(clock()));
+
+    RandomSize = 100000 + rand() % 2;
+    SmallRandomSize = RandomSize / rand() % 100 + 50;
+}
 
 auto getRandomValueContainer = ([](size_t sz = RandomSize)
 {
@@ -85,7 +93,6 @@ auto isSame = ([](expectListContainer expect, actualListContainer actual)
 
 TEST_CASE("-ctors converts and its types")
 {
-    srand(static_cast<unsigned int>(clock()));
     SECTION("iterator")
     {
         SECTION("begin")
