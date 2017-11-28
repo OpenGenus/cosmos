@@ -59,9 +59,9 @@ auto copyContainerToList = ([](const vectorContainer &container)
     return actual;
 });
 
-auto copyRandomPartContainerToExpectAndActualList = ([](const vectorContainer &container,
-                                                        expectListContainer &expect,
-                                                        actualListContainer &actual)
+auto copyRandomPartContainerToLists = ([](const vectorContainer &container,
+                                          expectListContainer &expect,
+                                          actualListContainer &actual)
 {
     std::for_each(container.begin(), container.end(), [&](int v)
     {
@@ -93,11 +93,13 @@ auto isSame = ([](expectListContainer expect, actualListContainer actual)
 
 TEST_CASE("-ctors converts and its types")
 {
+    expectListContainer expect;
+    actualListContainer actual;
+
     SECTION("iterator")
     {
         SECTION("begin")
         {
-            expectListContainer expect;
             expectListContainer::iterator expectIt1(expect.begin());
             expectListContainer::const_iterator expectIt2(expect.begin());
             expectListContainer::reverse_iterator expectIt3(expect.begin());
@@ -111,7 +113,6 @@ TEST_CASE("-ctors converts and its types")
 
             expectListContainer::const_reverse_iterator expectCRIt4(expect.crbegin());
 
-            actualListContainer actual;
             actualListContainer::iterator actualIt1(actual.begin());
             actualListContainer::const_iterator actualIt2(actual.begin());
             actualListContainer::reverse_iterator actualIt3(actual.begin());
@@ -128,8 +129,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("begin errors")
         {
-            expectListContainer expect;
-
             // expectListContainer::iterator expectCIt1(expect.cbegin());
             // expectListContainer::reverse_iterator expectCIt3(expect.cbegin());
             //
@@ -139,8 +138,6 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::iterator expectCRIt1(expect.crbegin());
             // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
-
-            actualListContainer actual;
 
             // testListContainer::iterator actualCIt1(actual.cbegin());
             // testListContainer::reverse_iterator actualCIt3(actual.cbegin());
@@ -155,7 +152,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("end")
         {
-            expectListContainer expect;
             expectListContainer::iterator expectIt1(expect.end());
             expectListContainer::const_iterator expectIt2(expect.end());
             expectListContainer::reverse_iterator expectIt3(expect.end());
@@ -169,7 +165,6 @@ TEST_CASE("-ctors converts and its types")
 
             expectListContainer::const_reverse_iterator expectCRIt4(expect.crend());
 
-            actualListContainer actual;
             actualListContainer::iterator actualIt1(actual.end());
             actualListContainer::const_iterator actualIt2(actual.end());
             actualListContainer::reverse_iterator actualIt3(actual.end());
@@ -186,8 +181,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("end error")
         {
-            expectListContainer expect;
-
             // expectListContainer::iterator expectCIt1(expect.cend());
             // expectListContainer::reverse_iterator expectCIt3(expect.cend());
             //
@@ -197,8 +190,6 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::iterator expectCRIt1(expect.crend());
             // expectListContainer::const_iterator expectCRIt2(expect.crend());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
-
-            actualListContainer actual;
 
             // testListContainer::iterator actualCIt1(actual.cend());
             // testListContainer::reverse_iterator actualCIt3(actual.cend());
@@ -213,8 +204,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const begin")
         {
-            const expectListContainer expect;
-
             expectListContainer::const_iterator expectIt2(expect.begin());
             expectListContainer::const_reverse_iterator expectIt4(expect.begin());
 
@@ -224,8 +213,6 @@ TEST_CASE("-ctors converts and its types")
             expectListContainer::const_reverse_iterator expectRIt4(expect.rbegin());
 
             expectListContainer::const_reverse_iterator expectCRIt4(expect.crbegin());
-
-            const actualListContainer actual;
 
             actualListContainer::const_iterator actualIt2(actual.begin());
             actualListContainer::const_reverse_iterator actualIt4(actual.begin());
@@ -240,8 +227,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const begin errors")
         {
-            const expectListContainer expect;
-
             // expectListContainer::iterator expectIt1(expect.begin());
             // expectListContainer::reverse_iterator expectIt3(expect.begin());
             //
@@ -255,8 +240,6 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::iterator expectCRIt1(expect.crbegin());
             // expectListContainer::const_iterator expectCRIt2(expect.crbegin());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crbegin());
-
-            const actualListContainer actual;
 
             // testListContainer::iterator actualIt1(actual.begin());
             // testListContainer::reverse_iterator actualIt3(actual.begin());
@@ -275,8 +258,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const end")
         {
-            const expectListContainer expect;
-
             expectListContainer::const_iterator expectIt2(expect.end());
             expectListContainer::const_reverse_iterator expectIt4(expect.end());
 
@@ -286,8 +267,6 @@ TEST_CASE("-ctors converts and its types")
             expectListContainer::const_reverse_iterator expectRIt4(expect.rend());
 
             expectListContainer::const_reverse_iterator expectCRIt4(expect.crend());
-
-            const actualListContainer actual;
 
             actualListContainer::const_iterator actualIt2(actual.end());
             actualListContainer::const_reverse_iterator actualIt4(actual.end());
@@ -302,8 +281,6 @@ TEST_CASE("-ctors converts and its types")
 
         SECTION("const end error")
         {
-            const expectListContainer expect;
-
             // expectListContainer::iterator expectIt1(expect.end());
             // expectListContainer::reverse_iterator expectIt3(expect.end());
             //
@@ -317,8 +294,6 @@ TEST_CASE("-ctors converts and its types")
             // expectListContainer::iterator expectCRIt1(expect.crend());
             // expectListContainer::const_iterator expectCRIt2(expect.crend());
             // expectListContainer::reverse_iterator expectCRIt3(expect.crend());
-
-            const actualListContainer actual;
 
             // testListContainer::iterator actualIt1(actual.end());
             // testListContainer::reverse_iterator actualIt3(actual.end());
@@ -350,14 +325,17 @@ TEST_CASE("-ctors converts and its types")
 
 TEST_CASE("const semantic")
 {
+    expectListContainer expect;
+    actualListContainer actual;
+
+    const expectListContainer cExpect;
+    const actualListContainer cActual;
+
     using std::is_const;
     SECTION("iterators")
     {
         SECTION("non-const")
         {
-            expectListContainer expect;
-            actualListContainer actual;
-
             CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
             CHECK(is_const<decltype(actual.begin().operator->())>()
                 == is_const<decltype(expect.begin().operator->())>());
@@ -427,74 +405,71 @@ TEST_CASE("const semantic")
 
         SECTION("const")
         {
-            const expectListContainer expect;
-            const actualListContainer actual;
+            CHECK(is_const<decltype(cActual.begin())>() == is_const<decltype(cExpect.begin())>());
+            CHECK(is_const<decltype(cActual.begin().operator->())>()
+                == is_const<decltype(cExpect.begin().operator->())>());
+            CHECK(is_const<decltype(*cActual.begin())>() == is_const<decltype(*cExpect.begin())>());
+            CHECK(is_const<decltype(cActual.end())>() == is_const<decltype(cExpect.end())>());
+            CHECK(is_const<decltype(cActual.end().operator->())>()
+                == is_const<decltype(cExpect.end().operator->())>());
+            CHECK(is_const<decltype(*cActual.end())>() == is_const<decltype(*cExpect.end())>());
 
-            CHECK(is_const<decltype(actual.begin())>() == is_const<decltype(expect.begin())>());
-            CHECK(is_const<decltype(actual.begin().operator->())>()
-                == is_const<decltype(expect.begin().operator->())>());
-            CHECK(is_const<decltype(*actual.begin())>() == is_const<decltype(*expect.begin())>());
-            CHECK(is_const<decltype(actual.end())>() == is_const<decltype(expect.end())>());
-            CHECK(is_const<decltype(actual.end().operator->())>()
-                == is_const<decltype(expect.end().operator->())>());
-            CHECK(is_const<decltype(*actual.end())>() == is_const<decltype(*expect.end())>());
+            CHECK(is_const<decltype(cActual.cbegin())>() == is_const<decltype(cExpect.cbegin())>());
+            CHECK(is_const<decltype(cActual.cbegin().operator->())>()
+                == is_const<decltype(cExpect.cbegin().operator->())>());
+            CHECK(is_const<decltype(*cActual.cbegin())>()
+                == is_const<decltype(*cExpect.cbegin())>());
+            CHECK(is_const<decltype(cActual.cend())>() == is_const<decltype(cExpect.cend())>());
+            CHECK(is_const<decltype(cActual.cend().operator->())>()
+                == is_const<decltype(cExpect.cend().operator->())>());
+            CHECK(is_const<decltype(*cActual.cend())>() == is_const<decltype(*cExpect.cend())>());
 
-            CHECK(is_const<decltype(actual.cbegin())>() == is_const<decltype(expect.cbegin())>());
-            CHECK(is_const<decltype(actual.cbegin().operator->())>()
-                == is_const<decltype(expect.cbegin().operator->())>());
-            CHECK(is_const<decltype(*actual.cbegin())>()
-                == is_const<decltype(*expect.cbegin())>());
-            CHECK(is_const<decltype(actual.cend())>() == is_const<decltype(expect.cend())>());
-            CHECK(is_const<decltype(actual.cend().operator->())>()
-                == is_const<decltype(expect.cend().operator->())>());
-            CHECK(is_const<decltype(*actual.cend())>() == is_const<decltype(*expect.cend())>());
+            CHECK(is_const<decltype(cActual.rbegin())>() == is_const<decltype(cExpect.rbegin())>());
+            CHECK(is_const<decltype(cActual.rbegin().operator->())>()
+                == is_const<decltype(cExpect.rbegin().operator->())>());
+            CHECK(is_const<decltype(*cActual.rbegin())>()
+                == is_const<decltype(*cExpect.rbegin())>());
+            CHECK(is_const<decltype(cActual.rend())>() == is_const<decltype(cExpect.rend())>());
+            CHECK(is_const<decltype(cActual.rend().operator->())>()
+                == is_const<decltype(cExpect.rend().operator->())>());
+            CHECK(is_const<decltype(*cActual.rend())>() == is_const<decltype(*cExpect.rend())>());
 
-            CHECK(is_const<decltype(actual.rbegin())>() == is_const<decltype(expect.rbegin())>());
-            CHECK(is_const<decltype(actual.rbegin().operator->())>()
-                == is_const<decltype(expect.rbegin().operator->())>());
-            CHECK(is_const<decltype(*actual.rbegin())>()
-                == is_const<decltype(*expect.rbegin())>());
-            CHECK(is_const<decltype(actual.rend())>() == is_const<decltype(expect.rend())>());
-            CHECK(is_const<decltype(actual.rend().operator->())>()
-                == is_const<decltype(expect.rend().operator->())>());
-            CHECK(is_const<decltype(*actual.rend())>() == is_const<decltype(*expect.rend())>());
+            CHECK(is_const<decltype(cActual.crbegin())>()
+                == is_const<decltype(cExpect.crbegin())>());
+            CHECK(is_const<decltype(cActual.crbegin().operator->())>()
+                == is_const<decltype(cExpect.crbegin().operator->())>());
+            CHECK(is_const<decltype(*cActual.crbegin())>()
+                == is_const<decltype(*cExpect.crbegin())>());
+            CHECK(is_const<decltype(cActual.crend())>() == is_const<decltype(cExpect.crend())>());
+            CHECK(is_const<decltype(cActual.crend().operator->())>()
+                == is_const<decltype(cExpect.crend().operator->())>());
+            CHECK(is_const<decltype(*cActual.crend())>() == is_const<decltype(*cExpect.crend())>());
 
-            CHECK(is_const<decltype(actual.crbegin())>()
-                == is_const<decltype(expect.crbegin())>());
-            CHECK(is_const<decltype(actual.crbegin().operator->())>()
-                == is_const<decltype(expect.crbegin().operator->())>());
-            CHECK(is_const<decltype(*actual.crbegin())>()
-                == is_const<decltype(*expect.crbegin())>());
-            CHECK(is_const<decltype(actual.crend())>() == is_const<decltype(expect.crend())>());
-            CHECK(is_const<decltype(actual.crend().operator->())>()
-                == is_const<decltype(expect.crend().operator->())>());
-            CHECK(is_const<decltype(*actual.crend())>() == is_const<decltype(*expect.crend())>());
+            CHECK(is_const<decltype(cActual.rbegin().base())>()
+                == is_const<decltype(cExpect.rbegin().base())>());
+            CHECK(is_const<decltype(cActual.rbegin().base().operator->())>()
+                == is_const<decltype(cExpect.rbegin().base().operator->())>());
+            CHECK(is_const<decltype(*cActual.rbegin().base())>()
+                == is_const<decltype(*cExpect.rbegin().base())>());
+            CHECK(is_const<decltype(cActual.rend().base())>()
+                == is_const<decltype(cExpect.rend().base())>());
+            CHECK(is_const<decltype(cActual.rend().base().operator->())>()
+                == is_const<decltype(cExpect.rend().base().operator->())>());
+            CHECK(is_const<decltype(*cActual.rend().base())>()
+                == is_const<decltype(*cExpect.rend().base())>());
 
-            CHECK(is_const<decltype(actual.rbegin().base())>()
-                == is_const<decltype(expect.rbegin().base())>());
-            CHECK(is_const<decltype(actual.rbegin().base().operator->())>()
-                == is_const<decltype(expect.rbegin().base().operator->())>());
-            CHECK(is_const<decltype(*actual.rbegin().base())>()
-                == is_const<decltype(*expect.rbegin().base())>());
-            CHECK(is_const<decltype(actual.rend().base())>()
-                == is_const<decltype(expect.rend().base())>());
-            CHECK(is_const<decltype(actual.rend().base().operator->())>()
-                == is_const<decltype(expect.rend().base().operator->())>());
-            CHECK(is_const<decltype(*actual.rend().base())>()
-                == is_const<decltype(*expect.rend().base())>());
-
-            CHECK(is_const<decltype(actual.crbegin().base())>()
-                == is_const<decltype(expect.crbegin().base())>());
-            CHECK(is_const<decltype(actual.crbegin().base().operator->())>()
-                == is_const<decltype(expect.crbegin().base().operator->())>());
-            CHECK(is_const<decltype(actual.crend().base())>()
-                == is_const<decltype(expect.crend().base())>());
-            CHECK(is_const<decltype(*actual.crbegin().base())>()
-                == is_const<decltype(*expect.crbegin().base())>());
-            CHECK(is_const<decltype(*actual.crbegin().base().operator->())>()
-                == is_const<decltype(*expect.crbegin().base().operator->())>());
-            CHECK(is_const<decltype(*actual.crend().base())>()
-                == is_const<decltype(*expect.crend().base())>());
+            CHECK(is_const<decltype(cActual.crbegin().base())>()
+                == is_const<decltype(cExpect.crbegin().base())>());
+            CHECK(is_const<decltype(cActual.crbegin().base().operator->())>()
+                == is_const<decltype(cExpect.crbegin().base().operator->())>());
+            CHECK(is_const<decltype(cActual.crend().base())>()
+                == is_const<decltype(cExpect.crend().base())>());
+            CHECK(is_const<decltype(*cActual.crbegin().base())>()
+                == is_const<decltype(*cExpect.crbegin().base())>());
+            CHECK(is_const<decltype(*cActual.crbegin().base().operator->())>()
+                == is_const<decltype(*cExpect.crbegin().base().operator->())>());
+            CHECK(is_const<decltype(*cActual.crend().base())>()
+                == is_const<decltype(*cExpect.crend().base())>());
         }
     }
 
@@ -502,29 +477,24 @@ TEST_CASE("const semantic")
     {
         SECTION("non-const")
         {
-            expectListContainer expect;
-            actualListContainer actual;
-
             CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
             CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
         }
 
         SECTION("const")
         {
-            const expectListContainer expect;
-            const actualListContainer actual;
-
-            CHECK(is_const<decltype(actual.front())>() == is_const<decltype(expect.front())>());
-            CHECK(is_const<decltype(actual.back())>() == is_const<decltype(expect.back())>());
+            CHECK(is_const<decltype(cActual.front())>() == is_const<decltype(cExpect.front())>());
+            CHECK(is_const<decltype(cActual.back())>() == is_const<decltype(cExpect.back())>());
         }
     }
 }
 
 TEST_CASE("element access rely on [push]")
 {
+    actualListContainer actual;
+
     SECTION("push one node")
     {
-        actualListContainer actual;
         actual.push_back(1);
         CHECK(actual.front() == 1);
         CHECK(actual.back() == 1);
@@ -532,7 +502,6 @@ TEST_CASE("element access rely on [push]")
 
     SECTION("push two nodes")
     {
-        actualListContainer actual;
         actual.push_back(1);
         actual.push_back(2);
         CHECK(actual.front() == 1);
@@ -545,11 +514,18 @@ TEST_CASE("element access rely on [push]")
 
 TEST_CASE("modifiers")
 {
+    auto randomContainer = getRandomValueContainer();
+    auto randomSmallContainer = getRandomValueContainer(SmallRandomSize);
+    std::initializer_list<int> randomIlist{rand(), rand(), rand(), rand(), rand()};
+    expectListContainer expect;
+    actualListContainer actual;
+    expectListContainer::iterator expectReturnPos;
+    actualListContainer::iterator actualReturnPos;
+    int randomValue{};
+    size_t sz{};
+
     SECTION("empty list")
     {
-        actualListContainer actual;
-        actual.clear();
-
         CHECK_THROWS_AS(actual.front(), std::out_of_range);
         CHECK_THROWS_AS(actual.back(), std::out_of_range);
         CHECK(actual.size() == 0);
@@ -560,13 +536,11 @@ TEST_CASE("modifiers")
     {
         SECTION("while empty")
         {
-            actualListContainer actual;
             actual.clear();
         }
 
         SECTION("after actions")
         {
-            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.clear();
@@ -575,7 +549,6 @@ TEST_CASE("modifiers")
 
         SECTION("before destruct")
         {
-            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -584,7 +557,6 @@ TEST_CASE("modifiers")
 
         SECTION("while destruct")
         {
-            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -593,15 +565,6 @@ TEST_CASE("modifiers")
 
     SECTION("[erase] rely on [push_back/begin/end/op/size]")
     {
-        vectorContainer container = getRandomValueContainer();
-        expectListContainer expect;
-        actualListContainer actual;
-        expectListContainer::iterator expectReturnPos;
-        actualListContainer::iterator actualReturnPos;
-        int randomValue;
-        size_t sz;
-        auto ilist = getRandomValueContainer(SmallRandomSize);
-
         SECTION("erase(const_iterator)")
         {
             SECTION("from empty")
@@ -616,8 +579,6 @@ TEST_CASE("modifiers")
             {
                 SECTION("size is 1")
                 {
-                    expect.clear();
-                    actual.clear();
                     randomValue = rand();
                     expect.push_back(randomValue);
                     actual.push_back(randomValue);
@@ -632,9 +593,7 @@ TEST_CASE("modifiers")
 
                 SECTION("random size")
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                    copyRandomPartContainerToLists(randomContainer, expect, actual);
 
                     expectReturnPos = expect.erase(expect.begin());
                     actualReturnPos = actual.erase(actual.begin());
@@ -649,8 +608,6 @@ TEST_CASE("modifiers")
             {
                 SECTION("size is 1")
                 {
-                    expect.clear();
-                    actual.clear();
                     randomValue = rand();
                     expect.push_back(randomValue);
                     actual.push_back(randomValue);
@@ -663,29 +620,22 @@ TEST_CASE("modifiers")
                     isSame(expect, actual);
                 }
 
-                SECTION("random size")
-                {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                copyRandomPartContainerToLists(randomContainer, expect, actual);
 
-                    expectReturnPos = expect.erase(--expect.end());
-                    actualReturnPos = actual.erase(--actual.end());
+                expectReturnPos = expect.erase(--expect.end());
+                actualReturnPos = actual.erase(--actual.end());
 
-                    CHECK(expectReturnPos == expect.end());
-                    CHECK(actualReturnPos == actual.end());
-                    isSame(expect, actual);
-                }
+                CHECK(expectReturnPos == expect.end());
+                CHECK(actualReturnPos == actual.end());
+                isSame(expect, actual);
             }
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
-                copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                copyRandomPartContainerToLists(randomContainer, expect, actual);
 
-                expectReturnPos = expect.erase(---- expect.end());
-                actualReturnPos = actual.erase(---- actual.end());
+                expectReturnPos = expect.erase(----expect.end());
+                actualReturnPos = actual.erase(----actual.end());
 
                 CHECK(expectReturnPos == --expect.end());
                 CHECK(actualReturnPos == --actual.end());
@@ -705,8 +655,6 @@ TEST_CASE("modifiers")
 
             SECTION("size is 1")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -721,14 +669,12 @@ TEST_CASE("modifiers")
 
             SECTION("random size")
             {
+                copyRandomPartContainerToLists(randomContainer, expect, actual);
+
                 SECTION("[begin : end)")
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(expect.begin(), ++++++ expect.begin());
-                    actualReturnPos = actual.erase(actual.begin(), ++++++ actual.begin());
+                    expectReturnPos = expect.erase(expect.begin(), ++++++expect.begin());
+                    actualReturnPos = actual.erase(actual.begin(), ++++++actual.begin());
 
                     CHECK(expectReturnPos == expect.begin());
                     CHECK(actualReturnPos == actual.begin());
@@ -737,26 +683,18 @@ TEST_CASE("modifiers")
 
                 SECTION("(begin : end)")
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
+                    expectReturnPos = expect.erase(++++++expect.begin(), ------expect.end());
+                    actualReturnPos = actual.erase(++++++actual.begin(), ------actual.end());
 
-                    expectReturnPos = expect.erase(++++++ expect.begin(), ------ expect.end());
-                    actualReturnPos = actual.erase(++++++ actual.begin(), ------ actual.end());
-
-                    CHECK(expectReturnPos == ------ expect.end());
-                    CHECK(actualReturnPos == ------ actual.end());
+                    CHECK(expectReturnPos == ------expect.end());
+                    CHECK(actualReturnPos == ------actual.end());
                     isSame(expect, actual);
                 }
 
                 SECTION("(begin : end]")
                 {
-                    expect.clear();
-                    actual.clear();
-                    copyRandomPartContainerToExpectAndActualList(container, expect, actual);
-
-                    expectReturnPos = expect.erase(++++++ expect.begin(), expect.end());
-                    actualReturnPos = actual.erase(++++++ actual.begin(), actual.end());
+                    expectReturnPos = expect.erase(++++++expect.begin(), expect.end());
+                    actualReturnPos = actual.erase(++++++actual.begin(), actual.end());
 
                     CHECK(expectReturnPos == expect.end());
                     CHECK(actualReturnPos == actual.end());
@@ -768,21 +706,10 @@ TEST_CASE("modifiers")
 
     SECTION("[insert] rely on [op/begin/end/size/push_back/clear]")
     {
-        expectListContainer expect;
-        actualListContainer actual;
-        expectListContainer::iterator expectReturnPos;
-        actualListContainer::iterator actualReturnPos;
-        int randomValue;
-        size_t sz;
-        auto ilist = getRandomValueContainer(SmallRandomSize);
-
         SECTION("insert(const_iterator, const value_type &)")
         {
             SECTION("to empty")
             {
-                expect.clear();
-                actual.clear();
-
                 randomValue = rand();
 
                 expectReturnPos = expect.insert(expect.end(), randomValue);
@@ -795,8 +722,6 @@ TEST_CASE("modifiers")
 
             SECTION("before begin")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -813,8 +738,6 @@ TEST_CASE("modifiers")
 
             SECTION("before end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -831,8 +754,6 @@ TEST_CASE("modifiers")
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -855,9 +776,6 @@ TEST_CASE("modifiers")
         {
             SECTION("to empty")
             {
-                expect.clear();
-                actual.clear();
-
                 randomValue = rand();
 
                 expectReturnPos = expect.insert(expect.end(), std::move(randomValue));
@@ -870,8 +788,6 @@ TEST_CASE("modifiers")
 
             SECTION("before begin")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -888,8 +804,6 @@ TEST_CASE("modifiers")
 
             SECTION("before end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -906,8 +820,6 @@ TEST_CASE("modifiers")
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -930,9 +842,6 @@ TEST_CASE("modifiers")
         {
             SECTION("to empty")
             {
-                expect.clear();
-                actual.clear();
-
                 SECTION("size is 0")
                 {
                     randomValue = rand();
@@ -967,8 +876,6 @@ TEST_CASE("modifiers")
 
             SECTION("before begin")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -999,8 +906,6 @@ TEST_CASE("modifiers")
 
             SECTION("before end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -1039,8 +944,6 @@ TEST_CASE("modifiers")
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -1074,8 +977,6 @@ TEST_CASE("modifiers")
 
             SECTION("size is 1")
             {
-                expect.clear();
-                actual.clear();
                 randomValue = rand();
                 expect.push_back(randomValue);
                 actual.push_back(randomValue);
@@ -1097,27 +998,31 @@ TEST_CASE("modifiers")
 
         SECTION("insert(const_iterator, initilizer_list)")
         {
+            randomValue = rand();
+            expect.push_back(randomValue);
+            actual.push_back(randomValue);
+            randomValue = rand();
+            expect.push_back(randomValue);
+            actual.push_back(randomValue);
+
             SECTION("to empty")
             {
                 expect.clear();
                 actual.clear();
-
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomIlist = {};
 
-                    expectReturnPos = expect.insert(expect.end(), ilist);
-                    actualReturnPos = actual.insert(actual.end(), ilist);
+                    expectReturnPos = expect.insert(expect.end(), randomIlist);
+                    actualReturnPos = actual.insert(actual.end(), randomIlist);
 
                     CHECK(expectReturnPos == expect.end());
                     CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                auto ilist = {rand(), rand(), rand(), rand(), rand()};
-
-                expectReturnPos = expect.insert(expect.end(), ilist);
-                actualReturnPos = actual.insert(actual.end(), ilist);
+                expectReturnPos = expect.insert(expect.end(), randomIlist);
+                actualReturnPos = actual.insert(actual.end(), randomIlist);
 
                 CHECK(expectReturnPos == expect.begin());
                 CHECK(actualReturnPos == actual.begin());
@@ -1126,28 +1031,20 @@ TEST_CASE("modifiers")
 
             SECTION("before begin")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomIlist = {};
 
-                    expectReturnPos = expect.insert(expect.begin(), ilist);
-                    actualReturnPos = actual.insert(actual.begin(), ilist);
+                    expectReturnPos = expect.insert(expect.begin(), randomIlist);
+                    actualReturnPos = actual.insert(actual.begin(), randomIlist);
 
                     CHECK(expectReturnPos == expect.begin());
                     CHECK(actualReturnPos == actual.begin());
                     isSame(expect, actual);
                 }
 
-                auto ilist = {rand(), rand(), rand(), rand(), rand()};
-
-                expectReturnPos = expect.insert(expect.begin(), ilist);
-                actualReturnPos = actual.insert(actual.begin(), ilist);
+                expectReturnPos = expect.insert(expect.begin(), randomIlist);
+                actualReturnPos = actual.insert(actual.begin(), randomIlist);
 
                 CHECK(expectReturnPos == expect.begin());
                 CHECK(actualReturnPos == actual.begin());
@@ -1156,61 +1053,42 @@ TEST_CASE("modifiers")
 
             SECTION("before end")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomIlist = {};
 
-                    expectReturnPos = expect.insert(expect.end(), ilist);
-                    actualReturnPos = actual.insert(actual.end(), ilist);
+                    expectReturnPos = expect.insert(expect.end(), randomIlist);
+                    actualReturnPos = actual.insert(actual.end(), randomIlist);
 
                     CHECK(expectReturnPos == expect.end());
                     CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                auto ilist = {rand(), rand(), rand(), rand(), rand()};
+                expectReturnPos = expect.insert(expect.end(), randomIlist);
+                actualReturnPos = actual.insert(actual.end(), randomIlist);
 
-                expectReturnPos = expect.insert(expect.end(), ilist);
-                actualReturnPos = actual.insert(actual.end(), ilist);
-
-                CHECK(expectReturnPos == ++expect.begin());
-                CHECK(actualReturnPos == ++actual.begin());
+                CHECK(expectReturnPos == ++++expect.begin());
+                CHECK(actualReturnPos == ++++actual.begin());
                 isSame(expect, actual);
             }
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("initializer_list is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomIlist = {};
 
-                    expectReturnPos = expect.insert(++expect.begin(), ilist);
-                    actualReturnPos = actual.insert(++actual.begin(), ilist);
+                    expectReturnPos = expect.insert(++expect.begin(), randomIlist);
+                    actualReturnPos = actual.insert(++actual.begin(), randomIlist);
 
                     CHECK(expectReturnPos == ++expect.begin());
                     CHECK(actualReturnPos == ++actual.begin());
                     isSame(expect, actual);
                 }
 
-                auto ilist = {rand(), rand(), rand(), rand(), rand()};
-
-                expectReturnPos = expect.insert(++expect.begin(), ilist);
-                actualReturnPos = actual.insert(++actual.begin(), ilist);
+                expectReturnPos = expect.insert(++expect.begin(), randomIlist);
+                actualReturnPos = actual.insert(++actual.begin(), randomIlist);
 
                 CHECK(expectReturnPos == ++expect.begin());
                 CHECK(actualReturnPos == ++actual.begin());
@@ -1219,19 +1097,10 @@ TEST_CASE("modifiers")
 
             SECTION("size of initializer is 1")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
+                randomIlist = {rand()};
 
-                auto ilist = {rand()};
-
-                expectReturnPos = expect.insert(++expect.begin(), ilist);
-                actualReturnPos = actual.insert(++actual.begin(), ilist);
+                expectReturnPos = expect.insert(++expect.begin(), randomIlist);
+                actualReturnPos = actual.insert(++actual.begin(), randomIlist);
 
                 CHECK(expectReturnPos == ++expect.begin());
                 CHECK(actualReturnPos == ++actual.begin());
@@ -1241,141 +1110,157 @@ TEST_CASE("modifiers")
 
         SECTION("insert(const_iterator, iterator, iterator)")
         {
+            randomValue = rand();
+            expect.push_back(randomValue);
+            actual.push_back(randomValue);
+            randomValue = rand();
+            expect.push_back(randomValue);
+            actual.push_back(randomValue);
+
             SECTION("to empty")
             {
                 expect.clear();
                 actual.clear();
-
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomSmallContainer = {};
 
-                    expectReturnPos = expect.insert(expect.end(), ilist);
-                    actualReturnPos = actual.insert(actual.end(), ilist);
+                    expectReturnPos = expect.insert(expect.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
                     CHECK(expectReturnPos == expect.end());
                     CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                ilist = getRandomValueContainer(SmallRandomSize);
+                SECTION("container is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
-                expectReturnPos = expect.insert(expect.end(), ilist.begin(), ilist.end());
-                actualReturnPos = actual.insert(actual.end(), ilist.begin(), ilist.end());
-
-                CHECK(expectReturnPos == expect.begin());
-                CHECK(actualReturnPos == actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("before begin")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomSmallContainer = {};
 
-                    expectReturnPos = expect.insert(expect.begin(), ilist);
-                    actualReturnPos = actual.insert(actual.begin(), ilist);
+                    expectReturnPos = expect.insert(expect.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
                     CHECK(expectReturnPos == expect.begin());
                     CHECK(actualReturnPos == actual.begin());
                     isSame(expect, actual);
                 }
 
-                ilist = getRandomValueContainer(SmallRandomSize);
+                SECTION("container is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
-                expectReturnPos = expect.insert(expect.begin(), ilist.begin(), ilist.end());
-                actualReturnPos = actual.insert(actual.begin(), ilist.begin(), ilist.end());
-
-                CHECK(expectReturnPos == expect.begin());
-                CHECK(actualReturnPos == actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == expect.begin());
+                    CHECK(actualReturnPos == actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("before end")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomSmallContainer = {};
 
-                    expectReturnPos = expect.insert(expect.end(), ilist);
-                    actualReturnPos = actual.insert(actual.end(), ilist);
+                    expectReturnPos = expect.insert(expect.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
                     CHECK(expectReturnPos == expect.end());
                     CHECK(actualReturnPos == actual.end());
                     isSame(expect, actual);
                 }
 
-                ilist = getRandomValueContainer(SmallRandomSize);
+                SECTION("container is non-empty")
+                {
+                    expectReturnPos = expect.insert(expect.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(actual.end(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
-                expectReturnPos = expect.insert(expect.end(), ilist.begin(), ilist.end());
-                actualReturnPos = actual.insert(actual.end(), ilist.begin(), ilist.end());
-
-                CHECK(expectReturnPos == ++expect.begin());
-                CHECK(actualReturnPos == ++actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == ++++expect.begin());
+                    CHECK(actualReturnPos == ++++actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("between of begin and end")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-
                 SECTION("container is empty")
                 {
-                    std::initializer_list<int> ilist = {};
+                    randomSmallContainer = {};
 
-                    expectReturnPos = expect.insert(++expect.begin(), ilist);
-                    actualReturnPos = actual.insert(++actual.begin(), ilist);
+                    expectReturnPos = expect.insert(++expect.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(++actual.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
                     CHECK(expectReturnPos == ++expect.begin());
                     CHECK(actualReturnPos == ++actual.begin());
                     isSame(expect, actual);
                 }
 
-                ilist = getRandomValueContainer(SmallRandomSize);
+                SECTION("container is non-empty")
+                {
+                    expectReturnPos = expect.insert(++expect.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
+                    actualReturnPos = actual.insert(++actual.begin(),
+                        randomSmallContainer.begin(),
+                        randomSmallContainer.end());
 
-                expectReturnPos = expect.insert(++expect.begin(), ilist.begin(), ilist.end());
-                actualReturnPos = actual.insert(++actual.begin(), ilist.begin(), ilist.end());
-
-                CHECK(expectReturnPos == ++expect.begin());
-                CHECK(actualReturnPos == ++actual.begin());
-                isSame(expect, actual);
+                    CHECK(expectReturnPos == ++expect.begin());
+                    CHECK(actualReturnPos == ++actual.begin());
+                    isSame(expect, actual);
+                }
             }
 
             SECTION("size of iterator is 1")
             {
-                expect.clear();
-                actual.clear();
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
-                randomValue = rand();
-                expect.push_back(randomValue);
-                actual.push_back(randomValue);
+                randomSmallContainer = {rand()};
 
-                ilist = {1};
-
-                expectReturnPos = expect.insert(++expect.begin(), ilist.begin(), ilist.end());
-                actualReturnPos = actual.insert(++actual.begin(), ilist.begin(), ilist.end());
+                expectReturnPos = expect.insert(++expect.begin(),
+                    randomSmallContainer.begin(),
+                    randomSmallContainer.end());
+                actualReturnPos = actual.insert(++actual.begin(),
+                    randomSmallContainer.begin(),
+                    randomSmallContainer.end());
 
                 CHECK(expectReturnPos == ++expect.begin());
                 CHECK(actualReturnPos == ++actual.begin());
@@ -1386,10 +1271,10 @@ TEST_CASE("modifiers")
 
     SECTION("pop rely on [push_back/front/back]")
     {
+        // std not throws exception while invoke pop on empty list
+
         SECTION("pop_front")
         {
-            actualListContainer actual;
-
             actual.push_back(111);
             CHECK_NOTHROW(actual.pop_front());
             CHECK_THROWS_AS(actual.front(), std::out_of_range);
@@ -1414,8 +1299,6 @@ TEST_CASE("modifiers")
 
         SECTION("pop_back")
         {
-            actualListContainer actual;
-
             actual.push_back(111);
             CHECK_NOTHROW(actual.pop_back());
             CHECK_THROWS_AS(actual.front(), std::out_of_range);
@@ -1440,15 +1323,7 @@ TEST_CASE("modifiers")
 
         SECTION("random pop")
         {
-            auto container = getRandomValueContainer();
-
-            expectListContainer expect;
-            actualListContainer actual;
-            std::for_each(container.begin(), container.end(), [&](int v)
-            {
-                actual.push_back(v);
-                expect.push_back(v);
-            });
+            copyRandomPartContainerToLists(randomContainer, expect, actual);
 
             while (!expect.empty())
             {
@@ -1472,7 +1347,6 @@ TEST_CASE("modifiers")
     {
         SECTION("push front")
         {
-            actualListContainer actual;
             actual.push_front(111);
             CHECK(actual.front() == 111);
             CHECK(actual.back() == 111);
@@ -1485,22 +1359,21 @@ TEST_CASE("modifiers")
             CHECK(*actual.begin() == 222);
             CHECK(*++actual.begin() == 111);
             CHECK(*--actual.end() == 111);
-            CHECK(*---- actual.end() == 222);
+            CHECK(*----actual.end() == 222);
 
             actual.push_front(333);
             CHECK(actual.front() == 333);
             CHECK(actual.back() == 111);
             CHECK(*actual.begin() == 333);
             CHECK(*++actual.begin() == 222);
-            CHECK(*++++ actual.begin() == 111);
+            CHECK(*++++actual.begin() == 111);
             CHECK(*--actual.end() == 111);
-            CHECK(*---- actual.end() == 222);
-            CHECK(*------ actual.end() == 333);
+            CHECK(*----actual.end() == 222);
+            CHECK(*------actual.end() == 333);
         }
 
         SECTION("push back")
         {
-            actualListContainer actual;
             actual.push_back(111);
             CHECK(actual.front() == 111);
             CHECK(actual.back() == 111);
@@ -1513,26 +1386,22 @@ TEST_CASE("modifiers")
             CHECK(*actual.begin() == 111);
             CHECK(*++actual.begin() == 222);
             CHECK(*--actual.end() == 222);
-            CHECK(*---- actual.end() == 111);
+            CHECK(*----actual.end() == 111);
 
             actual.push_back(333);
             CHECK(actual.front() == 111);
             CHECK(actual.back() == 333);
             CHECK(*actual.begin() == 111);
             CHECK(*++actual.begin() == 222);
-            CHECK(*++++ actual.begin() == 333);
+            CHECK(*++++actual.begin() == 333);
             CHECK(*--actual.end() == 333);
-            CHECK(*---- actual.end() == 222);
-            CHECK(*------ actual.end() == 111);
+            CHECK(*----actual.end() == 222);
+            CHECK(*------actual.end() == 111);
         }
 
         SECTION("random push")
         {
-            auto container = getRandomValueContainer();
-
-            expectListContainer expect;
-            actualListContainer actual;
-            std::for_each(container.begin(), container.end(), [&](int v)
+            std::for_each(randomContainer.begin(), randomContainer.end(), [&](int v)
             {
                 if (rand() % 2)
                 {
@@ -1553,13 +1422,9 @@ TEST_CASE("modifiers")
 
     SECTION("random push/pop rely on [front/back]")
     {
-        SECTION("push times is larger than")
+        SECTION("push is more than pop")
         {
-            auto container = getRandomValueContainer();
-
-            expectListContainer expect;
-            actualListContainer actual;
-            std::for_each(container.begin(), container.end(), [&](int v)
+            std::for_each(randomContainer.begin(), randomContainer.end(), [&](int v)
             {
                 if (rand() % 3)
                 {
@@ -1598,13 +1463,9 @@ TEST_CASE("modifiers")
             });
         }
 
-        SECTION("pop times is larger than")
+        SECTION("pop is more than push")
         {
-            auto container = getRandomValueContainer();
-
-            expectListContainer expect;
-            actualListContainer actual;
-            std::for_each(container.begin(), container.end(), [&](int v)
+            std::for_each(randomContainer.begin(), randomContainer.end(), [&](int v)
             {
                 if (!(rand() % 3))
                 {
@@ -1647,6 +1508,7 @@ TEST_CASE("modifiers")
 
 TEST_CASE("capcity rely on [push/pop]")
 {
+    auto randomContainer = getRandomValueContainer();
     actualListContainer actual;
     CHECK(actual.empty());
     CHECK(actual.size() == 0);
@@ -1654,12 +1516,9 @@ TEST_CASE("capcity rely on [push/pop]")
 
     SECTION("random actions")
     {
-        auto container = getRandomValueContainer();
-
-        actualListContainer actual;
         int expectSize = 0;
 
-        std::for_each(container.begin(), container.end(), [&](int v)
+        std::for_each(randomContainer.begin(), randomContainer.end(), [&](int v)
         {
             if (!(rand() % 3))
             {
@@ -1694,32 +1553,34 @@ TEST_CASE("capcity rely on [push/pop]")
 
 TEST_CASE("iterator rely on [push_back]")
 {
+    auto expectRandomContainer = getRandomValueContainer();
+    auto actual = copyContainerToList(expectRandomContainer);
+
     SECTION("random move (i++ more than i--) rely on [push_back]")
     {
         SECTION("iterator")
         {
+            auto actualIt = actual.begin();
+            auto expectIt = expectRandomContainer.begin();
+
             SECTION("++i/--i")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = actual.begin();
-                auto expectIt = expect.begin();
-                while (expectIt < expect.end())
+                while (expectIt < expectRandomContainer.end())
                 {
-                    if (expectIt < expect.begin())
+                    if (expectIt < expectRandomContainer.begin())
                     {
                         ++expectIt;
                         ++actualIt;
                     }
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
 
                     if (rand() % 3) // times: ++ > --
                     {
                         auto temp = expectIt;
-                        if (++temp < expect.end())    // is not lastest
+                        if (++temp < expectRandomContainer.end())    // is not lastest
                             CHECK(*(++actualIt) == *(++expectIt));
                         else
                         {
@@ -1728,43 +1589,36 @@ TEST_CASE("iterator rely on [push_back]")
                             break;
                         }
                     }
-                    else if (expectIt > expect.begin())
+                    else if (expectIt > expectRandomContainer.begin())
                         CHECK(*(--actualIt) == *(--expectIt));
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
                 }
             }
 
             SECTION("i++/i--")
             {
-                auto expect = getRandomValueContainer();
-
-                actualListContainer actual;
-                std::for_each(expect.begin(), expect.end(), [&](int v)
+                while (expectIt < expectRandomContainer.end())
                 {
-                    actual.push_back(v);
-                });
-
-                auto actualIt = actual.begin();
-                auto expectIt = expect.begin();
-                while (expectIt < expect.end())
-                {
-                    if (expectIt < expect.begin())
+                    if (expectIt < expectRandomContainer.begin())
                     {
                         ++expectIt;
                         ++actualIt;
                     }
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
 
                     if (rand() % 3) // times: ++ > --
                         CHECK(*(actualIt++) == *(expectIt++));
-                    else if (expectIt > expect.begin())
+                    else if (expectIt > expectRandomContainer.begin())
                         CHECK(*(actualIt--) == *(expectIt--));
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
                 }
             }
@@ -1772,28 +1626,27 @@ TEST_CASE("iterator rely on [push_back]")
 
         SECTION("reverse iterator")
         {
+            auto actualIt = actual.rbegin();
+            auto expectIt = expectRandomContainer.rbegin();
+
             SECTION("++i/--i")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = actual.rbegin();
-                auto expectIt = expect.rbegin();
-                while (expectIt < expect.rend())
+                while (expectIt < expectRandomContainer.rend())
                 {
-                    if (expectIt < expect.rbegin())
+                    if (expectIt < expectRandomContainer.rbegin())
                     {
                         ++expectIt;
                         ++actualIt;
                     }
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
 
                     if (rand() % 3) // times: ++ > --
                     {
                         auto temp = expectIt;
-                        if (++temp < expect.rend())   // is not lastest
+                        if (++temp < expectRandomContainer.rend())   // is not lastest
                             CHECK(*(++actualIt) == *(++expectIt));
                         else
                         {
@@ -1802,38 +1655,36 @@ TEST_CASE("iterator rely on [push_back]")
                             break;
                         }
                     }
-                    else if (expectIt > expect.rbegin())
+                    else if (expectIt > expectRandomContainer.rbegin())
                         CHECK(*(--actualIt) == *(--expectIt));
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
                 }
             }
 
             SECTION("i++/i--")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = actual.rbegin();
-                auto expectIt = expect.rbegin();
-                while (expectIt < expect.rend())
+                while (expectIt < expectRandomContainer.rend())
                 {
-                    if (expectIt < expect.rbegin())
+                    if (expectIt < expectRandomContainer.rbegin())
                     {
                         ++expectIt;
                         ++actualIt;
                     }
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
 
                     if (rand() % 3) // times: ++ > --
                         CHECK(*(actualIt++) == *(expectIt++));
-                    else if (expectIt > expect.rbegin())
+                    else if (expectIt > expectRandomContainer.rbegin())
                         CHECK(*(actualIt--) == *(expectIt--));
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
                 }
             }
@@ -1844,28 +1695,26 @@ TEST_CASE("iterator rely on [push_back]")
     {
         SECTION("iterator")
         {
+            auto actualIt = --actual.end();
+            auto expectIt = --expectRandomContainer.end();
             SECTION("++i/--i rely on [push_back]")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = --actual.end();
-                auto expectIt = --expect.end();
-                while (expectIt > expect.begin())
+                while (expectIt > expectRandomContainer.begin())
                 {
-                    if (expectIt >= expect.end())
+                    if (expectIt >= expectRandomContainer.end())
                     {
                         --expectIt;
                         --actualIt;
                     }
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
 
                     if (!(rand() % 3)) // times: ++ < --
                     {
                         auto temp = expectIt;
-                        if (++temp < expect.end())
+                        if (++temp < expectRandomContainer.end())
                             CHECK(*(++actualIt) == *(++expectIt));
                         else
                         {
@@ -1874,38 +1723,36 @@ TEST_CASE("iterator rely on [push_back]")
                             break;
                         }
                     }
-                    else if (expectIt > expect.begin())
+                    else if (expectIt > expectRandomContainer.begin())
                         CHECK(*(--actualIt) == *(--expectIt));
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
                 }
             }
 
             SECTION("i++/i-- rely on [push_back]")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = --actual.end();
-                auto expectIt = --expect.end();
-                while (expectIt > expect.begin())
+                while (expectIt > expectRandomContainer.begin())
                 {
-                    if (expectIt >= expect.end())
+                    if (expectIt >= expectRandomContainer.end())
                     {
                         --expectIt;
                         --actualIt;
                     }
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
 
                     if (!(rand() % 3)) // times: ++ < --
                         CHECK(*actualIt++ == *expectIt++);
-                    else if (expectIt > expect.begin())
+                    else if (expectIt > expectRandomContainer.begin())
                         CHECK(*actualIt-- == *expectIt--);
 
-                    if (expectIt > --expect.begin() && expectIt < expect.end())
+                    if (expectIt > --expectRandomContainer.begin() && expectIt
+                        < expectRandomContainer.end())
                         CHECK(*actualIt == *expectIt);
                 }
             }
@@ -1913,27 +1760,26 @@ TEST_CASE("iterator rely on [push_back]")
 
         SECTION("reverse iterator")
         {
+            auto actualIt = actual.rbegin();
+            auto expectIt = expectRandomContainer.rbegin();
+
             SECTION("++i/--i rely on [push_back]")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = actual.rbegin();
-                auto expectIt = expect.rbegin();
-                while (expectIt > expect.rbegin())
+                while (expectIt > expectRandomContainer.rbegin())
                 {
-                    if (expectIt >= expect.rend())
+                    if (expectIt >= expectRandomContainer.rend())
                     {
                         --expectIt;
                         --actualIt;
                     }
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
 
                     if (!(rand() % 3)) // times: ++ < --
                     {
                         auto expectItTemp = expectIt;
-                        if (++expectItTemp < expect.rend())
+                        if (++expectItTemp < expectRandomContainer.rend())
                             CHECK(*(++actualIt) == *(++expectIt));
                         else
                         {
@@ -1942,38 +1788,36 @@ TEST_CASE("iterator rely on [push_back]")
                             break;
                         }
                     }
-                    else if (expectIt > expect.rbegin())
+                    else if (expectIt > expectRandomContainer.rbegin())
                         CHECK(*(--actualIt) == *(--expectIt));
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
                 }
             }
 
             SECTION("i++/i-- rely on [push_back]")
             {
-                auto expect = getRandomValueContainer();
-                auto actual = copyContainerToList(expect);
-
-                auto actualIt = actual.rbegin();
-                auto expectIt = expect.rbegin();
-                while (expectIt > expect.rbegin())
+                while (expectIt > expectRandomContainer.rbegin())
                 {
-                    if (expectIt >= expect.rend())
+                    if (expectIt >= expectRandomContainer.rend())
                     {
                         --expectIt;
                         --actualIt;
                     }
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
 
                     if (!(rand() % 3)) // times: ++ < --
                         CHECK(*(actualIt++) == *(expectIt++));
-                    else if (expectIt > expect.rbegin())
+                    else if (expectIt > expectRandomContainer.rbegin())
                         CHECK(*(actualIt--) == *(expectIt--));
 
-                    if (expectIt > --expect.rbegin() && expectIt < expect.rend())
+                    if (expectIt > --expectRandomContainer.rbegin() && expectIt
+                        < expectRandomContainer.rend())
                         CHECK(*actualIt == *expectIt);
                 }
             }
@@ -1982,14 +1826,14 @@ TEST_CASE("iterator rely on [push_back]")
 
     SECTION("[reverse iterator: base] rely on [++/--]")
     {
-        auto expect = getRandomValueContainer();
-        actualListContainer actual = copyContainerToList(expect);
-        vectorContainer::reverse_iterator expectReverseBegin(expect.begin());
+        auto expectRandomContainer = getRandomValueContainer();
+        actualListContainer actual = copyContainerToList(expectRandomContainer);
+        vectorContainer::reverse_iterator expectReverseBegin(expectRandomContainer.begin());
         actualListContainer::const_reverse_iterator actualReverseBegin(actual.begin());
         auto expectBaseBegin = expectReverseBegin.base();
         auto actualBaseBegin = actualReverseBegin.base();
 
-        while (expectBaseBegin != expect.end())
+        while (expectBaseBegin != expectRandomContainer.end())
         {
             CHECK(*expectBaseBegin == *actualBaseBegin);
             ++expectBaseBegin;
@@ -2000,11 +1844,14 @@ TEST_CASE("iterator rely on [push_back]")
 
 TEST_CASE("operations")
 {
+    auto randomContainer = getRandomValueContainer();
+    expectListContainer expect;
+    actualListContainer actual;
+
     SECTION("[reverse] rely on [empty/size/begin/end/front/back/push_back/push_front]")
     {
         SECTION("empty")
         {
-            actualListContainer actual;
             CHECK(actual.empty());
             CHECK(actual.size() == 0);
             CHECK(actual.begin() == actual.end());
@@ -2017,7 +1864,6 @@ TEST_CASE("operations")
 
         SECTION("one nodes")
         {
-            actualListContainer actual;
             actual.push_back(1);
             CHECK(actual.front() == 1);
             CHECK(actual.back() == 1);
@@ -2039,7 +1885,6 @@ TEST_CASE("operations")
 
         SECTION("two nodes")
         {
-            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             CHECK(actual.front() == 1);
@@ -2068,7 +1913,6 @@ TEST_CASE("operations")
 
         SECTION("three nodes")
         {
-            actualListContainer actual;
             actual.push_back(1);
             actual.push_back(2);
             actual.push_back(3);
@@ -2104,13 +1948,9 @@ TEST_CASE("operations")
 
         SECTION("random nodes")
         {
-            auto container = getRandomValueContainer();
-
-            expectListContainer expect;
-            actualListContainer actual;
-            while (!container.empty())
+            while (!randomContainer.empty())
             {
-                auto v = container.back();
+                auto v = randomContainer.back();
                 if (rand() % 2)
                 {
                     if (rand() % 2)
@@ -2156,26 +1996,26 @@ TEST_CASE("operations")
                     CHECK(expect.front() == actual.front());
                     CHECK(expect.back() == actual.back());
                 }
-                container.pop_back();
+                randomContainer.pop_back();
             }
         }
     }
 }
 
-TEST_CASE("stl compatible")
+TEST_CASE("stl algorithm-compatible")
 {
-    vectorContainer container = getRandomValueContainer();
+    vectorContainer randomContainer = getRandomValueContainer();
     expectListContainer expect;
     actualListContainer actual;
     expectListContainer::iterator expectPos;
     actualListContainer::iterator actualPos;
     int randomValue;
     size_t sz;
-    auto ilist = getRandomValueContainer(SmallRandomSize);
+    auto randomSmallContainer = getRandomValueContainer(SmallRandomSize);
+    copyRandomPartContainerToLists(randomContainer, expect, actual);
 
     SECTION("std::for_each")
     {
-        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
         expectPos = expect.begin();
         std::for_each(actual.begin(), actual.end(), [&](int v)
         {
@@ -2185,7 +2025,6 @@ TEST_CASE("stl compatible")
 
     SECTION("std::find")
     {
-        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
         CHECK(*actual.begin() == *std::find(actual.begin(), actual.end(), *expect.begin()));
         CHECK(*++actual.begin() == *std::find(actual.begin(), actual.end(), *++expect.begin()));
         CHECK(*--actual.end() == *std::find(actual.begin(), actual.end(), *--expect.end()));
@@ -2193,7 +2032,6 @@ TEST_CASE("stl compatible")
 
     SECTION("std::equal")
     {
-        copyRandomPartContainerToExpectAndActualList(container, expect, actual);
         CHECK(std::equal(expect.begin(), expect.end(), actual.begin()));
     }
 }
@@ -2204,15 +2042,15 @@ TEST_CASE("others")
     {
         // todo: test more functions insert/find/unique/sort/erase
 
-        auto container = getRandomValueContainer();
+        auto randomContainer = getRandomValueContainer();
 
         actualListContainer actual;
         int expectSize = 1;
         expectListContainer expect;
-        expect.push_front(container.front());
+        expect.push_front(randomContainer.front());
 
-        actual.push_front(container.front());
-        std::for_each(++container.begin(), container.end(), [&](int v)
+        actual.push_front(randomContainer.front());
+        std::for_each(++randomContainer.begin(), randomContainer.end(), [&](int v)
         {
             if (rand() % 2)
             {
