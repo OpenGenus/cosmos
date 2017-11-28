@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-std::string convertBase2(int number);
 bool isPalindrome(const std::string& str);
 
 int main()
