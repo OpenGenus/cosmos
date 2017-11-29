@@ -27,7 +27,7 @@ TEST_CASE("init")
     SmallRandomSize = RandomSize / rand() % 100 + 50;
 }
 
-auto getRandomValueContainer = ([](size_t sz = RandomSize)
+vectorContainer getRandomValueContainer(size_t sz = RandomSize)
 {
     // init
     vectorContainer container(sz);
@@ -46,9 +46,9 @@ auto getRandomValueContainer = ([](size_t sz = RandomSize)
     }
 
     return container;
-});
+}
 
-auto copyContainerToList = ([](const vectorContainer &container)
+actualListContainer copyContainerToActualList(const vectorContainer &container)
 {
     actualListContainer actual;
     std::for_each(container.begin(), container.end(), [&](int v)
@@ -57,9 +57,9 @@ auto copyContainerToList = ([](const vectorContainer &container)
     });
 
     return actual;
-});
+}
 
-auto copyRandomPartContainerToLists = ([](const vectorContainer &container,
+void copyRandomPartContainerToLists(const vectorContainer &container,
                                           expectListContainer &expect,
                                           actualListContainer &actual)
 {
@@ -77,9 +77,9 @@ auto copyRandomPartContainerToLists = ([](const vectorContainer &container,
         expect.push_back(*begin);
         actual.push_back(*begin++);
     }
-});
+}
 
-auto isSame = ([](expectListContainer expect, actualListContainer actual)
+void isSame(expectListContainer expect, actualListContainer actual)
 {
     CHECK(expect.size() == actual.size());
     CHECK(expect.empty() == actual.empty());
@@ -89,7 +89,7 @@ auto isSame = ([](expectListContainer expect, actualListContainer actual)
 
     while (expectIt != expect.end())
         CHECK(*expectIt++ == *actualIt++);
-});
+}
 
 TEST_CASE("-ctors converts and its types")
 {
