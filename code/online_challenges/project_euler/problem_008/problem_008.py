@@ -5,7 +5,7 @@ largestProduct = 0
 for i in range(0, len(numbers) - 13):
     currentProduct = 1
     for j in range(i, i + 13):
-        currentProduct *= int(numbers[j: j + 1])
+        currentProduct *= int(numbers[j:j + 1])
     if currentProduct > largestProduct:
         largestProduct = currentProduct
 
