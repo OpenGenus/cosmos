@@ -32,67 +32,38 @@ public class Baconian {
         cipherMap.put("x", "babbb");
         cipherMap.put("y", "bbaaa");
         cipherMap.put("z", "bbaab");
-
     }
 
     public String encode(String word) {
-
         StringBuilder results = new StringBuilder();
-
         word = word.toLowerCase();
-
         for (Character letter : word.toCharArray()) {
-
             results.append(this.cipherMap.get(letter.toString()));
-
         }
-
         return results.toString();
-
     }
 
     public String decode(String word) {
-
         StringBuilder results = new StringBuilder();
-
         word = word.toLowerCase();
-
         for (int start = 0; start < word.length() / 5; ++start) {
-
             StringBuilder code = new StringBuilder();
-
             int startIndex = start * 5;
-
             for (int index = startIndex; index < startIndex + 5; ++index) {
-
                 code.append(word.charAt(index));
-
             }
-
             String letter = getKeyFromValue(this.cipherMap, code.toString());
-
             results.append(letter);
-
         }
-
         return results.toString();
-
     }
 
     public static String getKeyFromValue(Map hashmap, Object value) {
-
         for (Object key: hashmap.keySet()) {
-
             if (hashmap.get(key).equals(value)) {
-
                 return key.toString();
-
             }
-
         }
-
         return null;
-
     }
-
 }
