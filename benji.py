@@ -52,6 +52,7 @@ class MyFrame(wx.Frame):
                 with sr.Microphone() as srm:
                     audio=m.listen(srm)
                 try:
+                    self.txt.SetValue("Listening...")
                     put=m.recognize_google(audio)
                     put=put.lower()
                     link=put.split()
@@ -61,7 +62,7 @@ class MyFrame(wx.Frame):
                 except sr.RequestError as RE:
                     print("could not request results from IMF archives;{0}".format(RE))
                 except:
-                    print("Unknown error occurred!")
+                    print("Unknown error occurred, while taking speech input!")
          
          #Play song on  Youtube
             if put.startswith('play '):
