@@ -18,6 +18,7 @@
 #include <deque>
 #include <iterator>
 #include <iostream>
+#include <algorithm>
 #include "merge_sort.cpp"
 #include "quick_sort.cpp"
 #include "insertion_sort.cpp"
