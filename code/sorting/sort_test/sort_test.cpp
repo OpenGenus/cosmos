@@ -17,13 +17,13 @@
 #include <list>
 #include <deque>
 #include <iterator>
+#include <iostream>
 #include "merge_sort.cpp"
 #include "quick_sort.cpp"
 #include "insertion_sort.cpp"
 #include "selection_sort.cpp"
 #include "bubble_sort.cpp"
 
-#include <iostream>
 // substitute iterator
 //#define AT_LEAST_INPUT_ITERATOR
 #define AT_LEAST_BIDIRECTIONAL_ITERATOR
@@ -61,7 +61,7 @@ TEST_CASE("sort algorithm") {
     void (*psf)(int*, int*);
     void (*vsf)(ContainerType<int>::iterator, ContainerType<int>::iterator);
     
-    // substitute search algorithm
+    // substitute sort algorithm
     vsf = merge_sort::mergeSort;
     psf = merge_sort::mergeSort;
 //    vsf = bubbleSort;
@@ -85,7 +85,7 @@ TEST_CASE("sort algorithm") {
     
     SECTION("test has 1 elem") {
         const int sz = 1;
-        int *arr = new int[sz];
+        int *arr = new int[sz]{1};
         int *arr_end = arr+sz;
         ContainerType<int> stdContainer{1};
         
@@ -114,7 +114,7 @@ TEST_CASE("sort algorithm") {
     SECTION("test has random size elems and random value") {
         srand((int)clock());
         for (int t = 0; t < 5000; ++t) {
-            // random size
+            // randomize size
             int rand = 75 + std::rand()%50;
 
             int *actualDynamicArray = new int[rand];
