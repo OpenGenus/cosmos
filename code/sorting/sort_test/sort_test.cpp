@@ -110,6 +110,23 @@ TEST_CASE("sort algorithm") {
         CHECK(*stdContainer.begin() == 1);
         CHECK(*++stdContainer.begin() == 3);
     }
+
+    SECTION("test has 3 elems") {
+        const int sz = 3;
+        int *arr = new int[sz]{2, 3, 1};
+        int *arr_end = arr+sz;
+        ContainerType<int> stdContainer{2, 3, 1};
+
+        psf(arr, arr_end);
+        vsf(stdContainer.begin(), stdContainer.end());
+
+        CHECK(arr[0] == 1);
+        CHECK(arr[1] == 2);
+        CHECK(arr[2] == 3);
+        CHECK(*stdContainer.begin() == 1);
+        CHECK(*++stdContainer.begin() == 2);
+        CHECK(*++++stdContainer.begin() == 3);
+    }
     
     SECTION("test has random size elems and random value") {
         srand((int)clock());
