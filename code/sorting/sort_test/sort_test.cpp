@@ -5,32 +5,50 @@
 #ifndef SORT_TEST
 #define SORT_TEST
 #include "catch.hpp"
-#include <vector>
+#include <forward_list>
+#include <list>
+#include <deque>
 #include <iterator>
 #include "quick_sort.cpp"
 #include "merge_sort.cpp"
 
 #include <iostream>
+// substitute iterator
+//#define AT_LEAST_INPUT_ITERATOR
+#define AT_LEAST_BIDIRECTIONAL_ITERATOR
+//#define AT_LEAST_RANDOM_ITERATOR
 
-using std::vector;
+#ifdef AT_LEAST_INPUT_ITERATOR
+template<typename _T>
+using ContainerType = std::forward_list<_T>;
+#endif
 
-template<typename _Random_Acccess_Iter,
-         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
-bool isSame(_Random_Acccess_Iter aBegin,
-            _Random_Acccess_Iter aEnd,
-            _Random_Acccess_Iter bBegin,
-            _Random_Acccess_Iter bEnd) {
-    for (auto aIt = aBegin, bIt = bBegin; aIt != aEnd; ++aIt, ++bIt) {
+#ifdef AT_LEAST_BIDIRECTIONAL_ITERATOR
+template<typename _T>
+using ContainerType = std::list<_T>;
+#endif
+
+#ifdef AT_LEAST_RANDOM_ITERATOR
+template<typename _T>
+using ContainerType = std::deque<_T>;
+#endif
+
+template<typename _Iter1,
+         typename _Iter2,
+         typename _Tp = typename std::iterator_traits<_Iter1>::value_type>
+bool isSame(_Iter1 aBegin, _Iter1 aEnd, _Iter2 bBegin, _Iter2 bEnd) {
+    auto aIt = aBegin;
+    auto bIt = bBegin;
+    for (; aIt != aEnd; ++aIt, ++bIt)
         if (*aIt != *bIt)
             return false;
-    }
+
     return true;
 }
 
-using namespace std;
 TEST_CASE("sort algorithm") {
     void (*psf)(int*, int*);
-    void (*vsf)(vector<int>::iterator, vector<int>::iterator);
+    void (*vsf)(ContainerType<int>::iterator, ContainerType<int>::iterator);
     
     // substitute search algorithm
     vsf = merge_sort::mergeSort;
@@ -40,42 +58,38 @@ TEST_CASE("sort algorithm") {
         const int sz = 0;
         int *arr = new int[sz];
         int *arr_end = arr+sz;
-        vector<int> vec(sz);
+        ContainerType<int> stdContainer(sz);
         
         psf(arr, arr_end);
-        vsf(vec.begin(), vec.end());
+        vsf(stdContainer.begin(), stdContainer.end());
     }
     
     SECTION("test has 1 elem") {
         const int sz = 1;
         int *arr = new int[sz];
         int *arr_end = arr+sz;
-        vector<int> vec(sz);
-        arr[0] = 1;
-        vec[0] = 1;
+        ContainerType<int> stdContainer{1};
         
         psf(arr, arr_end);
-        vsf(vec.begin(), vec.end());
+        vsf(stdContainer.begin(), stdContainer.end());
         
         CHECK(arr[0] == 1);
-        CHECK(vec[0] == 1);
+        CHECK(*stdContainer.begin() == 1);
     }
     
     SECTION("test has 2 elems") {
         const int sz = 2;
         int *arr = new int[sz]{3, 1};
         int *arr_end = arr+sz;
-        vector<int> vec(sz);
-        vec[0] = 3;
-        vec[1] = 1;
+        ContainerType<int> stdContainer{3, 1};
         
         psf(arr, arr_end);
-        vsf(vec.begin(), vec.end());
+        vsf(stdContainer.begin(), stdContainer.end());
         
         CHECK(arr[0] == 1);
         CHECK(arr[1] == 3);
-        CHECK(vec[0] == 1);
-        CHECK(vec[1] == 3);
+        CHECK(*stdContainer.begin() == 1);
+        CHECK(*++stdContainer.begin() == 3);
     }
     
     SECTION("test has random size elems and random value") {
@@ -83,28 +97,31 @@ TEST_CASE("sort algorithm") {
         for (int t = 0; t < 5000; ++t) {
             // random size
             int rand = 75 + std::rand()%50;
-            int *actualArr = new int[rand], *expectArr = new int[rand];
-            vector<int> actualVec(rand), expectVec(rand);
 
-            // random elems
-            auto actualIt = actualVec.begin(), expectIt = expectVec.begin();
+            int *actualDynamicArray = new int[rand];
+            ContainerType<int> actualStdContainer{}, expectStdContainer{};
+
+            // randomize elems
+            std::back_insert_iterator<ContainerType<int>> actualIt(actualStdContainer), expectIt(expectStdContainer);
             for (int i = 0; i < rand; ++i, ++actualIt, ++expectIt) {
                 int rv = std::rand()%100;
-                expectArr[i] = rv;
-                actualArr[i] = rv;
-                *expectIt = rv;
-                *actualIt = rv;
+                actualDynamicArray[i] = rv;
+                actualStdContainer.push_front(rv);
+                expectStdContainer.push_front(rv);
             }
 
-            // based standard search
-            // if found then compare to value, else compare to pointer is end
-            psf(actualArr, actualArr+rand);
-            vsf(actualVec.begin(), actualVec.end());
-            std::sort(expectArr, expectArr+rand);
-            std::sort(expectVec.begin(), expectVec.end());
+            // based on standard sort
+#ifdef AT_LEAST_RANDOM_ITERATOR
+            std::sort(expectStdContainer.begin(), expectStdContainer.end());
+#else
+            expectStdContainer.sort();
+#endif
 
-            CHECK(isSame(actualArr, actualArr+rand, expectArr, expectArr+rand));
-            CHECK(isSame(actualVec.begin(), actualVec.end(), expectVec.begin(), expectVec.end()));
+            psf(actualDynamicArray, actualDynamicArray+rand);
+            vsf(actualStdContainer.begin(), actualStdContainer.end());
+
+            CHECK(isSame(actualDynamicArray, actualDynamicArray+rand, expectStdContainer.begin(), expectStdContainer.end()));
+            CHECK(isSame(actualStdContainer.begin(), actualStdContainer.end(), expectStdContainer.begin(), expectStdContainer.end()));
         }
     }
 }
