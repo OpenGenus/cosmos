@@ -3,23 +3,18 @@
 
  bubble sort synopsis
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Bidirectional_Iter, typename _Compare>
 void
 bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type>
+template<typename _Bidirectional_Iter>
 void
 bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
  */
 
 #include <functional>
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Bidirectional_Iter, typename _Compare>
 void
 bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
 {
@@ -45,10 +40,11 @@ bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
     }
 }
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type>
+template<typename _Bidirectional_Iter>
 void
 bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
 {
-    bubbleSort(begin, end, std::less<_Tp>());
+    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
+
+    bubbleSort(begin, end, std::less<value_type>());
 }

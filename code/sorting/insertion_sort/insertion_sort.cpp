@@ -3,23 +3,18 @@
 
  insertion sort synopsis
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Bidirectional_Iter, typename _Compare>
 void
 insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type>
+template<typename _Bidirectional_Iter>
 void
 insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
  */
 
 #include <functional>
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Bidirectional_Iter, typename _Compare>
 void
 insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
 {
@@ -44,10 +39,11 @@ insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compa
     }
 }
 
-template<typename _Bidirectional_Iter,
-         typename _Tp = typename std::iterator_traits<_Bidirectional_Iter>::value_type>
+template<typename _Bidirectional_Iter>
 void
 insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
 {
-    insertionSort(begin, end, std::less<_Tp>());
+    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
+
+    insertionSort(begin, end, std::less<value_type>());
 }
