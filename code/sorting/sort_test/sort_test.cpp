@@ -2,6 +2,14 @@
  Part of Cosmos by OpenGenus Foundation
  */
 
+/*
+ guide
+
+ 1. substitute iterator (col:26)
+ 2. substitute sort algorithm (col: 63)
+ 3. run
+ */
+
 #ifndef SORT_TEST
 #define SORT_TEST
 #include "catch.hpp"
