@@ -9,8 +9,11 @@
 #include <list>
 #include <deque>
 #include <iterator>
-#include "quick_sort.cpp"
 #include "merge_sort.cpp"
+#include "quick_sort.cpp"
+#include "insertion_sort.cpp"
+#include "selection_sort.cpp"
+#include "bubble_sort.cpp"
 
 #include <iostream>
 // substitute iterator
@@ -53,7 +56,15 @@ TEST_CASE("sort algorithm") {
     // substitute search algorithm
     vsf = merge_sort::mergeSort;
     psf = merge_sort::mergeSort;
-    
+//    vsf = bubbleSort;
+//    psf = bubbleSort;
+//    vsf = insertionSort;
+//    psf = insertionSort;
+//    vsf = selectionSort;
+//    psf = selectionSort;
+//    vsf = quickSort;
+//    psf = quickSort;
+
     SECTION("test empty") {
         const int sz = 0;
         int *arr = new int[sz];
