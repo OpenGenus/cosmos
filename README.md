@@ -24,8 +24,9 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 [(Back to top)](#list-of-contents)
 
 <p>Impossible Missions Force's debrief issued to the POTUS dated 30th May 2017:<br>
-&nbsp;&nbsp;&nbsp; "On properly documented analysis and Congressional finding, the Impossible Missions Force(IMF) therefore, declassifies it's junior level digital assistant titled B.E.N.J.I.,short for Brilliant and Efficient non-Javascript enabled Intelligence Systems for civilian use. It might be noted that, this is only for peaceful purposes and the IMF does not hold any responsibility on its misuse. The Force however,has full right to control the activities of the system both,legally and illegally. The Force also submits that any covert action taken due to the system is not questionable to any Congressional hearing. Finally the Force asserts that none of its agents,operatives or analysts neither accept nor deny details of any operation regarding B.E.N.J.I. to any hearing without the Secretary's approval."
-</p>
+
+### B.E.N.J.I working in Linux
+![Working in Linux](working-benji.gif)
 
 ### Installation
 
@@ -34,7 +35,7 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 You can install B.E.N.J.I. on your laptop by cloning this repository as of first:
 1. `git clone http://github.com/the-ethan-hunt/B.E.N.J.I`
 2. Open your `IPython notebook` to `%run benji.py`. For `Command Prompt` try `python benji.py`. <br><br>
-P.S. We are trying to make B.E.N.J.I. work for Linux and MacOS too. Currently it operates only on Windows.
+P.S. We are trying to make B.E.N.J.I. work for Linux and MacOS too.
 
 The current linux version is in linux/benji.py  
 
