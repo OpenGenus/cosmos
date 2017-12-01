@@ -107,5 +107,5 @@ func main() {
 	} else {
 		contains = "does not contain"
 	}
-	fmt.Printf("Trie %v %v\n", contains, "dear")
+	fmt.Printf("Trie %v %v\n", contains, "case")
 }
