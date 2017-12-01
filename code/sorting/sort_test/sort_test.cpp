@@ -61,6 +61,8 @@ isSame(_Iter1 aBegin, _Iter1 aEnd, _Iter2 bBegin, _Iter2 bEnd)
 }
 
 TEST_CASE("sort algorithm") {
+    srand(static_cast<unsigned int>(clock()));
+
     void (*psf)(int *, int *);
     void (*vsf)(ContainerType<int>::iterator, ContainerType<int>::iterator);
 
@@ -76,185 +78,97 @@ TEST_CASE("sort algorithm") {
 //    vsf = quickSort;
 //    psf = quickSort;
 
-    SECTION("test empty") {
-        const int sz = 0;
-        int *actualDynamicArray = new int[sz];
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> actualStdContainer(sz), expectStdContainer;
-
-        // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-        expectStdContainer.sort();
-#endif
-
-        psf(actualDynamicArray, actualDynamicArrayEnd);
-        vsf(actualStdContainer.begin(), actualStdContainer.end());
-        delete[] actualDynamicArray;
-    }
-
-    SECTION("test has 1 elem") {
-        const int sz = 1;
-        int *actualDynamicArray = new int[sz] {1};
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> actualStdContainer{1}, expectStdContainer{1};
-
-        // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-        expectStdContainer.sort();
-#endif
-
-        psf(actualDynamicArray, actualDynamicArrayEnd);
-        vsf(actualStdContainer.begin(), actualStdContainer.end());
-
-        CHECK(isSame(actualDynamicArray,
-                     actualDynamicArrayEnd,
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        CHECK(isSame(actualStdContainer.begin(),
-                     actualStdContainer.end(),
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        delete[] actualDynamicArray;
-    }
-
-    SECTION("test has 2 elems") {
-        const int sz = 2;
-        int *actualDynamicArray = new int[sz] {3, 1};
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> actualStdContainer{3, 1}, expectStdContainer{3, 1};
-
-        // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-        expectStdContainer.sort();
-#endif
-
-        psf(actualDynamicArray, actualDynamicArrayEnd);
-        vsf(actualStdContainer.begin(), actualStdContainer.end());
-
-        CHECK(isSame(actualDynamicArray,
-                     actualDynamicArrayEnd,
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        CHECK(isSame(actualStdContainer.begin(),
-                     actualStdContainer.end(),
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        delete[] actualDynamicArray;
-    }
-
-    SECTION("test has 3 elems") {
-        const int sz = 3;
-        int *actualDynamicArray = new int[sz] {2, 3, 1};
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> actualStdContainer{2, 3, 1}, expectStdContainer{2, 3, 1};
-
-        // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-        expectStdContainer.sort();
-#endif
-
-        psf(actualDynamicArray, actualDynamicArrayEnd);
-        vsf(actualStdContainer.begin(), actualStdContainer.end());
-
-        CHECK(isSame(actualDynamicArray,
-                     actualDynamicArrayEnd,
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        CHECK(isSame(actualStdContainer.begin(),
-                     actualStdContainer.end(),
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
-        delete[] actualDynamicArray;
-    }
-
-    SECTION("large size")
+    auto stdSort = [](ContainerType<int>&expectStdContainer)
     {
-        size_t sz = 1e6;
-        int *actualDynamicArray = new int[sz];
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> actualStdContainer{}, expectStdContainer{};
+#ifdef AT_LEAST_RANDOM_ITERATOR
+        std::sort(expectStdContainer.begin(), expectStdContainer.end());
+#else
+        expectStdContainer.sort();
+#endif
+    };
+
+    auto testSTLContainer = [&](int sz)
+    {
+        ContainerType<int> actualStdContainer, expectStdContainer;
 
         // randomize elems
-        std::back_insert_iterator<ContainerType<int>> actualIt(actualStdContainer),
-                                                      expectIt(expectStdContainer);
-        for (size_t i = sz; i > 0; --i, ++actualIt, ++expectIt)
+        for (int i = 0; i < sz; ++i)
         {
-            int randomValue = std::rand();
-            actualDynamicArray[i - 1] = randomValue;
+            int randomValue = std::rand() % (sz / 2 + 1);
             actualStdContainer.push_front(randomValue);
             expectStdContainer.push_front(randomValue);
         }
 
-        // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-        expectStdContainer.sort();
-#endif
-
-        psf(actualDynamicArray, actualDynamicArray + sz);
+        stdSort(expectStdContainer);
         vsf(actualStdContainer.begin(), actualStdContainer.end());
+
+        CHECK(isSame(actualStdContainer.begin(),
+                     actualStdContainer.end(),
+                     expectStdContainer.begin(),
+                     expectStdContainer.end()));
+    };
+
+    auto testPODPtr = [&](int sz)
+    {
+        int *actualDynamicArray = new int[sz];
+        int *actualDynamicArrayEnd = actualDynamicArray + sz;
+        ContainerType<int> expectStdContainer;
+
+        // randomize elems
+        for (int i = 0; i < sz; ++i)
+        {
+            int randomValue = std::rand() % (sz / 2 + 1);
+            actualDynamicArray[i] = randomValue;
+            expectStdContainer.push_front(randomValue);
+        }
+
+        stdSort(expectStdContainer);
+        psf(actualDynamicArray, actualDynamicArrayEnd);
 
         CHECK(isSame(actualDynamicArray,
                      actualDynamicArrayEnd,
                      expectStdContainer.begin(),
                      expectStdContainer.end()));
-        CHECK(isSame(actualStdContainer.begin(),
-                     actualStdContainer.end(),
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
         delete[] actualDynamicArray;
+    };
+
+    SECTION("empty") {
+        testPODPtr(0);
+        testSTLContainer(0);
+    };
+
+    SECTION("1 elem") {
+        testPODPtr(1);
+        testSTLContainer(1);
     }
 
-    SECTION("test has random size elems and random value") {
-        srand((int)clock());
-        for (int t = 0; t < 5000; ++t)
+    SECTION("2 elems") {
+        for (int i = 0; i < 1000; ++i)
         {
-            // randomize size
-            int sz = 75 + std::rand() % 50;
+            testPODPtr(2);
+            testSTLContainer(2);
+        }
+    }
 
-            int *actualDynamicArray = new int[sz];
-            int *actualDynamicArrayEnd = actualDynamicArray + sz;
-            ContainerType<int> actualStdContainer{}, expectStdContainer{};
+    SECTION("3 elems") {
+        for (int i = 0; i < 1000; ++i)
+        {
+            testPODPtr(3);
+            testSTLContainer(3);
+        }
+    }
 
-            // randomize elems
-            std::back_insert_iterator<ContainerType<int>> actualIt(actualStdContainer),
-                                                          expectIt(expectStdContainer);
-            for (int i = 0; i < sz; ++i, ++actualIt, ++expectIt)
-            {
-                int randomValue = std::rand() % 100;
-                actualDynamicArray[i] = randomValue;
-                actualStdContainer.push_front(randomValue);
-                expectStdContainer.push_front(randomValue);
-            }
+    SECTION("large size")
+    {
+        testPODPtr(1e6);
+        testSTLContainer(1e6);
+    }
 
-            // based on standard sort
-#ifdef AT_LEAST_RANDOM_ITERATOR
-            std::sort(expectStdContainer.begin(), expectStdContainer.end());
-#else
-            expectStdContainer.sort();
-#endif
-
-            psf(actualDynamicArray, actualDynamicArray + sz);
-            vsf(actualStdContainer.begin(), actualStdContainer.end());
-
-            CHECK(isSame(actualDynamicArray,
-                         actualDynamicArrayEnd,
-                         expectStdContainer.begin(),
-                         expectStdContainer.end()));
-            CHECK(isSame(actualStdContainer.begin(),
-                         actualStdContainer.end(),
-                         expectStdContainer.begin(),
-                         expectStdContainer.end()));
-            delete[] actualDynamicArray;
+    SECTION("multiple random size") {
+        for (int i = 0; i < 10000; ++i)
+        {
+            testPODPtr(100 + std::rand() % 50);
+            testSTLContainer(100 + std::rand() % 50);
         }
     }
 }
