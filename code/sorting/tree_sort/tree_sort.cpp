@@ -22,10 +22,7 @@ struct Node *newnode(int key)
 Node* insert(Node *node,int key)
 {
 	if(node==NULL) return newnode(key);//If tree is empty return new node
-	if(key < node->data)
-	  node->left=insert(node->left,key);
-	else
-	  node->right=insert(node->right,key);
+	key < node->data ? node->left=insert(node->left,key) : node->right=insert(node->right,key);
 	return node;
 }
 void store(Node *root,int a[],int &i)
