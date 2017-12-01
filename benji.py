@@ -1,4 +1,6 @@
 # coding: utf-8
+from time import ctime
+import time
 import wx
 import os
 import wikipedia
@@ -63,6 +65,23 @@ class MyFrame(wx.Frame):
                 except:
                     print("Unknown error occurred!")
          
+          #Location finder
+            if put.startswith('Where is '):
+                try:
+                    link = '+'.join(link[2:])
+                    say = link.replace('+','')
+                    webbrowser.open('https://www.google.nl/maps/place/'+link)
+                except:
+                    print('The place seems to be sequestered.')
+
+              
+         #Tell the time 
+            if put.startswith('what is the time '):
+                try:
+                    print(ctime())
+                except:
+                    print('Sorry Ethan.We seem to be in an unknown timezone.')
+
          #Play song on  Youtube
             if put.startswith('play '):
                 try:
@@ -177,7 +196,3 @@ if __name__=="__main__":
     app = wx.App(True)
     frame= MyFrame()
     app.MainLoop()
-
-
-
-
