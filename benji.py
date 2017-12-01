@@ -47,7 +47,7 @@ class MyFrame(wx.Frame):
 		def OnEnter(self,event):
 			link = []
 			put=self.txt.GetValue()
-			#put=put.lower()
+			put=put.lower()
 			link=put.split()
 			#if put=='':
 			m=sr.Recognizer()
@@ -56,8 +56,8 @@ class MyFrame(wx.Frame):
 				audio=m.listen(srm)
 			try:
 				put=m.recognize_google(audio)
-				#put=put.lower()
-				#link=put.split()
+				put=put.lower()
+				link=put.split()
 				self.txt.SetValue(put)
 			except sr.UnknownValueError:
 				print("BENJI could not understand audio")
@@ -84,7 +84,7 @@ class MyFrame(wx.Frame):
 				except:
 					print('Sorry Ethan. Looks like its not working!')
 		#Who are you?
-			elif put.startswith('who are you '):
+			elif put.startswith('who are you ') or put.startswith('who are you'):
 				try: 
 					speak.Speak("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
 				except:
