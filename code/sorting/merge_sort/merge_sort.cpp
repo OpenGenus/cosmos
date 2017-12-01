@@ -53,7 +53,7 @@ mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
                 rightMin = leftMax = advance(leftMin, i);
                 rightMax = advance(leftMax, i);
 
-                // prevent overflow, if length is now 2^n
+                // prevent overflow, if length is not 2^n
                 if (rightMax > end)
                     rightMax = end;
 
