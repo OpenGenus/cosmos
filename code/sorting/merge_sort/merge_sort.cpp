@@ -48,9 +48,7 @@ mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
         // bottom-up version
         for (auto i = 1; i < distance(begin, end); i *= 2)
         {
-            auto last = end;
-            advance(last, -1 * i);
-            for (leftMin = begin; leftMin != last; leftMin = rightMax)
+            for (leftMin = begin; leftMin != end; leftMin = rightMax)
             {
                 rightMin = leftMax = advance(leftMin, i);
                 rightMax = advance(leftMax, i);
