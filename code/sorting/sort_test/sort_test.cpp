@@ -82,6 +82,7 @@ TEST_CASE("sort algorithm") {
         
         psf(arr, arr_end);
         vsf(stdContainer.begin(), stdContainer.end());
+        delete[] arr;
     }
     
     SECTION("test has 1 elem") {
@@ -95,6 +96,7 @@ TEST_CASE("sort algorithm") {
         
         CHECK(arr[0] == 1);
         CHECK(*stdContainer.begin() == 1);
+        delete[] arr;
     }
     
     SECTION("test has 2 elems") {
@@ -110,6 +112,7 @@ TEST_CASE("sort algorithm") {
         CHECK(arr[1] == 3);
         CHECK(*stdContainer.begin() == 1);
         CHECK(*++stdContainer.begin() == 3);
+        delete[] arr;
     }
 
     SECTION("test has 3 elems") {
@@ -127,6 +130,7 @@ TEST_CASE("sort algorithm") {
         CHECK(*stdContainer.begin() == 1);
         CHECK(*++stdContainer.begin() == 2);
         CHECK(*++++stdContainer.begin() == 3);
+        delete[] arr;
     }
     
     SECTION("test has random size elems and random value") {
@@ -159,6 +163,7 @@ TEST_CASE("sort algorithm") {
 
             CHECK(isSame(actualDynamicArray, actualDynamicArray+rand, expectStdContainer.begin(), expectStdContainer.end()));
             CHECK(isSame(actualStdContainer.begin(), actualStdContainer.end(), expectStdContainer.begin(), expectStdContainer.end()));
+            delete[] actualDynamicArray;
         }
     }
 }
