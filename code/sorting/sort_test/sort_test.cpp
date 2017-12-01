@@ -60,7 +60,8 @@ isSame(_Iter1 aBegin, _Iter1 aEnd, _Iter2 bBegin, _Iter2 bEnd)
     return true;
 }
 
-TEST_CASE("sort algorithm") {
+TEST_CASE("sort algorithm")
+{
     srand(static_cast<unsigned int>(clock()));
 
     void (*psf)(int *, int *);
@@ -132,17 +133,20 @@ TEST_CASE("sort algorithm") {
         delete[] actualDynamicArray;
     };
 
-    SECTION("empty") {
+    SECTION("empty")
+    {
         testPODPtr(0);
         testSTLContainer(0);
     };
 
-    SECTION("1 elem") {
+    SECTION("1 elem")
+    {
         testPODPtr(1);
         testSTLContainer(1);
     }
 
-    SECTION("2 elems") {
+    SECTION("2 elems")
+    {
         for (int i = 0; i < 1000; ++i)
         {
             testPODPtr(2);
@@ -164,7 +168,8 @@ TEST_CASE("sort algorithm") {
         testSTLContainer(1e6);
     }
 
-    SECTION("multiple random size") {
+    SECTION("multiple random size")
+    {
         for (int i = 0; i < 10000; ++i)
         {
             testPODPtr(100 + std::rand() % 50);
