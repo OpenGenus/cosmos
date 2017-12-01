@@ -135,7 +135,7 @@ class MyFrame(wx.Frame):
                         speak.Speak("locking the device")
                         ctypes.windll.user32.LockWorkStation()
                 except :
-                print('Cannot lock device')  
+                        print('Cannot lock device')  
 
         #News of various press agencies
             elif put.startswith('aljazeera '):
