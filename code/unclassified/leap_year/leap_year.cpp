@@ -16,7 +16,7 @@ bool isLeapYear(int year)
 void findLeapYears(int a , int b)
 {
     cout<<"The leap years between "<<a<<" and "<<b<<" are : \n";
-    for(int i=a ; i<=b ; i++)
+    for( int i=a ; i<=b ; i++ )
     {
         if (isLeapYear(i))
             cout<<i<<"\n";
