@@ -9,11 +9,11 @@ template<typename _RandomAccessIter,
          typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
          typename _Less>
 _RandomAccessIter
-ternarySearch(_RandomAccessIter first,
-              _RandomAccessIter last,
-              const _RandomAccessIter &notFoundSentinel,
-              const _ValueType &find,
-              _Less less)
+ternarySearchImpl(_RandomAccessIter first,
+                  _RandomAccessIter last,
+                  const _RandomAccessIter &notFoundSentinel,
+                  const _ValueType &find,
+                  _Less less)
 {
     if (first <= last)
     {
@@ -31,11 +31,11 @@ ternarySearch(_RandomAccessIter first,
             return rightMid;
 
         if (lessThanLeftMid)
-            return ternarySearch(first, leftMid - 1, notFoundSentinel, find, less);
+            return ternarySearchImpl(first, leftMid - 1, notFoundSentinel, find, less);
         else if (greaterThanRightMid)
-            return ternarySearch(rightMid + 1, last, notFoundSentinel, find, less);
+            return ternarySearchImpl(rightMid + 1, last, notFoundSentinel, find, less);
         else
-            return ternarySearch(leftMid + 1, rightMid - 1, notFoundSentinel, find, less);
+            return ternarySearchImpl(leftMid + 1, rightMid - 1, notFoundSentinel, find, less);
     }
 
     return notFoundSentinel;
@@ -49,7 +49,7 @@ ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &
 {
     if (begin < end)
     {
-        auto res = ternarySearch(begin, end - 1, end, find, less);
+        auto res = ternarySearchImpl(begin, end - 1, end, find, less);
 
         return res == end ? end : res;
     }
