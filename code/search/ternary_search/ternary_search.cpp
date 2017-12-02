@@ -1,6 +1,33 @@
 /*
  Part of Cosmos by OpenGenus Foundation
+
  Ternary Search Uses Divide And Conquer Technique
+
+ ternary search synopsis
+
+namespace ternary_search_impl
+{
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
+         typename _Less>
+_RandomAccessIter
+ternarySearchImpl(_RandomAccessIter first,
+                  _RandomAccessIter last,
+                  const _RandomAccessIter &notFoundSentinel,
+                  const _ValueType &find,
+                  _Less less);
+} // ternary_search_impl
+
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
+         typename _Less>
+_RandomAccessIter
+ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &find, _Less less);
+
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+_RandomAccessIter
+ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &find);
  */
 
 #include <iterator>
