@@ -2,7 +2,7 @@
 #include <type_traits>
 #include <functional>
 
-namespace palindrome_check{
+namespace cosmos_utility{
  /*
 template<typename _BidirectionalIter, typename _EqualTo>
 bool
