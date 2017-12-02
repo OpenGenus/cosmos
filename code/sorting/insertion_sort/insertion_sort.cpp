@@ -1,40 +1,49 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+/*
+ Part of Cosmos by OpenGenus Foundation
 
-using namespace std;
+ insertion sort synopsis
 
-// Part of Cosmos by OpenGenus Foundation
-void insertionSort(vector<int> &arr)
+template<typename _Bidirectional_Iter, typename _Compare>
+void
+insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
+
+template<typename _Bidirectional_Iter>
+void
+insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
+ */
+
+#include <functional>
+
+template<typename _Bidirectional_Iter, typename _Compare>
+void
+insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
 {
-	int key;
-	int j;
-	for(int i=1;i<arr.size();i++)
-	{
-		key = arr[i];
-		j = i-1;
-		while(j>=0 && arr[j]>key)
-		{
-			arr[j+1] = arr[j];
-			j--;
-		}
-		arr[j+1] = key;
-	}
+    if (begin != end)
+    {
+        auto backOfBegin = begin;
+        --backOfBegin;
+
+        auto curr = begin;
+        for (++curr; curr != end; ++curr)
+        {
+            auto pivot = *curr;
+            auto backward = curr;
+            auto nextOfBackward = curr;
+            while (--backward != backOfBegin && compare(pivot, *backward))
+            {
+                *nextOfBackward = *backward;
+                --nextOfBackward;
+            }
+            *nextOfBackward = pivot;
+        }
+    }
 }
 
-int main()
+template<typename _Bidirectional_Iter>
+void
+insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
 {
-	vector<int> inputArray;
-	for(int i; cin >> i;)
-	{
-		inputArray.push_back(i);
-	}
-	insertionSort(inputArray);
+    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
 
-	for(int i=0;i<inputArray.size();i++)
-	{
-		cout<<inputArray[i]<<" ";
-	}
-	cout<<endl;
-	return 0;
+    insertionSort(begin, end, std::less<value_type>());
 }
