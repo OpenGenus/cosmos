@@ -1,5 +1,3 @@
-#include <iterator>
-#include <type_traits>
 #include <functional>
 
 namespace cosmos_utility{
