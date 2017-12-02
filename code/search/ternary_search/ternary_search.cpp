@@ -5,6 +5,9 @@
 
 #include <iterator>
 #include <functional>
+
+namespace ternary_search_impl
+{
 template<typename _RandomAccessIter,
          typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
          typename _Less>
@@ -40,6 +43,7 @@ ternarySearchImpl(_RandomAccessIter first,
 
     return notFoundSentinel;
 }
+} // ternary_search_impl
 
 template<typename _RandomAccessIter,
          typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
@@ -49,7 +53,7 @@ ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &
 {
     if (begin < end)
     {
-        auto res = ternarySearchImpl(begin, end - 1, end, find, less);
+        auto res = ternary_search_impl::ternarySearchImpl(begin, end - 1, end, find, less);
 
         return res == end ? end : res;
     }
