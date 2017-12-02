@@ -121,7 +121,7 @@ testFalseRecursive()
 }
 
 void
-testTrueIterative()
+testTrue()
 {
     string sz = "";
     assert(isPalindrome(sz.begin(), sz.end()));
@@ -169,7 +169,7 @@ testTrueIterative()
 }
 
 void
-testFalseIterative()
+testFalse()
 {
     string s = "1231";
     assert(!isPalindrome(s.begin(), s.end()));
@@ -210,10 +210,8 @@ testFalseIterative()
 int
 main()
 {
-    testTrueRecursive();
-    testFalseRecursive();
-    testTrueIterative();
-    testFalseIterative();
+    testTrue();
+    testFalse();
 
     return 0;
 }

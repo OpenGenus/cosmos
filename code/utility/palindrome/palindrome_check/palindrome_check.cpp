@@ -3,9 +3,10 @@
 #include <functional>
 
 namespace palindrome_check{
+ /*
 template<typename _BidirectionalIter, typename _EqualTo>
 bool
-isPalindromeRecursive(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
+isPalindrome(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
 {
     if (begin != end)
     {
@@ -20,16 +21,17 @@ isPalindromeRecursive(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo
 //               (++begin)
 // even: _ b e _ _  =>  _ e   b _ _     => error: begin >  end
 // odd : _ b _ e _  =>  _ b/e _ _ _     => ok, will be detected begin == end
-            return isPalindromeRecursive<_BidirectionalIter, _EqualTo>(++begin, end, equalTo);
+            return isPalindrome(++begin, end, equalTo);
         }
     }
 
     return true;
 }
+ */
 
 template<typename _BidirectionalIter, typename _EqualTo>
 bool
-isPalindromeIterative(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
+isPalindrome(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
 {
     if (begin != end)
     {
@@ -59,6 +61,6 @@ isPalindrome(_BidirectionalIter begin, _BidirectionalIter end)
     // default is iterative
     using EqualTo = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>;
 
-    return isPalindromeIterative<_BidirectionalIter>(begin, end, EqualTo());
+    return isPalindrome<_BidirectionalIter>(begin, end, EqualTo());
 }
 }
