@@ -3,8 +3,22 @@
 
 # Java Style Guide
 
-Braces
----
+## Index
+- [Braces](#braces)
+- [Comments](#comments)
+- [Control Flow Statements](#control-flow-statements)
+- [Whitespace](#whitespace)
+- [Naming](#naming)
+- [Methods](#methods)
+- [Expressions](#expressions)
+- [Variables](#variables)
+- [Source File Structure](#source-file-structure)
+- [Annotations](#annotations)
+- [Switch Statements](#switch-statements)
+- [Statements](#statements)
+
+## Braces
+
 All braces should start on the same line as the method they are delimiting. If a control flow statement contains only one line of code, it should not have any delimiting braces, unless using a multi-block control flow statement where at least one block is more than one line long. If using inline braces, there should be a space between the braces and the code in between. If a block of code is empty, the code may be made consise by putting everything on the same line, with no space in between the braces, unless part of a multi-block statement.
 
 ```Java
@@ -38,8 +52,7 @@ if (true) {
 int[] arr = new int[] { 1, 2, 3 };
 ```
 
-Comments
----
+## Comments
 
 Comments should have a space following the double slashes. Any multiline comments should be created with the /\*\*/ delimiters. A special type of comment, called Javadoc commenting, should be implemented using the /\*\* \*/ delimiters. Javadoc comments are used with tags like @author, @param, and @return to document the purpose of methods and classes in code.
 
@@ -71,8 +84,8 @@ Comments should have a space following the double slashes. Any multiline comment
  */
 ```
 
-Control flow statements
----
+## Control Flow Statements
+
 The parentheses for control flow statements should be one space after the statement. There should be a newline between unrelated statements, i.e. between a `while` and `if` but not between an `if` and `else`. There should be no spaces in between a statement and its block of code. This goes for class declarations as well. The only case that a piece of code inside an if-statement can be on the same line is if the code is a `return` statement.
 ```Java
 if (true || false) {
@@ -98,16 +111,16 @@ if (true) bar += foo;
 if (true) return bar;
 ```
 
-Whitespace
----
+## Whitespace
+
 Tabs should be tab characters, and not spaces.
 
-Naming
----
+## Naming
+
 All names should be lowerCamelCase, except constants, which should be CAPITALIZED_AND-SEPARATED_BY_UNDERSCORES, and classes, which should be PascalCase.
 
-Methods
----
+## Methods
+
 Methods should have no whitespace in between the parentheses for parameters and the method signature. If a method contains only one line, it should be on the same line as the method declaration and follow the [inline brace delimiting](#braces) rule. Parameters should have no spaces between the parentheses, and one space after the comma.
 ```Java
 public void foo(int a, int b) {
@@ -120,8 +133,8 @@ public void foo(int a, int b) {
 public void bar() { /* One line of code, with a space separating the braces */ }
 ```
 
-Expressions
----
+## Expressions
+
 All expressions, including boolean and arithmetic, should have a space between operators and operands.
 ```Java
 // Incorrect
@@ -137,8 +150,8 @@ if (a==b && c<d)
 if (a == b && c < d)
 ```
 
-Variables
----
+## Variables
+
 All variables should be declared at the top of their scope, in the order shown below. Each set of variables with the same visibility should be grouped together and separated from other variable groups by a single space. In each group, variables of the same data type should be adjacent to one another. The exception are constants, which should always be declared at the top. All variables declared at the `class` scope should have one of the below modifiers.
 
 Order of member modifiers, according to the Java Language Specification:
@@ -165,8 +178,8 @@ public void bar() {
 }
 ```
 
-Source file structure
----
+## Source File Structure
+
 The structure of the file should comprise the following:
 1. Import statements
 2. Top-level class
@@ -174,8 +187,8 @@ The structure of the file should comprise the following:
 
 Each of the above components should be separated by exactly one line. All lines aside from the import statements must follow a length limit of 100 columns. Wildcard imports should **not** be used.
 
-Annotations
----
+## Annotations
+
 Annotations should be on the line above the block they are applied to. Multiple annotations should be stacked atop one another.
 ```Java
 @annotation
@@ -186,8 +199,8 @@ public void foo() {}
 public void bar() {}
 ```
 
-Switch statements
----
+## Switch Statements
+
 All switch cases should end with either a `break` or `return` keyword. Every switch statement should also contain a `default` case for when
 the variable being checked does not match up with any of the cases in the statement.
 ```Java
@@ -206,8 +219,9 @@ switch (num) {
                  break;
 }
 ```
-Statements
----
+
+## Statements
+
 There should only be one statement per line. A statement is defined as ending in a semicolon, so this does not include control flow statements. The exceptions are a single statement that are delimited with braces, including anonymous methods and array instantiation.
 ```Java
 Runnable run = () -> {
