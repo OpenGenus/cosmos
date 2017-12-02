@@ -4,16 +4,17 @@
 #define SUBSET_SUM_TEST
 
 #include <iostream>
-
-extern bool canGetSum(int v[], int n, int sum);
+#include "subset_sum.cpp"
 
 using namespace std;
-int main()
+int
+main()
 {
-    int v[] = { 1, 2, 15, 8, 5};
+    int v[] = {1, 2, 15, 8, 5};
 
-    cout << (canGetSum(v, sizeof(v) / sizeof(v[0]), 13) ? "possible" : "impossible") << "\n";
-    cout << (canGetSum(v, sizeof(v) / sizeof(v[0]),  4) ? "possible" : "impossible") << "\n";
+    cout << (isSubsetSum(v, v + sizeof(v) / sizeof(v[0]), 13) ? "possible" : "impossible") << "\n";
+    cout << (isSubsetSum(v, v + sizeof(v) / sizeof(v[0]), 4) ? "possible" : "impossible") << "\n";
+
     return 0;
 }
 
