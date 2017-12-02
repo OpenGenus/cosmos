@@ -12,7 +12,7 @@ struct MapValueEqual
 {
     bool operator()(std::pair<int, int> const &a, std::pair<int, int> const &b) const
     {
-        return a.second != b.second;
+        return a.second == b.second;
     }
 };
 
