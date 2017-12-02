@@ -1,11 +1,8 @@
-//Ternary Search Uses Divide And Conquer Technique
-#include<iostream>
-
 /*
- * Part of Cosmos by OpenGenus Foundation
-*/
+ Part of Cosmos by OpenGenus Foundation
+ Ternary Search Uses Divide And Conquer Technique
+ */
 
-using namespace std;
 int ternarySearch(int arr[],int l,int r, int x){
     if(r>=l){
         int mid1 = l + (r-l)/3;
@@ -25,11 +22,4 @@ int ternarySearch(int arr[],int l,int r, int x){
             return ternarySearch(arr,mid1+1,mid2-1,x);
     }
     return -1; // if x is not found in array arr
-}
-int main(){
-   int arr[] = {1, 2, 3, 5};
-   int size = sizeof(arr)/ sizeof(arr[0]);
-   int find = 3;
-   cout<<"Position of "<<find<<" is "<<ternarySearch(arr,0,size-1,find);
-   return 0;
 }
