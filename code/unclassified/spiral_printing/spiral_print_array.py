@@ -1,11 +1,8 @@
-
 '''
 Part of Cosmos by OpenGenus Foundation
 '''
 
-
-
-matrix = lambda x: map(list, zip(*[iter(range(1, x*x + 1))]*x))
+matrix = lambda x: map(list, zip(*[iter(range(1, x * x + 1))] * x))
 """
 matrix = [
 [1, 2, 3, 4, 5],
@@ -15,9 +12,11 @@ matrix = [
 [21, 22, 23, 24, 25]
 ]
 """
+
+
 def main(size):
     a = matrix(size)
-    center = int(size/2)
+    center = int(size / 2)
     r = c = center
     l = 1
     while l <= center:
@@ -36,7 +35,7 @@ def main(size):
             c -= 1
         c += 1
         r -= 1
-        while r >= center - l:   #up
+        while r >= center - l:  #up
             print a[r][c]
             r -= 1
         r += 1
@@ -44,5 +43,7 @@ def main(size):
         l += 1
     for i in a[r][c:]:
         print i
-main(5)  
+
+
+main(5)
 #One can change the size and matrix accordingly

@@ -13,4 +13,5 @@ And you should get:
 
 
 def breaker(array, parts):
-    return list(array[ part*len(array)/parts:(part+1)*len(array)/parts ] for part in range(parts))
+    return list(array[part * len(array) / parts:(
+        part + 1) * len(array) / parts] for part in range(parts))

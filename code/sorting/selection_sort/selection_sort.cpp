@@ -1,22 +1,43 @@
-#include <iostream>
-#include <vector>
+/*
+ Part of Cosmos by OpenGenus Foundation
 
-/* Part of Cosmos by OpenGenus Foundation */
-void selection_sort(std::vector<int> &v) {
-	for (int i = 0; i < v.size(); i++) {
-		int minIndex = i;
-		for (int j = i + 1; j < v.size(); j++) { // find ("select") the index of the element with the minimum value
-			if (v[j] < v[minIndex]) minIndex = j;
-		}
-		std::swap(v[i], v[minIndex]); // put the found element at position i
-	}
+ selection sort synopsis
+
+template<typename _Input_Iter, typename _Compare>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare);
+
+template<typename _Input_Iter>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end);
+ */
+
+#include <functional>
+
+template<typename _Input_Iter, typename _Compare>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end, _Compare compare)
+{
+    if (begin != end)
+    {
+        for (auto curr = begin; curr != end; ++curr)
+        {
+            auto minimum = curr;
+            auto forward = curr;
+            while (++forward != end)
+                if (compare(*forward, *minimum))
+                    minimum = forward;
+
+            std::iter_swap(minimum, curr);
+        }
+    }
 }
 
-int main() {
-	std::vector<int> v{1, 5, 2, 3, 4};
-	selection_sort(v);
-	for (auto num : v) {
-		std::cout << num << " ";
-	}
-	return 0;
+template<typename _Input_Iter>
+void
+selectionSort(_Input_Iter begin, _Input_Iter end)
+{
+    using value_type = typename std::iterator_traits<_Input_Iter>::value_type;
+
+    selectionSort(begin, end, std::less<value_type>());
 }

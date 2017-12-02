@@ -3,39 +3,39 @@
 
  merge sort synopsis
 
-template<typename _Random_Acccess_Iter>
-_Random_Acccess_Iter
-advance(_Random_Acccess_Iter it, ptrdiff_t n);
+namespace merge_sort_impl {
+    template<typename _Random_Acccess_Iter>
+    _Random_Acccess_Iter
+    advance(_Random_Acccess_Iter it, ptrdiff_t n);
+}
 
-template<typename _Random_Acccess_Iter,
-         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Random_Acccess_Iter, typename _Compare>
 void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
 
-template<typename _Random_Acccess_Iter,
-         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
+template<typename _Random_Acccess_Iter>
 void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
  */
 
 #include <vector>
 #include <iterator>
 
-namespace merge_sort {
-template<typename _Random_Acccess_Iter>
-_Random_Acccess_Iter
-advance(_Random_Acccess_Iter it, ptrdiff_t n)
-{
-    std::advance(it, n);
+namespace merge_sort_impl {
+    template<typename _Random_Acccess_Iter>
+    _Random_Acccess_Iter
+    advance(_Random_Acccess_Iter it, ptrdiff_t n)
+    {
+        std::advance(it, n);
 
-    return it;
+        return it;
+    }
 }
 
-template<typename _Random_Acccess_Iter,
-         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type,
-         typename _Compare = std::less<_Tp>>
+template<typename _Random_Acccess_Iter, typename _Compare>
 void
 mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
 {
+    using value_type = typename std::iterator_traits<_Random_Acccess_Iter>::value_type;
+    using namespace merge_sort_impl;
     using std::distance;
     using std::vector;
 
@@ -43,19 +43,17 @@ mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
     {
         _Random_Acccess_Iter leftMin, leftMax, rightMin, rightMax;
         auto length = distance(begin, end);
-        vector<_Tp> tmp(length);
+        vector<value_type> tmp(length);
 
         // bottom-up version
         for (auto i = 1; i < distance(begin, end); i *= 2)
         {
-            auto last = end;
-            advance(last, -1 * i);
-            for (leftMin = begin; leftMin < last; leftMin = rightMax)
+            for (leftMin = begin; leftMin != end; leftMin = rightMax)
             {
                 rightMin = leftMax = advance(leftMin, i);
                 rightMax = advance(leftMax, i);
 
-                // prevent overflow, if length is now 2^n
+                // prevent overflow, if length is not 2^n
                 if (rightMax > end)
                     rightMax = end;
 
@@ -71,11 +69,11 @@ mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
     }
 }
 
-template<typename _Random_Acccess_Iter,
-         typename _Tp = typename std::iterator_traits<_Random_Acccess_Iter>::value_type>
+template<typename _Random_Acccess_Iter>
 void
 mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end)
 {
-    mergeSort(begin, end, std::less<_Tp>());
-}
+    using value_type = typename std::iterator_traits<_Random_Acccess_Iter>::value_type;
+
+    mergeSort(begin, end, std::less<value_type>());
 }

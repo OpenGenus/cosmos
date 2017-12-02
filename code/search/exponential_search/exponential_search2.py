@@ -4,6 +4,7 @@ Exponential Search
 
 '''
 
+
 def binarySearch(arr, left, right, element):
     if right >= left:
         mid = left + (right - left) // 2
@@ -19,6 +20,7 @@ def binarySearch(arr, left, right, element):
 
     return -1
 
+
 def exponentialSearch(arr, element):
     if arr[0] == element:
         return 0
@@ -28,13 +30,14 @@ def exponentialSearch(arr, element):
     while i < arrLength and arr[i] <= element:
         i *= 2
 
-    return binarySearch(arr, i/2, min(i, arrLength), element)
+    return binarySearch(arr, i / 2, min(i, arrLength), element)
 
-arr = [1,2,3,4,5,6,7,8,9,10]
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 element = 4
 
 found = exponentialSearch(arr, element)
 if found == -1:
     print('Error | Not found')
 else:
-    print('Found | At position', found+1)
+    print('Found | At position', found + 1)
