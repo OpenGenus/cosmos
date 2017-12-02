@@ -3,56 +3,62 @@
 #include <functional>
 
 namespace palindrome_check{
-template<typename _BidirectionalIter,
-         typename _EqualTo
-             = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>,
-         typename _IterLess = std::less<_BidirectionalIter>>
+template<typename _BidirectionalIter, typename _EqualTo>
 bool
-isPalindromeRecursive(_BidirectionalIter begin, _BidirectionalIter end)
+isPalindromeRecursive(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
 {
     if (begin != end)
     {
         --end;
-        if (_IterLess()(begin, end))
+        if (begin != end)
         {
-            if (_EqualTo()(*begin, *end) == false)
+            if (equalTo(*begin, *end) == false)
                 return false;
 
-            return isPalindromeRecursive<_BidirectionalIter, _EqualTo, _IterLess>(++begin, end);
+// avoid even length of iters
+// _: other elem, b: begin, e: end
+//               (++begin)
+// even: _ b e _ _  =>  _ e   b _ _     => error: begin >  end
+// odd : _ b _ e _  =>  _ b/e _ _ _     => ok, will be detected begin == end
+            return isPalindromeRecursive<_BidirectionalIter, _EqualTo>(++begin, end, equalTo);
         }
     }
 
     return true;
 }
 
-template<typename _BidirectionalIter,
-         typename _EqualTo
-             = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>,
-         typename _IterLess = std::less<_BidirectionalIter>>
+template<typename _BidirectionalIter, typename _EqualTo>
 bool
-isPalindromeIterative(_BidirectionalIter begin, _BidirectionalIter end)
+isPalindromeIterative(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
 {
     if (begin != end)
     {
         --end;
-        while (_IterLess()(begin, end))
+        while (begin != end)
         {
-            if (_EqualTo()(*begin++, *end--) == false)
+            if (equalTo(*begin, *end) == false)
                 return false;
+
+// avoid even length of iters
+// _: other elem, b: begin, e: end
+//               (++begin)
+// even: _ b e _ _  =>  _ e   b _ _     => error: begin >  end
+// odd : _ b _ e _  =>  _ b/e _ _ _     => ok, will be detected begin == end
+            if (++begin == end--)
+                break;
         }
     }
 
     return true;
 }
 
-template<typename _BidirectionalIter,
-         typename _EqualTo
-             = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>,
-         typename _IterLess = std::less<_BidirectionalIter>>
+template<typename _BidirectionalIter>
 inline bool
 isPalindrome(_BidirectionalIter begin, _BidirectionalIter end)
 {
     // default is iterative
-    return isPalindromeIterative<_BidirectionalIter, _EqualTo, _IterLess>(begin, end);
+    using EqualTo = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>;
+
+    return isPalindromeIterative<_BidirectionalIter>(begin, end, EqualTo());
 }
 }
