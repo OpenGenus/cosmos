@@ -9,12 +9,14 @@
 #include <algorithm>
 #include "fibonacci_search.cpp"
 
-#define InputIteratorContainer
-#define SearchFunc fibonacciSearch
+//#define InputIterator
+#define RandomAccessIterator
+#define SearchFunc binarySearch
 
 #ifdef InputIteratorContainer
 #define Container list
-#else
+#endif
+#ifdef RandomAccessIterator
 #define Container vector
 #endif
 
