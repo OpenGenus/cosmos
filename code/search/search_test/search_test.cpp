@@ -7,9 +7,15 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
+#include "binary_search.cpp"
+#include "exponential_search.cpp"
 #include "fibonacci_search.cpp"
+#include "interpolation_search.cpp"
+#include "jump_search.cpp"
+#include "linear_search.cpp"
+#include "ternary_search.cpp"
 
-//#define InputIterator
+// #define InputIterator
 #define RandomAccessIterator
 #define SearchFunc binarySearch
 
@@ -23,98 +29,91 @@
 using std::list;
 using std::vector;
 
-TEST_CASE("search algorithm") {
+TEST_CASE("search algorithm")
+{
     // common interface
-    int * (*psf)(int *, int *, int const &);
+    int *(*psf)(int *, int *, const int &);
     Container<int>::iterator (*vsf)(Container<int>::iterator,
                                     Container<int>::iterator,
-                                    int const &);
+                                    const int &);
 
     // substitute our search algorithm
     vsf = SearchFunc;
     psf = SearchFunc;
 
-    SECTION("test empty") {
-        int *arr = new int[0];
-        Container<int> vec{};
+    auto testWithRandomValue = [&](size_t size)
+    {
+        using std::rand;
+        using std::sort;
 
-        CHECK(psf(arr, arr, 0) == arr);
-        CHECK(vsf(vec.begin(), vec.end(), 0) == vec.end());
-    }
+        // size == 0: avoid division by 0
+        int boundaryOfPossibleValue = static_cast<int>(size + (size == 0));
 
-    SECTION("test has 1 elem") {
-        int *arr = new int[1] {1};
-        int *arr_end = arr + 1;
-        Container<int> vec{1};
+        // initial containers
+        int *podPtr = new int[size];
+        auto podPtrEnd = podPtr + size;
+        Container<int> container(size);
 
-        CHECK(psf(arr, arr_end, 0) == arr_end);
-        CHECK(vsf(vec.begin(), vec.end(), 0) == vec.end());
-
-        CHECK(psf(arr, arr_end, 1) == arr);
-        CHECK(vsf(vec.begin(), vec.end(), 1) == vec.begin());
-
-        CHECK(psf(arr, arr_end, 2) == arr_end);
-        CHECK(vsf(vec.begin(), vec.end(), 2) == vec.end());
-    }
-
-    SECTION("test has 2 elems") {
-        int *arr = new int[2] {1, 3};
-        int *arr_end = arr + 2;
-        Container<int> vec{1, 3};
-
-        CHECK(psf(arr, arr_end, 0) == arr_end);
-        CHECK(vsf(vec.begin(), vec.end(), 0) == vec.end());
-
-        CHECK(psf(arr, arr_end, 1) == arr);
-        CHECK(vsf(vec.begin(), vec.end(), 1) == vec.begin());
-
-        CHECK(psf(arr, arr_end, 2) == arr_end);
-        CHECK(vsf(vec.begin(), vec.end(), 2) == vec.end());
-
-        CHECK(psf(arr, arr_end, 3) == arr + 1);
-        CHECK(vsf(vec.begin(), vec.end(), 3) == ++vec.begin());
-
-        CHECK(psf(arr, arr_end, 4) == arr_end);
-        CHECK(vsf(vec.begin(), vec.end(), 4) == vec.end());
-    }
-
-    SECTION("test has random size elems and random value") {
-        srand((int)clock());
-        for (int t = 0; t < 30; ++t)
+        // initial random values for containers
+        for (size_t i = 0; i < size; ++i)
         {
-            // random size
-            int rand = 50 + std::rand() % 100;
-            int *arr = new int[rand];
-            Container<int> vec(rand);
-
-            // random elems
-            for (int i = 0; i < rand; ++i)
-            {
-                int rv = std::rand() % 100;
-                arr[i] = rv;
-            }
-            std::sort(arr, arr + rand);
-            auto vit = vec.begin();
-            for (int i = 0; i < rand; ++i, ++vit)
-                *vit = arr[i];
-
-
-            // based standard search
-            // if found then compare to value, else compare to pointer is end
-            for (int i = 0; i < rand * 10; ++i)
-            {
-                int rv = std::rand() % 100;
-                if (std::binary_search(arr, arr + rand, rv))
-                {
-                    CHECK(*psf(arr, arr + rand, rv) == rv);
-                    CHECK(*vsf(vec.begin(), vec.end(), rv) == rv);
-                }
-                else
-                {
-                    CHECK(psf(arr, arr + rand, rv) == arr + rand);
-                    CHECK(vsf(vec.begin(), vec.end(), rv) == vec.end());
-                }
-            }
+            int randomValue = rand() % boundaryOfPossibleValue;
+            podPtr[i] = randomValue;
+            container[i] = randomValue;
         }
+        sort(podPtr, podPtrEnd);
+        sort(container.begin(), container.end());
+
+        // based standard search
+        // if found then compare to value, else compare to pointer is end
+        // range of random values is [0:boundOfPossibleValue]
+        // +/-30 is test out of boundary
+        for (int i = - 30; i < boundaryOfPossibleValue + 30; ++i)
+            if (std::binary_search(podPtr, podPtrEnd, i))
+            {
+                CHECK(*psf(podPtr, podPtrEnd, i) == i);
+                CHECK(*vsf(container.begin(), container.end(), i) == i);
+            }
+            else
+            {
+                CHECK(psf(podPtr, podPtrEnd, i) == podPtrEnd);
+                CHECK(vsf(container.begin(), container.end(), i) == container.end());
+            }
+
+        delete[] podPtr;
+    };
+
+    SECTION("empty")
+    {
+        testWithRandomValue(0);
+    }
+
+    SECTION("1 elem")
+    {
+        for (int i = 0; i < 1000; ++i)
+            testWithRandomValue(1);
+    }
+
+    SECTION("2 elems")
+    {
+        for (int i = 0; i < 1000; ++i)
+            testWithRandomValue(2);
+    }
+
+    SECTION("3 elems")
+    {
+        for (int i = 0; i < 1000; ++i)
+            testWithRandomValue(3);
+    }
+
+    SECTION("random size")
+    {
+        for (int i = 0; i < 1000; ++i)
+            testWithRandomValue(50 + std::rand() % 100);
+    }
+
+    SECTION("large size")
+    {
+        testWithRandomValue(1e6 + std::rand() % 10000);
     }
 }
