@@ -8,10 +8,11 @@
 #include <cassert>
 #include "subset_sum.cpp"
 
-using namespace std;
 int
 main()
 {
+    using namespace std;
+
     int vz[0];
     int v[] = {1, 2, 15, 8, 5};
     list<int> l{1, 2, 15, 8, 5};
