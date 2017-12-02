@@ -3,7 +3,14 @@
  Ternary Search Uses Divide And Conquer Technique
  */
 
-int* ternarySearch(int* first,int* last, int *const notFoundSentinel, const int &x){
+#include <iterator>
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+_RandomAccessIter
+ternarySearch(_RandomAccessIter first,
+              _RandomAccessIter last,
+              const _RandomAccessIter notFoundSentinel,
+              const _ValueType &x){
     if(last>=first){
         auto mid1 = first + (last-first)/3;
         auto mid2 = last - (last-first)/3;
@@ -21,11 +28,14 @@ int* ternarySearch(int* first,int* last, int *const notFoundSentinel, const int 
     return notFoundSentinel; // if x is not found in array arr
 }
 
-int* ternarySearch(int *begin, int *end, const int &x)
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+_RandomAccessIter
+ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType&x)
 {
     if (begin < end)
     {
-        auto res = ternarySearch(begin, end-1, end, x);
+        auto res = ternarySearch(begin, end - 1, end, x);
 
         return res == end ? end : res;
     }
