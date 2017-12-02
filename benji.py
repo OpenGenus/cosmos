@@ -94,7 +94,7 @@ def events(put,link):
 			print('Cannot lock device')  
 
 		#News of various press agencies
-	elif put.startswith('aljazeera '):
+	elif put.startswith('al jazeera '): 
 		try:
 			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
 			newsresponce = requests.get(aljazeeraurl)
