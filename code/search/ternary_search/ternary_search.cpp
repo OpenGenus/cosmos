@@ -30,7 +30,6 @@ _RandomAccessIter
 ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &find);
  */
 
-#include <iterator>
 #include <functional>
 
 namespace ternary_search_impl
