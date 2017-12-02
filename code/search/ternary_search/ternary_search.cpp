@@ -4,41 +4,63 @@
  */
 
 #include <iterator>
+#include <functional>
 template<typename _RandomAccessIter,
-         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
+         typename _Less>
 _RandomAccessIter
 ternarySearch(_RandomAccessIter first,
               _RandomAccessIter last,
-              const _RandomAccessIter notFoundSentinel,
-              const _ValueType &find){
-    if(last>=first){
-        auto mid1 = first + (last-first)/3;
-        auto mid2 = last - (last-first)/3;
-        if(*mid1 == find)
-            return mid1;
-        if(*mid2 == find)
-            return mid2;
-        if(find<*mid1)
-            return ternarySearch(first,mid1-1, notFoundSentinel,find);
-        else if(find>*mid2)
-            return ternarySearch(mid2+1,last, notFoundSentinel,find);
+              const _RandomAccessIter &notFoundSentinel,
+              const _ValueType &find,
+              _Less less)
+{
+    if (first <= last)
+    {
+        auto dist = std::distance(first, last);
+
+        auto leftMid = first + dist / 3, rightMid = last - dist / 3;
+
+        auto lessThanLeftMid = less(find, *leftMid), greaterThanLeftMid = less(*leftMid, find),
+             lessThanRightMid = less(find, *rightMid), greaterThanRightMid = less(*rightMid, find);
+
+        if (lessThanLeftMid == greaterThanLeftMid)
+            return leftMid;
+
+        if (lessThanRightMid == greaterThanRightMid)
+            return rightMid;
+
+        if (lessThanLeftMid)
+            return ternarySearch(first, leftMid - 1, notFoundSentinel, find, less);
+        else if (greaterThanRightMid)
+            return ternarySearch(rightMid + 1, last, notFoundSentinel, find, less);
         else
-            return ternarySearch(mid1+1,mid2-1, notFoundSentinel,find);
+            return ternarySearch(leftMid + 1, rightMid - 1, notFoundSentinel, find, less);
     }
-    return notFoundSentinel; // if `find` is not found in array arr
+
+    return notFoundSentinel;
 }
 
 template<typename _RandomAccessIter,
-         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
+         typename _Less>
 _RandomAccessIter
-ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType&find)
+ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &find, _Less less)
 {
     if (begin < end)
     {
-        auto res = ternarySearch(begin, end - 1, end, x);
+        auto res = ternarySearch(begin, end - 1, end, find, less);
 
         return res == end ? end : res;
     }
 
     return end;
+}
+
+template<typename _RandomAccessIter,
+         typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type>
+_RandomAccessIter
+ternarySearch(_RandomAccessIter begin, _RandomAccessIter end, const _ValueType &find)
+{
+    return ternarySearch(begin, end, find, std::less<_ValueType>());
 }
