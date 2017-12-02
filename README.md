@@ -7,7 +7,6 @@
 
 [![works on Windows](https://img.shields.io/badge/works%20on-Windows-blue.svg)](http://shields.io/#your-badge)
 [![works on Linux](https://img.shields.io/badge/works%20on-Linux-orange.svg)](http://shields.io/#your-badge)
-[![works on Mac OS](https://img.shields.io/badge/works%20on-Mac%20OS-lightgrey.svg)](http://shields.io/#your-badge)
 
 [![made with &hearts in Python](https://img.shields.io/badge/made%20with%20%E2%9D%A4%20in-Python-red.svg)](http://shields.io/#your-badge)
 
