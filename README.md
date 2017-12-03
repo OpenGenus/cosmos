@@ -1,14 +1,15 @@
 # B.E.N.J.I.
 
-[![Google Group](https://img.shields.io/badge/-Google%20Group-lightgrey.svg)](https://groups.google.com/forum/#!forum/benji-discussion)
-
-
 [![Built with ❤](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/#)
 
 [![works on Windows](https://img.shields.io/badge/works%20on-Windows-blue.svg)](http://shields.io/#your-badge)
 [![works on Linux](https://img.shields.io/badge/works%20on-Linux-orange.svg)](http://shields.io/#your-badge)
 
 [![made with &hearts in Python](https://img.shields.io/badge/made%20with%20%E2%9D%A4%20in-Python-red.svg)](http://shields.io/#your-badge)
+
+[![Google Group](https://img.shields.io/badge/-Google%20Group-lightgrey.svg)](https://groups.google.com/forum/#!forum/benji-discussion)
+[![Chat at Slack](https://img.shields.io/badge/chat-on%20slack-green.svg?style=flat)](https://benjispace.slack.com/messages/C89URDFMM/)
+
 
 <h1 align="center">
 	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji1.ico" alt="B.E.N.J.I.">
