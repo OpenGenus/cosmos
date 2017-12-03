@@ -30,7 +30,7 @@ def fill(arr, size):
 	if ELEM_MODE == "ALLOW_DUPLICATE":
 		while len(arr) < size:
 			arr.extend([i])
-			if random.random() % 2:
+			if random.randint(0, 2) % 2:
 				arr.extend([i])
 			i += 1
 
