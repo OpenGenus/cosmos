@@ -2,7 +2,7 @@ import random
 
 
 # Part of Cosmos by OpenGenus Foundation
-def bogosort(l):
+def bogo_sort(l):
     while not in_order(l):
         random.shuffle(l)
     return l
@@ -19,4 +19,4 @@ def in_order(l):
     return True
 
 
-print(bogosort([5, 2, 3, 4, 1]))
+print(bogo_sort([5, 2, 3, 4, 1]))

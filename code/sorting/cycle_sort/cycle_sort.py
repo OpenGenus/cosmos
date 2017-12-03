@@ -1,7 +1,7 @@
 # Part of Cosmos by OpenGenus Foundation
 
 
-def cycleSort(arr):
+def cycle_sort(arr):
     writes = 0
 
     # Loop through the array to find cycles
@@ -45,5 +45,5 @@ def cycleSort(arr):
 if __name__ == '__main__':
     arr = [1, 6, 4, 7, 2, 8]
     print("Unsorted Array: ", arr)
-    cycleSort(arr)
+    cycle_sort(arr)
     print("Sorted Array:   ", arr)
