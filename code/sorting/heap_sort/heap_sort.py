@@ -35,7 +35,3 @@ def heap_sort(arr):
         length -= 1
         heap_root(arr, 0, length)
 
-
-#arr = [7, -1, -2, 5, 15, 0, 10]
-#heapSort(arr)
-#print(arr)

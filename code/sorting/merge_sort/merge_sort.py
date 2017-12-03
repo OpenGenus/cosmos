@@ -37,7 +37,3 @@ def merge_sort(arr):
         merge_sort(right)
         merge(arr, left, right)
 
-
-arr = [1, 8, 3, 4, 9, 3]
-merge_sort(arr)
-print('After sorting the given array is |', arr)

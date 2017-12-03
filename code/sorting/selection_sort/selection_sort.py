@@ -19,7 +19,3 @@ def printArray(self, array):
         print(array[i])
     return array
 
-
-list = [64, 25, 12, 22, 11]
-s = SelectionSort()
-s.printArray(list)
