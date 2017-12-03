@@ -5,7 +5,7 @@ import os
 import wikipedia
 import time 
 import webbrowser 
-import winshell
+#import winshell
 import json
 import requests
 import ctypes 
