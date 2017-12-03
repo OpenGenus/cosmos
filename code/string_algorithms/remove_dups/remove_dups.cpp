@@ -1,29 +1,25 @@
 #include <iostream>
 
 //Part of Cosmos by OpenGenus Foundation
-void removeDups(char *pStr)
+void removeDups(std::string &str)
 {
-    char *strTemp = pStr + 1;
-    while (*strTemp != '\0')
+    std::string resStr;
+    resStr.push_back(str.front());
+    for (std::string::iterator it = str.begin() + 1; it != str.end(); ++it)
     {
 
-        if (*pStr != *strTemp)
-        {
-            pStr++;
-            *pStr = *strTemp;
-        }
-        strTemp++;
+        if (*it != resStr.back())
+            resStr.push_back(*it);
 
     }
-    pStr++;
-    *pStr = '\0';
+    std::swap(str, resStr);
 }
 
 int main()
 {
-    char str[256];
+    std::string str;
     std::cout << "Enter string: " << std::endl;
-    std::cin.getline(str, 256);
+    std::getline(std::cin, str);
     removeDups(str);
     std::cout << "Resultant string: " << str << std::endl;
     return 0;
