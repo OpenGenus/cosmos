@@ -12,10 +12,3 @@ def selection_sort(array):
         array[i] = temp
     return array
 
-
-def printArray(self, array):
-    array = self.sort(array)
-    for i in range(len(array)):
-        print(array[i])
-    return array
-

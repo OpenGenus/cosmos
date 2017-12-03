@@ -39,6 +39,8 @@ def countSort(arr):
 
 
 # Driver program to test above function
-arr = "opengenus"
-ans = countSort(arr)
-print "Sorted character array is %s" % ("".join(ans))
+if __name__ == "__main__":
+    arr = "opengenus"
+    ans = countSort(arr)
+    print "Sorted character array is %s" % ("".join(ans))
+

@@ -19,4 +19,5 @@ def in_order(l):
     return True
 
 
-print(bogo_sort([5, 2, 3, 4, 1]))
+if __name__ == "__main__":
+    print(bogo_sort([5, 2, 3, 4, 1]))

@@ -7,6 +7,7 @@ def gnomeSort(arr, n):
     while index < n:
         if index == 0:
             index = index + 1
+
         if arr[index] >= arr[index - 1]:
             index = index + 1
         else:
@@ -15,12 +16,3 @@ def gnomeSort(arr, n):
 
     return arr
 
-
-# Driver Code
-arr = [34, 2, 10, -9]
-n = len(arr)
-
-arr = gnomeSort(arr, n)
-print "Sorted seqquence after applying Gnome Sort :",
-for i in arr:
-    print i,
