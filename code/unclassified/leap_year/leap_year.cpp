@@ -8,8 +8,7 @@ bool isLeapYear(int year)
     if (year % 100 == 0)
         return false;
 
-    else
-        return year % 4 == 0
+    return year % 4 == 0
 }
 
 void findLeapYears(int a , int b)
