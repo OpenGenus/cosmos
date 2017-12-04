@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # Part of Cosmos by OpenGenus Foundation
-def stoogeSort(a):
+def stooge_sort(a):
     def sort(left, right):
         if a[left] > a[right]:
             a[left], a[right] = a[right], a[left]
@@ -15,5 +15,5 @@ def stoogeSort(a):
 
 
 l = [4, 7, 2, 8, 1, 9, 3]
-stoogeSort(l)
+stooge_sort(l)
 print ", ".join(str(x) for x in l)

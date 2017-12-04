@@ -4,7 +4,7 @@
 
 # The main function that sort the given string arr[] in
 # alphabetical order
-def countSort(arr):
+def count_sort(arr):
 
     # The output character array that will have sorted arr
     output = [0 for i in range(256)]
@@ -41,6 +41,6 @@ def countSort(arr):
 # Driver program to test above function
 if __name__ == "__main__":
     arr = "opengenus"
-    ans = countSort(arr)
+    ans = count_sort(arr)
     print "Sorted character array is %s" % ("".join(ans))
 

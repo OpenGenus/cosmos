@@ -2,7 +2,7 @@
 
 
 # A function to sort the given list using Gnome sort
-def gnomeSort(arr, n):
+def gnome_sort(arr, n):
     index = 0
     while index < n:
         if index == 0:
