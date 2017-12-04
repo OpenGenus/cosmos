@@ -6,6 +6,14 @@
 
 ## Coding Conventions
 
+## Index
+- [Naming Style](#naming-style)
+- [Colon](#colon)
+- [Lambdas](#lambdas)
+- [Class Header Formatting](#class-header-formatting)
+- [Unit](#unit)
+- [Functions vs Properties](#functions-vs-properties)
+
 ### Naming Style
 * Use camelCase (and avoid underscores) for names
 * Types start with upper case
@@ -35,7 +43,7 @@ list.filter { it > 10 }.map { element -> element * 2 }
 * In short and nested lambdas, you should use the it convention instead of declaring the parameter explicitly
 * In nested lambdas with parameters, parameters should be always declared explicitly.
 
-### Class header formatting
+### Class Header Formatting
 * Classes with a few arguments can be written in a single line:
 
 ```
