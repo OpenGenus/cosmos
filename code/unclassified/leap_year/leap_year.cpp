@@ -22,7 +22,7 @@ void findLeapYears(int a , int b)
 int main()
 {
     using namespace std;
-    int year1,year2;
+    int year1, year2;
     cout<<"Enter the first year: ";
     cin>>year1;
     cout<<"Enter the second year year: ";
