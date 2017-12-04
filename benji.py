@@ -36,13 +36,12 @@ def events(put):
 	launch_keywords = ["open", "launch"]
 	search_keywords = ["search", "google"]
 	wikipedia_keywords = ["wikipedia", "wiki"]
-	note_keywords = ["note ","not ","node "]
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
 
 	link = put.split()
 
 	#Add note
-	if any(word in put for word in note_keywords):	
+	if put.startswith("note") or put.startswith("not") or put.startswith("node"):	
 		try:
 			check = link[1]
 			username = os.getlogin()
