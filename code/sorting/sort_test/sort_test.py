@@ -6,12 +6,10 @@ Part of Cosmos by OpenGenus Foundation
 import random
 import copy
 # import bead_sort # result error
-# import bead_sort_numpy # no module numpy error
-import bogo_sort # testing
+# import bead_sort_numpy # error
 # import bucket_sort # error
 # import circle_sort # error, tried
 # import counting_sort # error, tried
-import gnome_sort # testing
 # import radix_sort # error
 
 # sort_func = bead_sort.bead_sort
@@ -68,14 +66,14 @@ def randomize(arr):
         arr[i], arr[r] = arr[r], arr[i]
 
 
-def isSame(expect, actual):
+def is_same(expect, actual):
     assert len(expect) == len(actual)
 
     for i in range(len(expect)):
         assert expect[i] == actual[i]
 
 
-def testSizeByTimes(size, times):
+def test_size_by_times(size, times):
     for i in range(times):
         # GIVEN
         expect = []
@@ -87,12 +85,12 @@ def testSizeByTimes(size, times):
         sort_func(actual)
 
         # THEN
-        isSame(expect, actual)
+        is_same(expect, actual)
 
 
-testSizeByTimes(0, 1)
-testSizeByTimes(1, 1)
-testSizeByTimes(2, 1000)
-testSizeByTimes(3, 1000)
-testSizeByTimes(random.randint(1e4, 1e5), 1)
+test_size_by_times(0, 1)
+test_size_by_times(1, 1)
+test_size_by_times(2, 1000)
+test_size_by_times(3, 1000)
+test_size_by_times(random.randint(1e4, 1e5), 1)
 print("passed")

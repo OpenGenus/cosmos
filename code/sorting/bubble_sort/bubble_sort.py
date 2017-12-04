@@ -15,7 +15,6 @@ def bubble_sort(arr):
 
 
 # Less elegant solution, but easier to follow along:
-
 def bubble_sort(alist):
     is_sorted = False
     while is_sorted == False:
@@ -29,4 +28,3 @@ def bubble_sort(alist):
         if num_swaps == 0:
                 is_sorted = True
     return alist
-

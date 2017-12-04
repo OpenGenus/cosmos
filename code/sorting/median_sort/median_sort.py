@@ -1,5 +1,5 @@
 # Part of Cosmos by OpenGenus Foundation
-def sortMedian(list):
+def median_sort(list):
     data = sorted(list)
     n = len(data)
     if n == 0:
