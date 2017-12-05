@@ -5,6 +5,8 @@
 
  warning: in order to follow the convention of STL, the interface is [begin, end) !!!
 
+namespace jump_search_impl
+{
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Compare>
@@ -14,6 +16,7 @@ jumpSearchImpl(_Random_Access_Iter begin,
                _Tp const &find,
                _Compare comp,
                std::random_access_iterator_tag);
+} // jump_search_impl
 
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
@@ -30,6 +33,8 @@ jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find);
 #include <functional>
 #include <cmath>
 
+namespace jump_search_impl
+{
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Compare>
@@ -63,6 +68,7 @@ jumpSearchImpl(_Random_Access_Iter begin,
 
     return end;
 }
+} // jump_search_impl
 
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
@@ -72,7 +78,7 @@ jumpSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find, 
 {
     auto category = typename std::iterator_traits<_Random_Access_Iter>::iterator_category();
 
-    return jumpSearchImpl(begin, end, find, comp, category);
+    return jump_search_impl::jumpSearchImpl(begin, end, find, comp, category);
 }
 
 template<typename _Random_Access_Iter,

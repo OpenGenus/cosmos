@@ -5,6 +5,8 @@
 
  warning: in order to follow the convention of STL, the interface is [begin, end) !!!
 
+namespace fibonacci_search_impl
+{
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
@@ -13,6 +15,7 @@ fibonacciSearchImpl(_Input_Iter begin,
                     _Tp const &find,
                     _Compare comp,
                     std::input_iterator_tag);
+} // fibonacci_search_impl
 
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
@@ -27,6 +30,8 @@ fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
 
 #include <functional>
 
+namespace fibonacci_search_impl
+{
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
@@ -86,17 +91,16 @@ fibonacciSearchImpl(_Input_Iter begin,
 
     return end;
 }
+} // fibonacci_search_impl
 
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
 fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp)
 {
-    return fibonacciSearchImpl(begin,
-                               end,
-                               find,
-                               comp,
-                               typename std::iterator_traits<_Input_Iter>::iterator_category());
+    auto category = typename std::iterator_traits<_Input_Iter>::iterator_category();
+
+    return fibonacci_search_impl::fibonacciSearchImpl(begin, end, find, comp, category);
 }
 
 template<typename _Input_Iter,
