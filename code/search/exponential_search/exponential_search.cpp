@@ -5,6 +5,8 @@
 
  warning: in order to follow the convention of STL, the interface is [begin, end) !!!
 
+namespace exponenial_search_impl
+{
 template<typename _Random_Access_Iter, typename _Comp,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Difference = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
@@ -24,6 +26,7 @@ exponentialSearchImpl(_Random_Access_Iter begin,
                       _Tp const &find,
                       _Compare comp,
                       std::random_access_iterator_tag);
+} // exponenial_search_impl
 
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
@@ -42,6 +45,8 @@ exponentialSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const 
 
 #include <functional>
 
+namespace exponenial_search_impl
+{
 template<typename _Random_Access_Iter, typename _Comp,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
          typename _Difference = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
@@ -104,6 +109,7 @@ exponentialSearchImpl(_Random_Access_Iter begin,
 
     return end;
 }
+} // exponenial_search_impl
 
 template<typename _Random_Access_Iter,
          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
@@ -116,7 +122,7 @@ exponentialSearch(_Random_Access_Iter begin,
 {
     auto category = typename std::iterator_traits<_Random_Access_Iter>::iterator_category();
 
-    return exponentialSearchImpl(begin, end, find, comp, category);
+    return exponenial_search_impl::exponentialSearchImpl(begin, end, find, comp, category);
 }
 
 template<typename _Random_Access_Iter,

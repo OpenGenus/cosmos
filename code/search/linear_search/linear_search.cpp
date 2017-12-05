@@ -5,6 +5,8 @@
 
  warning: in order to follow the convention of STL, the interface is [begin, end) !!!
 
+namespace linear_search_impl
+{
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
@@ -13,6 +15,7 @@ linearSearchImpl(_Input_Iter begin,
                  _Tp const &find,
                  _Compare comp,
                  std::input_iterator_tag);
+} // linear_search_impl
 
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
@@ -24,8 +27,11 @@ template<typename _Input_Iter,
 _Input_Iter
 linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
  */
+
 #include <functional>
 
+namespace linear_search_impl
+{
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
@@ -46,17 +52,15 @@ linearSearchImpl(_Input_Iter begin,
 
     return current;
 }
+} // linear_search_impl
 
 template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
 _Input_Iter
 linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp)
 {
-    return linearSearchImpl(begin,
-                            end,
-                            find,
-                            comp,
-                            typename std::iterator_traits<_Input_Iter>::iterator_category());
+    auto category = typename std::iterator_traits<_Input_Iter>::iterator_category();
+    return linear_search_impl::linearSearchImpl(begin, end, find, comp, category);
 }
 
 template<typename _Input_Iter,
