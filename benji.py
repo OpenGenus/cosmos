@@ -54,7 +54,7 @@ def events(put,link):
 		except:
 			print('Sorry Ethan. Looks like its not working!')
 		#Location finder
-      elif any(word in put for word in location_keywords)
+       elif any(word in put for word in location_keywords)
                 try:
                         link='+'.join(link[1:])
                         say=link.replace('+',' ')
