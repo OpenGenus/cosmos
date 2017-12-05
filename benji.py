@@ -53,18 +53,16 @@ def events(put,link):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
-		
-        #Location finder
-     elif any(word in put for word in location_keywords)
-       try:
-        link='+'.join(link[1:])
-        say=link.replace('+',' ')
-        speak.Speak("locating "+ say)
-        webbrowser.open('https://www.google.nl/maps/place/'+link)
-       except:
-        speak.Speak('The place seems to be sequestered.')
-        print('The place seems to be sequestered.')
-
+		#Location finder
+      elif any(word in put for word in location_keywords)
+                try:
+                        link='+'.join(link[1:])
+                        say=link.replace('+',' ')
+                        speak.Speak("locating "+ say)
+                        webbrowser.open('https://www.google.nl/maps/place/'+link)
+                except:
+                        speak.Speak('The place seems to be sequestered.')
+                        print('The place seems to be sequestered.')
 		#Who are you?
 	elif any(word in put for word in identity_keywords):
 		try: 
