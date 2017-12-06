@@ -171,7 +171,7 @@ class MyFrame(wx.Frame):
 		def __init__(self):
 			wx.Frame.__init__(self,None,pos=wx.DefaultPosition,size=wx.Size(400,200), title="BENJI")
 			panel=wx.Panel(self)
-			ico= wx.Icon('benji1.ico',wx.BITMAP_TYPE_ICO)
+			ico= wx.Icon('benji_final.ico',wx.BITMAP_TYPE_ICO)
 			self.SetIcon(ico)
 			my_sizer=wx.BoxSizer(wx.VERTICAL)
 			lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
