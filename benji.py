@@ -1,3 +1,4 @@
+
 # coding: utf-8
 import wx
 import re
@@ -36,6 +37,7 @@ def events(put,link):
 	launch_keywords = ["open", "launch"]
 	search_keywords = ["search", "google"]
 	wikipedia_keywords = ["wikipedia", "wiki"]
+	location_keywords = ["Locate","spot"]
 	if any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -52,6 +54,16 @@ def events(put,link):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
+		#Location finder
+        elif any(word in put for word in location_keywords)
+                try:
+                        link='+'.join(link[1:])
+                        say=link.replace('+',' ')
+                        speak.Speak("locating "+ say)
+                        webbrowser.open('https://www.google.nl/maps/place/'+link)
+                except:
+                        speak.Speak('The place seems to be sequestered.')
+                        print('The place seems to be sequestered.')
 		#Who are you?
 	elif any(word in put for word in identity_keywords):
 		try: 
