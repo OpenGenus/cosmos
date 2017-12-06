@@ -12,7 +12,7 @@
 
 
 <h1 align="center">
-	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji1.ico" alt="B.E.N.J.I.">
+	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji_final.ico">
 	<br>
 	<br>
 </h1>
