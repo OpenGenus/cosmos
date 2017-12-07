@@ -1,5 +1,5 @@
 # Part of Cosmos by OpenGenus Foundation
-def bsort(A):
+def bucket_sort(A):
     buckets = [[] for x in range(10)]
     for i, x in enumerate(A):
         buckets[int(x * len(buckets))].append(x)

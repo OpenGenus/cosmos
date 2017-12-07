@@ -1,8 +1,7 @@
 '''
-
-Merge Sort
 Part of Cosmos by OpenGenus Foundation
 
+Merge Sort
 '''
 
 
@@ -28,16 +27,12 @@ def merge(arr, left, right):
         k += 1
 
 
-def mergeSort(arr):
+def merge_sort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
         left = arr[:mid]
         right = arr[mid:]
-        mergeSort(left)
-        mergeSort(right)
+        merge_sort(left)
+        merge_sort(right)
         merge(arr, left, right)
 
-
-arr = [1, 8, 3, 4, 9, 3]
-mergeSort(arr)
-print('After sorting the given array is |', arr)
