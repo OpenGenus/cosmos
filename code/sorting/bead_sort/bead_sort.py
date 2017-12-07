@@ -20,6 +20,3 @@ def bead_sort(obj):
         prev = sum([1 for x in inter if len(x) > ind])
     out = out[::-1]
     return out
-
-
-print(bead_sort([4, 1, 6, 2, 40, 5, 3, 8, 7]))
