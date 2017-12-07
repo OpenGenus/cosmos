@@ -1,58 +1,64 @@
-#include <iterator>
-#include <type_traits>
 #include <functional>
 
-namespace palindrome_check{
-template<typename _InputIter,
-         typename _ValueNotEqualTo
-             = std::not_equal_to<typename std::iterator_traits<_InputIter>::value_type>,
-         typename _IterLess = std::less<_InputIter>>
+namespace cosmos_utility{
+ /*
+template<typename _BidirectionalIter, typename _EqualTo>
 bool
-isPalindromeRecursive(_InputIter begin, _InputIter end)
+isPalindrome(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
 {
     if (begin != end)
     {
         --end;
-        if (_IterLess()(begin, end))
+        if (begin != end)
         {
-            if (_ValueNotEqualTo()(*begin, *end))
+            if (equalTo(*begin, *end) == false)
                 return false;
 
-            return isPalindromeRecursive<_InputIter, _ValueNotEqualTo, _IterLess>(++begin, end);
+// avoid even length of iters
+// _: other elem, b: begin, e: end
+//               (++begin)
+// even: _ b e _ _  =>  _ e   b _ _     => error: begin >  end
+// odd : _ b _ e _  =>  _ b/e _ _ _     => ok, will be detected begin == end
+            return isPalindrome(++begin, end, equalTo);
+        }
+    }
+
+    return true;
+}
+ */
+
+template<typename _BidirectionalIter, typename _EqualTo>
+bool
+isPalindrome(_BidirectionalIter begin, _BidirectionalIter end, _EqualTo equalTo)
+{
+    if (begin != end)
+    {
+        --end;
+        while (begin != end)
+        {
+            if (equalTo(*begin, *end) == false)
+                return false;
+
+// avoid even length of iters
+// _: other elem, b: begin, e: end
+//               (++begin)
+// even: _ b e _ _  =>  _ e   b _ _     => error: begin >  end
+// odd : _ b _ e _  =>  _ b/e _ _ _     => ok, will be detected begin == end
+            if (++begin == end--)
+                break;
         }
     }
 
     return true;
 }
 
-template<typename _InputIter,
-         typename _ValueNotEqualTo
-             = std::not_equal_to<typename std::iterator_traits<_InputIter>::value_type>,
-         typename _IterLess = std::less<_InputIter>>
-bool
-isPalindromeIterative(_InputIter begin, _InputIter end)
-{
-    if (begin != end)
-    {
-        --end;
-        while (_IterLess()(begin, end))
-        {
-            if (_ValueNotEqualTo()(*begin++, *end--))
-                return false;
-        }
-    }
-
-    return true;
-}
-
-template<typename _InputIter,
-         typename _ValueNotEqualTo
-             = std::not_equal_to<typename std::iterator_traits<_InputIter>::value_type>,
-         typename _IterLess = std::less<_InputIter>>
+template<typename _BidirectionalIter>
 inline bool
-isPalindrome(_InputIter begin, _InputIter end)
+isPalindrome(_BidirectionalIter begin, _BidirectionalIter end)
 {
     // default is iterative
-    return isPalindromeIterative<_InputIter, _ValueNotEqualTo, _IterLess>(begin, end);
+    using EqualTo = std::equal_to<typename std::iterator_traits<_BidirectionalIter>::value_type>;
+
+    return isPalindrome<_BidirectionalIter>(begin, end, EqualTo());
 }
 }
