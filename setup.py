@@ -17,7 +17,8 @@ setup(
 	description='Your Voice Assitant',
 
 
-	author:'Dhruv Apte the-ethan-hunt',
+	author:'Dhruv Apte',
+	author_git="https://github.com/the-ethan-hunt/"
 	author_email='dhruvgirishapte@gmail.com',
 	url='https://github.com/the-ethan-hunt/B.E.N.J.I./',
 
@@ -29,7 +30,7 @@ setup(
         'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
-        'Intended Audience :: Developers',
+        'Intended Audience :: Developers and Users who want a voice Assitant',
         'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish (should match "license" above)
