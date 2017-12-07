@@ -1,5 +1,5 @@
 # Part of Cosmos by OpenGenus Foundation
-def sort(number, maxNumber):
+def radix_sort(number, maxNumber):
     length = len(number)
     k = 0
     n = 1
@@ -24,6 +24,6 @@ def sort(number, maxNumber):
 
 number = [34, 3212, 51, 52, 612, 456, 12, 31, 412, 123, 1, 3]
 
-print("before sorting", number)
-sort(number, max(number))
-print("after sorting", number)
+print("before radix_sorting", number)
+radix_sort(number, max(number))
+print("after radix_sorting", number)

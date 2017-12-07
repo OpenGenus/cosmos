@@ -5,7 +5,7 @@ import time
 _lk = threading.Lock()
 
 
-class SleepSortThread(threading.Thread):
+class sleep_sort_thread(threading.Thread):
     def __init__(self, val):
         self.val = val
         threading.Thread.__init__(self)
@@ -21,12 +21,12 @@ class SleepSortThread(threading.Thread):
         _lk.release()
 
 
-def SleepSort(list):
+def sleep_sort(list):
     ts = []
 
     # Intialize a thread corresponding to each element in list
     for i in list:
-        t = SleepSortThread(i)
+        t = sleep_sort_thread(i)
         ts.append(t)
 
     # Start all Threads
@@ -39,4 +39,4 @@ def SleepSort(list):
 
 
 x = [2, 4, 3, 1, 6, 8, 4]
-x = SleepSort(x)
+x = sleep_sort(x)
