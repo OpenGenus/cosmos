@@ -19,8 +19,9 @@ parso==0.1.0
 pickleshare==0.7.4
 prompt-toolkit==1.0.15
 PyAudio==0.2.11
+#incase pyAudio blows up first install portaudio19-dev and then try installing pyaudio
 Pygments==2.2.0
-pypiwin32==220
+pypiwin32==219
 python-dateutil==2.6.1
 pytz==2017.3
 requests==2.18.4
@@ -36,3 +37,9 @@ wcwidth==0.1.7
 wikipedia==1.4.0
 winshell==0.6
 wxPython==4.0.0b2
+
+
+#Forlinux install wxpython using  pip3 install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04     wxPython 
+#or
+#pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04     wxPython
+

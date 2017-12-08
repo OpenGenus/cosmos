@@ -1,8 +1,18 @@
 # B.E.N.J.I.
+
+[![Built with ❤](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com/#)
+
+[![works on Windows](https://img.shields.io/badge/works%20on-Windows-blue.svg)](http://shields.io/#your-badge)
+[![works on Linux](https://img.shields.io/badge/works%20on-Linux-orange.svg)](http://shields.io/#your-badge)
+
+[![made with &hearts in Python](https://img.shields.io/badge/made%20with%20%E2%9D%A4%20in-Python-red.svg)](http://shields.io/#your-badge)
+
 [![Google Group](https://img.shields.io/badge/-Google%20Group-lightgrey.svg)](https://groups.google.com/forum/#!forum/benji-discussion)
+[![Chat at Slack](https://img.shields.io/badge/chat-on%20slack-green.svg?style=flat)](https://join.slack.com/t/benjispace/shared_invite/enQtMjgwOTc4ODE1Nzk2LTE1OGY4MjFlMGVhNWQ2NTRiOTRjMTE5OTFmZDBjNGViZGYwYmI3M2M4ZWJmNjIxYTc5MDFhZjczYTIzNDk2NTE)
+
 
 <h1 align="center">
-	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji1.ico" alt="B.E.N.J.I.">
+	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji_final.ico">
 	<br>
 	<br>
 </h1>
@@ -16,7 +26,6 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 - [Declassified debrief](#declassified-debrief)
 - [Installation](#installation)
 - [Contributing](#contributing)
-- [Communicate](#communicate)
 - [License](#license)
 
 ### Declassified debrief 
@@ -37,17 +46,13 @@ You can install B.E.N.J.I. on your laptop by cloning this repository as of first
 P.S. We are trying to make B.E.N.J.I. work for MacOS too. B.E.N.J.I. is currently working for `Linux` and `Windows` :tada:
 
 ### B.E.N.J.I working in Linux
-![Working in Linux](working-benji.gif) 
+![Working in Linux](working-benjion-linux.gif) 
 
 ### Contributing
 
 [(Back to top)](#list-of-contents)
 
 Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! :smile: <br>
-
-### Communicate
-
-You will shortly be sent an invite to the Google discussion group after pinging me at dhruvgirishapte@gmail.com
 
 ### License
 
