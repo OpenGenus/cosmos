@@ -162,6 +162,21 @@ def events(put,link):
 				i += 1
 		except:
 			print('R&A W is blocking our reports, Ethan. Sorry! ')
+	# Finding files in pc
+        elif put1.startswith('lookfor '):
+                try:
+                    link1=put1.split()
+                    name=link1[1]
+                    rex=regex.compile(name)
+                    filepath=link1[2]
+                    for root,dirs,files in os.walk(os.path.normpath(filepath)):
+                        for f in files:
+                            result = rex.search(f)
+                            if result:
+                                print (os.path.join(root, f))
+                    
+                except:
+                    print("Error")
 
 class MyFrame(wx.Frame):
 		def __init__(self):
@@ -211,6 +226,7 @@ class MyFrame(wx.Frame):
 			try:
 				put=r.recognize_google(audio)
 				self.txt.SetValue(put)
+				put1=put
 				put=put.lower()
 				put = put.strip()
 				#put = re.sub(r'[?|$|.|!]', r'', put)
@@ -227,4 +243,3 @@ if __name__=="__main__":
 	app = wx.App(True)
 	frame= MyFrame()
 	app.MainLoop()
-
