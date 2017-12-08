@@ -18,9 +18,10 @@ setup(
 
 
 	author:'Dhruv Apte',
-	author_git="https://github.com/the-ethan-hunt/"
+	author_git="https://github.com/the-ethan-hunt/",
+	author_website="https://the-ethan-hunt.github.io/",
 	author_email='dhruvgirishapte@gmail.com',
-	url='https://github.com/the-ethan-hunt/B.E.N.J.I./',
+	project_url='https://github.com/the-ethan-hunt/B.E.N.J.I./',
 
 	license='The MIT License 2017',
 
