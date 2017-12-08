@@ -6,7 +6,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 
@@ -14,7 +14,7 @@ setup(
 
 	name='B.E.N.J.I',
 	version='1.0',
-	description='Your Voice Assitant',
+	description='Your Voice Assistant',
 
 
 	author:'Dhruv Apte',
@@ -30,7 +30,7 @@ setup(
         'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
-        'Intended Audience :: Developers and Users who want a voice Assitant',
+        'Intended Audience :: Developers and Users who want a voice Assistant',
         'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish (should match "license" above)
