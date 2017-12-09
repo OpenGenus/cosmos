@@ -94,6 +94,10 @@ ENV/
 # Rope project settings
 .ropeproject
 
+#eclipse project settings
+.project
+.pydevproject
+
 # mkdocs documentation
 /site
 
