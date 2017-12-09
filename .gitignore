@@ -97,6 +97,7 @@ ENV/
 #eclipse project settings
 .project
 .pydevproject
+.settings/
 
 # mkdocs documentation
 /site
