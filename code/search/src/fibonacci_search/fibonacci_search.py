@@ -34,4 +34,3 @@ def fibonacci_search(arr, x):
         return offset + 1
 
     return -1
-

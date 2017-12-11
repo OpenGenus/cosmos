@@ -25,7 +25,7 @@ class neural_network:
             while i+batch_size != len(inputs):
                 self.error = 0  
                 self.forward_pass(inputs[i:i+batch_size])
-                self.calculate_error(labels[i:i+batch_size)
+                self.calculate_error(labels[i:i+batch_size])
                 self.back_pass(labels[i:i+batch_size])
                 i += batch_size
             print("Error: ", self.error)
