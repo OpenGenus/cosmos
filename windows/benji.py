@@ -40,7 +40,7 @@ def events(put):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-	location_keywords = ["Locate","spot"]
+	location_keywords = ["locate","spot"]
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
 	
 	link = put.split()
@@ -203,18 +203,10 @@ def events(put):
 			else:	 
 				hours = int(link[2])
 			minutes = int(link[4])
-			#if hours == '0' or not hours.isdigit():
-			#	hours = int('0')
 			time_seconds = 60 * minutes 
 			time_seconds = time_seconds + hours * 3600	
 			subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
 			speak.Speak("Shutdown initialized!")
-			while True:
-				if time.process_time() > (time_seconds - 3):
-					os.system("taskkill /f /im chrome.exe")
-					os.system("taskkill /f /im MicrosoftEdge.exe")
-					os.system("taskkill /f /im opera.exe")
-					os.system("taskkill /f /im uTorrent.exe")
 		except:
 			print("Please shutdown manually!")		
 	#shutdown now
