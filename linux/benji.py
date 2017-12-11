@@ -213,11 +213,11 @@ class MyFrame(tk.Frame):
 
     #Trigger the GUI. Light the fuse!
 if __name__=="__main__":
-    root = tk.Tk()
+    root = tk.Toplevel()
     view = MyFrame(root)
     root.geometry('{}x{}'.format(400, 100))
     view.pack(side="top",fill="both",expand=False)
     root.iconphoto(True, tk.PhotoImage(file=os.path.join(sys.path[0],'benji_final.gif')))
-    root.title('Benji')
+    root.title('B.E.N.J.I.')
     root.resizable(0,0)
     root.mainloop()
