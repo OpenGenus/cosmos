@@ -196,7 +196,7 @@ class MyFrame(wx.Frame):
 			self.txt.SetValue("")
 			put=put.lower()
 			put = put.strip()
-			put = re.sub(r'[?|$|.|!]', r'', put)
+			#put = re.sub(r'[?|$|.|!]', r'', put)
 			link=put.split()
 			events(put,link)
 			
