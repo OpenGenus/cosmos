@@ -1,4 +1,3 @@
-
 # coding: utf-8
 import wx
 import re
@@ -18,6 +17,10 @@ import win32com.client as wicl
 from urllib.request import urlopen
 import speech_recognition as sr
 import requests
+from pptx import Presentation
+from xlsxwriter import Workbook
+import subprocess
+
 requests.packages.urllib3.disable_warnings()
 try:
 		_create_unverified_https_context=ssl._create_unverified_context
@@ -31,13 +34,43 @@ speak=wicl.Dispatch("SAPI.SpVoice")
 # Creating the graphical user interface
 i=0
 
-def events(put,link):
+def events(put):
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play", "stream", "queue"]
-	launch_keywords = ["open", "launch"]
-	search_keywords = ["search", "google"]
-	wikipedia_keywords = ["wikipedia", "wiki"]
-	location_keywords = ["Locate","spot"]
+	launch_keywords = ["open ", "launch "]
+	search_keywords = ["search ", "google "]
+	wikipedia_keywords = ["wikipedia ", "wiki "]
+	location_keywords = ["locate","spot"]
+	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
+	
+	link = put.split()
+
+	#Add note
+	if put.startswith("note") or put.startswith("not") or put.startswith("node"):
+		try:
+			check = link[1]
+			username = os.getlogin()
+			filename = "Notes.txt"
+			f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
+			link = '+'.join(link[1:])
+			text = link.replace('+',' ')
+			text = text[0].capitalize() + text[1:]
+			if check in check_keywords:
+				text += "?"
+			else:
+				text += "."	
+			f1.write(text)
+			f1.write("\n")
+			f1.close()
+			speak.Speak("Note added successfully!")
+		except:
+			print("Could not add the specified note!")	
+
+	put = put.lower()
+	put = put.strip()
+	link = put.split()
+
+	#Play song on youtube
 	if any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -55,15 +88,15 @@ def events(put,link):
 		except:
 			print('Sorry Ethan. Looks like its not working!')
 		#Location finder
-        elif any(word in put for word in location_keywords)
-                try:
-                        link='+'.join(link[1:])
-                        say=link.replace('+',' ')
-                        speak.Speak("locating "+ say)
-                        webbrowser.open('https://www.google.nl/maps/place/'+link)
-                except:
-                        speak.Speak('The place seems to be sequestered.')
-                        print('The place seems to be sequestered.')
+	elif any(word in put for word in location_keywords):
+		try:
+			link='+'.join(link[1:])
+			say=link.replace('+',' ')
+			speak.Speak("locating "+ say)
+			webbrowser.open('https://www.google.nl/maps/place/'+link)
+		except:
+			speak.Speak('The place seems to be sequestered.')
+			print('The place seems to be sequestered.')
 		#Who are you?
 	elif any(word in put for word in identity_keywords):
 		try: 
@@ -106,7 +139,7 @@ def events(put,link):
 			print('Cannot lock device')  
 
 		#News of various press agencies
-	elif put.startswith('aljazeera '):
+	elif put.startswith('al jazeera '):
 		try:
 			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
 			newsresponce = requests.get(aljazeeraurl)
@@ -162,12 +195,83 @@ def events(put,link):
 				i += 1
 		except:
 			print('R&A W is blocking our reports, Ethan. Sorry! ')
+	#shutdown after specific time
+	elif put.startswith('shutdown after '):
+		try:
+			if not link[2].isdigit():
+				hours = int('0')
+			else:	 
+				hours = int(link[2])
+			minutes = int(link[4])
+			time_seconds = 60 * minutes 
+			time_seconds = time_seconds + hours * 3600	
+			subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
+			speak.Speak("Shutdown initialized!")
+		except:
+			print("Please shutdown manually!")		
+	#shutdown now
+	elif put.startswith("shutdown now"):
+		try:
+			subprocess.call("shutdown /s /t 0", shell = True)
+		except:
+			print("Please shutdown manually!")			
+	#abort shutdown
+	elif put.startswith("cancel shutdown"):
+		try:
+			subprocess.call("shutdown /a", shell = True)
+			speak.Speak("Shutdown cancelled!")
+		except:
+			print("Unable do cancel shutdown!")	
+	#restart
+	elif put.startswith("restart now"):
+		try:
+			subprocess.call("shutdown /r /t 0", shell = True)
+		except:
+			print("Unable do restart device!")		
+	#create file
+	elif put.startswith('create '):
+		try:
+			username = os.getlogin()
+			filename = '+'.join(link[1:-2])
+			filename = filename.replace('+','_').capitalize()
+			if link[-2] == "text":
+				filename += ".txt"
+				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
+				f1.close()
+			elif link[-2] == "word" or link[-2] == "world":
+				filename += ".docx"
+				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
+				f1.close() 
+			elif link[-2] == "powerpoint" or link[-2] =="presentation":
+				filename += ".pptx"
+				prs = Presentation()
+				title_slide_layout = prs.slide_layouts[0]
+				slide = prs.slides.add_slide(title_slide_layout)
+				os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))	
+				prs.save(filename)
+			elif link[-2] == "excel" or link[-2] == "Excel":
+				filename += ".xlsx"
+				wb = Workbook(filename)
+				ws = wb.add_worksheet()
+				os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))
+				wb.close()
+			elif link[-2] == "visio" or link[-2] == "vizio":
+				filename += ".vsdx"
+				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
+				f1.close()
+			elif link[-2] == "rich" or link[-2] == "reach":
+				filename += ".rtf"
+				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
+				f1.close()	
+				speak.Speak("Created" + filename)
+		except:
+			print("Unable to create a file.")	
 
 class MyFrame(wx.Frame):
 		def __init__(self):
 			wx.Frame.__init__(self,None,pos=wx.DefaultPosition, size=wx.Size(400,200),style=wx.MINIMIZE_BOX| wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN, title="BENJI")
 			panel=wx.Panel(self)
-			ico= wx.Icon('benji1.ico',wx.BITMAP_TYPE_ICO)
+			ico= wx.Icon('benji_final.ico',wx.BITMAP_TYPE_ICO)
 			self.SetIcon(ico)
 			my_sizer=wx.BoxSizer(wx.VERTICAL)
 			lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
@@ -191,17 +295,15 @@ class MyFrame(wx.Frame):
 		def OnEnter(self,event):
 			put=self.txt.GetValue()
 			self.txt.SetValue("")
-			put=put.lower()
-			put = put.strip()
-			put = re.sub(r'[?|$|.|!]', r'', put)
-			link=put.split()
-			events(put,link)
+			#put=put.lower()
+			#put = put.strip()
+			#put = re.sub(r'[?|$|.|!]', r'', put)
+			#link=put.split()
+			events(put)
 			
 			if put=='':
 			   print('Reenter')
 		 
-		 #Play song on  Youtube
-
 		def OnClicked(self,event):
 #            time.sleep(4)
 			r = sr.Recognizer()                                                                                   
@@ -211,11 +313,11 @@ class MyFrame(wx.Frame):
 			try:
 				put=r.recognize_google(audio)
 				self.txt.SetValue(put)
-				put=put.lower()
-				put = put.strip()
+				#put=put.lower()
+				#put = put.strip()
 				#put = re.sub(r'[?|$|.|!]', r'', put)
-				link=put.split()
-				events(put,link)
+				#link=put.split()
+				events(put)
 				
 			except sr.UnknownValueError:
 				print("Could not understand audio")
@@ -227,4 +329,3 @@ if __name__=="__main__":
 	app = wx.App(True)
 	frame= MyFrame()
 	app.MainLoop()
-
