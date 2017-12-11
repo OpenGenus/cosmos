@@ -18,13 +18,17 @@ Following is the high-level structure of cosmos:
 * Computational geometry :gear: 
 * Cryptography
 * Data structures
+* Design pattern
 * Divide conquering
 * Dynamic programming
 * Graph algorithms
 * Greedy algorithms
-* Mathematical algorithms
+* Mathematical algorithms  :1234:
+* Network  :globe_with_meridians:
+* Numerical analysis  :chart_with_upwards_trend:
+* Online challenges
 * Operating system 💻 
-* Randomized algorithms
+* Randomized algorithms  :slot_machine:
 * Searching
 * Selecting
 * Sorting
