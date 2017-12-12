@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-void swap(int* a, int* b)
+void
+swap(int* a, int* b)
 {
     int t = *a;
     *a = *b;
     *b = t;
 }
 
-int partition(int arr[], int low, int high)
+int
+partition(int arr[], int low, int high)
 {
     int pivot = arr[high];   
     int i = (low - 1);  
@@ -22,7 +24,8 @@ int partition(int arr[], int low, int high)
     return (i + 1);
 }
 
-void quickSort(int arr[], int low, int high)
+void
+quickSort(int arr[], int low, int high)
 {
     if (low < high){
         int pi = partition(arr, low, high);
@@ -31,24 +34,26 @@ void quickSort(int arr[], int low, int high)
     }
 }
 
-float median(int n,int arr[n])
+float
+median(int n,int arr[n])
 {
-	if (n%2!=0)
-		return (float)arr[n/2];
+	if (n % 2 != 0)
+		return (float)arr[n / 2];
 
-	return (float)(arr[(n-1)/2] + arr[n/2])/2.0;
+	return ((float)(arr[(n - 1) / 2] + arr[n / 2]) / 2.0);
 }
 
-int main()
+int
+main()
 {
 	int n;
 	printf("Enter size of the Array\n");
 	scanf("%d",&n);
 	int arr[n];
 	printf("Enter %d integers\n",n);
-	for (int i=0;i<n;i++)
+	for (int i = 0; i < n; i++)
 		scanf("%d",&arr[i]);
-	quickSort(arr,0,n-1);
+	quickSort(arr,0,n - 1);
 	printf("Median = %f\n",median(n,arr));
 
 	return (0);

@@ -9,121 +9,132 @@ struct node
 	struct node *rcptr;
 };
 
-struct node *rptr=NULL;
-int c=0,f=0;
+struct node *rptr = NULL;
+int c = 0,f = 0;
 
-int height(struct node *rptr)
+int
+height(struct node *rptr)
 {
-	if (rptr==NULL)
-		return -1;
+	if (rptr == NULL)
+		return (-1);
 	else
-		return rptr->height;
+		return (rptr->height);
 }
 
-void heightUpdate(struct node *rptr)
+void
+heightUpdate(struct node *rptr)
 {
-	int leftHeight=height(rptr->lcptr);
-	int rightHeight=height(rptr->rcptr);
-	if (leftHeight>rightHeight)
-		rptr->height=leftHeight+1;
+	int leftHeight = height(rptr->lcptr);
+	int rightHeight = height(rptr->rcptr);
+
+	if (leftHeight > rightHeight)
+		rptr->height = leftHeight + 1;
 	else
-		rptr->height=rightHeight+1;
+		rptr->height = rightHeight + 1;
 }
 
-int getBalance(struct node *rptr)
+int
+getBalance(struct node *rptr)
 {
-	if (rptr==NULL)
-		return 0;
+	if (rptr == NULL)
+		return (0);
 	else
-		return height(rptr->lcptr)-height(rptr->rcptr);
+		return (height(rptr->lcptr) - height(rptr->rcptr));
 }
 
-struct node *RightRotate(struct node *rptr)
+struct node *
+RightRotate(struct node *rptr)
 {
-	struct node *jptr=rptr;
-	struct node *kptr=rptr->lcptr;
-	jptr->lcptr=kptr->rcptr;
-	kptr->rcptr=jptr;
+	struct node *jptr = rptr;
+	struct node *kptr = rptr->lcptr;
+	jptr->lcptr = kptr->rcptr;
+	kptr->rcptr = jptr;
 
 	heightUpdate(jptr);
 	heightUpdate(kptr);
 
-	return(kptr);
+	return (kptr);
 }
 
-struct node *LeftRotate(struct node *rptr)
+struct node *
+LeftRotate(struct node *rptr)
 {
-	struct node *jptr=rptr;
-	struct node *kptr=rptr->rcptr;
-	jptr->rcptr=kptr->lcptr;
-	kptr->lcptr=jptr;
+	struct node *jptr = srptr;
+	struct node *kptr = rptr->rcptr;
+	jptr->rcptr = kptr->lcptr;
+	kptr->lcptr = jptr;
 
 	heightUpdate(jptr);
 	heightUpdate(kptr);
 
-	return(kptr);
+	return (kptr);
 }
 
-struct node *LeftRightRotate(struct node *rptr)
+struct node *
+LeftRightRotate(struct node *rptr)
 {
-	struct node *jptr=rptr;
-	struct node *kptr=rptr->lcptr;
-	jptr->lcptr=LeftRotate(kptr);
+	struct node *jptr = rptr;
+	struct node *kptr = rptr->lcptr;
+	jptr->lcptr = LeftRotate(kptr);
 
 	return RightRotate(jptr);
 }
 
-struct node *RightLeftRotate(struct node *rptr)
+struct node *
+RightLeftRotate(struct node *rptr)
 {
-	struct node *jptr=rptr;
-	struct node *kptr=rptr->rcptr;
-	jptr->rcptr=RightRotate(kptr);
+	struct node *jptr = rptr;
+	struct node *kptr = rptr->rcptr;
+	jptr->rcptr = RightRotate(kptr);
 
 	return LeftRotate(jptr);
 }
 
-struct node *insert(struct node *rptr,int x)
+struct node *
+insert(struct node *rptr,int x)
 {
-	if (rptr==NULL){
-		rptr=(struct node *)malloc(sizeof(struct node));
-		rptr->data=x;
-		rptr->lcptr=rptr->rcptr=NULL;
-		rptr->height=0;
+	if (rptr == NULL){
+		rptr = (struct node *)malloc(sizeof(struct node));
+		rptr->data = x;
+		rptr->lcptr = rptr->rcptr = NULL;
+		rptr->height = 0;
 	}
 	else{
-		if (x<rptr->data){
-			rptr->lcptr=insert(rptr->lcptr,x);
+		if (x < rptr->data){
+			rptr->lcptr = insert(rptr->lcptr,x);
 
-			if (getBalance(rptr)==2 && x<(rptr->lcptr)->data)
-				rptr=RightRotate(rptr);
-			else if (getBalance(rptr)==2 && x>=(rptr->lcptr)->data)
-				rptr=LeftRightRotate(rptr);
+			if (getBalance(rptr) == 2 && x < (rptr->lcptr)->data)
+				rptr = RightRotate(rptr);
+			else if (getBalance(rptr) == 2 && x >= (rptr->lcptr)->data)
+				rptr = LeftRightRotate(rptr);
 		}
 		else{
-			rptr->rcptr=insert(rptr->rcptr,x);
+			rptr->rcptr = insert(rptr->rcptr,x);
 
-			if (getBalance(rptr)==-2 && x<(rptr->rcptr)->data)
-				rptr=RightLeftRotate(rptr);
-			else if (getBalance(rptr)==-2 && x>=(rptr->rcptr)->data)
-				rptr=LeftRotate(rptr);
+			if (getBalance(rptr) == -2 && x < (rptr->rcptr)->data)
+				rptr = RightLeftRotate(rptr);
+			else if (getBalance(rptr) == -2 && x >= (rptr->rcptr)->data)
+				rptr = LeftRotate(rptr);
 		}
 		heightUpdate(rptr);
 	}
 
-	return rptr;
+	return (rptr);
 }
 
-struct node *inorder_successor(struct node *rptr)
+struct node *
+inorder_successor(struct node *rptr)
 {
-	struct node *t=rptr->rcptr;
+	struct node *t = rptr->rcptr;
 
-	while (t->lcptr!=NULL)
-		t=t->lcptr;
+	while (t->lcptr != NULL)
+		t = t->lcptr;
 
-	return t;
+	return (t);
 }
 
-struct node *delete(struct node *rptr,int x)
+struct node *
+delete(struct node *rptr,int x)
 {
 	if (rptr == NULL) 
     	return rptr;
@@ -138,14 +149,14 @@ struct node *delete(struct node *rptr,int x)
         if (rptr->lcptr == NULL){
             struct node *temp = rptr->rcptr;
             free(rptr);
-            f=1;
-            return temp;
+            f = 1;
+            return (temp);
         }
         else if (rptr->rcptr == NULL){
             struct node *temp = rptr->lcptr;
             free(rptr);
-            f=1;
-            return temp;
+            f = 1;
+            return (temp);
         }
  
         struct node *temp = inorder_successor(rptr); 
@@ -154,85 +165,91 @@ struct node *delete(struct node *rptr,int x)
     }
 
     if (rptr == NULL) 
-      return rptr;
+      return (rptr);
     
     heightUpdate(rptr); 
  
     if (getBalance(rptr) > 1 && getBalance(rptr->lcptr) >= 0)
-        return RightRotate(rptr);
+        return (RightRotate(rptr));
  
     if (getBalance(rptr) > 1 && getBalance(rptr->lcptr) < 0)
-        return LeftRightRotate(rptr);
+        return (LeftRightRotate(rptr));
  
     if (getBalance(rptr) < -1 && getBalance(rptr->rcptr) <= 0)
-        return LeftRotate(rptr);
+        return (LeftRotate(rptr));
  
     if (getBalance(rptr) < -1 && getBalance(rptr->rcptr) > 0)
-        return RightLeftRotate(rptr);
+        return (RightLeftRotate(rptr));
  
-    return rptr;
+    return (rptr);
 
 }
 
-void inorder(struct node *rptr)
+void
+inorder(struct node *rptr)
 {
-	if (rptr!=NULL){
+	if (rptr != NULL){
 		inorder(rptr->lcptr);
 		printf("%d ",rptr->data);
 		inorder(rptr->rcptr);
 	}
 }
 
-void preorder(struct node *rptr)
+void 
+preorder(struct node *rptr)
 {
-	if (rptr!=NULL){
+	if (rptr != NULL){
 		printf("%d ",rptr->data);
 		preorder(rptr->lcptr);
 		preorder(rptr->rcptr);
 	}
 }
 
-void postorder(struct node *rptr)
+void 
+postorder(struct node *rptr)
 {
-	if (rptr!=NULL){
+	if (rptr != NULL){
 		postorder(rptr->lcptr);
 		postorder(rptr->rcptr);
 		printf("%d ",rptr->data);
 	}
 }
 
-void search(int x)
+void 
+search(int x)
 {
-	struct node *t=rptr;
-	int f=0;
-	while (t!=NULL){
-		if (x<t->data)
-			t=t->lcptr;
-		else if (x>t->data)
-			t=t->rcptr;
+	struct node *t = rptr;
+	int f = 0;
+	while (t != NULL){
+		if (x < t->data)
+			t = t->lcptr;
+		else if (x > t->data)
+			t = t->rcptr;
 		else{
-			f=1;
+			f = 1;
 			break;
 		}
 	}
-	if (f==1)
+	if (f == 1)
 		printf("%d is found in AVL\n",x);
 	else
 		printf("%d is not found in AVL\n",x);
 }
 
-void count(struct node *rptr)
+void 
+count(struct node *rptr)
 {
-	if (rptr!=NULL){
+	if (rptr != NULL){
 		count(rptr->lcptr);
 		count(rptr->rcptr);
 		c++;
 	}
 }
 
-void avlcheck(struct node *rptr)
+void
+avlcheck(struct node *rptr)
 {
-	if (rptr!=NULL){
+	if (rptr != NULL){
 		avlcheck(rptr->lcptr);
 		avlcheck(rptr->rcptr);
 		printf("Data:  %d Balance Factor:  %d\n",rptr->data,getBalance(rptr));
@@ -251,7 +268,7 @@ int main()
 				int x;
 				printf("Enter integer to be inserted\n");
 				scanf("%d",&x);
-				rptr=insert(rptr,x);
+				rptr = insert(rptr,x);
 				printf("%d is successfully inserted in AVL\n",x);
 				break;
 
@@ -259,9 +276,9 @@ int main()
 				int x;
 				printf("Enter integer to be deleted\n");
 				scanf("%d",&x);
-				f=0;
-				rptr=delete(rptr,x);
-				if (f==1)
+				f = 0;
+				rptr = delete(rptr,x);
+				if (f == 1)
 					printf("%d is successfully deleted from AVL\n",x);
 				else
 					printf("%d is not found in AVL.Hence,cannot be deleted\n",x);
@@ -279,7 +296,7 @@ int main()
 				break;
 			
 			case 5 :
-				c=0;
+				c = 0;
 				count(rptr);
 				printf("Number of nodes present AVL:%d\n",c);
 				break;
