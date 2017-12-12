@@ -60,4 +60,9 @@ Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! 
 
 The MIT License 2017 - [Dhruv Apte](http://github.com/the-ethan-hunt/).
 
+### FAQs
 
+[(Back to top)](#list-of-contents)
+
+1. How to use B.E.N.J.I. to open a website/webpage? 
+* Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com". 
