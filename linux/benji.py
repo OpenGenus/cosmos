@@ -4,6 +4,7 @@ import os
 import wikipedia
 import time
 import webbrowser
+import youtube_dl
 import json
 import requests
 import ctypes
@@ -37,6 +38,7 @@ def events(put,link):
     launch_keywords = ["open", "launch"]
     search_keywords = ["search", "google"]
     wikipedia_keywords = ["wikipedia", "wiki"]
+    download_music=["download"]
     if any(word in put for word in youtube_keywords):
         try:
             link = '+'.join(link[1:])
@@ -54,6 +56,35 @@ def events(put,link):
             webbrowser.open('https://www.youtube.com'+hit)
         except:
             print('Sorry Ethan. Looks like its not working!')
+    elif any (word in put for word in download_music):
+         link = '+'.join(link[1:])
+#                   print(link)
+         say = link.replace('+', ' ')
+         url = 'https://www.youtube.com/results?search_query='+link
+#                 webbrowser.open('https://www.youtube.com'+link)
+         fhand=urllib.request.urlopen(url).read()
+         soup = BeautifulSoup(fhand, "html.parser")
+         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+         hit = songs[0].find('a')['href']
+#                   print(hit)
+         speak.say("downloading "+say)
+         speak.runAndWait()
+         ydl_opts = {
+                        'format': 'bestaudio/best',
+                        'postprocessors': [{
+                                            'key': 'FFmpegExtractAudio',
+                                            'preferredcodec': 'mp3',
+                                            'preferredquality': '192',
+                                            }],
+                                            'quiet': True,
+                                            'restrictfilenames': True,
+                                            'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
+                                            }
+
+         ydl = youtube_dl.YoutubeDL(ydl_opts)
+         ydl.download(['https://www.youtube.com'+hit])
+         speak.say("download completed.Check your desktop for the song")
+         speak.runAndWait()
         #Who are you?
     elif any(word in put for word in identity_keywords):
         try:
