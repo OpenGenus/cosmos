@@ -10,7 +10,7 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* [Artificial intelligence](/code/ariticial_intelligence) :robot: 
+* [Artificial intelligence](/code/ariticial_intelligence/#) :robot: 
 * Backtracking
 * Bit manipulation
 * Cellular automaton 🐚 
