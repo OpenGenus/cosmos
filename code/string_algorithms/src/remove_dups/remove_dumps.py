@@ -8,6 +8,7 @@ def remove_dups(string):
             res += ch
     return res
 
-string_ = input('Enter string: ')
-res_str = remove_dups(string_)
+
+input_string = input('Enter string: ')
+res_str = remove_dups(input_string)
 print('Resultant string: ', res_str)
