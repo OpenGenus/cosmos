@@ -26,6 +26,7 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 - [Declassified debrief](#declassified-debrief)
 - [Installation](#installation)
 - [Contributing](#contributing)
+- [FAQs](#faqs)
 - [License](#license)
 
 ### Declassified debrief 
@@ -54,15 +55,17 @@ P.S. We are trying to make B.E.N.J.I. work for MacOS too. B.E.N.J.I. is currentl
 
 Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! :smile: <br>
 
-### License
-
-[(Back to top)](#list-of-contents)
-
-The MIT License 2017 - [Dhruv Apte](http://github.com/the-ethan-hunt/).
-
 ### FAQs
 
 [(Back to top)](#list-of-contents)
 
 1. How to use B.E.N.J.I. to open a website/webpage? 
 * Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com". 
+
+### License
+
+[(Back to top)](#list-of-contents)
+
+The MIT License 2017 - [Dhruv Apte](http://github.com/the-ethan-hunt/).
+
+
