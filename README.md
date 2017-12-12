@@ -27,7 +27,7 @@ Following is the high-level structure of cosmos:
 * [Networking](/code/networking)  :globe_with_meridians:
 * [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
 * [Online challenges](/code/online_challenges)
-* [Operating system](/coode/operating_system) 💻 
+* [Operating system](/code/operating_system) 💻 
 * [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
 * [Searching](/code/search)
 * [Selecting](/code/selection_algorithms)
