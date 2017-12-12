@@ -7,7 +7,7 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-int partition (int arr[], int low, int high)
+int partition(int arr[], int low, int high)
 {
     int pivot = arr[high];   
     int i = (low - 1);  
@@ -33,8 +33,9 @@ void quickSort(int arr[], int low, int high)
 
 float median(int n,int arr[n])
 {
-	if(n%2!=0)
+	if (n%2!=0)
 		return (float)arr[n/2];
+
 	return (float)(arr[(n-1)/2] + arr[n/2])/2.0;
 }
 
@@ -45,8 +46,10 @@ int main()
 	scanf("%d",&n);
 	int arr[n];
 	printf("Enter %d integers\n",n);
-	for(int i=0;i<n;i++)
+	for (int i=0;i<n;i++)
 		scanf("%d",&arr[i]);
 	quickSort(arr,0,n-1);
 	printf("Median = %f\n",median(n,arr));
+
+	return (0);
 }
