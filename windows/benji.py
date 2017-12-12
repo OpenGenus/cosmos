@@ -111,7 +111,7 @@ def events(put):
 			webbrowser.open('http://www.'+ link)
 		except:
 			print('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-	#Google images	
+	#Google Images	
 	elif put.startswith("images of "):
 		try:
 			link='+'.join(link[2:])
