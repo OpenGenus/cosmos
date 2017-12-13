@@ -3,13 +3,12 @@ import wx
 import re
 import os
 import wikipedia
-import time
-import youtube_dl
-import webbrowser
+import time 
+import webbrowser 
 #import winshell
 import json
 import requests
-import ctypes
+import ctypes 
 import random
 import urllib
 import ssl
@@ -18,8 +17,8 @@ import win32com.client as wicl
 from urllib.request import urlopen
 import speech_recognition as sr
 import requests
-#from pptx import Presentation
-#from xlsxwriter import Workbook
+from pptx import Presentation
+from xlsxwriter import Workbook
 import subprocess
 
 requests.packages.urllib3.disable_warnings()
@@ -29,7 +28,7 @@ except 'AttributeError':
 		pass
 else:
 		ssl._create_default_https_context=_create_unverified_https_context
-
+		
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 speak=wicl.Dispatch("SAPI.SpVoice")
 # Creating the graphical user interface
@@ -43,7 +42,7 @@ def events(put):
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	location_keywords = ["locate","spot"]
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
-	download_music=["download","download music"]
+	
 	link = put.split()
 
 	#Add note
@@ -59,13 +58,13 @@ def events(put):
 			if check in check_keywords:
 				text += "?"
 			else:
-				text += "."
+				text += "."	
 			f1.write(text)
 			f1.write("\n")
 			f1.close()
 			speak.Speak("Note added successfully!")
 		except:
-			print("Could not add the specified note!")
+			print("Could not add the specified note!")	
 
 	put = put.lower()
 	put = put.strip()
@@ -88,35 +87,7 @@ def events(put):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
-
-	elif any (word in put for word in download_music):
-         link = '+'.join(link[1:])
-#                   print(link)
-         say = link.replace('+', ' ')
-         url = 'https://www.youtube.com/results?search_query='+link
-#                 webbrowser.open('https://www.youtube.com'+link)
-         fhand=urllib.request.urlopen(url).read()
-         soup = BeautifulSoup(fhand, "html.parser")
-         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-         hit = songs[0].find('a')['href']
-#                   print(hit)
-         speak.Speak("downloading "+say)
-         ydl_opts = {
-                        'format': 'bestaudio/best',
-                        'postprocessors': [{
-                                            'key': 'FFmpegExtractAudio',
-                                            'preferredcodec': 'mp3',
-                                            'preferredquality': '192',
-                                            }],
-                                            'quiet': True,
-                                            'restrictfilenames': True,
-                                            'outtmpl': 'C:\\Users\\'+os.environ['USERNAME']+'\\Desktop\\%(title)s.%(ext)s'
-                                            }
-
-         ydl = youtube_dl.YoutubeDL(ydl_opts)
-         ydl.download(['https://www.youtube.com'+hit])
-         speak.speak("download completed.Check your desktop for the song")
-		#Location finder
+	#Location finder
 	elif any(word in put for word in location_keywords):
 		try:
 			link='+'.join(link[1:])
@@ -126,13 +97,13 @@ def events(put):
 		except:
 			speak.Speak('The place seems to be sequestered.')
 			print('The place seems to be sequestered.')
-		#Who are you?
+	#Who are you?
 	elif any(word in put for word in identity_keywords):
-		try:
+		try: 
 			speak.Speak("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
 		except:
 			print('Error. Try reading the ReadMe to know about me!')
-		#Open a webpage
+	#Open a webpage
 	elif any(word in put for word in launch_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -140,7 +111,121 @@ def events(put):
 			webbrowser.open('http://www.'+ link)
 		except:
 			print('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-		#Google search
+	#Google Images	
+	elif put.startswith("images of "):
+		try:
+			link='+'.join(link[2:])
+			say=link.replace('+',' ')
+			speak.Speak("searching images of " + say)
+			webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
+		except:
+			print('Could search for images!')	
+	#Gmail		
+	elif put.startswith("gmail"):
+		try:
+			speak.Speak("Opening Gmail!")
+			webbrowser.open('https://www.google.com/gmail')
+		except:
+			print("Could not open Gmail!")
+	#Google News
+	elif put.startswith("google news"):
+		try:
+			speak.Speak("Opening google news!")
+			webbrowser.open('https://news.google.com')
+		except:
+			print("Could not open Google News!")	
+	#Google Translate
+	elif put.startswith("google translate"):
+		try:
+			speak.Speak("Opening google translate!")
+			webbrowser.open('https://translate.google.com')
+		except:
+			print("Could not open Google Translate!")
+	#Google Photos	
+	elif put.startswith("google photos"):
+		try:
+			speak.Speak("Opening google photos!")
+			webbrowser.open('https://photos.google.com')
+		except:
+			print("Could not open Google Photos!")
+	#Google Drive
+	elif put.startswith("google drive"):
+		try:
+			speak.Speak("Opening google drive!")
+			webbrowser.open('https://drive.google.com')
+		except:
+			print("Could not open Google Drive!")			
+	#Google Plus	
+	elif put.startswith("google plus"):
+		try:
+			speak.Speak("Opening google plus!")
+			webbrowser.open('https://plus.google.com')
+		except:
+			print("Could not open Google Plus!")
+	#Google Forms
+	elif put.startswith("google forms"):
+		try:
+			speak.Speak("Opening google forms!")
+			webbrowser.open('https://docs.google.com/forms')
+		except:
+			print("Could not open Google Forms!")
+	#Google Document
+	elif put.startswith("google document"):
+		try:
+			speak.Speak("Opening google docs!")
+			webbrowser.open('https://docs.google.com/document')
+		except:
+			print("Could not open Google Docs!")
+	#Google Sheets
+	elif put.startswith("google sheets"):
+		try:
+			speak.Speak("Opening google sheets!")
+			webbrowser.open('https://docs.google.com/spreadsheets')
+		except:
+			print("Could not open Google Sheets!")
+	#Google Slides
+	elif put.startswith("google slides"):
+		try:
+			speak.Speak("Opening google slides!")
+			webbrowser.open('https://docs.google.com/presentation')
+		except:
+			print("Could not open Google Slides!")
+	#Google Groups
+	elif put.startswith("google groups"):
+		try:
+			speak.Speak("Opening google groups!")
+			webbrowser.open('https://groups.google.com')
+		except:
+			print("Could not open Google Groups!")
+	#Google Earth
+	elif put.startswith("google earth"):
+		try:
+			speak.Speak("Opening google earth!")
+			webbrowser.open('https://www.google.com/earth')
+		except:
+			print("Could not open Google Earth!")
+	#Google Cloud Print
+	elif put.startswith("google cloud print"):
+		try:
+			speak.Speak("Opening google cloud print!")
+			webbrowser.open('https://www.google.com/cloudprint')
+		except:
+			print("Could not open Google Cloud Print!")
+	#Google Fonts
+	elif put.startswith("google fonts"):
+		try:
+			speak.Speak("Opening google fonts!")
+			webbrowser.open('https://fonts.google.com')
+		except:
+			print("Could not open Google Fonts!")
+	#Blogger
+	elif put.startswith("blogger"):
+		try:
+			speak.Speak("Opening blogger!")
+			webbrowser.open('https://www.blogger.com')
+		except:
+			print("Could not open Blogger!")
+	#Google search
 	elif any(word in put for word in search_keywords):
 		try:
 			link='+'.join(link[1:])
@@ -149,7 +234,7 @@ def events(put):
 			webbrowser.open('https://www.google.com/search?q='+link)
 		except:
 			print('Nope, this is not working.')
-		#Wikipedia
+	#Wikipedia
 	elif any(word in put for word in wikipedia_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -159,15 +244,15 @@ def events(put):
 			webbrowser.open(wikisearch.url)
 		except:
 			print('Wikipedia could not either find the article or your Third-world connection is unstable')
-	   #Lock the device
+	#Lock the device 
 	elif put.startswith('secure '):
 		try:
 			speak.Speak("locking the device")
 			ctypes.windll.user32.LockWorkStation()
 		except :
-			print('Cannot lock device')
+			print('Cannot lock device')  
 
-		#News of various press agencies
+	#News of various press agencies
 	elif put.startswith('al jazeera '):
 		try:
 			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
@@ -229,34 +314,34 @@ def events(put):
 		try:
 			if not link[2].isdigit():
 				hours = int('0')
-			else:
+			else:	 
 				hours = int(link[2])
 			minutes = int(link[4])
-			time_seconds = 60 * minutes
-			time_seconds = time_seconds + hours * 3600
+			time_seconds = 60 * minutes 
+			time_seconds = time_seconds + hours * 3600	
 			subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
 			speak.Speak("Shutdown initialized!")
 		except:
-			print("Please shutdown manually!")
+			print("Please shutdown manually!")		
 	#shutdown now
 	elif put.startswith("shutdown now"):
 		try:
 			subprocess.call("shutdown /s /t 0", shell = True)
 		except:
-			print("Please shutdown manually!")
+			print("Please shutdown manually!")			
 	#abort shutdown
 	elif put.startswith("cancel shutdown"):
 		try:
 			subprocess.call("shutdown /a", shell = True)
 			speak.Speak("Shutdown cancelled!")
 		except:
-			print("Unable do cancel shutdown!")
+			print("Unable do cancel shutdown!")	
 	#restart
 	elif put.startswith("restart now"):
 		try:
 			subprocess.call("shutdown /r /t 0", shell = True)
 		except:
-			print("Unable do restart device!")
+			print("Unable do restart device!")		
 	#create file
 	elif put.startswith('create '):
 		try:
@@ -270,13 +355,13 @@ def events(put):
 			elif link[-2] == "word" or link[-2] == "world":
 				filename += ".docx"
 				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
-				f1.close()
+				f1.close() 
 			elif link[-2] == "powerpoint" or link[-2] =="presentation":
 				filename += ".pptx"
 				prs = Presentation()
 				title_slide_layout = prs.slide_layouts[0]
 				slide = prs.slides.add_slide(title_slide_layout)
-				os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))
+				os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))	
 				prs.save(filename)
 			elif link[-2] == "excel" or link[-2] == "Excel":
 				filename += ".xlsx"
@@ -291,10 +376,10 @@ def events(put):
 			elif link[-2] == "rich" or link[-2] == "reach":
 				filename += ".rtf"
 				f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
-				f1.close()
+				f1.close()	
 				speak.Speak("Created" + filename)
 		except:
-			print("Unable to create a file.")
+			print("Unable to create a file.")	
 
 class MyFrame(wx.Frame):
 		def __init__(self):
@@ -305,22 +390,22 @@ class MyFrame(wx.Frame):
 			my_sizer=wx.BoxSizer(wx.VERTICAL)
 			lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
 			my_sizer.Add(lbl,0,wx.ALL,6)
-
-
+			
+			
 			self.txt=wx.TextCtrl(panel,style=wx.TE_PROCESS_ENTER,size=(400,40))
 			self.txt.Bind(wx.EVT_TEXT_ENTER,self.OnEnter)
 			my_sizer.Add(self.txt,0,wx.ALL,6)
-
+			
 			self.btn = wx.Button(panel,6,"click to Speak")
 			my_sizer.Add(self.btn,0,wx.ALIGN_CENTER,6)
-			self.btn.Bind(wx.EVT_BUTTON,self.OnClicked)
+			self.btn.Bind(wx.EVT_BUTTON,self.OnClicked) 
 			panel.SetSizer(my_sizer)
-
+			
 			speak.Speak('''Hi Agent! BENJI at your service''')
 			self.Show()
-			self.Centre()
-			self.Fit()
-
+			self.Centre() 
+			self.Fit() 
+	 
 		def OnEnter(self,event):
 			put=self.txt.GetValue()
 			self.txt.SetValue("")
@@ -329,16 +414,16 @@ class MyFrame(wx.Frame):
 			#put = re.sub(r'[?|$|.|!]', r'', put)
 			#link=put.split()
 			events(put)
-
+			
 			if put=='':
 			   print('Reenter')
-
+		 
 		def OnClicked(self,event):
 #            time.sleep(4)
-			r = sr.Recognizer()
-			with sr.Microphone() as source:
+			r = sr.Recognizer()                                                                                   
+			with sr.Microphone() as source:                                                                                                                                                        
 				speak.Speak('Hey I am Listening ')
-				audio = r.listen(source)
+				audio = r.listen(source)   
 			try:
 				put=r.recognize_google(audio)
 				self.txt.SetValue(put)
@@ -347,7 +432,7 @@ class MyFrame(wx.Frame):
 				#put = re.sub(r'[?|$|.|!]', r'', put)
 				#link=put.split()
 				events(put)
-
+				
 			except sr.UnknownValueError:
 				print("Could not understand audio")
 			except sr.RequestError as e:
