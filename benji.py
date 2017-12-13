@@ -38,6 +38,7 @@ def events(put,link):
 	search_keywords = ["search", "google"]
 	wikipedia_keywords = ["wikipedia", "wiki"]
 	location_keywords = ["Locate","spot"]
+	translate_keywords = ["translate"]
 	if any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -54,6 +55,43 @@ def events(put,link):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
+		#translate english to other languages
+	elif any ( word in put for word in translate_keywords):
+		try:
+			link='+'.join(link[1:len(link)-2])
+                        say=link.replace('+',' ')
+                        lang = en 
+                        if ( link[len(link)-1] == "spanish" ):
+				lang = es 
+                        elif ( link[len(link)-1] == "french" ):
+				lang = fr
+                        elif ( link[len(link)-1] == "italian" ):
+				lang = it
+                        elif ( link[len(link)-1] == "hindi" ):
+				lang = hi 
+                        elif ( link[len(link)-1] == "dutch" ):
+				lang = nl 
+                        elif (link[len(link)-1] == "german" ):
+                                lang = ge 
+                        elif (link[len(link)-1] == "polish" ):
+                                lang = pl 
+                        elif (link[len(link)-1] == "portuguese" ):
+                                lang = pt 
+                        elif (link[len(link)-1] == "chinese" ):
+                                lang = zh-CN
+                        elif (link[len(link)-1] == "bengali" ):
+                                lang = bn 
+                        elif (link[len(link)-1] == "arabic" ):
+                                lang = ar
+                        elif (link[len(link)-1] == "japanese" ):
+                                lang = ja 
+
+                        speak.Speak("translating"+say)
+                        webbrowser.open('https://translate.google.com/#en/'+lang+'/'+link)
+		except:
+		        speak.Speak('Sorry , I coudnt recognize the language.')
+                        print('Sorry , I coudnt recognize the language'.)
+			
 		#Location finder
         elif any(word in put for word in location_keywords)
                 try:
