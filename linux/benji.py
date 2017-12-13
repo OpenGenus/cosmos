@@ -7,6 +7,7 @@ import webbrowser
 import json
 import requests
 import ctypes
+import youtube_dl
 import random
 import urllib
 import ssl
@@ -37,8 +38,8 @@ def events(put,link):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-
-	#Play song on  Youtube
+	download_music=["download","download music"]
+ #Play song on  Youtube
 	if any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -56,7 +57,34 @@ def events(put,link):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
-	#Who are you?
+	elif any (word in put for word in download_music):
+         link = '+'.join(link[1:])
+#                   print(link)
+         say = link.replace('+', ' ')
+         url = 'https://www.youtube.com/results?search_query='+link
+#                 webbrowser.open('https://www.youtube.com'+link)
+         fhand=urllib.request.urlopen(url).read()
+         soup = BeautifulSoup(fhand, "html.parser")
+         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+         hit = songs[0].find('a')['href']
+#                   print(hit)
+         speak.Speak("downloading "+say)
+         ydl_opts = {
+                        'format': 'bestaudio/best',
+                        'postprocessors': [{
+                                            'key': 'FFmpegExtractAudio',
+                                            'preferredcodec': 'mp3',
+                                            'preferredquality': '192',
+                                            }],
+                                            'quiet': True,
+                                            'restrictfilenames': True,
+                                            'outtmpl': 'C:\\Users\\'+os.environ['USERNAME']+'\\Desktop\\%(title)s.%(ext)s'
+                                            }
+
+         ydl = youtube_dl.YoutubeDL(ydl_opts)
+         ydl.download(['https://www.youtube.com'+hit])
+         speak.speak("download completed.Check your desktop for the song")
+         
 	elif any(word in put for word in identity_keywords):
 		try:
 			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
