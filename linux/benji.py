@@ -68,7 +68,8 @@ def events(put,link):
          songs = soup.findAll('div', {'class': 'yt-lockup-video'})
          hit = songs[0].find('a')['href']
 #                   print(hit)
-         speak.Speak("downloading "+say)
+         speak.say("downloading "+say)
+         speak.runAndWait()
          ydl_opts = {
                         'format': 'bestaudio/best',
                         'postprocessors': [{
@@ -83,8 +84,8 @@ def events(put,link):
 
          ydl = youtube_dl.YoutubeDL(ydl_opts)
          ydl.download(['https://www.youtube.com'+hit])
-         speak.speak("download completed.Check your desktop for the song")
-         
+         speak.say("download completed.Check your desktop for the song")
+         speak.runAndWait()
 	elif any(word in put for word in identity_keywords):
 		try:
 			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
