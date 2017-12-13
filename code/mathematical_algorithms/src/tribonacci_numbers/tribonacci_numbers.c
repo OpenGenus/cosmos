@@ -8,7 +8,7 @@ main()
     printf("Enter a Number\n");
     scanf("%d",&n);
     printf("%d %d %d ",a,b,c);
-    for (int i = 0; i < n-3; i++){
+    for (int i = 0; i < n-3; i++) {
         d = a + b + c;
         printf("%d ",d);
         a = b;

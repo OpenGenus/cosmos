@@ -4,10 +4,10 @@ void
 reverse_factorial(long long int factorial)
 {
 	long long int n = 1,m = 0;
-	while (m < 100){
+	while (m < 100) {
 		m += 1;
 		n *= m;
-		if (factorial == n){
+		if (factorial == n) {
 			printf("%lli is %lli!\n",factorial,m);
 			break;
 		}
