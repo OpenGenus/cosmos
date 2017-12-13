@@ -4,7 +4,8 @@ import re
 import os
 import wikipedia
 import time 
-import webbrowser 
+import webbrowser
+import youtube_dl 
 #import winshell
 import json
 import requests
@@ -17,8 +18,8 @@ import win32com.client as wicl
 from urllib.request import urlopen
 import speech_recognition as sr
 import requests
-from pptx import Presentation
-from xlsxwriter import Workbook
+#from pptx import Presentation
+#from xlsxwriter import Workbook
 import subprocess
 
 requests.packages.urllib3.disable_warnings()
@@ -42,9 +43,9 @@ def events(put):
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	location_keywords = ["locate","spot"]
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
-	
+	download_music=["download","download music"]
 	link = put.split()
-
+  
 	#Add note
 	if put.startswith("note") or put.startswith("not") or put.startswith("node"):
 		try:
@@ -87,7 +88,34 @@ def events(put):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			print('Sorry Ethan. Looks like its not working!')
-	#Location finder
+	elif any (word in put for word in download_music):
+         link = '+'.join(link[1:])
+#                   print(link)
+         say = link.replace('+', ' ')
+         url = 'https://www.youtube.com/results?search_query='+link
+#                 webbrowser.open('https://www.youtube.com'+link)
+         fhand=urllib.request.urlopen(url).read()
+         soup = BeautifulSoup(fhand, "html.parser")
+         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+         hit = songs[0].find('a')['href']
+#                   print(hit)
+         speak.Speak("downloading "+say)
+         ydl_opts = {
+                        'format': 'bestaudio/best',
+                        'postprocessors': [{
+                                            'key': 'FFmpegExtractAudio',
+                                            'preferredcodec': 'mp3',
+                                            'preferredquality': '192',
+                                            }],
+                                            'quiet': True,
+                                            'restrictfilenames': True,
+                                            'outtmpl': 'C:\\Users\\'+os.environ['USERNAME']+'\\Desktop\\%(title)s.%(ext)s'
+                                            }
+
+         ydl = youtube_dl.YoutubeDL(ydl_opts)
+         ydl.download(['https://www.youtube.com'+hit])
+         speak.speak("download completed.Check your desktop for the song")
+         
 	elif any(word in put for word in location_keywords):
 		try:
 			link='+'.join(link[1:])
