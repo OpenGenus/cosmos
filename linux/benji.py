@@ -78,7 +78,7 @@ def events(put,link):
                                             }],
                                             'quiet': True,
                                             'restrictfilenames': True,
-                                            'outtmpl': 'C:\\Users\\'+os.environ['USERNAME']+'\\Desktop\\%(title)s.%(ext)s'
+                                            'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
                                             }
 
          ydl = youtube_dl.YoutubeDL(ydl_opts)
