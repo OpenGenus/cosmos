@@ -4,7 +4,6 @@ import os
 import wikipedia
 import time
 import webbrowser
-import youtube_dl
 import json
 import requests
 import ctypes
@@ -33,17 +32,6 @@ headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 speak = pyttsx3.init()
 
 def events(put,link):
-<<<<<<< HEAD
-    identity_keywords = ["who are you", "who r u", "what is your name"]
-    youtube_keywords = ["play", "stream", "queue"]
-    launch_keywords = ["open", "launch"]
-    search_keywords = ["search", "google"]
-    wikipedia_keywords = ["wikipedia", "wiki"]
-    download_music=["download"]
-    if any(word in put for word in youtube_keywords):
-        try:
-            link = '+'.join(link[1:])
-=======
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play ", "stream ", "queue "]
 	launch_keywords = ["open ", "launch "]
@@ -54,7 +42,6 @@ def events(put,link):
 	if any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
->>>>>>> upstream/master
 #                   print(link)
 			say = link.replace('+', ' ')
 			url = 'https://www.youtube.com/results?search_query='+link
@@ -64,87 +51,6 @@ def events(put,link):
 			songs = soup.findAll('div', {'class': 'yt-lockup-video'})
 			hit = songs[0].find('a')['href']
 #                   print(hit)
-<<<<<<< HEAD
-            speak.say("playing "+say)
-            speak.runAndWait()
-            webbrowser.open('https://www.youtube.com'+hit)
-        except:
-            print('Sorry Ethan. Looks like its not working!')
-    elif any (word in put for word in download_music):
-         link = '+'.join(link[1:])
-#                   print(link)
-         say = link.replace('+', ' ')
-         url = 'https://www.youtube.com/results?search_query='+link
-#                 webbrowser.open('https://www.youtube.com'+link)
-         fhand=urllib.request.urlopen(url).read()
-         soup = BeautifulSoup(fhand, "html.parser")
-         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-         hit = songs[0].find('a')['href']
-#                   print(hit)
-         speak.say("downloading "+say)
-         speak.runAndWait()
-         ydl_opts = {
-                        'format': 'bestaudio/best',
-                        'postprocessors': [{
-                                            'key': 'FFmpegExtractAudio',
-                                            'preferredcodec': 'mp3',
-                                            'preferredquality': '192',
-                                            }],
-                                            'quiet': True,
-                                            'restrictfilenames': True,
-                                            'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
-                                            }
-
-         ydl = youtube_dl.YoutubeDL(ydl_opts)
-         ydl.download(['https://www.youtube.com'+hit])
-         speak.say("download completed.Check your desktop for the song")
-         speak.runAndWait()
-        #Who are you?
-    elif any(word in put for word in identity_keywords):
-        try:
-            speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
-            speak.runAndWait()
-        except:
-            print('Error. Try reading the ReadMe to know about me!')
-        #Open a webpage
-    elif any(word in put for word in launch_keywords):
-        try:
-            link = '+'.join(link[1:])
-            speak.say("opening "+link)
-            speak.runAndWait()
-            webbrowser.open('http://www.'+ link)
-        except:
-            print('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-        #Google search
-    elif any(word in put for word in search_keywords):
-        try:
-            link='+'.join(link[1:])
-            say=link.replace('+',' ')
-            speak.say("searching google for "+say)
-            speak.runAndWait()
-            webbrowser.open('https://www.google.com/search?q='+link)
-        except:
-            print('Nope, this is not working.')
-        #Wikipedia
-    elif any(word in put for word in wikipedia_keywords):
-        try:
-            link = '+'.join(link[1:])
-            say = link.replace('+', ' ')
-            wikisearch = wikipedia.page(say)
-            speak.say("Opening wikipedia page for" + say)
-            speak.runAndWait()
-            webbrowser.open(wikisearch.url)
-        except:
-            print('Wikipedia could not either find the article or your Third-world connection is unstable')
-       #Lock the device
-    elif put.startswith('secure '):
-        try:
-            speak.say("locking the device")
-            speak.runAndWait()
-            ctypes.windll.user32.LockWorkStation()
-        except :
-            print('Cannot lock device')
-=======
 			speak.say("playing "+say)
 			speak.runAndWait()
 			webbrowser.open('https://www.youtube.com'+hit)
@@ -309,7 +215,6 @@ def events(put,link):
 			ctypes.windll.user32.LockWorkStation()
 		except :
 			print('Cannot lock device')
->>>>>>> upstream/master
 
 	#News of various press agencies
 	elif put.startswith('al jazeera '):
