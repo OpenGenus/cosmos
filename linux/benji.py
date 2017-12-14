@@ -471,7 +471,7 @@ class MyFrame(tk.Frame):
 
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
-	root = tk.Toplevel()
+	root = tk.Tk()
 	view = MyFrame(root)
 	root.geometry('{}x{}'.format(400, 100))
 	view.pack(side="top",fill="both",expand=False)
