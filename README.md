@@ -10,31 +10,31 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* Artificial intelligence :robot: 
-* Backtracking
-* Bit manipulation
-* Cellular automaton 🐚 
-* Compression algorithms
-* Computational geometry :gear: 
-* Cryptography
-* Data structures
-* Design pattern
-* Divide conquering
-* Dynamic programming
-* Graph algorithms
-* Greedy algorithms
-* Mathematical algorithms  :1234:
-* Network  :globe_with_meridians:
-* Numerical analysis  :chart_with_upwards_trend:
-* Online challenges
-* Operating system 💻 
-* Randomized algorithms  :slot_machine:
-* Searching
-* Selecting
-* Sorting
-* Square root decomposition
-* String algorithms
-* Unclassified 👻
+* [Artificial intelligence](/code/artificial_intelligence) :robot: 
+* [Backtracking](/code/backtracking)
+* [Bit manipulation](/code/bit_manipulation)
+* [Cellular automaton](cellular_automaton) 🐚 
+* [Compression algorithms](/code/compression)
+* [Computational geometry](/code/computational_geometry) :gear: 
+* [Cryptography](/code/cryptography)
+* [Data structures](/code/data_structures)
+* [Design pattern](/code/design_pattern)
+* [Divide conquering](/code/divide_conquer)
+* [Dynamic programming](/code/dynamic_programming)
+* [Graph algorithms](/code/graph_algorithms)
+* [Greedy algorithms](/code/greedy_algorithms)
+* [Mathematical algorithms](/code/mathematical_algorithms)  :1234:
+* [Networking](/code/networking)  :globe_with_meridians:
+* [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
+* [Online challenges](/code/online_challenges)
+* [Operating system](/code/operating_system) 💻 
+* [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
+* [Searching](/code/search)
+* [Selecting](/code/selection_algorithms)
+* [Sorting](/code/sorting)
+* [Square root decomposition](/code/square_root_decomposition)
+* [String algorithms](/code/string_algorithms)
+* [Unclassified](/code/unclassified) 👻
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
