@@ -12,7 +12,7 @@
 
 
 <h1 align="center">
-	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji1.ico" alt="B.E.N.J.I.">
+	<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji_final.ico">
 	<br>
 	<br>
 </h1>
@@ -26,6 +26,7 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 - [Declassified debrief](#declassified-debrief)
 - [Installation](#installation)
 - [Contributing](#contributing)
+- [FAQs](#faqs)
 - [License](#license)
 
 ### Declassified debrief 
@@ -46,13 +47,24 @@ You can install B.E.N.J.I. on your laptop by cloning this repository as of first
 P.S. We are trying to make B.E.N.J.I. work for MacOS too. B.E.N.J.I. is currently working for `Linux` and `Windows` :tada:
 
 ### B.E.N.J.I working in Linux
-![Working in Linux](working-benji.gif) 
+![Working in Linux](working-benjion-linux.gif) 
 
 ### Contributing
 
 [(Back to top)](#list-of-contents)
 
 Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! :smile: <br>
+
+### FAQs
+
+[(Back to top)](#list-of-contents)
+
+1. How to use B.E.N.J.I. to open a website/webpage? 
+* Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com". 
+2. How to use the google translate feature ?
+* Say "translate I love you to French" and B.E.N.J.I. will open a google translate page with the translated sentence.
+3. How to use the locate feature ?
+* Say "locate Pisa" and B.E.N.J.I. will open google maps showing the requested feature .
 
 ### License
 
