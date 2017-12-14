@@ -17,6 +17,10 @@ import speech_recognition as sr
 import requests
 import pyttsx3
 import sys
+import threading
+from datetime import datetime
+import errno
+
 requests.packages.urllib3.disable_warnings()
 try:
 		_create_unverified_https_context=ssl._create_unverified_context
@@ -28,6 +32,12 @@ else:
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
 
+#reminder settings
+reminder_mode = 0
+reminder_dirloc = '/home/arib/'
+reminder_filedir = reminder_dirloc+'.B.E.N.J.I.'
+reminder_filename = reminder_filedir + '/reminders.txt'
+reminder = str()
 # Creating the graphical user interface
 
 speak = pyttsx3.init()
@@ -38,9 +48,45 @@ def events(put,link):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-	download_music=["download","download music"]
- #Play song on  Youtube
-	if any(word in put for word in youtube_keywords):
+  download_music=["download","download music"]
+	reminder_keywords = ["set a reminder"]
+	
+	global reminder_mode
+	if reminder_mode or any(word in put for word in reminder_keywords) :	
+		try :	
+			if reminder_mode == 0 :
+				try :
+					os.makedirs(reminder_filedir)
+					os.chmod(reminder_dirloc, 0o777)
+				except OSError as e :
+					if e.errno != errno.EEXIST :
+						raise
+				speak.say("Reminder of what?")
+				speak.runAndWait()
+				reminder_mode = 1
+			elif reminder_mode == 1 :
+				subject = ' '.join(link)
+				global reminder
+				reminder = subject + '\t'
+				speak.say("When to remind you?")
+				speak.runAndWait()
+				reminder_mode = 2
+			elif reminder_mode == 2 :
+				reminder_mode = 0
+				date_as_string = ' '.join(link)
+				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
+				global reminder
+				reminder = reminder + date_as_string
+				file_hand = open(reminder_filename, 'a')
+				file_hand.write(reminder)
+				file_hand.write('\n')
+				file_hand.close()
+				speak.say("Reminder Added")
+				speak.runAndWait()
+		except :
+			print("Cannot set reminder")
+	#Play song on  Youtube
+	elif any(word in put for word in youtube_keywords):
 		try:
 			link = '+'.join(link[1:])
 #                   print(link)
@@ -307,19 +353,82 @@ def events(put,link):
 		except:
 			print('R&A W is blocking our reports, Ethan. Sorry! ')
 
-
+#A customized thread class for tracking reminders
+class reminderThread(threading.Thread):
+	
+	def __init__(self, frame):
+		threading.Thread.__init__(self)
+		self.event = threading.Event()
+		self.reminder_given_flag = False
+		self.frame = frame
+		
+	def run(self):
+		while not self.event.is_set() :
+			upcoming_reminders = list()
+			self.removePastReminders()
+			try :
+				#reading the reminders from reminders.txt
+				file_hand = open(reminder_filename, 'r')
+				reminder_list = file_hand.readlines()
+				file_hand.close()
+				for line in reminder_list :
+					vals = line.split('\t')
+					date_time = datetime.strptime(vals[1].replace('\n',''), '%d %b %Y %I %M %p')
+					time_now = datetime.now()
+					#getting diff between time now and the reminder
+					time_diff = date_time - time_now
+					time_diff_hour = time_diff.days * 24 + time_diff.seconds // 3600
+					#if time diff less than 1 hour, add it to upcoming lists
+					if time_diff_hour < 1 :
+							upcoming_reminders.append(vals)
+			except :
+				pass
+			if not self.reminder_given_flag and len(upcoming_reminders) > 0 :
+				speak.say("You have " + str(len(upcoming_reminders))+" upcoming reminders")
+				speak.runAndWait()
+				for reminder in upcoming_reminders :
+					#wx.CallAfter(self.frame.displayText, reminder[0]+'\t\t'+reminder[1])
+					print(reminder[0]+'\t\t'+reminder[1])
+				self.reminder_given_flag = True
+			time.sleep(1)
+			
+	def removePastReminders(self):
+		try :
+			file_hand = open(reminder_filename, 'r')
+			reminder_list = file_hand.readlines()
+			file_hand.close()
+			new_list = list()
+			for reminder in reminder_list :
+				date_time = datetime.strptime(reminder.split('\t')[1].replace('\n',''), '%d %b %Y %I %M %p')
+				time_diff = date_time - datetime.now()
+				if time_diff.seconds >= 0 and time_diff.days >= 0 :
+					new_list.append(reminder)
+			file_hand = open(reminder_filename, 'w')
+			for line in new_list :
+				file_hand.write(line)
+			file_hand.close()
+		except FileNotFoundError :
+			pass
+		except :
+			print("Error occured")
 i=0
 class MyFrame(tk.Frame):
 	def __init__(self,*args,**kwargs):
+		#new Thread to track reminders
+		global reminder_thread
+		reminder_thread = reminderThread(self)
 		tk.Frame.__init__(self,*args,**kwargs)
 		self.textBox = tk.Text(root,height=1,width=50)
 		self.textBox.pack()
 		root.bind('<Return>', self.OnEnter)
+		root.bind('<Destroy>', self.onClose)
 		self.textBox.focus_set()
 		speak.say('''Hi Agent! BENJI at your service''')
 		speak.runAndWait()
 		self.btn = tk.Button(root, text="Click to Speak",command=self.OnClicked).pack()
-
+		
+		reminder_thread.start()
+		
 	def OnEnter(self,event):
 			put=self.textBox.get("1.0","end-1c")
 			self.textBox.delete('1.0',tk.END)
@@ -351,7 +460,14 @@ class MyFrame(tk.Frame):
 			print("Could not understand audio")
 		except sr.RequestError as e:
 			print("Could not request results; {0}".format(e))
-
+	
+	def onClose(self, event):
+			global reminder_thread
+			reminder_thread.event.set()
+			root.destroy()
+		
+	def displayText(self, text):
+			print(text)	
 
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
