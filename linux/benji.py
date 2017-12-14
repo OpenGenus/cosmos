@@ -437,12 +437,14 @@ class MyFrame(tk.Frame):
 		speak.runAndWait()
 		self.btn = tk.Button(root, text="Click to Speak",command=self.OnClicked).pack()
 		
+		'''
 		self.output_window = tk.Toplevel()
 		output_text_window = tk.Text(self.output_window)
 		self.stddirec = StdRedirector(output_text_window)
 		sys.stdout = self.stddirec
 		output_text_window.pack()
 		self.output_window.withdraw()
+		'''
 		
 		reminder_thread.start()
 		
