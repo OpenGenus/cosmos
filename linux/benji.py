@@ -49,6 +49,7 @@ def events(frame, put,link):
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
+  download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
@@ -75,7 +76,7 @@ def events(frame, put,link):
 				reminder_mode = 0
 				date_as_string = ' '.join(link)
 				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
-				global reminder
+				# global reminder
 				reminder = reminder + date_as_string
 				file_hand = open(reminder_filename, 'a')
 				file_hand.write(reminder)
@@ -352,6 +353,23 @@ def events(frame, put,link):
 				i += 1
 		except:
 			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
+
+	# Finding files in pc
+	elif put1.startswith('lookfor '):
+			try:
+				link1=put1.split()
+				name=link1[1]
+				rex=regex.compile(name)
+				filepath=link1[2]
+				for root,dirs,files in os.walk(os.path.normpath(filepath)):
+					for f in files:
+						result = rex.search(f)
+						if result:
+							print (os.path.join(root, f))
+				
+			except:
+				print("Error")
+
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
