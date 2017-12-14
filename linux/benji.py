@@ -48,7 +48,7 @@ def events(put,link):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-  download_music=["download","download music"]
+	download_music=["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
@@ -75,7 +75,7 @@ def events(put,link):
 				reminder_mode = 0
 				date_as_string = ' '.join(link)
 				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
-				global reminder
+				# global reminder
 				reminder = reminder + date_as_string
 				file_hand = open(reminder_filename, 'a')
 				file_hand.write(reminder)
