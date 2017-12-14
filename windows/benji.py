@@ -67,7 +67,7 @@ def events(put):
 		except:
 			print("Could not add the specified note!")	
 	# Finding files in pc
-        elif put.startswith('lookfor '):
+        elif put.startswith('look for '):
                 try:
                     link1=put.split()
                     name=link1[1]

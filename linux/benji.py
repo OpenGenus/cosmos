@@ -48,7 +48,7 @@ def events(put,link):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-  download_music=["download","download music"]
+  	download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
