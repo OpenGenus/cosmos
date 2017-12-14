@@ -48,7 +48,8 @@ def events(put,link):
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-  	download_music = ["download","download music"]
+	download_music=["download","download music"]
+	download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
@@ -75,7 +76,7 @@ def events(put,link):
 				reminder_mode = 0
 				date_as_string = ' '.join(link)
 				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
-				global reminder
+				# global reminder
 				reminder = reminder + date_as_string
 				file_hand = open(reminder_filename, 'a')
 				file_hand.write(reminder)
@@ -352,47 +353,23 @@ def events(put,link):
 				i += 1
 		except:
 			print('R&A W is blocking our reports, Ethan. Sorry! ')
-<<<<<<< HEAD
-		# Finding files in pc
-        elif put1.startswith('lookfor '):
-                try:
-                    link1=put1.split()
-                    name=link1[1]
-                    rex=regex.compile(name)
-                    filepath=link1[2]
-                    for root,dirs,files in os.walk(os.path.normpath(filepath)):
-                        for f in files:
-                            result = rex.search(f)
-                            if result:
-                                print (os.path.join(root, f))
-                    
-                except:
-                    print("Error")
 
+	# Finding files in pc
+	elif put1.startswith('lookfor '):
+			try:
+				link1=put1.split()
+				name=link1[1]
+				rex=regex.compile(name)
+				filepath=link1[2]
+				for root,dirs,files in os.walk(os.path.normpath(filepath)):
+					for f in files:
+						result = rex.search(f)
+						if result:
+							print (os.path.join(root, f))
+				
+			except:
+				print("Error")
 
-
-
-i=0
-class MyFrame(wx.Frame):
-		def __init__(self):
-			wx.Frame.__init__(self,None,pos=wx.DefaultPosition,size=wx.Size(400,200), title="BENJI")
-			panel=wx.Panel(self)
-			ico= wx.Icon('benji_final.ico',wx.BITMAP_TYPE_ICO)
-			self.SetIcon(ico)
-			my_sizer=wx.BoxSizer(wx.VERTICAL)
-			lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
-			my_sizer.Add(lbl,0,wx.ALL,6)
-			
-			
-			self.txt=wx.TextCtrl(panel,style=wx.TE_PROCESS_ENTER,size=(400,40))
-			self.txt.Bind(wx.EVT_TEXT_ENTER,self.OnEnter)
-			my_sizer.Add(self.txt,0,wx.ALL,6)
-			
-			self.btn = wx.Button(panel,6,"click to Speak")
-			my_sizer.Add(self.btn,0,wx.ALIGN_CENTER,6)
-			self.btn.Bind(wx.EVT_BUTTON,self.OnClicked) 
-			panel.SetSizer(my_sizer)
-=======
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
@@ -432,7 +409,6 @@ class reminderThread(threading.Thread):
 					print(reminder[0]+'\t\t'+reminder[1])
 				self.reminder_given_flag = True
 			time.sleep(1)
->>>>>>> upstream/master
 			
 	def removePastReminders(self):
 		try :
@@ -483,29 +459,6 @@ class MyFrame(tk.Frame):
 			if put=='':
 			   print('Reenter')
 
-<<<<<<< HEAD
-		def OnClicked(self,event):
-#            time.sleep(4)
-			r = sr.Recognizer()                                                                                   
-			with sr.Microphone() as source:                                                                                                                                                        
-				speak.say('Hey I am Listening ')
-				speak.runAndWait()
-				audio = r.listen(source)   
-			try:
-				put=r.recognize_google(audio)
-				self.txt.SetValue(put)
-				put1=put
-				put=put.lower()
-				put = put.strip()
-				#put = re.sub(r'[?|$|.|!]', r'', put)
-				link=put.split()
-				events(put,link)
-				
-			except sr.UnknownValueError:
-				print("Could not understand audio")
-			except sr.RequestError as e:
-				print("Could not request results; {0}".format(e))
-=======
 	def OnClicked(self):
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
@@ -533,11 +486,11 @@ class MyFrame(tk.Frame):
 		
 	def displayText(self, text):
 			print(text)	
->>>>>>> upstream/master
+
 
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
-	root = tk.Toplevel()
+	root = tk.Tk()
 	view = MyFrame(root)
 	root.geometry('{}x{}'.format(400, 100))
 	view.pack(side="top",fill="both",expand=False)
