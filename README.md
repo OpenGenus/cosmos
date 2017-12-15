@@ -61,6 +61,8 @@ Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! 
 
 1. How to use B.E.N.J.I. to open a website/webpage? 
 * Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com". 
+2. How to use the news feature? 
+* Say "news the hindu" and B.E.N.J.I. will open list of latest "news" by requested news agency.
 
 ### License
 
