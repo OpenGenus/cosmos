@@ -20,6 +20,7 @@ import sys
 import threading
 from datetime import datetime
 import errno
+import subprocess
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -49,8 +50,8 @@ def events(frame, put,link):
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
-  download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
+	calculator_keywords=["calculator","calc"]
 	
 	global reminder_mode
 	if reminder_mode or any(word in put for word in reminder_keywords) :	
@@ -133,6 +134,15 @@ def events(frame, put,link):
          ydl.download(['https://www.youtube.com'+hit])
          speak.say("download completed.Check your desktop for the song")
          speak.runAndWait()
+		#Calculator
+	elif any(word in put for word in calculator_keywords):
+		try:
+			subprocess.run("gnome-calculator",shell=True,check=True)
+			speak.say("Opening Calaculator")
+			speak.runAndWait()
+		except:
+			frame.displayText('Care to try again?')
+		#BENJI Intro
 	elif any(word in put for word in identity_keywords):
 		try:
 			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
@@ -284,11 +294,11 @@ def events(frame, put,link):
 		except:
 			frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Lock the device
-	elif put.startswith('secure '):
+	elif put.startswith('secure'):
 		try:
 			speak.say("locking the device")
 			speak.runAndWait()
-			ctypes.windll.user32.LockWorkStation()
+			subprocess.run("xdg-screensaver lock",shell=True,check=True)
 		except :
 			frame.displayText('Cannot lock device')
 
@@ -355,9 +365,9 @@ def events(frame, put,link):
 			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	# Finding files in pc
-	elif put1.startswith('lookfor '):
+	elif put.startswith('lookfor '):
 			try:
-				link1=put1.split()
+				link1=put.split()
 				name=link1[1]
 				rex=regex.compile(name)
 				filepath=link1[2]
