@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import re
 import os
 import wikipedia
@@ -49,7 +50,6 @@ def events(frame, put,link):
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
-  download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
@@ -355,7 +355,7 @@ def events(frame, put,link):
 			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	# Finding files in pc
-	elif put1.startswith('lookfor '):
+	elif put.startswith('lookfor '):
 			try:
 				link1=put1.split()
 				name=link1[1]
@@ -446,14 +446,27 @@ class MyFrame(tk.Frame):
 		global reminder_thread
 		reminder_thread = reminderThread(self)
 		tk.Frame.__init__(self,*args,**kwargs)
-		self.textBox = tk.Text(root,height=1,width=50)
-		self.textBox.pack()
+
+		self.textBox = tk.Text(root,
+			height=1,width=30,
+			font=("Times", 16),
+			bg="#666", fg="#0f0",
+			spacing1=6, spacing3=6,
+			insertbackground="#0f0"
+			)
+		self.textBox.insert("1.0", "$>")
+		self.textBox.grid(row=1,column=1, padx=10, pady=10)
 		root.bind('<Return>', self.OnEnter)
 		root.bind('<Destroy>', self.onClose)
 		self.textBox.focus_set()
 		speak.say('''Hi Agent! BENJI at your service''')
 		speak.runAndWait()
-		self.btn = tk.Button(root, text="Click to Speak",command=self.OnClicked).pack()
+
+		self.photo1 = tk.PhotoImage(file="mic_icon.png")
+
+		self.btn = ttk.Button(root,command=self.OnClicked,
+		image=self.photo1, style="C.TButton")
+		self.btn.grid(row=1,column=2, padx=10, pady=20)
 		
 		'''
 		self.output_window = tk.Toplevel()
@@ -467,8 +480,9 @@ class MyFrame(tk.Frame):
 		reminder_thread.start()
 		
 	def OnEnter(self,event):
-			put=self.textBox.get("1.0","end-1c")
-			self.textBox.delete('1.0',tk.END)
+			put=self.textBox.get("1.2","end-1c")
+			print(put)
+			self.textBox.delete('1.2',tk.END)
 			put=put.lower()
 			put = put.strip()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
@@ -486,7 +500,7 @@ class MyFrame(tk.Frame):
 		try:
 			put=r.recognize_google(audio)
 			self.displayText(put)
-			self.textBox.insert('1.0',put)
+			self.textBox.insert('1.2',put)
 			put=put.lower()
 			put = put.strip()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
@@ -517,14 +531,23 @@ class MyFrame(tk.Frame):
 		self.stddirec = StdRedirector(output_text_window)
 		sys.stdout = self.stddirec
 		output_text_window.pack()
-		
+				
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
 	root = tk.Tk()
 	view = MyFrame(root)
-	root.geometry('{}x{}'.format(400, 100))
-	view.pack(side="top",fill="both",expand=False)
+	style = ttk.Style()
+	style.configure('C.TButton',
+        background='#555',
+        highlightthickness='0'
+	)
+	style.map("C.TButton",
+		background=[('pressed', '!disabled', '#333'), ('active', '#666')]
+	)
+	# root.geometry('{}x{}'.format(400, 100))
+	# view.pack(side="top",fill="both",expand=False)
 	root.iconphoto(True, tk.PhotoImage(file=os.path.join(sys.path[0],'benji_final.gif')))
 	root.title('B.E.N.J.I.')
+	root.configure(background="#444")
 	root.resizable(0,0)
 	root.mainloop()
