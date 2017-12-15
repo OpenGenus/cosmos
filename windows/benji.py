@@ -211,7 +211,14 @@ def events(put):
             webbrowser.open(wikisearch.url)
         except:
             print('Wikipedia could not either find the article or your Third-world connection is unstable')
-	#Lock the device 
+	#Podcast
+    elif put.startswith("podcast"):
+        try:
+            speak.Speak("Opening podcast!")
+            webbrowser.open('https://castbox.fm/home')
+        except:
+            print("Could not open podcast!")
+    #Lock the device 
     elif put.startswith('secure '):
         try:
             speak.Speak("locking the device")
@@ -311,7 +318,13 @@ def events(put):
                 f1.close()	
             speak.Speak("Created" + filename)
         except:
-            print("Unable to create a file.")	
+            print("Unable to create a file.")
+    #Calculator
+    elif put.startswith('calculator'):
+        try:
+            subprocess.call('calc',shell=True)
+        except:
+            print("Unable to open calculator!")        	
 
 class MyFrame(wx.Frame):
 		def __init__(self):
