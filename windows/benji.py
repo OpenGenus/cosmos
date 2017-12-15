@@ -21,6 +21,7 @@ import requests
 #from pptx import Presentation
 #from xlsxwriter import Workbook
 import subprocess
+import sys
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -36,7 +37,7 @@ speak=wicl.Dispatch("SAPI.SpVoice")
 i=0
 
 def events(put):
-    identity_keywords = ["who are you", "who r u", "what is your name"]
+    identity_keywords = ["who are you", "who r u", "what is your name", "tell me about yourself", "tell me about urself", "introduce yourself", "introduce urself"]
     youtube_keywords = ["play", "stream", "queue"]
     launch_keywords = ["open ", "launch "]
     search_keywords = ["search ", "google "]
@@ -160,7 +161,7 @@ def events(put):
             speak.Speak("searching images of " + say)
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
-            print('Could search for images!')	
+            print('Could not search for images!')	
 	#Gmail		
     elif put.startswith("gmail"):
         try:
@@ -286,7 +287,7 @@ def events(put):
         except:
             print('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Lock the device 
-    elif put.startswith('secure '):
+    elif put.startswith('secure ') or put.startswith('lock '):
         try:
             speak.Speak("locking the device")
             ctypes.windll.user32.LockWorkStation()
@@ -421,6 +422,9 @@ def events(put):
                 speak.Speak("Created" + filename)
         except:
             print("Unable to create a file.")	
+    #quit benji
+    elif put.startswith('exit') or put.startswith('quit'):
+        sys.exit()
 
 class MyFrame(wx.Frame):
 		def __init__(self):
