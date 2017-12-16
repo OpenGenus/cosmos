@@ -49,7 +49,6 @@ def events(frame, put,link):
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
-  download_music = ["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	
 	global reminder_mode
@@ -355,9 +354,9 @@ def events(frame, put,link):
 			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	# Finding files in pc
-	elif put1.startswith('lookfor '):
+	elif put.startswith('lookfor '):
 			try:
-				link1=put1.split()
+				link1=put.split()
 				name=link1[1]
 				rex=regex.compile(name)
 				filepath=link1[2]
