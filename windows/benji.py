@@ -37,7 +37,7 @@ speak=wicl.Dispatch("SAPI.SpVoice")
 i=0
 
 def events(put):
-    identity_keywords = ["who are you", "who r u", "what is your name", "tell me about yourself", "tell me about urself", "introduce yourself", "introduce urself"]
+    identity_keywords = ["who are you", "who r u", "what is your name"]
     youtube_keywords = ["play", "stream", "queue"]
     launch_keywords = ["open ", "launch "]
     search_keywords = ["search ", "google "]
@@ -161,7 +161,7 @@ def events(put):
             speak.Speak("searching images of " + say)
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
-            print('Could not search for images!')	
+            print('Could search for images!')	
 	#Gmail		
     elif put.startswith("gmail"):
         try:
