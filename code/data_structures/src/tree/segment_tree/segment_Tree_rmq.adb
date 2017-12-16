@@ -44,7 +44,7 @@ begin
 end build;
 
 
---Função de update
+--Update procedure
 procedure update(node: integer; l: integer; r: integer; pos: integer; val: integer) is
 
 	mid: integer := (l + r)/2;
@@ -69,7 +69,7 @@ begin
 end update;
 
 
---Função de query
+--Query function
 function query(node : integer; l: integer; r: integer; x: integer; y: integer) return integer is
 	
 	mid: integer := (l + r)/2;
