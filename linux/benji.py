@@ -21,6 +21,7 @@ import sys
 import threading
 from datetime import datetime
 import errno
+import subprocess
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -51,10 +52,11 @@ def events(frame, put,link):
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
 	reminder_keywords = ["set a reminder"]
-	
+	calculator_keywords=["calculator","calc"]
+
 	global reminder_mode
-	if reminder_mode or any(word in put for word in reminder_keywords) :	
-		try :	
+	if reminder_mode or any(word in put for word in reminder_keywords) :
+		try :
 			if reminder_mode == 0 :
 				try :
 					os.makedirs(reminder_filedir)
@@ -133,6 +135,15 @@ def events(frame, put,link):
          ydl.download(['https://www.youtube.com'+hit])
          speak.say("download completed.Check your desktop for the song")
          speak.runAndWait()
+		#Calculator
+	elif any(word in put for word in calculator_keywords):
+		try:
+			speak.say("Opening Calaculator")
+			subprocess.run("gnome-calculator",shell=True,check=True)
+			speak.runAndWait()
+		except:
+			frame.displayText('Care to try again?')
+		#BENJI Intro
 	elif any(word in put for word in identity_keywords):
 		try:
 			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
@@ -148,7 +159,7 @@ def events(frame, put,link):
 			webbrowser.open('http://www.'+ link)
 		except:
 			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-	#Google Images	
+	#Google Images
 	elif put.startswith("images of "):
 		try:
 			link='+'.join(link[2:])
@@ -156,8 +167,8 @@ def events(frame, put,link):
 			speak.Speak("searching images of " + say)
 			webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
 		except:
-			frame.displayText('Could search for images!')	
-	#Gmail		
+			frame.displayText('Could search for images!')
+	#Gmail
 	elif put.startswith("gmail"):
 		try:
 			speak.Speak("Opening Gmail!")
@@ -170,7 +181,7 @@ def events(frame, put,link):
 			speak.Speak("Opening google news!")
 			webbrowser.open('https://news.google.com')
 		except:
-			frame.displayText("Could not open Google News!")	
+			frame.displayText("Could not open Google News!")
 	#Google Translate
 	elif put.startswith("google translate"):
 		try:
@@ -178,7 +189,7 @@ def events(frame, put,link):
 			webbrowser.open('https://translate.google.com')
 		except:
 			frame.displayText("Could not open Google Translate!")
-	#Google Photos	
+	#Google Photos
 	elif put.startswith("google photos"):
 		try:
 			speak.Speak("Opening google photos!")
@@ -191,8 +202,8 @@ def events(frame, put,link):
 			speak.Speak("Opening google drive!")
 			webbrowser.open('https://drive.google.com')
 		except:
-			frame.displayText("Could not open Google Drive!")			
-	#Google Plus	
+			frame.displayText("Could not open Google Drive!")
+	#Google Plus
 	elif put.startswith("google plus"):
 		try:
 			speak.Speak("Opening google plus!")
@@ -284,11 +295,11 @@ def events(frame, put,link):
 		except:
 			frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Lock the device
-	elif put.startswith('secure '):
+	elif put.startswith('secure'):
 		try:
 			speak.say("locking the device")
 			speak.runAndWait()
-			ctypes.windll.user32.LockWorkStation()
+			subprocess.run("xdg-screensaver lock",shell=True,check=True)
 		except :
 			frame.displayText('Cannot lock device')
 
@@ -366,20 +377,20 @@ def events(frame, put,link):
 						result = rex.search(f)
 						if result:
 							print (os.path.join(root, f))
-				
+
 			except:
 				print("Error")
 
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
-	
+
 	def __init__(self, frame):
 		threading.Thread.__init__(self)
 		self.event = threading.Event()
 		self.reminder_given_flag = False
 		self.frame = frame
-		
+
 	def run(self):
 		while not self.event.is_set() :
 			upcoming_reminders = list()
@@ -409,7 +420,7 @@ class reminderThread(threading.Thread):
 					self.frame.displayText(reminder[0]+'\t\t'+reminder[1])
 				self.reminder_given_flag = True
 			time.sleep(1)
-			
+
 	def removePastReminders(self):
 		try :
 			file_hand = open(reminder_filename, 'r')
@@ -433,13 +444,13 @@ i=0
 
 #A stdout class to redirect output to tkinter window
 class StdRedirector(object):
-	
+
 	def __init__(self, text_window):
 		self.text_window = text_window
-		
+
 	def write(self, output):
 		self.text_window.insert(tk.END, output)
-		
+
 class MyFrame(tk.Frame):
 	def __init__(self,*args,**kwargs):
 		#new Thread to track reminders
@@ -476,9 +487,9 @@ class MyFrame(tk.Frame):
 		output_text_window.pack()
 		self.output_window.withdraw()
 		'''
-		
+
 		reminder_thread.start()
-		
+
 	def OnEnter(self,event):
 			put=self.textBox.get("1.2","end-1c")
 			print(put)
@@ -499,23 +510,24 @@ class MyFrame(tk.Frame):
 			audio = r.listen(source)
 		try:
 			put=r.recognize_google(audio)
+
 			self.displayText(put)
 			self.textBox.insert('1.2',put)
 			put=put.lower()
 			put = put.strip()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
 			link=put.split()
-			events(put,link)
+			events(self,put,link)
 		except sr.UnknownValueError:
 			self.displayText("Could not understand audio")
 		except sr.RequestError as e:
 			self.displayText("Could not request results; {0}".format(e))
-	
+
 	def onClose(self, event):
 			global reminder_thread
 			reminder_thread.event.set()
 			#root.destroy()
-		
+
 	def displayText(self, text):
 		try :
 			if not self.output_window.winfo_viewable() :
@@ -523,7 +535,7 @@ class MyFrame(tk.Frame):
 				self.output_window.deiconify()
 		except :
 			self.createOutputWindow()
-		print(text)	
+		print(text)
 
 	def createOutputWindow(self):
 		self.output_window = tk.Toplevel()
@@ -531,7 +543,7 @@ class MyFrame(tk.Frame):
 		self.stddirec = StdRedirector(output_text_window)
 		sys.stdout = self.stddirec
 		output_text_window.pack()
-				
+
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
 	root = tk.Tk()
