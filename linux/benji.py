@@ -357,7 +357,7 @@ def events(frame, put,link):
 	# Finding files in pc
 	elif put.startswith('lookfor '):
 			try:
-				link1=put1.split()
+				link1=put.split()
 				name=link1[1]
 				rex=regex.compile(name)
 				filepath=link1[2]

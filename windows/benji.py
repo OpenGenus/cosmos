@@ -21,6 +21,7 @@ import requests
 from pptx import Presentation
 from xlsxwriter import Workbook
 import subprocess
+import sys
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -219,7 +220,7 @@ def events(put):
         except:
             print("Could not open podcast!")
     #Lock the device 
-    elif put.startswith('secure '):
+    elif put.startswith('secure ') or put.startswith('lock '):
         try:
             speak.Speak("locking the device")
             ctypes.windll.user32.LockWorkStation()
@@ -325,6 +326,9 @@ def events(put):
             subprocess.call('calc',shell=True)
         except:
             print("Unable to open calculator!")        	
+
+    elif put.startswith('exit') or put.startswith('quit'):
+        sys.exit()
 
 class MyFrame(wx.Frame):
 		def __init__(self):
