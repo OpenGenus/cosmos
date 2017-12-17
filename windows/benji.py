@@ -18,8 +18,8 @@ import win32com.client as wicl
 from urllib.request import urlopen
 import speech_recognition as sr
 import requests
-#from pptx import Presentation
-#from xlsxwriter import Workbook
+from pptx import Presentation
+from xlsxwriter import Workbook
 import subprocess
 import sys
 
@@ -38,13 +38,13 @@ i=0
 
 def events(put):
     identity_keywords = ["who are you", "who r u", "what is your name"]
-    youtube_keywords = ["play", "stream", "queue"]
+    youtube_keywords = ["play ", "stream ", "queue "]
     launch_keywords = ["open ", "launch "]
-    search_keywords = ["search ", "google "]
+    search_keywords = ["search "]
     wikipedia_keywords = ["wikipedia ", "wiki "]
     location_keywords = ["locate","spot"]
     check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
-    download_music=["download","download music"]
+    download_music=["download ","download music "]
     link = put.split()
   
 	#Add note
@@ -67,6 +67,7 @@ def events(put):
                 speak.Speak("Note added successfully!")
         except:
             print("Could not add the specified note!")
+    #Look for
     elif put.startswith('look for '):
         try:
             link1=put.split()
@@ -102,6 +103,7 @@ def events(put):
             webbrowser.open('https://www.youtube.com'+hit)
         except:
             print('Sorry Ethan. Looks like its not working!')
+    #Download music
     elif any (word in put for word in download_music):
          link = '+'.join(link[1:])
 #                   print(link)
@@ -128,8 +130,8 @@ def events(put):
 
          ydl = youtube_dl.YoutubeDL(ydl_opts)
          ydl.download(['https://www.youtube.com'+hit])
-         speak.speak("download completed.Check your desktop for the song")
-         
+         speak.speak("download completed Check your desktop for the song")
+    #Location     
     elif any(word in put for word in location_keywords):
         try:
             link='+'.join(link[1:])
@@ -153,6 +155,15 @@ def events(put):
             webbrowser.open('http://www.'+ link)
         except:
             print('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
+    #Google search
+    elif any(word in put for word in search_keywords):
+        try:
+            link='+'.join(link[1:])
+            say=link.replace('+',' ')
+            speak.Speak("searching google for "+say)
+            webbrowser.open('https://www.google.com/search?q='+link)
+        except:
+            print('Nope, this is not working.')        
 	#Google Images	
     elif put.startswith("images of "):
         try:
@@ -169,97 +180,21 @@ def events(put):
             webbrowser.open('https://www.google.com/gmail')
         except:
             print("Could not open Gmail!")
-	#Google News
-    elif put.startswith("google news"):
-        try:
-            speak.Speak("Opening google news!")
-            webbrowser.open('https://news.google.com')
-        except:
-            print("Could not open Google News!")	
-	#Google Translate
-    elif put.startswith("google translate"):
-        try:
-            speak.Speak("Opening google translate!")
-            webbrowser.open('https://translate.google.com')
-        except:
-            print("Could not open Google Translate!")
-	#Google Photos	
-    elif put.startswith("google photos"):
-        try:
-            speak.Speak("Opening google photos!")
-            webbrowser.open('https://photos.google.com')
-        except:
-            print("Could not open Google Photos!")
-	#Google Drive
-    elif put.startswith("google drive"):
-        try:
-            speak.Speak("Opening google drive!")
-            webbrowser.open('https://drive.google.com')
-        except:
-            print("Could not open Google Drive!")			
-	#Google Plus	
-    elif put.startswith("google plus"):
-        try:
-            speak.Speak("Opening google plus!")
-            webbrowser.open('https://plus.google.com')
-        except:
-            print("Could not open Google Plus!")
-	#Google Forms
-    elif put.startswith("google forms"):
-        try:
-            speak.Speak("Opening google forms!")
-            webbrowser.open('https://docs.google.com/forms')
-        except:
-            print("Could not open Google Forms!")
-	#Google Document
-    elif put.startswith("google document"):
-        try:
-            speak.Speak("Opening google docs!")
-            webbrowser.open('https://docs.google.com/document')
-        except:
-            print("Could not open Google Docs!")
-	#Google Sheets
-    elif put.startswith("google sheets"):
-        try:
-            speak.Speak("Opening google sheets!")
-            webbrowser.open('https://docs.google.com/spreadsheets')
-        except:
-            print("Could not open Google Sheets!")
-	#Google Slides
-    elif put.startswith("google slides"):
-        try:
-            speak.Speak("Opening google slides!")
-            webbrowser.open('https://docs.google.com/presentation')
-        except:
-            print("Could not open Google Slides!")
-	#Google Groups
-    elif put.startswith("google groups"):
-        try:
-            speak.Speak("Opening google groups!")
-            webbrowser.open('https://groups.google.com')
-        except:
-            print("Could not open Google Groups!")
-	#Google Earth
-    elif put.startswith("google earth"):
-        try:
-            speak.Speak("Opening google earth!")
-            webbrowser.open('https://www.google.com/earth')
-        except:
-            print("Could not open Google Earth!")
-	#Google Cloud Print
+    #Google Cloud Print
     elif put.startswith("google cloud print"):
         try:
             speak.Speak("Opening google cloud print!")
             webbrowser.open('https://www.google.com/cloudprint')
         except:
-            print("Could not open Google Cloud Print!")
-	#Google Fonts
-    elif put.startswith("google fonts"):
+            print("Could not open Google Cloud Print!")        
+    #Google Others
+    elif put.startswith("google "):
         try:
-            speak.Speak("Opening google fonts!")
-            webbrowser.open('https://fonts.google.com')
+            say = link[1]
+            speak.Speak("Opening google " + say)
+            webbrowser.open('https://'+ say +'.google.com')
         except:
-            print("Could not open Google Fonts!")
+            print("Could not open Google " + say.capitalize() + "!")        
 	#Blogger
     elif put.startswith("blogger"):
         try:
@@ -267,15 +202,6 @@ def events(put):
             webbrowser.open('https://www.blogger.com')
         except:
             print("Could not open Blogger!")
-	#Google search
-    elif any(word in put for word in search_keywords):
-        try:
-            link='+'.join(link[1:])
-            say=link.replace('+',' ')
-            speak.Speak("searching google for "+say)
-            webbrowser.open('https://www.google.com/search?q='+link)
-        except:
-            print('Nope, this is not working.')
 	#Wikipedia
     elif any(word in put for word in wikipedia_keywords):
         try:
@@ -286,71 +212,43 @@ def events(put):
             webbrowser.open(wikisearch.url)
         except:
             print('Wikipedia could not either find the article or your Third-world connection is unstable')
-	#Lock the device 
+	#Podcast
+    elif put.startswith("podcast"):
+        try:
+            speak.Speak("Opening podcast!")
+            webbrowser.open('https://castbox.fm/home')
+        except:
+            print("Could not open podcast!")
+    #Lock the device 
     elif put.startswith('secure ') or put.startswith('lock '):
         try:
             speak.Speak("locking the device")
             ctypes.windll.user32.LockWorkStation()
         except :
             print('Cannot lock device')  
-
 	#News of various press agencies
-    elif put.startswith('al jazeera '):
+    elif put.startswith('news '): 
         try:
-            aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-            newsresponce = requests.get(aljazeeraurl)
+            say = '+'.join(link[1:])
+            say = say.replace('+','-')
+            if link[1] == "al" and link[2] == "jazeera":
+                say += "-english"
+            elif link[1] == "bbc":
+                say += "-news"
+            elif link[1] == "espn" and link[2] == "cric":
+                say += "-info"      
+            url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(url)
             newsjson = newsresponce.json()
-            speak.Speak('Our agents from Al-Jazeera report this')
-            print('  =====Al Jazeera===== \n')
+            speak.Speak('Our agents from ' + say + ' report this')
+            print('  ====='+ say.upper() +'===== \n')
             i = 1
             for item in newsjson['articles']:
                 print(str(i) + '. ' + item['title'] + '\n')
                 print(item['description'] + '\n')
                 i += 1
         except:
-            print('Qatari agents have refused to share this intel, Ethan')
-    elif put.startswith('bbc '):
-        try:
-            bbcurl = ('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=571863193daf421082a8666fe4b666f3')
-            newsresponce = requests.get(bbcurl)
-            newsjson = newsresponce.json()
-            speak.Speak('Our agents from BBC report this')
-            print('  =====BBC===== \n')
-            i = 1
-            for item in newsjson['articles']:
-                print(str(i) + '. ' + item['title'] + '\n')
-                print(item['description'] + '\n')
-                i += 1
-        except:
-            print('MI6 is going crazy! Not allowing this!')
-    elif put.startswith('cricket '):
-        try:
-            cricketurl = ('https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-            newsresponce = requests.get(cricketurl)
-            newsjson = newsresponce.json()
-            speak.Speak('Our agents from ESPN Cricket report this')
-            print('  =====CRICKET NEWS===== \n')
-            i = 1
-            for item in newsjson['articles']:
-                print(str(i) + '. ' + item['title'] + '\n')
-                print(item['description'] + '\n')
-                i += 1
-        except:
-            print('Connection not secure')
-    elif put.startswith('hindus '):
-        try:
-            hindusurl = ('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-            newsresponce = requests.get(hindusurl)
-            newsjson = newsresponce.json()
-            speak.Speak('Our agents from Hindu News report this')
-            print('  =====HINDU NEWS===== \n')
-            i = 1
-            for item in newsjson['articles']:
-                print(str(i) + '. ' + item['title'] + '\n')
-                print(item['description'] + '\n')
-                i += 1
-        except:
-            print('R&A W is blocking our reports, Ethan. Sorry! ')
+            print('Unable to retrieve data!')
 	#shutdown after specific time
     elif put.startswith('shutdown after '):
         try:
@@ -419,10 +317,16 @@ def events(put):
                 filename += ".rtf"
                 f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
                 f1.close()	
-                speak.Speak("Created" + filename)
+            speak.Speak("Created" + filename)
         except:
-            print("Unable to create a file.")	
-    #quit benji
+            print("Unable to create a file.")
+    #Calculator
+    elif put.startswith('calculator'):
+        try:
+            subprocess.call('calc',shell=True)
+        except:
+            print("Unable to open calculator!")        	
+
     elif put.startswith('exit') or put.startswith('quit'):
         sys.exit()
 
