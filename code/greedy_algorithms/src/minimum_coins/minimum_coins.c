@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main()
+int 
+main()
 {
 	printf("Enter Number of Denominations \n");
 	int n;
@@ -20,7 +21,7 @@ int main()
 		bill = bill - (frequency[i] * denominations[i]);
 		i++;
 	}
-	if (bill ==0 ) {
+	if (bill == 0 ) {
 		for(int i = 0; i < n; i++)
 			printf("%d * %d \n", denominations[i], frequency[i]);
 	}
