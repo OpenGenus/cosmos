@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import re
+import regex
 import os
 import wikipedia
 import time
@@ -366,20 +366,20 @@ def events(frame, put,link):
 			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	# Finding files in pc
-	elif put.startswith('lookfor '):
+	elif put.startswith('look for '):
 			try:
-				link1=put.split()
-				name=link1[1]
+				link=put.split()
+				name=link[2]
 				rex=regex.compile(name)
-				filepath=link1[2]
+				filepath=link[3]
 				for root,dirs,files in os.walk(os.path.normpath(filepath)):
 					for f in files:
 						result = rex.search(f)
 						if result:
-							print (os.path.join(root, f))
+							frame.displayText(os.path.join(root, f))
 
 			except:
-				print("Error")
+				frame.displayText("Error")
 
 
 #A customized thread class for tracking reminders
@@ -491,16 +491,20 @@ class MyFrame(tk.Frame):
 		reminder_thread.start()
 
 	def OnEnter(self,event):
-			put=self.textBox.get("1.2","end-1c")
-			print(put)
-			self.textBox.delete('1.2',tk.END)
-			put=put.lower()
-			put = put.strip()
+            put=self.textBox.get("1.2","end-1c")
+            print(put)
+            self.textBox.delete('1.2',tk.END)
+            if put.startswith("look for "):
+                put = put.strip()
+                link = put.split()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
-			link=put.split()
-			events(self, put,link)
-			if put=='':
-			   self.displayText('Reenter')
+            else:
+                put = put.lower()
+                put = put.strip()
+                link = put.split()
+            events(self, put, link)
+            if put=='':
+                self.displayText('Reenter')
 
 	def OnClicked(self):
 		r = sr.Recognizer()
