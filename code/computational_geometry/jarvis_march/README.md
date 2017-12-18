@@ -2,8 +2,8 @@
 ## python version 1.0
 
 How to start? 
- * Run "python jarvis_march" and see what happens (hint: MAGIC)
- * You can change to points in the main function.
+ * Run "python jarvis_march.py" and see what happens (hint: MAGIC)
+ * Change the points in the main function.
 
 This are some results:
 #### 10 random points
