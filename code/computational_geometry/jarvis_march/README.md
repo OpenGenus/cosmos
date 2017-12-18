@@ -1,8 +1,7 @@
 # Jarvis March Algoritm
-## python version
+## python version 1.0
 
-Basic useful feature list:
- 
+How to start? 
  * Run "python jarvis_march" and see what happens (hint: MAGIC)
  * You can change to points in the main function.
 
