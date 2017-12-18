@@ -45,68 +45,68 @@ reminder = str()
 speak = pyttsx3.init()
 
 def events(frame, put,link):
-	identity_keywords = ["who are you", "who r u", "what is your name"]
-	youtube_keywords = ["play ", "stream ", "queue "]
-	launch_keywords = ["open ", "launch "]
-	search_keywords = ["search ", "google "]
-	wikipedia_keywords = ["wikipedia ", "wiki "]
-	download_music=["download","download music"]
-	reminder_keywords = ["set a reminder"]
-	calculator_keywords=["calculator","calc"]
+    identity_keywords = ["who are you", "who r u", "what is your name"]
+    youtube_keywords = ["play ", "stream ", "queue "]
+    launch_keywords = ["open ", "launch "]
+    search_keywords = ["search ", "google "]
+    wikipedia_keywords = ["wikipedia ", "wiki "]
+    download_music=["download","download music"]
+    reminder_keywords = ["set a reminder"]
+    calculator_keywords=["calculator","calc"]
 
-	global reminder_mode
-	if reminder_mode or any(word in put for word in reminder_keywords) :
-		try :
-			if reminder_mode == 0 :
-				try :
-					os.makedirs(reminder_filedir)
-					os.chmod(reminder_dirloc, 0o777)
-				except OSError as e :
-					if e.errno != errno.EEXIST :
-						raise
-				speak.say("Reminder of what?")
-				speak.runAndWait()
-				reminder_mode = 1
-			elif reminder_mode == 1 :
-				subject = ' '.join(link)
-				global reminder
-				reminder = subject + '\t'
-				speak.say("When to remind you?")
-				speak.runAndWait()
-				reminder_mode = 2
-			elif reminder_mode == 2 :
-				reminder_mode = 0
-				date_as_string = ' '.join(link)
-				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
+    global reminder_mode
+    if reminder_mode or any(word in put for word in reminder_keywords) :
+        try :
+            if reminder_mode == 0 :
+                try :
+                    os.makedirs(reminder_filedir)
+                    os.chmod(reminder_dirloc, 0o777)
+                except OSError as e :
+                    if e.errno != errno.EEXIST :
+                        raise
+                speak.say("Reminder of what?")
+                speak.runAndWait()
+                reminder_mode = 1
+            elif reminder_mode == 1 :
+                subject = ' '.join(link)
+                global reminder
+                reminder = subject + '\t'
+                speak.say("When to remind you?")
+                speak.runAndWait()
+                reminder_mode = 2
+            elif reminder_mode == 2 :
+                reminder_mode = 0
+                date_as_string = ' '.join(link)
+                date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
 				# global reminder
-				reminder = reminder + date_as_string
-				file_hand = open(reminder_filename, 'a')
-				file_hand.write(reminder)
-				file_hand.write('\n')
-				file_hand.close()
-				speak.say("Reminder Added")
-				speak.runAndWait()
-		except :
-			frame.displayText("Cannot set reminder")
+                reminder = reminder + date_as_string
+                file_hand = open(reminder_filename, 'a')
+                file_hand.write(reminder)
+                file_hand.write('\n')
+                file_hand.close()
+                speak.say("Reminder Added")
+                speak.runAndWait()
+        except :
+            frame.displayText("Cannot set reminder")
 	#Play song on  Youtube
-	elif any(word in put for word in youtube_keywords):
-		try:
-			link = '+'.join(link[1:])
+    elif any(word in put for word in youtube_keywords):
+        try:
+            link = '+'.join(link[1:])
 #                   print(link)
-			say = link.replace('+', ' ')
-			url = 'https://www.youtube.com/results?search_query='+link
+            say = link.replace('+', ' ')
+            url = 'https://www.youtube.com/results?search_query='+link
 #                 webbrowser.open('https://www.youtube.com'+link)
-			fhand=urllib.request.urlopen(url).read()
-			soup = BeautifulSoup(fhand, "html.parser")
-			songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-			hit = songs[0].find('a')['href']
+            fhand=urllib.request.urlopen(url).read()
+            soup = BeautifulSoup(fhand, "html.parser")
+            songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+            hit = songs[0].find('a')['href']
 #                   print(hit)
-			speak.say("playing "+say)
-			speak.runAndWait()
-			webbrowser.open('https://www.youtube.com'+hit)
-		except:
-			frame.displayText('Sorry Ethan. Looks like its not working!')
-	elif any (word in put for word in download_music):
+            speak.say("playing "+say)
+            speak.runAndWait()
+            webbrowser.open('https://www.youtube.com'+hit)
+        except:
+            frame.displayText('Sorry Ethan. Looks like its not working!')
+    elif any (word in put for word in download_music):
          link = '+'.join(link[1:])
 #                   print(link)
          say = link.replace('+', ' ')
@@ -136,250 +136,251 @@ def events(frame, put,link):
          speak.say("download completed.Check your desktop for the song")
          speak.runAndWait()
 		#Calculator
-	elif any(word in put for word in calculator_keywords):
-		try:
-			speak.say("Opening Calaculator")
-			subprocess.run("gnome-calculator",shell=True,check=True)
-			speak.runAndWait()
-		except:
-			frame.displayText('Care to try again?')
+    elif any(word in put for word in calculator_keywords):
+        try:
+            speak.say("Opening Calaculator")
+            subprocess.run("gnome-calculator",shell=True,check=True)
+            speak.runAndWait()
+        except:
+            frame.displayText('Care to try again?')
 		#BENJI Intro
-	elif any(word in put for word in identity_keywords):
-		try:
-			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
-			speak.runAndWait()
-		except:
-			frame.displayText('Error. Try reading the ReadMe to know about me!')
+    elif any(word in put for word in identity_keywords):
+        try:
+            speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
+            speak.runAndWait()
+        except:
+            frame.displayText('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
-	elif any(word in put for word in launch_keywords):
-		try:
-			link = '+'.join(link[1:])
-			speak.say("opening "+link)
-			speak.runAndWait()
-			webbrowser.open('http://www.'+ link)
-		except:
-			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
+    elif any(word in put for word in launch_keywords):
+        try:
+            link = '+'.join(link[1:])
+            speak.say("opening "+link)
+            speak.runAndWait()
+            webbrowser.open('http://www.'+ link)
+        except:
+            frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
 	#Google Images
-	elif put.startswith("images of "):
-		try:
-			link='+'.join(link[2:])
-			say=link.replace('+',' ')
-			speak.Speak("searching images of " + say)
-			webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
-		except:
-			frame.displayText('Could search for images!')
+    elif put.startswith("images of "):
+        try:
+            link='+'.join(link[2:])
+            say=link.replace('+',' ')
+            speak.Speak("searching images of " + say)
+            webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
+        except:
+            frame.displayText('Could search for images!')
 	#Gmail
-	elif put.startswith("gmail"):
-		try:
-			speak.Speak("Opening Gmail!")
-			webbrowser.open('https://www.google.com/gmail')
-		except:
-			frame.displayText("Could not open Gmail!")
+    elif put.startswith("gmail"):
+        try:
+            speak.Speak("Opening Gmail!")
+            webbrowser.open('https://www.google.com/gmail')
+        except:
+            frame.displayText("Could not open Gmail!")
 	#Google News
-	elif put.startswith("google news"):
-		try:
-			speak.Speak("Opening google news!")
-			webbrowser.open('https://news.google.com')
-		except:
-			frame.displayText("Could not open Google News!")
+    elif put.startswith("google news"):
+        try:
+            speak.Speak("Opening google news!")
+            webbrowser.open('https://news.google.com')
+        except:
+            frame.displayText("Could not open Google News!")
 	#Google Translate
-	elif put.startswith("google translate"):
-		try:
-			speak.Speak("Opening google translate!")
-			webbrowser.open('https://translate.google.com')
-		except:
-			frame.displayText("Could not open Google Translate!")
+    elif put.startswith("google translate"):
+        try:
+            speak.Speak("Opening google translate!")
+            webbrowser.open('https://translate.google.com')
+        except:
+            frame.displayText("Could not open Google Translate!")
 	#Google Photos
-	elif put.startswith("google photos"):
-		try:
-			speak.Speak("Opening google photos!")
-			webbrowser.open('https://photos.google.com')
-		except:
-			frame.displayText("Could not open Google Photos!")
+    elif put.startswith("google photos"):
+        try:
+            speak.Speak("Opening google photos!")
+            webbrowser.open('https://photos.google.com')
+        except:
+            frame.displayText("Could not open Google Photos!")
 	#Google Drive
-	elif put.startswith("google drive"):
-		try:
-			speak.Speak("Opening google drive!")
-			webbrowser.open('https://drive.google.com')
-		except:
-			frame.displayText("Could not open Google Drive!")
+    elif put.startswith("google drive"):
+        try:
+            speak.Speak("Opening google drive!")
+            webbrowser.open('https://drive.google.com')
+        except:
+            frame.displayText("Could not open Google Drive!")
 	#Google Plus
-	elif put.startswith("google plus"):
-		try:
-			speak.Speak("Opening google plus!")
-			webbrowser.open('https://plus.google.com')
-		except:
-			frame.displayText("Could not open Google Plus!")
+    elif put.startswith("google plus"):
+        try:
+            speak.Speak("Opening google plus!")
+            webbrowser.open('https://plus.google.com')
+        except:
+            frame.displayText("Could not open Google Plus!")
 	#Google Forms
-	elif put.startswith("google forms"):
-		try:
-			speak.Speak("Opening google forms!")
-			webbrowser.open('https://docs.google.com/forms')
-		except:
-			frame.displayText("Could not open Google Forms!")
+    elif put.startswith("google forms"):
+        try:
+            speak.Speak("Opening google forms!")
+            webbrowser.open('https://docs.google.com/forms')
+        except:
+            frame.displayText("Could not open Google Forms!")
 	#Google Document
-	elif put.startswith("google document"):
-		try:
-			speak.Speak("Opening google docs!")
-			webbrowser.open('https://docs.google.com/document')
-		except:
-			frame.displayText("Could not open Google Docs!")
+    elif put.startswith("google document"):
+        try:
+            speak.Speak("Opening google docs!")
+            webbrowser.open('https://docs.google.com/document')
+        except:
+            frame.displayText("Could not open Google Docs!")
 	#Google Sheets
-	elif put.startswith("google sheets"):
-		try:
-			speak.Speak("Opening google sheets!")
-			webbrowser.open('https://docs.google.com/spreadsheets')
-		except:
-			frame.displayText("Could not open Google Sheets!")
+    elif put.startswith("google sheets"):
+        try:
+            speak.Speak("Opening google sheets!")
+            webbrowser.open('https://docs.google.com/spreadsheets')
+        except:
+            frame.displayText("Could not open Google Sheets!")
 	#Google Slides
-	elif put.startswith("google slides"):
-		try:
-			speak.Speak("Opening google slides!")
-			webbrowser.open('https://docs.google.com/presentation')
-		except:
-			frame.displayText("Could not open Google Slides!")
+    elif put.startswith("google slides"):
+        try:
+            speak.Speak("Opening google slides!")
+            webbrowser.open('https://docs.google.com/presentation')
+        except:
+            frame.displayText("Could not open Google Slides!")
 	#Google Groups
-	elif put.startswith("google groups"):
-		try:
-			speak.Speak("Opening google groups!")
-			webbrowser.open('https://groups.google.com')
-		except:
-			frame.displayText("Could not open Google Groups!")
+    elif put.startswith("google groups"):
+        try:
+            speak.Speak("Opening google groups!")
+            webbrowser.open('https://groups.google.com')
+        except:
+            frame.displayText("Could not open Google Groups!")
 	#Google Earth
-	elif put.startswith("google earth"):
-		try:
-			speak.Speak("Opening google earth!")
-			webbrowser.open('https://www.google.com/earth')
-		except:
-			frame.displayText("Could not open Google Earth!")
+    elif put.startswith("google earth"):
+        try:
+            speak.Speak("Opening google earth!")
+            webbrowser.open('https://www.google.com/earth')
+        except:
+            frame.displayText("Could not open Google Earth!")
 	#Google Cloud frame.displayText
-	elif put.startswith("google cloud print"):
-		try:
-			speak.Speak("Opening google cloud print!")
-			webbrowser.open('https://www.google.com/cloudprint')
-		except:
-			frame.displayText("Could not open Google Cloud Print!")
+    elif put.startswith("google cloud print"):
+        try:
+            speak.Speak("Opening google cloud print!")
+            webbrowser.open('https://www.google.com/cloudprint')
+        except:
+            frame.displayText("Could not open Google Cloud Print!")
 	#Google Fonts
-	elif put.startswith("google fonts"):
-		try:
-			speak.Speak("Opening google fonts!")
-			webbrowser.open('https://fonts.google.com')
-		except:
-			frame.displayText("Could not open Google Fonts!")
+    elif put.startswith("google fonts"):
+        try:
+            speak.Speak("Opening google fonts!")
+            webbrowser.open('https://fonts.google.com')
+        except:
+            frame.displayText("Could not open Google Fonts!")
 	#Blogger
-	elif put.startswith("blogger"):
-		try:
-			speak.Speak("Opening blogger!")
-			webbrowser.open('https://www.blogger.com')
-		except:
-			frame.displayText("Could not open Blogger!")
+    elif put.startswith("blogger"):
+        try:
+            speak.Speak("Opening blogger!")
+            webbrowser.open('https://www.blogger.com')
+        except:
+            frame.displayText("Could not open Blogger!")
 	#Google search
-	elif any(word in put for word in search_keywords):
-		try:
-			link='+'.join(link[1:])
-			say=link.replace('+',' ')
-			speak.say("searching google for "+say)
-			speak.runAndWait()
-			webbrowser.open('https://www.google.com/search?q='+link)
-		except:
-			frame.displayText('Nope, this is not working.')
+    elif any(word in put for word in search_keywords):
+        try:
+            link='+'.join(link[1:])
+            say=link.replace('+',' ')
+            speak.say("searching google for "+say)
+            speak.runAndWait()
+            webbrowser.open('https://www.google.com/search?q='+link)
+        except:
+            frame.displayText('Nope, this is not working.')
 	#Wikipedia
-	elif any(word in put for word in wikipedia_keywords):
-		try:
-			link = '+'.join(link[1:])
-			say = link.replace('+', ' ')
-			wikisearch = wikipedia.page(say)
-			speak.say("Opening wikipedia page for" + say)
-			speak.runAndWait()
-			webbrowser.open(wikisearch.url)
-		except:
-			frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
+    elif any(word in put for word in wikipedia_keywords):
+        try:
+            link = '+'.join(link[1:])
+            say = link.replace('+', ' ')
+            wikisearch = wikipedia.page(say)
+            speak.say("Opening wikipedia page for" + say)
+            speak.runAndWait()
+            webbrowser.open(wikisearch.url)
+        except:
+            frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Lock the device
-	elif put.startswith('secure'):
-		try:
-			speak.say("locking the device")
-			speak.runAndWait()
-			subprocess.run("xdg-screensaver lock",shell=True,check=True)
-		except :
-			frame.displayText('Cannot lock device')
+    elif put.startswith('secure'):
+        try:
+            speak.say("locking the device")
+            speak.runAndWait()
+            subprocess.run("xdg-screensaver lock",shell=True,check=True)
+        except :
+            frame.displayText('Cannot lock device')
 
 	#News of various press agencies
-	elif put.startswith('al jazeera '):
-		try:
-			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(aljazeeraurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Al-Jazeera report this')
-			speak.runAndWait()
-			frame.displayText('  =====Al Jazeera===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Qatari agents have refused to share this intel, Ethan')
-	elif put.startswith('bbc '):
-		try:
-			bbcurl = ('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(bbcurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from BBC report this')
-			speak.runAndWait()
-			frame.displayText('  =====BBC===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('MI6 is going crazy! Not allowing this!')
-	elif put.startswith('cricket '):
-		try:
-			cricketurl = ('https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(cricketurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from ESPN Cricket report this')
-			speak.runAndWait()
-			frame.displayText('  =====CRICKET NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Connection not secure')
-	elif put.startswith('hindus '):
-		try:
-			hindusurl = ('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(hindusurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Hindu News report this')
-			speak.runAndWait()
-			frame.displayText('  =====HINDU NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
+    elif put.startswith('al jazeera '):
+        try:
+            aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(aljazeeraurl)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from Al-Jazeera report this')
+            speak.runAndWait()
+            frame.displayText('  =====Al Jazeera===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
+                i += 1
+        except:
+            frame.displayText('Qatari agents have refused to share this intel, Ethan')
+    elif put.startswith('bbc '):
+        try:
+            bbcurl = ('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(bbcurl)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from BBC report this')
+            speak.runAndWait()
+            frame.displayText('  =====BBC===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
+                i += 1
+        except:
+            frame.displayText('MI6 is going crazy! Not allowing this!')
+    elif put.startswith('cricket '):
+        try:
+            cricketurl = ('https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(cricketurl)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from ESPN Cricket report this')
+            speak.runAndWait()
+            frame.displayText('  =====CRICKET NEWS===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
+                i += 1
+        except:
+            frame.displayText('Connection not secure')
+    elif put.startswith('hindus '):
+        try:
+            hindusurl = ('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(hindusurl)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from Hindu News report this')
+            speak.runAndWait()
+            frame.displayText('  =====HINDU NEWS===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
+                i += 1
+        except:
+            frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	# Finding files in pc
-	elif put.startswith('look for '):
-			try:
-				link=put.split()
-				name=link[2]
-				rex=regex.compile(name)
-				filepath=link[3]
-				for root,dirs,files in os.walk(os.path.normpath(filepath)):
-					for f in files:
-						result = rex.search(f)
-						if result:
-							frame.displayText(os.path.join(root, f))
-
-			except:
-				frame.displayText("Error")
+    elif put.startswith('look for '):
+        try:
+            link=put.split()
+            name=link[2]
+            rex=regex.compile(name)
+            filepath=link[3]
+            for root,dirs,files in os.walk(os.path.normpath(filepath)):
+                for f in files:
+                    result = rex.search(f)
+                    if result:
+                        frame.displayText(os.path.join(root, f))
+        except:
+            frame.displayText("Error")
+    
+    #elif put.starts
 
 
 #A customized thread class for tracking reminders
