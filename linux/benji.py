@@ -53,6 +53,8 @@ def events(frame, put,link):
 	download_music=["download","download music"]
 	reminder_keywords = ["set a reminder"]
 	calculator_keywords=["calculator","calc"]
+	youtube = ("play","stream","queue")
+	download = ("download","download music")
 
 	global reminder_mode
 	if reminder_mode or any(word in put for word in reminder_keywords) :
@@ -89,7 +91,7 @@ def events(frame, put,link):
 		except :
 			frame.displayText("Cannot set reminder")
 	#Play song on  Youtube
-	elif any(word in put for word in youtube_keywords):
+	elif put.startswith(youtube):
 		try:
 			link = '+'.join(link[1:])
 #                   print(link)
@@ -106,7 +108,7 @@ def events(frame, put,link):
 			webbrowser.open('https://www.youtube.com'+hit)
 		except:
 			frame.displayText('Sorry Ethan. Looks like its not working!')
-	elif any (word in put for word in download_music):
+	elif put.startswith(download):
          link = '+'.join(link[1:])
 #                   print(link)
          say = link.replace('+', ' ')
