@@ -1,1 +1,0 @@
-Jarvis March Algorithm
