@@ -5,7 +5,7 @@ How to start?
  * Run "python jarvis_march.py" and see what happens (hint: MAGIC)
  * Change the points in the main function.
 
-This are some results:
+These are some results:
 #### 10 random points
 <p align="center">
   <img src="https://i.imgur.com/VP3VDuG.png" width="350"/>
