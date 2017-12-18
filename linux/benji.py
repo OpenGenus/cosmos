@@ -379,9 +379,17 @@ def events(frame, put,link):
                         frame.displayText(os.path.join(root, f))
         except:
             frame.displayText("Error")
-    
-    #elif put.starts
-
+    #Controlling wifi Adapter
+    elif put.startswith('wifi '):
+        word = link[1]
+        if word=="enable":
+            os.system("nmcli radio wifi on")
+            speak.say("Enabling Wifi")
+            speak.runAndWait()
+        elif word=="disable":
+            os.system("nmcli radio wifi off")
+            speak.say("Disabling Wifi")
+            speak.runAndWait()
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
