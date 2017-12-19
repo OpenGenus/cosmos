@@ -4,10 +4,8 @@ int
 updateGap(int gap)
 {
     gap = (gap * 10) / 13;
-    if (gap < 1)
-        return (1);
-    else
-        return (gap);
+    
+    return (gap < 1 ? 1 : gap);
 }
 
 void 
