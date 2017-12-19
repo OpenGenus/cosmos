@@ -1,4 +1,4 @@
-# Jarvis March Algoritm
+# Jarvis March Algorithm
 ## python version 1.0
 
 How to start? 
