@@ -13,7 +13,7 @@ class Point:
         return False
 
     def __str__(self):
-        return "("+str(self.x)+","+str(self.y)+")"
+        return "(" + str(self.x) + ","+str(self.y) + ")"
 
 
 def leftMostPoint(pts):
@@ -34,7 +34,7 @@ def cross_product(a, b, c):
     x2 = a.x - c.x
     y1 = a.y - b.y
     y2 = a.y - c.y
-    return y2*x1 - y1*x2
+    return y2 * x1 - y1 * x2
 
 def distance(p, p1, p2):
     dist1 = math.hypot(p.x - p1.x, p.y - p1.y)
@@ -50,6 +50,7 @@ def iter(pts):
     for pt1 in pts:
         if curr_pt == pt1:
             continue
+
         target = pt1
         for pt2 in pts:
             if pt2 == target or pt2 == curr_pt:
@@ -64,12 +65,15 @@ def iter(pts):
                 else:
                     colinear.append(target)
                     target = pt2
+
         if target not in convex_list:
             convex_list.append(target)
+
         if colinear not in convex_list:
             convex_list += colinear
+
         curr_pt = target
-    
+
     return convex_list
 
 def main():
