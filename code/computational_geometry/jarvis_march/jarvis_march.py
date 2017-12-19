@@ -3,7 +3,7 @@ import numpy as np
 import math 
 
 class Point:
-    def __init__(self, x,y):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
@@ -22,14 +22,14 @@ def leftMostPoint(pts):
     
     curr = pts[0]
     for pt in pts[1:]:
-        if pt.x == curr.x and pt.y<curr.y:
+        if pt.x == curr.x and pt.y < curr.y:
             curr = pt
         elif pt.x < curr.x and pt.x != curr.x:
             curr = pt
             
     return curr
 
-def cross_product(a,b,c):
+def cross_product(a, b, c):
     x1 = a.x - b.x
     x2 = a.x - c.x
     y1 = a.y - b.y
