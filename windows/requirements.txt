@@ -25,6 +25,7 @@ pypiwin32==219
 python-dateutil==2.6.1
 python-pptx==0.6.7
 pytz==2017.3
+regex==2017.12.12
 requests==2.18.4
 shutilwhich==1.1.0
 simplegeneric==0.8.1
