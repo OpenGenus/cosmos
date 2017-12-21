@@ -71,6 +71,27 @@ def events(frame,put):
             speak.runAndWait()
         except:
             print("Could not add the specified note!")
+    #Screen Recorder
+    elif link[0] == "recorder":        
+        try:
+            fps = link[1]
+            if len(link) < 3:
+                video = '"UScreenCapture"'
+                audio = '"Microphone (Realtek High Definition Audio)"'
+            else:   
+                video = link[2]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'
+                audio = link[3]
+                audio = audio.replace('_',' ')
+                audio = '"' + audio + '"'
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0}:audio={1} -r {2} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 -acodec libmp3lame -ab 128k -ac 1 -ar 44100 -async {2} video.avi'''.format(video,audio,fps),shell=True)    #video = UScreenCapture , audio = Microphone (Realtek High Definition Audio)
+        except:
+            print("Unable to start requested service!")        
     #Look for
     elif put.startswith('look for '):
         try:
