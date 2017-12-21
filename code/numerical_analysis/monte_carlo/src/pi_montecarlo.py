@@ -15,6 +15,7 @@ def pi_monte_carlo(point_count):
     pi = (circle_points / point_count) * 4
     return pi
 
+
 count = float(input('Enter point count: '))
 res = pi_monte_carlo(count)
 print('Pi = ', res)
