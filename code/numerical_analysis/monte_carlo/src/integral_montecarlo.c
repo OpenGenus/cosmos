@@ -6,10 +6,9 @@
 double
 integral_monte_carlo(double a, double b, double point_count, double (*f)(double))
 {
-    double res, x, y;
-    y = 0;
-    for (int i = 0; i < point_count; ++i)
-    {
+    double res, x, y = 0;
+    int i;
+    for (i = 0; i < point_count; ++i){
         x = ((b - a) * (double)random() / RAND_MAX) + a;
         y += f(x);
     }
@@ -28,7 +27,12 @@ main(void)
     scanf("%lf", &b);
     printf("Enter point count: ");
     scanf("%lf", &point_count);
-    res = integral_monte_carlo(a, b, point_count, ({double f(double x){return x*x + x;} f;}));
+    res = integral_monte_carlo(a, b, point_count, ({
+                                                       double f(double x)
+                                                       {
+                                                           return (x * x + x);
+                                                       }
+                                                   f;}));
     printf("Result =  %lf \n", res);
     return (0);
 }
