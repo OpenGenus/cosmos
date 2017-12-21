@@ -24,6 +24,7 @@ Pygments==2.2.0
 pypiwin32==219
 python-dateutil==2.6.1
 python-pptx==0.6.7
+pyttsx3==2.7
 pytz==2017.3
 requests==2.18.4
 shutilwhich==1.1.0
@@ -39,6 +40,7 @@ wikipedia==1.4.0
 winshell==0.6
 wxPython==4.0.0b2
 XlsxWriter==1.0.2
+youtube-dl==2017.12.10
 
 
 #Forlinux install wxpython using  pip3 install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04     wxPython 
