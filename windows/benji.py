@@ -91,7 +91,51 @@ def events(frame,put):
             os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
             subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0}:audio={1} -r {2} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 -acodec libmp3lame -ab 128k -ac 1 -ar 44100 -async {2} video.avi'''.format(video,audio,fps),shell=True)    #video = UScreenCapture , audio = Microphone (Realtek High Definition Audio)
         except:
-            print("Unable to start requested service!")        
+            print("Unable to start requested service!")
+    #Voice Recorder
+    elif link[0] == "audio" and link[1] == "recorder":
+        try:
+            if len(link) < 3:
+                audio = '"Microphone (Realtek High Definition Audio)"'
+            else:   
+                audio = link[2]
+                audio = audio.replace('_',' ')
+                audio = '"' + audio + '"'
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i audio={0} -acodec libmp3lame -ab 320k -ac 1 -ar 44100 audio.mp3'''.format(audio),shell=True)
+        except:
+            print("Unable to start requested service!")
+    #Video Recorder
+    elif link[0] == "video" and link[1] == "recorder":
+        try:
+            fps = link[2]
+            if len(link) < 4:
+                video = '"UScreenCapture"'
+            else:
+                video = link[3]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'   
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0} -r {1} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 video.avi'''.format(video,fps),shell=True)
+        except:
+            print("Unable to start requested service!")
+    #Merge audio and video
+    elif link[0] == "merge":
+        try:
+            username = os.getlogin()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            video = link[1]
+            audio = link[2]
+            output = link[3] 
+            subprocess.call(r'''ffmpeg -i {} -i {} -c:v copy -c:a copy {}'''.format(video,audio,output),shell=True) 
+        except:
+            print("Unable to process requested service!")                
     #Look for
     elif put.startswith('look for '):
         try:
