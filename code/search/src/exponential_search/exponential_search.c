@@ -1,11 +1,13 @@
 #include <stdio.h>
 
-int min(int a, int b)
+int 
+min(int a, int b)
 {
     return (a < b ? a : b);
 }
 
-int binarySearch(int arr[], int l, int r, int x)
+int 
+binarySearch(int arr[], int l, int r, int x)
 {
     if (r >= l) {
         int mid = l + (r - l) / 2;
@@ -22,7 +24,8 @@ int binarySearch(int arr[], int l, int r, int x)
     return (-1);
 }
  
-int exponentialSearch(int arr[], int n, int x)
+int 
+exponentialSearch(int arr[], int n, int x)
 {
     if (arr[0] == x)
         return (0);
@@ -35,7 +38,8 @@ int exponentialSearch(int arr[], int n, int x)
     return (binarySearch(arr, i / 2, min(i, n), x));
 }
  
-int main()
+int 
+main()
 {
    int n;
    printf("Enter size of Array \n");
