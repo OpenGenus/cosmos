@@ -78,6 +78,11 @@ def events(frame,put):
             if len(link) < 3:
                 video = '"UScreenCapture"'
                 audio = '"Microphone (Realtek High Definition Audio)"'
+            elif len(link) < 4:
+                video = link[2]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'
+                audio = '"Microphone (Realtek High Definition Audio)"'    
             else:   
                 video = link[2]
                 video = video.replace('_',' ')
@@ -280,7 +285,7 @@ def events(frame,put):
             speak.runAndWait()
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
-            print('Could search for images!')	
+            print('Could not search for images!')	
 	#Gmail		
     elif put.startswith("gmail"):
         try:
@@ -447,7 +452,7 @@ def events(frame,put):
             subprocess.call('calc',shell=True)
         except:
             print("Unable to open calculator!")        	
-
+    #Exit/Quit        
     elif put.startswith('exit') or put.startswith('quit'):
         sys.exit()
 
