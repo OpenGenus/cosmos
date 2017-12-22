@@ -13,7 +13,7 @@ Following is the high-level structure of cosmos:
 * [Artificial intelligence](/code/artificial_intelligence) :robot: 
 * [Backtracking](/code/backtracking)
 * [Bit manipulation](/code/bit_manipulation)
-* [Cellular automaton](cellular_automaton) 🐚 
+* [Cellular automaton](/code/cellular_automaton) 🐚 
 * [Compression algorithms](/code/compression)
 * [Computational geometry](/code/computational_geometry) :gear: 
 * [Cryptography](/code/cryptography)
