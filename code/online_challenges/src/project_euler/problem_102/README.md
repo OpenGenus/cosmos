@@ -8,7 +8,6 @@ Consider the following two triangles:
 
 <p align="center">
 A(-340,495), B(-153,-910), C(835,-947)
-
 X(-175,41), Y(-421,-714), Z(574,-645)
 </p>
 
