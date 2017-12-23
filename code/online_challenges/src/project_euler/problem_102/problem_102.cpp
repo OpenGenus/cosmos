@@ -43,12 +43,8 @@ int main()
         Coord a, b, c;
         char comma; // Since each part of a coordinate is comma separated
         while (trianglesFile >> a.x >> comma >> a.y >> comma >> b.x >> comma >> b.y >> comma >> c.x >> comma >> c.y)
-        {
             if (containsOrigin(a, b, c))
-            {
                 ++numOriginTriangles;
-            }
-        }
         trianglesFile.close();
     }
     else
