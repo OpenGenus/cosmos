@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 #include <fstream>
 
@@ -17,8 +18,7 @@ double doubleTriangleArea(Coord a, Coord b, Coord c) // Double to prevent errors
      * A = | (x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2))/2 |
      *
      */
-     double area = ((a.x * (b.y - c.y)) + (b.x * (c.y - a.y)) + (c.x * (a.y - b.y)));
-     return (area < 0) ? (-area) : (area);
+     return std::abs((a.x * (b.y - c.y)) + (b.x * (c.y - a.y)) + (c.x * (a.y - b.y)));
 }
 
 bool containsOrigin(Coord a, Coord b, Coord c)
