@@ -235,66 +235,29 @@ def events(frame, put,link):
 			frame.displayText('Cannot lock device')
 
 	#News of various press agencies
-	elif put.startswith('al jazeera '):
-		try:
-			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(aljazeeraurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Al-Jazeera report this')
-			speak.runAndWait()
-			frame.displayText('  =====Al Jazeera===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Qatari agents have refused to share this intel, Ethan')
-	elif put.startswith('bbc '):
-		try:
-			bbcurl = ('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(bbcurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from BBC report this')
-			speak.runAndWait()
-			frame.displayText('  =====BBC===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('MI6 is going crazy! Not allowing this!')
-	elif put.startswith('cricket '):
-		try:
-			cricketurl = ('https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(cricketurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from ESPN Cricket report this')
-			speak.runAndWait()
-			frame.displayText('  =====CRICKET NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Connection not secure')
-	elif put.startswith('hindus '):
-		try:
-			hindusurl = ('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(hindusurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Hindu News report this')
-			speak.runAndWait()
-			frame.displayText('  =====HINDU NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
+    elif put.startswith('news '): 
+        try:
+            say = '+'.join(link[1:])
+            say = say.replace('+','-')
+            if link[1] == "al" and link[2] == "jazeera":
+                say += "-english"
+            elif link[1] == "bbc":
+                say += "-news"
+            elif link[1] == "espn" and link[2] == "cric":
+                say += "-info"      
+            url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(url)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from ' + say + ' report this')
+            speak.runAndWait()
+            print('  ====='+ say.upper() +'===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                print(str(i) + '. ' + item['title'] + '\n')
+                print(item['description'] + '\n')
+                i += 1
+        except:
+            print('Unable to retrieve data!')
 
 	# Finding files in pc
 	elif put.startswith('lookfor '):
