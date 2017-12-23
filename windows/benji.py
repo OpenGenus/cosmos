@@ -1,4 +1,6 @@
 # coding: utf-8
+import tkinter as tk
+from tkinter import ttk
 import wx
 import regex
 import os
@@ -22,6 +24,7 @@ from pptx import Presentation
 from xlsxwriter import Workbook
 import subprocess
 import sys
+import pyttsx3
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -32,11 +35,10 @@ else:
 		ssl._create_default_https_context=_create_unverified_https_context
 		
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
-speak=wicl.Dispatch("SAPI.SpVoice")
-# Creating the graphical user interface
-i=0
+#speak=wicl.Dispatch("SAPI.SpVoice")
+speak = pyttsx3.init()
 
-def events(put):
+def events(frame,put):
     identity_keywords = ["who are you", "who r u", "what is your name"]
     youtube_keywords = ["play ", "stream ", "queue "]
     launch_keywords = ["open ", "launch "]
@@ -45,6 +47,7 @@ def events(put):
     location_keywords = ["locate","spot"]
     check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
     download_music=["download ","download music "]
+    
     link = put.split()
   
 	#Add note
@@ -64,9 +67,109 @@ def events(put):
                 f1.write(text)
                 f1.write("\n")
                 f1.close()
-                speak.Speak("Note added successfully!")
+            speak.say("Note added successfully!")
+            speak.runAndWait()
         except:
             print("Could not add the specified note!")
+    #Screen Recorder
+    elif link[0] == "recorder":        
+        try:
+            fps = link[1]
+            if len(link) < 3:
+                video = '"UScreenCapture"'
+                audio = '"Microphone (Realtek High Definition Audio)"'
+            elif len(link) < 4:
+                video = link[2]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'
+                audio = '"Microphone (Realtek High Definition Audio)"'    
+            else:   
+                video = link[2]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'
+                audio = link[3]
+                audio = audio.replace('_',' ')
+                audio = '"' + audio + '"'
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0}:audio={1} -r {2} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 -acodec libmp3lame -ab 128k -ac 1 -ar 44100 -async {2} video.avi'''.format(video,audio,fps),shell=True)    #video = UScreenCapture , audio = Microphone (Realtek High Definition Audio)
+        except:
+            print("Unable to start requested service!")
+    #Voice Recorder
+    elif link[0] == "audio" and link[1] == "recorder":
+        try:
+            if len(link) < 3:
+                audio = '"Microphone (Realtek High Definition Audio)"'
+            else:   
+                audio = link[2]
+                audio = audio.replace('_',' ')
+                audio = '"' + audio + '"'
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i audio={0} -acodec libmp3lame -ab 320k -ac 1 -ar 44100 audio.mp3'''.format(audio),shell=True)
+        except:
+            print("Unable to start requested service!")
+    #Video Recorder
+    elif link[0] == "video" and link[1] == "recorder":
+        try:
+            fps = link[2]
+            if len(link) < 4:
+                video = '"UScreenCapture"'
+            else:
+                video = link[3]
+                video = video.replace('_',' ')
+                video = '"' + video + '"'   
+            username = os.getlogin()
+            speak.say("Recording started!")
+            speak.runAndWait()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0} -r {1} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 video.avi'''.format(video,fps),shell=True)
+        except:
+            print("Unable to start requested service!")
+    #Merge audio and video
+    elif link[0] == "merge":
+        try:
+            username = os.getlogin()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            video = link[1]
+            audio = link[2]
+            output = link[3] 
+            subprocess.call(r'''ffmpeg -i {} -i {} -c:v copy -c:a copy {}'''.format(video,audio,output),shell=True) 
+        except:
+            print("Unable to process requested service!")
+    #Convert video
+    elif link[0] == "convert":
+        try:
+            username = os.getlogin()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            if link[1] == "na":
+                form_in = link[2]
+                video1 = link[3]
+                form_out = link[4]
+                video2 = link[5]
+                if form_in == "avi" and (form_out == "mp4" or form_out == "mkv"):
+                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -an {}'''.format(video1,video2), shell = True) 
+                elif form_in == "avi" and form_out == "webm":
+                    subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -an {}'''.format(video1,video2),shell=True)            
+            else:
+                form_in = link[1]
+                video1 = link[2]
+                form_out = link[3]
+                video2 = link[4]
+                if (form_in == "avi" or form_in == "webm") and (form_out == "mp4" or form_out == "mkv"):
+                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -acodec aac {}'''.format(video1,video2), shell = True) 
+                elif (form_in == "avi" or form_in == "mp4" or form_in == "mkv") and form_out == "webm":
+                    subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -cpu-used -5 -deadline realtime -c:a libvorbis {}'''.format(video1,video2), shell = True)
+                elif (form_in == "mp4" or form_in == "mkv" or form_in == "webm") and form_out == "avi":
+                    subprocess.call(r'''ffmpeg -i {} -c:v mpeg4 -vtag xvid -qscale:v 0 -acodec libmp3lame {}'''.format(video1,video2), shell = True)                
+                elif (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv" or form_in == "mp3" or form_in == "m4a") and (form_out == "m4a" or form_out == "mp3"):
+                    subprocess.call(r'''ffmpeg -i {} {}'''.format(video1,video2), shell = True)
+        except:
+            print("Unable to process requested service!")                        
     #Look for
     elif put.startswith('look for '):
         try:
@@ -99,24 +202,27 @@ def events(put):
             songs = soup.findAll('div', {'class': 'yt-lockup-video'})
             hit = songs[0].find('a')['href']
 #                   print(hit)
-            speak.Speak("playing "+say)
+            speak.say("playing "+say)
+            speak.runAndWait()
             webbrowser.open('https://www.youtube.com'+hit)
         except:
             print('Sorry Ethan. Looks like its not working!')
     #Download music
     elif any (word in put for word in download_music):
-         link = '+'.join(link[1:])
+        try:
+            link = '+'.join(link[1:])
 #                   print(link)
-         say = link.replace('+', ' ')
-         url = 'https://www.youtube.com/results?search_query='+link
+            say = link.replace('+', ' ')
+            url = 'https://www.youtube.com/results?search_query='+link
 #                 webbrowser.open('https://www.youtube.com'+link)
-         fhand=urllib.request.urlopen(url).read()
-         soup = BeautifulSoup(fhand, "html.parser")
-         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-         hit = songs[0].find('a')['href']
+            fhand=urllib.request.urlopen(url).read()
+            soup = BeautifulSoup(fhand, "html.parser")
+            songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+            hit = songs[0].find('a')['href']
 #                   print(hit)
-         speak.Speak("downloading "+say)
-         ydl_opts = {
+            speak.say("downloading "+say)
+            speak.runAndWait()
+            ydl_opts = {
                         'format': 'bestaudio/best',
                         'postprocessors': [{
                                             'key': 'FFmpegExtractAudio',
@@ -128,30 +234,35 @@ def events(put):
                                             'outtmpl': 'C:\\Users\\'+os.environ['USERNAME']+'\\Desktop\\%(title)s.%(ext)s'
                                             }
 
-         ydl = youtube_dl.YoutubeDL(ydl_opts)
-         ydl.download(['https://www.youtube.com'+hit])
-         speak.speak("download completed Check your desktop for the song")
+            ydl = youtube_dl.YoutubeDL(ydl_opts)
+            ydl.download(['https://www.youtube.com'+hit])
+            speak.say("download completed Check your desktop for the song")
+            speak.runAndWait()
+        except:
+            print("Unable to download requested music!")    
     #Location     
     elif any(word in put for word in location_keywords):
         try:
             link='+'.join(link[1:])
             say=link.replace('+',' ')
-            speak.Speak("locating "+ say)
+            speak.say("locating "+ say)
+            speak.runAndWait()
             webbrowser.open('https://www.google.nl/maps/place/'+link)
         except:
-            speak.Speak('The place seems to be sequestered.')
             print('The place seems to be sequestered.')
 	#Who are you?
     elif any(word in put for word in identity_keywords):
         try: 
-            speak.Speak("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
+            speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
+            speak.runAndWait()
         except:
             print('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
     elif any(word in put for word in launch_keywords):
         try:
             link = '+'.join(link[1:])
-            speak.Speak("opening "+link)
+            speak.say("opening "+link)
+            speak.runAndWait()
             webbrowser.open('http://www.'+ link)
         except:
             print('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
@@ -160,7 +271,8 @@ def events(put):
         try:
             link='+'.join(link[1:])
             say=link.replace('+',' ')
-            speak.Speak("searching google for "+say)
+            speak.say("searching google for "+say)
+            speak.runAndWait()
             webbrowser.open('https://www.google.com/search?q='+link)
         except:
             print('Nope, this is not working.')        
@@ -169,21 +281,24 @@ def events(put):
         try:
             link='+'.join(link[2:])
             say=link.replace('+',' ')
-            speak.Speak("searching images of " + say)
+            speak.say("searching images of " + say)
+            speak.runAndWait()
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
-            print('Could search for images!')	
+            print('Could not search for images!')	
 	#Gmail		
     elif put.startswith("gmail"):
         try:
-            speak.Speak("Opening Gmail!")
+            speak.say("Opening Gmail!")
+            speak.runAndWait()
             webbrowser.open('https://www.google.com/gmail')
         except:
             print("Could not open Gmail!")
     #Google Cloud Print
     elif put.startswith("google cloud print"):
         try:
-            speak.Speak("Opening google cloud print!")
+            speak.say("Opening google cloud print!")
+            speak.runAndWait()
             webbrowser.open('https://www.google.com/cloudprint')
         except:
             print("Could not open Google Cloud Print!")        
@@ -191,14 +306,16 @@ def events(put):
     elif put.startswith("google "):
         try:
             say = link[1]
-            speak.Speak("Opening google " + say)
+            speak.say("Opening google " + say)
+            speak.runAndWait()
             webbrowser.open('https://'+ say +'.google.com')
         except:
             print("Could not open Google " + say.capitalize() + "!")        
 	#Blogger
     elif put.startswith("blogger"):
         try:
-            speak.Speak("Opening blogger!")
+            speak.say("Opening blogger!")
+            speak.runAndWait()
             webbrowser.open('https://www.blogger.com')
         except:
             print("Could not open Blogger!")
@@ -208,21 +325,24 @@ def events(put):
             link = '+'.join(link[1:])
             say = link.replace('+', ' ')
             wikisearch = wikipedia.page(say)
-            speak.Speak("Opening wikipedia page for" + say)
+            speak.say("Opening wikipedia page for" + say)
+            speak.runAndWait()
             webbrowser.open(wikisearch.url)
         except:
             print('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Podcast
     elif put.startswith("podcast"):
         try:
-            speak.Speak("Opening podcast!")
+            speak.say("Opening podcast!")
+            speak.runAndWait()
             webbrowser.open('https://castbox.fm/home')
         except:
             print("Could not open podcast!")
     #Lock the device 
     elif put.startswith('secure ') or put.startswith('lock '):
         try:
-            speak.Speak("locking the device")
+            speak.say("locking the device")
+            speak.runAndWait()
             ctypes.windll.user32.LockWorkStation()
         except :
             print('Cannot lock device')  
@@ -240,7 +360,8 @@ def events(put):
             url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
             newsresponce = requests.get(url)
             newsjson = newsresponce.json()
-            speak.Speak('Our agents from ' + say + ' report this')
+            speak.say('Our agents from ' + say + ' report this')
+            speak.runAndWait()
             print('  ====='+ say.upper() +'===== \n')
             i = 1
             for item in newsjson['articles']:
@@ -252,15 +373,18 @@ def events(put):
 	#shutdown after specific time
     elif put.startswith('shutdown after '):
         try:
-            if not link[2].isdigit():
-                hours = int('0')
-            else:	 
+            if link[2].isdigit() and link[4].isdigit():
+                if link[2] == "zero":
+                    link[2] = "0"
+                if link[4] == "zero":
+                    link[4] = "0"    
                 hours = int(link[2])
-            minutes = int(link[4])
-            time_seconds = 60 * minutes 
-            time_seconds = time_seconds + hours * 3600	
-            subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
-            speak.Speak("Shutdown initialized!")
+                minutes = int(link[4])
+                time_seconds = 60 * minutes 
+                time_seconds = time_seconds + hours * 3600	
+                subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
+                speak.say("Shutdown initialized!")
+                speak.runAndWait()
         except:
             print("Please shutdown manually!")		
 	#shutdown now
@@ -273,7 +397,8 @@ def events(put):
     elif put.startswith("cancel shutdown"):
         try:
             subprocess.call("shutdown /a", shell = True)
-            speak.Speak("Shutdown cancelled!")
+            speak.say("Shutdown cancelled!")
+            speak.runAndWait()
         except:
             print("Unable do cancel shutdown!")	
 	#restart
@@ -317,7 +442,8 @@ def events(put):
                 filename += ".rtf"
                 f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
                 f1.close()	
-            speak.Speak("Created" + filename)
+            speak.say("Created" + filename)
+            speak.runAndWait()
         except:
             print("Unable to create a file.")
     #Calculator
@@ -326,70 +452,110 @@ def events(put):
             subprocess.call('calc',shell=True)
         except:
             print("Unable to open calculator!")        	
-
+    #Exit/Quit        
     elif put.startswith('exit') or put.startswith('quit'):
         sys.exit()
 
-class MyFrame(wx.Frame):
-		def __init__(self):
-			wx.Frame.__init__(self,None,pos=wx.DefaultPosition, size=wx.Size(400,200),style=wx.MINIMIZE_BOX| wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN, title="BENJI")
-			panel=wx.Panel(self)
-			ico= wx.Icon('benji_final.ico',wx.BITMAP_TYPE_ICO)
-			self.SetIcon(ico)
-			my_sizer=wx.BoxSizer(wx.VERTICAL)
-			lbl=wx.StaticText(panel,label="Hello Agent! How can I help you")
-			my_sizer.Add(lbl,0,wx.ALL,6)
-			
-			
-			self.txt=wx.TextCtrl(panel,style=wx.TE_PROCESS_ENTER,size=(400,40))
-			self.txt.Bind(wx.EVT_TEXT_ENTER,self.OnEnter)
-			my_sizer.Add(self.txt,0,wx.ALL,6)
-			
-			self.btn = wx.Button(panel,6,"click to Speak")
-			my_sizer.Add(self.btn,0,wx.ALIGN_CENTER,6)
-			self.btn.Bind(wx.EVT_BUTTON,self.OnClicked) 
-			panel.SetSizer(my_sizer)
-			
-			speak.Speak('''Hi Agent! BENJI at your service''')
-			self.Show()
-			self.Centre() 
-			self.Fit() 
-	 
-		def OnEnter(self,event):
-			put=self.txt.GetValue()
-			self.txt.SetValue("")
-			#put=put.lower()
-			#put = put.strip()
-			#put = re.sub(r'[?|$|.|!]', r'', put)
-			#link=put.split()
-			events(put)
-			
-			if put=='':
-			   print('Reenter')
-		 
-		def OnClicked(self,event):
-#            time.sleep(4)
-			r = sr.Recognizer()                                                                                   
-			with sr.Microphone() as source:                                                                                                                                                        
-				speak.Speak('Hey I am Listening ')
-				audio = r.listen(source)   
-			try:
-				put=r.recognize_google(audio)
-				self.txt.SetValue(put)
-				#put=put.lower()
-				#put = put.strip()
-				#put = re.sub(r'[?|$|.|!]', r'', put)
-				#link=put.split()
-				events(put)
-				
-			except sr.UnknownValueError:
-				print("Could not understand audio")
-			except sr.RequestError as e:
-				print("Could not request results; {0}".format(e))
+#A stdout class to redirect output to tkinter window
+class StdRedirector(object):
 
-#    #Trigger the GUI. Light the fuse!
+    def __init__(self, text_window):
+        self.text_window = text_window
+
+    def write(self, output):
+        self.text_window.insert(tk.END, output)
+# Creating the graphical user interface
+class MyFrame(tk.Frame):
+    def __init__(self,*args,**kwargs):
+
+        self.textBox = tk.Text(root,
+            height=1,width=30,
+            font=("Times", 16),
+            bg="#666", fg="#0f0",
+            spacing1=6, spacing3=6,
+            insertbackground="#0f0"
+            )
+        self.textBox.insert("1.0", "$>")
+        self.textBox.grid(row=1,column=1, padx=10, pady=10)
+        root.bind('<Return>', self.OnEnter)
+        #root.bind('<Destroy>', self.onClose)
+        self.textBox.focus_set()
+        speak.say('''Hi Agent! BENJI at your service''')
+        speak.runAndWait()
+
+        self.photo1 = tk.PhotoImage(file="mic_icon.png")
+
+        self.btn = ttk.Button(root,command=self.OnClicked,
+        image=self.photo1, style="C.TButton")
+        self.btn.grid(row=1,column=2, padx=10, pady=20)
+        
+        '''
+        self.output_window = tk.Toplevel()
+        output_text_window = tk.Text(self.output_window)
+        self.stddirec = StdRedirector(output_text_window)
+        sys.stdout = self.stddirec
+        output_text_window.pack()
+        self.output_window.withdraw()
+        '''
+
+    def OnEnter(self,event):
+            put=self.textBox.get("1.2","end-1c")
+            self.displayText(put)
+            self.textBox.insert('1.2',put)
+            self.textBox.delete('1.2',tk.END)
+            events(self, put)
+            if put=='':
+               self.displayText('Reenter')
+
+    def OnClicked(self):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            speak.say('Hey I am Listening ')
+            speak.runAndWait()
+            audio = r.listen(source)
+        try:
+            put=r.recognize_google(audio)
+            self.displayText(put)
+            self.textBox.insert('1.2',put)
+            self.textBox.delete('1.2',tk.END)
+            events(self,put)
+        except sr.UnknownValueError:
+            self.displayText("Could not understand audio")
+        except sr.RequestError as e:
+            self.displayText("Could not request results; {0}".format(e))
+
+    def displayText(self, text):
+        try :
+            if not self.output_window.winfo_viewable() :
+                self.output_window.update()
+                self.output_window.deiconify()
+        except :
+            self.createOutputWindow()
+        print(text)
+
+    def createOutputWindow(self):
+        self.output_window = tk.Toplevel()
+        output_text_window = tk.Text(self.output_window)
+        self.stddirec = StdRedirector(output_text_window)
+        sys.stdout = self.stddirec
+        output_text_window.pack()
+
+    #Trigger the GUI. Light the fuse!
 if __name__=="__main__":
-	app = wx.App(True)
-	frame= MyFrame()
-	app.MainLoop()
-
+    root = tk.Tk()
+    view = MyFrame(root)
+    style = ttk.Style()
+    style.configure('C.TButton',
+        background='#555',
+        highlightthickness='0'
+    )
+    style.map("C.TButton",
+        background=[('pressed', '!disabled', '#333'), ('active', '#666')]
+    )
+    # root.geometry('{}x{}'.format(400, 100))
+    # view.pack(side="top",fill="both",expand=False)
+    root.iconphoto(True, tk.PhotoImage(file=os.path.join(sys.path[0],'benji_final.gif')))
+    root.title('B.E.N.J.I.')
+    root.configure(background="#444")
+    root.resizable(0,0)
+    root.mainloop()

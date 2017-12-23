@@ -48,7 +48,7 @@ def events(frame, put,link):
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play ", "stream ", "queue "]
 	launch_keywords = ["open ", "launch "]
-	search_keywords = ["search ", "google "]
+	search_keywords = ["search ",]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
 	download_music=["download","download music"]
 	reminder_keywords = ["set a reminder"]
@@ -161,130 +161,59 @@ def events(frame, put,link):
 			webbrowser.open('http://www.'+ link)
 		except:
 			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-	#Google Images
-	elif put.startswith("images of "):
-		try:
-			link='+'.join(link[2:])
-			say=link.replace('+',' ')
-			speak.Speak("searching images of " + say)
-			webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
-		except:
-			frame.displayText('Could search for images!')
-	#Gmail
-	elif put.startswith("gmail"):
-		try:
-			speak.Speak("Opening Gmail!")
-			webbrowser.open('https://www.google.com/gmail')
-		except:
-			frame.displayText("Could not open Gmail!")
-	#Google News
-	elif put.startswith("google news"):
-		try:
-			speak.Speak("Opening google news!")
-			webbrowser.open('https://news.google.com')
-		except:
-			frame.displayText("Could not open Google News!")
-	#Google Translate
-	elif put.startswith("google translate"):
-		try:
-			speak.Speak("Opening google translate!")
-			webbrowser.open('https://translate.google.com')
-		except:
-			frame.displayText("Could not open Google Translate!")
-	#Google Photos
-	elif put.startswith("google photos"):
-		try:
-			speak.Speak("Opening google photos!")
-			webbrowser.open('https://photos.google.com')
-		except:
-			frame.displayText("Could not open Google Photos!")
-	#Google Drive
-	elif put.startswith("google drive"):
-		try:
-			speak.Speak("Opening google drive!")
-			webbrowser.open('https://drive.google.com')
-		except:
-			frame.displayText("Could not open Google Drive!")
-	#Google Plus
-	elif put.startswith("google plus"):
-		try:
-			speak.Speak("Opening google plus!")
-			webbrowser.open('https://plus.google.com')
-		except:
-			frame.displayText("Could not open Google Plus!")
-	#Google Forms
-	elif put.startswith("google forms"):
-		try:
-			speak.Speak("Opening google forms!")
-			webbrowser.open('https://docs.google.com/forms')
-		except:
-			frame.displayText("Could not open Google Forms!")
-	#Google Document
-	elif put.startswith("google document"):
-		try:
-			speak.Speak("Opening google docs!")
-			webbrowser.open('https://docs.google.com/document')
-		except:
-			frame.displayText("Could not open Google Docs!")
-	#Google Sheets
-	elif put.startswith("google sheets"):
-		try:
-			speak.Speak("Opening google sheets!")
-			webbrowser.open('https://docs.google.com/spreadsheets')
-		except:
-			frame.displayText("Could not open Google Sheets!")
-	#Google Slides
-	elif put.startswith("google slides"):
-		try:
-			speak.Speak("Opening google slides!")
-			webbrowser.open('https://docs.google.com/presentation')
-		except:
-			frame.displayText("Could not open Google Slides!")
-	#Google Groups
-	elif put.startswith("google groups"):
-		try:
-			speak.Speak("Opening google groups!")
-			webbrowser.open('https://groups.google.com')
-		except:
-			frame.displayText("Could not open Google Groups!")
-	#Google Earth
-	elif put.startswith("google earth"):
-		try:
-			speak.Speak("Opening google earth!")
-			webbrowser.open('https://www.google.com/earth')
-		except:
-			frame.displayText("Could not open Google Earth!")
-	#Google Cloud frame.displayText
-	elif put.startswith("google cloud print"):
-		try:
-			speak.Speak("Opening google cloud print!")
-			webbrowser.open('https://www.google.com/cloudprint')
-		except:
-			frame.displayText("Could not open Google Cloud Print!")
-	#Google Fonts
-	elif put.startswith("google fonts"):
-		try:
-			speak.Speak("Opening google fonts!")
-			webbrowser.open('https://fonts.google.com')
-		except:
-			frame.displayText("Could not open Google Fonts!")
-	#Blogger
-	elif put.startswith("blogger"):
-		try:
-			speak.Speak("Opening blogger!")
-			webbrowser.open('https://www.blogger.com')
-		except:
-			frame.displayText("Could not open Blogger!")
 	#Google search
-	elif any(word in put for word in search_keywords):
-		try:
-			link='+'.join(link[1:])
-			say=link.replace('+',' ')
-			speak.say("searching google for "+say)
-			speak.runAndWait()
-			webbrowser.open('https://www.google.com/search?q='+link)
-		except:
-			frame.displayText('Nope, this is not working.')
+    elif any(word in put for word in search_keywords):
+        try:
+            link='+'.join(link[1:])
+            say=link.replace('+',' ')
+            speak.say("searching google for "+say)
+            speak.runAndWait()
+            webbrowser.open('https://www.google.com/search?q='+link)
+        except:
+            print('Nope, this is not working.')        
+	#Google Images	
+    elif put.startswith("images of "):
+        try:
+            link='+'.join(link[2:])
+            say=link.replace('+',' ')
+            speak.say("searching images of " + say)
+            speak.runAndWait()
+            webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
+        except:
+            print('Could not search for images!')	
+	#Gmail		
+    elif put.startswith("gmail"):
+        try:
+            speak.say("Opening Gmail!")
+            speak.runAndWait()
+            webbrowser.open('https://www.google.com/gmail')
+        except:
+            print("Could not open Gmail!")
+    #Google Cloud Print
+    elif put.startswith("google cloud print"):
+        try:
+            speak.say("Opening google cloud print!")
+            speak.runAndWait()
+            webbrowser.open('https://www.google.com/cloudprint')
+        except:
+            print("Could not open Google Cloud Print!")        
+    #Google Others
+    elif put.startswith("google "):
+        try:
+            say = link[1]
+            speak.say("Opening google " + say)
+            speak.runAndWait()
+            webbrowser.open('https://'+ say +'.google.com')
+        except:
+            print("Could not open Google " + say.capitalize() + "!")        
+	#Blogger
+    elif put.startswith("blogger"):
+        try:
+            speak.say("Opening blogger!")
+            speak.runAndWait()
+            webbrowser.open('https://www.blogger.com')
+        except:
+            print("Could not open Blogger!")
 	#Wikipedia
 	elif any(word in put for word in wikipedia_keywords):
 		try:
