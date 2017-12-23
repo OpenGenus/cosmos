@@ -8,7 +8,7 @@ struct Coord
     int y;
 };
 
-double doubleTriangleArea(Coord a, Coord b, Coord c) // Double to prevent errors by floating-point math
+int doubleTriangleArea(Coord a, Coord b, Coord c) // Double to prevent errors by floating-point math
                                                      // Area doesn't actually need to be calculated either, 
                                                      // just compared for equality
 {
