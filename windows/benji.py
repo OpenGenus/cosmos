@@ -40,13 +40,13 @@ speak = pyttsx3.init()
 
 def events(frame,put):
     identity_keywords = ["who are you", "who r u", "what is your name"]
-    youtube_keywords = ["play ", "stream ", "queue "]
+    youtube_keywords = ("play ", "stream ", "queue ")
     launch_keywords = ["open ", "launch "]
     search_keywords = ["search "]
     wikipedia_keywords = ["wikipedia ", "wiki "]
     location_keywords = ["locate","spot"]
     check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
-    download_music=["download ","download music "]
+    download_music=("download ","download music ")
     
     link = put.split()
   
@@ -74,27 +74,26 @@ def events(frame,put):
     #Screen Recorder
     elif link[0] == "recorder":        
         try:
-            fps = link[1]
-            if len(link) < 3:
+            if len(link) < 2:
                 video = '"UScreenCapture"'
                 audio = '"Microphone (Realtek High Definition Audio)"'
-            elif len(link) < 4:
-                video = link[2]
+            elif len(link) < 3:
+                video = link[1]
                 video = video.replace('_',' ')
                 video = '"' + video + '"'
                 audio = '"Microphone (Realtek High Definition Audio)"'    
             else:   
-                video = link[2]
+                video = link[1]
                 video = video.replace('_',' ')
                 video = '"' + video + '"'
-                audio = link[3]
+                audio = link[2]
                 audio = audio.replace('_',' ')
                 audio = '"' + audio + '"'
             username = os.getlogin()
             speak.say("Recording started!")
             speak.runAndWait()
             os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
-            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0}:audio={1} -r {2} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 -acodec libmp3lame -ab 128k -ac 1 -ar 44100 -async {2} video.avi'''.format(video,audio,fps),shell=True)    #video = UScreenCapture , audio = Microphone (Realtek High Definition Audio)
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0}:audio={1} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 -acodec libmp3lame -ab 320k -ac 1 -ar 44100 video.avi'''.format(video,audio),shell=True)    #video = UScreenCapture , audio = Microphone (Realtek High Definition Audio)
         except:
             print("Unable to start requested service!")
     #Voice Recorder
@@ -116,18 +115,17 @@ def events(frame,put):
     #Video Recorder
     elif link[0] == "video" and link[1] == "recorder":
         try:
-            fps = link[2]
-            if len(link) < 4:
+            if len(link) < 3:
                 video = '"UScreenCapture"'
             else:
-                video = link[3]
+                video = link[2]
                 video = video.replace('_',' ')
                 video = '"' + video + '"'   
             username = os.getlogin()
             speak.say("Recording started!")
             speak.runAndWait()
             os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
-            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0} -r {1} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 video.avi'''.format(video,fps),shell=True)
+            subprocess.call(r'''ffmpeg -rtbufsize 1500M -f dshow -i video={0} -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 video.avi'''.format(video),shell=True)
         except:
             print("Unable to start requested service!")
     #Merge audio and video
@@ -151,16 +149,16 @@ def events(frame,put):
                 video1 = link[3]
                 form_out = link[4]
                 video2 = link[5]
-                if form_in == "avi" and (form_out == "mp4" or form_out == "mkv"):
+                if (form_in == "avi" or form_in == "webm" or form_out == "mp4" or form_out == "mkv") and (form_out == "mp4" or form_out == "mkv"):
                     subprocess.call(r'''ffmpeg -i {} -c:v libx264 -an {}'''.format(video1,video2), shell = True) 
-                elif form_in == "avi" and form_out == "webm":
+                elif (form_in == "avi" or form_out == "mp4" or form_out == "mkv") and form_out == "webm":
                     subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -an {}'''.format(video1,video2),shell=True)            
             else:
                 form_in = link[1]
                 video1 = link[2]
                 form_out = link[3]
                 video2 = link[4]
-                if (form_in == "avi" or form_in == "webm") and (form_out == "mp4" or form_out == "mkv"):
+                if (form_in == "avi" or form_in == "webm" or form_out == "mp4" or form_out == "mkv") and (form_out == "mp4" or form_out == "mkv"):
                     subprocess.call(r'''ffmpeg -i {} -c:v libx264 -acodec aac {}'''.format(video1,video2), shell = True) 
                 elif (form_in == "avi" or form_in == "mp4" or form_in == "mkv") and form_out == "webm":
                     subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -cpu-used -5 -deadline realtime -c:a libvorbis {}'''.format(video1,video2), shell = True)
@@ -190,7 +188,7 @@ def events(frame,put):
     link = put.split()
 
 	#Play song on youtube
-    if any(word in put for word in youtube_keywords):
+    if put.startswith(youtube_keywords):
         try:
             link = '+'.join(link[1:])
 #                   print(link)
@@ -208,7 +206,7 @@ def events(frame,put):
         except:
             print('Sorry Ethan. Looks like its not working!')
     #Download music
-    elif any (word in put for word in download_music):
+    elif put.startswith(download_music):
         try:
             link = '+'.join(link[1:])
 #                   print(link)
