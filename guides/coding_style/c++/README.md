@@ -139,6 +139,35 @@ class Dummy
 };
 ```
 
+- The logical operators should be placed in front of the conditions, if add parenthese is clearer then go ahead.
+```C++
+void foo()
+{
+    bool res = true;
+
+    short i = 1;
+    long sum_short = 1;
+    while (i != 0 && ++i)
+        sum_short += i;
+
+    if (i == 0 && (0 == i))
+        res &= true;
+    else
+        res &= false;
+
+    if ((1 != 0)
+        && (1 == true || 0 == false))
+        res &= true;
+    else
+        res &= false;
+
+    if (res != true
+        || (!(res == true)
+            || (res == false)))
+        cout << "wrong\n";
+}
+```
+
 ## Spaces
 Put one space:
 
