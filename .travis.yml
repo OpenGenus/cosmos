@@ -1,0 +1,68 @@
+matrix:
+  include:
+    #C with clang
+    - os: linux
+      language: c
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make c
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CC=clang-5.0"
+    
+    #C with gcc
+    - os: linux
+      language: c
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make c
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7"
+        
+    #C++ with gcc
+    - os: linux
+      language: cpp
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make cpp
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
+        
+    #C++ with clang
+    - os: linux
+      language: cpp
+      before_script:
+        - chmod +x ./configure
+      script:
+        ./configure && make cpp
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CXX=clang++-5.0"
+        
+before_install:
+    - eval "${MATRIX_EVAL}"
