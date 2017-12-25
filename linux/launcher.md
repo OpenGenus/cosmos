@@ -33,7 +33,7 @@ So right now, you can launch Gedit, Libre Office, Calculator, Google Chrome, Moz
 In case you want to change the associated command, or if your system has different application installed, you can change the file as per your need.
 (For instance, KDE based Kubuntu uses tilix as the command line application)
 
-> To know the name of the application installed on your system, open up terminal and type "***dpkg --list***" and press enter.
+> To know the name of the application installed on your system, open up terminal and type "***dpkg --list***" (for Ubuntu based system) and press enter.
 
 To edit the commands, just open "_data.csv_" file in this folder using any text editor or any spreadsheet application like "_LibreOffice Calc_" and edit the file. Say my system uses "_tilix_" as the terminal and I want to add "_Visual Studio Code_" for the command "***coding***" then I will do the following:
 

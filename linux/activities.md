@@ -72,9 +72,9 @@ The commands for the various functions are as follows:
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
 * "***launch*** _ApplicationName_" to launch any application
 
-> Please read [***launcher.md***](/launcher.md) for more info on how to configure the "***launch***" command as per your need.
+> * Please read ***launcher.md*** for more info on how to configure the "***launch***" command as per your need.
 
->In cases where the commands are separated by '/', use any one of the mentioned commands
+>* In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
 
 _***Hope you enjoy using B.E.N.J.I.***_
