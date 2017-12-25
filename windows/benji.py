@@ -64,9 +64,9 @@ def events(frame,put):
                 text += "?"
             else:
                 text += "."	
-                f1.write(text)
-                f1.write("\n")
-                f1.close()
+            f1.write(text)
+            f1.write("\n")
+            f1.close()
             speak.say("Note added successfully!")
             speak.runAndWait()
         except:
@@ -405,8 +405,20 @@ def events(frame,put):
             subprocess.call("shutdown /r /t 0", shell = True)
         except:
             print("Unable do restart device!")		
+    #Folder
+    elif put.startswith('create ') and link[-1] == "folder":
+        try:
+            username = os.getlogin()
+            filename = '+'.join(link[1:-1])
+            filename = filename.replace('+','_').capitalize()
+            path = r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename)
+            os.mkdir(path)
+            speak.say("Folder created!")
+            speak.runAndWait()
+        except:
+            print("Couldn't create specified folder!")        
 	#create file
-    elif put.startswith('create '):
+    elif put.startswith('create ') and link[-1] == "document":
         try:
             username = os.getlogin()
             filename = '+'.join(link[1:-2])
