@@ -43,6 +43,7 @@ List of the things that B.E.N.J.I. can do:
 * Restart your device
 * Create a file(txt, docx, pptx,xlsx, vsdx and rtf supported)
 * Turn on and Turn off the wifi
+* Launch any application
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
@@ -69,6 +70,9 @@ The commands for the various functions are as follows:
 * "***shutdown now***" to instantly shut down your device.
 * "***restart now***" to restart your device.
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
+* "***launch*** _ApplicationName_" to launch any application
+
+> Please read [***launcher.md***](/launcher.md) for more info on how to configure the "***launch***" command as per your need.
 
 >In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
