@@ -22,6 +22,8 @@ y0 = float(input('Y= '))
 st_cond = [x0, y0]
 fin_int = float(input('Enter finish interval: '))
 stp = float(input('Enter step: '))
-res = runge_kutt(st_cond, fin_int, stp, lambda x, y: math.pow(x, 2) * (3 * y + math.exp(math.pow(x, 3))))
+res = runge_kutt(
+    st_cond, fin_int, stp,
+    lambda x, y: math.pow(x, 2) * (3 * y + math.exp(math.pow(x, 3))))
 for result_x, result_y in res:
     print("X= %8.6f, Y= %8.6f" % (result_x, result_y))
