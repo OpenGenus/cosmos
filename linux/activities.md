@@ -42,6 +42,7 @@ List of the things that B.E.N.J.I. can do:
 * Shut Down your device instantly or set a timer
 * Restart your device
 * Create a file(txt, docx, pptx,xlsx, vsdx and rtf supported)
+* Turn on and Turn off the wifi
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 

@@ -81,7 +81,6 @@ def events(frame, put,link):
 				reminder_mode = 0
 				date_as_string = ' '.join(link)
 				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
-				# global reminder
 				reminder = reminder + date_as_string
 				file_hand = open(reminder_filename, 'a')
 				file_hand.write(reminder)
@@ -90,11 +89,14 @@ def events(frame, put,link):
 				speak.say("Reminder Added")
 				speak.runAndWait()
 		except :
-			frame.displayText("Cannot set reminder")
+	  		frame.displayText("Cannot set reminder")
+
+
 	#Play song on  Youtube
 	elif put.startswith(youtube):
 		try:
 			link = '+'.join(link[1:])
+
 #                   print(link)
 			say = link.replace('+', ' ')
 			url = 'https://www.youtube.com/results?search_query='+link
@@ -114,25 +116,25 @@ def events(frame, put,link):
 #                   print(link)
 		 say = link.replace('+', ' ')
 		 url = 'https://www.youtube.com/results?search_query='+link
-#                 webbrowser.open('https://www.youtube.com'+link)
+	#                 webbrowser.open('https://www.youtube.com'+link)
 		 fhand=urllib.request.urlopen(url).read()
 		 soup = BeautifulSoup(fhand, "html.parser")
 		 songs = soup.findAll('div', {'class': 'yt-lockup-video'})
 		 hit = songs[0].find('a')['href']
-#                   print(hit)
+	#                   print(hit)
 		 speak.say("downloading "+say)
 		 speak.runAndWait()
 		 ydl_opts = {
-						'format': 'bestaudio/best',
-						'postprocessors': [{
-											'key': 'FFmpegExtractAudio',
-											'preferredcodec': 'mp3',
-											'preferredquality': '192',
-											}],
-											'quiet': True,
-											'restrictfilenames': True,
-											'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
-											}
+				'format': 'bestaudio/best',
+				'postprocessors': [{
+						  'key': 'FFmpegExtractAudio',
+						  'preferredcodec': 'mp3',
+						  'preferredquality': '192',
+						  }],
+						  'quiet': True,
+						  'restrictfilenames': True,
+						  'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
+						  }
 
 		 ydl = youtube_dl.YoutubeDL(ydl_opts)
 		 ydl.download(['https://www.youtube.com'+hit])
@@ -154,6 +156,7 @@ def events(frame, put,link):
 		except:
 			frame.displayText('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
+
 	elif any(word in put for word in launch_keywords):
 		try:
 			link = '+'.join(link[1:])
@@ -162,6 +165,7 @@ def events(frame, put,link):
 			webbrowser.open('http://www.'+ link)
 		except:
 			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
+
 	#Google search
 	elif any(word in put for word in search_keywords):
 		try:
@@ -236,66 +240,6 @@ def events(frame, put,link):
 			frame.displayText('Cannot lock device')
 
 	#News of various press agencies
-	elif put.startswith('al jazeera '):
-		try:
-			aljazeeraurl = ('https://newsapi.org/v1/articles?source=al-jazeera-english&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(aljazeeraurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Al-Jazeera report this')
-			speak.runAndWait()
-			frame.displayText('  =====Al Jazeera===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Qatari agents have refused to share this intel, Ethan')
-	elif put.startswith('bbc '):
-		try:
-			bbcurl = ('https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(bbcurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from BBC report this')
-			speak.runAndWait()
-			frame.displayText('  =====BBC===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('MI6 is going crazy! Not allowing this!')
-	elif put.startswith('cricket '):
-		try:
-			cricketurl = ('https://newsapi.org/v1/articles?source=espn-cric-info&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(cricketurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from ESPN Cricket report this')
-			speak.runAndWait()
-			frame.displayText('  =====CRICKET NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('Connection not secure')
-	elif put.startswith('hindus '):
-		try:
-			hindusurl = ('https://newsapi.org/v1/articles?source=the-hindu&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(hindusurl)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from Hindu News report this')
-			speak.runAndWait()
-			frame.displayText('  =====HINDU NEWS===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				frame.displayText(str(i) + '. ' + item['title'] + '\n')
-				frame.displayText(item['description'] + '\n')
-				i += 1
-		except:
-			frame.displayText('R&A W is blocking our reports, Ethan. Sorry! ')
 
 	elif put.startswith(search_pc):
 		process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
@@ -309,6 +253,41 @@ def events(frame, put,link):
 
 	# Finding files in pc
 
+	elif put.startswith('news '):
+		try:
+			say = '+'.join(link[1:])
+			say = say.replace('+','-')
+			if link[1] == "al" and link[2] == "jazeera":
+				say += "-english"
+			elif link[1] == "bbc":
+				say += "-news"
+			elif link[1] == "espn" and link[2] == "cric":
+				say += "-info"
+			url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+			newsresponce = requests.get(url)
+			newsjson = newsresponce.json()
+			speak.say('Our agents from ' + say + ' report this')
+			speak.runAndWait()
+			print('  ====='+ say.upper() +'===== \n')
+			i = 1
+			for item in newsjson['articles']:
+				print(str(i) + '. ' + item['title'] + '\n')
+				print(item['description'] + '\n')
+				i += 1
+		except:
+			print('Unable to retrieve data!')
+
+	#Controlling wifi Adapter
+	elif put.startswith('wifi '):
+		word = link[1]
+		if word=="enable":
+			os.system("nmcli radio wifi on")
+			speak.say("Enabling Wifi")
+			speak.runAndWait()
+		elif word=="disable":
+			os.system("nmcli radio wifi off")
+			speak.say("Disabling Wifi")
+			speak.runAndWait()
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
@@ -422,13 +401,17 @@ class MyFrame(tk.Frame):
 			put=self.textBox.get("1.2","end-1c")
 			print(put)
 			self.textBox.delete('1.2',tk.END)
-			put=put.lower()
-			put = put.strip()
+			if put.startswith("look for "):
+				put = put.strip()
+				link = put.split()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
-			link=put.split()
-			events(self, put,link)
+			else:
+				put = put.lower()
+				put = put.strip()
+				link = put.split()
+			events(self, put, link)
 			if put=='':
-			   self.displayText('Reenter')
+				self.displayText('Reenter')
 
 	def OnClicked(self):
 		r = sr.Recognizer()
