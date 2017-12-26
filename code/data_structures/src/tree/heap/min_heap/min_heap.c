@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #define asize 100
+#define min(a, b) ((a < b) ? a : b)
 
 struct heap
 {
@@ -14,12 +15,6 @@ swap(int *a, int *b)
 	int temp = *b;
 	*b = *a;
 	*a = temp;
-}
-
-int 
-min(int a, int b)
-{
-	return (a < b ? a : b);	
 }
 
 void 
