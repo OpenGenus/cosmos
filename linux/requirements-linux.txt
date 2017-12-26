@@ -35,6 +35,7 @@ pylint==1.7.2
 python-dateutil==2.6.1
 pyttsx3==2.7
 pytz==2017.3
+regex==2017.12.12
 requests==2.18.4
 scandir==1.6
 shutilwhich==1.1.0
@@ -50,8 +51,4 @@ urllib3==1.22
 wcwidth==0.1.7
 wikipedia==1.4.0
 wrapt==1.10.10
-<<<<<<< HEAD
-wxPython==4.0.0b2
-=======
 youtube-dl==2017.12.14
->>>>>>> upstream/master
