@@ -62,8 +62,8 @@ def events(frame, put,link):
 			frame.displayText('Sorry , cannot open reminders')
 
    
-	#Lock the device
-	elif put.startswith('secure'):
+	#shut down the device
+	elif put.startswith('shut down'):
 		try:
 			system("say locking the device")
 			os.system("sudo shutdown -h now")
