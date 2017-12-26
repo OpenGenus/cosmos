@@ -1,9 +1,9 @@
 # B.E.N.J.I.
 
 <h1 align="center">
-  <img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji_final.ico">
-  <br>
-  <br>
+<img width="400" src="https://raw.githubusercontent.com/the-ethan-hunt/B.E.N.J.I./master/benji_final.ico">
+<br>
+<br>
 </h1>
 
 > _***A digital assistant for your device with the capability of listening and following your orders.***_
@@ -20,19 +20,19 @@ List of the things that B.E.N.J.I. can do:
 * Search for Images on Google Images
 * Open Gmail to check your mails
 * Open any of the following apps from the Google Suite in your default browser:
-  * Google News
-  * Google Translate
-  * Google Photos
-  * Google Drive
-  * Google Plus
-  * Google Forms
-  * Google Documents
-  * Google Sheets
-  * Google Slides
-  * Google Groups
-  * Google Earth
-  * Google Cloud Print
-  * Google Fonts
+* Google News
+* Google Translate
+* Google Photos
+* Google Drive
+* Google Plus
+* Google Forms
+* Google Documents
+* Google Sheets
+* Google Slides
+* Google Groups
+* Google Earth
+* Google Cloud Print
+* Google Fonts
 * Open up Blogger
 * Search for anything on Google from the application itself
 * Search from Wikipedia
@@ -42,6 +42,7 @@ List of the things that B.E.N.J.I. can do:
 * Shut Down your device instantly or set a timer
 * Restart your device
 * Create a file(txt, docx, pptx,xlsx, vsdx and rtf supported)
+* Turn on and Turn off the wifi
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
