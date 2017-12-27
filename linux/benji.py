@@ -239,7 +239,7 @@ def events(frame, put,link):
 		except :
 			frame.displayText('Cannot lock device')
 
-	#News of various press agencies
+	#Finding files in pc
 
 	elif put.startswith(search_pc):
 		process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
@@ -251,7 +251,7 @@ def events(frame, put,link):
 		except:
 			speak.say("Sorry,couldn't open")
 
-	# Finding files in pc
+	#News of various press agencies
 
 	elif put.startswith('news '):
 		try:
