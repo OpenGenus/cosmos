@@ -57,6 +57,7 @@ def events(frame, put,link):
     calculator_keywords=["calculator","calc"]
     youtube = ("play","stream","queue")
     download = ("download","download music")
+    close_keywords=("close ","over ","stop ","exit ")
     
 
     global reminder_mode
@@ -167,7 +168,9 @@ def events(frame, put,link):
             webbrowser.open('http://www.'+ link)
         except:
             frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-
+    #Closing Benji
+    elif put.startswith(close_keywords):
+        os._exit(0)
 	#Google search
     elif any(word in put for word in search_keywords):
         try:
