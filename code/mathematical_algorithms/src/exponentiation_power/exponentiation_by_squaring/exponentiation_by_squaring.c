@@ -15,16 +15,3 @@ power(int num, int exp)
 
 	return (temp);
 }
-
-int 
-main()
-{
-	int num, exp;
-	printf("Enter Number \n");
-	scanf("%d", &num);
-	printf("Enter Exponent \n");
-	scanf("%d", &exp);
-	printf("Result: %d \n", power(num, exp));
-
-	return (0);
-}
