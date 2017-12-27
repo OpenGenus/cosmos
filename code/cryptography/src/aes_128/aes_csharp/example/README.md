@@ -1,3 +1,3 @@
 # Example of how to cipher or decipher a stream with AES
 
-This provide an example of how to cipher of decipher a stream with AES. Just create an instance of StreamCipher with a key, and call DoCipher or DoDecipher with streams.
+This provides an example of how to cipher of decipher a stream with AES. Just create an instance of StreamCipher with a key, and call DoCipher or DoDecipher with streams.
