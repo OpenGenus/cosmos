@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import re
+import regex
 import os
 import wikipedia
 import time
@@ -33,10 +33,10 @@ else:
 
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
-home_dir = os.environ['HOME']
+
 #reminder settings
 reminder_mode = 0
-reminder_dirloc = home_dir
+reminder_dirloc = '/home/arib/'
 reminder_filedir = reminder_dirloc+'.B.E.N.J.I.'
 reminder_filename = reminder_filedir + '/reminders.txt'
 reminder = str()
@@ -45,6 +45,7 @@ reminder = str()
 speak = pyttsx3.init()
 
 def events(frame, put,link):
+
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play ", "stream ", "queue "]
 	launch_keywords = ["open ", "launch "]
@@ -81,30 +82,29 @@ def events(frame, put,link):
 				reminder_mode = 0
 				date_as_string = ' '.join(link)
 				date = datetime.strptime(date_as_string, '%d %b %Y %I %M %p')
-				reminder = reminder + date_as_string
-				file_hand = open(reminder_filename, 'a')
-				file_hand.write(reminder)
-				file_hand.write('\n')
-				file_hand.close()
-				speak.say("Reminder Added")
-				speak.runAndWait()
-		except :
-	  		frame.displayText("Cannot set reminder")
-
-
+				# global reminder
+                reminder = reminder + date_as_string
+                file_hand = open(reminder_filename, 'a')
+                file_hand.write(reminder)
+                file_hand.write('\n')
+                file_hand.close()
+                speak.say("Reminder Added")
+                speak.runAndWait()
+        except :
+            frame.displayText("Cannot set reminder")
 	#Play song on  Youtube
-	elif put.startswith(youtube):
-		try:
-			link = '+'.join(link[1:])
+    elif put.startswith(youtube):
+        try:
+            link = '+'.join(link[1:])
 
 #                   print(link)
-			say = link.replace('+', ' ')
-			url = 'https://www.youtube.com/results?search_query='+link
+            say = link.replace('+', ' ')
+            url = 'https://www.youtube.com/results?search_query='+link
 #                 webbrowser.open('https://www.youtube.com'+link)
-			fhand=urllib.request.urlopen(url).read()
-			soup = BeautifulSoup(fhand, "html.parser")
-			songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-			hit = songs[0].find('a')['href']
+            fhand=urllib.request.urlopen(url).read()
+            soup = BeautifulSoup(fhand, "html.parser")
+            songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+            hit = songs[0].find('a')['href']
 #                   print(hit)
 			speak.say("playing "+say)
 			speak.runAndWait()
@@ -116,55 +116,55 @@ def events(frame, put,link):
 #                   print(link)
 		 say = link.replace('+', ' ')
 		 url = 'https://www.youtube.com/results?search_query='+link
-	#                 webbrowser.open('https://www.youtube.com'+link)
+#                 webbrowser.open('https://www.youtube.com'+link)
 		 fhand=urllib.request.urlopen(url).read()
 		 soup = BeautifulSoup(fhand, "html.parser")
 		 songs = soup.findAll('div', {'class': 'yt-lockup-video'})
 		 hit = songs[0].find('a')['href']
-	#                   print(hit)
+#                   print(hit)
 		 speak.say("downloading "+say)
 		 speak.runAndWait()
 		 ydl_opts = {
-				'format': 'bestaudio/best',
-				'postprocessors': [{
-						  'key': 'FFmpegExtractAudio',
-						  'preferredcodec': 'mp3',
-						  'preferredquality': '192',
-						  }],
-						  'quiet': True,
-						  'restrictfilenames': True,
-						  'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
-						  }
+						'format': 'bestaudio/best',
+						'postprocessors': [{
+											'key': 'FFmpegExtractAudio',
+											'preferredcodec': 'mp3',
+											'preferredquality': '192',
+											}],
+											'quiet': True,
+											'restrictfilenames': True,
+											'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
+											}
 
 		 ydl = youtube_dl.YoutubeDL(ydl_opts)
 		 ydl.download(['https://www.youtube.com'+hit])
 		 speak.say("download completed.Check your desktop for the song")
 		 speak.runAndWait()
 		#Calculator
-	elif any(word in put for word in calculator_keywords):
-		try:
-			speak.say("Opening Calaculator")
-			subprocess.run("gnome-calculator",shell=True,check=True)
-			speak.runAndWait()
-		except:
-			frame.displayText('Care to try again?')
+    elif any(word in put for word in calculator_keywords):
+        try:
+            speak.say("Opening Calaculator")
+            subprocess.run("gnome-calculator",shell=True,check=True)
+            speak.runAndWait()
+        except:
+            frame.displayText('Care to try again?')
 		#BENJI Intro
-	elif any(word in put for word in identity_keywords):
-		try:
-			speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
-			speak.runAndWait()
-		except:
-			frame.displayText('Error. Try reading the ReadMe to know about me!')
+    elif any(word in put for word in identity_keywords):
+        try:
+            speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
+            speak.runAndWait()
+        except:
+            frame.displayText('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
 
-	elif any(word in put for word in launch_keywords):
-		try:
-			link = '+'.join(link[1:])
-			speak.say("opening "+link)
-			speak.runAndWait()
-			webbrowser.open('http://www.'+ link)
-		except:
-			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
+    elif any(word in put for word in launch_keywords):
+        try:
+            link = '+'.join(link[1:])
+            speak.say("opening "+link)
+            speak.runAndWait()
+            webbrowser.open('http://www.'+ link)
+        except:
+            frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
 
 	#Google search
 	elif any(word in put for word in search_keywords):
@@ -220,24 +220,24 @@ def events(frame, put,link):
 		except:
 			print("Could not open Blogger!")
 	#Wikipedia
-	elif any(word in put for word in wikipedia_keywords):
-		try:
-			link = '+'.join(link[1:])
-			say = link.replace('+', ' ')
-			wikisearch = wikipedia.page(say)
-			speak.say("Opening wikipedia page for" + say)
-			speak.runAndWait()
-			webbrowser.open(wikisearch.url)
-		except:
-			frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
+    elif any(word in put for word in wikipedia_keywords):
+        try:
+            link = '+'.join(link[1:])
+            say = link.replace('+', ' ')
+            wikisearch = wikipedia.page(say)
+            speak.say("Opening wikipedia page for" + say)
+            speak.runAndWait()
+            webbrowser.open(wikisearch.url)
+        except:
+            frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
 	#Lock the device
-	elif put.startswith('secure'):
-		try:
-			speak.say("locking the device")
-			speak.runAndWait()
-			subprocess.run("xdg-screensaver lock",shell=True,check=True)
-		except :
-			frame.displayText('Cannot lock device')
+    elif put.startswith('secure'):
+        try:
+            speak.say("locking the device")
+            speak.runAndWait()
+            subprocess.run("xdg-screensaver lock",shell=True,check=True)
+        except :
+            frame.displayText('Cannot lock device')
 
 	#News of various press agencies
 
@@ -251,43 +251,40 @@ def events(frame, put,link):
 		except:
 			speak.say("Sorry,couldn't open")
 
-	# Finding files in pc
-
-	elif put.startswith('news '):
-		try:
-			say = '+'.join(link[1:])
-			say = say.replace('+','-')
-			if link[1] == "al" and link[2] == "jazeera":
-				say += "-english"
-			elif link[1] == "bbc":
-				say += "-news"
-			elif link[1] == "espn" and link[2] == "cric":
-				say += "-info"
-			url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
-			newsresponce = requests.get(url)
-			newsjson = newsresponce.json()
-			speak.say('Our agents from ' + say + ' report this')
-			speak.runAndWait()
-			print('  ====='+ say.upper() +'===== \n')
-			i = 1
-			for item in newsjson['articles']:
-				print(str(i) + '. ' + item['title'] + '\n')
-				print(item['description'] + '\n')
-				i += 1
-		except:
-			print('Unable to retrieve data!')
-
-	#Controlling wifi Adapter
-	elif put.startswith('wifi '):
-		word = link[1]
-		if word=="enable":
-			os.system("nmcli radio wifi on")
-			speak.say("Enabling Wifi")
-			speak.runAndWait()
-		elif word=="disable":
-			os.system("nmcli radio wifi off")
-			speak.say("Disabling Wifi")
-			speak.runAndWait()
+    elif put.startswith('news '):
+        try:
+            say = '+'.join(link[1:])
+            say = say.replace('+','-')
+            if link[1] == "al" and link[2] == "jazeera":
+                say += "-english"
+            elif link[1] == "bbc":
+                say += "-news"
+            elif link[1] == "espn" and link[2] == "cric":
+                say += "-info"
+            url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
+            newsresponce = requests.get(url)
+            newsjson = newsresponce.json()
+            speak.say('Our agents from ' + say + ' report this')
+            speak.runAndWait()
+            print('  ====='+ say.upper() +'===== \n')
+            i = 1
+            for item in newsjson['articles']:
+                print(str(i) + '. ' + item['title'] + '\n')
+                print(item['description'] + '\n')
+                i += 1
+        except:
+            print('Unable to retrieve data!')
+    #Controlling wifi Adapter
+    elif put.startswith('wifi '):
+        word = link[1]
+        if word=="enable":
+            os.system("nmcli radio wifi on")
+            speak.say("Enabling Wifi")
+            speak.runAndWait()
+        elif word=="disable":
+            os.system("nmcli radio wifi off")
+            speak.say("Disabling Wifi")
+            speak.runAndWait()
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
@@ -385,23 +382,33 @@ class MyFrame(tk.Frame):
 		self.btn = ttk.Button(root,command=self.OnClicked,
 		image=self.photo1, style="C.TButton")
 		self.btn.grid(row=1,column=2, padx=10, pady=20)
+
+		'''
+		self.output_window = tk.Toplevel()
+		output_text_window = tk.Text(self.output_window)
+		self.stddirec = StdRedirector(output_text_window)
+		sys.stdout = self.stddirec
+		output_text_window.pack()
+		self.output_window.withdraw()
+		'''
+
 		reminder_thread.start()
 
 	def OnEnter(self,event):
-			put=self.textBox.get("1.2","end-1c")
-			print(put)
-			self.textBox.delete('1.2',tk.END)
-			if put.startswith("look for "):
-				put = put.strip()
-				link = put.split()
+            put=self.textBox.get("1.2","end-1c")
+            print(put)
+            self.textBox.delete('1.2',tk.END)
+            if put.startswith("look for "):
+                put = put.strip()
+                link = put.split()
 			#put = re.sub(r'[?|$|.|!]', r'', put)
-			else:
-				put = put.lower()
-				put = put.strip()
-				link = put.split()
-			events(self, put, link)
-			if put=='':
-				self.displayText('Reenter')
+            else:
+                put = put.lower()
+                put = put.strip()
+                link = put.split()
+            events(self, put, link)
+            if put=='':
+                self.displayText('Reenter')
 
 	def OnClicked(self):
 		r = sr.Recognizer()
