@@ -1,3 +1,3 @@
 # Round robin scheduling in C
 
-Just compile the whole, launch the programm and follow the steps.
+Just compile the whole, launch the program and follow the steps.
