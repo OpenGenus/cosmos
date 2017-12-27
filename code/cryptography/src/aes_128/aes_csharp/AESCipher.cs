@@ -13,6 +13,8 @@ namespace AES
 {
     public partial class AESCipher
     {
+        // Size of MainKey will determine which version of AES to use.
+        // An ArgumentException is thrown in case of unknown size.
         public AESCipher(byte[] MainKey)
         {
             this.MainKey = MainKey;
