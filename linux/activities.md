@@ -70,9 +70,13 @@ The commands for the various functions are as follows:
 * "***shutdown now***" to instantly shut down your device.
 * "***restart now***" to restart your device.
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
-* "***launch*** _ApplicationName_" to launch any application
+* "***launch*** _ApplicationName_" to launch any application where _ApplicationName_ may be:
+ * _text_ for Gedit
+ * _chrome_ for Google Chrome
+ * _firefox_ for Mozilla Firefox
+ * _calculator_ for Calculator
+ * _office_ for Libre Office
 
-> * Please read ***launcher.md*** for more info on how to configure the "***launch***" command as per your need.
 
 >* In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
