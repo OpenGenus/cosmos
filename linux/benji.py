@@ -305,7 +305,7 @@ def events(frame, put,link):
             os.system("nmcli radio wifi off")
             speak.say("Disabling Wifi")
             speak.runAndWait()
-
+            
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
 
