@@ -167,18 +167,7 @@ def events(frame,put):
                 elif (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv" or form_in == "mp3" or form_in == "m4a") and (form_out == "m4a" or form_out == "mp3"):
                     subprocess.call(r'''ffmpeg -i {} {}'''.format(video1,video2), shell = True)
         except:
-            print("Unable to process requested service!")
-    #Images to video
-    elif put.startswith("images to video "):
-        try:
-            framerate = link[3]
-            username = os.getlogin()
-            os.chdir(r'''C:\Users\{}\Desktop\Images'''.format(username))
-            subprocess.call(r'''ffmpeg -framerate 1/{} -i img%03d.jpg -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 output.avi'''.format(framerate),shell=True)
-            speak.say("Video created!")
-            speak.runAndWait()
-        except:
-            print("Unable to create video file!")                                
+            print("Unable to process requested service!")                        
     #Look for
     elif put.startswith('look for '):
         try:
