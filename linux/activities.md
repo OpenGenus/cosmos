@@ -70,12 +70,12 @@ The commands for the various functions are as follows:
 * "***shutdown now***" to instantly shut down your device.
 * "***restart now***" to restart your device.
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
-* "***launch*** _ApplicationName_" to launch any application where _ApplicationName_ may be:
- * _text_ for Gedit
- * _chrome_ for Google Chrome
- * _firefox_ for Mozilla Firefox
- * _calculator_ for Calculator
- * _office_ for Libre Office
+* "***launch*** _ApplicationName_" to launch any application where _ApplicationName_ may be
+    * " _text_" for Gedit
+    * "_chrome_" for Google Chrome
+    * "_firefox_" for Mozilla Firefox
+    * "_calculator_" for Calculator
+    * "_office_" for Libre Office
 
 
 >* In cases where the commands are separated by '/', use any one of the mentioned commands
