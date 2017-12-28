@@ -22,6 +22,7 @@ import threading
 from datetime import datetime
 import errno
 import subprocess
+import csv
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -45,17 +46,16 @@ reminder = str()
 speak = pyttsx3.init()
 
 def events(frame, put,link):
-	identity_keywords = ["who are you", "who r u", "what is your name"]
-	youtube_keywords = ["play ", "stream ", "queue "]
-	launch_keywords = ["open ", "launch "]
-	search_keywords = ["search ",]
-	wikipedia_keywords = ["wikipedia ", "wiki "]
-	download_music=["download","download music"]
-	reminder_keywords = ["set a reminder"]
-	calculator_keywords=["calculator","calc"]
-	youtube = ("play","stream","queue")
-	download = ("download","download music")
-	search_pc= ("find","lookfor")
+    identity_keywords = ["who are you", "who r u", "what is your name"]
+    youtube_keywords = ["play ", "stream ", "queue "]
+    open_keywords = ["open "]
+    launcher_keywords = ["launch"]
+    search_keywords = ["search "]
+    wikipedia_keywords = ["wikipedia ", "wiki "]
+    download_music=["download","download music"]
+    reminder_keywords = ["set a reminder"]
+    youtube = ("play","stream","queue")
+    download = ("download","download music")
 
 	global reminder_mode
 	if reminder_mode or any(word in put for word in reminder_keywords) :
@@ -91,7 +91,6 @@ def events(frame, put,link):
 		except :
 	  		frame.displayText("Cannot set reminder")
 
-
 	#Play song on  Youtube
 	elif put.startswith(youtube):
 		try:
@@ -114,40 +113,29 @@ def events(frame, put,link):
 	elif put.startswith(download):
 		 link = '+'.join(link[1:])
 #                   print(link)
-		 say = link.replace('+', ' ')
-		 url = 'https://www.youtube.com/results?search_query='+link
-	#                 webbrowser.open('https://www.youtube.com'+link)
-		 fhand=urllib.request.urlopen(url).read()
-		 soup = BeautifulSoup(fhand, "html.parser")
-		 songs = soup.findAll('div', {'class': 'yt-lockup-video'})
-		 hit = songs[0].find('a')['href']
-	#                   print(hit)
-		 speak.say("downloading "+say)
-		 speak.runAndWait()
-		 ydl_opts = {
-				'format': 'bestaudio/best',
-				'postprocessors': [{
-						  'key': 'FFmpegExtractAudio',
-						  'preferredcodec': 'mp3',
-						  'preferredquality': '192',
-						  }],
-						  'quiet': True,
-						  'restrictfilenames': True,
-						  'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
-						  }
-
-		 ydl = youtube_dl.YoutubeDL(ydl_opts)
-		 ydl.download(['https://www.youtube.com'+hit])
-		 speak.say("download completed.Check your desktop for the song")
-		 speak.runAndWait()
-		#Calculator
-	elif any(word in put for word in calculator_keywords):
-		try:
-			speak.say("Opening Calaculator")
-			subprocess.run("gnome-calculator",shell=True,check=True)
-			speak.runAndWait()
-		except:
-			frame.displayText('Care to try again?')
+        #application launcher
+    elif any(word in put for word in launcher_keywords):
+        database_path = './data.csv'
+        database_file = open(database_path, 'r')
+        database = csv.reader(database_file)
+        app = ' '.join(link[1:])
+        app_name = ""
+        checker = 0
+        for row in database:
+            if app == row[0]:
+                app_name = row[1]
+                checker = 1
+        database_file.close()
+        if checker == 1:
+            try:
+                speak.say("Opening" + app_name)
+                speak.runAndWait()
+                subprocess.run(app_name, shell = True, check = True)
+            except:
+                frame.displayText('Care to try again?')
+        else:
+            speak.say("Application not found in database")
+            speak.runAndWait()
 		#BENJI Intro
 	elif any(word in put for word in identity_keywords):
 		try:
@@ -156,16 +144,14 @@ def events(frame, put,link):
 		except:
 			frame.displayText('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
-
-	elif any(word in put for word in launch_keywords):
-		try:
-			link = '+'.join(link[1:])
-			speak.say("opening "+link)
-			speak.runAndWait()
-			webbrowser.open('http://www.'+ link)
-		except:
-			frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
-
+    elif any(word in put for word in open_keywords):
+        try:
+            link = '+'.join(link[1:])
+            speak.say("opening "+link)
+            speak.runAndWait()
+            webbrowser.open('http://www.'+ link)
+        except:
+            frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
 	#Google search
 	elif any(word in put for word in search_keywords):
 		try:
@@ -297,7 +283,7 @@ class reminderThread(threading.Thread):
 		self.event = threading.Event()
 		self.reminder_given_flag = False
 		self.frame = frame
-
+        
 	def run(self):
 		while not self.event.is_set() :
 			upcoming_reminders = list()
