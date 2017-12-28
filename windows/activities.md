@@ -94,7 +94,7 @@ The commands for the various functions are as follows:
 * "***merge*** _VideoFileName_ _AudioFileName_ _OutputFileName_". This will merge video and audio file. OutputFileName is the resultant file.
 * "***convert*** _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_". This will convert the input file to the output file.
 NOTE: All the recorded files will be saved on the desktop. Make sure that the file names should not be same. "input.avi" and "input.mp3" have no conflicts. But "input.avi" and "input.avi" will result into conflicts. 
-* "***look for*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location.
+* "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***download music*** _SongName_" to download a song.
 * "***locate/spot*** _PlaceName_" to look for a place on Google Maps.
