@@ -33,10 +33,10 @@ else:
 
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
-
+home_dir = os.environ['HOME']
 #reminder settings
 reminder_mode = 0
-reminder_dirloc = '/home/arib/'
+reminder_dirloc = home_dir
 reminder_filedir = reminder_dirloc+'.B.E.N.J.I.'
 reminder_filename = reminder_filedir + '/reminders.txt'
 reminder = str()
@@ -136,7 +136,7 @@ def events(frame, put,link):
 						  }],
 						  'quiet': True,
 						  'restrictfilenames': True,
-						  'outtmpl': os.environ['HOME']+'/Desktop/%(title)s.%(ext)s'
+						  'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
 						  }
 
         ydl = youtube_dl.YoutubeDL(ydl_opts)
@@ -390,16 +390,6 @@ class MyFrame(tk.Frame):
 		self.btn = ttk.Button(root,command=self.OnClicked,
 		image=self.photo1, style="C.TButton")
 		self.btn.grid(row=1,column=2, padx=10, pady=20)
-
-		'''
-		self.output_window = tk.Toplevel()
-		output_text_window = tk.Text(self.output_window)
-		self.stddirec = StdRedirector(output_text_window)
-		sys.stdout = self.stddirec
-		output_text_window.pack()
-		self.output_window.withdraw()
-		'''
-
 		reminder_thread.start()
 
 	def OnEnter(self,event):
