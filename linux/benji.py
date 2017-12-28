@@ -146,7 +146,7 @@ def events(frame, put,link):
 		#Calculator
     elif any(word in put for word in calculator_keywords):
         try:
-            speak.say("Opening Calaculator")
+            speak.say("Opening Calculator")
             subprocess.run("gnome-calculator",shell=True,check=True)
             speak.runAndWait()
         except:
@@ -224,6 +224,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.blogger.com')
         except:
             print("Could not open Blogger!")
+            
 	#Wikipedia
     elif any(word in put for word in wikipedia_keywords):
         try:
@@ -273,11 +274,11 @@ def events(frame, put,link):
             newsjson = newsresponce.json()
             speak.say('Our agents from ' + say + ' report this')
             speak.runAndWait()
-            print('  ====='+ say.upper() +'===== \n')
+            frame.displayText('  ====='+ say.upper() +'===== \n')
             i = 1
             for item in newsjson['articles']:
-                print(str(i) + '. ' + item['title'] + '\n')
-                print(item['description'] + '\n')
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
                 i += 1
         except:
             print('Unable to retrieve data!')
@@ -293,6 +294,16 @@ def events(frame, put,link):
             os.system("nmcli radio wifi off")
             speak.say("Disabling Wifi")
             speak.runAndWait()
+            
+    #print files
+    elif put.startswith('print '):
+        process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
+        stdout=process.communicate()[0]
+        found=stdout.decode()
+        try:
+            subprocess.run("lpr "+found,shell=True,check=True)
+        except:
+            speak.say("Sorry,couldn't print")
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
