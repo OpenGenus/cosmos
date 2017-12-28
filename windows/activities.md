@@ -112,7 +112,7 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * "***create*** _filename_ _filetype_ document" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
 * "***podcast***". This will redirect you to "CastBox" which is a good source of podcasts.
 * "***calculator***". This will open Calculator.
-* "***exit/quit now*** to exit the application.
+* "***exit/over/close/stop*** to exit BENJI.
 
 
 >In cases where the commands are separated by '/', use any one of the mentioned commands
