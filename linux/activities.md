@@ -13,6 +13,7 @@ List of the things that B.E.N.J.I. can do:
 
 * Set a reminder
 * Search for a file on your Device
+* Print files
 * Play Youtube videos
 * Download music
 * Search for any place on the Google Maps
@@ -54,7 +55,7 @@ The commands for the various functions are as follows:
 
 * "***Who are you/Identify Youself/What is your name***" for B.E.N.J.I. to introduce itself.
 * "***set a reminder***" to set a reminder.
-* "***look for*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location.
+* "***lookfor/find*** _Filename_" to look for a file and open it.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***download music*** _SongName_" to download a song.
 * "***locate/spot*** _PlaceName_" to look for a place on Google Maps.
@@ -70,6 +71,9 @@ The commands for the various functions are as follows:
 * "***shutdown now***" to instantly shut down your device.
 * "***restart now***" to restart your device.
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
+* "***wifi*** _enable/disable_" to turn on and off the wifi.
+* "***print*** _NameOfTheFile_" to print that file.
+* "***exit/close/stop/over*** to close Benji.
 * "***launch*** _ApplicationName_" to launch any application where _ApplicationName_ may be
     * " _text_" for Gedit
     * "_chrome_" for Google Chrome

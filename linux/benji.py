@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import re
+import regex
 import os
 import wikipedia
 import time
@@ -45,16 +45,19 @@ reminder = str()
 
 speak = pyttsx3.init()
 
+search_pc= ("find","lookfor")
+
 def events(frame, put,link):
     identity_keywords = ["who are you", "who r u", "what is your name"]
     open_keywords = ["open "]
-    launcher_keywords = ["launch"]
-    search_keywords = ["search "]
+    launcher_keywords = ["launch "]
+    search_keywords = ["search ",]
     wikipedia_keywords = ["wikipedia ", "wiki "]
     reminder_keywords = ["set a reminder"]
     youtube = ("play","stream","queue")
     download = ("download","download music")
     search_pc= ("find","lookfor")
+    close_keywords=("close ","over ","stop ","exit ")
     global reminder_mode
     if reminder_mode or any(word in put for word in reminder_keywords) :
         try :
@@ -87,7 +90,7 @@ def events(frame, put,link):
                 speak.say("Reminder Added")
                 speak.runAndWait()
         except :
-              frame.displayText("Cannot set reminder")
+            frame.displayText("Cannot set reminder")
 
     #Play song on  Youtube
     elif put.startswith(youtube):
@@ -176,6 +179,10 @@ def events(frame, put,link):
             webbrowser.open('http://www.'+ link)
         except:
             frame.displayText('Sorry Ethan,unable to access it. Cannot hack either-IMF protocol!')
+    #Closing Benji
+    elif put.startswith(close_keywords):
+        os._exit(0)
+
     #Google search
     elif any(word in put for word in search_keywords):
         try:
@@ -249,19 +256,19 @@ def events(frame, put,link):
         except :
             frame.displayText('Cannot lock device')
 
-    #News of various press agencies
+    #Finding and Opening files in pc
 
     elif put.startswith(search_pc):
         process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
         stdout=process.communicate()[0]
         found=stdout.decode()
-        print(found)
+        frame.displayText(found)
         try:
             subprocess.run("xdg-open "+found,shell=True,check=True)
         except:
             speak.say("Sorry,couldn't open")
 
-    # Finding files in pc
+    #News of various press agencies
 
     elif put.startswith('news '):
         try:
@@ -278,15 +285,15 @@ def events(frame, put,link):
             newsjson = newsresponce.json()
             speak.say('Our agents from ' + say + ' report this')
             speak.runAndWait()
-            print('  ====='+ say.upper() +'===== \n')
+            frame.displayText('  ====='+ say.upper() +'===== \n')
             i = 1
             for item in newsjson['articles']:
-                print(str(i) + '. ' + item['title'] + '\n')
-                print(item['description'] + '\n')
+                frame.displayText(str(i) + '. ' + item['title'] + '\n')
+                frame.displayText(item['description'] + '\n')
                 i += 1
         except:
             print('Unable to retrieve data!')
-
+            
     #Controlling wifi Adapter
     elif put.startswith('wifi '):
         word = link[1]
@@ -298,6 +305,16 @@ def events(frame, put,link):
             os.system("nmcli radio wifi off")
             speak.say("Disabling Wifi")
             speak.runAndWait()
+            
+    #print files
+    elif put.startswith('print '):
+        process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
+        stdout=process.communicate()[0]
+        found=stdout.decode()
+        try:
+            subprocess.run("lpr "+found,shell=True,check=True)
+        except:
+            speak.say("Sorry,couldn't print")
 
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
@@ -401,7 +418,7 @@ class MyFrame(tk.Frame):
             put=self.textBox.get("1.2","end-1c")
             print(put)
             self.textBox.delete('1.2',tk.END)
-            if put.startswith("look for "):
+            if put.startswith(search_pc):
                 put = put.strip()
                 link = put.split()
             #put = re.sub(r'[?|$|.|!]', r'', put)
