@@ -45,7 +45,6 @@ reminder = str()
 
 speak = pyttsx3.init()
 
-search_pc= ("find","lookfor")
 
 def events(frame, put,link):
     identity_keywords = ["who are you", "who r u", "what is your name"]
