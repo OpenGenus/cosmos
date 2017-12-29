@@ -13,6 +13,7 @@ List of the things that B.E.N.J.I. can do:
 
 * Set a reminder
 * Search for a file on your Device
+* Print files
 * Play Youtube videos
 * Download music
 * Search for any place on the Google Maps
@@ -71,6 +72,7 @@ The commands for the various functions are as follows:
 * "***restart now***" to restart your device.
 * "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "presentation", "excel", "visio" or "rich".
 * "***wifi*** _enable/disable_" to turn on and off the wifi.
+* "***print*** _NameOfTheFile_" to print that file.
 * "***exit/close/stop/over*** to close Benji.
 * "***launch*** _ApplicationName_" to launch any application where _ApplicationName_ may be
     * " _text_" for Gedit
