@@ -49,7 +49,7 @@ You can always type in your commands in the Command Box and hit 'Enter' and B.E.
 The commands for the various functions are as follows:
 
 * "***Who are you/Identify Youself/What is your name***" for B.E.N.J.I. to introduce itself.
-* "***Translate***_sentence to be translated_ ***to*** _language_" for B.E.N.J.I> to translate an english senetence to other lanaguages.
+* "***Translate*** _sentence to be translated_ ***to*** _language_" for B.E.N.J.I> to translate an english senetence to other lanaguages.
 * "***set a reminder/reminder***" to set a reminder.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***locate/spot*** _PlaceName_" to look for a place on Google Maps.
