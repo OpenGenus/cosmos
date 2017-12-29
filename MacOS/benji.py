@@ -3,9 +3,10 @@ from tkinter import ttk
 from PIL import ImageTk
 from PIL import Image 
 from tkinter import PhotoImage
+import os
+from os.path import join
 import subprocess
 import re
-import os
 import wikipedia
 import time
 import webbrowser
@@ -44,32 +45,110 @@ headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 def events(frame, put,link):
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play ", "stream ", "queue " , "youtube"]
-	launch_keywords = ["open ", "launch "]
+	launch_keywords = ["open "]
 	search_keywords = ["search ", "google "]
 	wikipedia_keywords = ["wikipedia ", "wiki "]
-	download_music=["download","download music"]
 	reminder_keywords = ["set a reminder" , "reminder"]
 	calculator_keywords=["calculator","calc"]
 	location_keywords = ["locate","spot"]
+	translate_keywords = ["translate"]
+	launcher_keywords = ["launch"]
+	create_keywords = ["create" , "make"]
+	note_keywords = ["note" , "node" , "not"]
 	
+	# Translate
+	if any ( word in put for word in translate_keywords):
+		try:
+			lan = link[-1]
+			link ='+'.join(link[1:-2])
+			lang = "en"
+			say=link.replace('+',' ') 
+			print(say)
+			if ( lan == "spanish" ):
+				lang = "es" 
+			elif ( lan == "french" ):
+				lang = "fr"
+			elif ( lan == "italian" ):
+				lang = "it"
+			elif ( lan == "hindi" ):
+				lang = "hi" 
+			elif ( lan == "dutch" ):
+				lang = "nl" 
+			elif (lan == "german" ):
+				lang = "ge" 
+			elif (lan == "polish" ):
+				lang = "pl" 
+			elif (lan == "portuguese" ):
+				lang = "pt" 
+			elif (lan == "chinese" ):
+				lang = "zh-CN"
+			elif (lan == "bengali" ):
+				lang = "bn" 
+			elif (lan == "arabic" ):
+				lang = "ar"
+			elif (lan == "japanese" ):
+				lang = "ja" 
+			system("say translating "+say)
+			print('https://translate.google.com/#en/'+lang+'/'+link)
+			webbrowser.open('https://translate.google.com/#en/'+lang+'/'+link)
+		except:
+			system('say Sorry , I coudnt translate.')
+			print('Sorry , I coudnt translate.')
+	
+	#create a file
+	elif any(word in put for word in create_keywords):
+		try:
+			fn = link[1]
+			ft = link[2]
+			if ft == "text":
+				fn = fn + ".txt"
+			elif ft == "powerpoint":
+				fn = fn + ".pptx"
+			elif ft == "excel":
+				fn = fn + ".xlsx"
+			elif ft == "pdf" :
+				fn = fn + ".pdf"
+			os.system("touch "+fn)
+			system("say creating file")
+		except:
+			frame.displayText('Sorry , cannot create file')
+	#create a note
+	elif any(word in put for word in note_keywords):
+		try:
+			link='+'.join(link[1:])
+			say=link.replace('+',' ')
+			os.system("echo "+say+" >text.txt")
+			system("creating note")
+		except:
+			frame.displayText('Sorry , cannot create note')
+    #application launcher
+	elif any(word in put for word in launcher_keywords):
+		try:
+			link = '+'.join(link[1:])
+			system("say opening "+link)
+			file = "/Applications/" + link +".app"
+			subprocess.call(["open",file])
+		except:
+			frame.displayText('Sorry , cannot open '+link)
+
 	#reminder
-	if any(word in put for word in reminder_keywords):
+	elif any(word in put for word in reminder_keywords):
 		try:
 			system("say Opening Reminders")
 			file = "/Applications/Reminders.app"
 			subprocess.call(["open",file])
 		except:
 			frame.displayText('Sorry , cannot open reminders')
-
+			system('say Sorry , cannot open reminders')
    
 	#shut down the device
-	elif put.startswith('shut down'):
+	elif put.startswith('secure'):
 		try:
 			system("say locking the device")
 			os.system("sudo shutdown -h now")
 			#subprocess.call(['osascript', '-e','tell app "System Events" to shut down'])
 		except :
-			frame.displayText('Cannot lock device')
+			frame.displayText('Cannot shut down the device')
 	
 	#Calculator
 	elif any(word in put for word in calculator_keywords):
