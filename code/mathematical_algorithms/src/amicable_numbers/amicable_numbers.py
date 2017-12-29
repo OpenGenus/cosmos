@@ -6,4 +6,4 @@ def ami_check(x, y):
 
 
 if __name__ == "__main__":
-    print ami_check(220, 284)
+    print(ami_check(220, 284))
