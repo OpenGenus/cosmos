@@ -5,4 +5,5 @@ def ami_check(x, y):
     return sum_x == y and sum_y == x  # 3
 
 
-print ami_check(220, 284)
+if __name__ == "__main__":
+    print(ami_check(220, 284))
