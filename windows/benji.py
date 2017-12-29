@@ -174,8 +174,18 @@ def events(frame,put):
     elif put.startswith(close_keywords):
         os._exit(0)
 
-                        
-    #Look for
+                       
+    #Images to video
+    elif put.startswith("images to video "):
+        try:
+            framerate = link[3]
+            username = os.getlogin()
+            os.chdir(r'''C:\Users\{}\Desktop\Images'''.format(username))
+            subprocess.call(r'''ffmpeg -framerate 1/{} -i img%03d.jpg -vcodec mpeg4 -vtag xvid -qscale:v 0 -crf 0 output.avi'''.format(framerate),shell=True)
+            speak.say("Video created!")
+            speak.runAndWait()
+        except:
+            print("Unable to create video file!")
     elif put.startswith(search_pc):
         try:
             name=link[1]
@@ -591,3 +601,4 @@ if __name__=="__main__":
     root.configure(background="#444")
     root.resizable(0,0)
     root.mainloop()
+

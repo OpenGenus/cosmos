@@ -22,6 +22,7 @@ import threading
 from datetime import datetime
 import errno
 import subprocess
+import csv
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -49,7 +50,8 @@ search_pc= ("find","lookfor")
 def events(frame, put,link):
     identity_keywords = ["who are you", "who r u", "what is your name"]
     youtube_keywords = ["play ", "stream ", "queue "]
-    launch_keywords = ["open ", "launch "]
+    open_keywords = ["open "]
+    launcher_keywords = ["launch "]
     search_keywords = ["search ",]
     wikipedia_keywords = ["wikipedia ", "wiki "]
     download_music=["download","download music"]
@@ -93,7 +95,6 @@ def events(frame, put,link):
                 speak.runAndWait()
         except :
             frame.displayText("Cannot set reminder")
-
 
 	#Play song on  Youtube
     elif put.startswith(youtube):
@@ -151,6 +152,29 @@ def events(frame, put,link):
             speak.runAndWait()
         except:
             frame.displayText('Care to try again?')
+        #application launcher
+    elif any(word in put for word in launcher_keywords):
+        database_path = './data.csv'
+        database_file = open(database_path, 'r')
+        database = csv.reader(database_file)
+        app = ' '.join(link[1:])
+        app_name = ""
+        checker = 0
+        for row in database:
+            if app == row[0]:
+                app_name = row[1]
+                checker = 1
+        database_file.close()
+        if checker == 1:
+            try:
+                speak.say("Opening" + app_name)
+                speak.runAndWait()
+                subprocess.run(app_name, shell = True, check = True)
+            except:
+                frame.displayText('Care to try again?')
+        else:
+            speak.say("Application not found in database")
+            speak.runAndWait()
 		#BENJI Intro
     elif any(word in put for word in identity_keywords):
         try:
@@ -160,7 +184,7 @@ def events(frame, put,link):
             frame.displayText('Error. Try reading the ReadMe to know about me!')
 	#Open a webpage
 
-    elif any(word in put for word in launch_keywords):
+    elif any(word in put for word in open_keywords):
         try:
             link = '+'.join(link[1:])
             speak.say("opening "+link)
@@ -171,6 +195,7 @@ def events(frame, put,link):
     #Closing Benji
     elif put.startswith(close_keywords):
         os._exit(0)
+
 	#Google search
     elif any(word in put for word in search_keywords):
         try:
@@ -313,7 +338,7 @@ class reminderThread(threading.Thread):
 		self.event = threading.Event()
 		self.reminder_given_flag = False
 		self.frame = frame
-
+        
 	def run(self):
 		while not self.event.is_set() :
 			upcoming_reminders = list()
