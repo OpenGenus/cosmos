@@ -61,7 +61,7 @@ The commands for the various functions are as follows:
 * "***wikipedia/wiki*** _ItemToBeSearched_" to search anything on Wikipedia.
 * "***al jazeera/bbc/cricket/hindus news*** to lookup latest news from the respective networks.
 * "***shutdown now***" to instantly shut down your device.
-* "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "word", "powerpoint", "excel".
+* "***create*** _filename_ _filetype_" to create a file where filetype maybe "text", "pages", "keynote", "numbers".
 
 >In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
