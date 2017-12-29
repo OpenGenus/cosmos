@@ -47,16 +47,14 @@ speak = pyttsx3.init()
 
 def events(frame, put,link):
     identity_keywords = ["who are you", "who r u", "what is your name"]
-    youtube_keywords = ["play ", "stream ", "queue "]
     open_keywords = ["open "]
     launcher_keywords = ["launch"]
     search_keywords = ["search "]
     wikipedia_keywords = ["wikipedia ", "wiki "]
-    download_music=["download","download music"]
     reminder_keywords = ["set a reminder"]
     youtube = ("play","stream","queue")
     download = ("download","download music")
-
+    search_pc= ("find","lookfor")
     global reminder_mode
     if reminder_mode or any(word in put for word in reminder_keywords) :
         try :
@@ -111,8 +109,34 @@ def events(frame, put,link):
         except:
             frame.displayText('Sorry Ethan. Looks like its not working!')
     elif put.startswith(download):
-         link = '+'.join(link[1:])
-#                   print(link)
+        link = '+'.join(link[1:])
+  #                   print(link)
+        say = link.replace('+', ' ')
+        url = 'https://www.youtube.com/results?search_query='+link
+     #                 webbrowser.open('https://www.youtube.com'+link)
+        fhand=urllib.request.urlopen(url).read()
+        soup = BeautifulSoup(fhand, "html.parser")
+        songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+        hit = songs[0].find('a')['href']
+     #                   print(hit)
+        speak.say("downloading "+say)
+        speak.runAndWait()
+        ydl_opts = {
+                 'format': 'bestaudio/best',
+                 'postprocessors': [{
+                           'key': 'FFmpegExtractAudio',
+                           'preferredcodec': 'mp3',
+                           'preferredquality': '192',
+                           }],
+                           'quiet': True,
+                           'restrictfilenames': True,
+                           'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
+                           }
+ 
+        ydl = youtube_dl.YoutubeDL(ydl_opts)
+        ydl.download(['https://www.youtube.com'+hit])
+        speak.say("download completed.Check your desktop for the song")
+        speak.runAndWait()
         #application launcher
     elif any(word in put for word in launcher_keywords):
         database_path = './data.csv'
