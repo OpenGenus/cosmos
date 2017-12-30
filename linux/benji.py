@@ -26,11 +26,11 @@ import csv
 
 requests.packages.urllib3.disable_warnings()
 try:
-		_create_unverified_https_context=ssl._create_unverified_context
+        _create_unverified_https_context=ssl._create_unverified_context
 except 'AttributeError':
-		pass
+        pass
 else:
-		ssl._create_default_https_context=_create_unverified_https_context
+        ssl._create_default_https_context=_create_unverified_https_context
 
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
@@ -45,23 +45,18 @@ reminder = str()
 
 speak = pyttsx3.init()
 
-search_pc= ("find","lookfor")
 
 def events(frame, put,link):
     identity_keywords = ["who are you", "who r u", "what is your name"]
-    youtube_keywords = ["play ", "stream ", "queue "]
     open_keywords = ["open "]
     launcher_keywords = ["launch "]
     search_keywords = ["search ",]
     wikipedia_keywords = ["wikipedia ", "wiki "]
-    download_music=["download","download music"]
     reminder_keywords = ["set a reminder"]
-    calculator_keywords=["calculator","calc"]
     youtube = ("play","stream","queue")
     download = ("download","download music")
+    search_pc= ("find","lookfor")
     close_keywords=("close ","over ","stop ","exit ")
-    
-
     global reminder_mode
     if reminder_mode or any(word in put for word in reminder_keywords) :
         try :
@@ -96,7 +91,7 @@ def events(frame, put,link):
         except :
             frame.displayText("Cannot set reminder")
 
-	#Play song on  Youtube
+    #Play song on  Youtube
     elif put.startswith(youtube):
         try:
             link = '+'.join(link[1:])
@@ -117,41 +112,33 @@ def events(frame, put,link):
             frame.displayText('Sorry Ethan. Looks like its not working!')
     elif put.startswith(download):
         link = '+'.join(link[1:])
-#                   print(link)
+  #                   print(link)
         say = link.replace('+', ' ')
         url = 'https://www.youtube.com/results?search_query='+link
-	#                 webbrowser.open('https://www.youtube.com'+link)
+     #                 webbrowser.open('https://www.youtube.com'+link)
         fhand=urllib.request.urlopen(url).read()
         soup = BeautifulSoup(fhand, "html.parser")
         songs = soup.findAll('div', {'class': 'yt-lockup-video'})
         hit = songs[0].find('a')['href']
-	#                   print(hit)
+     #                   print(hit)
         speak.say("downloading "+say)
         speak.runAndWait()
         ydl_opts = {
-				'format': 'bestaudio/best',
-				'postprocessors': [{
-						  'key': 'FFmpegExtractAudio',
-						  'preferredcodec': 'mp3',
-						  'preferredquality': '192',
-						  }],
-						  'quiet': True,
-						  'restrictfilenames': True,
-						  'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
-						  }
-
+                 'format': 'bestaudio/best',
+                 'postprocessors': [{
+                           'key': 'FFmpegExtractAudio',
+                           'preferredcodec': 'mp3',
+                           'preferredquality': '192',
+                           }],
+                           'quiet': True,
+                           'restrictfilenames': True,
+                           'outtmpl': home_dir+'/Desktop/%(title)s.%(ext)s'
+                           }
+ 
         ydl = youtube_dl.YoutubeDL(ydl_opts)
         ydl.download(['https://www.youtube.com'+hit])
         speak.say("download completed.Check your desktop for the song")
         speak.runAndWait()
-		#Calculator
-    elif any(word in put for word in calculator_keywords):
-        try:
-            speak.say("Opening Calculator")
-            subprocess.run("gnome-calculator",shell=True,check=True)
-            speak.runAndWait()
-        except:
-            frame.displayText('Care to try again?')
         #application launcher
     elif any(word in put for word in launcher_keywords):
         database_path = './data.csv'
@@ -175,15 +162,14 @@ def events(frame, put,link):
         else:
             speak.say("Application not found in database")
             speak.runAndWait()
-		#BENJI Intro
+        #BENJI Intro
     elif any(word in put for word in identity_keywords):
         try:
             speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
             speak.runAndWait()
         except:
             frame.displayText('Error. Try reading the ReadMe to know about me!')
-	#Open a webpage
-
+    #Open a webpage
     elif any(word in put for word in open_keywords):
         try:
             link = '+'.join(link[1:])
@@ -196,7 +182,7 @@ def events(frame, put,link):
     elif put.startswith(close_keywords):
         os._exit(0)
 
-	#Google search
+    #Google search
     elif any(word in put for word in search_keywords):
         try:
             link='+'.join(link[1:])
@@ -206,7 +192,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.google.com/search?q='+link)
         except:
             print('Nope, this is not working.')
-	#Google Images
+    #Google Images
     elif put.startswith("images of "):
         try:
             link='+'.join(link[2:])
@@ -216,7 +202,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
             print('Could not search for images!')
-	#Gmail
+    #Gmail
     elif put.startswith("gmail"):
         try:
             speak.say("Opening Gmail!")
@@ -224,7 +210,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.google.com/gmail')
         except:
             print("Could not open Gmail!")
-	#Google Cloud Print
+    #Google Cloud Print
     elif put.startswith("google cloud print"):
         try:
             speak.say("Opening google cloud print!")
@@ -232,7 +218,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.google.com/cloudprint')
         except:
             print("Could not open Google Cloud Print!")
-	#Google Others
+    #Google Others
     elif put.startswith("google "):
         try:
             say = link[1]
@@ -241,7 +227,7 @@ def events(frame, put,link):
             webbrowser.open('https://'+ say +'.google.com')
         except:
             print("Could not open Google " + say.capitalize() + "!")
-	#Blogger
+    #Blogger
     elif put.startswith("blogger"):
         try:
             speak.say("Opening blogger!")
@@ -249,8 +235,7 @@ def events(frame, put,link):
             webbrowser.open('https://www.blogger.com')
         except:
             print("Could not open Blogger!")
-            
-	#Wikipedia
+    #Wikipedia
     elif any(word in put for word in wikipedia_keywords):
         try:
             link = '+'.join(link[1:])
@@ -261,7 +246,7 @@ def events(frame, put,link):
             webbrowser.open(wikisearch.url)
         except:
             frame.displayText('Wikipedia could not either find the article or your Third-world connection is unstable')
-	#Lock the device
+    #Lock the device
     elif put.startswith('secure'):
         try:
             speak.say("locking the device")
@@ -270,7 +255,7 @@ def events(frame, put,link):
         except :
             frame.displayText('Cannot lock device')
 
-	#Finding and Opening files in pc
+    #Finding and Opening files in pc
 
     elif put.startswith(search_pc):
         process=subprocess.Popen("find $HOME -name "+link[1],shell=True,stdout=subprocess.PIPE)
@@ -282,7 +267,7 @@ def events(frame, put,link):
         except:
             speak.say("Sorry,couldn't open")
 
-	#News of various press agencies
+    #News of various press agencies
 
     elif put.startswith('news '):
         try:
@@ -308,7 +293,7 @@ def events(frame, put,link):
         except:
             print('Unable to retrieve data!')
             
-	#Controlling wifi Adapter
+    #Controlling wifi Adapter
     elif put.startswith('wifi '):
         word = link[1]
         if word=="enable":
@@ -333,175 +318,175 @@ def events(frame, put,link):
 #A customized thread class for tracking reminders
 class reminderThread(threading.Thread):
 
-	def __init__(self, frame):
-		threading.Thread.__init__(self)
-		self.event = threading.Event()
-		self.reminder_given_flag = False
-		self.frame = frame
+    def __init__(self, frame):
+        threading.Thread.__init__(self)
+        self.event = threading.Event()
+        self.reminder_given_flag = False
+        self.frame = frame
         
-	def run(self):
-		while not self.event.is_set() :
-			upcoming_reminders = list()
-			self.removePastReminders()
-			try :
-				#reading the reminders from reminders.txt
-				file_hand = open(reminder_filename, 'r')
-				reminder_list = file_hand.readlines()
-				file_hand.close()
-				for line in reminder_list :
-					vals = line.split('\t')
-					date_time = datetime.strptime(vals[1].replace('\n',''), '%d %b %Y %I %M %p')
-					time_now = datetime.now()
-					#getting diff between time now and the reminder
-					time_diff = date_time - time_now
-					time_diff_hour = time_diff.days * 24 + time_diff.seconds // 3600
-					#if time diff less than 1 hour, add it to upcoming lists
-					if time_diff_hour < 1 :
-							upcoming_reminders.append(vals)
-			except :
-				pass
-			if not self.reminder_given_flag and len(upcoming_reminders) > 0 :
-				speak.say("You have " + str(len(upcoming_reminders))+" upcoming reminders")
-				speak.runAndWait()
-				for reminder in upcoming_reminders :
-					#wx.CallAfter(self.frame.displayText, reminder[0]+'\t\t'+reminder[1])
-					self.frame.displayText(reminder[0]+'\t\t'+reminder[1])
-				self.reminder_given_flag = True
-			time.sleep(1)
+    def run(self):
+        while not self.event.is_set() :
+            upcoming_reminders = list()
+            self.removePastReminders()
+            try :
+                #reading the reminders from reminders.txt
+                file_hand = open(reminder_filename, 'r')
+                reminder_list = file_hand.readlines()
+                file_hand.close()
+                for line in reminder_list :
+                    vals = line.split('\t')
+                    date_time = datetime.strptime(vals[1].replace('\n',''), '%d %b %Y %I %M %p')
+                    time_now = datetime.now()
+                    #getting diff between time now and the reminder
+                    time_diff = date_time - time_now
+                    time_diff_hour = time_diff.days * 24 + time_diff.seconds // 3600
+                    #if time diff less than 1 hour, add it to upcoming lists
+                    if time_diff_hour < 1 :
+                            upcoming_reminders.append(vals)
+            except :
+                pass
+            if not self.reminder_given_flag and len(upcoming_reminders) > 0 :
+                speak.say("You have " + str(len(upcoming_reminders))+" upcoming reminders")
+                speak.runAndWait()
+                for reminder in upcoming_reminders :
+                    #wx.CallAfter(self.frame.displayText, reminder[0]+'\t\t'+reminder[1])
+                    self.frame.displayText(reminder[0]+'\t\t'+reminder[1])
+                self.reminder_given_flag = True
+            time.sleep(1)
 
-	def removePastReminders(self):
-		try :
-			file_hand = open(reminder_filename, 'r')
-			reminder_list = file_hand.readlines()
-			file_hand.close()
-			new_list = list()
-			for reminder in reminder_list :
-				date_time = datetime.strptime(reminder.split('\t')[1].replace('\n',''), '%d %b %Y %I %M %p')
-				time_diff = date_time - datetime.now()
-				if time_diff.seconds >= 0 and time_diff.days >= 0 :
-					new_list.append(reminder)
-			file_hand = open(reminder_filename, 'w')
-			for line in new_list :
-				file_hand.write(line)
-			file_hand.close()
-		except FileNotFoundError :
-			pass
-		except :
-			self.frame.displayText("Error occured")
+    def removePastReminders(self):
+        try :
+            file_hand = open(reminder_filename, 'r')
+            reminder_list = file_hand.readlines()
+            file_hand.close()
+            new_list = list()
+            for reminder in reminder_list :
+                date_time = datetime.strptime(reminder.split('\t')[1].replace('\n',''), '%d %b %Y %I %M %p')
+                time_diff = date_time - datetime.now()
+                if time_diff.seconds >= 0 and time_diff.days >= 0 :
+                    new_list.append(reminder)
+            file_hand = open(reminder_filename, 'w')
+            for line in new_list :
+                file_hand.write(line)
+            file_hand.close()
+        except FileNotFoundError :
+            pass
+        except :
+            self.frame.displayText("Error occured")
 i=0
 
 #A stdout class to redirect output to tkinter window
 class StdRedirector(object):
 
-	def __init__(self, text_window):
-		self.text_window = text_window
+    def __init__(self, text_window):
+        self.text_window = text_window
 
-	def write(self, output):
-		self.text_window.insert(tk.END, output)
+    def write(self, output):
+        self.text_window.insert(tk.END, output)
 
 class MyFrame(tk.Frame):
-	def __init__(self,*args,**kwargs):
-		#new Thread to track reminders
-		global reminder_thread
-		reminder_thread = reminderThread(self)
-		tk.Frame.__init__(self,*args,**kwargs)
+    def __init__(self,*args,**kwargs):
+        #new Thread to track reminders
+        global reminder_thread
+        reminder_thread = reminderThread(self)
+        tk.Frame.__init__(self,*args,**kwargs)
 
-		self.textBox = tk.Text(root,
-			height=1,width=30,
-			font=("Times", 16),
-			bg="#666", fg="#0f0",
-			spacing1=6, spacing3=6,
-			insertbackground="#0f0"
-			)
-		self.textBox.insert("1.0", "$>")
-		self.textBox.grid(row=1,column=1, padx=10, pady=10)
-		root.bind('<Return>', self.OnEnter)
-		root.bind('<Destroy>', self.onClose)
-		self.textBox.focus_set()
-		speak.say('''Hi Agent! BENJI at your service''')
-		speak.runAndWait()
+        self.textBox = tk.Text(root,
+            height=1,width=30,
+            font=("Times", 16),
+            bg="#666", fg="#0f0",
+            spacing1=6, spacing3=6,
+            insertbackground="#0f0"
+            )
+        self.textBox.insert("1.0", "$>")
+        self.textBox.grid(row=1,column=1, padx=10, pady=10)
+        root.bind('<Return>', self.OnEnter)
+        root.bind('<Destroy>', self.onClose)
+        self.textBox.focus_set()
+        speak.say('''Hi Agent! BENJI at your service''')
+        speak.runAndWait()
 
-		self.photo1 = tk.PhotoImage(file="mic_icon.png")
+        self.photo1 = tk.PhotoImage(file="mic_icon.png")
 
-		self.btn = ttk.Button(root,command=self.OnClicked,
-		image=self.photo1, style="C.TButton")
-		self.btn.grid(row=1,column=2, padx=10, pady=20)
-		reminder_thread.start()
+        self.btn = ttk.Button(root,command=self.OnClicked,
+        image=self.photo1, style="C.TButton")
+        self.btn.grid(row=1,column=2, padx=10, pady=20)
+        reminder_thread.start()
 
-	def OnEnter(self,event):
-			put=self.textBox.get("1.2","end-1c")
-			print(put)
-			self.textBox.delete('1.2',tk.END)
-			if put.startswith(search_pc):
-				put = put.strip()
-				link = put.split()
-			#put = re.sub(r'[?|$|.|!]', r'', put)
-			else:
-				put = put.lower()
-				put = put.strip()
-				link = put.split()
-			events(self, put, link)
-			if put=='':
-				self.displayText('Reenter')
+    def OnEnter(self,event):
+            put=self.textBox.get("1.2","end-1c")
+            print(put)
+            self.textBox.delete('1.2',tk.END)
+            if put.startswith(search_pc):
+                put = put.strip()
+                link = put.split()
+            #put = re.sub(r'[?|$|.|!]', r'', put)
+            else:
+                put = put.lower()
+                put = put.strip()
+                link = put.split()
+            events(self, put, link)
+            if put=='':
+                self.displayText('Reenter')
 
-	def OnClicked(self):
-		r = sr.Recognizer()
-		with sr.Microphone() as source:
-			speak.say('Hey I am Listening ')
-			speak.runAndWait()
-			audio = r.listen(source)
-		try:
-			put=r.recognize_google(audio)
+    def OnClicked(self):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            speak.say('Hey I am Listening ')
+            speak.runAndWait()
+            audio = r.listen(source)
+        try:
+            put=r.recognize_google(audio)
 
-			self.displayText(put)
-			self.textBox.insert('1.2',put)
-			put=put.lower()
-			put = put.strip()
-			#put = re.sub(r'[?|$|.|!]', r'', put)
-			link=put.split()
-			events(self,put,link)
-		except sr.UnknownValueError:
-			self.displayText("Could not understand audio")
-		except sr.RequestError as e:
-			self.displayText("Could not request results; {0}".format(e))
+            self.displayText(put)
+            self.textBox.insert('1.2',put)
+            put=put.lower()
+            put = put.strip()
+            #put = re.sub(r'[?|$|.|!]', r'', put)
+            link=put.split()
+            events(self,put,link)
+        except sr.UnknownValueError:
+            self.displayText("Could not understand audio")
+        except sr.RequestError as e:
+            self.displayText("Could not request results; {0}".format(e))
 
-	def onClose(self, event):
-			global reminder_thread
-			reminder_thread.event.set()
-			#root.destroy()
+    def onClose(self, event):
+            global reminder_thread
+            reminder_thread.event.set()
+            #root.destroy()
 
-	def displayText(self, text):
-		try :
-			if not self.output_window.winfo_viewable() :
-				self.output_window.update()
-				self.output_window.deiconify()
-		except :
-			self.createOutputWindow()
-		print(text)
+    def displayText(self, text):
+        try :
+            if not self.output_window.winfo_viewable() :
+                self.output_window.update()
+                self.output_window.deiconify()
+        except :
+            self.createOutputWindow()
+        print(text)
 
-	def createOutputWindow(self):
-		self.output_window = tk.Toplevel()
-		output_text_window = tk.Text(self.output_window)
-		self.stddirec = StdRedirector(output_text_window)
-		sys.stdout = self.stddirec
-		output_text_window.pack()
+    def createOutputWindow(self):
+        self.output_window = tk.Toplevel()
+        output_text_window = tk.Text(self.output_window)
+        self.stddirec = StdRedirector(output_text_window)
+        sys.stdout = self.stddirec
+        output_text_window.pack()
 
-	#Trigger the GUI. Light the fuse!
+    #Trigger the GUI. Light the fuse!
 if __name__=="__main__":
-	root = tk.Tk()
-	view = MyFrame(root)
-	style = ttk.Style()
-	style.configure('C.TButton',
-		background='#555',
-		highlightthickness='0'
-	)
-	style.map("C.TButton",
-		background=[('pressed', '!disabled', '#333'), ('active', '#666')]
-	)
-	# root.geometry('{}x{}'.format(400, 100))
-	# view.pack(side="top",fill="both",expand=False)
-	root.iconphoto(True, tk.PhotoImage(file=os.path.join(sys.path[0],'benji_final.gif')))
-	root.title('B.E.N.J.I.')
-	root.configure(background="#444")
-	root.resizable(0,0)
-	root.mainloop()
+    root = tk.Tk()
+    view = MyFrame(root)
+    style = ttk.Style()
+    style.configure('C.TButton',
+        background='#555',
+        highlightthickness='0'
+    )
+    style.map("C.TButton",
+        background=[('pressed', '!disabled', '#333'), ('active', '#666')]
+    )
+    # root.geometry('{}x{}'.format(400, 100))
+    # view.pack(side="top",fill="both",expand=False)
+    root.iconphoto(True, tk.PhotoImage(file=os.path.join(sys.path[0],'benji_final.gif')))
+    root.title('B.E.N.J.I.')
+    root.configure(background="#444")
+    root.resizable(0,0)
+    root.mainloop()
