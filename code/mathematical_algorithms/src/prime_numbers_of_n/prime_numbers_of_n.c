@@ -2,33 +2,33 @@
 # include <math.h>
 
 void 
-primeFactors(int n)
+primeFactors(int number)
 {
     int i;
-    while (n % 2 == 0) {
+    while (number % 2 == 0) {
         printf("%d ", 2);
-        n = n / 2;
+        number = number / 2;
     }
 
-    for (i = 3; i <= sqrt(n); i = i + 2) {
-        while (n % i == 0) {
+    for (i = 3; i <= sqrt(number); i = i + 2) {
+        while (number % i == 0) {
             printf("%d ", i);
-            n = n / i;
+            number = number / i;
         }
     }
 
-    if (n > 2)
-        printf ("%d ", n);
+    if (number > 2)
+        printf ("%d ", number);
 }
 
 int 
 main()
 {
-    int n;
+    int number;
     printf("Enter a Natural Number \n");
-    scanf("%d", &n);
-    printf("Prime Factors of %d are:- \n", n);
-    primeFactors(n);
+    scanf("%d", &number);
+    printf("Prime Factors of %d are:- \n", number);
+    primeFactors(number);
     printf("\n");
 
     return (0);
