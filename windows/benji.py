@@ -25,6 +25,7 @@ from xlsxwriter import Workbook
 import subprocess
 import sys
 import pyttsx3
+from pytube import YouTube
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -237,6 +238,25 @@ def events(frame,put):
             webbrowser.open('https://www.youtube.com'+hit)
         except:
             print('Sorry Ethan. Looks like its not working!')
+    #Download video
+    if put.startswith("download video "):
+        try:
+            link = '+'.join(link[2:])
+            say = link.replace('+', ' ')
+            url = 'https://www.youtube.com/results?search_query='+link
+            fhand=urllib.request.urlopen(url).read()
+            soup = BeautifulSoup(fhand, "html.parser")
+            songs = soup.findAll('div', {'class': 'yt-lockup-video'})
+            hit = songs[0].find('a')['href']
+            speak.say("downloading video "+say)
+            speak.runAndWait()
+            username = os.getlogin()
+            os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
+            YouTube('https://www.youtube.com' + hit).streams.first().download()
+            speak.say("download complete!")
+            speak.runAndWait()
+        except:
+            print('Sorry Ethan. Looks like its not working!')        
     #Download music
     elif put.startswith(download_music):
         try:
@@ -601,4 +621,3 @@ if __name__=="__main__":
     root.configure(background="#444")
     root.resizable(0,0)
     root.mainloop()
-

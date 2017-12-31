@@ -25,8 +25,10 @@ List of the things that B.E.N.J.I. can do:
     * avi - mp4, mkv, webm
     * webm - mp4, mkv, avi
     * mp4 - avi, mkv, webm
+* Images to video    
 * Search for a file on your Device
 * Play Youtube videos
+* Download video
 * Download music
 * Search for any place on the Google Maps
 * Open any website that you ask it to, in your default browser
@@ -92,10 +94,12 @@ The commands for the various functions are as follows:
 * "***audio recorder*** _AudioName_" records audio. Use "***audio recorder***", this will use default audio "Microphone (Realtek High Definition Audio)".
 * "***video recorder*** _VideoName_" records video(without audio). Use "***video recorder***", this will use default "UScreenCapture".
 * "***merge*** _VideoFileName_ _AudioFileName_ _OutputFileName_". This will merge video and audio file. OutputFileName is the resultant file.
-* "***convert*** _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_". This will convert the input file to the output file.
+* "***convert*** _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_". This will convert the input file to the output file. To create a file without audio, use "convert na _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_".Here "na" stands for "no audio".
 NOTE: All the recorded files will be saved on the desktop. Make sure that the file names should not be same. "input.avi" and "input.mp3" have no conflicts. But "input.avi" and "input.avi" will result into conflicts. 
+* "***images to video*** _time_". Here time is the display time of each image. For this feature to run, you should create a folder "Images" on desktop. Add the images to the folder and rename them as "img001.jpg", "img002.jpg" and so on. After running the command, you will get the video in the same folder in ".avi" format.
 * "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
+* "***download video*** _SongName_" to download video.
 * "***download music*** _SongName_" to download a song.
 * "***locate/spot*** _PlaceName_" to look for a place on Google Maps.
 * "***open/launch*** _Website_" to open any website.
