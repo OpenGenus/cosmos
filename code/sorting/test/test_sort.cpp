@@ -12,18 +12,18 @@
 
 #ifndef SORT_TEST
 #define SORT_TEST
-#include "catch.hpp"
+#include "../../../test/c++/catch.hpp"
 #include <forward_list>
 #include <list>
 #include <deque>
 #include <iterator>
 #include <iostream>
 #include <algorithm>
-#include "merge_sort.cpp"
-#include "quick_sort.cpp"
-#include "insertion_sort.cpp"
-#include "selection_sort.cpp"
-#include "bubble_sort.cpp"
+#include "../src/merge_sort/merge_sort.cpp"
+#include "../src/quick_sort/quick_sort.cpp"
+#include "../src/insertion_sort/insertion_sort.cpp"
+#include "../src/selection_sort/selection_sort.cpp"
+#include "../src/bubble_sort/bubble_sort.cpp"
 
 // substitute iterator
 //#define AT_LEAST_INPUT_ITERATOR
