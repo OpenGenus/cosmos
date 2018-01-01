@@ -7,8 +7,8 @@
 #ifndef XOR_LINKED_LIST_TEST_CPP
 #define XOR_LINKED_LIST_TEST_CPP
 
-#include "catch.hpp"
-#include "xor_linked_list.cpp"
+#include "../../../../test/c++/catch.hpp"
+#include "../../src/list/xor_linked_list/xor_linked_list.cpp"
 #include <iostream>
 #include <list>
 #include <vector>

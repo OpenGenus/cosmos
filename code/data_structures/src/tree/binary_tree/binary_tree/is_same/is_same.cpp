@@ -20,7 +20,7 @@ private:
 #include <stack>
 #include <functional>
 #include <memory>
-#include "../tree_node/tree_node.cpp"
+#include "../node/node.cpp"
 
 #ifndef TREE_COMPARER
 #define TREE_COMPARER
