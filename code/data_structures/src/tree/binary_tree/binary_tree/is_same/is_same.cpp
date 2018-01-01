@@ -7,10 +7,10 @@ template<typename _Tp, typename _Comp = std::equal_to<_Tp> >
 class TreeComparer
 {
 public:
-    using CNodeType = TreeNode<_Tp> const;
-    using PCNodeType = std::shared_ptr<CNodeType>;
+    using NodeType = TreeNode<_Tp>;
+    using PNodeType = std::shared_ptr<NodeType>;
 
-    bool isSameTree(PCNodeType p, PCNodeType q) const;
+    bool isSameTree(PNodeType p, PNodeType q) const;
 
 private:
     _Comp comp_;
@@ -29,11 +29,11 @@ template<typename _Tp, typename _Comp = std::equal_to<_Tp>>
 class TreeComparer
 {
 public:
-    using CNodeType = TreeNode<_Tp> const;
-    using PCNodeType = std::shared_ptr<CNodeType>;
+    using NodeType = TreeNode<_Tp>;
+    using PNodeType = std::shared_ptr<NodeType>;
 
-    bool isSameTree(PCNodeType const &f, PCNodeType const &s) const {
-        std::stack<PCNodeType> first, second;
+    bool isSameTree(PNodeType const &f, PNodeType const &s) const {
+        std::stack<PNodeType> first, second;
         first.push(f);
         second.push(s);
 
@@ -47,17 +47,17 @@ public:
                 // check not same node and not same value
                 if (first.top()==nullptr
                     || second.top()==nullptr
-                    || !comp_(first.top()->val, second.top()->val))
+                    || !comp_(first.top()->value(), second.top()->value()))
                     return false;
 
-                first.push(first.top()->left);
-                second.push(second.top()->left);
+                first.push(first.top()->left());
+                second.push(second.top()->left());
             }
 
             // escape if top is empty or right is empty
             while (!first.empty()
                    && ((first.top()==nullptr && second.top()==nullptr)
-                       || (first.top()->right==nullptr && second.top()->right==nullptr)))
+                       || (first.top()->right()==nullptr && second.top()->right()==nullptr)))
             {
                 first.pop();
                 second.pop();
@@ -65,8 +65,8 @@ public:
 
             if (!first.empty())
             {
-                auto first_right = first.top()->right,
-                     second_right = second.top()->right;
+                auto first_right = first.top()->right(),
+                     second_right = second.top()->right();
                 first.pop();
                 second.pop();
                 first.push(first_right);
