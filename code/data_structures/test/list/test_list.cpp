@@ -48,7 +48,7 @@ vectorContainer getRandomValueContainer(size_t sz = RandomSize)
     return container;
 }
 
-actualListContainer copyContainerToActualList(const vectorContainer &container)
+actualListContainer copyContainerToList(const vectorContainer &container)
 {
     actualListContainer actual;
     std::for_each(container.begin(), container.end(), [&](int v)
