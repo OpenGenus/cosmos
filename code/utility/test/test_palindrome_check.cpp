@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 #include <cassert>
-#include "palindrome_check.cpp"
+#include "../../../src/palindrome/palindrome_check/palindrome_check.cpp"
 using namespace std;
 using namespace palindrome_check;
 
