@@ -26,9 +26,9 @@
 #include "../src/bubble_sort/bubble_sort.cpp"
 
 // substitute iterator
-//#define AT_LEAST_INPUT_ITERATOR
-#define AT_LEAST_BIDIRECTIONAL_ITERATOR
-//#define AT_LEAST_RANDOM_ITERATOR
+// #define AT_LEAST_INPUT_ITERATOR
+// #define AT_LEAST_BIDIRECTIONAL_ITERATOR
+#define AT_LEAST_RANDOM_ITERATOR
 
 #ifdef AT_LEAST_INPUT_ITERATOR
 template<typename _T>
