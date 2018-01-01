@@ -5,8 +5,8 @@
 /*
  guide
 
- 1. substitute iterator (col:26)
- 2. substitute sort algorithm (col: 63)
+ 1. substitute iterator (col:28)
+ 2. substitute sort algorithm (col: 70)
  3. run
  */
 
