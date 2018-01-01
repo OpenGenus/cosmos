@@ -598,17 +598,21 @@ inline auto
 XorLinkedList<_Type>::insert(const_iterator pos, _InputIt first, _InputIt last)
 ->iterator
 {
-    auto curr = insert(pos, *first);
-    auto firstOfInsert = curr;
-    ++curr;
-    auto begin = first;
-    ++begin;
-    std::for_each(begin, last, [&](value_type it)
+    if (first < last)
     {
-        curr = ++insert(curr, it);
-    });
+        auto curr = insert(pos, *first);
+        auto firstOfInsert = curr;
+        ++curr;
+        auto begin = first;
+        ++begin;
+        std::for_each(begin, last, [&](value_type it)
+        {
+            curr = ++insert(curr, it);
+        });
 
-    return firstOfInsert;
+        return firstOfInsert;
+    }
+    return pos.constCast();
 }
 
 template<typename _Type>
