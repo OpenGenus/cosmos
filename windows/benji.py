@@ -151,16 +151,16 @@ def events(frame,put):
                 video1 = link[3]
                 form_out = link[4]
                 video2 = link[5]
-                if (form_in == "avi" or form_in == "webm" or form_out == "mp4" or form_out == "mkv") and (form_out == "mp4" or form_out == "mkv"):
+                if (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv") and (form_out == "mp4" or form_out == "mkv"):
                     subprocess.call(r'''ffmpeg -i {} -c:v libx264 -an {}'''.format(video1,video2), shell = True) 
-                elif (form_in == "avi" or form_out == "mp4" or form_out == "mkv") and form_out == "webm":
+                elif (form_in == "avi" or form_out == "mp4" or form_in == "mkv") and form_out == "webm":
                     subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -an {}'''.format(video1,video2),shell=True)            
             else:
                 form_in = link[1]
                 video1 = link[2]
                 form_out = link[3]
                 video2 = link[4]
-                if (form_in == "avi" or form_in == "webm" or form_out == "mp4" or form_out == "mkv") and (form_out == "mp4" or form_out == "mkv"):
+                if (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv") and (form_out == "mp4" or form_out == "mkv"):
                     subprocess.call(r'''ffmpeg -i {} -c:v libx264 -acodec aac {}'''.format(video1,video2), shell = True) 
                 elif (form_in == "avi" or form_in == "mp4" or form_in == "mkv") and form_out == "webm":
                     subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -cpu-used -5 -deadline realtime -c:a libvorbis {}'''.format(video1,video2), shell = True)
