@@ -52,8 +52,7 @@ coor2d ComputeIntersection(coor2d a, coor2d b, edge c);
  
  0     x     100
  */
-int main(int argc, const char * argv[]) {
-    
+int main() {
     //since there's normal computing involved, polygon points must be defined in clockwise manner
     vector<coor2d> clipperCoords;
     //example set 1

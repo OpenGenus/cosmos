@@ -101,7 +101,7 @@ class NewsChannel : public IWeatherChanger
 
 };
 
-int main(int argc, char **argv)
+int main()
 {
 	Weather weather;
 	NewsChannel fox("Fox News");

@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 // Part of Cosmos by OpenGenus Foundation
-using namespace std;
+
 int n,dj[100], rank[100]; //disjoint set
 int findset(int a)
 {
@@ -32,14 +32,16 @@ void unionset(int a, int b)
 		if(rank[x]==rank[y])rank[y]++;
 	}
 }
-	int main()
+
+int main()
 {
+	using namespace std;
 	int e,u,v,w;
 	vector< pair<int, pair<int,int> > > edge; //(weight, two vertices that the edge connects)
 	for(int i=0;i<n;i++)
 	{
 		dj[i]=i;
-		rank[i]=0;
+		::rank[i]=0;
 	}
 	cout<<"Input Number of Edges"<<endl;
 	cin>>e;

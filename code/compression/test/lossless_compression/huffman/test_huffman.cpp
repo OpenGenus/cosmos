@@ -217,7 +217,7 @@ public:
     }
 };
 
-int main(int arg, char * *args) {
+int main() {
     HuffmanTest test;
 
     Huffman huf;

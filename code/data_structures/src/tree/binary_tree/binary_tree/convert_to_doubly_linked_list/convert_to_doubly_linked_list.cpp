@@ -1,4 +1,3 @@
-
 /* Structure for tree and linked list
 
 struct Node
@@ -9,10 +8,10 @@ struct Node
 
 */
 
-
 // root --> Root of Binary Tree
 // head_ref --> Pointer to head node of created doubly linked list
 
+template<typename Node>
 void BToDLL(Node *root, Node **head_ref)
 {
     if(!root) return;
@@ -25,5 +24,3 @@ void BToDLL(Node *root, Node **head_ref)
     
     BToDLL(root->left, head_ref);
 }
-
-

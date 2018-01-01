@@ -40,8 +40,8 @@ long double evaluation(vector<long long> vec)
 	return cost;
 }
 // swaps random edges
-pair<long,long> random_edge(vector<long long> current_path)
-{	 
+pair<long,long> random_edge()
+{
 	long long start_ind=rand()%num_cities;
 	long long end_ind=(rand()%num_cities)+1;
 	if(start_ind>end_ind)
@@ -76,7 +76,7 @@ void simulated_annealing()
 	while(limit--&&break_counter<=200000)
 	{
 		suggested_path=current_path;
-		pair<long long,long long> edges=random_edge(current_path);
+		pair<long long,long long> edges=random_edge();
 		long long start=edges.first,end=edges.second;
 		reverse(suggested_path.begin()+start,suggested_path.begin()+end);
 		Optimization(suggested_path);

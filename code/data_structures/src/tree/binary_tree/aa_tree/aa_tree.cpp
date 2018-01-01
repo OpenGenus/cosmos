@@ -527,7 +527,7 @@ int main() {
     return 0;
 }
 
-/*
+
 expected:
 0
 0
@@ -601,4 +601,4 @@ expected:
 2 1 4 3 5 6
 6
 
-// */
+*/

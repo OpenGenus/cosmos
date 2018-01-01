@@ -34,6 +34,9 @@ int main() {
 
     string a = "opengenus", b = "cosmos";
 
-    memset(memo, -1, sizeof memo);
+    for (size_t i = 0; i < MAX; ++i)
+        for (size_t j = 0; j < MAX; ++j)
+            memo[i][j] = -1;
+    // memset(memo, -1, sizeof memo);
     cout << editDistance(a, b, a.length()-1, b.length()-1) << '\n';
 }

@@ -62,7 +62,7 @@ void SomeFunction(void)
 	TheCow::GetInstance()->SetSays(say);
 }
 
-int main (int argc, char **argv)
+int main ()
 {
 	std::string say("meow");
 	TheCow::GetInstance()->SetSays(say);

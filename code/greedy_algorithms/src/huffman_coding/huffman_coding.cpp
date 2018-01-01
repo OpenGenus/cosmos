@@ -9,14 +9,14 @@
 
 struct huff_node
 {
-    huff_node *left, *right;
     float weight;
+    huff_node *left, *right;
 
     huff_node(float w, huff_node *l, huff_node *r)
       : weight(w), left(l), right(r)
     {}
 
-    ~huff_node()
+    virtual ~huff_node()
     {
         delete left;
         delete right;
@@ -90,7 +90,7 @@ void print_tree(huff_node *node, std::string prefix="")
     if (node->right) { print_tree(node->right, prefix+"1"); }
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     // dictionary of letters w/ frequency in English
     std::map<char, float> freq = {

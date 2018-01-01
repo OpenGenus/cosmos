@@ -24,8 +24,7 @@ int main()
 //merge
 int merge(int arr[],int l,int m,int r)
 {
- int len,i,j,k,c[100],count=0;
- len=r-l+1;
+ int i,j,k,c[100],count=0;
  i=0;
  j=l;
  k=m;

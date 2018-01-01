@@ -1,4 +1,3 @@
-
 /* A binary tree node has data, pointer to left child
    and a pointer to right child  
    
@@ -21,12 +20,11 @@ struct Node {
      /      \ 
    20       30 */
  
- 
-   
+template<typename Node>
 Node *findmax(Node *root)
 {
     if(!root) 
-        return NULL;
+        return nullptr;
     
     while(root->right) 
         root=root->right;
@@ -34,10 +32,11 @@ Node *findmax(Node *root)
     return root;
 }
 
+template<typename Node>
 Node *findmin(Node *root)
 {
     if(!root) 
-        return NULL;
+        return nullptr;
         
     while(root->left) 
         root=root->left;
@@ -45,6 +44,7 @@ Node *findmin(Node *root)
     return root;
 }
 
+template<typename Node>
 bool isBST(Node* root) 
 {
     if(!root) 
@@ -66,6 +66,7 @@ bool isBST(Node* root)
 // Another variation
 
 // Utility function
+template<typename Node>
 int isBSTUtil(Node *root, int min, int max)
 {
     if(!root) 
@@ -77,29 +78,3 @@ int isBSTUtil(Node *root, int min, int max)
     return (isBSTUtil(root->left, min, root->data-1) && 
             isBSTUtil(root->right, root->data+1, max));
 }
-
-bool isBST(Node* root) 
-{
-    return isBSTUtil(root, INT_MIN, INT_MAX);
-}
-
-
-// Another one
-
-// Utility function
-int isBSTUtil(Node *root, int min, int max)
-{
-    if(!root) 
-        return 1;
-    
-    return (root->data > min && root->data < max && 
-            isBSTUtil(root->left, min, root->data) &&
-            isBSTUtil(root->right, root->data, max));
-}
-
-bool isBST(Node* root) 
-{
-    return isBSTUtil(root, INT_MIN, INT_MAX);
-}
-
-

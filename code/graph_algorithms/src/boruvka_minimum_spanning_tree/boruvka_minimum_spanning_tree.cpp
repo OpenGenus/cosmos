@@ -37,7 +37,7 @@ int areUnited(int x, int y) {
     return getSR(x) == getSR(y);
 }
 
-int unite(int x, int y) {
+void unite(int x, int y) {
     x = getSR(x);
     y = getSR(y);
     if (rank[x] > rank[y])
@@ -60,7 +60,7 @@ int solve() {
         for (int i = 0; i < nodeCount; i++)
             cheapEdge[i].first = -1; 
         for (int i = 0; i < nodeCount; i++) {
-            for (int j = 0; j < graf[i].size(); j++) {
+            for (size_t j = 0; j < graf[i].size(); j++) {
                 std::pair<int, int> edge = graf[i][j];
                 int xsr = getSR(i);
                 int ysr = getSR(edge.first);

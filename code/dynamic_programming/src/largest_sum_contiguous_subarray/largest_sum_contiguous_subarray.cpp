@@ -13,10 +13,10 @@ using namespace std;
 int max_subarray_sum(const vector<int>& ar)
 {
     int msf = ar[0], mth = max(ar[0], 0);
-    int p = 0;
+    size_t p = 0;
     if(ar[0] < 0) ++p;
     int maxi = ar[0];
-    for(int i = 1; i < ar.size(); i++)
+    for(size_t i = 1; i < ar.size(); i++)
     {
         maxi = max(maxi, ar[i]);
         if(ar[i] < 0) ++p; // for handing case of all negative array elements
