@@ -94,6 +94,7 @@ private:
     Color color_;
 };
 
+struct RBTreeTest;
 template<typename _Type, typename _Compare = std::less<_Type>>
 class RBTree
 {
@@ -158,6 +159,9 @@ private:
     void deleteCase5(SPNodeType const &);
 
     void deleteCase6(SPNodeType const &);
+
+    // for test
+    friend RBTreeTest;
 };
 
 template<typename _Type, typename _Compare>

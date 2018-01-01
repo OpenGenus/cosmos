@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cmath>
 
-#define ll long long
+#define ll size_t
 using namespace std;
 
 struct ranking {
@@ -41,10 +43,10 @@ vector<ll> build_suffix_array(string s) {
         for(j = 0; j < n; j++) {
             ranks[j].index = j;
             ranks[j].first = P[i-1][j];
-            ranks[j].second = (j + pow(2,i-1) < n) ? P[i-1][j + (ll)(pow(2,i-1))] : -1;
+            ranks[j].second = (j + std::pow(2,i-1) < n) ? P[i-1][j + (ll)(pow(2,i-1))] : -1;
         }
 
-        sort(ranks.begin(), ranks.end(), comp);
+        std::sort(ranks.begin(), ranks.end(), comp);
 
         for(j = 0; j < n; j++) {
             P[i][ranks[j].index] = (j > 0 && ranks[j].first == ranks[j-1].first && ranks[j].second == ranks[j-1].second) ? P[i][ranks[j-1].index] : j;
