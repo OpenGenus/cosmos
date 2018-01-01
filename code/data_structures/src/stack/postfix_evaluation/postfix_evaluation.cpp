@@ -3,7 +3,8 @@
 using namespace std;
 #include<cctype>
 #define MAX_SIZE 100
-char a[MAX_SIZE], top = -1;
+char a[MAX_SIZE];
+int top = -1;
 bool isEmpty()
 {
     if(top == -1)
@@ -55,7 +56,7 @@ int presedence(char x)
 string InToPostfix(string x)
 {
     string r = "";
-    for(int i=0; i<x.length(); i++)
+    for(size_t i=0; i<x.length(); i++)
     {
         char c = x[i];
         if(isalnum(c))
@@ -96,8 +97,7 @@ string InToPostfix(string x)
 }
 int postfixEval(string x)
 {
-    int r;
-    for(int i=0; i<x.length(); i++)
+    for(size_t i=0; i<x.length(); i++)
     {
         char c = x[i];
         if(isalnum(c))

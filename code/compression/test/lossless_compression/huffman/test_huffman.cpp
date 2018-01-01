@@ -1,9 +1,18 @@
-#include "huffman.cpp"
+#include "../../../src/lossless_compression/huffman/huffman.cpp"
+#include <iostream>
+#include <fstream>
+#include <iterator>
+using namespace std;
 
 // test only for Huffman::base_type is 64bit
 class HuffmanTest {
 public:
     HuffmanTest() {
+        if (sizeof(Huffman::base_type) != 8)
+        {
+            cout << "the test require that Huffman::base_type based on 64bit\n";
+        }
+
         testCalculateFrequency();
         testImportDictionary();
         testExportDictionary();
@@ -208,16 +217,7 @@ public:
     }
 };
 
-#include <iostream>
-#include <fstream>
-#include <iterator>
-using namespace std;
 int main(int arg, char * *args) {
-    if (sizeof(Huffman::base_type) != 8)
-    {
-        cout << "the test require that Huffman::base_type based on 64bit\n";
-        return 0;
-    }
     HuffmanTest test;
 
     Huffman huf;
