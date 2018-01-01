@@ -18,51 +18,47 @@ using namespace std;
 
 //Merge Function for linkedlist
  
- ListNode* merge(ListNode* head1,ListNode* head2)
- {
-     
-     ListNode* head3=NULL;
-     ListNode* temp3=NULL;
-     while(head1&&head2)
-     {
-         if(head1->val<head2->val)
-         {
-             if(head3==NULL)
-             head3=head1;
-             if(temp3)
-             temp3->next=head1;
-             temp3=head1;
-             head1=head1->next;
-         }
-         else{
-            if(head3==NULL)
-             head3=head2;
-             if(temp3)
-             temp3->next=head2;
-             temp3=head2;
-             head2=head2->next;
-         }
-     }
-     if(head1)
-     {
-         if(head3)
-         {
-             temp3->next=head1;
-         }
-         else
-         return head1;
-     }
-     if(head2)
-     {
-         if(head3)
-         {
-             temp3->next=head2;
-         }
-         else
-         return head2;
-     }
-     return head3;
- }
+ListNode* merge(ListNode* head1,ListNode* head2)
+{
+    
+    ListNode* head3=NULL;
+    ListNode* temp3=NULL;
+    while(head1&&head2)
+    {
+        if(head1->val<head2->val)
+        {
+           if(head3==NULL)
+               head3=head1;
+           if(temp3)
+               temp3->next=head1;
+           temp3=head1;
+           head1=head1->next;
+        }
+        else{
+           if(head3==NULL)
+               head3=head2;
+           if(temp3)
+               temp3->next=head2;
+           temp3=head2;
+           head2=head2->next;
+        }
+    }
+    if(head1)
+    {
+        if(head3)
+            temp3->next=head1;
+        else
+            return head1;
+    }
+    if(head2)
+    {
+        if(head3)
+            temp3->next=head2;
+        else
+            return head2;
+    }
+    return head3;
+}
 
 
  //Sort function for linkedlist following divide and conquer approach

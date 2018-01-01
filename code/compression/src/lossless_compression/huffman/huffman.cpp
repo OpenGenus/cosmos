@@ -524,4 +524,7 @@ private:
 
         return res;
     }
+
+    // for test
+    friend HuffmanTest;
 };

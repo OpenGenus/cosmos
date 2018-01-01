@@ -33,7 +33,7 @@ struct polygon{
     vector<coor2d> points;
     
     polygon(const vector<coor2d> &p){
-        for(int i = 0; i < p.size(); i++){
+        for(size_t i = 0; i < p.size(); i++){
             points.push_back(p[i]);
         }
     }
@@ -86,14 +86,14 @@ int main(int argc, const char * argv[]) {
     vector<coor2d> outputCoords;
     vector<coor2d> inputList;
     outputCoords = clipped.points;
-    for (int i = 0; i < clipper.points.size()-1; i++) {
+    for (size_t i = 0; i < clipper.points.size()-1; i++) {
         inputList = outputCoords;
         outputCoords.clear();
         coor2d a = clipper.points[i];
         coor2d b = clipper.points[i+1];
         edge clipedge = edge(a.x, a.y, b.x, b.y);
         coor2d s = inputList[inputList.size()-1];
-        for (int j = 0; j < inputList.size(); j++) {
+        for (size_t j = 0; j < inputList.size(); j++) {
             if(inside(inputList[j], clipedge)){
                 if(!inside(s, clipedge)){
                     outputCoords.push_back(ComputeIntersection(inputList[j],s,clipedge));
@@ -107,7 +107,7 @@ int main(int argc, const char * argv[]) {
     }
     
     cout << "Clipped area: " << endl;
-    for (int i = 0; i < outputCoords.size(); i++) {
+    for (size_t i = 0; i < outputCoords.size(); i++) {
         cout << "X: " << outputCoords[i].x << " Y: " << outputCoords[i].y << endl;
     }
     return 0;

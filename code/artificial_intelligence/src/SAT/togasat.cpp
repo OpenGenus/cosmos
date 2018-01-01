@@ -19,7 +19,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  ************************************************************/
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -29,6 +29,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <string>
 #include <vector>
 #include <set>
+#include <cmath>
 
 #include <unordered_map>
 #include <unordered_set>
@@ -114,7 +115,7 @@ private:
       header.size = ps.size();
       //data = move(ps);
       data.resize(header.size);
-      for (int i = 0; i < ps.size(); i++) {
+      for (size_t i = 0; i < ps.size(); i++) {
        	data[i] = ps[i];
       //   //data.emplace_back(ps[i]);
        }
@@ -172,9 +173,8 @@ private:
   // Input
   void readClause(const std::string &line, std::vector<Lit> &lits) {
     lits.clear();
-    int parsed_lit, var;
-    parsed_lit = var = 0;
-    bool neg = false;
+    int var;
+    var = 0;
     std::stringstream ss(line);
     while (ss) {
       int val;
@@ -198,7 +198,7 @@ private:
   std::vector<bool> decision;
   std::vector<bool> seen;
   // Todo
-  int qhead;
+  size_t qhead;
   std::vector<Lit> trail;
   std::vector<int> trail_lim;
   // Todo rename(not heap)
@@ -311,7 +311,7 @@ private:
       out_btlevel = 0;
     } else {
       int max_i = 1;
-      for (int i = 2; i < out_learnt.size(); i++) {
+      for (size_t i = 2; i < out_learnt.size(); i++) {
         if (level(var(out_learnt[i])) > level(var(out_learnt[max_i]))) {
           max_i = i;
         }
@@ -323,7 +323,7 @@ private:
       out_btlevel = level(var(p));
     }
 
-    for (int i = 0; i < out_learnt.size(); i++) {
+    for (size_t i = 0; i < out_learnt.size(); i++) {
       seen[var(out_learnt[i])] = false;
     }
   }
@@ -414,7 +414,7 @@ private:
       x = x % size;
     }
 
-    return pow(y, seq);
+    return std::pow(y, seq);
   }
 
   lbool search(int nof_conflicts) {
@@ -508,7 +508,7 @@ public:
   void addClause(std::vector<int> &clause) {
     std::vector<Lit> lits;
     lits.resize(clause.size());
-    for (int i = 0; i < clause.size(); i++) {
+    for (size_t i = 0; i < clause.size(); i++) {
       int var = abs(clause[i]) - 1;
       while (var >= nVars())
         newVar();
@@ -519,7 +519,7 @@ public:
   void printAnswer() {
     if (answer == 0) {
       std::cout << "SAT" << std::endl;
-      for (int i = 0; i < assigns.size(); i++) {
+      for (size_t i = 0; i < assigns.size(); i++) {
         if (assigns[i] == 0) {
           std::cout << (i + 1) << " ";
         } else {

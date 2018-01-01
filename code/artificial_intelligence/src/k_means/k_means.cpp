@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstring>
-#include <time.h>
+#include <ctime>
 #include <vector>
 #include "glut.h"
 #include "byteimage.h"

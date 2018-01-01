@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 #define fio			std::ios_base::sync_with_stdio(false); cin.tie(NULL)
@@ -50,10 +51,9 @@ pair<long,long> random_edge(vector<long long> current_path)
 // Uses triangle law to swap longer edges
 void Optimization(vector<long long> &auxiliary_best)
 {
-	for(int i=0;i<auxiliary_best.size()-3;i++)
+	for(size_t i=0;i<auxiliary_best.size()-3;i++)
 	{
 		long double AB=adjacency_matrix[auxiliary_best[i]][auxiliary_best[i+1]];
-		long double BC=adjacency_matrix[auxiliary_best[i+1]][auxiliary_best[i+2]];
 		long double CD=adjacency_matrix[auxiliary_best[i+2]][auxiliary_best[i+3]];
 		long double AC=adjacency_matrix[auxiliary_best[i]][auxiliary_best[i+2]];
 		long double BD=adjacency_matrix[auxiliary_best[i+1]][auxiliary_best[i+3]];
@@ -84,7 +84,7 @@ void simulated_annealing()
 		long double suggested_path_cost=evaluation(suggested_path);
 		long double net_gain=suggested_path_cost-current_path_cost;
 		long double rand_num=(double) (rand()/(double) RAND_MAX);
-		long double probability=1/(1+pow(M_E,(net_gain/temperature)));
+		long double probability=1/(1+std::pow(M_E,(net_gain/temperature)));
 		best_path_cost=evaluation(best_path);
 		if(probability>rand_num)
 		{
@@ -97,7 +97,7 @@ void simulated_annealing()
 			tabu_tenure=0;
 			current_path=suggested_path;
 			break_counter=0;
-			for(long i=0;i<best_path.size();i++)
+			for(size_t i=0;i<best_path.size();i++)
 			{
 				cout<<best_path[i]+1<<" ";
 			}
@@ -116,7 +116,7 @@ void simulated_annealing()
 				answer=best_path_cost;
 				current_path=best_path;
 				break_counter=0;
-				for(long i=0;i<best_path.size();i++)
+				for(size_t i=0;i<best_path.size();i++)
 				{
 					cout<<best_path[i]+1<<" ";
 				}
@@ -131,7 +131,7 @@ void simulated_annealing()
 		break_counter++;
 	}
 	cout<<"Final Path:\n";
-	for(long i=0;i<best_path.size();i++)
+	for(size_t i=0;i<best_path.size();i++)
 	{
 		cout<<best_path[i]+1<<" ";
 	}

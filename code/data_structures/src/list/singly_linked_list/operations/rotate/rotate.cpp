@@ -58,7 +58,6 @@ int main()
         temp=temp->next;
         i--;
     }
-    int b=2;
     head=rotate(head,2);            //calling rotate function
     return 0;
 }

@@ -30,9 +30,9 @@ void findHull(int a, int b){
     float biggestLinePointDistance = -1;
     int c = 0;
     
-    for (int i = 0; i < input.size(); i++) {
+    for (size_t i = 0; i < input.size(); i++) {
         vec2 aToPoint(input[i].x - input[a].x, input[i].y - input[a].y);
-        if(dot(aToPoint, normal) < 0 || i == a || i == b)
+        if(dot(aToPoint, normal) < 0 || static_cast<int>(i) == a || static_cast<int>(i) == b)
             continue;
         float lineToPoint = lineToPointSupport(input[a], input[b], input[i]);
         if(lineToPoint > biggestLinePointDistance){
@@ -56,7 +56,7 @@ void quickhull(){
     
     float mini = 0;
     float maxi = 0;
-    for (int i = 0; i < input.size(); i++) {
+    for (size_t i = 0; i < input.size(); i++) {
         if(input[i].x < input[mini].x){
             mini = i;
         }
@@ -85,7 +85,7 @@ int main(){
 //    input.push_back(vec2(0, 20));
 //    input.push_back(vec2(5, 17));
     quickhull();
-    for (int i = 0; i < output.size(); i++) {
+    for (size_t i = 0; i < output.size(); i++) {
         cout << "x: " << output[i].x << "y: " << output[i].y << endl;
     }
     return 0;
