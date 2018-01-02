@@ -10,21 +10,6 @@
 
 int a[10][10], visited[10], no, cost, sum, vs[10];
 
-void tsp(int city)
-{
-	int ncity;
-	visited[city] = 1;
-	printf("%d ->",city);
-	ncity = least(city);
-	if(ncity == 999)
-	{
-		cost += a[city][1];
-		printf("1\n");
-		return;
-	}
-	tsp(ncity);
-}
-
 int least(int c)
 {
 	int i, nc = 999, min = 999, kmin;
@@ -41,6 +26,21 @@ int least(int c)
 	if(min != 999)
 		cost += kmin;
 	return nc;
+}
+
+void tsp(int city)
+{
+	int ncity;
+	visited[city] = 1;
+	printf("%d ->",city);
+	ncity = least(city);
+	if(ncity == 999)
+	{
+		cost += a[city][1];
+		printf("1\n");
+		return;
+	}
+	tsp(ncity);
 }
 
 void nearest_n(city)
