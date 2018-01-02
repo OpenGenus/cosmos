@@ -8,21 +8,21 @@
     #include <stdio.h>
     #include <stdlib.h>
     
-    #define size 10
+    #define s 10
 
     int main()
     {
-        int num[size];
+        int num[s];
         int i;    
 
         printf("Enter the elements of array:");
-        for (i = 0; i < size;i++)
+        for (i = 0; i < s;i++)
         {
             scanf("%d", &num[i]);
         }
-        bogosort(num, size);
+        bogosort(num, s);
         printf("The array after sorting is:");
-        for (i = 0;i < size;i++)
+        for (i = 0;i < s;i++)
         {
             printf("%d\n", num[i]);
         }
