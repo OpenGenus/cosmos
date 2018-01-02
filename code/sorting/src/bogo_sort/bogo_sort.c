@@ -7,22 +7,17 @@
 
     #include <stdio.h>
     #include <stdlib.h>
-    
-    #define s 10
 
     int main()
     {
-        int num[s];
+        int num[]= {3,6,1,8,2,9,5,4,0,7};
         int i;    
-
-        printf("Enter the elements of array:");
-        for (i = 0; i < s;i++)  {
-            scanf("%d", &num[i]);
-        }  bogosort(num, s);
-                printf("The array after sorting is:");
-                for (i = 0;i < s;i++)  {
+        
+        bogosort(num, s);
+             printf("The array after sorting is:");
+             for (i = 0;i < s;i++)  {
                     printf("%d\n", num[i]);
-                }   printf("\n");
+             }   printf("\n");
     }
      
     int is_sorted(int *a, int n)
