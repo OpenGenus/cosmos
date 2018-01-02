@@ -1,9 +1,9 @@
     /* Part of cosmos by OpenGenus Foundation  */
 
-    //
-    // bogo_sort.c
-    // created by Riya
-    //
+    /*
+    * bogo_sort.c
+    * created by Riya
+    */
 
     #include <stdio.h>
     #include <stdlib.h>
@@ -16,32 +16,26 @@
         int i;    
 
         printf("Enter the elements of array:");
-        for (i = 0; i < s;i++)
-        {
+        for (i = 0; i < s;i++)  {
             scanf("%d", &num[i]);
-        }
-        bogosort(num, s);
-        printf("The array after sorting is:");
-        for (i = 0;i < s;i++)
-        {
-            printf("%d\n", num[i]);
-        }
-        printf("\n");
+        }  bogosort(num, s);
+                printf("The array after sorting is:");
+                for (i = 0;i < s;i++)  {
+                    printf("%d\n", num[i]);
+                }   printf("\n");
     }
      
     int is_sorted(int *a, int n)
     {
-        while ( --n >= 1 ) {
-        if ( a[n] < a[n-1] ) return 0;
-    }
-    return 1;
+        while ( --n >= 1 )  {
+            if ( a[n] < a[n-1] ) return 0;
+        }  return 1;
     }
 
     void shuffle(int *a, int n)
     {
         int i, t, temp;
-        for (i = 0;i < n;i++)
-        {
+        for (i = 0;i < n;i++)   {
             t = a[i];
             temp = rand() % n; 
             a[i] = a[temp];
