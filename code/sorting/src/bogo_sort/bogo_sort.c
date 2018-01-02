@@ -13,9 +13,9 @@
         int num[]= {3,6,1,8,2,9,5,4,0,7};
         int i;    
         
-        bogosort(num, s);
+        bogosort(num, 10);
              printf("The array after sorting is:");
-             for (i = 0;i < s;i++)  {
+             for (i = 0;i < 10;i++)  {
                     printf("%d\n", num[i]);
              }   printf("\n");
     }
