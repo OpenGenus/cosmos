@@ -12,19 +12,19 @@
 
     int main()
     {
-        int numbers[size];
+        int num[size];
         int i;    
 
         printf("Enter the elements of array:");
         for (i = 0; i < size;i++)
         {
-            scanf("%d", &numbers[i]);
+            scanf("%d", &num[i]);
         }
-        bogosort(numbers, size);
+        bogosort(num, size);
         printf("The array after sorting is:");
         for (i = 0;i < size;i++)
         {
-            printf("%d\n", numbers[i]);
+            printf("%d\n", num[i]);
         }
         printf("\n");
     }
