@@ -8,7 +8,8 @@ c: $(C_SOURCES)
 
 #for cpp
 CXXFLAGS = -Wall
-CPP_SOURCES := $(shell find -name '*.cpp')
+CPP_SOURCES := $(shell find -name '[^test_]*.cpp')
 
 cpp:
-	@$(foreach CPP_SOURCE,$(CPP_SOURCES),$(CXX) -c $(CPP_SOURCE) $(CXXFLAGS);)  
+	@echo '---compiling source files---'
+	@$(foreach CPP_SOURCE,$(CPP_SOURCES),echo $(CPP_SOURCE);$(CXX) -c $(CPP_SOURCE) $(CXXFLAGS);echo $(CPP_SOURCE);)
