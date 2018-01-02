@@ -116,7 +116,7 @@ public:
         return *this;
     }
 
-    Self operator++(int i)
+    Self operator++(int)
     {
         auto temp = *this;
         ++*this;
@@ -133,7 +133,7 @@ public:
         return *this;
     }
 
-    Self operator--(int i)
+    Self operator--(int)
     {
         auto temp = *this;
         --*this;
@@ -199,7 +199,7 @@ public:
         return *this;
     }
 
-    Self operator++(int i)
+    Self operator++(int)
     {
         auto temp = *this;
         ++*this;
@@ -216,7 +216,7 @@ public:
         return *this;
     }
 
-    Self operator--(int i)
+    Self operator--(int)
     {
         auto temp = *this;
         --*this;

@@ -1,9 +1,6 @@
-
-#include <climits>
-#include <cstring>
-#include <cstdio>
 #include <iostream>
-# define NO_OF_CHARS 256
+#include <cstring>
+#define NO_OF_CHARS 256
 int max(int a, int b)
 {
     return (a > b) ? a : b;
@@ -51,10 +48,11 @@ void search(char *txt, char *pat)
  
 int main()
 {
+    using namespace std;
 	char txt[] = {}, pat[] = {} ;
 	
-    gets(txt);
-    gets(pat);
+    cin >> txt;
+    cin >> pat;
     search(txt, pat);
     return 0;
 }

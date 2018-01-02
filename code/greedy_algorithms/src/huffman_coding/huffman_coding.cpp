@@ -22,7 +22,7 @@ struct huff_node
         delete right;
     }
 
-    virtual void print(std::string prefix)
+    virtual void print(std::string)
     {}
 };
 

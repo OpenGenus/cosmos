@@ -16,9 +16,6 @@
 #include <cstring>
 #include <ctime>
 #include <vector>
-#include "glut.h"
-#include "byteimage.h"
-#include "windows.h"
 
 #define PI 4*atan(1.0)
 
@@ -35,6 +32,7 @@ struct point {
 };
 
 // Kmeans with weight option
+template<typename ByteImage, typename byte>
 double kmeans(ByteImage& bimg, const int K, double weight) {
 
 	// Create k random points (centers)
