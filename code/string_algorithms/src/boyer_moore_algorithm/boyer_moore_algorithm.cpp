@@ -1,8 +1,8 @@
 
-# include <limits.h>
-# include <string.h>
-# include <stdio.h> 
-#include<iostream>
+#include <climits>
+#include <cstring>
+#include <cstdio>
+#include <iostream>
 # define NO_OF_CHARS 256
 int max(int a, int b)
 {
