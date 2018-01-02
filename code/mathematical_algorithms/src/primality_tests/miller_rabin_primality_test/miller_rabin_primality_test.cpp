@@ -1,7 +1,7 @@
 // C++ program Miller-Rabin Primality test
+#include <iostream>
 #include <vector>
-
-using namespace std;
+#include <functional>
 // Part of Cosmos by OpenGenus Foundation
 // Utility function to do modular exponentiation.
 // It returns (x^y) % p
@@ -38,7 +38,7 @@ bool miillerTest(int d, int n)
 	int x = power(a, d, n);
 
 	if (x == 1 || x == n-1)
-	return true;
+		return true;
 
 	// Keep squaring x while one of the following doesn't
 	// happen
@@ -50,8 +50,10 @@ bool miillerTest(int d, int n)
 		x = (x * x) % n;
 		d *= 2;
 
-		if (x == 1)	 return false;
-		if (x == n-1) return true;
+		if (x == 1)
+			return false;
+		if (x == n-1)
+			return true;
 	}
 
 	// Return composite
@@ -64,8 +66,10 @@ bool miillerTest(int d, int n)
 bool isPrime(int n, int k)
 {
 	// Border cases
-	if (n <= 1 || n == 4) return false;
-	if (n <= 3) return true;
+	if (n <= 1 || n == 4)
+		return false;
+	if (n <= 3)
+		return true;
 
 	// Find r such that n = 2^d * r + 1 for some r >= 1
 	int d = n - 1;
@@ -83,6 +87,7 @@ bool isPrime(int n, int k)
 // Driver program
 int main()
 {
+	using namespace std;
 	int n, k = 4;
 	//Here k decides the number of iterations the number 'n' will undergo.
 	//Larger the value of k, more will be the accuracy of the output
@@ -91,8 +96,8 @@ int main()
 	cin >>n ;
 	if (isPrime(n, k))
 		cout << n << " is prime.\n";
-    else
-        cout << n << " is not prime.\n" ;
+	else
+		cout << n << " is not prime.\n";
 
 	return 0;
 }

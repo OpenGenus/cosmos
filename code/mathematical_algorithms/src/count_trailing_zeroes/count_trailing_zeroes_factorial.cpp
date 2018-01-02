@@ -3,7 +3,7 @@ using namespace std;
 
 int findTrailingZeros(int n)
 {
-    count = 0;
+    int count = 0;
 
 
     for (int i=5; n/i>=1; i *= 5)

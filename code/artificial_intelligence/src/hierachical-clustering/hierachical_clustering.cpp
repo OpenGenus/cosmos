@@ -243,7 +243,7 @@ Subtree *HierachicalTree::atLevel(int lvl, TreeNode *parent) {
 }
 
 int main(void) {
-    int axis, oldAxis, count = 0;
+    int axis, oldAxis;
     int fileSeq = 1;
     char buffer[10];
     string fileName;
@@ -252,7 +252,7 @@ int main(void) {
     HierachicalTree hTree;							//hierachical tree
     TreeNode *tempNode;
 
-    fileName = _itoa(fileSeq, buffer, 10);
+    fileName = sprintf(buffer, "%d", fileSeq);
     fileName += ".txt";
     inf.open(fileName.c_str(), ios::in);
     
@@ -276,7 +276,7 @@ int main(void) {
         hTree.addToList(tempNode);
         cout<<fileName<<" read"<<endl;
         inf.close();
-        fileName = _itoa(++fileSeq, buffer, 10);
+        fileName = sprintf(buffer, "%d", ++fileSeq);
         fileName += ".txt";
         inf.open(fileName.c_str(), ios::in);
     }
@@ -287,7 +287,6 @@ int main(void) {
     system("pause");
     hTree.organise();
     cout<<"Linked list built"<<endl;
-    Subtree *nastyName = hTree.subtreeAt(2);
     system("pause");
 
     return 0;

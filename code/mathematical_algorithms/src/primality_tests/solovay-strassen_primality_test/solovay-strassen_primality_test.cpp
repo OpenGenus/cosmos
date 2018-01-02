@@ -101,14 +101,14 @@ int main()
     long long num2 = 13;
 
     if (solovoyStrassen(num1, iterations))
-        printf("%d is prime\n",num1);
+        printf("%lld is prime\n", num1);
     else
-        printf("%d is composite\n",num1);
+        printf("%lld is composite\n", num1);
 
     if (solovoyStrassen(num2, iterations))
-        printf("%d is prime\n",num2);
+        printf("%lld is prime\n", num2);
     else
-        printf("%d is composite\n",num2);
+        printf("%lld is composite\n", num2);
 
     return 0;
 }

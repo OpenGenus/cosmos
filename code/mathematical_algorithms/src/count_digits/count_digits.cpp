@@ -1,4 +1,4 @@
-#include<iostream>>
+#include<iostream>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 
