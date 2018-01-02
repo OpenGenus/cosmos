@@ -1,4 +1,7 @@
 # Cosmos
+
+[![Help Contribute to Open Source](https://www.codetriage.com/opengenus/cosmos/badges/users.svg)](https://www.codetriage.com/opengenus/cosmos)
+
 > The universe of algorithm and data structures
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `JavaScript`, `Swift`, `Python`, `Go` and others.
@@ -10,12 +13,12 @@ This work is maintained by a community of hundreds of people and is a _massive c
 # Cosmic Structure
 
 Following is the high-level structure of cosmos:
-* [Artificial intelligence](/code/artificial_intelligence) :robot: 
+* [Artificial intelligence](/code/artificial_intelligence) :robot:
 * [Backtracking](/code/backtracking)
 * [Bit manipulation](/code/bit_manipulation)
-* [Cellular automaton](/code/cellular_automaton) 🐚 
+* [Cellular automaton](/code/cellular_automaton) 🐚
 * [Compression algorithms](/code/compression)
-* [Computational geometry](/code/computational_geometry) :gear: 
+* [Computational geometry](/code/computational_geometry) :gear:
 * [Cryptography](/code/cryptography)
 * [Data structures](/code/data_structures)
 * [Design pattern](/code/design_pattern)
@@ -27,7 +30,7 @@ Following is the high-level structure of cosmos:
 * [Networking](/code/networking)  :globe_with_meridians:
 * [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
 * [Online challenges](/code/online_challenges)
-* [Operating system](/code/operating_system) 💻 
+* [Operating system](/code/operating_system) 💻
 * [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
 * [Searching](/code/search)
 * [Selecting](/code/selection_algorithms)
@@ -44,8 +47,8 @@ This is a massive collaboration and to keep the quality intact and drive the vis
 
 > Maintainers are your friends forever. They are vastly different from moderators.
 
-Currently, we have **5 active maintainers** and we are expanding quickly. 
- 
+Currently, we have **5 active maintainers** and we are expanding quickly.
+
 The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. 🌍
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
@@ -60,9 +63,9 @@ Currently, we have over **700 contributors**
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
-You can contribute by writing `code`, documentation is form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities. 
+You can contribute by writing `code`, documentation is form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
 
-Additionally, you might want to take a look at this [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better. 
+Additionally, you might want to take a look at this [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
 
 You may, also, refer to the available [style guides](/guides/coding_style) before contributing code.
 
