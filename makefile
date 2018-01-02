@@ -7,8 +7,8 @@ c: $(C_SOURCES)
 
 
 #for cpp
-CXXFLAGS = -Wall -Wextra
+CXXFLAGS = -Wall
 CPP_SOURCES := $(shell find -name '*.cpp')
 
-cpp: $(CPP_SOURCES)
-	$(CXX) -o $@ $^ $(CXXFLAGS)  
+cpp:
+	@$(foreach CPP_SOURCE,$(CPP_SOURCES),$(CXX) -c $(CPP_SOURCE) $(CXXFLAGS);)  
