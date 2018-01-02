@@ -18,7 +18,7 @@ bool isSorted(const std::vector<int> &v)
 
 void shuffle(std::vector<int> &v)
 {
-	for (int i = 0; i < v.size(); i++)
+	for (size_t i = 0; i < v.size(); i++)
 		std::swap( v[i], v[ rand() % v.size() ] );
 }
 
@@ -36,7 +36,7 @@ int main()
 
 	bogoSort(v);
 
-	for(int i = 0; i < v.size(); ++i)
+	for(size_t i = 0; i < v.size(); ++i)
 		std::cout << v[i] << " ";
 
 	return 0;

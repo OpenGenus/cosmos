@@ -43,7 +43,7 @@ void TreeSort(vector<int>& a)
  
     //Construct binary search tree
     root = insert(root, a[0]);
-    for (int i=1; i<a.size(); i++)
+    for (size_t i=1; i<a.size(); i++)
         insert(root, a[i]);
  
     //Sorting the array using inorder traversal on BST
@@ -60,7 +60,7 @@ int main()
     
     cout<<"The sorted array is :\n";
     //Printing the sorted array
-    for(int i=0;i<a.size();i++)
+    for(size_t i=0;i<a.size();i++)
     {
     	cout<<a[i]<<" ";
     }

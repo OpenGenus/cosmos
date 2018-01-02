@@ -9,7 +9,7 @@
 using namespace std;
 void countingSort(vector<int> arr,vector<int>& sortedA){
 	int m=INT_MIN;
-	for(int i=0;i<arr.size();i++){
+	for(size_t i=0;i<arr.size();i++){
 		if(arr[i]>m){
 			m=arr[i];
 		}
@@ -17,7 +17,7 @@ void countingSort(vector<int> arr,vector<int>& sortedA){
 	int freq[m+1]; //m is the maximum number in the array
 	for(int i=0;i<=m;i++)
 		freq[i]=0;
-	for(int i=0;i<arr.size();i++)
+	for(size_t i=0;i<arr.size();i++)
 		freq[arr[i]]++;
 	int j = 0;
     for(int i=0;i<=m;i++){
@@ -33,7 +33,7 @@ int main(){
 	vector<int> sortedA(arr.size()+1); // stores sorted array
    	countingSort(arr,sortedA);
    	cout<<"Sorted Array:  ";
-   	for(int i=0;i<arr.size();i++)
+   	for(size_t i=0;i<arr.size();i++)
    		cout<<sortedA[i]<<" ";
    	return 0;
 }

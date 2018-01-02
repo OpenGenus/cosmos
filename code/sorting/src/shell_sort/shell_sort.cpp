@@ -6,10 +6,10 @@ using namespace std;
 // Part of Cosmos by OpenGenus Foundation
 void shellSort(vector<int> &ar)
 {
-	int j;
-	for (int gap = ar.size() / 2; gap > 0; gap /= 2)
+	size_t j;
+	for (size_t gap = ar.size() / 2; gap > 0; gap /= 2)
   	{
-    	for (int i = gap; i < ar.size(); i++)
+    	for (size_t i = gap; i < ar.size(); i++)
     	{
       		int temp = ar[i];
       		for (j = i; j >= gap && temp < ar[j - gap]; j -= gap)
@@ -30,7 +30,7 @@ int main()
 		inputArray.push_back(i);
 	}
 	shellSort(inputArray);
-	for(int i=0;i<inputArray.size();i++)
+	for(size_t i=0;i<inputArray.size();i++)
 	{
 		cout<<inputArray[i]<<" ";
 	}

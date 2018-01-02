@@ -2,12 +2,12 @@
 #include <iostream>
 #include <vector>
 
-long long int sumOfPrimesUpto(long long int limit) // Function that implements the Sieve of Eratosthenes
+long long int sumOfPrimesUpto(size_t limit) // Function that implements the Sieve of Eratosthenes
 {
     std::vector<bool> primesBoolArray(limit, true);
     long long int sum;
     primesBoolArray[0] = primesBoolArray[1] = false;
-    long long int sqrtLimit = std::sqrt(limit) + 1;
+    size_t sqrtLimit = std::sqrt(limit) + 1;
     for (size_t i = 0; i < sqrtLimit; ++i)
     {
         if (primesBoolArray[i])

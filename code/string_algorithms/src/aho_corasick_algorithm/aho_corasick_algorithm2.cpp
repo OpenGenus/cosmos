@@ -41,7 +41,7 @@ trie_node* trie_insert(trie_node *&node, char *p)
 }
  
 void traversal(trie_node *t) {
-    for(int i = 0;i < t->out.size(); i++){
+    for(size_t i = 0;i < t->out.size(); i++){
         traversal(t->out[i]);
         t->nr += t->out[i]->nr;
     }

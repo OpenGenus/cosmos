@@ -5,8 +5,7 @@ using namespace std;
  
 // Function to find the waiting time for all 
 // processes
-void findWaitingTime(int processes[], int n, 
-                          int bt[], int wt[])
+void findWaitingTime(int n, int bt[], int wt[])
 {
     // waiting time for first process is 0
     wt[0] = 0;
@@ -17,8 +16,7 @@ void findWaitingTime(int processes[], int n,
 }
  
 // Function to calculate turn around time
-void findTurnAroundTime( int processes[], int n, 
-                  int bt[], int wt[], int tat[])
+void findTurnAroundTime(int n, int bt[], int wt[], int tat[])
 {
     // calculating turnaround time by adding
     // bt[i] + wt[i]
@@ -27,15 +25,15 @@ void findTurnAroundTime( int processes[], int n,
 }
  
 //Function to calculate average time
-void findavgTime( int processes[], int n, int bt[])
+void findavgTime(int n, int bt[])
 {
     int wt[n], tat[n], total_wt = 0, total_tat = 0;
  
     //Function to find waiting time of all processes
-    findWaitingTime(processes, n, bt, wt);
+    findWaitingTime(n, bt, wt);
  
     //Function to find turn around time for all processes
-    findTurnAroundTime(processes, n, bt, wt, tat);
+    findTurnAroundTime(n, bt, wt, tat);
  
     //Display processes along with all details
     cout << "Processes  "<< " Burst time  "
@@ -67,6 +65,6 @@ int main()
     //Burst time of all processes
     int  burst_time[] = {10, 5, 8};
  
-    findavgTime(processes, n,  burst_time);
+    findavgTime(n,  burst_time);
     return 0;
 }

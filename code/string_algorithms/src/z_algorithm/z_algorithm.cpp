@@ -1,14 +1,15 @@
 #include <string>
 #include <iostream>
-using namespace std;
-void Zalgo(string s,string pattern)
+
+void Zalgo(std::string s, std::string pattern)
 {
+    using namespace std;
     string k=pattern + "&" + s;
 	
-    int Z[k.length()]; //Z-array for storing the length of the longest substring 
+    size_t Z[k.length()]; //Z-array for storing the length of the longest substring 
 	                   //starting from s[i] which is also a prefix of s[0..n-1]
-    int l=0,r=0;
-    for(int i=1;i<k.length();i++)
+    size_t l=0,r=0;
+    for(size_t i=1;i<k.length();i++)
     {
     	if(i>r)
     	{
@@ -33,7 +34,7 @@ void Zalgo(string s,string pattern)
     		 }
     	}
     }
-    for(int i=1;i<k.length();i++)
+    for(size_t i=1;i<k.length();i++)
     {
     	if(Z[i]==pattern.length())
     	{
@@ -41,11 +42,12 @@ void Zalgo(string s,string pattern)
     	}
     }
 }
-int main() {
-	 
-	 string s="atababatggagabagt";//original string
-	 string pattern="aba";//pattern to be searched in string
-	 Zalgo(s,pattern);
+int main()
+{
+    using namespace std;
+	string s="atababatggagabagt";//original string
+	string pattern="aba";//pattern to be searched in string
+	Zalgo(s,pattern);
 	return 0;
 }
 /*Output:

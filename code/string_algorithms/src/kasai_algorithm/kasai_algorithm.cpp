@@ -3,16 +3,19 @@
  * Kasai Algorithm 
  * 
  */
+#include <vector>
+#include <string>
 
-vector<int> kasaiAlgorithm(string s,vector<int> suffix_array)
+std::vector<int> kasaiAlgorithm(std::string s, std::vector<int> suffix_array)
 {
-    int m=0;
+    using namespace std;
+    size_t m=0;
     vector<int> LCP(s.size(),0);
-    vector<int> rank(s.size(),0);
+    vector<size_t> rank(s.size(),0);
 
-    for (int i=0 ; i<s.size() ; i++) rank[suffix_array[i]]=i;
+    for (size_t i=0 ; i<s.size() ; i++) rank[suffix_array[i]]=i;
 
-    for (int i=0 ; i<s.size() ; i++ , m?m--:0)
+    for (size_t i=0 ; i<s.size() ; i++ , m?m--:0)
     {
         if (rank[i]==s.size()-1) 
             { 

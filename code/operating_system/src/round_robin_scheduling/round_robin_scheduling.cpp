@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  int time,flag = 0,timeQuantum;
+  int flag = 0,timeQuantum;
   int n, remain;
   int waitTime = 0;
   cout<<"Enter Total Process:\n";

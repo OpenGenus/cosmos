@@ -49,7 +49,7 @@ template<typename _Iter1,
          typename _Iter2,
          typename _Tp = typename std::iterator_traits<_Iter1>::value_type>
 bool
-isSame(_Iter1 aBegin, _Iter1 aEnd, _Iter2 bBegin, _Iter2 bEnd)
+isSame(_Iter1 aBegin, _Iter1 aEnd, _Iter2 bBegin)
 {
     auto aIt = aBegin;
     auto bIt = bBegin;
@@ -105,8 +105,7 @@ TEST_CASE("sort algorithm")
 
         CHECK(isSame(actualStdContainer.begin(),
                      actualStdContainer.end(),
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
+                     expectStdContainer.begin()));
     };
 
     auto testPODPtr = [&](int sz)
@@ -128,8 +127,7 @@ TEST_CASE("sort algorithm")
 
         CHECK(isSame(actualDynamicArray,
                      actualDynamicArrayEnd,
-                     expectStdContainer.begin(),
-                     expectStdContainer.end()));
+                     expectStdContainer.begin()));
         delete[] actualDynamicArray;
     };
 

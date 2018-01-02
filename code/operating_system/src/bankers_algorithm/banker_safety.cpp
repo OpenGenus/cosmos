@@ -1,11 +1,11 @@
 //Banker's Algorithm: Safety Algorithm
 
-# include <stdio.h>
+#include <cstdio>
 
 int main()
 {
 	// Initialize	
-	int available[10], max[10], allocation [10][10], maximum[10][10];
+	int available[10], allocation [10][10], maximum[10][10];
 	int noOfProcesses, noOfResources, need[10][10];
 	int work[10], finish[10] = {0}, i;
 	
