@@ -71,7 +71,7 @@ void nearest_n(city)
 	sum += a[u][1];
 }
 
-int main(int argc, char *argv[])
+int main()
 {
 	int i, j;
 
