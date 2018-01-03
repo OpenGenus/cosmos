@@ -19,7 +19,7 @@ int magicNumber(int n, int fac)
     return answer;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
     int n, f;
     printf("n: \n>> ");
