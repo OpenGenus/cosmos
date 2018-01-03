@@ -3,7 +3,7 @@
 
 A greedy algorithm is an algorithmic paradigm that follows the problem solving heuristic of making the locally optimal choice at each stage with the hope of finding a global optimum. In many problems, a greedy strategy does not in general produce an optimal solution, but nonetheless a greedy heuristic may yield locally optimal solutions that approximate a global optimal solution in a reasonable time.
 
-In the words of _Jessica Su_, we have:
+In the words of ```_Jessica Su_```, we have:
 
 A greedy algorithm finds the best solution to a problem one step at a time.  At each step, the algorithm makes the choice that improves the solution the most, even if that choice makes future steps less fruitful.  Sometimes this gives you the right answer to the problem.
 
