@@ -1,13 +1,15 @@
 # include <stdio.h>
+# include <stdlib.h>
 # include <math.h>
 
-int 
-primeFactors(int number, int prime_factors[100])
+int*
+primeFactors(int number)
 {
+    int* prime_factors = (int *)malloc(100 * sizeof(int));
     int i, j = -1;
     while (number % 2 == 0) {
-    	++j;
-    	prime_factors[j] = 2;
+        ++j;
+        prime_factors[j] = 2;
         number = number / 2;
     }
 
@@ -20,24 +22,24 @@ primeFactors(int number, int prime_factors[100])
     }
 
     if (number > 2) {
-    	++j;
-    	prime_factors[j] = number;
+        ++j;
+        prime_factors[j] = number;
     }
 
-    return (j);
+    return (prime_factors);
 }
 
 int 
 main()
 {
-    int number, prime_factors[100], i;
+    int number, i;
     printf("Enter a Natural Number \n");
     scanf("%d", &number);
-    int number_of_prime_factors=primeFactors(number, prime_factors);
+    int* result = primeFactors(number);
 
     printf("Prime Factors of %d are:- \n", number);
-    for(i=0; i <= number_of_prime_factors; i++)
-    	printf("%d ", prime_factors[i]);
+    for (i = 0; result[i] != 0; i++)
+        printf("%d ", result[i]);
     printf("\n");
 
     return (0);
