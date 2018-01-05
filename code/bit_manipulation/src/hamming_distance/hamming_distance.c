@@ -17,7 +17,7 @@ int main(){
 	return 0;
 }
 
-int input(int ar1[]){
+void input(int ar1[]){
 	int i;
 	for(i=0;i<n;i++){
 		scanf("%d",&ar1[i]);
@@ -33,7 +33,7 @@ int count_ham(int ar[]){
 	return count;
 
 }
-int hamming(int ar1[],int ar2[]){
+void hamming(int ar1[],int ar2[]){
 	int i,count;
 	int res[BITS];
 	for(i=0;i<n;i++){
