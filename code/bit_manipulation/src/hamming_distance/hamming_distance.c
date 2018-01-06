@@ -1,10 +1,11 @@
 #include<stdio.h>
 #define BITS 8
 
-int hamming(int ar1[],int ar2[]);
-int input(int ar1[]);
+void hamming(int ar1[],int ar2[]);
+void input(int ar1[]);
 int count_ham(int ar[]);
 int n;
+
 int main(){
 	int ar1[BITS],ar2[BITS];
 	printf("Enter the number of bits(max 8-bits):");
