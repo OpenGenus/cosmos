@@ -15,7 +15,7 @@ int main() {
 
 string atbash(string s) {
 	string newstr = "";
-	for (int i = 0; i < s.length(); i++) {
+	for (size_t i = 0; i < s.length(); i++) {
 		if (!isalpha(s[i]))
 			newstr += s[i];
 		else if(isupper(s[i])) 

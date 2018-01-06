@@ -28,7 +28,7 @@ long long prim(int x)
             continue;
         minimumCost += p.first;
         marked[x] = true;
-        for(int i = 0;i < adj[x].size();++i)
+        for(size_t i = 0;i < adj[x].size();++i)
         {
             y = adj[x][i].second;
             if(marked[y] == false)

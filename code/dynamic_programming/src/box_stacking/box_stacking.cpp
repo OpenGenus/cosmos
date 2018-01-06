@@ -53,9 +53,9 @@ int maxHeight(vector<Box> boxes) {
     int dp[boxes.size()], ans = 0;
     
     // Find the longest increasing sequence of boxes
-    for(int i = 0; i < boxes.size(); ++i) {
+    for(size_t i = 0; i < boxes.size(); ++i) {
         dp[i] = boxes[i].height;
-        for(int j = 0; j < i; ++j)
+        for(size_t j = 0; j < i; ++j)
             if(boxes[i].fitOn(boxes[j]))
                 dp[i] = max(dp[i], boxes[i].height + dp[j]);
         ans = max(ans, dp[i]);

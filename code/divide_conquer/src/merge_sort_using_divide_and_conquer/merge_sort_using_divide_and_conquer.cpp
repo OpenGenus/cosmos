@@ -80,7 +80,7 @@ int merge(int arr[], int temp[], int left, int mid, int right)
 }
 
 /* Driver program to test above functions */
-int main(int argv, char** args)
+int main()
 {
   int arr[] = {1, 20, 6, 4, 5};
   printf(" Number of inversions are %d \n", mergeSort(arr, 5));

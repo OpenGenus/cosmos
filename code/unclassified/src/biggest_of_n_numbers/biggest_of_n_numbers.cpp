@@ -13,6 +13,6 @@ int main()
   sort(vec.begin(), vec.end());
 
   // printing the last element
-  cout<<"biggest number is : "<<vec[vec.size() - 1]
+  cout<<"biggest number is : "<<vec[vec.size() - 1];
   return 0;
 }

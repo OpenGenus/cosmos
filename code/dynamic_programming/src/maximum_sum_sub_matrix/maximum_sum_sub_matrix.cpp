@@ -9,17 +9,16 @@ using namespace std;
 
 //Utility function to apply kadane's algorithm
 //Returns the maximum sub in an array
-int kadane(vector<int> &nums, int &start, int &finish)
+int kadane(vector<int> &nums, int &start)
 {
 	//Initialize variables
 	int sum = 0;
 	int max_sum = INT_MAX;
-	int i;
 
 	int finish = -1;
 	int local_start = 0;
 
-	for(int i = 0; i < nums.size(); i++)
+	for(size_t i = 0; i < nums.size(); i++)
 	{
 		sum += nums[i];
 		if(sum < 0)
@@ -35,7 +34,7 @@ int kadane(vector<int> &nums, int &start, int &finish)
 		}
 	}
 
-	if(finish = -1)
+	if(finish == -1)
 		return max_sum;
 
 	//When all numbers are negative
@@ -43,7 +42,7 @@ int kadane(vector<int> &nums, int &start, int &finish)
 	start = finish = 0;
 
 	// Find maximum element in the array
-	for(int i = 0; i < nums.size(); i++)
+	for(size_t i = 0; i < nums.size(); i++)
 	{
 		if(nums[i] > max_sum)
 		{
@@ -65,7 +64,7 @@ void findMaxSum(vector<vector<int>> &matrix)
 	int maxSum = INT_MIN;
 	int final_left, final_right, final_bottom, final_top;
 
-	int left, right, i, sum, start, finish;
+	int left, right, i, sum, start, finish = 0;
 	vector<int> temp(row,0);
 
 	for(left = 0; left < col; left++)
@@ -77,7 +76,7 @@ void findMaxSum(vector<vector<int>> &matrix)
 				temp[i]+= matrix[i][right];
 			}
 
-			sum = kadane(temp, start, finish, row);
+			sum = kadane(temp, start);
 
 			if(sum > maxSum)
 			{

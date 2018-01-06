@@ -22,7 +22,7 @@ int main(){
 		}
 	}
 	cout<<"The Factorial is: "<<endl;
-	for(int i=0; i<digit.size(); i++){
+	for(size_t i=0; i<digit.size(); i++){
 		cout<<digit[i];
 	}
 	cout<<endl;

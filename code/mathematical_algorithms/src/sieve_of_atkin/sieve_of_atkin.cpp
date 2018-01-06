@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-int SieveOfAtkin(int limit)
+void SieveOfAtkin(int limit)
 {
     // 2 and 3 are known to be prime
     if (limit > 2)  cout << 2 << " ";

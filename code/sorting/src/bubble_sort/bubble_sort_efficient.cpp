@@ -4,18 +4,18 @@ using namespace std;
 
 void bubbleSort(vector<int> &v){
 	
-	for(int i=0; i<v.size()-1; i++){
+	for(size_t i=0; i<v.size()-1; i++){
 	
 		bool isSorted=1;
 	
-		for(int j=0; j<v.size()-1-i; j++){
+		for(size_t j=0; j<v.size()-1-i; j++){
 			if(v[j]>v[j+1]){
 				swap(v[j],v[j+1]);
 				isSorted = 0;
 			}
 		}
 	
-		for(int j=v.size()-2; j>=i; j--){
+		for(size_t j=v.size()-2; j>=i; j--){
 			if(v[j]>v[j+1]){
 				swap(v[j],v[j+1]);
 				isSorted = 0;
@@ -45,7 +45,7 @@ int main(){
 	
 	bubbleSort(v);
 	cout<<"Sorted Elements: "<<endl;
-	for(int i=0; i<v.size(); i++){
+	for(size_t i=0; i<v.size(); i++){
 		cout<<v[i]<<" ";
 	}
 	cout<<endl;

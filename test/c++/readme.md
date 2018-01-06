@@ -7,19 +7,24 @@ Since Catch2 is a large file and is not often changed, we should pre-compile it 
 Sample
 ===
 
+#### Source file
 ```
 // sample.cpp
 bool isEqual(int a, int b) {
    return a == b;
 }
 
-// test-sample.cpp
+// test_sample.cpp
 #include "catch.hpp"
 #include "sample.cpp"
 TEST_CASE("just sample", "[sample]") {
     REQUIRE(isEqual(1, 0) == false);
 }
 ```
+
+#### Compile with g++-7
+`g++-7 catch_pch.o test_sample.cpp`
+
 
 Convenient tool
 ===

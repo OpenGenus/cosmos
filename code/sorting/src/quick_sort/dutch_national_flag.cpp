@@ -40,7 +40,7 @@ void swap(int &a, int &b)
 
 void printarr(vector<int> &v)
 {
-	for (int i = 0; i < v.size(); ++i)
+	for (size_t i = 0; i < v.size(); ++i)
 		cout << v[i] << " ";
 	cout << endl;
 }
@@ -48,7 +48,7 @@ void printarr(vector<int> &v)
 
 void flagFill(vector<int> &v) 
 {
-	for (int i = 0; i < v.size(); ++i) 
+	for (size_t i = 0; i < v.size(); ++i) 
 		v[i] = rand() % 3;  
 }
 
@@ -56,7 +56,6 @@ void flagFill(vector<int> &v)
 int main()
 {
 	int size = 10;
-	int maxRand = 10;
 	cout << "Input test array size: ";
 	cin >> size;
 	vector<int> v(size);

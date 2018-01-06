@@ -1,13 +1,15 @@
 // Part of Cosmos by OpenGenus Foundation
 #include <iostream>
-using namespace std;
+#include <string>
 
-const string alphabets = "abcdefghijklmnopqrstuvwxyz";
+const std::string alphabets = "abcdefghijklmnopqrstuvwxyz";
 
 void 
-panLipogramChecker(string phrase)
+panLipogramChecker(std::string phrase)
 {
-
+    using std::cout;
+    using std::endl;
+    
     for(unsigned int i = 0; i < phrase.length(); i++)
     {
         phrase[i] = tolower(phrase[i]);
@@ -29,11 +31,10 @@ panLipogramChecker(string phrase)
         cout<<"Pangrammatic Lipogram"<<endl;
 }
 
-
 int 
 main()
 {
-    string str = "The quick brown fox jumped over the lazy dog";
+    std::string str = "The quick brown fox jumped over the lazy dog";
     panLipogramChecker(str);
     
     str = "The quick brown fox jumps over the lazy dog";

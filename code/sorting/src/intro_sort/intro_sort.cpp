@@ -13,7 +13,7 @@ bool _isSorted(int a[], int end);
 
 void introsort_r(int a[], int first, int last, int depth){
   while(last - first > 0 ) {
-		if(depth=0)
+		if(depth== 0)
 			_heapsort(&a[first], first,  last-first+1 );
 		else {
 			int pivot;

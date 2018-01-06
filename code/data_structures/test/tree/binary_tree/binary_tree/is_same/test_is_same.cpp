@@ -4,10 +4,10 @@
 #include <memory>
 #include <functional>
 #include <utility>
-#include "catch.hpp"
-#include "tree_comparer.cpp"
-#include "../tree_serializer/tree_serializer.cpp"
-#include "../tree_node/tree_node.cpp"
+#include "../../../../../../../test/c++/catch.hpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/is_same/is_same.cpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/serializer/serializer.cpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/node/node.cpp"
 
 TEST_CASE("check two tree is same", "[isSameTree]") {
     TreeSerializer serializer;

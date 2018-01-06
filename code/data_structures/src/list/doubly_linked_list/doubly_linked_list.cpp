@@ -142,7 +142,6 @@ template <class T> void doubleLinkedList<T>::reversePrint()
 int main()
 {
     doubleLinkedList<int> l;
-    char cont;
     int m,i,p;
     while(true)
     {

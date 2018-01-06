@@ -1,4 +1,4 @@
-#include < iostream >
+#include <iostream>
 using namespace std;
 
 void xor_swap(int * a, int * b)

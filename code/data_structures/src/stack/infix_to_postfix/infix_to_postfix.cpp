@@ -83,7 +83,7 @@ int infixToPostfix(char* exp)
     // Create a stack of capacity equal to expression size
     struct Stack* stack = createStack(strlen(exp));
     if(!stack) // See if stack was created successfully
-        return -1 ;
+        return -1;
 
     for (i = 0, k = -1; exp[i]; ++i)
     {
@@ -121,6 +121,8 @@ int infixToPostfix(char* exp)
 
     exp[++k] = '\0';
     printf( "%sn", exp );
+
+    return 0;
 }
 
 // Driver program to test above functions

@@ -24,7 +24,7 @@ ll prim(int x){
             continue;
         minCost += p.first;
         vis[x] = true;
-        for(int i = 0; i < adj[x].size(); i++){
+        for(size_t i = 0; i < adj[x].size(); i++){
             int y = adj[x][i].second;
             if(!vis[y])
                 S.insert(adj[x][i]);

@@ -69,10 +69,13 @@ int main(){
         adj[b].push_back(a);
     }
     dfs0(1, -1);    // To find bridges  
-    memset(vis, false, sizeof vis);
+
+    for (size_t i = 0; i < MAXN; ++i)
+        vis[i] = false;
+
     dfs1(1);    // To build bridge tree
     for(int i = 1;i <= cmpno; i++){
-        for(int j = 0;j < tree[i].size(); j++)
+        for(size_t j = 0;j < tree[i].size(); j++)
             cout << i << " " << tree[i][j] << endl;
     }
     return 0;

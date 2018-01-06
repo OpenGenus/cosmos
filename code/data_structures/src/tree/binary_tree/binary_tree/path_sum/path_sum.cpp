@@ -31,8 +31,8 @@ PathSum<_Ty, _Compare, _TreeNode>::countPathsOfSum(PNode<_Ty> root, _Ty sum)->si
         }
 
         return getPathsOfSum(root, sum).size()
-               + countPathsOfSum(root->left, sum)
-               + countPathsOfSum(root->right, sum);
+               + countPathsOfSum(root->left(), sum)
+               + countPathsOfSum(root->right(), sum);
     }
 }
 
@@ -59,15 +59,15 @@ PathSum<_Ty, _Compare, _TreeNode>::getPathsOfSumUp(PNode<_Ty> root,
     if (root != nullptr)
     {
         auto &curr = prev;
-        curr.push_back(root->val);
+        curr.push_back(root->value());
 
         auto &curr_sum = prev_sum;
-        curr_sum += root->val;
+        curr_sum += root->value();
 
         if (path_type_ == PathType::Whole)
         {
-            if (root->left == nullptr
-                && root->right == nullptr
+            if (root->left() == nullptr
+                && root->right() == nullptr
                 && compare_(curr_sum, sum))
             {
                 res.push_back(curr);
@@ -81,8 +81,8 @@ PathSum<_Ty, _Compare, _TreeNode>::getPathsOfSumUp(PNode<_Ty> root,
             }
         }
 
-        getPathsOfSumUp(root->left, curr, curr_sum, sum, res);
-        getPathsOfSumUp(root->right, curr, curr_sum, sum, res);
+        getPathsOfSumUp(root->left(), curr, curr_sum, sum, res);
+        getPathsOfSumUp(root->right(), curr, curr_sum, sum, res);
     }
 }
 

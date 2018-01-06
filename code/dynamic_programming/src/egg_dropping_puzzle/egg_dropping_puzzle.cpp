@@ -16,7 +16,8 @@ int memo[MAX_EGGS][MAX_FLOORS];
  *  and k floors.
  *  Time complexity: O(n*k^2)
  */
-int eggDrop(int n, int k) {
+int eggDrop(int n, int k)
+{
     
     // base cases
     if(k == 0) return 0; // if there is no floor, no attempt is necessary
@@ -39,9 +40,11 @@ int eggDrop(int n, int k) {
     return memo[n][k] = ans + 1; // store minimum value
 }
 
-int main() {
-    
-    memset(memo, -1, sizeof memo);
+int main()
+{
+    for (int i = 0; i < MAX_EGGS; ++i)
+        for (int j = 0; j < MAX_FLOORS; ++j)
+            memo[i][j] = -1;
 
     cout << eggDrop(2, 100) << '\n';
     cout << eggDrop(10, 5) << '\n';

@@ -1,17 +1,18 @@
 #include <string>
 #include <iostream>
+#include <cmath>
 /* Part of Cosmos by OpenGenus Foundation */
 
 using namespace std;
 #define SIZE 100000 + 1
 
-int P[SIZE * 2];
+size_t P[SIZE * 2];
 
 // Transform S into new string with special characters inserted.
 string convertToNewString(const string &s) {
     string newString = "@";
 
-    for (int i = 0; i < s.size(); i++) {
+    for (size_t i = 0; i < s.size(); i++) {
         newString += "#" + s.substr(i, 1);
     }
 
@@ -21,14 +22,15 @@ string convertToNewString(const string &s) {
 
 string longestPalindromeSubstring(const string &s) {
     string Q = convertToNewString(s);
-    int c = 0, r = 0;                // current center, right limit
+    int c = 0;
+    size_t r = 0;                // current center, right limit
 
-    for (int i = 1; i < Q.size() - 1; i++) {
+    for (size_t i = 1; i < Q.size() - 1; i++) {
         // find the corresponding letter in the palidrome subString
         int iMirror = c - (i - c);
 
         if(r > i) {
-            P[i] = min(r - i, P[iMirror]);
+            P[i] = std::min(r - i, P[iMirror]);
         }
 
         // expanding around center i
@@ -45,10 +47,10 @@ string longestPalindromeSubstring(const string &s) {
 
     // Find the longest palindrome length in p.
 
-    int maxPalindrome = 0;
+    size_t maxPalindrome = 0;
     int centerIndex = 0;
 
-    for (int i = 1; i < Q.size() - 1; i++) {
+    for (size_t i = 1; i < Q.size() - 1; i++) {
 
         if (P[i] > maxPalindrome) {
             maxPalindrome = P[i];

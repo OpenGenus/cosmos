@@ -1,7 +1,7 @@
-#include "catch.hpp"
-#include "../tree_serializer/tree_serializer.cpp"
-#include "../tree_node/tree_node.cpp"
-#include "binary_tree_diameter.cpp"
+#include "../../../../../../../test/c++/catch.hpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/serializer/serializer.cpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/node/node.cpp"
+#include "../../../../../src/tree/binary_tree/binary_tree/diameter/diameter.cpp"
 #include <string>
 
 TEST_CASE("diameter of binary tree")

@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cstring>
 // Part of Cosmos by OpenGenus Foundation
-using namespace std;
 
 char *myStrTok(char *input,char delim){
 
@@ -27,12 +26,13 @@ char *myStrTok(char *input,char delim){
     output[i]='\0'; //for last when delim is not found
     ptr=nullptr;
     return output;
-
 }
 
 
-int main(){
-    char in[]="Hello   this is a string tokenizer!";
+int main()
+{
+    using namespace std;
+    char in[] = "Hello   this is a string tokenizer!";
 
     char *ans=myStrTok(in,' ');
 
@@ -40,7 +40,7 @@ int main(){
         cout<<ans<<endl;
         ans=myStrTok(nullptr,' ');
     }
-    char *arr = "Hello world!";
+    char arr[] = "Hello world!";
     ans=myStrTok(arr, ' ');
     cout<<endl<<ans<<endl;
     ans=myStrTok(nullptr, ' ');

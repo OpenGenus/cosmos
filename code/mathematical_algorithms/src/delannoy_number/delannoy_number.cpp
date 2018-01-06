@@ -11,7 +11,7 @@ int DelannoyGenerator(int n, int m)
 	return d;
 }
 
-int main(int argc, char **argv)
+int main()
 {
 	int m, n, result = 0;
 	

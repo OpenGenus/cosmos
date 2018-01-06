@@ -17,7 +17,7 @@ int buildMatchingMachine(string arr[], int k)
         const string &word = arr[i];
         int currentState = 0;
  
-        for (int j = 0; j < word.size(); ++j)
+        for (size_t j = 0; j < word.size(); ++j)
         {
             int ch = word[j] - 'a';
  
@@ -85,7 +85,7 @@ void searchWords(string arr[], int k, string text)
     buildMatchingMachine(arr, k);
  
     int currentState = 0;
-    for (int i = 0; i < text.size(); ++i)
+    for (size_t i = 0; i < text.size(); ++i)
     {
         currentState = findNextState(currentState, text[i]);
         if (out[currentState] == 0)

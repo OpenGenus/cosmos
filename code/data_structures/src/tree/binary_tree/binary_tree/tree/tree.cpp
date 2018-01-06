@@ -83,6 +83,6 @@ int main()
 
     cout<<"\nPostorder traversal: ";
     postorder(root);
-    cout>>endl;
+    cout<<endl;
     return 0;
 }

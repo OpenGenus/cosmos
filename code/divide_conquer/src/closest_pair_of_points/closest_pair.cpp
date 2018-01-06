@@ -35,8 +35,8 @@ double euclideanDistance(point a, point b) {
 	return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
-double bruteMin(vector<point> &pointsByX, ll low, ll high) {
-	ll i,j;
+double bruteMin(vector<point> &pointsByX, size_t low, size_t high) {
+	size_t i,j;
 	double dist,bestDistance = DBL_MAX;
 	for(i=low; i<=high; i++) {
 		for(j=i+1; j<=high; j++) {
@@ -54,15 +54,15 @@ double bruteMin(vector<point> &pointsByX, ll low, ll high) {
 	return bestDistance;
 }
 
-double closestPair(vector<point> &pointsByX, vector<point> &pointsByY, ll low, ll high) {
-	ll i,j,n = high - low + 1;
+double closestPair(vector<point> &pointsByX, vector<point> &pointsByY, size_t low, size_t high) {
+	size_t i,j,n = high - low + 1;
 
     // if number of points <= 3, use brute to find min distance
 	if (n <= 3)	{
 		return bruteMin(pointsByX, low, high);
 	}
 
-	ll mid = low + (high - low)/2;
+	size_t mid = low + (high - low)/2;
 
     // find minimum distance among left half of points recursively
 	double distLeft = closestPair(pointsByX, pointsByY, low, mid);

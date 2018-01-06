@@ -17,7 +17,7 @@ ll power(ll a,ll b,ll p){
 }
 ll stringToInt(string a,ll p){
     ll ans=0;
-    for(int i=0;i<a.length();i++){
+    for(size_t i=0;i<a.length();i++){
         ans = ((ans*10)%p + a[i] - '0')%p;
     }
     return ans;

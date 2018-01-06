@@ -16,12 +16,12 @@ O(2*N), where N is a size of matrix
 
 #include <iostream>
 #include <array>
-#include <math.h>
+#include <cmath>
 
 /*
 Evalutates euclidean norm
 */
-template <unsigned int S>
+template <long unsigned int S>
 double norm(const std::array<double, S> &x, const std::array<double, S> &y)
 {
     double result = 0;
@@ -35,7 +35,7 @@ double norm(const std::array<double, S> &x, const std::array<double, S> &y)
 /*
 Method of Steepest Descent
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::array<double, S> steepestdescent(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b,
     const double e = 0.0001, const double step = 0.1, const unsigned int IterMax = 10000)
 {
@@ -59,7 +59,7 @@ std::array<double, S> steepestdescent(const std::array<std::array<double, S>, S>
 /*
 Overloads operator << to display NxN size array
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::ostream &operator<<(std::ostream &stream, const std::array<std::array<double, S>, S> &A)
 {
     for (std::array<double, S> tmp : A)
@@ -76,7 +76,7 @@ std::ostream &operator<<(std::ostream &stream, const std::array<std::array<doubl
 /*
 Overloads operator << to display Nx1 size array
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::ostream &operator<<(std::ostream &stream, const std::array<double, S> &x)
 {
     for (double i : x)
@@ -89,7 +89,7 @@ std::ostream &operator<<(std::ostream &stream, const std::array<double, S> &x)
 /*
 Multiplication of NxN and Nx1 matrix
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b)
 {
     std::array<double, S> result = {0.0};
@@ -108,7 +108,7 @@ std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, c
 /*
 Adds up two matrix
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::array<double, S> operator+(const std::array<double, S> &x, const std::array<double, S> &y)
 {
     std::array<double, S> result;
@@ -123,7 +123,7 @@ std::array<double, S> operator+(const std::array<double, S> &x, const std::array
 /*
 Subtrack two matrix
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::array<double, S> operator-(const std::array<double, S> &x, const std::array<double, S> &y)
 {
     std::array<double, S> result;
@@ -138,7 +138,7 @@ std::array<double, S> operator-(const std::array<double, S> &x, const std::array
 /*
 Multiplication of matrix and constant value
 */
-template <unsigned int S>
+template <long unsigned int S>
 std::array<double, S> operator*(const double x, const std::array<double, S> &y)
 {
     std::array<double, S> result;
@@ -152,14 +152,14 @@ std::array<double, S> operator*(const double x, const std::array<double, S> &y)
 
 int main()
 {
-    const unsigned int S = 3;
+    const long unsigned int S = 3;
     const std::array<std::array<double, S>, S> A = {1, -1, 1, 1, 1, 0, 1, 2, 0};
     const std::array<double, S> b = {9, 1, -2};
     std::array<double, S> x;
     std::array<double, S> tmp;
 
 
-    std::cout << "Maxtrix A:\n"<< A << '\n';
+    // std::cout << "Maxtrix A:\n"<< A << '\n';
     std::cout << "Vector b:\n" << b << '\n';
     x = steepestdescent(A, b, 0.0000001);
     std::cout << "Result:\n"<< x << '\n';

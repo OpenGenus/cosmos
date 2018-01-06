@@ -19,7 +19,7 @@ int max(int a, int b) {
 typedef struct node {
    int value;
    struct node *left, *right;
-}node;
+} node;
 
 // create a new node
 node *getNewNode(int value) {
@@ -35,11 +35,11 @@ int getHeight(node *root) {
    if (root == NULL)
       return 0;
 
-      // find the height of each subtree
-      int lh = getHeight(root->left);
-      int rh = getHeight(root->right);
+   // find the height of each subtree
+   int lh = getHeight(root->left);
+   int rh = getHeight(root->right);
 
-      return 1 + max(lh,rh);
+   return 1 + max(lh,rh);
 }
 
 // compute tree diameter recursively 

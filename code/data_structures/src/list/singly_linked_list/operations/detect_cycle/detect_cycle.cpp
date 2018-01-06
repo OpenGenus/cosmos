@@ -50,7 +50,7 @@ Node* DetectCycle(Node* head) {
 
     return NULL;
 }
-bool RemoveCycle(Node* head, Node* intersect_Node) {
+void RemoveCycle(Node* head, Node* intersect_Node) {
 
     Node* slow = head;
     Node* prev = NULL;

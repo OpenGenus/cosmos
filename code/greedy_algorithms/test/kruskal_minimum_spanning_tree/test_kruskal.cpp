@@ -1,5 +1,5 @@
-#include "kruskal.cpp"
-#include "union_find.cpp"
+#include "../../src/kruskal_minimum_spanning_tree/kruskal.cpp"
+#include "../../../data_structures/src/tree/multiway_tree/union_find/union_find_dynamic.cpp"
 #include <iostream>
 
 using namespace std;

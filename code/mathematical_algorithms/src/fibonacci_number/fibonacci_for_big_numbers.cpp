@@ -19,7 +19,7 @@ int main() {
         for(auto it=v.begin();it!=v.end();it++) 
             *it*=i;
 
-        for(int j=0;j<v.size();j++){
+        for(size_t j=0;j<v.size();j++){
 
             if(v[j]<10) 
                 continue;

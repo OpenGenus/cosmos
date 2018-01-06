@@ -35,7 +35,7 @@ void findUnique2(int *a,int n){
 
 int main(){
     
-    int n,i;
+    int n;
     int a[] = {1,3,5,6,3,2,1,2};
     n = sizeof(a)/sizeof(int);
     findUnique2(a,n);

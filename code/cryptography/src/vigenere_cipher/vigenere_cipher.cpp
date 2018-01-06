@@ -9,7 +9,7 @@ class Vigenere
 
         Vigenere(string key)
         {
-            for (int i = 0; i < key.size(); ++i)
+            for (size_t i = 0; i < key.size(); ++i)
             {
                 if (key[i] >= 'A' && key[i] <= 'Z')
                     this->key += key[i];
@@ -22,7 +22,7 @@ class Vigenere
         {
             string out;
 
-            for (int i = 0, j = 0; i < text.length(); ++i)
+            for (size_t i = 0, j = 0; i < text.length(); ++i)
             {
                 char c = text[i];
 
@@ -42,7 +42,7 @@ class Vigenere
         {
             string out;
 
-            for (int i = 0, j = 0; i < text.length(); ++i)
+            for (size_t i = 0, j = 0; i < text.length(); ++i)
             {
                 char c = text[i];
 

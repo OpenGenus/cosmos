@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-int main(int argc, const char * argv[]) {
+int main() {
     
     // criteria
     bool has_upper_letter = false;
@@ -17,8 +17,6 @@ int main(int argc, const char * argv[]) {
     bool has_digits_letter = false;
     bool has_approved_length = false;
     bool storng_password = false;
-    
-    const int MIN_LENGTH = 8;
     
     // password input
     string input_password = "XmkA78Ji";
@@ -29,7 +27,7 @@ int main(int argc, const char * argv[]) {
     
     if(has_approved_length){
         
-        for (int i = 0; i < input_password.length(); i++) {
+        for (size_t i = 0; i < input_password.length(); i++) {
             
             if(isupper(input_password[i]) && has_upper_letter == false){
                 has_upper_letter = true;

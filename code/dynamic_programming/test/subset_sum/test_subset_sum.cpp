@@ -6,7 +6,7 @@
 #include <iostream>
 #include <list>
 #include <cassert>
-#include "subset_sum.cpp"
+#include "../../src/subset_sum/subset_sum.cpp"
 
 int
 main()
