@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <time.h>
-#include <SDL/SDL.h>
+#include <sdl/SDL.h>
 #include "helpers.h"
 
 // -------------------------------------------------------------------- //
