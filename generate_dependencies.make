@@ -2,7 +2,6 @@
 .PHONY: all generate_dependency append_command
 
 all: generate_dependency append_command;
-
 G++FLAGS = -Wall
 
 
@@ -25,9 +24,15 @@ cpp_sources = $(call FIND-CPP-SOURCES)
 # only contains one target:prerequisites in each file.
 # e.g. %.o: %.cpp other.cpp\n
 GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														 $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));)
+														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
+															  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  echo "";)
 GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														 $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));)
+														  $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
+														  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+													   	  echo "";)
 
 
 ##############################################
@@ -35,9 +40,14 @@ GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo $(CXX) -MM $(call
 ##############################################
 
 generate_dependency:
+	@echo "##############################\n\
+		 \r# generate_dependency start. #\n\
+		 \r##############################"
 	$(call GENERATE-SOURCE-DEPENDENCIES)
 	$(call GENERATE-TEST-DEPENDENCIES)
-	@echo "generate_dependency done."
+	@echo "############################\n\
+		 \r# generate_dependency end. #\n\
+		 \r############################"
 
 
 cpp_all_dependencies = $(shell find -name '*.d' | sed 's: :^^^^^^^^^^:g')
@@ -45,9 +55,15 @@ cpp_test_dependencies = $(call FIND-CPP-TEST-DEPENDENCIES)
 cpp_source_dependencies = $(call FIND-CPP-SOURCE-DEPENDENCIES)
 
 APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
-															 echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
+															 	   echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
+															 	   echo "cat $(call RECOVER-NAME,$(file))";\
+															 	   cat $(call RECOVER-NAME,$(file));\
+															   	   echo "";)
 APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
-															   echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
+															   echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
+															   echo "cat $(call RECOVER-NAME,$(file))";\
+															   cat $(call RECOVER-NAME,$(file));\
+															   echo "";)
 
 
 ############################
@@ -55,6 +71,11 @@ APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '$(CXX) -o $
 ############################
 
 append_command:
+	@echo "#########################\n\
+		 \r# append_command start. #\n\
+		 \r#########################"
 	$(call APPEND-SOURCE-COMMAND)
 	$(call APPEND-TEST-COMMAND)
-	@echo "append_command done."
+	@echo "########################\n\
+		 \r# append_command done. #\n\
+		 \r########################"
