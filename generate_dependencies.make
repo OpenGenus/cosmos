@@ -7,6 +7,7 @@ G++FLAGS = -Wall
 
 # warning: the '^^^^^^^^^^' cannot be used in file-name
 RECOVER-NAME = $(subst ^^^^^^^^^^,\ ,$(strip $1))
+RECOVER-NAME2 = $(subst ^^^^^^^^^^,\\\ ,$(strip $1))
 CONVERT-CPP-TO-DEPENDENCY-NAME = $(subst .cpp,.d,$(1))
 CONVERT-DEPENDENCY-TO-CPP-NAME = $(subst .d,.cpp,$(1))
 FIND-CPP-TESTS = $(shell find -name 'test_*.cpp' | sed 's: :^^^^^^^^^^:g')
@@ -19,19 +20,29 @@ cpp_all_files = $(shell find -name '*.cpp' | sed 's: :^^^^^^^^^^:g')
 cpp_tests = $(call FIND-CPP-TESTS)
 cpp_sources = $(call FIND-CPP-SOURCES)
 
+# the var i is used for prevent if has same target name
+ins = $(eval i=$(shell echo $$(($(i)+1))))
 
 # get dependencies of all files,
 # only contains one target:prerequisites in each file.
 # e.g. %.o: %.cpp other.cpp\n
-GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 															  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
 															  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-															  echo "";)
-GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														  $(CXX) -MM $(call RECOVER-NAME,$(file)) > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  printf $(i)$(call RECOVER-NAME2,$(subst .cpp,.o,$(file)))" " >> dependencies_list;\
+															  echo $(call ins);\
+														   	  echo "";)
+GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
 														  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+														  printf $(i)$(call RECOVER-NAME2,$(subst .cpp,.o,$(file)))" " >> dependencies_list;\
+														  echo $(call ins);\
 													   	  echo "";)
 
 
@@ -43,6 +54,8 @@ generate_dependency:
 	@echo "##############################\n\
 		 \r# generate_dependency start. #\n\
 		 \r##############################"
+	# clear list
+	@printf "" > dependencies_list
 	$(call GENERATE-SOURCE-DEPENDENCIES)
 	$(call GENERATE-TEST-DEPENDENCIES)
 	@echo "############################\n\
