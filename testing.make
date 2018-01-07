@@ -14,5 +14,5 @@ all: $(files_o);
 # include dependent targets
 ###########################
 
-dependencies = $(shell find *.d | sed 's: :\\ :g')
+dependencies = $(shell find -name '*.d' | sed 's: :\\ :g')
 include $(dependencies)
