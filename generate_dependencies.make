@@ -32,7 +32,7 @@ GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo printf $(i) '
 														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 															  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
 															  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-															  printf $(i)$(call RECOVER-NAME2,$(subst .cpp,.o,$(file)))" " >> dependencies_list;\
+															  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
 															  echo $(call ins);\
 														   	  echo "";)
 GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
@@ -41,7 +41,7 @@ GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $
 														  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
 														  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														  printf $(i)$(call RECOVER-NAME2,$(subst .cpp,.o,$(file)))" " >> dependencies_list;\
+														  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
 														  echo $(call ins);\
 													   	  echo "";)
 
