@@ -4,6 +4,7 @@
  test lists for std::list-like
  */
 
+#define CATCH_CONFIG_MAIN
 #ifndef XOR_LINKED_LIST_TEST_CPP
 #define XOR_LINKED_LIST_TEST_CPP
 

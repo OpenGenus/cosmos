@@ -10,6 +10,7 @@
  3. run
  */
 
+#define CATCH_CONFIG_MAIN
 #ifndef SORT_TEST
 #define SORT_TEST
 #include "../../../test/c++/catch.hpp"
