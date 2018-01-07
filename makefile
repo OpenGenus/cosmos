@@ -1,5 +1,6 @@
 #for C
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra 
+LINKER_FLAGS = -lSDL
 C_SOURCES := $(shell find -name '*.c')
 
 c: $(C_SOURCES)
