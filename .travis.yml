@@ -46,8 +46,7 @@ matrix:
     - os: linux
       language: cpp
       script:
-        make -f generate_dependencies.make
-        make -f testing.make
+        ./build_cpp.sh
       addons:
         apt:
           sources:
