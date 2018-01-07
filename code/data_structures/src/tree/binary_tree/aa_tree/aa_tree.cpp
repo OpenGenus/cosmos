@@ -27,7 +27,7 @@ public:
     typedef _Tp               value_type;
     typedef value_type &      reference;
     typedef value_type const &const_reference;
-    typedef ptrdiff_t         difference_type;
+    typedef std::ptrdiff_t         difference_type;
     typedef size_t            size_type;
     
 protected:
@@ -124,6 +124,7 @@ private:
 #include <functional>
 #include <memory>
 #include <stack>
+#include <cstddef>
 
 template<typename _Derive, typename _Tp, typename _Comp = std::less<_Tp> >
 struct BinaryTreeNode {
@@ -152,7 +153,7 @@ public:
     typedef _Tp               value_type;
     typedef value_type &      reference;
     typedef value_type const &const_reference;
-    typedef ptrdiff_t         difference_type;
+    typedef std::ptrdiff_t         difference_type;
     typedef size_t            size_type;
 
 protected:
