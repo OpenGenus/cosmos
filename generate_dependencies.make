@@ -2,7 +2,7 @@
 .PHONY: all generate_dependency append_command
 
 all: generate_dependency append_command;
-G++FLAGS = -Wall
+G++FLAGS = -Wall -std=c++11
 
 
 # warning: the '^^^^^^^^^^' cannot be used in file-name
