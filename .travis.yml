@@ -42,6 +42,21 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
         
+    #C++ with g++
+    - os: linux
+      language: cpp
+      script:
+        make -f generate_dependencies.make
+        make -f testing.make
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
+        
     #C++ with clang
     - os: linux
       language: cpp
