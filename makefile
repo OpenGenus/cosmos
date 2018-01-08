@@ -1,15 +1,21 @@
- #for C		 #for C
--CFLAGS = -Wall -Wextra		+CFLAGS = -Wall -Wextra 
-+LINKER_FLAGS = -lSDL
- C_SOURCES := $(shell find -name '*.c')		 C_SOURCES := $(shell find -name '*.c')
- 		 
- c: $(C_SOURCES)		 c: $(C_SOURCES)
- 	$(CC) -o $@ $^ $(CFLAGS) 		 	$(CC) -o $@ $^ $(CFLAGS) 
- 		 
- 		 
- #for cpp		 #for cpp
- CXXFLAGS = -Wall -Wextra		 CXXFLAGS = -Wall -Wextra
- CPP_SOURCES := $(shell find -name '*.cpp')		 CPP_SOURCES := $(shell find -name '*.cpp')
- 		 
- cpp: $(CPP_SOURCES)		 cpp: $(CPP_SOURCES)
- 	$(CXX) -o $@ $^ $(CXXFLAGS)  
+#for C
+CFLAGS = -Wall -Wextra -lm
+C_SOURCES := $(shell find -name '*.c')
+
+c: $(C_SOURCES)
+	$(CC) -o $@ $^ $(CFLAGS) 
+
+
+#for cpp
+CXXFLAGS = -Wall
+CPP_SOURCES := $(shell find -name '[^test_]*.cpp')
+CPP_TEST_SOURCES := $(shell find -name 'test_*.cpp')
+CATCH_MAIN_CONFIG_SOURCE = 'test/c++/catch_pch.cpp'
+
+cpp:
+	@echo '---compiling source files---'
+	@$(foreach CPP_SOURCE,$(CPP_SOURCES),echo $(CXX) -c $(CXXFLAGS) $(CPP_SOURCE); \
+											  $(CXX) -c $(CXXFLAGS) $(CPP_SOURCE);)
+	@echo '---compiling test files---'
+	@$(foreach CPP_TEST_SOURCE,$(CPP_TEST_SOURCES),echo $(CXX) $(CXXFLAGS) $(CATCH_MAIN_CONFIG_SOURCE) $(CPP_TEST_SOURCE); \
+														$(CXX) $(CXXFLAGS) $(CATCH_MAIN_CONFIG_SOURCE) $(CPP_TEST_SOURCE);)
