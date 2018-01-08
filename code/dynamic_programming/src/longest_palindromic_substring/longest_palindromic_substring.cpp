@@ -21,13 +21,11 @@ int longestPalSubstr(string str)
         ispal[i][i] = true;
 
     // check for sub-string of length 2.
-    int start = 0;
     for (int i = 0; i < n-1; ++i)
     {
         if (str[i] == str[i+1])
         {
             ispal[i][i+1] = true;
-            start = i;
             maxLength = 2;
         }
     }
@@ -47,7 +45,6 @@ int longestPalSubstr(string str)
 
                 if (k > maxLength)
                 {
-                    start = i;
                     maxLength = k;
                 }
             }

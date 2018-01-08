@@ -42,8 +42,7 @@ void tsp(int city)
 	tsp(ncity);
 }
 
-
-void nearest_n(city)
+void nearest_n(int city)
 {
 	int min, j, i, u;
 	vs[city] = 1;

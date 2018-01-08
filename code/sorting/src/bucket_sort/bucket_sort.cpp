@@ -12,19 +12,19 @@ void bucketSort(vector<float>& arr)
 	vector<float> b[arr.size()];
 	
 	// 2) Put array elements in different buckets
-	for (int i=0; i<arr.size(); i++)
+	for (size_t i=0; i<arr.size(); i++)
 	{
 	    int bi = arr.size()*arr[i]; // Index in bucket
 	    b[bi].push_back(arr[i]);
 	}
 
 	// 3) Sort individual buckets
-	for (int i=0; i<arr.size(); i++) sort(b[i].begin(), b[i].end());
+	for (size_t i=0; i<arr.size(); i++) sort(b[i].begin(), b[i].end());
 
 	// 4) Concatenate all buckets into arr[]
 	int index = 0;
-	for (int i = 0; i < arr.size(); i++)
-		for (int j = 0; j < b[i].size(); j++)
+	for (size_t i = 0; i < arr.size(); i++)
+		for (size_t j = 0; j < b[i].size(); j++)
 		arr[index++] = b[i][j];
 }
 
@@ -35,7 +35,7 @@ int main()
 	bucketSort(arr);
 
 	cout << "Sorted array is \n";
-	for (int i=0; i<arr.size(); i++)
+	for (size_t i=0; i<arr.size(); i++)
 	    cout << arr[i] << " ";
 	return 0;
 }

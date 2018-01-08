@@ -1,9 +1,6 @@
-
-# include <limits.h>
-# include <string.h>
-# include <stdio.h> 
-#include<iostream>
-# define NO_OF_CHARS 256
+#include <iostream>
+#include <cstring>
+#define NO_OF_CHARS 256
 int max(int a, int b)
 {
     return (a > b) ? a : b;
@@ -40,21 +37,22 @@ void search(char *txt, char *pat)
         {
             printf("\n pattern occurs at shift = %d", s);
  
-            s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
+            s += (s + m < n) ? m - badchar[txt[s + m] - char(0)] : 1;
  
         }
  
         else
-            s += max(1, j - badchar[txt[s + j]]);
+            s += max(1, j - badchar[txt[s + j] - char(0)]);
     }
 }
  
 int main()
 {
+    using namespace std;
 	char txt[] = {}, pat[] = {} ;
 	
-    gets(txt);
-    gets(pat)
+    cin >> txt;
+    cin >> pat;
     search(txt, pat);
     return 0;
 }

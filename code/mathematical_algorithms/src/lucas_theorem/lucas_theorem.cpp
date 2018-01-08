@@ -1,7 +1,6 @@
 // A Lucas Theorem based solution to compute nCr % p
 #include <iostream>
-using namespace std;
-
+#include <cmath>
 // Returns nCr % p.  In this Lucas Theorem based program,
 // this function is only called for n < p and r < p.
 int nCrModpDP(int n, int r, int p)
@@ -10,7 +9,8 @@ int nCrModpDP(int n, int r, int p)
     // pascal triangle at the end. And last entry
     // of last row is nCr
     int C[r+1];
-    memset(C, 0, sizeof(C));
+    for (size_t i = 0; i < sizeof(C); ++i)
+        C[i] = 0;
 
     C[0] = 1; // Top row of Pascal Triangle
 
@@ -20,7 +20,7 @@ int nCrModpDP(int n, int r, int p)
     {
         // Fill entries of current row using previous
         // row values
-        for (int j = min(i, r); j > 0; j--)
+        for (int j = std::min(i, r); j > 0; j--)
 
             // nCj = (n-1)Cj + (n-1)C(j-1);
             C[j] = (C[j] + C[j-1])%p;
@@ -51,6 +51,7 @@ int nCrModpLucas(int n, int r, int p)
 // Driver program
 int main()
 {
+    using namespace std;
     int n = 1000, r = 900, p = 13;
     cout << "Value of nCr % p is " << nCrModpLucas(n, r, p);
     return 0;

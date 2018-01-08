@@ -15,7 +15,8 @@ using namespace std;
 long long binomialCoefficient(int n, int k) {
 
     long long C[k+1];
-    memset(C, 0, sizeof C);
+    for (int i = 0; i < k + 1; ++i)
+        C[i] = 0;
     C[0] = 1;
 
     for(int i = 1; i <= n; ++i) {

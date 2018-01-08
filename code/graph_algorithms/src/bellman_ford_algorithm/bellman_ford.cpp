@@ -2,12 +2,16 @@
 #include <map>
 #include <vector>
 #include <utility>
+#include <unordered_map>
+#include <algorithm>
+#include <string>
+#include <climits>
 
-using namespace std;
 int nodes,edges;
 // Path of Cosmos by OpenGenus Foundation
-void path_finding(int source,unordered_map<int,int> parent_map)
+void path_finding(int source, std::unordered_map<int,int> parent_map)
 {
+	using namespace std;
 	string str;
 	while(parent_map[source]!=source)
 	{
@@ -20,17 +24,19 @@ void path_finding(int source,unordered_map<int,int> parent_map)
 	cout<<"Path\n";
 	cout<<str<<endl;
 }
-void print_distance(vector<int> distance)
+void print_distance(std::vector<int> distance)
 {
-	cout<<"Distance of vertex corresponding from source\n";
-	for(int i=0;i<distance.size();i++)
+	using namespace std;
+	cout << "Distance of vertex corresponding from source\n";
+	for(size_t i=0; i < distance.size(); ++i)
 	{
-		cout<<i<<"\t\t"<<distance[i]<<endl;
+		cout << i << "\t\t" << distance[i] << endl;
 	}
 }
-void BellmanFord(vector<pair<int,pair<int,int>> > graph,int source,unordered_map<int,int> &parent_map)
+void BellmanFord(std::vector<std::pair<int, std::pair<int,int>> > graph, int source, std::unordered_map<int,int> &parent_map)
 {
-	vector<int> distance(nodes,INT_MAX);
+	using namespace std;
+	vector<int> distance(nodes, INT_MAX);
 	distance[source]=0;
 // Relax all edges nodes-1 times to get the shortest possible distance
 	for(int i=0;i<nodes;i++)
@@ -64,6 +70,7 @@ void BellmanFord(vector<pair<int,pair<int,int>> > graph,int source,unordered_map
 }
 int main()
 {
+	using namespace std;
 	vector<pair<int,pair<int,int>> > graph;
 	unordered_map<int,int> parent_map;
 	int source,init_path;

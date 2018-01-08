@@ -16,7 +16,7 @@ template<typename _Random_Acccess_Iter>
 void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
  */
 
-#include <vector>
+#include <list>
 #include <iterator>
 
 namespace merge_sort_impl {
@@ -28,44 +28,48 @@ namespace merge_sort_impl {
 
         return it;
     }
+
+    template<typename _Random_Acccess_Iter, typename _Compare>
+    void merge(_Random_Acccess_Iter begin,
+               _Random_Acccess_Iter end,
+               _Compare comp)
+    {
+        using value_type = typename std::iterator_traits<_Random_Acccess_Iter>::value_type;
+        auto end1 = begin;
+        std::advance(end1, std::distance(begin, end) >> 1);
+
+        auto begin1 = begin,
+             begin2 = end1,
+             end2 = end;
+
+        std::list<value_type> tmp{};
+
+        while (begin1 < end1 &&  begin2 < end2)
+            tmp.push_back(comp(*begin1, *begin2) ? *begin1++ : *begin2++);
+        while (begin1 < end1)
+            *--begin2 = *--end1;
+        while (!tmp.empty())
+        {
+            *--begin2 = tmp.back();
+            tmp.pop_back();
+        }
+    }
 }
 
 template<typename _Random_Acccess_Iter, typename _Compare>
 void
 mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp)
 {
-    using value_type = typename std::iterator_traits<_Random_Acccess_Iter>::value_type;
-    using namespace merge_sort_impl;
-    using std::distance;
-    using std::vector;
-
-    if (begin != end)
+    size_t dist = std::distance(begin, end);
+    if (dist > 1)
     {
-        _Random_Acccess_Iter leftMin, leftMax, rightMin, rightMax;
-        auto length = distance(begin, end);
-        vector<value_type> tmp(length);
+        auto mid = begin;
+        std::advance(mid, dist >> 1);
 
-        // bottom-up version
-        for (auto i = 1; i < distance(begin, end); i *= 2)
-        {
-            for (leftMin = begin; leftMin != end; leftMin = rightMax)
-            {
-                rightMin = leftMax = advance(leftMin, i);
-                rightMax = advance(leftMax, i);
+        mergeSort(begin, mid, comp);
+        mergeSort(mid, end, comp);
 
-                // prevent overflow, if length is not 2^n
-                if (rightMax > end)
-                    rightMax = end;
-
-                auto next = 0;
-                while (leftMin < leftMax && rightMin < rightMax)
-                    tmp[next++] = comp(*rightMin, *leftMin) ? *rightMin++ : *leftMin++;
-                while (leftMin < leftMax)
-                    *--rightMin = *--leftMax;
-                while (next > 0)
-                    *--rightMin = tmp[--next];
-            }
-        }
+        merge_sort_impl::merge(begin, end, comp);
     }
 }
 

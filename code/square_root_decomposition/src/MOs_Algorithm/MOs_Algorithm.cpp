@@ -1,8 +1,7 @@
 //Time Complexity : O((n+q)*sqrt(n))
 
 #include <bits/stdc++.h>
-#include<math.h>
-#include<conio.h>
+#include <cmath>
 
 /* Part of Cosmos by OpenGenus Foundation */
 
@@ -88,7 +87,7 @@ int main() {
 	}
 	for(int i=0;i<Q;i++)
 	    printf("%d\n",v[i]);
-        getch();
+
 	return 0;
 	
 }

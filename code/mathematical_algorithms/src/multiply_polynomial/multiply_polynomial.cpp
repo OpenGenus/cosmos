@@ -4,9 +4,8 @@
 // coefficient of x^i in polynomial.
 
 #include <iostream>
+#include <cmath>
 #include <vector>
-
-using namespace std;
 
 const int MAX = 131100;		//2^ceil(log2(N)) where N = Maximum size of Polynomial
 
@@ -70,7 +69,8 @@ template<typename T, typename S> struct FFT {
 		}
 	}
 
-	void DFT(vector<cmplx<S>> &A, bool inverse = false) {
+	void DFT(std::vector<cmplx<S>> &A, bool inverse = false) {
+		using namespace std;
 		for(int i = 0; i < n; ++i)
 			if (rev[i] > i) swap(A[i], A[rev[i]]);
 		for (int s = 1; s <= L; s++) {
@@ -96,7 +96,8 @@ template<typename T, typename S> struct FFT {
 	}
 
 	// c[k] = sum_{i=0}^k a[i] b[k-i]
-	vector<T> multiply(const vector<T> &a, const vector<T> &b) {
+	std::vector<T> multiply(const std::vector<T> &a, const std::vector<T> &b) {
+		using namespace std;
 		L = 0;
 		int sa = a.size(), sb = b.size(), sc = sa + sb - 1;
 		while ((1 << L) < sc) L++;
@@ -116,6 +117,7 @@ template<typename T, typename S> struct FFT {
 };
 
 int main() {
+	using namespace std;
 	vector<int> poly_1(4);		//1 + 3x^2 + 2x^3
 	poly_1[0] = 1;
 	poly_1[1] = 0;
@@ -134,8 +136,8 @@ int main() {
 	FFT<int, double> fft;
 
 	// Product should be 2 + x + 7x^2 + 7x^3 + 5x^4 + 2x^5
-	vector<int> poly_mul = fft.multiply(poly_1, poly_2);
-	for(int i = 0; i < poly_mul.size(); ++i) {
+	std::vector<int> poly_mul = fft.multiply(poly_1, poly_2);
+	for(size_t i = 0; i < poly_mul.size(); ++i) {
 		cout << poly_mul[i] << " ";
 	}
 	cout << "\n";

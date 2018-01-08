@@ -3,15 +3,14 @@
 
 #include <iostream>
 #include <algorithm>
-
-using namespace std;
-
+#include <vector>
+#include <string>
+#include <cmath>
 
 class Alignment {
+	std::string sx, sy, sa, sb;
 
-	string sx, sy, sa, sb;
-
-	vector<vector<int> > A;
+	std::vector<std::vector<int> > A;
 	int sxL, syL;
 	int cost = 0;
 
@@ -35,16 +34,16 @@ class Alignment {
 public:
 
 	//constructor
-	Alignment(string s1, string s2) : sx(s1), sy(s2),
+	Alignment(std::string s1, std::string s2) : sx(s1), sy(s2),
 				sxL(s1.length()), syL(s2.length())
 	{	
 		//allocating size to array needed
-		A.resize(s2.length()+4, vector<int>(s1.length()+4, 0));
+		A.resize(s2.length()+4, std::vector<int>(s1.length()+4, 0));
 	}
 
 	//recurrence
 	int rec(int i, int j) {
-		return min(modC(sx[i-1], sy[j-1]) + A[i-1][j-1], min(delC() + A[i-1][j], insC() + A[i][j-1]));
+		return std::min(modC(sx[i-1], sy[j-1]) + A[i-1][j-1], std::min(delC() + A[i-1][j], insC() + A[i][j-1]));
 		//i-1, j-1 in sx, sy b/c of 0-indexing in string
 	}
 
@@ -120,7 +119,7 @@ public:
 	}
 
 	//returning the alignment
-	pair<string, string> alignst() {
+	std::pair<std::string, std::string> alignst() {
 		//reversing the alignments because we have formed the 
 		//alignments from backward(see: trace_back, i, j started from m, n respectively)
 		reverse(sa.begin(), sa.end());
@@ -133,8 +132,9 @@ public:
 	int kyc() { return cost;}
 };
 
-int main() {
-
+int main()
+{
+	using namespace std;
 
 	//converting sx to sy
 	string sx, sy;
@@ -166,5 +166,5 @@ int main() {
 	string2 -  GCGCAAT-G
 
 	*/
-
+	return 0;
 }

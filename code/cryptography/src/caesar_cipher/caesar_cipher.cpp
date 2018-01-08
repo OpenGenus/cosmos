@@ -10,7 +10,7 @@ string caesarcipher(string text, int s)
     string result = "";
  
     // traverse text
-    for (int i=0;i<text.length();i++)
+    for (size_t i=0;i<text.length();i++)
     {
         //Takes care of spaces
         if(int(text[i])==32)

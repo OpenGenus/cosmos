@@ -6,10 +6,10 @@ using namespace std;
 class minHeap{
     vector<int> v;
 
-    void heapify(int i){
-        int l = 2*i;
-        int r = 2*i + 1;
-        int min = i;
+    void heapify(size_t i){
+        size_t l = 2*i;
+        size_t r = 2*i + 1;
+        size_t min = i;
         if(l < v.size() && v[l] < v[min]){
             min = l;
         }
@@ -43,7 +43,7 @@ public:
         return v[1];
     }
 
-    void extractTop(){
+    void pop(){
 
         int last = v.size()-1;
         swap(v[1],v[last]);

@@ -27,12 +27,12 @@ vector<vec2> inputPolygon2;
 
 bool sat(){
     //project every points onto every axis
-    for (int i = 1; i < inputPolygon1.size(); i++) {
+    for (size_t i = 1; i < inputPolygon1.size(); i++) {
         vec2 axis = inputPolygon1[i] - inputPolygon1[i-1];
         
         double leftMostPolygonA = __FLT_MAX__;
         double rightMostPolygonA = __FLT_MIN__;
-        for (int j = 0; j < inputPolygon1.size(); j++) {
+        for (size_t j = 0; j < inputPolygon1.size(); j++) {
             double d = dot(inputPolygon1[j], axis);
             if(d > rightMostPolygonA)
                 rightMostPolygonA = d;
@@ -42,7 +42,7 @@ bool sat(){
         
         double leftMostPolygonB = __FLT_MAX__;
         double rightMostPolygonB = __FLT_MIN__;
-        for (int j = 0; j < inputPolygon2.size(); j++) {
+        for (size_t j = 0; j < inputPolygon2.size(); j++) {
             double d = dot(inputPolygon2[j], axis);
             if(d > rightMostPolygonB)
                 rightMostPolygonB = d;

@@ -7,8 +7,8 @@
 #ifndef XOR_LINKED_LIST_TEST_CPP
 #define XOR_LINKED_LIST_TEST_CPP
 
-#include "catch.hpp"
-#include "xor_linked_list.cpp"
+#include "../../../../test/c++/catch.hpp"
+#include "../../src/list/xor_linked_list/xor_linked_list.cpp"
 #include <iostream>
 #include <list>
 #include <vector>
@@ -48,7 +48,7 @@ vectorContainer getRandomValueContainer(size_t sz = RandomSize)
     return container;
 }
 
-actualListContainer copyContainerToActualList(const vectorContainer &container)
+actualListContainer copyContainerToList(const vectorContainer &container)
 {
     actualListContainer actual;
     std::for_each(container.begin(), container.end(), [&](int v)

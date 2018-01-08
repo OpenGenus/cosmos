@@ -25,7 +25,7 @@ vector<Point> getConvexHull(vector<Point> points) {
     if (points.size() < 3) return points;
 
     int left = 0;
-    for (int i = 1; i < points.size(); i++) {
+    for (size_t i = 1; i < points.size(); i++) {
         if (points[i].x < points[left].x)
             left = i;
     }
@@ -35,7 +35,7 @@ vector<Point> getConvexHull(vector<Point> points) {
     int tail = left, middle;
     do {
         middle = (tail + 1) % points.size();
-        for (int i = 0; i < points.size(); i++) {
+        for (size_t i = 0; i < points.size(); i++) {
             if (orientation(points[tail], points[i], points[middle]) == -1) {
                 middle = i;
             }
@@ -57,7 +57,7 @@ int main() {
     cin >> N;
     vector<Point> points;
     for(int i = 0; i < N; i++) {
-        int x, y, p;
+        int x, y;
         cin >> x >> y;
         points.push_back(Point(x, y, i+1));
     }
@@ -65,13 +65,13 @@ int main() {
     vector<Point> result = getConvexHull(points);
     result.push_back(result[0]);
     double ans = 0;
-    for(int i = 1; i < result.size(); i++) {
+    for(size_t i = 1; i < result.size(); i++) {
         ans += dist(result[i], result[i-1]);
     }
 
     cout << ans << '\n';
     cout << "Points lying on hull\n";
-    for(int i = 0; i < result.size(); i++) {
+    for(size_t i = 0; i < result.size(); i++) {
         cout << result[i].pos << ' ';
     }
 }

@@ -19,11 +19,13 @@ struct node{
 //Function to create a new node with value d
 node * newnode(int d)
 {
-	node * temp=new node();
+	node *temp=new node();
 	temp->data=d;
 	temp->left=NULL;
 	temp->right=NULL;
 	temp->isThreaded=false;
+
+	return temp;	// the node will not be deleted
 }
 //Function to find the leftmost node of a subtree
 node * leftmost(node * root)

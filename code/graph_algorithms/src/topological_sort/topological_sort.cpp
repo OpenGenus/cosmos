@@ -32,7 +32,7 @@ vector<int> toposort() {
 		// add into toposort result
 		result.push_back(front);
 
-		for(int i = 0; i < adjList[front].size(); i++) {
+		for(size_t i = 0; i < adjList[front].size(); i++) {
 			int neighbor = adjList[front][i];
 			inDegree[neighbor]--;
 
@@ -77,7 +77,7 @@ int main() {
 	vector<int> toposortResult = toposort();
 
 	printf("toposort :");
-	for(int i = 0; i < toposortResult.size(); i++){
+	for(size_t i = 0; i < toposortResult.size(); i++){
 		printf(" %d" ,toposortResult[i]);
 	}
 	printf("\n");

@@ -10,7 +10,7 @@ map<int,int> keyMap;
 void setPermutationOrder(string key)
 {            
     // Add the permutation
-    for(int i=0; i < key.length(); i++)
+    for(size_t i=0; i < key.length(); i++)
     {
         keyMap[key[i]] = i;
     }
@@ -91,7 +91,6 @@ string decrypt(string cipher,string key)
     /* Arrange the matrix column wise according 
     to permutation order by adding into new matrix */
     char decCipher[row][col];
-    map<int,int>::iterator ii=keyMap.begin();
     int k = 0;
     for (int l=0,j; key[l]!='\0'; k++)
     {

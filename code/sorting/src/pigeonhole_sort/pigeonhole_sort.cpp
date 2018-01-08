@@ -9,7 +9,7 @@ void pigeonholeSort(vector<int>& arr)
 {
     // Find minimum and maximum values in arr[]
     int min = arr[0], max = arr[0];
-    for (int i = 1; i < arr.size(); i++)
+    for (size_t i = 1; i < arr.size(); i++)
     {
         if (arr[i] < min)
             min = arr[i];
@@ -25,7 +25,7 @@ void pigeonholeSort(vector<int>& arr)
  
     // Traverse through input array and put every
     // element in its respective hole
-    for (int i = 0; i < arr.size(); i++)
+    for (size_t i = 0; i < arr.size(); i++)
         holes[arr[i]-min].push_back(arr[i]);
  
     // Traverse through all holes one by one. For
@@ -48,7 +48,7 @@ int main()
     pigeonholeSort(arr);
  
     cout << "Sorted order is : ";
-    for (int i = 0; i < arr.size(); i++)
+    for (size_t i = 0; i < arr.size(); i++)
         cout << arr[i] << " ";
     cout << "\n";
     return 0;

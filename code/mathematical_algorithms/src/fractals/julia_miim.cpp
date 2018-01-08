@@ -72,7 +72,7 @@ void inverseStep(double wx,
 }
   
 
-int main(int argc, char* argv[])
+int main()
 {
   double cx, cy; // real and imaginary parts of c parameter
   double wx, wy; // real and imaginary parts of iterated value

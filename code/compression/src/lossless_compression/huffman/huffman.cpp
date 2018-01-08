@@ -81,7 +81,7 @@ private:
     void appendDegree();
 
     // no cover test
-    void buildDictionary(std::string const &input);
+    void buildDictionary();
 
     std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str);
 
@@ -169,7 +169,7 @@ public:
     std::string compression(std::string const &in) {
         calculateFrequency(in);
         buildForest();
-        buildDictionary(in);
+        buildDictionary();
 
         // don't change order on this and next line
         // because stringToHex will calc. binary length
@@ -321,7 +321,7 @@ private:
     }
 
     // no cover test
-    void buildDictionary(std::string const &input) {
+    void buildDictionary() {
         if (tree_.size() == 1)
         {
             std::stack<std::shared_ptr<tree_node_type> > nodes;
@@ -524,4 +524,7 @@ private:
 
         return res;
     }
+
+    // for test
+    friend HuffmanTest;
 };

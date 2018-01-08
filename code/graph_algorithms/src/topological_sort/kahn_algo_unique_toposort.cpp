@@ -10,7 +10,7 @@
 #define pii pair<int,int> 
 #define piii pair<int,pair<int,int> >
 #define vi vector<int>
-#define rep(i,start,n) for(int i=start;i<n;i++)
+#define rep(i,start,n) for(size_t i = start; i < static_cast<size_t>(n); i++)
 #define pb push_back
 #define F first
 #define S second

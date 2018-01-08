@@ -16,14 +16,14 @@ void swap(int &a, int &b)
 
 void printarr(vector<int> &v)
 {
-	for (int i = 0; i < v.size(); ++i)
+	for (size_t i = 0; i < v.size(); ++i)
 		cout << v[i] << " ";
 	cout << endl;
 }
 
 void fill(vector<int> &v, int max)
 {
-	for (int i = 0; i < v.size(); ++i)
+	for (size_t i = 0; i < v.size(); ++i)
 		v[i] = rand() % max + 1;
 }
 

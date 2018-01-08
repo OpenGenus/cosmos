@@ -2,18 +2,18 @@
  Part of Cosmos by OpenGenus Foundation
  */
 
-#include "catch.hpp"
+#include "../../../test/c++/catch.hpp"
 #include <list>
 #include <vector>
 #include <iterator>
 #include <algorithm>
-#include "binary_search.cpp"
-#include "exponential_search.cpp"
-#include "fibonacci_search.cpp"
-#include "interpolation_search.cpp"
-#include "jump_search.cpp"
-#include "linear_search.cpp"
-#include "ternary_search.cpp"
+#include "../src/binary_search/binary_search.cpp"
+#include "../src/exponential_search/exponential_search.cpp"
+#include "../src/fibonacci_search/fibonacci_search.cpp"
+#include "../src/interpolation_search/interpolation_search.cpp"
+#include "../src/jump_search/jump_search.cpp"
+#include "../src/linear_search/linear_search.cpp"
+#include "../src/ternary_search/ternary_search.cpp"
 
 // #define InputIterator
 #define RandomAccessIterator

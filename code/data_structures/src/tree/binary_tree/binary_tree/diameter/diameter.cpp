@@ -27,7 +27,7 @@ diameterRecursive(_TreeNode node, size_t &maximum);
 #include <algorithm>
 #include <memory>
 #include <stack>
-#include "../tree_node/tree_node.cpp"
+#include "../node/node.cpp"
 
 template<typename _TreeNode>
 size_t

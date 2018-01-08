@@ -20,7 +20,7 @@ void encryption(string msg)
   encrypt['8']="---.."; encrypt['9']="----."; encrypt['0']="-----";
 
   string cipher;
-  for(int i=0;i<msg.size();i++)
+  for(size_t i=0;i<msg.size();i++)
   {
   	if(msg[i]!=' ')
    	  cipher = cipher + encrypt[msg[i]] + " ";
