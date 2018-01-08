@@ -58,5 +58,5 @@ matrix:
         
 before_install:
    - apt-get install libsdl
-    - eval "${MATRIX_EVAL}"
+   - eval "${MATRIX_EVAL}"
  
