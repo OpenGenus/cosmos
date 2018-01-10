@@ -307,7 +307,7 @@ void alloc_cels(int*** cels, int*** buffer, int size_x, int size_y)
     }
 }
 
-void free_cels(int** cels, int** buffer, int size_x, int size_y)
+void free_cels(int** cels, int** buffer, int size_x)
 {
     int i = 0;
     while(i < size_x)
