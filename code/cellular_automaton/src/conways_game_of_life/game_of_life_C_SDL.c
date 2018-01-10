@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sdl/SDL.h>
-#include "helpers.h"
+
 
 // -------------------------------------------------------------------- //
 #define RESPAWN_DELAY 25 // Change automata state delay
