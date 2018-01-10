@@ -12,6 +12,7 @@ matrix:
           packages:
             - clang-5.0
             - libsdl1.2-dev
+            - libgraph
       env:
         - MATRIX_EVAL="CC=clang-5.0"
     
@@ -27,6 +28,7 @@ matrix:
           packages:
             - gcc-7
             - libsdl1.2-dev
+            - libgraph
       env:
         - MATRIX_EVAL="CC=gcc-7"
         

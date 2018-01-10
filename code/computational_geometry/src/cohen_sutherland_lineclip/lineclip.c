@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include<graphics.h>
+#include<dos.h>
  
 typedef struct coordinate
 {
@@ -14,7 +16,7 @@ PT setcode(PT p);
 int visibility(PT p1,PT p2);
 PT resetendpt(PT p1,PT p2);
  
-void main()
+int main()
 {
     int gd=DETECT,v,gm;
     PT p1,p2,p3,p4,ptemp;
