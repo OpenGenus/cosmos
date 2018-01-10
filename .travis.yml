@@ -11,8 +11,8 @@ matrix:
             - llvm-toolchain-trusty-5.0
           packages:
             - clang-5.0
-            - libsdl1.2-dev
-            - libgraph
+            - libsdl1.2-dev 
+            - build-essential
       env:
         - MATRIX_EVAL="CC=clang-5.0"
     
@@ -27,8 +27,8 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - gcc-7
-            - libsdl1.2-dev
-            - libgraph
+            - libsdl1.2-dev 
+            - build-essential
       env:
         - MATRIX_EVAL="CC=gcc-7"
         
