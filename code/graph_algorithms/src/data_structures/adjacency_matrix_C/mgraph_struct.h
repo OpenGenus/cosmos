@@ -14,7 +14,7 @@
 typedef int EdgeType;
 
 /* Don't change this, use Node_ID instead of int to refer to nodes */
-typedef int Node_ID
+typedef int Node_ID;
 
 /*
  * A Graph struct using adjacency-matrix representation.
