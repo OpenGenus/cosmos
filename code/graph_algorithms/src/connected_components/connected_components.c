@@ -10,7 +10,7 @@
  */
 
 #include <stdio.h>
-#include "code/graph_algorithms/src/adjacency_lists_graph_representation/adjacency_lists_in_C/lgraph_struct.h
+#include "graph_struct.h"
 
 /* Deep course colors */
 typedef enum
