@@ -114,7 +114,7 @@ int launch_app(SDL_Surface* screen)
         SDL_Flip(screen);
     }
 
-    free_cels(cels, buffer, X_NB_CELLS, Y_NB_CELLS);
+    free_cels(cels, buffer, X_NB_CELLS);
     return EXIT_SUCCESS;
 }
 
