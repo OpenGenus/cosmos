@@ -4,7 +4,7 @@
  * Topological sort based on depth-first search.
  *
  * You will need the data-structure located in 
- * https://github.com/OpenGenus/cosmos/tree/master/code/graph-algorithms/adjacency_lists_graph_representation/adjacency_lists_in_C
+ * https://github.com/OpenGenus/cosmos/tree/master/code/graph_algorithms/src/adjacency_lists_graph_representation/adjacency_lists_in_C
  * to use this algorithm.
  */
 
