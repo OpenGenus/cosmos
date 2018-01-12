@@ -20,6 +20,7 @@
 #include <iterator>
 #include <algorithm>
 #include <exception>
+#include <cstddef>
 
 template<typename _Type>
 class XorLinkedList;
@@ -81,7 +82,7 @@ class ListIter :public std::iterator<std::bidirectional_iterator_tag, _Type>
 {
 public:
     using value_type = _Type;
-    using difference_type = ptrdiff_t;
+    using difference_type = std::ptrdiff_t;
     using pointer = _Type *;
     using reference = _Type &;
     using iterator_category = std::bidirectional_iterator_tag;
@@ -163,7 +164,7 @@ class ListConstIter :public std::iterator<std::bidirectional_iterator_tag, _Type
 {
 public:
     using value_type = _Type;
-    using difference_type = ptrdiff_t;
+    using difference_type = std::ptrdiff_t;
     using pointer = const _Type *;
     using reference = const _Type &;
     using iterator_category = std::bidirectional_iterator_tag;
@@ -256,7 +257,7 @@ private:
 public:
     using value_type = _Type;
     using size_type = size_t;
-    using difference_type = ptrdiff_t;
+    using difference_type = std::ptrdiff_t;
     using pointer = const value_type *;
     using const_pointer = const value_type *;
     using reference = value_type &;

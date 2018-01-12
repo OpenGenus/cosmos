@@ -5,6 +5,7 @@ as it implements unionfind disjoint structure using path-compression and rank he
 */
 
 #include <vector>
+#include <cstddef>
 
 int p[1000000];  //stores parent 
 int rnk[1000000];
@@ -34,7 +35,7 @@ void unionset(int i,int j)  //merge sets with elements i and j
 //note that edgelist can be formed using graph input itself
 bool detectcycle(std::vector<std::pair<int,int> > edgelist) // graph given in edge list representation
 {
-    for(size_t i=0;i<edgelist.size();++i)
+    for(std::size_t i=0;i<edgelist.size();++i)
     {
         std::pair<int,int> u = edgelist[i];
         int a = u.first;

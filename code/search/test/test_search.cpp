@@ -2,6 +2,7 @@
  Part of Cosmos by OpenGenus Foundation
  */
 
+#define CATCH_CONFIG_MAIN
 #include "../../../test/c++/catch.hpp"
 #include <list>
 #include <vector>

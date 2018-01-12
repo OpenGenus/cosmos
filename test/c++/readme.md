@@ -1,6 +1,6 @@
 Catch2
 ===
-Assuming you have the foo function in sample.cpp and want to test it, you should create test-sample.cpp and include sample.cpp, but DON'T re-define CATCH\_CONFIX\_MAIN.
+Assuming you have the foo function in sample.cpp and want to test it, you should create test-sample.cpp and include sample.cpp, and don't forgot that define `#define CATCH\_CONFIX\_MAIN`.
 
 Since Catch2 is a large file and is not often changed, we should pre-compile it to save time.
 
@@ -15,6 +15,7 @@ bool isEqual(int a, int b) {
 }
 
 // test_sample.cpp
+#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "sample.cpp"
 TEST_CASE("just sample", "[sample]") {
@@ -23,14 +24,5 @@ TEST_CASE("just sample", "[sample]") {
 ```
 
 #### Compile with g++-7
-`g++-7 catch_pch.o test_sample.cpp`
+`g++-7 test_sample.cpp`
 
-
-Convenient tool
-===
-You could use build.sh to compile and link your test file :
-
-```
-// The parameters can be multiple files
-sh build.sh sample.sh
-```

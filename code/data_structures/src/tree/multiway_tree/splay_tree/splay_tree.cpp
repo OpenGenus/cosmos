@@ -66,7 +66,7 @@ public:
     using Reference = ValueType &;
     using ConstReference = ValueType const &;
     using SizeType = size_t;
-    using DifferenceType = ptrdiff_t;
+    using DifferenceType = std::ptrdiff_t;
 
     SplayTree() :root_(nullptr), size_(0), compare_(_Compare())
 
@@ -120,6 +120,7 @@ private:
 #include <functional>
 #include <algorithm>
 #include <memory>
+#include <cstddef>
 
 template<typename _Type, class _Derivative>
 class Node
@@ -202,7 +203,7 @@ public:
     using Reference = ValueType &;
     using ConstReference = ValueType const &;
     using SizeType = size_t;
-    using DifferenceType = ptrdiff_t;
+    using DifferenceType = std::ptrdiff_t;
 
     SplayTree() :root_(nullptr), size_(0), compare_(_Compare()) {;}
 

@@ -42,11 +42,39 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
         
+    #C++ with g++
+    - os: linux
+      language: cpp
+      script:
+        ./build_cpp.sh
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
+        
     #C++ with clang
     - os: linux
       language: cpp
       script:
         make cpp
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CXX=clang++-5.0"
+        
+    #C++ with clang
+    - os: linux
+      language: cpp
+      script:
+        ./build_cpp.sh
       addons:
         apt:
           sources:

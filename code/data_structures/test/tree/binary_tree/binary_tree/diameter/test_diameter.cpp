@@ -1,3 +1,4 @@
+#define CATCH_CONFIG_MAIN
 #include "../../../../../../../test/c++/catch.hpp"
 #include "../../../../../src/tree/binary_tree/binary_tree/serializer/serializer.cpp"
 #include "../../../../../src/tree/binary_tree/binary_tree/node/node.cpp"
