@@ -71,7 +71,7 @@ MG_set(M_Graph* graph, Node_ID i, Node_ID j, EdgeType val)
 inline EdgeType
 MG_get(M_Graph* graph, Node_ID i, Node_ID j)
 {
-  return graph->matrix[i][j];
+  return (graph->matrix[i][j]);
 }
 
 /*
@@ -80,5 +80,5 @@ MG_get(M_Graph* graph, Node_ID i, Node_ID j)
 inline size_t
 MG_size(M_Graph* graph)
 {
-  return graph->n;
+  return (graph->n);
 }
