@@ -70,7 +70,8 @@ void nearest_n(int city)
 	sum += a[u][1];
 }
 
-int main()
+int 
+main()
 {
 	int i, j;
 
