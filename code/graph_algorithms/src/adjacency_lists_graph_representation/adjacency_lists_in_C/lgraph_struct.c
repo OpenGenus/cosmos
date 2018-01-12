@@ -192,6 +192,8 @@ Node_addDEdge(LG_Node* srcNode, Node_ID dest_ID)
   sEdgesList_Next(newHead, head);
   sNode_EdgesHead(srcNode, newHead);
   Node_incDegree(srcNode);
+  
+  return (0);
 }
 
 /*
