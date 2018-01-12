@@ -12,7 +12,7 @@ int a[10][10], visited[10], no, cost, sum, vs[10];
 
 void tsp(int city);
 int least(int c);
-void nearest_n(int city)
+void nearest_n(int city);
 
 int main(int argc, char *argv[])
 {
