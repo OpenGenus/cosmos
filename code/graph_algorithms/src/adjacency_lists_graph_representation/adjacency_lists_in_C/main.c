@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "lgraph_struct.h"
 
-void 
+int 
 main()
 {
   L_Graph g;
@@ -37,4 +37,5 @@ main()
   }
 
   freeLGraph(&g);
+  return (0);
 }
