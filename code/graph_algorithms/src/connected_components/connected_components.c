@@ -5,12 +5,12 @@
  * Connected Components on undirected graph based of depth-first search.
  *
  * You will need the data-structure located in 
- * https://github.com/OpenGenus/cosmos/tree/master/code/graph-algorithms/adjacency_lists_graph_representation/adjacency_lists_in_C
+ * https://github.com/OpenGenus/cosmos/tree/master/code/graph_algorithms/src/adjacency_lists_graph_representation/adjacency_lists_in_C
  * to use this algorithm.
  */
 
 #include <stdio.h>
-#include "lgraph_struct.h"
+#include "graph_struct.h"
 
 /* Deep course colors */
 typedef enum
