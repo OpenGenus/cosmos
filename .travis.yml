@@ -62,6 +62,10 @@ matrix:
         
 before_install:
    - eval "${MATRIX_EVAL}"
-   - wget http://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz
-   
+
+before_script:
+   - wget https://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz 
+   - tar -xvf /tmp/libgraph-1.0.2.tar.gz
+   - pushd libgraph-1.0.2  && ./configure --prefix=/usr && make && sudo make install && popd
+
  

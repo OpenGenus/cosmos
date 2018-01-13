@@ -9,7 +9,8 @@
 #include <stdio.h>
 
 int a[10][10], visited[10], no, cost, sum, vs[10];
-int least(int c)
+int 
+least(int c)
 {
 	int i, nc = 999, min = 999, kmin;
 	for(i = 1; i <= no; i++)
@@ -27,7 +28,8 @@ int least(int c)
 	return nc;
 }
 
-void tsp(int city)
+void 
+tsp(int city)
 {
 	int ncity;
 	visited[city] = 1;
@@ -42,7 +44,8 @@ void tsp(int city)
 	tsp(ncity);
 }
 
-void nearest_n(int city)
+void 
+nearest_n(int city)
 {
 	int min, j, i, u;
 	vs[city] = 1;
@@ -70,7 +73,8 @@ void nearest_n(int city)
 	sum += a[u][1];
 }
 
-int main()
+int 
+main()
 {
 	int i, j;
 
