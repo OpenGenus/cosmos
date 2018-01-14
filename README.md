@@ -45,7 +45,7 @@ NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Cod
 You can install B.E.N.J.I. on your laptop by cloning this repository as of first:
 1. `git clone http://github.com/the-ethan-hunt/B.E.N.J.I`
 2. Open your `IPython notebook` to `%run benji.py`. For `Command Prompt` try `python benji.py`. <br><br>
-P.S. We are trying to make B.E.N.J.I. work for MacOS too. B.E.N.J.I. is currently working for `Linux` and `Windows` :tada:
+P.S. B.E.N.J.I. now works for Windows, Linux and Mac OS :tada:
 
 ### B.E.N.J.I working in Linux
 ![Working in Linux](working-benjion-linux.gif) 
