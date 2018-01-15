@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <SDL/SDL.h>
-#include "helpers.h"
+
 
 // -------------------------------------------------------------------- //
 #define RESPAWN_DELAY 25 // Change automata state delay
@@ -54,7 +54,7 @@ void display_one_cel(int cel, int x, int y, SDL_Surface* screen);
 
 // Function used to initialise the two matrices cels & buffer as size_x*size_y matrices.
 void alloc_cels(int*** cels, int*** buffer, int size_x, int size_y);
-void free_cels(int** cels, int** buffer, int size_x, int size_y);
+void free_cels(int** cels, int** buffer, int size_x);
 
 // Helper function that colores one pixel.
 void set_pixel(SDL_Surface* surf, int x, int y, Uint32 color);
@@ -114,7 +114,7 @@ int launch_app(SDL_Surface* screen)
         SDL_Flip(screen);
     }
 
-    free_cels(cels, buffer, X_NB_CELLS, Y_NB_CELLS);
+    free_cels(cels, buffer, X_NB_CELLS);
     return EXIT_SUCCESS;
 }
 
@@ -307,7 +307,7 @@ void alloc_cels(int*** cels, int*** buffer, int size_x, int size_y)
     }
 }
 
-void free_cels(int** cels, int** buffer, int size_x, int size_y)
+void free_cels(int** cels, int** buffer, int size_x)
 {
     int i = 0;
     while(i < size_x)

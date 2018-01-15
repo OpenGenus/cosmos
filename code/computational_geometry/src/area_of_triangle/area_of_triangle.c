@@ -5,7 +5,7 @@ float
 area(float x1, float x2, float y1, float y2,
 	float z1, float z2)
 {
-	return (abs((x1 - y1) * (z2 - y2) - (x2 - y2) * (z1 - y1)) / 2.0);
+	return (fabsf((x1 - y1) * (z2 - y2) - (x2 - y2) * (z1 - y1)) / 2.0);
 }
 
 int 

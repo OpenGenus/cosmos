@@ -39,11 +39,12 @@ int main(){
                           board[(i + height - 1) % height][(j + 1) % width] +
                           board[(i + height - 1) % height][j] +
                           board[(i + height - 1) % height][(j + width - 1) % width];
-                temp[i][j] = temp[i][j] && sum >= 2 && sum <= 3 || sum == 3;
+
+                temp[i][j] = (temp[i][j] && sum >= 2 && sum <= 3) || sum == 3;
             }
         }
         memcpy(board, temp, sizeof(int) * width * height);
-        char garbage = getchar();
+        getchar();
         printf("%s", clear);
     }
     return 0;

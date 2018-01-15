@@ -21,7 +21,7 @@ lonely(int n) {
 }
 
 int 
-main(int argc, char *argv[]) 
+main() 
 {
 	int n=sizeof(a)/sizeof(int);
 	printf("Lonely Integer is %d\n",lonely(n));

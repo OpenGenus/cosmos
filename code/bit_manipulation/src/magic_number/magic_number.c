@@ -4,7 +4,8 @@
 // @param n: the nth number in the sequence to be calculated and returned
 // @param fac: factor level. 
 // @return: an integer where it is the nth number that can be expressed as a power or sum of the factor level
-int magicNumber(int n, int fac)
+int 
+magicNumber(int n, int fac)
 {
     int answer = 0;
     int expo = 1;
@@ -19,7 +20,8 @@ int magicNumber(int n, int fac)
     return answer;
 }
 
-int main(int argc, char *argv[])
+int 
+main()
 {
     int n, f;
     printf("n: \n>> ");
