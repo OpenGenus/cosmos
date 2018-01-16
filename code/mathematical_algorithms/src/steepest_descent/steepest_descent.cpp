@@ -33,6 +33,70 @@ double norm(const std::array<double, S> &x, const std::array<double, S> &y)
 }
 
 /*
+Adds up two matrix
+*/
+template <long unsigned int S>
+std::array<double, S> operator+(const std::array<double, S> &x, const std::array<double, S> &y)
+{
+    std::array<double, S> result;
+
+    for (unsigned int i = 0; i < S; ++i)
+    {
+        result[i] = x[i] + y[i];
+    }
+    return std::move(result);
+}
+
+/*
+Subtrack two matrix
+*/
+template <long unsigned int S>
+std::array<double, S> operator-(const std::array<double, S> &x, const std::array<double, S> &y)
+{
+    std::array<double, S> result;
+
+    for (unsigned int i = 0; i < S; ++i)
+    {
+        result[i] = x[i] - y[i];
+    }
+    return std::move(result);
+}
+
+/*
+Multiplication of matrix and constant value
+*/
+template <long unsigned int S>
+std::array<double, S> operator*(const double x, const std::array<double, S> &y)
+{
+    std::array<double, S> result;
+
+    for (unsigned int i = 0; i < S; ++i)
+    {
+        result[i] = x * y[i];
+    }
+    return std::move(result);
+}
+
+/*
+Multiplication of NxN and Nx1 matrix
+*/
+template <long unsigned int S>
+std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b)
+{
+    std::array<double, S> result = {0.0};
+
+    for (unsigned int i = 0; i < S; ++i)
+    {
+        for (unsigned int j = 0; j < S; ++j)
+        {
+            result[i] += A[i][j] * b[j];
+        }
+    }
+
+    return result;
+}
+
+/*
 Method of Steepest Descent
 */
 template <long unsigned int S>
@@ -84,70 +148,6 @@ std::ostream &operator<<(std::ostream &stream, const std::array<double, S> &x)
         stream << i << '\n';
     }
     return stream;
-}
-
-/*
-Multiplication of NxN and Nx1 matrix
-*/
-template <long unsigned int S>
-std::array<double, S> operator*(const std::array<std::array<double, S>, S> &A, const std::array<double, S> &b)
-{
-    std::array<double, S> result = {0.0};
-
-    for (unsigned int i = 0; i < S; ++i)
-    {
-        for (unsigned int j = 0; j < S; ++j)
-        {
-            result[i] += A[i][j] * b[j];
-        }
-    }
-
-    return result;
-}
-
-/*
-Adds up two matrix
-*/
-template <long unsigned int S>
-std::array<double, S> operator+(const std::array<double, S> &x, const std::array<double, S> &y)
-{
-    std::array<double, S> result;
-
-    for (unsigned int i = 0; i < S; ++i)
-    {
-        result[i] = x[i] + y[i];
-    }
-    return std::move(result);
-}
-
-/*
-Subtrack two matrix
-*/
-template <long unsigned int S>
-std::array<double, S> operator-(const std::array<double, S> &x, const std::array<double, S> &y)
-{
-    std::array<double, S> result;
-
-    for (unsigned int i = 0; i < S; ++i)
-    {
-        result[i] = x[i] - y[i];
-    }
-    return std::move(result);
-}
-
-/*
-Multiplication of matrix and constant value
-*/
-template <long unsigned int S>
-std::array<double, S> operator*(const double x, const std::array<double, S> &y)
-{
-    std::array<double, S> result;
-
-    for (unsigned int i = 0; i < S; ++i)
-    {
-        result[i] = x * y[i];
-    }
-    return std::move(result);
 }
 
 int main()
