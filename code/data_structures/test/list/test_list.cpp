@@ -853,7 +853,7 @@ TEST_CASE("modifiers")
                     randomValue = rand();
                     sz = 0;
 
-                    expectReturnPos = expect.insert(expect.end(), sz, randomValue);
+                    auto expectReturnPos = expect.insert(expect.end(), sz, randomValue);
                     actualReturnPos = actual.insert(actual.end(), sz, randomValue);
 
                     CHECK(expectReturnPos == expect.end());
