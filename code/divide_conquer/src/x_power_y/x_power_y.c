@@ -9,7 +9,7 @@ power(float x, int y)
     float temp = power(x, y / 2);
 
     if (y % 2 == 0)
-        return (temp*temp);
+        return (temp * temp);
 
     else {
         if (y > 0)
