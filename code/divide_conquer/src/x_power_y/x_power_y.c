@@ -3,12 +3,10 @@
 float 
 power(float x, int y)
 {
-    float temp;
-
     if (y == 0)
        return (1);
 
-    temp = power(x, y / 2);
+    float temp = power(x, y / 2);
 
     if (y % 2 == 0)
         return (temp*temp);
@@ -17,7 +15,7 @@ power(float x, int y)
         if (y > 0)
             return (x * temp * temp);
         else
-            return ((temp * temp) / x);
+            return (temp * temp / x);
     }
 }  
  
