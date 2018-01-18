@@ -18,8 +18,17 @@ Use Python3! Check the [current time until deactivation of Python2 here](https:/
 
 Use concise, pythonic, but **readable** code
 
-Variables
----
+## Index
+- [Variables](#variables)
+- [Code Blocks](#code-blocks)
+- [Conditionals](#conditionals)
+- [Functions](#functions)
+- [Classes](#classes)
+- [Constants](#constants)
+- [Additional Information](#additional-information)
+
+## Variables
+
 When creating variables, use lowercase letters throughout the names. When
 creating a variable with more than one word in its name, use an underscore to
 separate the words. There is no need for type declaration in Python.
@@ -44,8 +53,8 @@ amount_of_pies = 200
 our_keyword = 'HelloWorld'
 ```
 
-Code Blocks
----
+## Code Blocks
+
 Use tabs as indents (and remember, in Python, whitespace is important)
 
 **WRONG(1/2)**
@@ -77,8 +86,8 @@ if one==1:
 ```
 
 
-Conditionals
----
+## Conditionals
+
 Don't use parentheses unless necessary
 
 **WRONG**
@@ -108,8 +117,8 @@ if b:
 ```
 
 
-Functions
----
+## Functions
+
 Function names should be lowercase, with words separated by underscores as necessary
 
 **WRONG**
@@ -130,8 +139,8 @@ def right_func(*args):
   pass
 ```
 
-Classes
----
+## Classes
+
 - Class names should use upper camel case
 - Always use *self* for the first argument to instance methods
 
@@ -149,8 +158,8 @@ class RightClassName(object):
         pass
 ```
 
-Constants
----
+## Constants
+
 Constant variable names should be all uppercase, with words separated by underscores
 
 **WRONG**
@@ -163,7 +172,7 @@ max_length, total
 MAX_LENGTH, TOTAL
 ```
 
-## Additional information:
+## Additional Information
 <a href='https://www.python.org/dev/peps/pep-0008/'>PEP 8 -- Style Guide for Python Code</a>
 PEP is Python Enhancement Proposal.
 

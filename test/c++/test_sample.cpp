@@ -1,3 +1,4 @@
+#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
 // this function should be stored in code folder

@@ -69,27 +69,103 @@ public:
 
 ```C++
 // n <= 100 columns
-bool operator==(container<T,Allocator> x, container<T,Allocator> y);
+bool operator==(Container<Type, Allocator> x, Container<T, Allocator> y);
 
 bool
-operator==(container<T,Allocator> x, container<T,Allocator> y);
+operator==(Container<Type, Allocator> x, Container<T, Allocator> y);
 
-template<class T, class Allocator>
-bool operator==(container<T,Allocator> x, container<T,Allocator> y);
+template<class OtherType, class OtherAllocator>
+bool operator==(Container<OtherType, OtherAllocator> x, Container<OtherType, OtherAllocator> y);
 
-template<class T, class Allocator>
+template<class OtherType, class OtherAllocator>
 bool
-operator==(container<T,Allocator> x, container<T,Allocator> y);
+operator==(Container<OtherType, OtherAllocator> x, Container<OtherType, OtherAllocator> y);
 
 // n > 100 columns
-void cloneTwo(const container<T,Allocator>& x,
-              const container<T,Allocator>& y,
-              const container<T,Allocator>& z);
+void cloneTwo(Container<Type, Allocator> foo,
+              Container<Type, Allocator> bar,
+              Container<Type, Allocator> baz);
 
+template<class OtherType, class OtherAllocator>
 void
-cloneTwo(const container<T,Allocator>& x,
-         const container<T,Allocator>& y,
-         const container<T,Allocator>& z);
+cloneTwo(Container<OtherType, OtherAllocator> foo,
+         Container<OtherType, OtherAllocator> bar,
+         Container<OtherType, OtherAllocator> baz);
+```
+
+- The pointers `*` `**` and references `&` `&&` `*&` should be part of the variable/function name (even if variable name is not declared) or qualifier. Add a space between previous types or qualifiers (unless `**`, `&&`, and `*&`).
+
+```C++
+// pointers and references
+int a = 0;
+
+int *pa = &a;
+int *&rpa = pa;
+int **ppa = &pa;
+int &&rr = 0;
+
+bool operator==(int *x, int *y);
+
+bool operator==(int *const *x, int *const *y);
+
+bool operator==(const int **const x, const int **const y);
+
+bool &getReference();
+
+bool *&getPointer();
+
+bool *const getConstPointer();
+
+bool *const &getReferenceOfConstPointer();
+
+// even if variable name is not declared
+bool operator==(int *&, int *&);
+
+bool operator==(int &&, int &&);
+```
+
+- The `const` qualifier should be on the right hand side of its target but to the left of the type.
+
+```C++
+class Dummy
+{   
+    const int value() const;
+
+    void value(const int *const v);
+
+    int *getPointer();
+
+    const int *const *getOtherPointer() const;
+};
+```
+
+- The logical operators should be placed in front of the conditions, if add parenthese is clearer then go ahead.
+```C++
+void foo()
+{
+    bool res = true;
+
+    short i = 1;
+    long sum_short = 1;
+    while (i != 0 && ++i)
+        sum_short += i;
+
+    if (i == 0 && (0 == i))
+        res &= true;
+    else
+        res &= false;
+
+    if ((1 != 0)
+        && (1 == true || 0 == false))
+        res &= true;
+    else
+        res &= false;
+
+    if (res != true
+        || (!(res == true)
+            || (res == false)))
+        cout << "wrong\n";
+}
 ```
 
 ## Spaces

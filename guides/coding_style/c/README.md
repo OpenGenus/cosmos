@@ -5,13 +5,18 @@
 
 C is a general-purpose, procedural computer programming language originally developed between 1969 and 1973.
 
-
 # C Programming Style Guide
 
 This code style is known as Kernel Normal Form (KNF).
 
-Braces
----
+## Index
+- [Braces](#braces)
+- [Indentation](#indentation)
+- [Conditionals](#conditionals)
+- [Functions](#functions)
+- [Comments](#comments)
+
+## Braces
 
 All braces should go on the same line as whatever the braces are delimiting, with the only exception being functions. For if/else statements, braces should only be used as required.
 
@@ -29,8 +34,7 @@ main(int argc, char *argv[])
 }
 ```
 
-Indentation
----
+## Indentation
 
 Indentation is done with a single tab character (Hard Tab). For code split across multiple lines a helper indent of 4 spaces is used.
 
@@ -42,8 +46,7 @@ some_really_long_function(int a, int b, int c, int d,
 	do_something();
 ```
 
-Conditionals
----
+## Conditionals
 
 If, else, for, while, and switch statements should be followed by a space.
 
@@ -73,8 +76,7 @@ default:
 }
 ```
 
-Functions
----
+## Functions
 
 Functions should have the type on a seperate line proceeding the rest of the function definition.
 
@@ -90,8 +92,7 @@ Return statements should have the value wrapped in parenthesis.
 return (0);
 ```
 
-Comments
----
+## Comments
 
 Always use C style comments (`/* */`) and not C++ style comments (`//`). A sample is shown below.
 
