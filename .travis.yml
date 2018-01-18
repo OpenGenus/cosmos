@@ -40,20 +40,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7"
         
-    #C++ with gcc
-    - os: linux
-      language: cpp
-      script:
-        make cpp
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-      env:
-        - MATRIX_EVAL="CXX=g++-7"
-        
     #C++ with g++
     - os: linux
       language: cpp
