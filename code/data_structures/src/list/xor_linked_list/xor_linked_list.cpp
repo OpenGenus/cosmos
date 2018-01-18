@@ -297,12 +297,6 @@ public:
         destruct();
     }
 
-    Self&operator=(const Self &other);
-
-    Self&operator=(Self &&other);
-
-    Self&operator=(std::initializer_list<value_type> ilist);
-
     // element access
     inline reference back();
 
@@ -429,24 +423,6 @@ private:
 
     inline iterator eraseImpl(const_iterator pos);
 };
-
-template<typename _Type>
-auto
-XorLinkedList<_Type>::operator=(const Self &other)->Self &
-{
-}
-
-template<typename _Type>
-auto
-XorLinkedList<_Type>::operator=(Self &&other)->Self &
-{
-}
-
-template<typename _Type>
-auto
-XorLinkedList<_Type>::operator=(std::initializer_list<value_type> ilist)->Self &
-{
-}
 
 // element access
 template<typename _Type>
