@@ -1,24 +1,27 @@
-// Given an array and a sum, returns two numbers from the array that add-up to sum
-// Part of Cosmos by OpenGenus Foundation
-// Author : ABDOUS Kamel
+/*
+ * Given an array and a sum, returns two numbers from the array that add-up to sum.
+ * Part of Cosmos by OpenGenus Foundation.
+ * Author : ABDOUS Kamel
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int max(int a, int b)
+int 
+max(int a, int b)
 {
-	if(a <= b)
-		return b;
+	if (a <= b)
+		return (b);
 
 	else 
-		return a;
+		return (a);
 }
 
-// -------------------------------------- AVL TREE --------------------------------------------------- //
-// This code was taken from cosmos/code/data_structures/avl_tree/AVL_tree.cpp and adapted to work in C //
+/* -------------------------------------- AVL TREE --------------------------------------------------- */
+/* This code was taken from cosmos/code/data_structures/avl_tree/AVL_tree.cpp and adapted to work in C */
 typedef struct AVLNode  
 {
-    int data;
+   	int data;
     struct AVLNode* left;
     struct AVLNode* right;
     int height;
@@ -135,9 +138,10 @@ void deleteTree(AVLNode *root)
     free(root);
 }
 
-// ----------------------------------------END OF AVL TREE ------------------------------------------------ //
+/* ----------------------------------------END OF AVL TREE ------------------------------------------------ */
 
-int twoSum(int array[], int size, int sum, int* a, int* b)
+int 
+twoSum(int array[], int size, int sum, int* a, int* b)
 {
 	int i;
 
@@ -146,32 +150,31 @@ int twoSum(int array[], int size, int sum, int* a, int* b)
     map->height = 0;
     map->left = map->right = NULL;
 
-	for(i = 1; i < size; ++i)
-	{
-		if(AVLFind(map, sum - array[i]))
-		{
+	for (i = 1; i < size; ++i) {
+		if (AVLFind(map, sum - array[i])) {
 			*a = array[i];
 			*b = sum - array[i];
 
 			deleteTree(map);
-			return 0;
+			return (0);
 		}
 
-		else {
+		else
 			map = insertIntoAVL(map, array[i]);
-        }
 	}
 
 	deleteTree(map);
-	return -1;
+	return (-1);
 }
 
-int main()
+int 
+main()
 {
     int a[] = {1, 2, 3, 3, 5, 6};
     int b, c;
 
     twoSum(a, 6, 9, &b, &c);
     printf("%d %d\n",  b, c);
-	return 0;
+	
+	return (0);
 }
