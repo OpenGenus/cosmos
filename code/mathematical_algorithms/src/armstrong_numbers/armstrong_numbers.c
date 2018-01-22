@@ -1,7 +1,8 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 
-// Part of Cosmos by OpenGenus Foundation
-int main()
+int 
+main()
 {
     int number, originalNumber, remainder, result = 0;
 
@@ -10,17 +11,17 @@ int main()
 
     originalNumber = number;
 
-    while (originalNumber != 0)
-    {
-        remainder = originalNumber%10;
-        result += remainder*remainder*remainder;
+    while (originalNumber != 0) {
+        remainder = originalNumber % 10;
+        result += remainder * remainder * remainder;
         originalNumber /= 10;
     }
 
-    if(result == number)
-        printf("%d is an Armstrong number.",number);
+    if (result == number)
+        printf("%d is an Armstrong number.", number);
+    
     else
-        printf("%d is not an Armstrong number.",number);
+        printf("%d is not an Armstrong number.", number);
 
-    return 0;
+    return (0);
 }
