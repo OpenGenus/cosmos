@@ -12,20 +12,20 @@ void
 cycleSort(int arr[], int n)
 {
     int cycle_start;
-    for (cycle_start = 0; cycle_start <= n - 2; cycle_start++) {
+    for (cycle_start = 0; cycle_start <= n - 2; ++cycle_start) {
         int item = arr[cycle_start]; 
         int pos = cycle_start;
 
         int i;
-        for (i = cycle_start + 1; i < n; i++)
+        for (i = cycle_start + 1; i < n; ++i)
             if (arr[i] < item)
-                pos++;
+                ++pos;
 
         if (pos == cycle_start)
             continue;
  
         while (item == arr[pos])
-            pos += 1;
+            ++pos;
  
         if (pos != cycle_start)
             swap(&item, &arr[pos]);
@@ -35,10 +35,10 @@ cycleSort(int arr[], int n)
  
             for (i = cycle_start + 1; i < n; i++)
                 if (arr[i] < item)
-                    pos += 1;
+                    ++pos;
  
             while (item == arr[pos])
-                pos += 1;
+                ++pos;
  
             if (item != arr[pos])
                 swap(&item, &arr[pos]);
@@ -56,13 +56,13 @@ main()
     int arr[n];
     printf("Enter %d Integers:- \n", n);
     int i;
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; ++i)
         scanf("%d", &arr[i]);
 
     cycleSort(arr, n);
     
     printf("Array after Sorting:- \n");
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; ++i)
         printf("%d ", arr[i]);
     printf("\n");
     
