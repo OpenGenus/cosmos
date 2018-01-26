@@ -17,7 +17,7 @@ cd $uncrustify_root_path/build
 cmake ..
 cmake --build .
 
-cd $cosmos_root_path
+cd "$cosmos_root_path/code"
 
 echo
 echo "###############################"
@@ -52,7 +52,7 @@ do
     fi;
 done
 
-cd $cwd
+cd "$cwd"
 
 if [ $error_times != 0 ]; then
     echo "$error_times error(s) generated."
