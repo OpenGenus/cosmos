@@ -1,0 +1,4 @@
+[submodule "third_party/uncrustify"]
+	path = third_party/uncrustify
+	url = https://github.com/uncrustify/uncrustify.git
+	branch = uncrustify-0.66.1
