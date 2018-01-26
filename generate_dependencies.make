@@ -11,13 +11,13 @@ RECOVER-NAME = $(subst ^^^^^^^^^^,\ ,$(strip $1))
 RECOVER-NAME2 = $(subst ^^^^^^^^^^,\\\ ,$(strip $1))
 CONVERT-CPP-TO-DEPENDENCY-NAME = $(subst .cpp,.d,$(1))
 CONVERT-DEPENDENCY-TO-CPP-NAME = $(subst .d,.cpp,$(1))
-FIND-CPP-TESTS = $(shell find -name '$(COSMOS_ROOT_PATH)/code/test_*.cpp' | sed 's: :^^^^^^^^^^:g')
+FIND-CPP-TESTS = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "test_*.cpp" | sed 's: :^^^^^^^^^^:g')
 FIND-CPP-SOURCES = $(filter-out $(cpp_tests),$(cpp_all_files))
-FIND-CPP-TEST-DEPENDENCIES = $(shell find -name '$(COSMOS_ROOT_PATH)/code/test_*.d' | sed 's: :^^^^^^^^^^:g')
+FIND-CPP-TEST-DEPENDENCIES = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "test_*.d" | sed 's: :^^^^^^^^^^:g')
 FIND-CPP-SOURCE-DEPENDENCIES = $(filter-out $(cpp_test_dependencies),$(cpp_all_dependencies))
 
 
-cpp_all_files = $(shell find -name '$(COSMOS_ROOT_PATH)/code/*.cpp' | sed 's: :^^^^^^^^^^:g')
+cpp_all_files = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "*.cpp" | sed 's: :^^^^^^^^^^:g')
 cpp_tests = $(call FIND-CPP-TESTS)
 cpp_sources = $(call FIND-CPP-SOURCES)
 
@@ -64,7 +64,7 @@ generate_dependency:
 		 \r############################"
 
 
-cpp_all_dependencies = $(shell find -name '$(COSMOS_ROOT_PATH)/code/*.d' | sed 's: :^^^^^^^^^^:g')
+cpp_all_dependencies = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "*.d" | sed 's: :^^^^^^^^^^:g')
 cpp_test_dependencies = $(call FIND-CPP-TEST-DEPENDENCIES)
 cpp_source_dependencies = $(call FIND-CPP-SOURCE-DEPENDENCIES)
 

@@ -15,5 +15,5 @@ all: $(files_o);
 ###########################
 
 COSMOS_ROOT_PATH := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-dependencies = $(shell find -name '$(COSMOS_ROOT_PATH)/code/*.d' | sed 's: :\\ :g')
+dependencies = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "*.d" | sed 's: :\\ :g')
 include $(dependencies)
