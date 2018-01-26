@@ -1,10 +1,11 @@
 cwd=$(pwd)
+cosmos_root_path="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 
 error_times=0
 
-uncrustify_root_path='../third_party/uncrustify'
-uncrustify=$uncrustify_root_path/build/uncrustify
-uncrustify_config_path=$uncrustify_root_path/../uncrustify.cfg
+uncrustify_root_path="$cosmos_root_path/third_party/uncrustify"
+uncrustify="$uncrustify_root_path/build/uncrustify"
+uncrustify_config_path="$uncrustify_root_path/../uncrustify.cfg"
 
 echo
 echo "###########################"
@@ -16,7 +17,7 @@ cd $uncrustify_root_path/build
 cmake ..
 cmake --build .
 
-cd $cwd/..
+cd $cosmos_root_path
 
 echo
 echo "###############################"
