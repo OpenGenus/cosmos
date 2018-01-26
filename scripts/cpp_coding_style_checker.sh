@@ -43,11 +43,11 @@ do
 
     if [ "$d" != "" ]; then
         echo "# The \`$cpp_file\` is not passed"
-        echo
-        echo "diff $cpp_file $cpp_file.uncrustify"
-        echo
-        echo "$d"
-        echo
+        # echo
+        # echo "diff $cpp_file $cpp_file.uncrustify"
+        # echo
+        # echo "$d"
+        # echo
         error_times=$(($error_times+1))
     fi;
 done
