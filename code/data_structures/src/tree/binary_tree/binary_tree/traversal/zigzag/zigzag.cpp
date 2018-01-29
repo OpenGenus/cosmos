@@ -7,22 +7,14 @@ class Node
         int info;
         Node* left_child;
         Node* right_child;
-        Node (int info)
-        {
-            this->info = info;
-            left_child = nullptr;
-            right_child = nullptr;
-        }
+        Node (int info) : info{info}, left_child{nullptr}, right_child{nullptr} {}
 };
 
 class BinaryTree
 {
     public:
         Node* root;
-        BinaryTree()
-        {
-            root = nullptr;
-        }
+        BinaryTree() : root{nullptr} {}
         void zigzag_traversal();
 };
 
