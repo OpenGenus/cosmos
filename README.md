@@ -22,7 +22,7 @@ A digital assistant for your device that uses speech-recognition to obey your co
 
 NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Code 2017](https://kwoc.kossiitkgp.in/) :tada:
 
-NOTE #2: I was invited to talk about B.E.N.J.I at the [Open-Source Summit held at IIT Kharagpur](https://kwoc.kossiitkgp.in/summit) on the 21st of January 2018. You can view the slides [here](https://github.com/the-ethan-hunt/B.E.N.J.I./blob/master/OSS_IIT_KGP_Dhruv_Apte.pdf). The video session will be uploaded soon! :tada: 
+NOTE #2: I was invited to talk about B.E.N.J.I at the [Open-Source Summit held at IIT Kharagpur](https://kwoc.kossiitkgp.in/summit) on the 21st of January 2018. You can view the slides [here](https://github.com/the-ethan-hunt/B.E.N.J.I./blob/master/OSS_IIT_KGP_Dhruv_Apte.pdf). The video session is available to watch [here](https://www.youtube.com/watch?v=dydyiqR49KE&list=PLzumvJj1-3nDRq6Le2bFSmbtz0g7CppKb&index=11) :tada: 
 
 ### List of contents
 
