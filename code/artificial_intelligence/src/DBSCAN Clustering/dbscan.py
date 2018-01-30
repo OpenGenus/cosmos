@@ -1,8 +1,4 @@
-# author: choffstein
-# https://github.com/choffstein/dbscan/blob/master/dbscan/dbscan.py
-# revised by Mars
-# -*- coding: utf-8 -*-
-
+# Part of Cosmos by OpenGenus Foundation
 # A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise
 # Martin Ester, Hans-Peter Kriegel, Jörg Sander, Xiaowei Xu
 # dbscan: density based spatial clustering of applications with noise
@@ -36,7 +32,7 @@ def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
         classifications[point_id] = cluster_id
         for seed_id in seeds:
             classifications[seed_id] = cluster_id
-            
+
         while len(seeds) > 0:
             current_point = seeds[0]
             results = _region_query(m, current_point, eps)
@@ -50,20 +46,20 @@ def _expand_cluster(m, classifications, point_id, cluster_id, eps, min_points):
                         classifications[result_point] = cluster_id
             seeds = seeds[1:]
         return True
-        
+
 def dbscan(m, eps, min_points):
     """Implementation of Density Based Spatial Clustering of Applications with Noise
     See https://en.wikipedia.org/wiki/DBSCAN
-    
+
     scikit-learn probably has a better implementation
-    
+
     Uses Euclidean Distance as the measure
-    
+
     Inputs:
     m - A matrix whose columns are feature vectors
     eps - Maximum distance two points can be to be regionally related
     min_points - The minimum number of points to make a cluster
-    
+
     Outputs:
     An array with either a cluster id number or dbscan.NOISE (None) for each
     column vector in m.
@@ -84,7 +80,10 @@ def dbscan(m, eps, min_points):
 #     min_points = 2
 #     assert dbscan(m, eps, min_points) == [1, 1, 1, 2, 2, 2, None]
 
-m = np.matrix('-0.99 -0.98 -0.97 -0.96 -0.95 0.95 0.96 0.97 0.98 0.99; 1.1 1.09 1.08 1.07 1.06 1.06 1.07 1.08 1.09 1.1')
-eps = 1
-min_points = 3
-print(dbscan(m, eps, min_points))
+def main():
+	m = np.matrix('-0.99 -0.98 -0.97 -0.96 -0.95 0.95 0.96 0.97 0.98 0.99; 1.1 1.09 1.08 1.07 1.06 1.06 1.07 1.08 1.09 1.1')
+	eps = 1
+	min_points = 3
+	print(dbscan(m, eps, min_points))
+
+main()
