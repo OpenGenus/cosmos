@@ -514,6 +514,20 @@ private:
 };
 ```
 
+### Member initializer list
+When declaring a constructor, use member initializer list to initialize class members.
+
+```C++
+class Example
+{
+public:
+    Example(int a, int b) : a_{a}, b_{b} { }
+
+private:
+    int a_, b_;
+};
+```
+
 ## Enumerations
 ### enum vs enum class
 When dealing with enumerations, use `enum class`, not `enum` (Unless dealing with unnamed enumerations or C style code).
