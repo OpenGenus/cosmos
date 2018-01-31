@@ -467,7 +467,7 @@ void exampleFunction(int pod, const Example& object, char& modifiableChar)
 ```
 
 ## Classes
-### Order of encapsulation
+### Order of Encapsulation
 When listing members of a class, if possible list them in the order public, private, then protected. If using `using` for aliases, or using base class constructors, then the order can be broken. In this case, if possible, try and list the public interface of the class first.
 Encapsulation labels should be indented to the same level as the class. Add a new line after the end of each label for readability.
 
@@ -491,7 +491,7 @@ protected:
 };
 ```
 
-### Order of member functions
+### Order of Member Functions
 When listing member functions of a class, first list the main constructor, then secondary constructors, and then copy assignment/copy construction/move assignment/move construction functions.
 After this, add the destructor. Then, add a new line, and then list all members of the class.
 
@@ -514,8 +514,8 @@ private:
 };
 ```
 
-### Member initializer list
-When declaring a constructor, use member initializer list to initialize class members.
+### Member Initializer List
+When declaring a constructor, use a member initializer list to initialize class members.
 
 ```C++
 class Example
