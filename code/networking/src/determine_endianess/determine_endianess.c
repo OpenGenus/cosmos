@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
+int 
+main()
 {
 	unsigned int i = 1;
 	char *x = (char*)&i;
@@ -14,5 +15,5 @@ int main(int argc, char const *argv[])
 		printf("Big Endian\n");
 	}
 
-	return 0;
+	return (0);
 }
