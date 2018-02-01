@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
         
         printf("ciphertext: \n");
         
-        for(int i = 0; i < strlen(s); i++)
+        for(int i = 0; i < (int)strlen(s); i++)
         {
             if(isalpha(s[i]))
             {
