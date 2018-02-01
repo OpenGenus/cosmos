@@ -3,7 +3,7 @@
 // Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>
 #include<stdlib.h>
-#include<conio.h>
+
 /* Link list node */
 struct Node
 {
@@ -142,6 +142,6 @@ int main()
 
     printf ("\nUnion list is \n");
     printList (unin);
-    getch();
+    getchar();
     return 0;
 }
