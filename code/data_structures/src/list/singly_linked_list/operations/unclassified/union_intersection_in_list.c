@@ -3,6 +3,7 @@
 // Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 /* Link list node */
 struct Node
