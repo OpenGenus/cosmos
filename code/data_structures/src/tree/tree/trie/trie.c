@@ -7,8 +7,8 @@
 #define ALPHABET_SIZE (26)
 #define INDEX(c) ((int)c - (int)'a')
 #define FREE(p) \
-free(p);    \
-p = NULL;
+    free(p);    \
+    p = NULL;
 
 typedef struct trie_node trie_node_t;
 

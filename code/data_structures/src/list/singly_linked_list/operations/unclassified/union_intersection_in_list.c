@@ -4,8 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 /* Link list node */
-struct 
-Node
+struct Node
 {
     int data;
     struct Node* next;
@@ -13,16 +12,13 @@ Node
 
 /* A utility function to insert a node at the beginning of 
  *   a linked list*/
-void 
-push(struct Node** head_ref, int new_data);
+void push(struct Node** head_ref, int new_data);
 
 /* A utility function to check if given data is present in a list */
-bool 
-isPresent(struct Node *head, int data);
+bool isPresent(struct Node *head, int data);
 
 /* Function to get union of two linked lists head1 and head2 */
-struct 
-Node *getUnion(struct Node *head1, struct Node *head2)
+struct Node *getUnion(struct Node *head1, struct Node *head2)
 {
     struct Node *result = NULL;
     struct Node *t1 = head1, *t2 = head2;
@@ -48,8 +44,7 @@ Node *getUnion(struct Node *head1, struct Node *head2)
 
 /* Function to get intersection of two linked lists
  *  head1 and head2 */
-struct 
-Node *getIntersection(struct Node *head1, 
+struct Node *getIntersection(struct Node *head1, 
                       struct Node *head2)
 {
     struct Node *result = NULL;
