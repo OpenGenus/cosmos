@@ -2,6 +2,7 @@
 
 /**
 * Simple singleton class which could only have one instance
+* Part of Cosmos by OpenGenus Foundation
 */
 class Singleton
 {
