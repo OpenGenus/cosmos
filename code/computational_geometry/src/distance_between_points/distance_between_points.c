@@ -6,12 +6,12 @@ struct Point {
     double y;
 };
 
-double distanceBetweenPoints(Point a, Point b) {
+double distanceBetweenPoints(struct Point a, struct Point b) {
     return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2));
 }
 
 int main() {
-    Point a, b;
+    struct Point a, b;
 
     printf("First point (x y): ");
     scanf("%lg %lg", &a.x, &a.y);
