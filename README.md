@@ -63,7 +63,7 @@ Currently, we have over **700 contributors**
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
-You can contribute by writing `code`, documentation is form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
+You can contribute by writing `code`, documentation in the form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
 
 Additionally, you might want to take a look at this [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
 
