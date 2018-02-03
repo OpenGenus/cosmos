@@ -29,7 +29,8 @@ union semun {
  * [shm_proj] is passed to ftok for shared memory, and [sem_proj] for semaphores.
  * @return 0 on success, -1 on failure.
  */
-int create_monitor(char* ftok_path, int shm_proj, int sem_proj,
+int 
+create_monitor(char* ftok_path, int shm_proj, int sem_proj,
                    int nb_conds, size_t shm_size,  monitor* mtor)
 {
   key_t shm_key = ftok(ftok_path, shm_proj);
@@ -69,7 +70,8 @@ int create_monitor(char* ftok_path, int shm_proj, int sem_proj,
  * [shm_proj] is passed to ftok for shared memory, and [sem_proj] for semaphores.
  * @return 0 on success, -1 on failure.
  */
-int init_monitor(char* ftok_path, int shm_proj, int sem_proj, monitor* mtor)
+int 
+init_monitor(char* ftok_path, int shm_proj, int sem_proj, monitor* mtor)
 {
   key_t shm_key = ftok(ftok_path, shm_proj);
   if (shm_key == -1)
@@ -92,7 +94,8 @@ int init_monitor(char* ftok_path, int shm_proj, int sem_proj, monitor* mtor)
  * Free allocated semaphores and shared memory for the given monitor.
  * @return 0 on success, -1 on failure.
  */
-int free_monitor(monitor* mtor)
+int 
+free_monitor(monitor* mtor)
 {
   int ret = shmctl(mtor->sh_mem, IPC_RMID, NULL);
   ret = semctl(mtor->sems_array, 0, IPC_RMID);
@@ -106,7 +109,8 @@ int free_monitor(monitor* mtor)
  * @return 0 on success, -1 on failure.
  * Failure means that the demand failed, not that the process doesn't enter.
  */
-int enter_monitor(monitor* mtor)
+int 
+enter_monitor(monitor* mtor)
 {
   return (semop(mtor->sems_array, &mutex_down, 1));
 }
@@ -118,7 +122,8 @@ int enter_monitor(monitor* mtor)
  * @return 0 on success, -1 on failure.
  * Failure means that the demand failed, not that the process doesn't enter.
  */
-int exit_monitor(monitor* mtor)
+int 
+exit_monitor(monitor* mtor)
 {
   int nb_sig_wait = semctl(mtor->sems_array, MTOR_SIG_SEM, GETNCNT);
 
@@ -144,7 +149,8 @@ int exit_monitor(monitor* mtor)
  * @return 1 if cond is empty (no process is waiting on it),
  * 0 if not empty, -1 on failure.
  */
-int mtor_empty(monitor* mtor, int cond)
+int 
+mtor_empty(monitor* mtor, int cond)
 {
   return (semctl(mtor->sems_array, EXTRA_SEMS_NB + cond, GETNCNT));
 }
@@ -155,7 +161,8 @@ int mtor_empty(monitor* mtor, int cond)
  * over processes that asked to enter the monitor.
  * @return 0 on success, -1 on failure.
  */
-int mtor_wait(monitor* mtor, int cond)
+int 
+mtor_wait(monitor* mtor, int cond)
 {
   if (exit_monitor(mtor) == -1)
     return (-1);
@@ -170,7 +177,8 @@ int mtor_wait(monitor* mtor, int cond)
  * If any, wake it and block on signal semaphore.
  * @return 0 on success, -1 on failure.
  */
-int mtor_signal(monitor* mtor, int cond)
+int 
+mtor_signal(monitor* mtor, int cond)
 {
   int cond_empty = mtor_empty(mtor, cond);
 
@@ -191,7 +199,8 @@ int mtor_signal(monitor* mtor, int cond)
  * Use this function to attach monitor shared memory.
  * @return Adress of the attached shared memory segment, NULL on failure.
  */
-void* mtor_shmat(monitor* mtor)
+void* 
+mtor_shmat(monitor* mtor)
 {
   return (shmat(mtor->sh_mem, NULL, 0));
 }
@@ -200,7 +209,8 @@ void* mtor_shmat(monitor* mtor)
  * Use this function to detach monitor shared memory.
  * @return 0 on success, -1 on failure.
  */
-int mtor_shmdt(void* shm_ptr)
+int 
+mtor_shmdt(void* shm_ptr)
 {
   return (shmdt(shm_ptr));
 }
