@@ -22,7 +22,8 @@ typedef struct
 
 } shm_mem;
 
-int main()
+int 
+main()
 {
   monitor mtor;
   create_monitor("p", 1, 2, NB_CONDS, sizeof(shm_mem), &mtor);
