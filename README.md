@@ -52,6 +52,9 @@ P.S. B.E.N.J.I. now works for Windows, Linux and Mac OS :tada:
 ### B.E.N.J.I working in Linux
 ![Working in Linux](working-benjion-linux.gif) 
 
+### B.E.N.J.I working on Windows 
+![Working on Windows](working-benji-windows.gif)
+
 ### Contributing
 
 [(Back to top)](#list-of-contents)
