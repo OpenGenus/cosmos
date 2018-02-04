@@ -18,12 +18,11 @@
 
 typedef struct
 {
-  int a;
+  int arrived;
 
 } shm_mem;
 
-int 
-main()
+int main()
 {
   monitor mtor;
   create_monitor("p", 1, 2, NB_CONDS, sizeof(shm_mem), &mtor);
@@ -37,11 +36,15 @@ main()
     sleep(1);
     enter_monitor(&mtor);
 
-    printf("P1 waits for P2.\n");
-    mtor_wait(&mtor, 0);
-
     shm_mem* shm_ptr = mtor_shmat(&mtor);
-    printf("P1 continues, a = %d\n", shm_ptr->a);
+
+    /* Don't wait if P2 arruved */
+    if (!shm_ptr->arrived) {
+      printf("P1 waits for P2.\n");
+      mtor_wait(&mtor, 0);
+    }
+
+    printf("P1 continues, arrived = %d\n", shm_ptr->arrived);
     mtor_shmdt(shm_ptr);
 
     exit_monitor(&mtor);
@@ -54,11 +57,11 @@ main()
     /* init_monitor not necessary, just for the example. */
     init_monitor("p", 1, 2, &mtor);
 
-    sleep(2);
+    sleep(3);
     enter_monitor(&mtor);
 
     shm_mem* shm_ptr = mtor_shmat(&mtor);
-    shm_ptr->a = 1;
+    shm_ptr->arrived = 1;
     mtor_shmdt(shm_ptr);
 
     printf("P2 wakes P1.\n");
