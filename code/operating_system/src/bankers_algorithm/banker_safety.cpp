@@ -1,4 +1,5 @@
-//Banker's Algorithm: Safety Algorithm
+// Part of Cosmos by OpenGenus Foundation.
+// Banker's Algorithm: Safety Algorithm
 
 #include <cstdio>
 
