@@ -1,7 +1,4 @@
 # Part of Cosmos by OpenGenus Foundation
-# A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise
-# Martin Ester, Hans-Peter Kriegel, Jörg Sander, Xiaowei Xu
-# dbscan: density based spatial clustering of applications with noise
 
 import numpy as np
 import math
