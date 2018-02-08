@@ -16,10 +16,13 @@ Download the Windows version of Java from the [Java website](https://www.java.co
 2. Click Properties.
 3. On the left pane select Advanced System Settings.
 4. Select Environment Variables.
-5. Under the System Variables, Select PATH and click edit,
-   and then click New and add path as "C:\ProgramFiles\Java\jdk1.8.0_131\bin" (depending on your installation path),
-   and finally click OK.
-6. Next restart your command prompt and open it and try java -version to confirm system variable setup.
+5. Under the System Variables, Select PATH and click edit.
+6. Then click New.
+7. Then add path as "C:\ProgramFiles\Java\jdk1.8.0_131\bin" (depending on your installation path).
+8. Finally click OK.
+9. Next restart your command prompt and open it and try java -version to confirm system variable setup.
+
+
 
 ---
 
