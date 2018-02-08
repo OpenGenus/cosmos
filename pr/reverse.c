@@ -1,12 +1,12 @@
 #include <stdio.h>
-int main()
+
+int main ()
 {
     int n, reversedNumber = 0, remainder;
-
     printf("Enter an integer: ");
     scanf("%d", &n);
 
-    while(n != 0)
+    while (n != 0)
     {
         remainder = n%10;
         reversedNumber = reversedNumber*10 + remainder;
@@ -17,4 +17,3 @@ int main()
 
     return 0;
 }
-
