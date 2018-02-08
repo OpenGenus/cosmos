@@ -8,7 +8,7 @@ int n,at[],bt[],wt[],tat[];
 float AWT=0; 
 InputStreamReader isr=new InputStreamReader(System.in); 
 BufferedReader br=new BufferedReader(isr); 
-System.out.println(“Enter no of process”); 
+System.out.println(â€œEnter no of processâ€); 
 n=Integer.parseInt(br.readLine()); 
   
 wt=new int[n]; 
@@ -16,19 +16,19 @@ tat=new int[n];
 bt=new int[n];
 at=new int[n];
   
-System.out.println(“Enter Burst time for each process\n”); 
+System.out.println(â€œEnter Burst time for each process\nâ€); 
 for(int i=0;i<n;i++) 
 { 
-System.out.println(“Process[“+(i+1)+"]"); 
+System.out.println(â€œProcess[â€œ+(i+1)+"]"); 
 bt[i]=Integer.parseInt(br.readLine()); 
 } 
-System.out.println(“\n\nEnter Around Time”); 
+System.out.println(â€œ\n\nEnter Around Timeâ€); 
 for(int i=0;i<n;i++) 
 { 
-System.out.println(“Process[”+i+"]"); 
+System.out.println(â€œProcess[â€+i+"]"); 
 at[i]=Integer.parseInt(br.readLine()); 
 } 
-System.out.println(“\n”); 
+System.out.println(â€œ\nâ€); 
 wt[0]=0; 
 for(int i=1;i<n;i++) 
 { 
@@ -40,13 +40,13 @@ for(int i=0;i<n;i++)
 tat[i]=wt[i]+bt[i]; 
 awt=awt+wt[i]; 
 } 
-System.out.println(”  PROCESS\t\tBURST-TIME\tWAITING-TIME\tTURN AROUND-TIME\n“); 
+System.out.println(â€  PROCESS\t\tBURST-TIME\tWAITING-TIME\tTURN AROUND-TIME\nâ€œ); 
 for(int i=0;i<n;i++) 
 {
-System.out.println(”    “+ i + ”\t\t“+bt[i]+”\t“+wt[i]+”\t“+tat[i]);
+System.out.println(â€    â€œ+ i + â€\t\tâ€œ+bt[i]+â€\tâ€œ+wt[i]+â€\tâ€œ+tat[i]);
 } 
 awt=awt/n; 
-System.out.println(“\n”); 
-System.out.println(“Avg waiting time=”+awt+”\n”); 
+System.out.println(â€œ\nâ€); 
+System.out.println(â€œAvg waiting time=â€+awt+â€\nâ€); 
 } 
 } 
