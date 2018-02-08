@@ -26,5 +26,6 @@ In this case, it'll take (|V|^2) time to find all vertices in graph with no pred
 Here, we’ll need O(|E|) time.So, in worst case, it again takes (|V|^2) time for the same.
 
 So, to optimize the algorithm, we slightly modify adjacency list implementation, by adding two lists to store both outgoing & incoming edges,inorder to find nodes with no predecessors. And, hence, we get better performance with time complexity: O(|V| + |E|).
+
 ---
 A large scale collaboration of [OpenGenus](https://github.com/opengenus)
