@@ -1,7 +1,10 @@
 #for C
-CFLAGS = -Wall -Wextra -lm -lgraph
-C_SOURCES := $(shell find -name '*.c')
+CFLAGS=-Wall -Wextra
+sources := $(shell find code/ -name \*.c)
+objects := $(sources:.c=.o)
 
-c: $(C_SOURCES)
-	$(CC) -o $@ $^ $(CFLAGS) 
+c: $(objects)
 
+%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+	$(RM) $@
