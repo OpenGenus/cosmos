@@ -1,4 +1,4 @@
-//C program for implementing Shortest Seek Time First
+// C program for implementing Shortest Seek Time First
 // Disk Scheduling
 
 #include<stdio.h>
