@@ -74,7 +74,7 @@ generate_dependency:
 	@echo "##############################\n\
 		 \r# generate_dependency start. #\n\
 		 \r##############################"
-	# clear list
+# clear list
 	@printf "" > dependencies_list
 	$(call GENERATE-SOURCE-DEPENDENCIES)
 	$(call GENERATE-TEST-DEPENDENCIES)
