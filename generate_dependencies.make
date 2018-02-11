@@ -71,9 +71,9 @@ GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),printf '${i}' > $(call
 ##############################################
 
 generate_dependency:
-	@echo "##############################\n\
-		 \r# generate_dependency start. #\n\
-		 \r##############################"
+	@echo "###############################\n\
+		 \r# generating dependencies ... #\n\
+		 \r###############################"
 # clear list
 	@printf "" > dependencies_list
 	$(call GENERATE-SOURCE-DEPENDENCIES)
@@ -106,9 +106,9 @@ APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '\t$(CXX) -o
 ############################
 
 append_command:
-	@echo "#########################\n\
-		 \r# append_command start. #\n\
-		 \r#########################"
+	@echo "##################################\n\
+		 \r# generating_compile command ... #\n\
+		 \r##################################"
 	$(call APPEND-SOURCE-COMMAND)
 	$(call APPEND-TEST-COMMAND)
 
