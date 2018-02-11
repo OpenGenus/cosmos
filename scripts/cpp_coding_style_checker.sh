@@ -26,9 +26,7 @@ echo "###############################"
 for cpp_file in `find -name '*.cpp'`
 do
     # remove the output file if existed to prevent `uncrustify` is not override it
-    if [ -f "$cpp_file.uncrustify" ]; then
-        rm -f $cpp_file.uncrustify
-    fi;
+    rm -f $cpp_file.uncrustify
 
     $uncrustify -q -c $uncrustify_config_path $cpp_file
     echo $cpp_file
