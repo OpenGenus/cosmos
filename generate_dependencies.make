@@ -44,7 +44,7 @@ ins = $(eval i=$(shell echo $$(($(i)+1))))
 GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 															  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
-															  $(call ins);)
+															  $(call ins))
 
 
 # append gcc script
@@ -63,7 +63,7 @@ GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),printf '${i}' > $(
 GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
-														  $(call ins);)
+														  $(call ins))
 
 
 ##############################################
