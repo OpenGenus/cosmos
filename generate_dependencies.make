@@ -100,8 +100,8 @@ cpp_source_dependencies = $(call FIND-CPP-SOURCE-DEPENDENCIES)
 # 															   echo "";)
 
 # brief
-APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
-APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
+APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
+APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
 
 
 ############################
