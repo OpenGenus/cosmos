@@ -2,6 +2,7 @@ cwd=$(pwd)
 cosmos_root_path="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 
 error_times=0
+tmp=`mktemp tmp.XXXXXXXXXX`
 
 uncrustify_root_path="$cosmos_root_path/third_party/uncrustify"
 uncrustify="$uncrustify_root_path/build/uncrustify"
@@ -14,8 +15,8 @@ echo "###########################"
 rm -rf $uncrustify_root_path/build
 mkdir $uncrustify_root_path/build
 cd $uncrustify_root_path/build
-cmake ..
-cmake --build .
+cmake .. > $tmp
+cmake --build . > $tmp
 
 cd "$cosmos_root_path/code"
 
