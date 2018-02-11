@@ -30,7 +30,6 @@ do
     rm -f $cpp_file.uncrustify
 
     $uncrustify -q -c $uncrustify_config_path $cpp_file
-    echo $cpp_file
 done
 
 echo
