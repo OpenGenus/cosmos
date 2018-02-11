@@ -27,24 +27,43 @@ ins = $(eval i=$(shell echo $$(($(i)+1))))
 # get dependencies of all files,
 # only contains one target:prerequisites in each file.
 # e.g. %.o: %.cpp other.cpp\n
-GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-															  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-															  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+
+# generate dependencies
+# detail
+# GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 															  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 															  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 															  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
+# 															  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 															  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
+# 															  echo $(call ins);\
+# 														   	  echo "";)
+
+# brief
+GENERATE-SOURCE-DEPENDENCIES = @$(foreach file,$(cpp_sources),printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														 	  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-															  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
-															  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 															  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
-															  echo $(call ins);\
-														   	  echo "";)
-GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+															  $(call ins))
+
+
+# append gcc script
+# detail
+# GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														  printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														  echo $(CXX) -MM $(call RECOVER-NAME,$(file)) '>>' $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
+# 														  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
+# 														  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
+# 														  echo $(call ins);\
+# 													   	  echo "";)
+
+# brief
+GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),printf '${i}' > $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  $(CXX) -MM $(call RECOVER-NAME,$(file)) >> $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
-														  echo "cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)))";\
-														  cat $(call RECOVER-NAME,$(call CONVERT-CPP-TO-DEPENDENCY-NAME,$(file)));\
 														  printf $(i)$(notdir $(call RECOVER-NAME2,$(subst .cpp,.o,$(file))))" " >> dependencies_list;\
-														  echo $(call ins);\
-													   	  echo "";)
+														  $(call ins))
 
 
 ##############################################
@@ -52,32 +71,34 @@ GENERATE-TEST-DEPENDENCIES = @$(foreach file,$(cpp_tests),echo printf $(i) '>' $
 ##############################################
 
 generate_dependency:
-	@echo "##############################\n\
-		 \r# generate_dependency start. #\n\
-		 \r##############################"
-	# clear list
+	@echo "\n###############################\n\
+		   \r# generating dependencies ... #\n\
+		   \r###############################"
+# clear list
 	@printf "" > dependencies_list
 	$(call GENERATE-SOURCE-DEPENDENCIES)
 	$(call GENERATE-TEST-DEPENDENCIES)
-	@echo "############################\n\
-		 \r# generate_dependency end. #\n\
-		 \r############################"
 
 
 cpp_all_dependencies = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "*.d" | sed 's: :^^^^^^^^^^:g')
 cpp_test_dependencies = $(call FIND-CPP-TEST-DEPENDENCIES)
 cpp_source_dependencies = $(call FIND-CPP-SOURCE-DEPENDENCIES)
 
-APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
-															 	   echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
-															 	   echo "cat $(call RECOVER-NAME,$(file))";\
-															 	   cat $(call RECOVER-NAME,$(file));\
-															   	   echo "";)
-APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
-															   echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
-															   echo "cat $(call RECOVER-NAME,$(file))";\
-															   cat $(call RECOVER-NAME,$(file));\
-															   echo "";)
+# detail
+# APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
+# 															 	   echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
+# 															 	   echo "cat $(call RECOVER-NAME,$(file))";\
+# 															 	   cat $(call RECOVER-NAME,$(file));\
+# 															   	   echo "";)
+# APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' '>>' $(call RECOVER-NAME,$(file));\
+# 															   echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));\
+# 															   echo "cat $(call RECOVER-NAME,$(file))";\
+# 															   cat $(call RECOVER-NAME,$(file));\
+# 															   echo "";)
+
+# brief
+APPEND-SOURCE-COMMAND = @$(foreach file,$(cpp_source_dependencies),echo '\t$(CXX) -c $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
+APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '\t$(CXX) -o $(G++FLAGS) $(call RECOVER-NAME,$(call CONVERT-DEPENDENCY-TO-CPP-NAME,$(file)))' >> $(call RECOVER-NAME,$(file));)
 
 
 ############################
@@ -85,11 +106,9 @@ APPEND-TEST-COMMAND = @$(foreach file,$(cpp_test_dependencies),echo '$(CXX) -o $
 ############################
 
 append_command:
-	@echo "#########################\n\
-		 \r# append_command start. #\n\
-		 \r#########################"
+	@echo "\n##################################\n\
+		   \r# generating_compile command ... #\n\
+		   \r##################################"
 	$(call APPEND-SOURCE-COMMAND)
 	$(call APPEND-TEST-COMMAND)
-	@echo "########################\n\
-		 \r# append_command done. #\n\
-		 \r########################"
+
