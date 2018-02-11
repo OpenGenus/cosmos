@@ -2,19 +2,23 @@ cwd=$(pwd)
 cosmos_root_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 
 cd "$cosmos_root_path"
-echo "###############################\n\
-    \r# generating dependencies ... #\n\
-    \r###############################"
+echo ""
+echo "###############################"
+echo "# generating dependencies ... #"
+echo "###############################"
 make -f generate_dependencies.make
-echo "########################\n\
-    \r# compiling sources ... #\n\
-    \r########################"
+
+echo ""
+echo "#########################"
+echo "# compiling sources ... #"
+echo "#########################"
 make -f testing.make
 
 cd "$cosmos_root_path/scripts"
-echo "#############################\n\
-    \r# checking coding style ... #\n\
-    \r#############################"
+echo ""
+echo "#############################"
+echo "# checking coding style ... #"
+echo "#############################"
 ./cpp_coding_style_checker.sh || exit 1
 
 cd $cwd
