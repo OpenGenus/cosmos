@@ -57,11 +57,8 @@ generate_dependency:
 		 \r##############################"
 	# clear list
 	@printf "" > dependencies_list
-	$(call GENERATE-SOURCE-DEPENDENCIES)
-	$(call GENERATE-TEST-DEPENDENCIES)
-	@echo "############################\n\
-		 \r# generate_dependency end. #\n\
-		 \r############################"
+	@$(call GENERATE-SOURCE-DEPENDENCIES)
+	@$(call GENERATE-TEST-DEPENDENCIES)
 
 
 cpp_all_dependencies = $(shell find "$(COSMOS_ROOT_PATH)/code/" -name "*.d" | sed 's: :^^^^^^^^^^:g')
@@ -88,8 +85,6 @@ append_command:
 	@echo "#########################\n\
 		 \r# append_command start. #\n\
 		 \r#########################"
-	$(call APPEND-SOURCE-COMMAND)
-	$(call APPEND-TEST-COMMAND)
-	@echo "########################\n\
-		 \r# append_command done. #\n\
-		 \r########################"
+	@$(call APPEND-SOURCE-COMMAND)
+	@$(call APPEND-TEST-COMMAND)
+
