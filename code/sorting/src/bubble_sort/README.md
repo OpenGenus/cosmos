@@ -1,5 +1,5 @@
 # Bubble Sort
-**Bubble Sort** is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. In computer graphics it is popular for its capability to detect a very small error (like swap of just two elements) in almost-sorted arrays and fix it with just linear complexity (2n). For example, it is used in a polygon filling algorithm, where bounding lines are sorted by their x coordinate at a specific scan line (a line parallel to x axis) and with incrementing y their order changes (two elements are swapped) only at intersections of two lines.
+**Bubble Sort** is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. The large values are always sorted first. In computer graphics it is popular for its capability to detect a very small error (like swap of just two elements) in almost-sorted arrays and fix it with just linear complexity (2n). For example, it is used in a polygon filling algorithm, where bounding lines are sorted by their x coordinate at a specific scan line (a line parallel to x axis) and with incrementing y their order changes (two elements are swapped) only at intersections of two lines.
 
 ## Overview
 **First Pass:**
@@ -33,6 +33,9 @@ Now, the array is already sorted, but our algorithm does not know if it is compl
 ## Complexity
 - O(n*n): Occurs when array is reverse sorted, n is the number of elements in the given array. 
 - O(n): Occurs when the array is already sorted, n is the number of elements in the given array.
+
+## Breaking condition
+- The bubble sort algorithm stops when there are no more swaps. We can break the loop by tracking the bubble sort algorithm using a swap flag.
 
 ## Further reading
 [Wikipedia - Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)
