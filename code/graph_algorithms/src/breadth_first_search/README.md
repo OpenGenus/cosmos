@@ -22,5 +22,5 @@ BFS(G,s) //Here G is graph and s is sourcenode.
 * [Python](https://github.com/RN0311/cosmos/blob/master/code/graph_algorithms/src/breadth_first_search/breadth_first_search.py)
 * [Ruby](https://github.com/RN0311/cosmos/blob/master/code/graph_algorithms/src/breadth_first_search/bfs.rb)
 * [Swift](https://github.com/RN0311/cosmos/blob/master/code/graph_algorithms/src/breadth_first_search/breadth_first_search.swift)
-<br >
+
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
