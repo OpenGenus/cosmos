@@ -46,8 +46,8 @@ if __name__ == '__main__':
     l = [choice(range(1, 500)) for i in range(1, 10)]
     print (l)
 
-    for j in l:
-        a.enqueue(j)
+    for i in l:
+        a.enqueue(i)
 
-    for k in range(len(l)):
+    for i in range(len(l)):
         print ('Dequeued:', a.dequeue())
