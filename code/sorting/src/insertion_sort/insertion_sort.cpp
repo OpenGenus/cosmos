@@ -1,49 +1,48 @@
-/*
- Part of Cosmos by OpenGenus Foundation
 
- insertion sort synopsis
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
-
-template<typename _Bidirectional_Iter>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
- */
-
-#include <functional>
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
+// C program for insertion sort
+#include <stdio.h>
+#include <math.h>
+ 
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)
 {
-    if (begin != end)
-    {
-        auto backOfBegin = begin;
-        --backOfBegin;
-
-        auto curr = begin;
-        for (++curr; curr != end; ++curr)
-        {
-            auto pivot = *curr;
-            auto backward = curr;
-            auto nextOfBackward = curr;
-            while (--backward != backOfBegin && compare(pivot, *backward))
-            {
-                *nextOfBackward = *backward;
-                --nextOfBackward;
-            }
-            *nextOfBackward = pivot;
-        }
-    }
+   int i, key, j;
+   for (i = 1; i < n; i++)
+   {
+       key = arr[i];
+       j = i-1;
+ 
+       /* Move elements of arr[0..i-1], that are
+          greater than key, to one position ahead
+          of their current position */
+       while (j >= 0 && arr[j] > key)
+       {
+           arr[j+1] = arr[j];
+           j = j-1;
+       }
+       arr[j+1] = key;
+   }
 }
-
-template<typename _Bidirectional_Iter>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
+ 
+// A utility function to print an array of size n
+void printArray(int arr[], int n)
 {
-    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
-
-    insertionSort(begin, end, std::less<value_type>());
+   int i;
+   for (i=0; i < n; i++)
+       printf("%d ", arr[i]);
+   printf("\n");
+}
+ 
+ 
+ 
+/* Driver program to test insertion sort */
+int main()
+{
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr)/sizeof(arr[0]);
+ 
+    insertionSort(arr, n);
+    printArray(arr, n);
+ 
+    return 0;
 }
