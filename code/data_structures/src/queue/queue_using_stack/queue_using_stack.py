@@ -28,14 +28,14 @@ class Queue:
 
     def dequeue(self):
         # pop all elements in s1 onto s2
-        while not self.s1.isEmpty():
+        while not self.s1.is_empty():
             self.s2.push(self.s1.pop())
 
         # pop all elements of s1
         return_value = self.s2.pop()
 
         # re pop all elements of s2 onto s1
-        while not self.s2.isEmpty():
+        while not self.s2.is_empty():
             self.s1.push(self.s2.pop())
 
         return return_value
