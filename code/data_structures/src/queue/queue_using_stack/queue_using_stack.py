@@ -1,3 +1,6 @@
+# Part of Cosmos by OpenGenus Foundation
+
+
 class Stack:
     def __init__(self):
         self.items = []
@@ -11,7 +14,7 @@ class Stack:
     def size(self):
         return len(self.items)
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.size() == 0
 
 
