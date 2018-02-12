@@ -44,7 +44,7 @@ matrix:
     - os: linux
       language: cpp
       script:
-        ./build_cpp.sh
+        ./scripts/build_cpp.sh
       addons:
         apt:
           sources:
