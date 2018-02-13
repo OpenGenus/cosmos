@@ -1,3 +1,9 @@
+# cosmos
+> Your personal library of every algorithm and data structure code that you will ever encounter
+
+# Leap year
+The aim is to find leap years between two given years which are taken as input from the user.
+
 Leap year is a year that contains 366 days.
 
 "A leap year (also known as an intercalary year or bissextile year) is a calendar year containing one additional day (or, in the case of lunisolar calendars, a month) added to keep the calendar year synchronized with the astronomical or seasonal year."
