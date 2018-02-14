@@ -21,8 +21,9 @@ bool isLapindrome(string str)
 
 int main()
 {
-    string test_case = "addbbadd";
- 
+    string test_case;
+    cout << "Input the string to be checked" << endl;
+    cin >> test_case;
     if (isLapindrome(test_case))
        cout<<"lapindrome\n";
     else
