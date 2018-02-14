@@ -14,7 +14,7 @@ After taking both the strings as input we find the length of the smaller string 
 Few examples are:
 - s1 = "abcdef" , s2 = "def" : Biggest Suffix = "def"
 - s1 = "abc" , s2 = "abc" : Biggest Suffix = "abc"
-- s1 = "abcdef" , s2 = "abc" : Biggest Suffix = NONE
+- s1 = "abcdef" , s2 = "abc" : Biggest Suffix = ""
 
 ---
 
