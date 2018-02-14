@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int
-main()
+main(void)
 {
     int d = 1;
     

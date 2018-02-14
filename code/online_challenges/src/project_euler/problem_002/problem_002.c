@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main()
+int
+main(void)
 {
     /* Variables to keep track of Fibonacci numbers */
     int p2 = 0;
