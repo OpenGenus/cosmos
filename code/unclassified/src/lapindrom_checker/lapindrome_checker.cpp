@@ -25,9 +25,9 @@ int main()
     cout << "Input the string to be checked" << endl;
     cin >> test_case;
     if (isLapindrome(test_case))
-       cout<<"lapindrome\n";
+       cout << test_case << "is a lapindrome.\n";
     else
-       cout<<"not a lapindrome\n";
+       cout << test_case << "is not a lapindrome.\n";
 
     return 0;
 }
