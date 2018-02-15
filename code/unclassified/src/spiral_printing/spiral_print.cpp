@@ -1,8 +1,9 @@
 /* Part of Cosmos by OpenGenus Foundation */
+#include <bits/stdc++.h>
 #include<iostream>
 using namespace std;
 
-void spiralPrint(int a[][100],int m,int n){
+void spiralPrint(vector< vector<int> > a,int m,int n){
     int startRow=0,endCol = n-1;
     int startCol =0, endRow = m-1;
 
@@ -47,7 +48,8 @@ int main(){
     
     cout << "Enter the Dimensions of 2D array:\n";
     cin >> m >> n;
-    int a[m][n];
+
+    std::vector< std::vector<int> > a( m , std::vector<int> (n,0));
     // Take the array as input from the users
     for(int i=0;i<m;i++)
         for(int j=0;j<n;j++)
