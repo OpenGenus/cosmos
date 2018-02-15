@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int 
-max(int a, int b, int c)
+max(int const a, int const b, const int c)
 {
 	if (a > b)
 		return (a > c ? a : c);
@@ -10,7 +10,7 @@ max(int a, int b, int c)
 }
 
 int 
-maximumContiguousSubsequenceSum(int a[], int beg, int end)
+maximumContiguousSubsequenceSum(const int a[], int beg, int end)
 {
 	if (beg == end)
 		return (a[beg] > 0 ? a[beg] : 0);
