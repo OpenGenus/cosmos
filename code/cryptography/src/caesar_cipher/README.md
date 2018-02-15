@@ -1,5 +1,5 @@
 # Caesar Cipher
-The Caesar Cipher (also known as shift cipher) is a method of encrypting messages. In this cipher, the original message (plaintext) is replaced with a letter corresponding to the original letter shifted by N places according to the English alphabet. It is therefore a Substitution cipher where letter at ‘L th’ position is shifted to ‘L+N th’ position, where **N is same** for all the letters.
+The Caesar Cipher (also known as shift cipher) is a method of encrypting messages. In this cipher, the original message (plaintext) is replaced with a letter corresponding to the original letter shifted by N places according to the English alphabet. It is therefore a Substitution cipher where letter at ‘L th’ position is shifted to ‘L+N th’ position, where **N is the same** for all the letters.
 
 Using this method, the original message that is understandable to any English speaking user, needs to be deciphered before arriving at context. 
 
