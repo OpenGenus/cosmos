@@ -1,20 +1,24 @@
 #include <stdio.h>
+#define true 1
+#define false 0
 
 /*
  * Utilises 'iattempt' palindrome.c implementation.
  * Part of Cosmos by OpenGenus Foundation.
 */
 
-int isPalindromeIterative(char *input, int length)
+int
+isPalindromeIterative(char *input, int length)
 {
 	int start = 0, end = length;
 	while (start < end)
 		if (input[start++] != input[end--])
-			return (0);
-	return (1);
+			return false;
+	return true;
 }
 
-int list_palindrome_substrings(char *input, int length)
+int
+countPalindromeSubstrings(char *input, int length)
 {
 	int start = 0, end = 0;
 	int response = 0;
@@ -30,6 +34,6 @@ int list_palindrome_substrings(char *input, int length)
 
 int main(void)
 {
-	printf("Number of Possible Palindrome Substrings: %d\n", list_palindrome_substrings("abaab", 5));
+	printf("Number of Possible Palindrome Substrings: %d\n", countPalindromeSubstrings("abaab", 5));
 	return (0);
 }
