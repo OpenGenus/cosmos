@@ -1,6 +1,6 @@
-namespace biggest_of_n_numbers
+namespace BiggestOfNumbers
 {
-    public class biggest_of_n_numbers
+    public class BiggestOfNumbers
     {
         public void main()
         {
@@ -12,7 +12,7 @@ namespace biggest_of_n_numbers
             max = tmp;
             for(int i=0; i<n-1; i++)
             {
-                scanf("%d",&tmp);
+                tmp = Console.ReadLine();
                 if (max<tmp)
                 {
                     max = tmp;
