@@ -4,12 +4,11 @@ namespace BiggestOfNumbers
     {
         public void main()
         {
-            int n , max , tmp;
             Console.WriteLine("Enter numbers of elements : ");
-            n = Console.ReadLine();
+            int n = Console.ReadLine();
             Console.WriteLine("Enter numbers : ");
-            tmp = Console.ReadLine();
-            max = tmp;
+            int tmp = Console.ReadLine();
+            int max = tmp;
             for(int i=0; i<n-1; i++)
             {
                 tmp = Console.ReadLine();
