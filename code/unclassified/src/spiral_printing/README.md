@@ -9,16 +9,16 @@ We take the dimensions of the array and the array as an input from the user. Dim
 
 To print the matrix in spiral form we first keep a variable direction which can take 4 possible values : 0,1,2,3. 0 means we will print the first row from top which is not printed yet , 1 means first column from right, 2 means first rwo from bottom and 3 means first column from left. We will also be keeping four variables top,bottom,left and right initialised with 0,m-1,0,n-1 respectively which will give us the index of the extremes to be printed.
 
--When direction = 0 , we print the top'th row from index left to right
+-When direction = 0 , we print the top row from index left to right
 and we increment top by 1
 
--When direction = 1 , we print the right'th column from index top to bottom
+-When direction = 1 , we print the right column from index top to bottom
 and we decrement right by 1
 
--When direction = 2 , we print the bottom'th row from index right to left
+-When direction = 2 , we print the bottom row from index right to left
 and we decrement bottom by 1
 
--When direction = 3 , we print the left'th column from index bottom to top
+-When direction = 3 , we print the left column from index bottom to top
 and we increment left by 1
 
 # Example 
