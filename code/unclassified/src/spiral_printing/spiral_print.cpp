@@ -45,7 +45,7 @@ void spiralPrint(int a[][100],int m,int n){
 int main(){
      int m,n; ///Dimensions of 2D array
     
-    cout << "Input the Dimensions of the 2-D array" << endl;
+    cout << "Enter the Dimensions of 2D array:\n";
     cin >> m >> n;
     int a[m][n];
     // Take the array as input from the users
