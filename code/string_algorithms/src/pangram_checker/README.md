@@ -11,6 +11,6 @@ _We only try to implement pangram checker algorithms for sentences in english la
 5. Else, the sentence is not a pangram.
 
 
-#### Complexity
+#### COMPLEXITY
 The Time complexity for the above algorithm will be O(n), where n is the length of input string.
 
