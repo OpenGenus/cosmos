@@ -43,19 +43,15 @@ void spiralPrint(int a[][100],int m,int n){
 }
 
 int main(){
-    int a[100][100] = {0};
-
-    int m=5, n=5; ///Dimensions of 2D array
-
-    int value=1;
-    ///Generate the array
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            a[i][j] = value++;
-            cout<<a[i][j]<<" ";
-        }
-        cout<<endl;
-    }
+     int m,n; ///Dimensions of 2D array
+    
+    cout << "Input the Dimensions of the 2-D array" << endl;
+    cin >> m >> n;
+    int a[m][n];
+    // Take the array as input from the users
+    for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
+            cin >> a[i][j];
     spiralPrint(a,m,n);
 
 
