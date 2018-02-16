@@ -1,5 +1,4 @@
 # BinomialHeap
-C++ Implementation of a binomial heap
 #### Structure
 * Node
   - Foundational data element in binomial heap
