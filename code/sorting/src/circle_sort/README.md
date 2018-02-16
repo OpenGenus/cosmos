@@ -12,33 +12,35 @@ Now, the elements lying on the same circle (i.e., they are diametrically opposit
 
 ## Pseudocode
 
-```int inner_circle (int *a, int *b)
+``` 
+function inner_circle (index a, index b)
 {
-  int *start = a;                       
-  int *end = b;                       
-  int swap = 0;                           
-  int temp;                               
+   start := a                      
+   end := b                       
+   swap := 0                           
+                                 
+   if (start == end) 
+      return (swap)
 
-  if (start == end) return (0);          
-  while (start < end)                   
-    {                                  
-      if (*start > *end)                 
-         {                             
-           temp = *start; *start = *end; *end = temp; 
-           swap++;
-         }                            
-      start++; 
-      end--;                    
-    }                                  
+   while (start< end)                                                   
+      if (value at start > value at end)                 
+           swap.values(start , end)
+           swap++
+      (end if) 
 
-  swap += inner_circle (a, end);
-  swap += inner_circle (start, b);
+      start++
+      end--
 
-  return(swap);                          
+   (end while)                              
+
+   swap += inner_circle (a, end)
+   swap += inner_circle (start, b)
+
+   return(swap)                         
 }
-void circle_sort (int *a, int n)
+function circle_sort (index a, n)
 {
-  while (inner_circle (a, a + n - 1));
+  while inner_circle (a, a + n - 1)
 }
 ```
 
