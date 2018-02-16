@@ -5,5 +5,5 @@ class String
   end
 end
 
-puts 'test'.palindrome?
-puts 'hahah'.palindrome?
+puts "test".palindrome?
+puts "hahah".palindrome?
