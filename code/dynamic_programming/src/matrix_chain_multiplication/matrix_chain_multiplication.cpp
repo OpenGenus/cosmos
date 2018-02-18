@@ -1,7 +1,12 @@
 #include <climits>
 #include <cstdio>
+#include <iostream>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation
+/* Dynamic Programming Solution
+ * Time Complexity:O(n^3)
+ * Space Complexity:O(n^2)
+ */
 // Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
 int MatrixChainOrder(int p[], int n)
 {
@@ -40,14 +45,34 @@ int MatrixChainOrder(int p[], int n)
  
     return m[1][n-1];
 }
- 
+/*Recursive Approach Solution
+ *Time Complexity > O(2^n)
+ */
+int RecursiveMatrixChain(int p[], int i, int j)
+{
+    if (i==j)
+        return 0;
+    int q=INT_MAX;
+
+    /* q = Minimum number of scalar multiplications needed
+       to compute the matrix A[i]A[i+1]...A[j] = A[i..j] where
+       dimension of A[i] is p[i-1] x p[i] */
+
+    for(int k=i;k<j;k++)
+    {
+        q=min(q,RecursiveMatrixChain(p,i,k)+RecursiveMatrixChain(p,k+1,j)+p[i-1]*p[j]*p[k]);
+    }
+    return q;
+}
 int main()
 {
     int arr[] = {1, 2, 3, 4};
     int size = sizeof(arr)/sizeof(arr[0]);
  
-    printf("Minimum number of multiplications is %d ",
+    printf("Minimum number of multiplications by dp is %d \n",
                        MatrixChainOrder(arr, size));
+    printf("Minimum number of multiplications by recursive solution is %d ",
+                       RecursiveMatrixChain(arr, 1, size-1));
  
     getchar();
     return 0;
