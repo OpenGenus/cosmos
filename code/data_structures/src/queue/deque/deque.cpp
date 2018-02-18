@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class DequeEmptyException
@@ -29,8 +30,8 @@ private:
 public:
     Deque()
     {
-        front = NULL;
-        rear = NULL;
+        front = nullptr;
+        rear = nullptr;
         count = 0;
     }
 
@@ -39,14 +40,16 @@ public:
         // Create a new node
         Node* tmp = new Node();
         tmp->data = element;
-        tmp->next = NULL;
-        tmp->prev = NULL;
+        tmp->next = nullptr;
+        tmp->prev = nullptr;
 
-        if ( isEmpty() ) {
+        if ( isEmpty() )
+        {
             // Add the first element
             front = rear = tmp;
         }
-        else {
+        else 
+        {
             // Prepend to the list and fix links
             tmp->next = front;
             front->prev = tmp;
@@ -58,23 +61,23 @@ public:
 
     int RemoveFront()
     {
-        if ( isEmpty() ) {
+        if ( isEmpty() )
             throw new DequeEmptyException();
-        }
 
         //  Data in the front node
         int ret = front->data;
 
         // Delete the front node and fix the links
         Node* tmp = front;
-        if ( front->next != NULL )
+        if ( front->next != nullptr )
         {
             front = front->next;
-            front->prev = NULL;
+            front->prev = nullptr;
         }
         else
         {
-            front = NULL;
+            front = nullptr;
+            rear= nullptr
         }
         count--;
         delete tmp;
@@ -87,14 +90,16 @@ public:
         // Create a new node
         Node* tmp = new Node();
         tmp->data = element;
-        tmp->next = NULL;
-        tmp->prev = NULL;
+        tmp->next = nullptr;
+        tmp->prev = nullptr;
 
-        if ( isEmpty() ) {
+        if ( isEmpty() ) 
+        {
             // Add the first element
             front = rear = tmp;
         }
-        else {
+        else 
+        {
             // Append to the list and fix links
             rear->next = tmp;
             tmp->prev = rear;
@@ -106,23 +111,22 @@ public:
 
     int RemoveBack()
     {
-        if ( isEmpty() ) {
+        if ( isEmpty() ) 
             throw new DequeEmptyException();
-        }
 
         //  Data in the rear node
         int ret = rear->data;
 
         // Delete the front node and fix the links
         Node* tmp = rear;
-        if ( rear->prev != NULL )
+        if ( rear->prev != nullptr)
         {
             rear = rear->prev;
-            rear->next = NULL;
+            rear->next = nullptr;
         }
         else
         {
-            rear = NULL;
+            rear = nullptr;
         }
         count--;
         delete tmp;
@@ -180,7 +184,8 @@ int main()
         cout << q.RemoveBack() << endl;
         cout << q.RemoveBack() << endl;
     }
-    catch (...) {
+    catch (...) 
+    {
         cout << "Some exception occured" << endl;
     }
 
@@ -205,7 +210,8 @@ int main()
         cout << q1.RemoveFront() << endl;
         cout << q1.RemoveFront() << endl;
     }
-    catch (...) {
+    catch (...) 
+    {
         cout << "Some exception occured" << endl;
     }
 }
