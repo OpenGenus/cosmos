@@ -2,8 +2,8 @@
 using namespace std;
 
 /*
- *	Sieve function finds all the primes upto n-1 using Sieve of Erasthosene method.
- *	Time Complexity = O(n logn)
+ * Sieve function finds all the primes upto n-1 using Sieve of Erasthosene method.
+ * Time Complexity = O(n logn)
  */
 
 void sieve(long long n, bool prime[]) {
@@ -21,8 +21,8 @@ void sieve(long long n, bool prime[]) {
 }
 
 /*
- *	check_prime checks if a number is prime.
- *	Time complexity O(sqrt(n))
+ * check_prime checks if a number is prime.
+ * Time complexity O(sqrt(n))
  */
 
 bool check_prime(long long num) {
@@ -38,8 +38,8 @@ bool check_prime(long long num) {
 }
 
 /*
- *	check_right checks if number is right truncatable prime number.
- * 	Time Complexity O(n logn)
+ * check_right checks if number is right truncatable prime number.
+ *    Time Complexity O(n logn)
  */
 
 bool check_right(long long num) {
@@ -64,8 +64,8 @@ int countdigits(long long number) {
 }
 
 /*
- *	check_left checks if a number is left truncatable prime number
- * 	Time Complexity O(n logn)
+ * check_left checks if a number is left truncatable prime number
+ *    Time Complexity O(n logn)
  */
 
 bool check_left(long long num) {
@@ -81,8 +81,8 @@ bool check_left(long long num) {
 }
 
 /*
- *	check_two_way_truncatable checks if a number is right 
- *	as well as left truncatable.
+ * check_two_way_truncatable checks if a number is right 
+ * as well as left truncatable.
  */
 
 bool check_two_way_truncatable(long long num) {
@@ -92,20 +92,13 @@ bool check_two_way_truncatable(long long num) {
 int main() {
    int counter = 0, count = 0;
    long long sum = 0, num = 11;
-   vector < long long > truncatable_prime;
    while (counter != 11) {
-      //cout<<count<<" ";
       if (check_two_way_truncatable(num) == true) {
-         truncatable_prime.push_back(num);
          counter++;
-         cout << num << " " << counter << endl;
+         sum + = num;
       }
       num += 2;
    }
 
-   for (int i = 0; i < truncatable_prime.size(); i++) {
-      cout << truncatable_prime[i] << " ";
-      sum + = truncatable_prime[i]; 
-   }
-   cout << endl << sum;
+   cout << "Sum of 11 truncatable primes is "<< sum;
 }
