@@ -1,6 +1,6 @@
-def interpolation_search(arr, n, x):
+def interpolation_search(arr, x):
     low = 0
-    high = (n - 1)
+    high = len(arr) - 1
 
     while low <= high and x >= arr[low] and x <= arr[high]:
         mid = low + int(
