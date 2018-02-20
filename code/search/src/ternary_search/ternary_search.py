@@ -18,16 +18,3 @@ def ternarySearch(arr, to_find):
         else:
             left = temp3 + 1
     return -1
-
-
-def test(x):
-    arr = [6, 15, 18, 44, 47, 87, 97]
-    index = ternarySearch(arr, x)
-
-    if index != -1:
-        print "The element", x, "is at the index", index
-    else:
-        print "Element", x, "not found!"
-
-
-test(44)

@@ -23,16 +23,3 @@ def jumpSearch(arr, x):
         temp += 1
 
     return -1
-
-
-def test(x):
-    arr = [7, 18, 24, 12, 47, 84, 14]
-    index = jumpSearch(arr, x)
-
-    if index != -1:
-        print "The element", x, "is at the index", index
-    else:
-        print "Element", x, "not found!"
-
-
-test(18)

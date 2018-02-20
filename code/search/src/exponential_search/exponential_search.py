@@ -31,13 +31,3 @@ def exponentialSearch(arr, element):
         i *= 2
 
     return binarySearch(arr, i / 2, min(i, arrLength), element)
-
-
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-element = 4
-
-found = exponentialSearch(arr, element)
-if found == -1:
-    print('Error | Not found')
-else:
-    print('Found | At position', found + 1)

@@ -33,12 +33,3 @@ def binarySearchLoop(arr, l, r, x):
             l = mid + 1
 
     return -1
-
-
-arr = [1, 2, 3, 5]
-find = 3
-
-print("Position of ", find, " is ", binarySearchLoop(arr, 0, len(arr) - 1,
-                                                     find))
-print("Position of ", find, " is ", binarySearchRecursive(
-    arr, 0, len(arr) - 1, find))
