@@ -17,7 +17,7 @@ def _binary_search_recursive_impl(arr, x, left, right):
             return _binary_search_recursive_impl(arr, x, mid + 1, right)
 
     else:
-        return left if left >= 0 and left < len(arr) and arr[left] == x else -1
+        return left if left in range(0, len(arr)) and arr[left] == x else -1
 
 
 def binary_search_recursive(arr, x):
@@ -35,7 +35,7 @@ def _binary_search_interactive_impl(arr, x, left, right):
         else:
             left = mid + 1
 
-    return left if left >= 0 and left < len(arr) and arr[left] == x else -1
+    return left if left in range(0, len(arr)) and arr[left] == x else -1
 
 
 def binary_search_interactive(arr, x):

@@ -16,7 +16,7 @@ def _binary_search(arr, element, left, right):
         else:
             return _binary_search(arr, element, mid + 1, right)
 
-    return left if left >= 0 and left < len(arr) and arr[left] == element else -1
+    return left if left in range(0, len(arr)) and arr[left] == element else -1
 
 
 def exponential_search(arr, element):
