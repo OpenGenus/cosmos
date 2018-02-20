@@ -16,7 +16,8 @@ typedef char symbol_t;
 
 typedef enum dfs_color_e
 {
-  WHITE, BLACK
+  WHITE, 
+  BLACK
 
 } dfs_color_t;
 
