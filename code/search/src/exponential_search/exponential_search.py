@@ -7,7 +7,7 @@ Exponential Search
 
 def _binary_search(arr, element, left, right):
     if right > left:
-        mid = left + (right - left) // 2
+        mid = (left + right) >> 1
 
         if arr[mid] == element:
             return mid
@@ -33,4 +33,4 @@ def exponential_search(arr, element):
     while i < arrLength and arr[i] <= element:
         i *= 2
 
-    return _binary_search(arr, elment, i / 2, min(i, arrLength))
+    return _binary_search(arr, element, i // 2, min(i, arrLength))
