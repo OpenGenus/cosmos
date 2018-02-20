@@ -16,7 +16,7 @@ def _binary_search(arr, element, left, right):
             return _binary_search(arr, element, left, mid - 1)
 
         else:
-            return _binary_search(arr, elment, mid + 1, right)
+            return _binary_search(arr, element, mid + 1, right)
 
     return left if left >= 0 and left < len(arr) and arr[left] == element else -1
 
