@@ -6,7 +6,7 @@ Exponential Search
 
 
 def _binary_search(arr, element, left, right):
-    if right >= left:
+    if right > left:
         mid = left + (right - left) // 2
 
         if arr[mid] == element:
@@ -18,10 +18,13 @@ def _binary_search(arr, element, left, right):
         else:
             return _binary_search(arr, elment, mid + 1, right)
 
-    return -1
+    return left if left >= 0 and left < len(arr) and arr[left] == element else -1
 
 
 def exponential_search(arr, element):
+    if len(arr) == 0:
+        return -1
+
     if arr[0] == element:
         return 0
 
