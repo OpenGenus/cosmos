@@ -3,7 +3,7 @@ def interpolation_search(arr, x):
     high = len(arr) - 1
 
     while low <= high and x >= arr[low] and x <= arr[high]:
-        mid = low + int((float(high - low) / (arr[high] - arr[low])) * (x - arr[low]))
+        mid = low + int((float(high - low) / (arr[high] - arr[low] + 1)) * (x - arr[low]))
 
         if arr[mid] == x:
             return mid
