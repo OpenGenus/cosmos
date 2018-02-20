@@ -1,4 +1,4 @@
-def interpolationSearch(arr, n, x):
+def interpolation_search(arr, n, x):
     low = 0
     high = (n - 1)
 

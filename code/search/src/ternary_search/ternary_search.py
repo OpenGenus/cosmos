@@ -1,4 +1,4 @@
-def ternarySearch(arr, to_find):
+def ternary_search(arr, to_find):
     left = 0
     right = len(arr) - 1
     while left <= right:

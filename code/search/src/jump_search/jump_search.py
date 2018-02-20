@@ -1,7 +1,7 @@
 import math
 
 
-def jumpSearch(arr, x):
+def jump_search(arr, x):
     n = len(arr)
     jump = int(math.sqrt(n))
     left, right = 0, 0

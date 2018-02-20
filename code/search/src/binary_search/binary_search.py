@@ -3,7 +3,7 @@ Part of Cosmos by OpenGenus Foundation
 '''
 
 
-def binarySearchRecursive(arr, l, r, x):
+def _binary_search_recursive_impl(arr, l, r, x):
     if r >= l:
 
         mid = l + int((r - l) / 2)
@@ -12,16 +12,18 @@ def binarySearchRecursive(arr, l, r, x):
             return mid
 
         elif arr[mid] > x:
-            return binarySearchRecursive(arr, l, mid - 1, x)
+            return _binary_search_recursive_impl(arr, l, mid - 1, x)
 
         else:
-            return binarySearchRecursive(arr, mid + 1, r, x)
+            return _binary_search_recursive_impl(arr, mid + 1, r, x)
 
     else:
         return -1
 
+def binary_search_recursive(arr, x):
+    return _binary_search_recursive_impl(arr, 0, len(arr), x)
 
-def binarySearchLoop(arr, l, r, x):
+def _binary_search_interactive_impl(arr, l, r, x):
     while l <= r:
         mid = l + int((r - l) / 2)
 
@@ -33,3 +35,8 @@ def binarySearchLoop(arr, l, r, x):
             l = mid + 1
 
     return -1
+
+def binary_search_interactive(arr, x):
+    return _binary_search_interactive_impl(arr, 0, len(arr), x)
+
+binary_search = binary_search_interactive
