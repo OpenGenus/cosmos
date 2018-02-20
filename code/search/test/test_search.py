@@ -40,31 +40,31 @@ def index(a, x):
 
 
 def fill(arr, size):
-	i = 0
-	if ELEM_MODE == "ALLOW_DUPLICATE":
-		while len(arr) < size:
-			arr.extend([i])
-			if random.randint(0, 2) % 2:
-				arr.extend([i])
-			i += 1
+    i = 0
+    if ELEM_MODE == "ALLOW_DUPLICATE":
+        while len(arr) < size:
+            arr.extend([i])
+            if random.randint(0, 2) % 2:
+                arr.extend([i])
+            i += 1
 
-	elif ELEM_MODE == "UNIQUE":
-		while len(arr) < size:
-			arr.extend([i])
-			i += 1
+    elif ELEM_MODE == "UNIQUE":
+        while len(arr) < size:
+            arr.extend([i])
+            i += 1
 
 
 def testSizeByTimes(size, times):
-	for t in range(times):
-		arr = []
-		fill(arr, size)
-		for i in range(-30, len(arr) * 2):
-			expect = index(arr, i)
-			actual = search_func(arr, i);
-			if COMPARE_MODE == "ANY_SAME_NODE":
-				assert expect == actual or (expect != -1 and arr[expect] == arr[actual])
-			elif COMPARE_MODE == "LOWER_BOUND":
-				assert expect == actual
+    for t in range(times):
+        arr = []
+        fill(arr, size)
+        for i in range(-30, len(arr) * 2):
+            expect = index(arr, i)
+            actual = search_func(arr, i)
+            if COMPARE_MODE == "ANY_SAME_NODE":
+                assert expect == actual or (expect != -1 and arr[expect] == arr[actual])
+            elif COMPARE_MODE == "LOWER_BOUND":
+                assert expect == actual
 
 
 if __name__ == "__main__":
