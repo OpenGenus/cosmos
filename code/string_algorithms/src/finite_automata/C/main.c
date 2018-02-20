@@ -17,6 +17,7 @@ main()
 
   /* States are labelled with positive integers */
   dfa.start_id = 0;
+  dfa.states[2].is_final = true;
 
   dfa.transitions[0]['0'] = 1;
   dfa.transitions[0]['1'] = 0;
