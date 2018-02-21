@@ -18,7 +18,7 @@ int matrixChainOrder(const int p[], int n)
  
     /* m[i,j] = Minimum number of scalar multiplications needed
        to compute the matrix A[i]A[i+1]...A[j] = A[i..j] where
-       dimension of A[i] is p[i-1] x p[i] */
+       dimension of A[i] is p[i-1] x p[i]  */
  
     // cost is zero when multiplying one matrix.
     for (i=1; i<n; i++)
@@ -73,7 +73,6 @@ int main()
                        matrixChainOrder(arr, size));
     printf("Minimum number of multiplications by recursive solution is %d \n",
                        recursiveMatrixChainOrder(arr, 1, size-1));
- 
-    getchar();
+    getchar(); 
     return 0;
 }
