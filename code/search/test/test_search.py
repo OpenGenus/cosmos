@@ -19,7 +19,8 @@ search_funcs += [src.binary_search.binary_search.binary_search_interactive]
 search_funcs += [src.fibonacci_search.fibonacci_search.fibonacci_search]
 search_funcs += [src.ternary_search.ternary_search.ternary_search]
 search_funcs += [src.jump_search.jump_search.jump_search]
-search_funcs += [src.interpolation_search.interpolation_search.interpolation_search]
+search_funcs += \
+        [src.interpolation_search.interpolation_search.interpolation_search]
 search_funcs += [src.exponential_search.exponential_search.exponential_search]
 
 
@@ -61,10 +62,13 @@ def testSizeByTimes(size, times):
         for i in range(-30, len(arr) * 2):
             expect = index(arr, i)
             actual = search_func(arr, i)
+            same = expect == actual
+            diff = expect in range(0, len(arr)) and arr[expect] == arr[actual]
+
             if COMPARE_MODE == "ANY_SAME_NODE":
-                assert expect == actual or (expect in range(0, len(arr)) and arr[expect] == arr[actual])
+                assert same or diff
             elif COMPARE_MODE == "LOWER_BOUND":
-                assert expect == actual
+                assert same
 
 
 if __name__ == "__main__":

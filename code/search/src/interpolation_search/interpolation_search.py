@@ -1,17 +1,17 @@
 def interpolation_search(arr, x):
-    low = 0
-    high = len(arr) - 1
+    lo = 0
+    hi = len(arr) - 1
 
-    while low <= high and x >= arr[low] and x <= arr[high]:
-        mid = low + int((float(high - low) / (arr[high] - arr[low] + 1)) * (x - arr[low]))
+    while lo <= hi and x >= arr[lo] and x <= arr[hi]:
+        m = lo +int(float(hi - lo) / (arr[hi] - arr[lo] + 1) * (x - arr[lo]))
 
-        if arr[mid] == x:
-            return mid
+        if arr[m] == x:
+            return m
 
-        if arr[mid] < x:
-            low = mid + 1
+        if arr[m] < x:
+            lo = m + 1
 
         else:
-            high = mid - 1
+            hi = m - 1
 
     return -1
