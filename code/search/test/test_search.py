@@ -62,7 +62,7 @@ def testSizeByTimes(size, times):
             expect = index(arr, i)
             actual = search_func(arr, i)
             if COMPARE_MODE == "ANY_SAME_NODE":
-                assert expect == actual or (expect != -1 and arr[expect] == arr[actual])
+                assert expect == actual or (expect in range(0, len(arr)) and arr[expect] == arr[actual])
             elif COMPARE_MODE == "LOWER_BOUND":
                 assert expect == actual
 
