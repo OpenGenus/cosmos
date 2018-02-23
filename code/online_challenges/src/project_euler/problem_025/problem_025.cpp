@@ -1,27 +1,27 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int main() 
 {
-    vector < int > temp, prevFibonacci, currFibonacci;
-
+    std::vector <int> prevFibonacci, currFibonacci;
+    prevFibonacci.reserve(1000);
+    currFibonacci.reserve(1000);
     int count = 2;
-
     prevFibonacci.push_back(1);
     currFibonacci.push_back(1);
         
     while (currFibonacci.size() < 1000) 
-    {
+    {   
+        std::vector <int> temp;
         int carry = 0;
-        count++;
-        for (int i = 0; i < prevFibonacci.size(); i++) 
+        ++count;
+        for (size_t i = 0; i < prevFibonacci.size(); ++i) 
         {
             temp.push_back((currFibonacci[i] + prevFibonacci[i] + carry) % 10);
             carry = (currFibonacci[i] + prevFibonacci[i] + carry) / 10;
         }
 
-        for (int i = prevFibonacci.size(); i < currFibonacci.size(); i++)
+        for (size_t i = prevFibonacci.size(); i < currFibonacci.size(); i++)
         {
             temp.push_back((currFibonacci[i] + carry) % 10);
             carry = (currFibonacci[i] + carry) / 10;
@@ -32,7 +32,8 @@ int main()
 
         prevFibonacci = currFibonacci;
         currFibonacci = temp;
-        temp.clear();
+        
     }
-    cout << "Index of 1000 digit Fibonacci Number is " << count << endl;
+    std::cout << count << "\n";
+    return 0;
 }
