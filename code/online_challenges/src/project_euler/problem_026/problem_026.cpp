@@ -12,7 +12,7 @@ int main()
         std::vector<int> cycleCheckArray;
 
         for (int j = 0; j < i; ++j)
-        cycleCheckArray.push_back(0);
+            cycleCheckArray.push_back(0);
 
         remainder = 1, value = 1, position = 0;
         while (true)
