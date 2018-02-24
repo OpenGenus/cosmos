@@ -1,5 +1,8 @@
+//  data_structures|queue|dequeue|Python
+//  Part of Cosmos by OpenGenus Foundation
+
+// Implementation using lists
 class Dequeue:
-	""" Python implementation the Deque """
 
 	def __init__(self, container=None):
 		if container is None:
@@ -18,7 +21,6 @@ class Dequeue:
 	def remove_rear(self):
 		return self.__container.pop()
 
-# Sample inputs
 if __name__ == '__main__':
 	dq = Dequeue();
 	for i in range(1,11):
