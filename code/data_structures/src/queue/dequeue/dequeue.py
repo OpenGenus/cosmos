@@ -1,7 +1,7 @@
-//  data_structures|queue|dequeue|Python
-//  Part of Cosmos by OpenGenus Foundation
+#  data_structures|queue|dequeue|Python
+# Part of Cosmos by OpenGenus Foundation
 
-// Implementation using lists
+# Implementation using lists
 class Dequeue:
 
 	def __init__(self, container=None):
