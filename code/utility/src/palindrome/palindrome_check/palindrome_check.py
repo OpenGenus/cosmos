@@ -5,12 +5,12 @@ def isPalindrome(str):
         if str[i] != str[len(str)-i-1]:
             return False
     return True
-
-print("Give input string:")
-s = raw_input()
-ans = isPalindrome(s)
- 
-if (ans):
-    print("Yes " + s + " is a palindrome")
-else:
-    print("No " + s + " is not a palindrome")
+if __name__ == '__main__':
+	print("Give input string:")
+	s = raw_input()
+	ans = isPalindrome(s)
+	 
+	if (ans):
+	    print("Yes " + s + " is a palindrome")
+	else:
+	    print("No " + s + " is not a palindrome")
