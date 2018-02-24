@@ -11,7 +11,8 @@ public class Dequeue {
     public void insertAtFront(int d) {
         Node n = new Node(d);
         n.setNext(front);
-        if (front == null) {
+        
+        if (front == null) {  
             front = n;
             rear = n;
         } else {
@@ -20,8 +21,9 @@ public class Dequeue {
         }
     }
     
-    public void insertAtRear(int d){
+    public void insertAtRear(int d) {
         Node n = new Node(d);
+
         if (rear == null) {
             front = n;
             rear = n;
@@ -29,6 +31,7 @@ public class Dequeue {
             rear.setNext(n);
             n.setPrevious(rear);
             rear = n;
+
         }
     }
     
@@ -37,13 +40,15 @@ public class Dequeue {
             System.out.println("Underflow");
             return -1;
         }
-        int front_value=front.getValue();
+        int frontValue = front.getValue();
         Node newFront = front.getNext();
-        if(newFront!=null){
+
+        if(newFront!=null)  {
              newFront.setPrevious(null);
         }
+   
         front = newFront;
-        return front_value;
+        return frontValue;
     }
     
     public int removeRear() {
@@ -51,13 +56,15 @@ public class Dequeue {
             System.out.println("Underflow");
             return -1;
         }
-        int rear_value=rear.getValue();
+
+        int rearValue =  rear.getValue();
         Node newRear = rear.getPrevious();
+
         if(newRear!=null){
              newRear.setNext(null);  
         }
         rear = newRear;
-        return rear_value;
+        return rearValue;
     }   
     
     public static void main(String args[]) {
@@ -66,6 +73,7 @@ public class Dequeue {
             dq.insertAtFront(i);
             dq.insertAtRear(-1*i);
         }
+
          for(int i = 1; i <= 10; ++i) {
              System.out.println(dq.removeFront());
              System.out.println(dq.removeRear());
@@ -79,12 +87,6 @@ class Node {
     private int value;
     private Node prev;
     private Node next;
-    
-    public Node() {
-        value = -1;
-        prev = null;
-        next = null;
-    }
     
     public Node(int data) {
         value = data;
