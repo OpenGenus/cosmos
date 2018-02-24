@@ -1,8 +1,5 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-#ifndef LONGEST_REPEATING_SUBSEQUENCE_TEST
-#define LONGEST_REPEATING_SUBSEQUENCE_TEST
-
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -12,6 +9,6 @@ int main()
 {
     using namespace std;
 
-    std :: string s1 = "aab";
+    std::string s1 = "aab";
     assert(longestRepeatingSubsequence(s1) == 1);
 }
