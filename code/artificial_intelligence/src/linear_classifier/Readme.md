@@ -1,6 +1,3 @@
-# cosmos
-> Your personal library of every algorithm and data structure code that you will ever encounter
-
 # Linear Classifier
 
 Fist of all we define classification as dividing the input variable x into different classes (generally two classes: +1 and -1).
@@ -11,7 +8,7 @@ t = −1↔ x assigned to Class 2
 Linear models for classification separate input vectors into classes using linear (hyperplane) decision boundaries.
 
 
-# Example 
+## Explaination 
 
 y (x) = wx + b
 
