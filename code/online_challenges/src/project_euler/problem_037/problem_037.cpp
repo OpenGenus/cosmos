@@ -14,15 +14,9 @@ std::array<bool, N> primesUpto() // Function that implements the Sieve of Eratos
     std::size_t sqrtLimit = std::sqrt(N) + 1;
     
     for (std::size_t i = 0; i < N; ++i)
-    {
         if (primesList[i])
-        {
             for (std::size_t j = i + i; j < N; j += i)
-            {
                 primesList[j] = false;
-            }
-        }
-    }
     
     return primesList;
 }
@@ -31,20 +25,13 @@ template<std::size_t N>
 bool isTruncPrime(std::size_t number, const std::array<bool, N>& primesList)
 {
     for (std::size_t i = 10; i < number; i *= 10)
-    {
         if (primesList[number % i] == 0) // If the right truncated part is not prime
-        {
             return false;
-        }
-    }
     
     for (number; number >= 1; number /= 10)
-    {
         if (primesList[number] == 0) // If the left truncated part is not prime
-        {
             return false;
-        }
-    }
+    
     return true; // All truncated parts are prime, so the number is a truncatable prime
 }
 
