@@ -9,7 +9,7 @@
 int longestRepeatingSubsequence(std::string s)
 {
     int n = s.size();  // Obtaining the length of the string
-    std::vector<std::vector<int> >dp( n+1, std::vector<int>(n+1, 0) );
+    std::vector<std::vector<int>>dp(n + 1, std::vector<int>(n + 1, 0));
 
     // Implementation is very similar to Longest Common Subsequence problem
     for (int x = 1; x <= n; ++x)
