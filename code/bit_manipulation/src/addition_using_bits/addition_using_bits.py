@@ -10,5 +10,6 @@ def addition(a, b):
     return a
 
 # Driver code
-print (addition(5, 9))
-print (addition(4, 3))
+if __name__ == "__main__":
+    print (addition(5, 9))
+    print (addition(4, 3))
