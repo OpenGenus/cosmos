@@ -12,11 +12,8 @@ int main()
         divisorCount = 0;
         ++triangleNumberIndex;
         triangleNumber += triangleNumberIndex;
-
         for (int i = 1; i < std::sqrt(triangleNumber) + 1; ++i)
-            
             if (triangleNumber % i ==  0)
-            
                 divisorCount += (i * i == triangleNumber) ? 1 : 2;    
     }
 
