@@ -16,14 +16,14 @@ int longestRepeatingSubsequence(std::string s)
     {
         for (int y = 1; y <= n; ++y)
         {
-            if (s[x-1] == s[y-1] && x != y)
+            if (s[x - 1] == s[y - 1] && x != y)
             {
-                dp[x][y] = 1 + dp[x-1][y-1];
+                dp[x][y] = 1 + dp[x - 1][y - 1];
             }
             else
             {
-                dp[x][y] = std::max(dp[x-1][y], dp[x][y-1]);
-            }
+                dp[x][y] = std::max(dp[x - 1][y], dp[x][y - 1]);
+             }
         }
     }
 
