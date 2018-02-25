@@ -31,50 +31,49 @@ public class Dequeue {
             rear.setNext(n);
             n.setPrevious(rear);
             rear = n;
-
         }
     }
     
     public int removeFront() {
-        if (front == null) {
-            System.out.println("Underflow");
-            return -1;
-        }
+        try {
         int frontValue = front.getValue();
         Node newFront = front.getNext();
-
-        if(newFront!=null)  {
+        if (newFront != null)  {
              newFront.setPrevious(null);
         }
-   
         front = newFront;
         return frontValue;
+        }
+        catch (Exception e) {
+       	System.out.println("Underflow");
+        return -1;
+        }
     }
     
     public int removeRear() {
-        if (front == null) {
-            System.out.println("Underflow");
-            return -1;
-        }
-
+        try {
         int rearValue =  rear.getValue();
         Node newRear = rear.getPrevious();
-
-        if(newRear!=null){
+        if (newRear!=null){
              newRear.setNext(null);  
         }
         rear = newRear;
         return rearValue;
+        }
+        catch(Exception e) {
+        System.out.println("Underflow");
+       	return -1;
+        }
     }   
     
     public static void main(String args[]) {
         Dequeue dq = new Dequeue();
-        for(int i = 1; i <= 10; ++i){
+        for (int i = 1; i <= 10; ++i) {
             dq.insertAtFront(i);
-            dq.insertAtRear(-1*i);
+            dq.insertAtRear(-1 * i);
         }
 
-         for(int i = 1; i <= 10; ++i) {
+         for (int i = 1; i <= 10; ++i) {
              System.out.println(dq.removeFront());
              System.out.println(dq.removeRear());
              System.out.println("\n");
