@@ -8,5 +8,6 @@ def compute_people(p):
     return math.ceil(math.sqrt(2 * 365 * math.log(1 / (1-p))));
     
 # Driver code 
-print (compute_people(0.5))
-print (compute_people(0.9))
+if __name__ == '__main__':
+    print (compute_people(0.5))
+    print (compute_people(0.9))
