@@ -17,14 +17,9 @@ int main()
         {
             if (triangleNumber % i ==  0)
             {
-
                 divisorCount += (i * i == triangleNumber) ? 1 : 2;
-
             }
-
         }
-
-        
     }
 
     std::cout << triangleNumber <<"\n";
