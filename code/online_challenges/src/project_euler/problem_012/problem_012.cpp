@@ -10,13 +10,13 @@ int main()
     { 
         divisorCount = 0;
         ++triangleNumberIndex;
-        triangleNumber += triangleNumberIndex ;
+        triangleNumber += triangleNumberIndex;
 
         for (int i = 1; i <= pow(triangleNumber, 0.5); ++i)
         {
             if (triangleNumber % i ==  0)
             {
-                if (i*i == triangleNumber)
+                if (i * i == triangleNumber)
                     divisorCount += 1;
 
                 else
@@ -26,6 +26,6 @@ int main()
         
     }
 
-    std:: cout << triangleNumber <<"\n";
+    std::cout << triangleNumber <<"\n";
     return 0;
 }
