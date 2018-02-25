@@ -36,33 +36,33 @@ public class Dequeue {
     
     public int removeFront() {
         try {
-        int frontValue = front.getValue();
-        Node newFront = front.getNext();
-        if (newFront != null)  {
-             newFront.setPrevious(null);
-        }
-        front = newFront;
-        return frontValue;
+            int frontValue = front.getValue();
+            Node newFront = front.getNext();
+            if (newFront != null)  {
+                newFront.setPrevious(null);
+            }
+            front = newFront;
+            return frontValue;
         }
         catch (Exception e) {
-       	System.out.println("Underflow");
-        return -1;
+       	    System.out.println("Underflow");
+            return -1;
         }
     }
     
     public int removeRear() {
         try {
-        int rearValue =  rear.getValue();
-        Node newRear = rear.getPrevious();
-        if (newRear!=null){
-             newRear.setNext(null);  
-        }
-        rear = newRear;
-        return rearValue;
+            int rearValue =  rear.getValue();
+            Node newRear = rear.getPrevious();
+            if (newRear!=null){
+                newRear.setNext(null);  
+            }
+            rear = newRear;
+            return rearValue;
         }
         catch(Exception e) {
-        System.out.println("Underflow");
-       	return -1;
+            System.out.println("Underflow");
+       	    return -1;
         }
     }   
     
