@@ -13,17 +13,17 @@ int main()
         ++triangleNumberIndex;
         triangleNumber += triangleNumberIndex;
 
-        for (int i = 1; i <= pow(triangleNumber, 0.5); ++i)
+        for (int i = 1; i < std::sqrt(triangleNumber) + 1; ++i)
         {
             if (triangleNumber % i ==  0)
             {
-                if (i * i == triangleNumber)
-                    divisorCount += 1;
 
-                else
-                    divisorCount += 2;
+                divisorCount += (i * i == triangleNumber) ? 1 : 2;
+
             }
+
         }
+
         
     }
 
