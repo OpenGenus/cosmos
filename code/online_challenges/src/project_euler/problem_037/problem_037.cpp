@@ -37,7 +37,7 @@ bool isTruncPrime(std::size_t number, const std::array<bool, N>& primesList)
 
 int main()
 {
-    const auto primesUptoMillion = primesUpto<1'000'000ULL>(); // Represents all the primes up to 1 million
+    const auto primesUptoMillion = primesUpto<1000000ULL>(); // Represents all the primes up to 1 million
     
     std::size_t numberTruncatablePrimes = 0;
     std::size_t currentNumber = 11; // 2, 3, 5, and 7 are not included in the search for truncatable primes
