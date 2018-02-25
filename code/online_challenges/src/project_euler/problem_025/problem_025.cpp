@@ -3,7 +3,7 @@
 
 int main() 
 {
-    std::vector <int> prevFibonacci, currFibonacci;
+    std::vector<int> prevFibonacci, currFibonacci;
     prevFibonacci.reserve(1000);
     currFibonacci.reserve(1000);
     int count = 2;
@@ -12,9 +12,10 @@ int main()
         
     while (currFibonacci.size() < 1000) 
     {   
-        std::vector <int> temp;
+        std::vector<int> temp;
         int carry = 0;
         ++count;
+
         for (size_t i = 0; i < prevFibonacci.size(); ++i) 
         {
             temp.push_back((currFibonacci[i] + prevFibonacci[i] + carry) % 10);
@@ -34,6 +35,6 @@ int main()
         currFibonacci = temp;
         
     }
-    std::cout << count << "\n";
+    std:: cout << count << "\n";
     return 0;
 }
