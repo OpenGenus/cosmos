@@ -3,7 +3,7 @@
 
 # Implementation using lists
 class Dequeue:
-	def __init__(self, container=None):
+	def __init__(self, container = None):
 		if container is None:
 			container = []
 		self.__container = container
