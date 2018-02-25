@@ -1,9 +1,10 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <cmath>
 
 int main()
 {
     int divisorCount = 0;
+    
     int triangleNumberIndex = 0, triangleNumber = 0;
     
     while (divisorCount < 500)
