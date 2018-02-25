@@ -59,7 +59,7 @@ int main() {
         for (int i = 3;i <= n; i++) {
             for (int j = 0; j < 10; j++) {
                 arr[j][i] = 0;
-                for (int k = 0; k < nums[j].size(); k++)
+                for (std::size_t k = 0; k < nums[j].size(); k++)
                     arr[j][i] += arr[nums[j][k]][i-1];
             }
         }
