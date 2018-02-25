@@ -1,81 +1,73 @@
-//  data_structures|queue|dequeue|Java
+//  data_structures|queue|dequeue|java
 //  Part of Cosmos by OpenGenus Foundation
 
 // Implementation using doubly linked list
 
 public class Dequeue {
     
-    private Node front = null;
-    private Node rear = null;
+    private Node head = null;
+    private Node tail = null;
     
-    public void insertAtFront(int d) {
+    public void insertAtHead(int d) {
         Node n = new Node(d);
-        n.setNext(front);
-        
-        if (front == null) {  
-            front = n;
-            rear = n;
+        n.setNext(head);
+        if (head == null) {  
+            head = n;
+            tail = n;
         } else {
-            front.setPrevious(n);
-            front = n;
+            head.setPrevious(n);
+            head = n;
         }
     }
     
-    public void insertAtRear(int d) {
+    public void insertAtTail(int d) {
         Node n = new Node(d);
-
-        if (rear == null) {
-            front = n;
-            rear = n;
+        if (tail == null) {
+            head = n;
+            tail = n;
         } else {
-            rear.setNext(n);
-            n.setPrevious(rear);
-            rear = n;
+            tail.setNext(n);
+            n.setPrevious(tail);
+            tail = n;
         }
     }
     
-    public int removeFront() {
-        try {
-            int frontValue = front.getValue();
-            Node newFront = front.getNext();
-            if (newFront != null)  {
-                newFront.setPrevious(null);
-            }
-            front = newFront;
-            return frontValue;
+    public int removeHead() {
+        if (head == null) {
+        	throw new NullPointerException("Underflow");
         }
-        catch (Exception e) {
-       	    System.out.println("Underflow");
-            return -1;
+        int headValue = head.getValue();
+        Node newHead = head.getNext();
+        if (newHead != null) {
+            newHead.setPrevious(null);
         }
+        head = newHead;
+        return headValue;   
     }
     
-    public int removeRear() {
-        try {
-            int rearValue =  rear.getValue();
-            Node newRear = rear.getPrevious();
-            if (newRear!=null){
-                newRear.setNext(null);  
-            }
-            rear = newRear;
-            return rearValue;
+    public int removeTail() {
+        if (head == null) {
+        	throw new NullPointerException("Underflow");
         }
-        catch(Exception e) {
-            System.out.println("Underflow");
-       	    return -1;
+        int tailValue = tail.getValue();
+        Node newTail = tail.getPrevious();
+        if (newTail != null) {
+            newTail.setNext(null);  
         }
+        tail = newTail;
+        return tailValue;
     }   
     
     public static void main(String args[]) {
         Dequeue dq = new Dequeue();
         for (int i = 1; i <= 10; ++i) {
-            dq.insertAtFront(i);
-            dq.insertAtRear(-1 * i);
+            dq.insertAtHead(i);
+            dq.insertAtTail(-1 * i);
         }
 
          for (int i = 1; i <= 10; ++i) {
-             System.out.println(dq.removeFront());
-             System.out.println(dq.removeRear());
+             System.out.println(dq.removeHead());
+             System.out.println(dq.removeTail());
              System.out.println("\n");
          }
     }
