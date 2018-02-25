@@ -26,7 +26,7 @@ int main()
 {
     char string[MAX_STRING_LEN];
     printf("Give the string to be checked:\n");
-    scanf("%s",string); // Scan the string to be taken
+    scanf("%s", string); // Scan the string to be taken
     isPalindrome(string);
     return 0;
 }
