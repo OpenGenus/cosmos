@@ -4,8 +4,8 @@
 int main()
 {
     int divisorCount = 0;
-    
-    int triangleNumberIndex = 0, triangleNumber = 0;
+    int triangleNumberIndex = 0;
+    int triangleNumber = 0;
     
     while (divisorCount < 500)
     { 
