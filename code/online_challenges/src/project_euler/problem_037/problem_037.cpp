@@ -25,11 +25,11 @@ template<std::size_t N>
 bool isTruncPrime(std::size_t number, const std::array<bool, N>& primesList)
 {
     for (std::size_t i = 10; i < number; i *= 10)
-        if (primesList[number % i] == 0) // If the right truncated part is not prime
+        if (!primesList[number % i]) // If the right truncated part is not prime
             return false;
     
     for (number; number >= 1; number /= 10)
-        if (primesList[number] == 0) // If the left truncated part is not prime
+        if (!primesList[number]) // If the left truncated part is not prime
             return false;
     
     return true; // All truncated parts are prime, so the number is a truncatable prime
