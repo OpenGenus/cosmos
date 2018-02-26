@@ -163,8 +163,8 @@ void foo()
         res &= false;
 
     if (res != true ||
-         (!(res == true) ||
-            (res == false)))
+        (!(res == true) ||
+         (res == false)))
         cout << "wrong\n";
 }
 ```
