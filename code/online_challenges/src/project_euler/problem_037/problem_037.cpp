@@ -47,8 +47,7 @@ int main()
     {
         if (
             primesUptoMillion[currentNumber] && // If the number itself is prime
-            isTruncPrime(currentNumber, primesUptoMillion) // If the number is also a truncatable prime
-        )
+            isTruncPrime(currentNumber, primesUptoMillion)) // If the number is also a truncatable prime
         {
             ++numberTruncatablePrimes; // Increase amount of truncatable primes
             truncatablePrimeSum += currentNumber; // Add the number's sum
