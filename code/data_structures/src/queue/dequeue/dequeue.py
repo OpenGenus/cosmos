@@ -34,7 +34,7 @@ if __name__ == '__main__':
 		dq.insert_at_rear(-1 * i)
 	
 	for i in range(1, 11):
-		print(dq.remove_front())   
-		print(dq.remove_rear())  
+		print(dq.remove_front())
+		print(dq.remove_rear())
 		print('\n')
 		
