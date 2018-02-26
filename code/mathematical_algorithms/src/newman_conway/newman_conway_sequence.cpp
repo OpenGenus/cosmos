@@ -8,7 +8,7 @@ int nthNewmanConwayNumber(int number)
     arr.push_back(1);
     arr.push_back(1);
     for(size_t i = 3; i <= number; ++i)
-        arr.push_back(arr[arr[i-1]] + arr[i - arr[i-1]]);
+        arr.push_back(arr[arr[i - 1]] + arr[i - arr[i - 1]]);
     return arr[number];
 }
 
