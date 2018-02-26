@@ -45,8 +45,7 @@ int main()
     
     while (numberTruncatablePrimes != 11) 
     {
-        if (
-            primesUptoMillion[currentNumber] && // If the number itself is prime
+        if (primesUptoMillion[currentNumber] && // If the number itself is prime
             isTruncPrime(currentNumber, primesUptoMillion)) // If the number is also a truncatable prime
         {
             ++numberTruncatablePrimes; // Increase amount of truncatable primes
