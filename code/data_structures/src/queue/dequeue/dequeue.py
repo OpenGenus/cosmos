@@ -37,3 +37,4 @@ if __name__ == '__main__':
 		print(dq.remove_front())   
 		print(dq.remove_rear())  
 		print('\n')
+		
