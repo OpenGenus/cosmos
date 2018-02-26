@@ -8,17 +8,24 @@ class Dequeue:
 			container = []
 		self.__container = container
 
-	def insert_at_front(self, d):
+	def push_front(self, d):
 		self.__container.insert(0, d)
 
-	def insert_at_rear(self, d):
+	def push_rear(self, d):
 		self.__container.append(d)
 
-	def remove_front(self):
+	def pop_front(self):
 		return self.__container.pop(0)
 
-	def remove_rear(self):
+	def pop_rear(self):
 		return self.__container.pop()
+	
+	def get_front(self):
+		return self.__container[0]
+	
+	def get_rear(self):
+		return self.__container[-1]
+		
 
 if __name__ == '__main__':
 	dq = Dequeue()
