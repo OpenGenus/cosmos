@@ -14,7 +14,7 @@ using namespace std;
  */
 long long binomialCoefficient(int n, int k) {
 
-    long long C[k+1];
+    long long C[k + 1];
     for (int i = 0; i < k + 1; ++i)
         C[i] = 0;
     C[0] = 1;
@@ -22,7 +22,7 @@ long long binomialCoefficient(int n, int k) {
     for(int i = 1; i <= n; ++i) {
         
         for(int j = min(i, k); j > 0; --j)
-            C[j] = C[j] + C[j-1];
+            C[j] = C[j] + C[j - 1];
     }
 
     return C[k];
