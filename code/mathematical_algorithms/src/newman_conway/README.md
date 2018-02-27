@@ -1,9 +1,16 @@
-# Newman - Conway Number  
+# Newman-Conway Number  
+Newman-Conway numbers is the one which generates the following integer sequence.
+1 1 2 2 3 4 4 4 5 6 7 7….  
 
-Newman-Conway number is a number which follows the given Recurrence relation.  
-`P(1) = 1,`	
-`P(2) = 1,`
-`P(n) = P (P(n-1) ) + P( n - P(n-1) )`
+## Recurrence relation.  
+`P(1) = 1,`  
+`P(2) = 1,`  
+`P(n) = P (P(n-1) ) + P( n - P(n-1) )`  
+
+## Time Complexity
+To compute n<sup>th</sup> Newman-Conway Number.  
+`T(n) = O(n)`  
+  
 ---
 
 <p align="center">
