@@ -8,7 +8,7 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
     if(i==m && j==n){
         sol[m][n] = 1;
         ways++;
-        ///Print the soln
+        ///Print the solution
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
                 cout<<sol[i][j]<<" ";
@@ -22,10 +22,10 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
     }
 
     ///Rec Case
-    ///Assume jis cell pe khada hai vaha se rasta hai
+    ///Assume there is a way from this cell
     sol[i][j] = 1;
 
-    /// Right mein X nahi hai
+    ///Try going Right
     if(j+1<=n && maze[i][j+1]!='X'){
 
         bool rightSeRastaHai = solveMaze(maze,sol,i,j+1,m,n,ways);
@@ -33,7 +33,7 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
            // return true;
         }
     }
-    /// Down jake dekho agr rasta nahi mila right se
+    /// Try going Down if there is no way from Right
     if(i+1<=m && maze[i+1][j]!='X'){
 
         bool downSeRastaHai = solveMaze(maze,sol,i+1,j,m,n,ways);
@@ -43,7 +43,7 @@ bool solveMaze(char maze[][10],int sol[][10],int i,int j,int m,int n,int &ways){
     }
 
 
-    ///Agr code is line mein aagya ! - Backtracking
+    ///If code comes in this line - Backtrack
     sol[i][j] =0;
     return false;
 }
@@ -64,11 +64,13 @@ int main(){
     int sol[10][10] = {0};
     int ways=0;
     solveMaze(maze,sol,0,0,m,n,ways);
-    if(ways!=0){
-        cout<<"Total ways "<<ways<<endl;
+    if(ways!=0)
+    {
+        cout<<"Total ways "<< ways <<endl;
     }
-    else{
-        cout<<"Koi rasta nahi hai "<<endl;
+    else
+    {
+        cout<<"There is no way found\n";
     }
 
 
