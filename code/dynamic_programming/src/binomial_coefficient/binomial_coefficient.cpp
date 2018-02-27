@@ -37,7 +37,7 @@ long long binomialCoefficient_2(int n, int k) {
     
     long long answer = 1;
 
-    k = min(k, n-k);
+    k = min(k, n - k);
 
     for(int i = 1; i <= k; ++i, --n) {
         answer *= n;
