@@ -1,6 +1,6 @@
 # Cosmos Guide: Getting Ready to program in C++ in MAC OS
  **<b>Getting The Software</b>** <br> <br>
- There are many IDE's for MAC OS but here's a quick guide to install one of them i.e <b> CODEBLOCKS>. <br><br>
+ There are many IDE's for MAC OS but here's a quick guide to install one of them i.e <b> CODEBLOCKS. <br><br>
  You can get Codeblocks from the Official Site: http://www.codeblocks.org/downloads <br>
 Click on <b>Download the binary release</b> <br>
  <br> <br>
@@ -8,8 +8,8 @@ Click on <b>Download the binary release</b> <br>
 Look after codeblocks's <b>mingw-setup.exe</b>, it may be a different version than the one in the screenshot but it does not matter. Click on the <b>SourceForge</b><br>
 <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/1.png"> <br> <br>
 
- <h1>Let’s get started with the installation</h1> <br> <br>
- Step 1: Unzip the compressed file and then launch the application. 
+ <h1>Let’s get started with the installation </h1> <br><br>
+ Step 1: Unzip the compressed file and then launch the application><br> 
 <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/2.png"> <br> <br>
  Step 2: Because of your Mac’s security, you won’t be able to install Code Blocks right away and this window will pop-up. Click okay and move on to the next step.<br><br>
 <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/3.png"> <br> <br>
