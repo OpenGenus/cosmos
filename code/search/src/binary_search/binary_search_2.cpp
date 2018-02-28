@@ -10,13 +10,13 @@ using namespace std;
 /* Utility functions */
 
 void fill(vector<int> &v) {
-    for(int i=0;i<v.size();i++) {
+    for(std::size_t i=0;i<v.size();i++) {
         v[i]=rand() % 100;
     }
 }
 
 void printarr(vector<int> &v) {
-    for(int i=0;i<v.size();i++) {
+    for(std::size_t i=0;i<v.size();i++) {
         cout << v[i] << " ";
     }
     cout << endl;
