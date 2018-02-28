@@ -699,7 +699,7 @@ void rev_traverse(struct node *p)
             printf(" %d", i);
 
         }
-
+     
         if (p->link == head)
 
         {
