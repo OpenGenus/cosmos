@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
  
  
-public class Problem_19 {
+class Problem_19 {
     public static void main(String args[]){
         Map<Integer, String> L = new HashMap<Integer, String>();
         L.put(1, "Sun");
