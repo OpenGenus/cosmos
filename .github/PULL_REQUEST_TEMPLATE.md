@@ -12,3 +12,12 @@
 
      Note: A coding style guide may not exist for your language, since this is still in beta.
 -->
+
+<!-- Make sure to look at the Documentation Style Guide in guides/documentation.md:
+
+     https://github.com/OpenGenus/cosmos/blob/master/guides/documentation_guide.md
+
+     The document style guide may not apply for your algorithm category, you must also look at specified guide under all of the directory in the category, e.g., for the euler project:
+
+     https://github.com/OpenGenus/cosmos/blob/master/code/online_challenges/src/project_euler/documentation_guide.md
+-->
