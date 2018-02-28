@@ -1,5 +1,5 @@
 # Shellsort
-The Shellshort algorithm is a search algorithm. It's a generalization of the insertion sort that allows the exchange of items that are far apart.
+The Shellsort algorithm is a search algorithm. It's a generalization of the insertion sort that allows the exchange of items that are far apart.
 
 The method starts by sorting pair of elements far apart from each other in the array, then progressively reducing the gap between the elements to be compared.
 
