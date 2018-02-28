@@ -29,11 +29,8 @@ def is_palindrome(string):
     if string[0] == string[-1]:
 
         # if it gets to this statement, it's a palindrome
-        return is_palindrome(string[1:len(string) - 1])
-
-    else:
-        # if it gets to this statement, it's not a palindrome
-        return False
+        return is_palindrome(string[1:len(string) - 1]
 
 # Call the main function.
-# main()
+if __name__ == '__main__':
+    main()
