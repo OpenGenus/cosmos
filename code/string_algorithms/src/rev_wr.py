@@ -25,6 +25,6 @@ def reverse_words(string):
 
 
 if __name__ == "__main__":
-    test = "I am keon kim and I like pizza"
+    test = "I am one awa and I like pizza"
     print(test)
 print(reverse_words(test))
