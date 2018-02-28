@@ -1,4 +1,4 @@
-# Template
+# Documentation Guide
 
 ## README Template
 
