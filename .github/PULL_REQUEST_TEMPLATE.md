@@ -17,7 +17,7 @@
 
      https://github.com/OpenGenus/cosmos/blob/master/guides/documentation_guide.md
 
-     The document style guide may not apply for your algorithm category, you must also look at specified guide under all of the directory in the category, e.g., for the project euler:
+     The document style guide may not apply for your algorithm category, you must also look at specified guide under all of the directory in the category, e.g., for project euler:
 
      https://github.com/OpenGenus/cosmos/blob/master/code/online_challenges/src/project_euler/documentation_guide.md
 -->
