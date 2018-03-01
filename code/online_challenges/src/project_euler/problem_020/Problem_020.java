@@ -4,8 +4,7 @@ public class Problem_020 {
 	public static BigInteger factorial(BigInteger number) {
 		if (number.equals(BigInteger.ZERO))
 			return BigInteger.ONE;
-		else
-			return (number.multiply(factorial(number.subtract(BigInteger.ONE))));
+		return (number.multiply(factorial(number.subtract(BigInteger.ONE))));
 	}
 	public static BigInteger addDigits(BigInteger n) {
 		BigInteger sum = BigInteger.ZERO;
