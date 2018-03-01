@@ -17,7 +17,7 @@ int coinWays(int amt, std::vector<int>& coins)
             if(i - coins[j] >= 0)
                 // if coins[j] < i then add no. of ways - 
                 // - to form the amount by using coins[j]
-            dp[i] += dp[i - coins[j]]; 
+                dp[i] += dp[i - coins[j]]; 
         
     //final result at dp[amt]
     return dp[amt];
