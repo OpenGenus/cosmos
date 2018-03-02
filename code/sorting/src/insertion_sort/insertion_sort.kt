@@ -1,9 +1,4 @@
 import java.util.*
-
-/**
- * Created by gazollajunior on 03/04/16.
- */
-
 fun <T:Comparable<T>> insertionsort(items:MutableList<T>):List<T>{
     if (items.isEmpty()){
         return items
@@ -20,11 +15,9 @@ fun <T:Comparable<T>> insertionsort(items:MutableList<T>):List<T>{
     return items
 }
 
-
 fun main(args: Array<String>) {
     val names = mutableListOf("one", "Two", "Zack", "Daniel", "Adam")
     println(names)
-    var ordered = insertionsort(names)
-    println(ordered)
+    println(insertionsort(names))  
 
 }
