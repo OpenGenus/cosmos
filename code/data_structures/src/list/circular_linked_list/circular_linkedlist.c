@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct node{
     int data;
     struct node *link;
 };
-struct node *head = NULL, *x, *y, *z;
+
+struct node *head=NULL;
 void create();
 void ins_at_beg();
 void ins_at_pos();
@@ -17,8 +19,8 @@ void update();
 void rev_traverse(struct node *p);
 int main(){
 printf("\n 1.Creation \n 2.Insertion at beginning \n 3.Insertion at remaining");
-printf("\n4.Deletion at beginning \n5.Deletion at remaining \n6.traverse");
-printf("\n7.Search\n8.sort\n9.update\n10.Exit\n");
+printf("\n 4.Deletion at beginning \n 5.Deletion at remaining \n 6.traverse");
+printf("\n 7.Search\n 8.sort\n 9.update\n 10.Exit\n");
 while (1)
     {
        printf("\n Enter your choice:");
@@ -60,8 +62,10 @@ while (1)
         }
    }
 }
+
 /*Function to create a new circular linked list*/
 void create() {
+    struct node  *x, *y;
     x = (struct node*)malloc(sizeof(struct node));
     printf("\n Enter the data:");
     scanf("%d", &x->data);
@@ -81,8 +85,10 @@ void create() {
         scanf("%d", &c); 
     }
 }
+
 /*Function to insert an element at the begining of the list*/
 void ins_at_beg() {
+    struct node  *x, *y;	
     x = head;
     y = (struct node*)malloc(sizeof(struct node));
     printf("\n Enter the data:");
@@ -94,9 +100,10 @@ void ins_at_beg() {
     y->link = head;
     head = y;
 }
+
 /*Function to insert an element at any position the list*/
 void ins_at_pos() {
-    struct node *ptr;
+    struct node  *x, *y, *z,*ptr;
     int c = 1, pos, count = 1;
     y = (struct node*)malloc(sizeof(struct node));
     if (head == NULL) {
@@ -127,6 +134,7 @@ void ins_at_pos() {
 }
 /*Function to delete an element at any begining of the list*/
 void del_at_beg() {
+    struct node *x, *y;
     if (head == NULL) 
         printf("\n List is empty");
     else {
@@ -140,8 +148,10 @@ void del_at_beg() {
         free(y);
     }
 }
+
 /*Function to delete an element at any position the list*/
 void del_at_pos() {
+    struct node *x, *y;
     if (head == NULL)
         printf("\n List is empty");
     else
@@ -159,8 +169,10 @@ void del_at_pos() {
         free(x);
     }
 }
+
 /*Function to display the elements in the list*/
 void traverse() {
+    struct node *x;
     if (head == NULL)
         printf("\n List is empty");
     else {
@@ -172,8 +184,10 @@ void traverse() {
         printf("%d", x->data);
     }
 }
+
 /*Function to search an element in the list*/
 void search() {
+    struct node  *x;
     int search_val, count = 0, flag = 0;
     printf("\nenter the element to search\n");
     scanf("%d", &search_val);
@@ -197,6 +211,7 @@ void search() {
         }
     }
 }
+
 /*Function to sort the list in ascending order*/
 void sort() {
     struct node *ptr, *nxt;
@@ -223,6 +238,7 @@ void sort() {
         }
     }
 }
+
 /*Function to update an element at any position the list*/
 void update() {
     struct node *ptr;
@@ -255,6 +271,7 @@ void update() {
         }
     }
 }
+
 /*Function to display the elements of the list in reverse order*/
 void rev_traverse(struct node *p) {
     int i = 0;
