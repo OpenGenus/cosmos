@@ -23,10 +23,10 @@ class TestMatrixTransformation {
 
     func test() {
         test_rotate()
-        test_symmetric()
+        test_square_transpose()
     }
 
-    func test_symmetric() {
+    func test_square_transpose() {
         let s2 = [[1, 3],
                   [2, 4]]
         let s4 = [[ 1,  5,  9, 13],
@@ -52,9 +52,9 @@ class TestMatrixTransformation {
                   [21, 16, 11,  6,  1]]
 
         let ms = [m0, m1, m2, m4, m5]
-        // symmetric of the matrices
+        // transpose of the matrices
         let ss = [m0, m1, s2, s4, s5]
-        // reverse symmetric of the matrices
+        // reverse transpose of the matrices
         let rs = [m0, m1, r2, r4, r5]
 
         for i in 0..<ms.count {
