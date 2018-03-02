@@ -29,7 +29,7 @@ void Graph :: all_topo_sorts () {
 }
 
 void Graph :: all_topo_sorts_helper (vector<int> & topo, vector<bool> & visited) {
-    for (int i = 0; i < graph.size(); i++) {
+    for (std::size_t i = 0; i < graph.size(); i++) {
         if (indegree[i] == 0 && !visited[i]) {
             for (auto j : graph[i])         // reduce indegree of outgoing vertices
                 indegree[j]--;
@@ -43,7 +43,7 @@ void Graph :: all_topo_sorts_helper (vector<int> & topo, vector<bool> & visited)
         }
     }
     if (topo.size() == graph.size()) {
-        for (int i = 0; i < topo.size(); i++)
+        for (std::size_t i = 0; i < topo.size(); i++)
             cout << topo[i] << " ";
         cout << endl;
     }
