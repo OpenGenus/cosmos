@@ -6,8 +6,11 @@ while (num !== 1) {
   if (num % currentFactor === 0 && currentFactor > highestPrimeFactor) {
     highestPrimeFactor = currentFactor;
     num /= currentFactor;
+    currentFactor = 2;
   }
-  ++currentFactor;
+  else {
+    ++currentFactor; 
+  }
 }
 
 console.log(highestPrimeFactor);
