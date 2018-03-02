@@ -60,14 +60,14 @@ class TestMatrixTransformation {
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.symmetric(&matrix)
+            mt.square_transpose(&matrix)
             assert(same(matrix, ss[i]))
         }
 
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.reverse_symmetric(&matrix)
+            mt.anti_square_transpose(&matrix)
             assert(same(matrix, rs[i]))
         }
     }

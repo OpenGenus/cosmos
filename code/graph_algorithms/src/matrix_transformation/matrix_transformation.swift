@@ -12,7 +12,7 @@ class MatrixTransformation {
         // 4 5 6  =>  4 5 6  =>  8 5 2
         // 7 8 9      1 2 3      9 6 3
         matrix.reverse()
-        symmetric(&matrix)
+        square_transpose(&matrix)
     }
 
     func reverse_rotate<T>(_ matrix: inout [[T]]) {
@@ -26,10 +26,10 @@ class MatrixTransformation {
         for i in 0..<matrix.count {
             matrix[i].reverse()
         }
-        symmetric(&matrix)
+        square_transpose(&matrix)
     }
 
-    func symmetric<T>(_ matrix: inout [[T]]) {
+    func square_transpose<T>(_ matrix: inout [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -44,7 +44,7 @@ class MatrixTransformation {
         }
     }
 
-    func reverse_symmetric<T>(_ matrix: inout [[T]]) {
+    func anti_square_transpose<T>(_ matrix: inout [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
