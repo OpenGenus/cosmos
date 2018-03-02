@@ -24,6 +24,44 @@ class TestMatrixTransformation {
     func test() {
         test_rotate()
         test_square_transpose()
+        test_square_shear()
+    }
+
+    func test_square_shear() {
+        let c2 = [[1, 2],
+                  [0, 1]],
+            c4 = [[1, 0, 0, 0],
+                  [2, 1, 0, 0],
+                  [0, 0, 1, 0],
+                  [0, 0, 0, 1]],
+            c5 = [[1, 0, 0, 0, 0],
+                  [2, 1, 2, 1, 0],
+                  [1, 0, 1, 2, 0],
+                  [0, 0, 0, 1, 0],
+                  [0, 0, 0, 0, 1]]
+
+        let s2 = [[1, 4],
+                  [3,10]],
+            s4 = [[ 5,  2,  3,  4],
+                  [17,  6,  7,  8],
+                  [29, 10, 11, 12],
+                  [41, 14, 15, 16]],
+            s5 = [[ 8,  2,  7, 12,  5],
+                  [28,  7, 22, 32, 10],
+                  [48, 12, 37, 52, 15],
+                  [68, 17, 52, 72, 20],
+                  [88, 22, 67, 92, 25]]
+
+        let ms = [m0, m1, m2, m4, m5],
+            cs = [m0, m1, c2, c4, c5],
+            ss = [m0, m1, s2, s4, s5]
+
+        for i in 0..<ms.count {
+            matrix = ms[i]
+
+            mt.square_shearing(matrix: &matrix, coefficient: cs[i])
+            assert(same(matrix, ss[i]))
+        }
     }
 
     func test_square_transpose() {

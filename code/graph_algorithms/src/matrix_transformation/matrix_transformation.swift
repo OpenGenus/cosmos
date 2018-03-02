@@ -59,4 +59,24 @@ class MatrixTransformation {
             }
         }
     }
+
+    func square_shearing<T: Numeric>(matrix: inout [[T]], coefficient: [[T]]) {
+        guard matrix.count > 0 && matrix.count == matrix[0].count else {
+            return
+        }
+
+        // 1 2 3    1 2 0      1  4  3
+        // 4 5 6  x 0 1 0  =>  4 13  6
+        // 7 8 9    0 0 1      7 22  9
+        let ct = matrix.count
+        var res = [[T]](repeating: [T](repeating: 0, count: ct), count: ct)
+        for i in 0..<matrix.count {
+            for j in 0..<matrix.count {
+                for n in 0..<matrix.count {
+                    res[i][j] += matrix[i][n] * coefficient[n][j]
+                }
+            }
+        }
+        matrix = res
+    }
 }
