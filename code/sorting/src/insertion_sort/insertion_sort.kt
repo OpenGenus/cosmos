@@ -24,5 +24,4 @@ fun main(args: Array<String>)
     val names = mutableListOf("one", "Two", "Zack", "Daniel", "Adam")
     println(names)
     println(insertionsort(names))  
-
 }
