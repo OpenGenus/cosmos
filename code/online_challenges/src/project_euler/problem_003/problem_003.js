@@ -10,7 +10,6 @@ while (num > highestPrimeFactor) {
   else {
     ++currentFactor;
   }
-  
 }
 
 console.log(highestPrimeFactor);
