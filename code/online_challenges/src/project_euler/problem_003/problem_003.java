@@ -1,4 +1,4 @@
-public class problem_003 {
+public class Problem003 {
 
 	public static long smallestFactor(long n) {
 		if (n <= 1)
