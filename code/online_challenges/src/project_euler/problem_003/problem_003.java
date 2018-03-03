@@ -1,5 +1,4 @@
-package problem_003;
-public class Problem_003 {
+public class problem_003 {
 
 	public static long smallestFactor(long n) {
 		if (n <= 1)
