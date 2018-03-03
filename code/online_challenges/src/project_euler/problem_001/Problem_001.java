@@ -1,3 +1,4 @@
+package problem_001;
 public class Problem001 {
 	public static void main(String []args) {
 		int sum = 0;
