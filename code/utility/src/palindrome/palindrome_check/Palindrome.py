@@ -29,7 +29,7 @@ def is_palindrome(string):
     if string[0] == string[-1]:
 
         # if it gets to this statement, it's a palindrome
-        return is_palindrome(string[1:len(string) - 1]
+        return is_palindrome(string[1:-1])
 
 # Call the main function.
 if __name__ == '__main__':
