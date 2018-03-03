@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
- 
- 
+
 class Problem_19 {
     public static void main(String args[]){
         Map<Integer, String> L = new HashMap<Integer, String>();
@@ -12,7 +11,7 @@ class Problem_19 {
         L.put(5, "Thurs");
         L.put(6, "Fri");
         L.put(7, "Sat");
-         
+     
         // Start at Monday, 1st, 1900
         int counter = 1;
         int tally = 0;
