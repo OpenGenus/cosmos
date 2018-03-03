@@ -6,7 +6,7 @@ public class Problem003 {
 		for (long i = 2 ,end = (long)Math.sqrt(n); i <= end; i++) {
 			if (n % i == 0)
 				return i;
-			}
+		}
 		return n;
 	}
 	public static void main(String []args) {
