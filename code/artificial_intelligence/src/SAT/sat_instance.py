@@ -43,4 +43,4 @@ class SATInstance(object):
                 literals.append('~' + v)
             elif a:
                 literals.append(v)
-return ' '.join(literals)
+return ' '.join(literals) 
