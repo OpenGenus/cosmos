@@ -1,5 +1,3 @@
-
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -18,22 +16,20 @@ import java.io.*;
 	}
  
 	public E pop() {
-		if(this.size == 0){
+		if(this.size == 0)
 			return null;
-		}
- 
+		
 		this.size--;
 		E result = this.arr[top];
-		this.arr[top] = null;//prevent memory leaking
-		this.top--;
- 
+		//prevent memory leaking
+		this.arr[top] = null;
+		this.top--; 
 		return result;
 	}
  
 	public boolean push(E e) {
 		if (!isFull())
-			return false;
- 
+			return false; 
 		this.size++;
 		this.arr[++top] = e;
 		return false;
@@ -46,31 +42,25 @@ import java.io.*;
 	}
  
 	public String toString() {
-		if(this.size==0){
+		if(this.size==0)
 			return null;
-		}
- 
+		
 		StringBuilder sb = new StringBuilder();
-		for(int i=0; i<this.size; i++){
+		for(int i=0; i<this.size; i++)
 			sb.append(this.arr[i] + ", ");
-		}
- 
+		
 		sb.setLength(sb.length()-2);
 		return sb.toString();	
 	}
  
-	public static void main(String[] args) {
- 
+	public static void main(String[] args) { 
 		Stack<String> stack = new Stack<String>(11);
 		stack.push("hello");
 		stack.push("world");
- 
+ 		System.out.println(stack);
+ 		stack.pop();
 		System.out.println(stack);
- 
-		stack.pop();
-		System.out.println(stack);
- 
-		stack.pop();
+ 		stack.pop();
 		System.out.println(stack);
 	}
 }
