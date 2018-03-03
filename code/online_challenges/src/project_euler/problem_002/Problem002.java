@@ -1,7 +1,4 @@
-package problem_002;
-
-public class Problem_002 {
-
+public class Problem002 {
 	public static void main(String[] args) {
 		int sum = 0;
 		int first = 0;
@@ -13,6 +10,6 @@ public class Problem_002 {
 			first = second;
 			second = third;
 		}
-		System.out.println(sum); //4613732
+		System.out.println(sum);
 	}
 }
