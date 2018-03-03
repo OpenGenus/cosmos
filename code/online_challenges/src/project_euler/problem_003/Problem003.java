@@ -1,16 +1,14 @@
-package Problem_003;
-
-public class Problem_003 {
+public class Problem003 {
 
 	public static long smallestFactor(long n) {
 		if (n <= 1)
 			throw new IllegalArgumentException();
-		for (long i = 2 ;i <= (long)Math.sqrt(n); i++) {
+		for (long i = 2 ,end = (long)Math.sqrt(n); i <= end; i++) {
 			if (n % i == 0)
 				return i;
 			}
 		return n;
-		}
+	}
 	public static void main(String []args) {
 		long n = 600851475143L;
 		long big = 1;
@@ -19,7 +17,7 @@ public class Problem_003 {
 			if (big < n)
 				n /= big;
 			else
-				System.out.println(big); //6857
+				System.out.println(big);
 		}
 	}
 }
