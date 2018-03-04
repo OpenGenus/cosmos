@@ -102,7 +102,6 @@ void
 buildMinHeap(struct MinHeap* minHeap)
 {
     int i;
- 
     for (i = (minHeap->size - 2) / 2; i >= 0; --i)
         minHeapify(minHeap, i);
 }
@@ -123,15 +122,15 @@ isLeaf(struct MinHeapNode* root)
     return !(root->left) && !(root->right);
 }
 
-struct MinHeap* 
+struct MinHeap*
 createAndBuildMinHeap(char data[], int freq[], int size)
 {
     struct MinHeap* minHeap = createMinHeap(size);
- 	
+
  	int i;
     for (i = 0; i < size; ++i)
-        minHeap->array[i] = newNode(data[i], freq[i]);
- 
+		minHeap->array[i] = newNode(data[i], freq[i]);
+
     minHeap->size = size;
     buildMinHeap(minHeap);
  
