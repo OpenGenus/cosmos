@@ -14,8 +14,8 @@ main()
 {
 	int n;
 	printf("Enter a Whole Number: ");
-	scanf("%d",&n);
-	printf("%d! = %d\n",n,factorial(n));
+	scanf("%d", &n);
+	printf("%d! = %d\n", n, factorial(n));
 
 	return (0);
 }
