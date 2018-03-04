@@ -84,7 +84,7 @@ class Problem019 {
         }
         else
         {
-          throw new ArithmeticException("Moth is out of bound !"); 
+          throw new ArithmeticException("Month is out of bound !"); 
         }
         return d;
     }
