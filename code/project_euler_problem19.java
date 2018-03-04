@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-class Problem_19 {
+class Problem019 {
     public static void main(String args[]){
         Map<Integer, String> L = new HashMap<Integer, String>();
         L.put(1, "Sun");
@@ -17,20 +17,21 @@ class Problem_19 {
         int tally = 0;
          
         // Year
-        for (int yr = 1900; yr < 2001; yr ++)
+        for (int yr = 1900; yr < 2001;  ++ yr)
         {
             System.out.println("Year = " + yr);
             // Month
             for (int month = 1; month < 13; month ++)
             {
-                int y = find_days(month, yr);
-                for (int month_days = 1; month_days <= y; month_days ++) // Number of month days
+                int y = findDays(month, yr);
+                // Number of month days
+                for (int monthDays = 1; monthDays <= y; monthDays ++) 
                 {
                     // Start at Monday, 1st, 1900
                     counter += 1;
-                    if ((month_days == 1) && (L.get(counter) == "Sun"))
+                    if ((monthDays == 1) && (L.get(counter) == "Sun"))
                     {
-                        System.out.println("month_days = " + month_days);
+                        System.out.println("month_days = " + monthDays);
                         tally += 1;
                     }
                     // Days of the week
@@ -45,7 +46,7 @@ class Problem_19 {
         // subtract 2 for the year 1900 - start counting at 1901
         System.out.println("tally = " + (tally - 2));
     }
-    public static int find_days(int month, int yr){
+    public static int findDays(int month, int yr){
         int d = 0;
         if ((month == 1) || (month == 3) || (month == 5) || (month == 7) ||
         (month == 8) || (month == 10) || (month == 12))
@@ -83,7 +84,7 @@ class Problem_19 {
         }
         else
         {
-            System.out.println("There has been an error");
+          throw new ArithmeticException("error"); 
         }
         return d;
     }
