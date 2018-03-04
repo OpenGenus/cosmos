@@ -1,66 +1,58 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 class Graph 
 {
-private:
-	int ver;
-	vector<int>* adj;
-	vector<int>* centroidTree;
-	int* sizes;
-	bool* deleted;
-public:
-	Graph(int num) : ver(num) {
-		adj = new vector<int>(ver + 1);
-		centroidTree = new vector<int>(ver + 1);
-		sizes = new int[ver + 1];
-		deleted = new bool[ver + 1];	
-	}
-	
-	~Graph();
-	
-	void addEdge(int x, int y, vector<int> arr[]);
+	int ver_;
+	std::vector<std::vector<int>> adj_;
+	std::vector<std::vector<int>> centroidTree_;
+	std::vector<int> sizes_;
+	std::vector<bool> marked_;
+    
+	Graph(int num) : 
+        ver_(num),
+		adj_(num + 1, std::vector<int>),
+		centroidTree_(num + 1, std::vector<int>),
+		sizes_(num + 1),
+		marked_(num + 1),	
+    {}
 
-	void calcSizes(int cur, int par);
-
+	void addEdge(int x, int y, std::vector<std::vector<int>> &graph);
+	void calcSizes(int cur, int par, std::vector<std::vector<int>> graph);
 	int findCentroid(int cur, int par, int vertices);
-
 	void decomposeTree(int cur, int total);
 };
 
-Graph::~Graph()
+void Graph::addEdge(int x, int y, std::vector<std::vector<int>> &graph)
 {
-	delete []adj;
-	delete []sizes;
-	delete []deleted;
-}
-
-void Graph::addEdge(int x, int y, vector<int> arr[])
-{
+    if (x < 0 || x > ver_)
+    {
+        throw std::out_of_range{"x is out of boundaries"};
+    }
+    if (y < 0 || y > ver_)
+    {
+        throw std::out_of_range{"y is out of boundaries"};
+    }
 	arr[x].push_back(y);
 }
 
-void Graph::calcSizes(int cur, int par)
+void Graph::calcSizes(int cur, int par, std::vector<std::vector<int>> graph)
 {
-	sizes[cur] = 1;
-	for (int i = 0; i < adj[cur].size(); ++ i)
+	sizes_[cur] = 1;
+	for (const auto& to : graph[cur])
 	{
-		int to = adj[cur][i];
-		if (!(to == par || deleted[to] == true))
+		if (!(to == par || marked_[to] == true))
 		{
 			calcSizes (to, cur);
-			sizes[cur] += sizes[to];
+			sizes_[cur] += sizes_[to];
 		}
 	}
 }
 
-int Graph::findCentroid(int cur, int par, int vertices){
-	for (int i = 0; i < adj[cur].size(); ++ i)
+int Graph::findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph){
+	for (const auto& to : graph[cur])
 	{
-		int to = adj[cur].size();
-		if (!(to == par || deleted[to] == true))
+		if (!(to == par || marked_[to] == true))
 		{
 			if (sizes[to] > vertices / 2)
 			{
@@ -71,18 +63,19 @@ int Graph::findCentroid(int cur, int par, int vertices){
 	}
 }
 
-void Graph::decomposeTree(int cur, int total)
+void Graph::decomposeTree(int cur, int par, int total)
 {
-	calcSizes (cur, -1);
-	int centroid = findCentroid (cur, -1, sizes[cur]);
-	calcSizes (centroid, -1);
-	deleted[centroid] = true;
-	for (int i = 0; i < adj[centroid].size(); ++ i)
+	calcSizes(cur, -1);
+	int centroid = findCentroid(cur, -1, sizes[cur]);
+	calcSizes(centroid, -1);
+	marked_[centroid] = true;
+	for (const auto& to : adj_[cur])
 	{
-		int to = adj[centroid][i];
-		if (deleted[to] == true) continue;
-		decomposeTree(to, sizes[to]);
-		addEdge(cur, to, centroidTree);
+		if(!(to == par || marked_[to] == true))
+        {
+		    decomposeTree(to, cur, sizes[to]);
+		    addEdge(cur, to, centroidTree);
+        }
 	}
 }
 
