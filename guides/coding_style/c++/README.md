@@ -139,7 +139,8 @@ class Dummy
 };
 ```
 
-- The logical operators should be placed in front of the conditions, if add parenthese is clearer then go ahead.
+- The logical operators should be placed after their conditions if there are many of them. If adding parentheses makes your intent clearer then go ahead and add them.
+
 ```C++
 void foo()
 {
@@ -155,15 +156,15 @@ void foo()
     else
         res &= false;
 
-    if ((1 != 0)
-        && (1 == true || 0 == false))
+    if ((1 != 0) &&
+        (1 == true || 0 == false))
         res &= true;
     else
         res &= false;
 
-    if (res != true
-        || (!(res == true)
-            || (res == false)))
+    if (res != true ||
+        (!(res == true) ||
+         (res == false)))
         cout << "wrong\n";
 }
 ```
