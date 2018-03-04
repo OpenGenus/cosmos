@@ -84,7 +84,7 @@ class Problem019 {
         }
         else
         {
-          throw new ArithmeticException("error"); 
+          throw new ArithmeticException("Moth is out of bound !"); 
         }
         return d;
     }
