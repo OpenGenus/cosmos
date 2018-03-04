@@ -101,10 +101,9 @@ insertMinHeap(struct MinHeap* minHeap,struct MinHeapNode* minHeapNode)
 void
 buildMinHeap(struct MinHeap* minHeap)
 {
-    int n = minHeap->size - 1;
     int i;
  
-    for (i = (n - 1) / 2; i >= 0; --i)
+    for (i = (minHeap->size - 2) / 2; i >= 0; --i)
         minHeapify(minHeap, i);
 }
 
@@ -128,7 +127,7 @@ struct MinHeap*
 createAndBuildMinHeap(char data[], int freq[], int size)
 {
     struct MinHeap* minHeap = createMinHeap(size);
- 
+ 	
  	int i;
     for (i = 0; i < size; ++i)
         minHeap->array[i] = newNode(data[i], freq[i]);
