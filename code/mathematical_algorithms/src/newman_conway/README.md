@@ -1,4 +1,4 @@
-# Newman-Conway Number 
+# Newman-Conway Sequence 
 The recursive sequence defined by its recurrence relation
 
 ## Explaination
