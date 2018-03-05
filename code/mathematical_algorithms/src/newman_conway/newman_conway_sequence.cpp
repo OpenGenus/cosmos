@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 //prints input number of teerms of Newman-Conway Sequence
-void NewmanConwaySequence(int number)
+vector<int> NewmanConwaySequence(int number)
 {
     std::vector<int> arr(number + 1);
     arr[0] = 0;
@@ -9,8 +9,7 @@ void NewmanConwaySequence(int number)
     arr[2] = 1;
     for(int i = 3; i <= number; ++i)
         arr[i] = arr[arr[i - 1]] + arr[i - arr[i - 1]];
-    for(int i = 1; i <= number; ++i)
-        std::cout << arr[i] << " ";
+    return arr;
 }
 
 int main()
@@ -18,5 +17,9 @@ int main()
     int number;
     std::cout << "Enter number: ";
     std::cin >> number;
-    NewmanConwaySequence(number); 
+    vector<int> sequence(number + 1);
+    sequence = NewmanConwaySequence(number); 
+    for(int i = 1; i <= number; ++i)
+    	cout << sequence[i] << " ";
+    return 0;
 }
