@@ -12,10 +12,10 @@ class MatrixTransformation {
         // 4 5 6  =>  4 5 6  =>  8 5 2
         // 7 8 9      1 2 3      9 6 3
         matrix.reverse()
-        square_transpose(&matrix)
+        squareTranspose(&matrix)
     }
 
-    func reverse_rotate<T>(_ matrix: inout [[T]]) {
+    func reverseRotate<T>(_ matrix: inout [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -26,10 +26,10 @@ class MatrixTransformation {
         for i in 0..<matrix.count {
             matrix[i].reverse()
         }
-        square_transpose(&matrix)
+        squareTranspose(&matrix)
     }
 
-    func square_transpose<T>(_ matrix: inout [[T]]) {
+    func squareTranspose<T>(_ matrix: inout [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -44,7 +44,7 @@ class MatrixTransformation {
         }
     }
 
-    func anti_square_transpose<T>(_ matrix: inout [[T]]) {
+    func antiSquareTranspose<T>(_ matrix: inout [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -60,7 +60,7 @@ class MatrixTransformation {
         }
     }
 
-    func square_shearing<T: Numeric>(matrix: inout [[T]], coefficient: [[T]]) {
+    func squareShearing<T: Numeric>(matrix: inout [[T]], coefficient: [[T]]) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -70,10 +70,10 @@ class MatrixTransformation {
         // 7 8 9    0 0 1      7 22  9
         let ct = matrix.count
         var res = [[T]](repeating: [T](repeating: 0, count: ct), count: ct)
-        for i in 0..<matrix.count {
-            for j in 0..<matrix.count {
+        for row in 0..<matrix.count {
+            for col in 0..<matrix.count {
                 for n in 0..<matrix.count {
-                    res[i][j] += matrix[i][n] * coefficient[n][j]
+                    res[row][col] += matrix[row][n] * coefficient[n][col]
                 }
             }
         }

@@ -22,12 +22,12 @@ class TestMatrixTransformation {
               [21, 22, 23, 24, 25]]
 
     func test() {
-        test_rotate()
-        test_square_transpose()
-        test_square_shear()
+        testRotate()
+        testSquareTranspose()
+        testSquareShear()
     }
 
-    func test_square_shear() {
+    func testSquareShear() {
         let c2 = [[1, 2],
                   [0, 1]],
             c4 = [[1, 0, 0, 0],
@@ -59,12 +59,12 @@ class TestMatrixTransformation {
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.square_shearing(matrix: &matrix, coefficient: cs[i])
+            mt.squareShearing(matrix: &matrix, coefficient: cs[i])
             assert(same(matrix, ss[i]))
         }
     }
 
-    func test_square_transpose() {
+    func testSquareTranspose() {
         let s2 = [[1, 3],
                   [2, 4]]
         let s4 = [[ 1,  5,  9, 13],
@@ -98,19 +98,19 @@ class TestMatrixTransformation {
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.square_transpose(&matrix)
+            mt.squareTranspose(&matrix)
             assert(same(matrix, ss[i]))
         }
 
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.anti_square_transpose(&matrix)
+            mt.antiSquareTranspose(&matrix)
             assert(same(matrix, rs[i]))
         }
     }
 
-    func test_rotate() {
+    func testRotate() {
         let r2 = [[3, 1],
                   [4, 2]]
         let r4 = [[13,  9,  5,  1],
@@ -133,7 +133,7 @@ class TestMatrixTransformation {
             mt.rotate(&matrix)
             assert(same(matrix, rs[i]))
 
-            mt.reverse_rotate(&matrix)
+            mt.reverseRotate(&matrix)
             assert(same(matrix, ms[i]))
         }
     }
