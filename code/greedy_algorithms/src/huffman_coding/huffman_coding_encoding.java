@@ -8,7 +8,6 @@ import java.util.TreeMap;
 class Huffman {
     static final boolean readFromFile = false;
     static final boolean newTextBasedOnOldOne = false;
-
     static PriorityQueue<Node> nodes = new PriorityQueue<>((o1, o2) -> (o1.value < o2.value) ? -1 : 1);
     static TreeMap<Character, String> codes = new TreeMap<>();
     static String text = "";
@@ -26,13 +25,12 @@ class Huffman {
     }
 
     private static int consoleMenu(Scanner scanner) {
-        int decision;
         System.out.println("\n---- Menu ----\n" +
                 "-- [-1] to exit \n" +
                 "-- [1] to enter new text\n" +
                 "-- [2] to encode a text\n" +
                 "-- [3] to decode a text");
-        decision = Integer.parseInt(scanner.nextLine());
+        int decision = Integer.parseInt(scanner.nextLine());
         if (readFromFile)
             System.out.println("Decision: " + decision + "\n---- End of Menu ----\n");
         return decision;
@@ -79,34 +77,28 @@ class Huffman {
             text = "";
             return true;
         }
-            ASCII = new int[128];
-            nodes.clear();
-            codes.clear();
-            encoded = "";
-            decoded = "";
-            System.out.println("Text: " + text);
-            calculateCharIntervals(nodes, true);
-            buildTree(nodes);
-            generateCodes(nodes.peek(), "");
-
-            printCodes();
-            System.out.println("-- Encoding/Decoding --");
-            encodeText();
-            decodeText();
-            return false;
-
-
-
+        ASCII = new int[128];
+        nodes.clear();
+        codes.clear();
+        encoded = "";
+        decoded = "";
+        System.out.println("Text: " + text);
+        calculateCharIntervals(nodes, true);
+        buildTree(nodes);
+        generateCodes(nodes.peek(), "");
+        printCodes();
+        System.out.println("-- Encoding/Decoding --");
+        encodeText();
+        decodeText();
+        return false;
     }
 
     private static boolean IsSameCharacterSet() {
-        boolean flag = true;
         for (int i = 0; i < text.length(); i++)
             if (ASCII[text.charAt(i)] == 0) {
-                flag = false;
-                break;
+                return false;
             }
-        return flag;
+        return true;
     }
 
     private static void decodeText() {
