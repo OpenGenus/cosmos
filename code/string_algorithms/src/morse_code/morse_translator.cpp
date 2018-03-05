@@ -109,7 +109,7 @@ string wordToMorse(string input, map<string,string> mp, map<string,string>::iter
 	return encoded;
 }
 
-string morseToWord(string input, const *map<string,string> mp, const *map<string,string>::iterator it) 
+string morseToWord(string input, map<string,string> mp, map<string,string>::iterator it) 
 {
 	input += " ";
 	string decoded = "",temp = "";
