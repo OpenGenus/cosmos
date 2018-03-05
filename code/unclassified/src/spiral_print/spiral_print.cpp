@@ -8,7 +8,7 @@ std::string spiralPrint(std::vector<std::vector<int>> vec, int row, int col)
         endRow = row - 1,
         begCol = 0,
         endCol = col - 1;
-    std::ostringstream res{};
+    std::ostringstream res;
 
     while (begRow <= endRow && begCol <= endCol)
     {

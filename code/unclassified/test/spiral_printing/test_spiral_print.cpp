@@ -4,7 +4,7 @@
 int main()
 {
     using namespace std;
-    vector<vector<int>> vec{};
+    vector<vector<int>> vec;
 
     // empty test
     assert("" == spiralPrint(vec, 0, 0));
