@@ -72,14 +72,9 @@ void Graph::decomposeTree(int cur, int par, int total)
 	for (const auto& to : adj_[cur])
 	{
 		if(!(to == par || marked_[to] == true))
-        {
+        	{
 		    decomposeTree(to, cur, sizes[to]);
 		    addEdge(cur, to, centroidTree);
-        }
+        	}
 	}
-}
-
-int main()
-{
-	return 0;	
 }
