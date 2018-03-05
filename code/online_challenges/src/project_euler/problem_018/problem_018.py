@@ -17,10 +17,9 @@ def main():
 	[ 4,62,98,27,23, 9,70,98,73,93,38,53,60, 4,23]
 	]
 	
-
-	for i in range(13,-1,-1):
+        for i in range(13, -1, -1):
 		for j in range(len(prob[i])):
-			prob[i][j] += max(prob[i + 1][j],prob[i + 1][j + 1])
+			prob[i][j] += max(prob[i + 1][j], prob[i + 1][j + 1])
 	print (prob[0][0])
 
 if __name__ == '__main__':
