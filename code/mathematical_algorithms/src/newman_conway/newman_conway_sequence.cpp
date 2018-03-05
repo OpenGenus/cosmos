@@ -1,18 +1,22 @@
 #include <iostream>
 #include <vector>
-
-int nthNewmanConwayNumber(int number)
+//prints input number of teerms of Newman-Conway Sequence
+void NewmanConwaySequence(int number)
 {
-    std::vector<int> arr {0, 1, 1};
-    for(std::size_t i = 3; i <= number; ++i)
-        arr.push_back(arr[arr[i - 1]] + arr[i - arr[i - 1]]);
-    return arr[number];
+    std::vector<int> arr(number + 1);
+    arr[0] = 0;
+    arr[1] = 1;
+    arr[2] = 1;
+    for(int i = 3; i <= number; ++i)
+        arr[i] = arr[arr[i - 1]] + arr[i - arr[i - 1]];
+    for(int i = 1; i <= number; ++i)
+        std::cout << arr[i] << " ";
 }
 
 int main()
 {
     int number;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter number: ";
     std::cin >> number;
-    std::cout << nthNewmanConwayNumber(number) << "\n"; 
+    NewmanConwaySequence(number); 
 }
