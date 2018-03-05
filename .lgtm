@@ -1,0 +1,2 @@
+pattern = "(?)LGTM"
+self_approval_off = true
