@@ -1,13 +1,13 @@
 public class Problem005 {
-	public static boolean isDivisible(long number) {
-		for(long i = 1; i <= 20; ++i) {
+	public static boolean isDivisible(int number) {
+		for(int i = 1; i <= 20; ++i) {
 			if(number % i != 0)
 				return false;
 		}
 		return true;
 	}
 	public static void main(String []args) {
-		long number = 1;
+		int number = 1;
 		while(!isDivisible(number)) {
 			++number;
 		}
