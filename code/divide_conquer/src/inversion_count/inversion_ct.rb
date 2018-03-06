@@ -5,8 +5,7 @@ def sort_and_count(arr)
 
 	mid = arr.length / 2	
 	left_arr = arr[0..(mid - 1)] 
-	right_arr = arr[mid..(arr.length - 1)]
-	
+	right_arr = arr[mid..(arr.length - 1)]	
 	left_result = sort_and_count(left_arr)
 	right_result = sort_and_count(right_arr)
 	merge_result = merge_and_count(left_result[1], right_result[1])
