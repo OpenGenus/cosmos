@@ -4,10 +4,10 @@
   needed in the worst case for a eggs and b floors.*/
 import java.util.*;
 public class EggDroppingPuzzle
- 	{    
+ {    
     	// min trials with a eggs and b floors 
     	 private static int minTrials(int a, int b)
-		{
+	{
 		int eggFloor[][] = new int[a + 1][b + 1];
 		int result, x;
 		
@@ -24,7 +24,7 @@ public class EggDroppingPuzzle
 		
 	
    		 for (int i = 2; i <= a; ++i)
-		  	{
+		  {
 			for (int j = 2; j <= b; ++j)
 			{
 			 	eggFloor[i][j] = Integer.MAX_VALUE;
@@ -38,7 +38,7 @@ public class EggDroppingPuzzle
 					 	eggFloor[i][j] = result;
 				}
 			}
-		}
+		  }
 		  
 		return eggFloor[a][b];
 	}
@@ -52,9 +52,9 @@ public class EggDroppingPuzzle
 		int a = Integer.parseInt(sc.nextLine());
 		System.out.println("Enter no. of floors");
 		
-		int b = Integer.parseInt(sc.nextLine());
+        	int b = Integer.parseInt(sc.nextLine());
               //result outputs min no. of trials in worst case for a eggs and b floors
                 int result = minTrials(a, b);
 	        System.out.println("Minimum number of attempts needed in Worst case with a eggs and b floor are: " + result); 
-	}
-}
+	        }
+ }
