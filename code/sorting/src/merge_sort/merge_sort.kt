@@ -1,4 +1,5 @@
 import java.util.*
+
 fun <T : Comparable<T>>mergesort(items : MutableList<T>) : MutableList<T> {
     if (items.isEmpty()) {
         return items
@@ -15,10 +16,10 @@ fun <T : Comparable<T>>mergesort(items : MutableList<T>) : MutableList<T> {
             }
             merged.add(temp)
         }
-        if (!left.isEmpty()) merged.addAll(left)
-        if (!right.isEmpty()) merged.addAll(right)
+         if (!left.isEmpty()) merged.addAll(left)
+         if (!right.isEmpty()) merged.addAll(right)
          return merged
-    }
+     }
     val pivot = items.count()/2
     var left  = mergesort(items.subList(0, pivot))
     var right = mergesort(items.subList(pivot, items.count() - 1))
