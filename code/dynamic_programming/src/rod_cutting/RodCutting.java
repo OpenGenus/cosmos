@@ -9,7 +9,7 @@ public class RodCutting {
 		int val[] = new int[a + 1];
 		val[0] = 0;
 
-		for (int i = 1; i<=a; i++)
+		for (int i = 1; i<=a; ++i)
 		{
 			int max_val = Integer.MIN_VALUE;
 			for (int j = 0; j < i; ++j)
