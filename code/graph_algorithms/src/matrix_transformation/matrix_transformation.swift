@@ -60,7 +60,11 @@ class MatrixTransformation {
         }
     }
 
-    func squareShearing<T: Numeric>(matrix: inout [[T]], coefficient: [[T]]) {
+    func squareShearing<T>(matrix: inout [[T]],
+                           coefficient: [[T]],
+                           init_value: T,
+                           multiply: (T, T) -> T,
+                           add: (T, T) -> T) {
         guard matrix.count > 0 && matrix.count == matrix[0].count else {
             return
         }
@@ -69,11 +73,12 @@ class MatrixTransformation {
         // 4 5 6  x 0 1 0  =>  4 13  6
         // 7 8 9    0 0 1      7 22  9
         let ct = matrix.count
-        var res = [[T]](repeating: [T](repeating: 0, count: ct), count: ct)
+        var res = [[T]](repeating: [T](repeating: init_value, count: ct), count: ct)
         for row in 0..<matrix.count {
             for col in 0..<matrix.count {
                 for n in 0..<matrix.count {
-                    res[row][col] += matrix[row][n] * coefficient[n][col]
+                    let product = multiply(matrix[row][n], coefficient[n][col])
+                    res[row][col] = add(res[row][col], product)
                 }
             }
         }

@@ -59,7 +59,11 @@ class TestMatrixTransformation {
         for i in 0..<ms.count {
             matrix = ms[i]
 
-            mt.squareShearing(matrix: &matrix, coefficient: cs[i])
+            mt.squareShearing(matrix: &matrix,
+                              coefficient: cs[i],
+                              init_value: 0,
+                              multiply: ({return $0 * $1}),
+                              add: ({return $0 + $1}))
             assert(same(matrix, ss[i]))
         }
     }
