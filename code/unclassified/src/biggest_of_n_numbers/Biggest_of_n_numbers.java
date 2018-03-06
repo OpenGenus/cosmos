@@ -7,17 +7,17 @@ public class BiggestOfNNumbers
             Scanner data = new Scanner(System.in);
             System.out.print("Enter numbers of elements");
             int n = data.nextInt();
-            System.out.println("Enter " +n+ " numbers");
+            System.out.println("Enter " + n + " numbers");
             int max = data.nextInt();
          
             for (int i = 1; i < n; ++i)
             { 
                   int temp = data.nextInt();
                   if(temp < max)
-                  continue;
+                        continue;
                   else
-                  max = temp;
+                        max = temp;
             }
-              System.out.println("Maximum is "+max);
+            System.out.println("Maximum is "+ max);
         }
  }
