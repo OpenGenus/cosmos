@@ -28,23 +28,19 @@ class Problem019 {
                 for (int monthDays = 1; monthDays <= y; monthDays ++) 
                 {
                     // Start at Monday, 1st, 1900
-                    counter += 1;
+                    counter = (counter % 7) + 1;
                     if ((monthDays == 1) && (L.get(counter) == "Sun"))
                     {
                         System.out.println("month_days = " + monthDays);
-                        tally += 1;
-                    }
-                    // Days of the week
-                    if (counter >= 7)
-                    {
-                        counter = 0;
+                        if( yr !=1900)
+                            tally += 1;
                     }
                 }
             }
             System.out.println();
         }
         // subtract 2 for the year 1900 - start counting at 1901
-        System.out.println("tally = " + (tally - 2));
+        System.out.println("tally = " + tally );
     }
     public static int findDays(int month, int yr){
         int d = 0;
@@ -57,30 +53,9 @@ class Problem019 {
         {
             d = 30;
         }
-        else if ((month == 2))
+        else if (month == 2)
         {
-            if (yr % 4 == 0)
-            {
-                if (yr % 100 == 0)
-                {
-                    if (yr % 400 == 0)
-                    {
-                        d = 29;
-                    }
-                    else
-                    {
-                        d = 28;
-                    }
-                } 
-                else
-                {
-                    d = 29;
-                }
-            }
-            else
-            {
-                d = 28;
-            }
+        	d = (yr % 4 == 0 && (yr % 100 != 0 || yr % 400 == 0)) ? 29 : 28;
         }
         else
         {
