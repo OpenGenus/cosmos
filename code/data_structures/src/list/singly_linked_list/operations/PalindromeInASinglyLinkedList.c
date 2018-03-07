@@ -4,13 +4,15 @@
 struct node
 {
     int  info;
-    struct node  *link;
+    struct node*  link;
 };
 
 //Function for creating the linked list
-struct node* create(struct node *start)
-{   int proceed = 1;
-    struct  node  *temp, *ptr;
+
+    struct node* create(struct node*  start)
+{
+    int proceed = 1;
+    struct node*  temp, *ptr;
 
     while(proceed == 1)
     {
@@ -20,13 +22,13 @@ struct node* create(struct node *start)
         scanf("%d", &temp->info);
        if(start == NULL)
         {
-        start = temp;
-        ptr = temp;
+            start = temp;
+            ptr = temp;
         }
         else
         {
-        ptr->link = temp;
-        ptr = temp;
+            ptr->link = temp;
+            ptr = temp;
         }
         puts("Want to continue, Press 1");
         scanf("%d", &proceed);
@@ -49,7 +51,7 @@ struct node* check(struct node *ptr_bck, struct node *ptr_fwd, int *f)
     return(ptr_fwd->link);
 }
 
-void main()
+int main(void)
 {   struct node *start = NULL;
     int flag = 1, *f = &flag;
 
