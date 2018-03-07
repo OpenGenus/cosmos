@@ -4,9 +4,8 @@ import java.util.Scanner;
 class LogOfFactorial {
 	public static double logOfFactorial(int num) {
 		double ans = 0;
-		for(int i = 1; i <= num; ++i) {
+		for(int i = 1; i <= num; ++i)
 			ans += Math.log(i);
-		}
 		return ans;
 	}
 	public static void main(String []args) {
