@@ -34,16 +34,16 @@ public class EggDroppingPuzzle {
     }
 		
 	//testing the program
-	public static void main(String args[]) {   
-		Scanner	sc = new Scanner(System.in);
-		System.out.println("Enter no. of eggs");
+    public static void main(String args[]) {   
+       	Scanner	sc = new Scanner(System.in);
+	System.out.println("Enter no. of eggs");
 	
-		int a = Integer.parseInt(sc.nextLine());
-		System.out.println("Enter no. of floors");
+	int a = Integer.parseInt(sc.nextLine());
+	System.out.println("Enter no. of floors");
 		
-        	int b = Integer.parseInt(sc.nextLine());
-              //result outputs min no. of trials in worst case for a eggs and b floors
-                int result = minTrials(a, b);
-	        System.out.println("Minimum number of attempts needed in Worst case with a eggs and b floor are: " + result); 
-       }
- }
+        int b = Integer.parseInt(sc.nextLine());
+        //result outputs min no. of trials in worst case for a eggs and b floors
+        int result = minTrials(a, b);
+        System.out.println("Minimum number of attempts needed in Worst case with a eggs and b floor are: " + result); 
+    }
+}  
