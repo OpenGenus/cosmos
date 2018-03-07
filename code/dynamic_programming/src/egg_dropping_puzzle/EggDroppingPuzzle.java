@@ -31,7 +31,7 @@ public class EggDroppingPuzzle {
 	    }               
         }        
 	return eggFloor[a][b];
-	}
+    }
 		
 	//testing the program
 	public static void main(String args[]) {   
