@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -7,7 +8,8 @@ struct node
     struct node* link;
 };
 //Function for creating the linked list
-struct node* create(struct node*  start) 
+struct node* 
+create(struct node*  start) 
 {
     int proceed = 1;
     struct node* temp, *ptr;
@@ -34,7 +36,8 @@ struct node* create(struct node*  start)
     return(start);
 }
 //Function to check if the list forms a palindrome or not
-struct node* check(struct node *ptr_bck, struct node *ptr_fwd, int *f)
+struct node* 
+check(struct node *ptr_bck, struct node *ptr_fwd, int *f)
 {
     if(ptr_bck == NULL)
         return(ptr_fwd);
@@ -47,7 +50,8 @@ struct node* check(struct node *ptr_bck, struct node *ptr_fwd, int *f)
     return(ptr_fwd->link);
 }
 
-int main(void)
+int 
+main(void)
 {   
     struct node *start = NULL;
     int flag = 1, *f = &flag;
