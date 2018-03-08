@@ -15,5 +15,5 @@ int main()
 
     sort(arr.begin(), arr.end());
 
-    std::cout<<"biggest number : "<<arr.back();
+    std::cout << "biggest number : " << arr.back();
 }  
