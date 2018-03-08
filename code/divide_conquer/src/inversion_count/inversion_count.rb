@@ -34,10 +34,8 @@ def merge_and_count(left_arr, right_arr)
 	else
 		output += right_arr[j..(right_arr.length - 1)]
 	end
-
 	return [inversions, output]
 end
-
 #test:
 result = sort_and_count [5,4,3,2,1] 
 puts "number of inverstions: " + result[0].to_s
