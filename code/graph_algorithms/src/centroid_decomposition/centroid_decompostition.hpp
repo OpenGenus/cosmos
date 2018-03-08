@@ -8,19 +8,19 @@ class Graph
     std::vector<std::vector<int>> centroidTree_;
     std::vector<int> sizes_;
     std::vector<bool> marked_;
-    public:
-        Graph(int num) :
-            ver_(num),
-            adj_(num + 1),
-            centroidTree_(num + 1),
-            sizes_(num + 1),
-            marked_(num + 1)	
-            {}
+public:
+    Graph(int num) :
+        ver_(num),
+        adj_(num + 1),
+        centroidTree_(num + 1),
+        sizes_(num + 1),
+        marked_(num + 1)	
+        {}
 
-        void addEdge(int x, int y, std::vector<std::vector<int>> &graph);
-        void calcSizes(int cur, int par, std::vector<std::vector<int>> graph);
-        int findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph);
-        void decomposeTree(int cur, int par, int total, std::vector<std::vector<int>> graph);
+    void addEdge(int x, int y, std::vector<std::vector<int>> &graph);
+    void calcSizes(int cur, int par, std::vector<std::vector<int>> graph);
+    int findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph);
+    void decomposeTree(int cur, int par, int total, std::vector<std::vector<int>> graph);
 };
 
 void Graph::addEdge(int x, int y, std::vector<std::vector<int>> &graph)
