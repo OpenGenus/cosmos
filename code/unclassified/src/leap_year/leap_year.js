@@ -1,8 +1,7 @@
 // Part of cosmos from opengenus foundation
 
-const isLeep = year =>{
-    return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
-}
+const isLeep = year => ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
+
 
 var startYear = 1990
 var endYear = 2020
