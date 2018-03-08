@@ -4,10 +4,12 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
+int main() 
+{
     std::vector<int> arr;
     std::cout << "Keep entering numbers (EOF to stop): ";
-    for (int num; std::cin >> num;) {
+    for (int num; std::cin >> num;) 
+    {
         arr.push_back(num);
     }
 
