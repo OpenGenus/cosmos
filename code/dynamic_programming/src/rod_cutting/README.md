@@ -1,7 +1,10 @@
 # Rod Cutting
 Given a rod of length n units and an array of prices p<sub>i</sub> for rods of length i = 1, 2, . . . ,n. Determine the maximum revenue r <sub>n</sub> obtainable by cutting the rod and selling the pieces.
-**For Example - **
+
+**For Example -**
+
 Let the table of prices be - 
+
 length (i) | 1|2|3|4|5|6|7|8|9|10  
 -----------|--|-|-|-|-|--|-|--|--|------------  
 price (p<sub>i</sub>)|1|5|8|9|10|17|17|20|24|30
