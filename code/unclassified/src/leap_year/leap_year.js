@@ -1,13 +1,12 @@
 // Part of cosmos from opengenus foundation
 
-const isLeep = year => ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
+const isLeap = year => ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
 
+let startYear = 1990
+let endYear = 2020
 
-var startYear = 1990
-var endYear = 2020
-
-for(i = startYear; i<= endYear; i++) {
-    if(isLeep(i)) {
+for(let i = startYear; i<= endYear; i++) {
+    if(isLeap(i)) {
         console.log(i)
     }
 }
