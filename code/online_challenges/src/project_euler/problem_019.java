@@ -32,14 +32,13 @@ class Problem019 {
                     if ((monthDays == 1) && (L.get(counter) == "Sun"))
                     {
                         System.out.println("month_days = " + monthDays);
-                        if( yr !=1900)
+                        if( yr != 1900)
                             tally += 1;
                     }
                 }
             }
             System.out.println();
         }
-        // subtract 2 for the year 1900 - start counting at 1901
         System.out.println("tally = " + tally );
     }
     public static int findDays(int month, int yr){
@@ -55,7 +54,7 @@ class Problem019 {
         }
         else if (month == 2)
         {
-        	d = (yr % 4 == 0 && (yr % 100 != 0 || yr % 400 == 0)) ? 29 : 28;
+            d = (yr % 4 == 0 && (yr % 100 != 0 || yr % 400 == 0)) ? 29 : 28;
         }
         else
         {
