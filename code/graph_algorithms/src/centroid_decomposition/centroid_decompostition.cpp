@@ -60,8 +60,8 @@ int Graph::findCentroid(int cur, int par, int vertices, std::vector<std::vector<
                 return findCentroid(to, cur, vertices, graph);
             }
         }
-        return cur;
     }
+    return cur;
 }
 
 void Graph::decomposeTree(int cur, int par, int total, int level, std::vector<std::vector<int>> &Level)
