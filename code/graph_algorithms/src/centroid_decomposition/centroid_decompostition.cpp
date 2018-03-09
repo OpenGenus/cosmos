@@ -20,7 +20,7 @@ public:
     void addEdge(int x, int y, std::vector<std::vector<int>> &graph);
     void calcSizes(int cur, int par, std::vector<std::vector<int>> graph);
     int findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph);
-    void decomposeTree(int cur, int par, int total, int level, std::vector<std::vector<int>> graph);
+    void decomposeTree(int cur, int par, int total, int level, std::vector<std::vector<int>> &Level);
 };
 
 void Graph::addEdge(int x, int y, std::vector<std::vector<int>> &graph)
@@ -75,7 +75,7 @@ void Graph::decomposeTree(int cur, int par, int total, int level, std::vector<st
     {
         if(!(to == par || marked_[to] == true))
         {
-            decomposeTree(to, cur, sizes_[to], level + 1);
+            decomposeTree(to, cur, sizes_[to], level + 1, Level);
             addEdge(cur, to, centroidTree_);
         }
     }
@@ -109,7 +109,7 @@ int main(){
     tree.addEdge(4, 5, tree.adj_);
     tree.addEdge(4, 6, tree.adj_);
     tree.addEdge(2, 7, tree.adj_);
-    tree.decomposeTree(1, -1, tree.ver_, 1, tree.adj_);
+    tree.decomposeTree(1, -1, tree.ver_, 1, Level);
     showOutput(Level);
     return 0;
 }
