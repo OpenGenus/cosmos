@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-std::vector<std::vector<int>> Level;
-
 class Graph 
 {
 public:
