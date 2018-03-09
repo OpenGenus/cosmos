@@ -83,17 +83,8 @@ void Graph::decomposeTree(int cur, int par, int total, int level, std::vector<st
     }
 }
 
-
-int main(){
-    Graph tree(7);
-    Level.resize(8);
-    tree.addEdge(1, 2, tree.adj_);
-    tree.addEdge(1, 3, tree.adj_);
-    tree.addEdge(2, 4, tree.adj_);
-    tree.addEdge(4, 5, tree.adj_);
-    tree.addEdge(4, 6, tree.adj_);
-    tree.addEdge(2, 7, tree.adj_);
-    tree.decomposeTree(1, -1, tree.ver_, 1, tree.adj_);
+void showOutput()
+{
     for (int i = 1; Level[i].empty() == false; ++i)
     {
         std::cout << "Centroids of level " << i << ": ";
@@ -109,5 +100,18 @@ int main(){
         }
         std::cout << '\n';
     }
+}
+
+int main(){
+    Graph tree(7);
+    Level.resize(8);
+    tree.addEdge(1, 2, tree.adj_);
+    tree.addEdge(1, 3, tree.adj_);
+    tree.addEdge(2, 4, tree.adj_);
+    tree.addEdge(4, 5, tree.adj_);
+    tree.addEdge(4, 6, tree.adj_);
+    tree.addEdge(2, 7, tree.adj_);
+    tree.decomposeTree(1, -1, tree.ver_, 1, tree.adj_);
+    showOutput();
     return 0;
 }
