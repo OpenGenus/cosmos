@@ -1,26 +1,28 @@
 #include <iostream>
 #include <vector>
 
+std::vector<std::vector<int>> Level;
+
 class Graph 
 {
+public:
     int ver_;
     std::vector<std::vector<int>> adj_;
     std::vector<std::vector<int>> centroidTree_;
     std::vector<int> sizes_;
     std::vector<bool> marked_;
-public:
     Graph(int num) :
         ver_(num),
         adj_(num + 1),
         centroidTree_(num + 1),
         sizes_(num + 1),
-        marked_(num + 1)	
+        marked_(num + 1)
         {}
 
     void addEdge(int x, int y, std::vector<std::vector<int>> &graph);
     void calcSizes(int cur, int par, std::vector<std::vector<int>> graph);
     int findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph);
-    void decomposeTree(int cur, int par, int total, std::vector<std::vector<int>> graph);
+    void decomposeTree(int cur, int par, int total, int level, std::vector<std::vector<int>> graph);
 };
 
 void Graph::addEdge(int x, int y, std::vector<std::vector<int>> &graph)
@@ -34,6 +36,7 @@ void Graph::addEdge(int x, int y, std::vector<std::vector<int>> &graph)
         throw std::out_of_range{"y is out of boundaries"};
     }
     graph[x].push_back(y);
+    graph[y].push_back(x);
 }
 
 void Graph::calcSizes(int cur, int par, std::vector<std::vector<int>> graph)
@@ -63,18 +66,48 @@ int Graph::findCentroid(int cur, int par, int vertices, std::vector<std::vector<
     }
 }
 
-void Graph::decomposeTree(int cur, int par, int total, std::vector<std::vector<int>> graph)
+void Graph::decomposeTree(int cur, int par, int total, int level, std::vector<std::vector<int>> graph)
 {
     calcSizes(cur, -1, graph);
     int centroid = findCentroid(cur, -1, sizes_[cur], graph);
+    Level[level].push_back(centroid);
     calcSizes(centroid, -1, graph);
     marked_[centroid] = true;
-    for (const auto& to : adj_[cur])
+    for (const auto& to : adj_[centroid])
     {
         if(!(to == par || marked_[to] == true))
         {
-            decomposeTree(to, cur, sizes_[to], graph);
+            decomposeTree(to, cur, sizes_[to], level + 1, graph);
             addEdge(cur, to, centroidTree_);
         }
     }
+}
+
+
+int main(){
+    Graph tree(7);
+    Level.resize(8);
+    tree.addEdge(1, 2, tree.adj_);
+    tree.addEdge(1, 3, tree.adj_);
+    tree.addEdge(2, 4, tree.adj_);
+    tree.addEdge(4, 5, tree.adj_);
+    tree.addEdge(4, 6, tree.adj_);
+    tree.addEdge(2, 7, tree.adj_);
+    tree.decomposeTree(1, -1, tree.ver_, 1, tree.adj_);
+    for (int i = 1; Level[i].empty() == false; ++i)
+    {
+        std::cout << "Centroids of level " << i << ": ";
+        bool more_than_1 = false;
+        for(const auto& j : Level[i])
+        {
+            if (more_than_1 == true)
+            {
+                std::cout << ", ";
+            }
+            std::cout << j;
+            more_than_1 = true;
+        }
+        std::cout << '\n';
+    }
+    return 0;
 }
