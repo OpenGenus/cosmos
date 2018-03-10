@@ -42,7 +42,7 @@ void Graph::calcSizes(int cur, int par, std::vector<std::vector<int>> graph)
     sizes_[cur] = 1;
     for (const auto& to : graph[cur])
     {
-        if (!(to == par || marked_[to] == true))
+        if (!(to == par || marked_[to]))
         {
             calcSizes (to, cur, graph);
             sizes_[cur] += sizes_[to];
@@ -53,7 +53,7 @@ void Graph::calcSizes(int cur, int par, std::vector<std::vector<int>> graph)
 int Graph::findCentroid(int cur, int par, int vertices, std::vector<std::vector<int>> graph){
     for (const auto& to : graph[cur])
     {
-        if (!(to == par || marked_[to] == true))
+        if (!(to == par || marked_[to]))
         {
             if (sizes_[to] > vertices / 2)
             {
@@ -73,7 +73,7 @@ void Graph::decomposeTree(int cur, int par, int total, int level, std::vector<st
     marked_[centroid] = true;
     for (const auto& to : adj_[centroid])
     {
-        if(!(to == par || marked_[to] == true))
+        if(!(to == par || marked_[to]))
         {
             decomposeTree(to, cur, sizes_[to], level + 1, Level);
             addEdge(cur, to, centroidTree_);
