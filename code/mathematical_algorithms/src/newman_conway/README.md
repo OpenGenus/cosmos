@@ -14,6 +14,7 @@ The recursive sequence defined by its recurrence relation
 ## Complexity
 To compute n<sup>th</sup> Newman-Conway Number.  
 `Time Complexity: O(n)`
+
 `Space Complexity: O(n)`  
 
 ---
