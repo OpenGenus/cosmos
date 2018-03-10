@@ -1,4 +1,4 @@
-#include "../../src/spiral_printing/spiral_print.cpp"
+#include "../../src/spiral_print/spiral_print.cpp"
 #include <cassert>
 
 int main()
