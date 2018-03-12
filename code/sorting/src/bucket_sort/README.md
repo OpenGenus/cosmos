@@ -1,7 +1,7 @@
 # Bucket Sort
 Bucket sort is a sorting algorithm that works by distributing the elements of an array into a number of buckets. Then, we apply a sorting algorithm, **insertion sort** for best optimisation to sort elements in each bucket, and finally, take the elements out of buckets in order and put them back to original array to get the sorted result.
 
-## Example
+## Explanation
 
 ![fig1](https://upload.wikimedia.org/wikipedia/commons/6/61/Bucket_sort_1.svg)
 
@@ -23,7 +23,7 @@ If input is an n element array arr[i] with all elements lying in the range: [0.0
 3. Sort individual buckets by insertion sort
 4. Concatenate all sorted buckets in their order, into one sorted list.		
 
-## Time complexity
+## Complexity
 The complexity of bucket sort isn’t constant depending on the input.
 However, in **average case**, bucket sort has time complexity of **O(n)**, while it's **worst case time complexity is: O(n^2)**.
 
