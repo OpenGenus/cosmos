@@ -20,6 +20,6 @@ int main()
     std::vector<int> sequence(number + 1);
     sequence = NewmanConwaySequence(number); 
     for(int i = 1; i <= number; ++i)
-    std::cout << sequence[i] << " ";
+        std::cout << sequence[i] << " ";
     return 0;
 }
