@@ -9,9 +9,9 @@ def gcd(n1, n2):
 def lcm(n1, n2):
     return (n1 * n2) / gcd(n1, n2)
 
-l = lcm(2, 3)
+l = 1
 
 for i in range(1, 21):
     l = lcm(l, i)
 
-print l
+print(l)
