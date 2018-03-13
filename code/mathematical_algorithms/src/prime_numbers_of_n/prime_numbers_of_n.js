@@ -1,12 +1,13 @@
 function primeFactors(number)
 {
     let factors = [];
+    let sqrt = Math.sqrt;
     while (number % 2 == 0) {
         factors.push(2)
         number = number / 2;
     }
 
-    for (let i = 3; i <= Math.sqrt(number); i += 2)
+    for (let i = 3; i <= sqrt(number); i += 2)
     {
         while (number % i == 0) {
             factors.push(i)
