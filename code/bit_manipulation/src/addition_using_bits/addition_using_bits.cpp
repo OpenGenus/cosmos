@@ -1,7 +1,4 @@
 #include <iostream>
-#include <string>
-
-using namespace std;
 
 // Part of Cosmos by OpenGenus Foundation
 int bitwiseAddition(int n, int m)
@@ -31,7 +28,7 @@ int main()
 {
     int n = 10;
     int m = 5;
-    cout << bitwiseAddition(n, m) << endl; 
-    cout << bitwiseAdditionRecursive(n, m) << endl;
+    std::cout << bitwiseAddition(n, m) << "\n"; 
+    std::cout << bitwiseAdditionRecursive(n, m) << "\n";
     return 0;
 }
