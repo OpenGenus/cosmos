@@ -1,6 +1,6 @@
 
 function baconianEncrypt(plainText) {
-    baconianCodes = {
+    let baconianCodes = {
         'a': 'AAAAA', 'b': 'AAAAB', 'c': 'AAABA', 'd':
             'AAABB', 'e': 'AABAA', 'f': 'AABAB', 'g': 'AABBA', 'h': 'AABBB',
         'i': 'ABAAA', 'j': 'BBBAA', 'k': 'ABAAB', 'l': 'ABABA', 'm':
