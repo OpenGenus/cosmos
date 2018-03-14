@@ -1,7 +1,6 @@
-
 function splitArray(array, parts) 
 {
-    var subArray = [];
+    let subArray = [];
     for (let i = 0; i <= array.length; i += parts) 
     {
         subArray.push(array.slice(i, i + parts));
@@ -13,6 +12,6 @@ function splitArray(array, parts)
     return subArray;
 }
 
-for(let x = 1; x <= 10; x++) {
+for(let x = 1; x <= 10; ++x) {
     console.log(splitArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], x))
 }
