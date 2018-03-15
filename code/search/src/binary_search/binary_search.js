@@ -1,12 +1,10 @@
 // implementation by looping
-function binarySearch(array, key) {
-  var lo = 0,
-    hi = array.length - 1,
-    mid,
-    element;
+function binarySearchLooping(array, key) {
+  let lo = 0,
+    hi = array.length - 1;
   while (lo <= hi) {
-    mid = Math.floor((lo + hi) / 2, 10);
-    element = array[mid];
+    let mid = Math.floor((lo + hi) / 2, 10);
+    let element = array[mid];
     if (element < key) {
       lo = mid + 1;
     } else if (element > key) {
@@ -26,24 +24,22 @@ function binarySearch(array, key) {
  * @param {* number} low - the start index of the search range
  * @param {* number} high - the end index of the search range
  */
-function binarySearchByRecursion(arr, value, low, high) {
-  var start = low === undefined ? 0 : low;
-  var end = high === undefined ? arr.length - 1 : high;
-  var middle = Math.floor((start + end) / 2);
-  if (end === start + 1 && arr[middle] !== value && arr[start] !== value) {
+function binarySearchByRecursion(arr, value, low = 0, high = arr.length - 1) {
+  const mid = Math.floor((start + end) / 2);
+  if (end === start + 1 && arr[mid] !== value && arr[start] !== value) {
     return -1;
   }
   if (arr[start] === value) {
     return start;
   } else if (arr[end] === value) {
     return end;
-  } else if (arr[middle] === value) {
-    return middle;
+  } else if (arr[mid] === value) {
+    return mid;
   } else {
-    if (arr[middle] > value) {
-      return binarySearchByRecursion(arr, value, start, middle);
+    if (arr[mid] > value) {
+      return binarySearchByRecursion(arr, value, start, mid);
     } else {
-      return binarySearchByRecursion(arr, value, middle, end);
+      return binarySearchByRecursion(arr, value, mid, end);
     }
   }
 }
