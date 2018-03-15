@@ -30,5 +30,4 @@ int main()
     int m = 5;
     std::cout << bitwiseAddition(n, m) << "\n"; 
     std::cout << bitwiseAdditionRecursive(n, m) << "\n";
-    return 0;
 }
