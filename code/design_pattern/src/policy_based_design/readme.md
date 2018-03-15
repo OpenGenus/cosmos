@@ -18,6 +18,10 @@ I find this design pattern expecially suitable for writing library for embedded
 systems, where a single peripheral may have various modes of operation and the
 user may choose between the modes of operation at compile time.
 
+---
+
 <p align="center">
 	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
 </p>
+
+---
