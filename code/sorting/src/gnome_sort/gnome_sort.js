@@ -1,14 +1,14 @@
 function gnomeSort(arr) {
-  let index = 0,
-    len = arr.length;
-  while (index <= len) {
+  let index = 0;
+
+  while (index <= arr.length) {
     if (index > 0 && arr[index - 1] > arr[index]) {
       let tmp = arr[index];
       arr[index] = arr[index - 1];
       arr[index - 1] = tmp;
-      index--;
+      --index;
     } else {
-      index++;
+      --index;
     }
   }
 }

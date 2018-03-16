@@ -2,6 +2,7 @@
 function binarySearchLooping(array, key) {
   let lo = 0,
     hi = array.length - 1;
+
   while (lo <= hi) {
     let mid = Math.floor((lo + hi) / 2, 10);
     let element = array[mid];
@@ -13,6 +14,7 @@ function binarySearchLooping(array, key) {
       return mid;
     }
   }
+
   return -1;
 }
 
@@ -29,6 +31,7 @@ function binarySearchByRecursion(arr, value, low = 0, high = arr.length - 1) {
   if (end === start + 1 && arr[mid] !== value && arr[start] !== value) {
     return -1;
   }
+
   if (arr[start] === value) {
     return start;
   } else if (arr[end] === value) {
@@ -36,10 +39,8 @@ function binarySearchByRecursion(arr, value, low = 0, high = arr.length - 1) {
   } else if (arr[mid] === value) {
     return mid;
   } else {
-    if (arr[mid] > value) {
-      return binarySearchByRecursion(arr, value, start, mid);
-    } else {
-      return binarySearchByRecursion(arr, value, mid, end);
-    }
+    return arr[mid] > value
+      ? binarySearchByRecursion(arr, value, start, mid)
+      : binarySearchByRecursion(arr, value, mid, end);
   }
 }
