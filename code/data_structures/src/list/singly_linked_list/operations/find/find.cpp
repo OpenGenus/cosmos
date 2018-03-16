@@ -8,14 +8,15 @@ struct Node
 
     Node() //constructor
     {
-        nextNode = NULL;
+        nextNode = nullptr;
         data = 0;
     }
 };
 
 // Singly Linked List
-struct LinkedList
+class LinkedList
 {
+    public:
     Node *head;
 
     LinkedList()
@@ -49,7 +50,7 @@ bool find(LinkedList *list, int value)
 {
     Node *currentNode = new Node;
     currentNode = list->head;
-    while (currentNode != NULL)
+    while (currentNode)
     {
         if (currentNode->data == value)
             return true;
