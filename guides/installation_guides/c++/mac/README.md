@@ -6,13 +6,13 @@
   You can get Codeblocks from the Official Site: http://www.codeblocks.org/downloads. Click on **Download the binary release** <br><br>
   <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/1.png"> <br><br>
 
-  1.Install the downloaded Zip file into the Applications folder.<br><br>
+  1. Install the downloaded Zip file into the Applications folder.<br><br>
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/2.png"> <br><br>
   2. If you have never installed an application from a third-party site, you may need to execute some extra steps to override the security.<br><br>
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/3.png"><br><br>
   3. In your System Preferences, you’ll find the option to override this security. Click on Security and Privacy.<br><br>
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/4.png"> <br> <br>  
-  4.  The window will automatically show you the applications that were blocked from installing. Click on Open Anyway to resume installing Code Blocks.<br><br>
+  4. The window will automatically show you the applications that were blocked from installing. Click on Open Anyway to resume installing Code Blocks.<br><br>
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/5.png"> <br> <br>
   5. Two-level authentication. Your Mac will ensure whether you want to open it or not. Click Open.<br><br>
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/6.png"> <br> <br>
@@ -22,7 +22,7 @@
      <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/8.png"> <br> <br>
   7. Once Xcode is installed, head back over to Code Blocks and start a new project. Opt for a console application from the different templates available and select C as the language.<br><br>
     <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/9.png"> <br> <br>
- 8. Select the path where you want to save your file.<br><br>
+  8. Select the path where you want to save your file.<br><br>
     <img src="https://github.com/Nidakhan786/hello-world/blob/master/images/10.png"> <br> <br>
 ><h2 align ="center"><b> Start coding!! :D </></h2>
   
