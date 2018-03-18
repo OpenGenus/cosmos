@@ -14,9 +14,24 @@ popularized by Andrei Alexandrescu with his 2001 book Modern C++ Design and his
 column Generic`<Programming>` in the C/C++ Users Journal.
 
 
-I find this design pattern expecially suitable for writing library for embedded
+This design pattern is expecially suitable for writing library for embedded
 systems, where a single peripheral may have various modes of operation and the
 user may choose between the modes of operation at compile time.
+
+## Algorithm
+
+Well, a design pattern is not an algorithm, but just a solution to certain
+problems. In the same way, policy based design a one of the best method to
+implement strategy pattern at compile time(i.e. choose between the
+implementations at the compile time).
+
+## Complexity
+
+Implementing Policy Based Design increases the number of classes in the program,
+so it may be hard to handle since the program will become larger. But this
+design pattern does not add runtime overhead while choosing the implementation.
+So, this design pattern reduces the timing overhead. If a compiler with a very
+good optimizer is used, the space consumed by the final program is also reduced.
 
 ---
 
