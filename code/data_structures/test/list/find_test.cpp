@@ -21,4 +21,3 @@ int main()
     assert(find(&list, 0) == 0);
     std::cout << "Testing Complete" << "\n";
 }
-
