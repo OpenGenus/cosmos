@@ -58,22 +58,3 @@ bool find(LinkedList *list, int value)
     }
     return false;
 }
-
-int main()
-{
-    // Create linked list
-    LinkedList list; 
-    // Push in elements
-    push(&list, 1);
-    push(&list, 2);
-    push(&list, 3);
-    push(&list, 4);
-    push(&list, 5);
-    push(&list, 6);
-    // Find elements
-    std::cout << find(&list, 1) << "\n";  // Should be 1 - True
-    std::cout << find(&list, 3) << "\n";  // Should be 1 - True	
-    std::cout << find(&list, 6) << "\n";  // Should be 1 - True
-    std::cout << find(&list, 10) << "\n"; // Should be 0 - False
-    std::cout << find(&list, 0) << "\n";  // Should be 0 - False	
-}
