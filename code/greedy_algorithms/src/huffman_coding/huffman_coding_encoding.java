@@ -116,7 +116,8 @@ class Huffman {
                 if (tmpNode.character.length() == 1)
                     decoded += tmpNode.character;
                 else
-                    System.out.println("Input not Valid");
+                   throw new ArithmeticException("invalid entry");
+
 
         }
         System.out.println("Decoded Text: " + decoded);
