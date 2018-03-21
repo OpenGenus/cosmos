@@ -20,186 +20,186 @@ public class Dijkstra {
 
   public static class Vertex<T> {
 
-    T _id;
-    private Map<Vertex, Integer> neighbors;
-    Integer cost;
+	T _id;
+	private Map<Vertex, Integer> neighbors;
+	Integer cost;
 
-    public Vertex(T id) {
-      this._id = id;
-      this.neighbors = new HashMap<>();
-      cost = Integer.MAX_VALUE;
-    }
+	public Vertex(T id) {
+	  this._id = id;
+	  this.neighbors = new HashMap<>();
+	  cost = Integer.MAX_VALUE;
+	}
 
-    public Map<Vertex, Integer> getNeighbors() {
-      return neighbors;
-    }
+	public Map<Vertex, Integer> getNeighbors() {
+	  return neighbors;
+	}
 
-    public void setNeighbors(Map<Vertex, Integer> neighbors) {
-      this.neighbors = neighbors;
-    }
+	public void setNeighbors(Map<Vertex, Integer> neighbors) {
+	  this.neighbors = neighbors;
+	}
 
-    public Number getCost() {
-      return cost;
-    }
+	public Number getCost() {
+	  return cost;
+	}
 
-    public void setCost(Integer cost) {
-      this.cost = cost;
-    }
+	public void setCost(Integer cost) {
+	  this.cost = cost;
+	}
 
-    public T getId() {
-      return _id;
-    }
+	public T getId() {
+	  return _id;
+	}
 
-    public void setId(T _id) {
-      this._id = _id;
-    }
+	public void setId(T _id) {
+	  this._id = _id;
+	}
 
-    public void addNeighbor(Vertex neighbor, Integer cost) {
-      this.neighbors.put(neighbor, cost);
+	public void addNeighbor(Vertex neighbor, Integer cost) {
+	  this.neighbors.put(neighbor, cost);
 
-    }
+	}
 
   }
 
   public static class Graphe<T> {
 
-    private Map<T, Vertex> _vertices;
-    public Queue<Vertex> _visited;
-    public Deque<T> _paths = new ArrayDeque<>();
-    public HashMap<T, Integer> distances;
-    public HashMap<T, T> preds;
+	private Map<T, Vertex> _vertices;
+	public Queue<Vertex> _visited;
+	public Deque<T> _paths = new ArrayDeque<>();
+	public HashMap<T, Integer> distances;
+	public HashMap<T, T> preds;
 
-    public Graphe(Map<T, Vertex> vertices) {
-      this._vertices = vertices;
-      this.preds = new HashMap<>();
-      this._paths = new ArrayDeque<>();
-      this.distances = new HashMap<>();
-      this._visited = new PriorityQueue(new Comparator<Vertex>() {
-        @Override
-        public int compare(Vertex o1, Vertex o2) {
-          return o1.cost.compareTo(o2.cost);
-        }
-      });
+	public Graphe(Map<T, Vertex> vertices) {
+	  this._vertices = vertices;
+	  this.preds = new HashMap<>();
+	  this._paths = new ArrayDeque<>();
+	  this.distances = new HashMap<>();
+	  this._visited = new PriorityQueue(new Comparator<Vertex>() {
+		@Override
+		public int compare(Vertex o1, Vertex o2) {
+		  return o1.cost.compareTo(o2.cost);
+		}
+	  });
 
-    }
+	}
 
-    public void initDistance() {
-      this._vertices.keySet().forEach((key) -> {
-        distances.put(key, Integer.MAX_VALUE);
-        this._vertices.get(key).setCost(Integer.MAX_VALUE);
-      });
+	public void initDistance() {
+	  this._vertices.keySet().forEach((key) -> {
+		distances.put(key, Integer.MAX_VALUE);
+		this._vertices.get(key).setCost(Integer.MAX_VALUE);
+	  });
 
-    }
+	}
 
-    public void initStart(T dep) {
+	public void initStart(T dep) {
 
-      initDistance();
-      this.distances.put(dep, 0);
+	  initDistance();
+	  this.distances.put(dep, 0);
 
-    }
+	}
 
-    public Integer getCurrentDistance(T id) {
-      return this.distances.get(id);
+	public Integer getCurrentDistance(T id) {
+	  return this.distances.get(id);
 
-    }
+	}
 
-    public Vertex extractMin() {
-      Vertex current = null;
-      try {
-        current = this._visited.remove();
-      } catch (Exception e) {
+	public Vertex extractMin() {
+	  Vertex current = null;
+	  try {
+		current = this._visited.remove();
+	  } catch (Exception e) {
 
-      }
-      return current;
+	  }
+	  return current;
 
-    }
+	}
 
-    public Map<T, Vertex> getVertices() {
-      return _vertices;
-    }
+	public Map<T, Vertex> getVertices() {
+	  return _vertices;
+	}
 
-    public void setVertices(Map<T, Vertex> vertices) {
-      this._vertices = vertices;
+	public void setVertices(Map<T, Vertex> vertices) {
+	  this._vertices = vertices;
 
-    }
+	}
 
-    public void executeOnetoAll(T src) {
+	public void executeOnetoAll(T src) {
 
-      this.initStart(src);
-      Vertex origin = this._vertices.get(src);
-      if (origin != null) {
-        origin.setCost(0);
-        this._visited.add(this._vertices.get(origin._id));
+	  this.initStart(src);
+	  Vertex origin = this._vertices.get(src);
+	  if (origin != null) {
+		origin.setCost(0);
+		this._visited.add(this._vertices.get(origin._id));
 
-        while (!this._visited.isEmpty()) {
+		while (!this._visited.isEmpty()) {
 
-          Vertex u = this.extractMin();
+		  Vertex u = this.extractMin();
 
-          this.findMinimalDistancesInNeighbor(u);
+		  this.findMinimalDistancesInNeighbor(u);
 
-        }
+		}
 
-      } else {
-        System.out.println("vertex not existing");
-      }
+	  } else {
+		System.out.println("vertex not existing");
+	  }
 
-    }
+	}
 
-    public void getAllDistances() {
-      System.out.println("Distances : ");
-      this.distances.keySet().forEach((vertex) -> {
-        System.out.println("vertex " + vertex + " cost =  " + this.distances.get(vertex).intValue());
+	public void getAllDistances() {
+	  System.out.println("Distances : ");
+	  this.distances.keySet().forEach((vertex) -> {
+		System.out.println("vertex " + vertex + " cost =  " + this.distances.get(vertex).intValue());
 
-      });
+	  });
 
-    }
+	}
 
-    private void findMinimalDistancesInNeighbor(Vertex u) {
+	private void findMinimalDistancesInNeighbor(Vertex u) {
 
-      u.getNeighbors().keySet().forEach((key) -> {
-        int cout = (int) u.getNeighbors().get(key);
-        Vertex v = (Vertex) key;
-        if (this.getCurrentDistance((T) v._id) > (this.getCurrentDistance((T) u._id) + cout)) {
-          this.distances.put((T) v._id, (this.getCurrentDistance((T) u._id) + cout));
-          v.setCost((this.getCurrentDistance((T) u._id) + cout));
-          this._visited.add(v);
-          this.preds.put((T) v._id, (T) u._id);
+	  u.getNeighbors().keySet().forEach((key) -> {
+		int cout = (int) u.getNeighbors().get(key);
+		Vertex v = (Vertex) key;
+		if (this.getCurrentDistance((T) v._id) > (this.getCurrentDistance((T) u._id) + cout)) {
+		  this.distances.put((T) v._id, (this.getCurrentDistance((T) u._id) + cout));
+		  v.setCost((this.getCurrentDistance((T) u._id) + cout));
+		  this._visited.add(v);
+		  this.preds.put((T) v._id, (T) u._id);
 
-        } else {
-        }
-      });
+		} else {
+		}
+	  });
 
-    }
+	}
 
-    public void executeOnetoOne(T src, T goal) { // execution de l'algo sur n chemin de depart
+	public void executeOnetoOne(T src, T goal) { // execution de l'algo sur n chemin de depart
 
-    this.executeOnetoAll(src);
-    Vertex origin = this._vertices.get(src);
-    Vertex dest = this._vertices.get(goal);
+	this.executeOnetoAll(src);
+	Vertex origin = this._vertices.get(src);
+	Vertex dest = this._vertices.get(goal);
 
-    if (origin != null && dest != null) {
-      T step = goal;
-      while (origin._id != step) {
-        this._paths.add(step);
-        step = this.preds.get(step);
-      }
-      this._paths.add(src);
+	if (origin != null && dest != null) {
+	  T step = goal;
+	  while (origin._id != step) {
+		this._paths.add(step);
+		step = this.preds.get(step);
+	  }
+	  this._paths.add(src);
 
-      this.PrintPaths(src, goal);
-    } else {
-      System.out.println("Path not existing");
-    }
+	  this.PrintPaths(src, goal);
+	} else {
+	  System.out.println("Path not existing");
+	}
 
   }
 
   public void PrintPaths(T src, T dest) {
-    System.out.println("Paths : from " + src + " to " + dest);
-    while (!this._paths.isEmpty()) {
-      System.out.print(this._paths.removeLast() + ", ");
+	System.out.println("Paths : from " + src + " to " + dest);
+	while (!this._paths.isEmpty()) {
+	  System.out.print(this._paths.removeLast() + ", ");
 
-    }
-    System.out.println();
-    System.out.println("Total cost : " + this.distances.get(dest));
+	}
+	System.out.println();
+	System.out.println("Total cost : " + this.distances.get(dest));
   }
 
 }
@@ -210,16 +210,16 @@ public class Dijkstra {
 public static void main(String[] args) {
 
   System.out.println("GRAPHE :");
-  System.out.println(" (A)--1--(B)----6---(C)");
-  System.out.println(" | \\     |           | ");
-  System.out.println(" |  \\    |           | ");
-  System.out.println(" 2   3   8           7 ");
-  System.out.println(" |    \\  |           | ");
-  System.out.println(" |     \\ |           | ");
-  System.out.println("(D)-3--(E)-----5----(F)");
-  System.out.println(" |                   |");
-  System.out.println(" |                   |");
-  System.out.println(" ----------4----------");
+  System.out.println(" (A)--1--(B)----6------(C)");
+  System.out.println(" | \\	 |				| ");
+  System.out.println(" |  \\	|				 | ");
+  System.out.println(" 2   3   8				7 ");
+  System.out.println(" |	\\  |			 | ");
+  System.out.println(" |	 \\ |			 | ");
+  System.out.println("(D)-3---(E)-----5-------(F)");
+  System.out.println(" |						|");
+  System.out.println(" |						 |");
+  System.out.println(" ----------4--------------");
   System.out.println("");
 
   Vertex<String> v1 = new Vertex<String>("A");
@@ -273,14 +273,14 @@ public static void main(String[] args) {
   System.out.println("");
   System.out.println("GRAPHE :");
   System.out.println(" (1)--1--(4)----6---(6)");
-  System.out.println(" | \\     |           | ");
-  System.out.println(" |  \\    |           | ");
-  System.out.println(" 2   3   8           7 ");
-  System.out.println(" |    \\  |           | ");
-  System.out.println(" |     \\ |           | ");
+  System.out.println(" | \\	 |			| ");
+  System.out.println(" |  \\	|			 | ");
+  System.out.println(" 2   3   8			 7 ");
+  System.out.println(" |	\\  |		  | ");
+  System.out.println(" |	 \\ |		  | ");
   System.out.println("(2)-3--(3)-----5----(5)");
-  System.out.println(" |                   |");
-  System.out.println(" |                   |");
+  System.out.println(" |				   |");
+  System.out.println(" |				   |");
   System.out.println(" ----------4----------");
   System.out.println("");
 
@@ -331,18 +331,18 @@ public static void main(String[] args) {
   /**
   * ** OUTPUT *****
   */
-  
+
   /*
   GRAPHE :
   (A)--1--(B)----6---(C)
-  | \     |           |
-  |  \    |           |
-  2   3   8           7
-  |    \  |           |
-  |     \ |           |
+  | \	 |		   |
+  |  \	|		   |
+  2   3   8		   7
+  |	\  |		   |
+  |	 \ |		   |
   (D)-3--(E)-----5----(F)
-  |                   |
-  |                   |
+  |				   |
+  |				   |
   ----------4----------
 
   Paths : from A to C
@@ -368,14 +368,14 @@ public static void main(String[] args) {
 
   GRAPHE :
   (1)--1--(4)----6---(6)
-  | \     |           |
-  |  \    |           |
-  2   3   8           7
-  |    \  |           |
-  |     \ |           |
+  | \	 |		   |
+  |  \	|		   |
+  2   3   8		   7
+  |	\  |		   |
+  |	 \ |		   |
   (2)-3--(3)-----5----(5)
-  |                   |
-  |                   |
+  |				   |
+  |				   |
   ----------4----------
 
   Paths : from 4 to 5
