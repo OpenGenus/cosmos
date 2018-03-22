@@ -1,4 +1,3 @@
-
 function baconianEncrypt(plainText) {
     let baconianCodes = {
         'a': 'AAAAA', 'b': 'AAAAB', 'c': 'AAABA', 'd':
@@ -10,9 +9,7 @@ function baconianEncrypt(plainText) {
     };
 
     let cipherText = "";
-    [...plainText].forEach(char => {
-        cipherText += baconianCodes[char.toLowerCase()];
-    });
+    [...plainText].forEach(char => cipherText += baconianCodes[char.toLowerCase()]);
 
     return cipherText;
 }
