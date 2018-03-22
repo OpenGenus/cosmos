@@ -13,7 +13,7 @@ int main()
     {
         for(j = 1; j <= 3; j++)
         {
-            printf("%d + %d = %d %c", i, j, add(i, j), '\n');
+            printf("%d + %d = %d \n", i, j, add(i, j));
         }
     }   
 }
