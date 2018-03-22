@@ -14,23 +14,23 @@ count=0
 
 while [ "$size" -lt "$len" ]
 do 
-a=`echo "$NM"|cut -d " " -f $i`
-if [[ -z "$a" ]]
-then
-if [[ "$i" -eq 1 ]]
-then
-echo -e "ENter The numbers again no element on position $i\n"
-else
-i=$[$i+1]
-size=$[$size+1]
-fi
-else
-sum=$[$sum+$a]
-count=$[$count+1]
-la=`echo "${#a}"`
-size=$[$size+$la]
-i=$[$i+1]
-fi
+	a=`echo "$NM"|cut -d " " -f $i`
+	if [[ -z "$a" ]]
+	then
+		if [[ "$i" -eq 1 ]]
+		then
+			echo -e "ENter The numbers again no element on position $i\n"
+		else
+			i=$[$i+1]
+			size=$[$size+1]
+		fi
+	else
+		sum=$[$sum+$a]
+		count=$[$count+1]
+		la=`echo "${#a}"`
+		size=$[$size+$la]
+		i=$[$i+1]
+	fi
 done
 ##########################################################################################################
 
