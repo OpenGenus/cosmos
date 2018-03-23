@@ -9,11 +9,11 @@ public class General {
 
     public List<Adaptee> troopsUnderCommand;
 
-    public void setOrder(Order order){
+    public void setOrder(Order order) {
         this.order = order;
     }
 
-    public Order receiveOrder(){
+    public Order receiveOrder() {
         if (order == null)
             return Order.AT_EASE;
 

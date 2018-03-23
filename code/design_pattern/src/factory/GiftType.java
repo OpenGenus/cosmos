@@ -29,7 +29,7 @@ public enum GiftType {
     private static final int SIZE = VALUES.size();
     private static final Random RANDOM = new Random();
 
-    public static GiftType randomGift()  {
+    public static GiftType randomGift() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 }

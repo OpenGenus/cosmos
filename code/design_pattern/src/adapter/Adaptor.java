@@ -8,9 +8,9 @@ public class Adaptor implements Movement {
 
     public General general;
 
-    public Adaptor(Adaptee a, General g){
-        adaptee = a;
-        this.general = g;
+    public Adaptor(Adaptee adaptee, General general) {
+        this.adaptee = adaptee;
+        this.general = general;
     }
 
 

@@ -38,39 +38,39 @@ public class PersonBuilder {
     }
 
     public void setBirthdate(String birthdate) throws InvalidValue, ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Date d = sdf.parse("01-01-1950");
         Date date = sdf.parse(birthdate);
         if (date.after(d))
             this.birthdate = date;
-        else throw new InvalidValue("you're too old!!");
+        else throw new InvalidValue("You're too old!!");
     }
 
     public void setNationality(Nationality nationality) {
         this.nationality = nationality;
     }
 
-    public void setProgrammer(boolean programmer) {
-        isProgrammer = programmer;
+    public void setProgrammer(boolean isProgrammer) {
+        this.isProgrammer = isProgrammer;
     }
 
     public void setIq(Integer iq) throws InvalidValue {
         if (iq < 30)
-            throw new InvalidValue("Your iq is that of a monkey!!!");
+            throw new InvalidValue("Don't try anything crazy.");
 
         this.iq = iq;
     }
 
-    public void setPoor(boolean poor) {
-        isPoor = poor;
+    public void setPoor(boolean isPoor) {
+        this.isPoor = isPoor;
     }
 
-    public void setPopular(boolean popular) {
-        isPopular = popular;
+    public void setPopular(boolean isPopular) {
+        this.isPopular = isPopular;
     }
 
-    public void setEmployed(boolean employed) {
-        isEmployed = employed;
+    public void setEmployed(boolean isEmployed) {
+        this.isEmployed = isEmployed;
     }
 
 

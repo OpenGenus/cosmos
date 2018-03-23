@@ -4,7 +4,7 @@ import observer.network.Artist;
 import observer.network.Fan;
 
 public class Demo {
-    public void startDemo(){
+    public void startDemo() {
         Observer f1 = new Fan("Robert");
         Observer f2 = new Fan("David");
         Observer f3 = new Fan("Gangplank");

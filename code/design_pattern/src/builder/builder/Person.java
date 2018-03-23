@@ -35,15 +35,15 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", birthdate=" + birthdate +
-                ", nationality=" + nationality +
-                ", isProgrammer=" + isProgrammer +
-                ", iq=" + iq +
-                ", isPoor=" + isPoor +
-                ", isPopular=" + isPopular +
-                ", isEmployed=" + isEmployed +
+                "firstname='" + this.firstname + '\'' +
+                ", lastname='" + this.lastname + '\'' +
+                ", birthdate=" + this.birthdate +
+                ", nationality=" + this.nationality +
+                ", isProgrammer=" + this.isProgrammer +
+                ", iq=" + this.iq +
+                ", isPoor=" + this.isPoor +
+                ", isPopular=" + this.isPopular +
+                ", isEmployed=" + this.isEmployed +
                 '}';
     }
 }

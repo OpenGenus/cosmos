@@ -15,20 +15,20 @@ public class Artist<T extends String> implements Subject {
 
     private List<String> updates;
 
-    public Artist(String name){
+    public Artist(String name) {
         this.name = name;
         this.observers = new HashSet<>();
         this.updates = new ArrayList<>();
     }
 
-    public Artist(Set<Observer> observers){
+    public Artist(Set<Observer> observers) {
         this.observers = observers;
         this.updates = new ArrayList<>();
     }
 
     @Override
-    public String getLastNotification(){
-        return "[ " + this.name  + " ] " + this.updates.get(this.updates.size() - 1);
+    public String getLastNotification() {
+        return "[ " + this.name + " ] " + this.updates.get(this.updates.size() - 1);
     }
 
     @Override

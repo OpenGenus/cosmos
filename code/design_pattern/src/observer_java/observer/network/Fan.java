@@ -8,7 +8,7 @@ public class Fan implements Observer {
     private String name;
     private Set<Artist> followedSubjects;
 
-    public Fan(String name){
+    public Fan(String name) {
         this.followedSubjects = new HashSet<>();
         this.name = name;
     }
@@ -17,7 +17,7 @@ public class Fan implements Observer {
         this.followedSubjects = subjectsToFollow;
     }
 
-    public void addSubject(Artist subject){
+    public void addSubject(Artist subject) {
         subject.subscribe(this);
         this.followedSubjects.add(subject);
     }

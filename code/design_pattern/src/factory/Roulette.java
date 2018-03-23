@@ -28,7 +28,7 @@ public class Roulette {
             case Toy:
                 return new Toy();
             case Error:
-                return new Nothing();
+                throw new InvalidValue("Russian roulette is confused");
             default:
                 return new Nothing();
         }
