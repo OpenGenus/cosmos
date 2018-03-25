@@ -19,16 +19,17 @@ int main()
                 std::cout << arr[i] << " ";
             
         std::cout << std::endl;
+        return 0;
 }
 void quicksort(int arr[], int low, int high) 
 {
 	    if(low < high)
-        {
+         {
             int pi = part(arr, low, high);
 
             quicksort(arr, low, pi-1);
             quicksort(arr, pi+1, high);
-        }
+         }
 }
 // sort a sub array in increasing order
 int part(int arr[], int low, int high)
@@ -42,10 +43,10 @@ int part(int arr[], int low, int high)
 	    for(int i = low; i < high; i++) 
 	    {
             if(arr[i] < pivot) 
-		    {
+            {
 			    l++;
 			    std::swap(arr[l],arr[i]);
-		    }
+            }
 	    }
 	    std::swap(arr[l+1],arr[high]);
         
