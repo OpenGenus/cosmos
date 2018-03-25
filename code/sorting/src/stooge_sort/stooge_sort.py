@@ -16,4 +16,4 @@ def stooge_sort(a):
 
 l = [4, 7, 2, 8, 1, 9, 3]
 stooge_sort(l)
-print ", ".join(str(x) for x in l)
+print(", ".join(str(x) for x in l))
