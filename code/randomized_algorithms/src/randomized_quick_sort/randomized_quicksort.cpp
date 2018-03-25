@@ -24,31 +24,31 @@ int main()
 void quicksort(int arr[], int low, int high) 
 {
 	    if(low < high)
-         {
-            int pi = part(arr, low, high);
+        {
+                int pi = part(arr, low, high);
 
-            quicksort(arr, low, pi-1);
-            quicksort(arr, pi+1, high);
-         }
+                quicksort(arr, low, pi-1);
+                quicksort(arr, pi+1, high);
+        }
 }
 // sort a sub array in increasing order
 int part(int arr[], int low, int high)
 {
-        int pivotIndex = low + (rand() % (high - low + 1));
-	    int pivot = arr[pivotIndex];
-	    int l = low - 1;
+    int pivotIndex = low + (rand() % (high - low + 1));
+    int pivot = arr[pivotIndex];
+    int l = low - 1;
         
-	    std::swap(arr[pivotIndex], arr[high]);
+    std::swap(arr[pivotIndex], arr[high]);
         
 	    for(int i = low; i < high; i++) 
 	    {
-            if(arr[i] < pivot) 
-            {
-			    l++;
-			    std::swap(arr[l],arr[i]);
-            }
+                if(arr[i] < pivot) 
+                {
+			        l++;
+                    std::swap(arr[l],arr[i]);
+                }
 	    }
-	    std::swap(arr[l+1],arr[high]);
+    std::swap(arr[l+1],arr[high]);
         
-	    return l+1;
+    return l+1;
 }
