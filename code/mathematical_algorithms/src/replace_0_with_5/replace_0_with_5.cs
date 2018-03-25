@@ -4,9 +4,21 @@ namespace Replace
 {
     public class Program
     {
-        private static string replace(string n)
+        private static string replace(string number)
         {
-            return n.Replace('0', '5');
+            string N = "";
+            foreach (char n in number)
+            {
+                if (n == '0')
+                {
+                    N += '5';
+                }
+                else
+                {
+                    N += n;
+                }
+            }
+            return N;
         }
         
         public static void Main()
