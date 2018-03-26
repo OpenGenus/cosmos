@@ -5,8 +5,8 @@
 def print_grid(arr):
     for i in range(9):
         for j in range(9):
-            print arr[i][j],
-        print ('n')
+            print(arr[i][j], end=" "),
+        print(end="\n")
  
          
 # Function to Find the entry in the Grid that is still  not used
@@ -115,4 +115,4 @@ if __name__=="__main__":
     if(solve_sudoku(grid)):
         print_grid(grid)
     else:
-        print "No solution exists"
+      print("No solution exists")
