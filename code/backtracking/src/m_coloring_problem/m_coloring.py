@@ -29,9 +29,9 @@ col=[-1 for i in range(4)]
 m=int(input("Enter number of different colors"))
 
 if solve(graph,m,0):
-	print ("Solution Exists: Following are the assigned colors")
+	print("Solution Exists: Following are the assigned colors")
 	for i in col:
-		print i,
-	print
+		print(i),
+	print()
 else:
-	print ("No Solution Exists")
+	print("No Solution Exists")
