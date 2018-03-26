@@ -8,4 +8,4 @@ def count_set_bit(number):
 		
 	return count
 
-print count_set_bit(9)
+print(count_set_bit(9))
