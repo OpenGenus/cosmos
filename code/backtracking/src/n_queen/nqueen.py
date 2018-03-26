@@ -25,13 +25,12 @@ def main():
 	n = input("Enter n for n-queen problem solution:")
 	x = [i for i in range(n+1)]
 	for m in range(1,n+1):
-		print "\nFirst queen is placed in column:",m,"\n"
+		print("\nFirst queen is placed in column:",m,"\n")
 		x[1]=m   
 		nqueens(2)
 		if(flag==0):
-			print "No solution exists for queen placed in column:",m
+			print("No solution exists for queen placed in column:",m)
 		print("\n")
 
 if __name__ == '__main__':
-	main()
-	
+  main()
