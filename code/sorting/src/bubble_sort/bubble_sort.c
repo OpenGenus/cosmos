@@ -5,7 +5,7 @@ typedef int bool;
 #define true 1
 #define false 0
 
-void swap(int *p, int *q)
+void swap(int *p, int *q) // function for swapping two elements
 {
 	int temp = *p;
 	*p = *q;
@@ -59,7 +59,7 @@ int main()
 		scanf("\n%d",&a[i]);
 	}    
 	bubbleSort(a, n);
-	printf("Sorted array: ");
-	print(a, n);
+	printf("Sorted array: "); 
+	print(a, n); //function for printing the array
 	return 0;
 }
