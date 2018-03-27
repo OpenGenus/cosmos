@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+// Part of Cosmos by OpenGenus Foundation
+using namespace std;
+
+int main(){
+
+	cout << "please enter a number\n";
+	int n; cin >> n;
+	int s = 0;
+	
+	for(int i=1;i<=log(n)/log(5); ++i){
+		s = s + n / pow(5 , i);
+	}
+	cout << s << endl;
+	
+}
