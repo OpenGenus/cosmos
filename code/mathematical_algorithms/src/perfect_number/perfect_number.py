@@ -5,5 +5,5 @@ def is_perfect_number(n):
       sum += x
   return sum == n
 
-num = input("Please enter a number to check if it is perfect or not")
+num = int(input("Please enter a number to check if it is perfect or not"))
 print(is_perfect_number(num))      
