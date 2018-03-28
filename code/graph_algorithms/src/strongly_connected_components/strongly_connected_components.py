@@ -20,7 +20,7 @@ class Graph:
     def DFSUtil(self,v,visited):
         # Mark the current node as visited and print it
         visited[v]= True
-        print v,
+        print(v, end=" ")
         #Recur for all the vertices adjacent to this vertex
         for i in self.graph[v]:
             if visited[i]==False:
@@ -73,7 +73,7 @@ class Graph:
             i = stack.pop()
             if visited[i]==False:
                 gr.DFSUtil(i, visited)
-                print""
+                print()
   
 # Create a graph given in the above diagram
 g = Graph(5)
