@@ -73,11 +73,11 @@ class Graph:
     def test(self):
         res = self.isEulerian()
         if res == 0:
-            print "graph is not Eulerian"
+            print("graph is not Eulerian")
         elif res ==1 :
-            print "graph has a Euler path"
+            print("graph has a Euler path")
         else:
-            print "graph has a Euler cycle"
+            print("graph has a Euler cycle")
   
   
  
