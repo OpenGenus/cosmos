@@ -16,11 +16,11 @@ def longest_palindrome(text):
     # create palindromes length list (space O(n))
     palindromes_lengths = [1] * length
     # iterate on each substring character
-    for fgap in xrange(1, length):
+    for fgap in range(1, length):
         # get pre-calculated length
         pre = palindromes_lengths[fgap]
         # reversed iteration on each substring character
-        for rgap in reversed(xrange(0, fgap)):
+        for rgap in reversed(range(0, fgap)):
             tmp = palindromes_lengths[rgap]
             if text[fgap] == text[rgap]:
                 # if equal characters, update palindromes_lengths
@@ -41,9 +41,9 @@ def longest_palindrome(text):
 
 def main():
     """ Main routine to test longest_palindrome funtion """
-    print longest_palindrome('bbabcbcab') # 7: babcbab | bacbcab
-    print longest_palindrome('abbaab')    # 4: abba | baab
-    print longest_palindrome('opengenus') # 3: ene | ege | ngn | nen
+    print(longest_palindrome('bbabcbcab')) # 7: babcbab | bacbcab
+    print(longest_palindrome('abbaab'))    # 4: abba | baab
+    print(longest_palindrome('opengenus')) # 3: ene | ege | ngn | nen
 
 if __name__ == '__main__':
     main()
