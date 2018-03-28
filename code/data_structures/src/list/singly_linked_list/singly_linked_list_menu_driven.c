@@ -13,9 +13,9 @@ struct Node
 int main()
 {
 	int opt, value, flag, loc;
-	struct Node *HEAD, *new_node, *temp;
-	HEAD = (struct Node*)malloc(sizeof(struct Node));
-	HEAD = NULL;   // initially head is empty
+	struct Node *head, *new_node, *temp;
+	head = (struct Node*)malloc(sizeof(struct Node));
+	head = NULL;   // initially head is empty
 	do
 	{
 		printf("Insertion : \n");
@@ -41,14 +41,14 @@ int main()
 				}
 				new_node->data = value;
 				new_node->next = NULL;
-				if(HEAD == NULL)
+				if(head == NULL)
 				{
-					HEAD = new_node;
+					head = new_node;
 				}
 				else
 				{
-					new_node->next = HEAD;
-					HEAD = new_node;
+					new_node->next = head;
+					head = new_node;
 				}
 				new_node = NULL;
 				free(new_node);
@@ -56,7 +56,7 @@ int main()
 
 			// case to add node at location
 			case 2:
-				if(HEAD == NULL)
+				if(head == NULL)
 				{
 					printf("List is empty\n");
 					break;
@@ -71,7 +71,7 @@ int main()
 				flag = 1;
 				loc--;  // because we hve to stop traversing before the location
 				temp = (struct Node*)malloc(sizeof(struct Node));
-				temp = HEAD;
+				temp = head;
 				while(temp->next!=NULL && flag!=loc)
 				{
 					temp=temp->next;
@@ -92,14 +92,14 @@ int main()
 				new_node = (struct Node*)malloc(sizeof(struct Node));
 				new_node->next = NULL;
 				new_node->data = value;
-				if(HEAD == NULL)
+				if(head == NULL)
 				{
-					HEAD = new_node;
+					head = new_node;
 				}
 				else
 				{
 					temp = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					while(temp->next != NULL)
             			temp = temp->next;
             		temp->next = new_node;
@@ -112,15 +112,15 @@ int main()
 
 			// case to delete node from begining
 			case 4:
-				if(HEAD == NULL)
+				if(head == NULL)
 				{
 					printf("List is empty\n");
 				}
 				else
 				{
 					temp = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
-					HEAD = HEAD->next;
+					temp = head;
+					head = head->next;
 					printf("%d is deleted\n", temp->data);
 					free(temp);
 				}
@@ -128,7 +128,7 @@ int main()
 
 			// case to delete node from a location
 			case 5:
-				if(HEAD==NULL)
+				if(head==NULL)
 				{
 					printf("List is empty\n");
 				}
@@ -140,7 +140,7 @@ int main()
 					flag = 1;
 					temp = (struct Node*)malloc(sizeof(struct Node));
 					new_node = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					while(temp->next!=NULL && flag!=loc)
 					{
 						temp=temp->next;
@@ -157,7 +157,7 @@ int main()
 
 			// case to delete node from last
 			case 6:
-				if(HEAD==NULL)
+				if(head==NULL)
 				{
 					printf("List is empty\n");
 				}
@@ -165,7 +165,7 @@ int main()
 				{
 					temp = (struct Node*)malloc(sizeof(struct Node));
 					new_node = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					
 					while(temp->next->next!=NULL)
 					{
@@ -183,7 +183,7 @@ int main()
 			// case to print the size of list
 			case 7:
 				printf("Size is : ");
-				if(HEAD==NULL)
+				if(head==NULL)
 				{
 					printf("0\n");
 				}
@@ -191,7 +191,7 @@ int main()
 				{
 					flag = 0;
 					temp = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					while(temp!=NULL)
 					{
 						flag++;
@@ -204,7 +204,7 @@ int main()
 			
 			// case to check whether the list is empty or not
 			case 8:
-				if(HEAD==NULL)
+				if(head==NULL)
 				{
 					printf("List is empty\n");
 				}
@@ -216,7 +216,7 @@ int main()
 
 			// case to print the location(s) of a node->data
 			case 9:
-				if(HEAD == NULL)
+				if(head == NULL)
 				{
 					printf("List is empty\n");
 				}
@@ -227,7 +227,7 @@ int main()
 					scanf("%d", &value);
 					printf("%d is found at : ", value);
 					temp = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					while(temp!=NULL)
 					{
 						if(temp->data == value)
@@ -242,14 +242,14 @@ int main()
 
 			// case to print the list
 			case 0:
-				if(HEAD==NULL)
+				if(head==NULL)
 				{
 					printf("List is empty\n");
 				}
 				else
 				{
 					temp = (struct Node*)malloc(sizeof(struct Node));
-					temp = HEAD;
+					temp = head;
 					while(temp!=NULL)
 					{
 						printf("%d -> ", temp->data);
@@ -262,6 +262,6 @@ int main()
 		}
 		printf("\n=====================================\n");
 	}while(opt!=-1);
-	free(HEAD);
+	free(head);
 	return 0;
 }
