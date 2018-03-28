@@ -13,7 +13,7 @@ def quickselect(items, item_index):
 
         # partition
         i = l
-        for j in xrange(l + 1, r + 1):
+        for j in range(l + 1, r + 1):
             if lst[j] < lst[l]:
                 i += 1
                 lst[i], lst[j] = lst[j], lst[i]
