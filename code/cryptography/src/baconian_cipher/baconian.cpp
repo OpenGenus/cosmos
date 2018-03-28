@@ -48,8 +48,7 @@ std::string decrypt(std::map <char, std::string>& cipher, std::string message)
             newMessage += it->first;
             currentString.clear();
             currentStringLength = 0;
-        }
-        
+        } 
         if (message[i] == ' ')
             newMessage.append(" ");   
         else
