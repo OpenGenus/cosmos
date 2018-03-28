@@ -25,7 +25,7 @@ def main():
 	coins = [1,2,3,8] # coin denominations
 	amount = 3 # amount of money
 
-	print "No. of ways to change - {}".format(coin_change(coins, amount))
+	print("No. of ways to change - {}".format(coin_change(coins, amount)))
 
 	return
 
