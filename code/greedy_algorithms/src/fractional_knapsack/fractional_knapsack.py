@@ -49,7 +49,7 @@ def main():
 	Item(30, 120)
 	]
 
-	print "Maximum value we can obtain -{}".format(fractional_knapsack(items, W))
+	print("Maximum value we can obtain -{}".format(fractional_knapsack(items, W)))
 
 	return
 
