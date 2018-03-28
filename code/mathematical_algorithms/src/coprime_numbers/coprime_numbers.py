@@ -7,5 +7,5 @@ def gcd(a, b):
 def coprime(a, b):
     return gcd(a, b) == 1
 
-a,b = map(int,input().split())
+a,b = list(map(int,input().split()))
 print(coprime(a,b))
