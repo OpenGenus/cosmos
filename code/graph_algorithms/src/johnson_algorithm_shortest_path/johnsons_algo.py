@@ -143,7 +143,7 @@ if __name__ == "__main__":
     if not final_distances:
         print("Negative cycle")
     else:
-        print compute_min(final_distances)
+        print(compute_min(final_distances))
     print(datetime.utcnow() - t1)
 
 
