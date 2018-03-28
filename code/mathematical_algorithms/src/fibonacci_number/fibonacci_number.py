@@ -14,4 +14,4 @@ def fibonacci_memoized(n):
     return fib(n)
 
 x = int(sys.argv[1])
-print fibonacci_memoized(x)
+print(fibonacci_memoized(x))
