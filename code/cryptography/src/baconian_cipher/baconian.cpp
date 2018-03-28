@@ -1,71 +1,53 @@
 #include <map>
 #include <string>
 
-#define VALUE_LENGTH 5 // The length of a value in a key value pair for a baconian cipher
-
 // Part of Cosmos by OpenGenus Foundation
-// Typed out map
-std::map<char, std::string> cipher = {
-{ 'A', "AAAAA" }, { 'B', "AAAAB" }, { 'C', "AAABA" },
-{ 'D', "AAABB" }, { 'E', "AABAA" }, { 'F', "AABAB" }, 
-{ 'G', "AABBA" }, { 'H', "AABBB" }, { 'I', "ABAAA" }, 
-{ 'J', "ABAAB" }, { 'K', "ABABA" }, { 'L', "ABABB" }, 
-{ 'M', "ABBAA" }, { 'N', "ABBAB" }, { 'O', "ABBBA" }, 
-{ 'P', "ABBBB" }, { 'Q', "BAAAA" }, { 'R', "BAAAB" }, 
-{ 'S', "BAABA" }, { 'T', "BAABB" }, { 'U', "BABAA" }, 
-{ 'V', "BABAB" }, { 'W', "BABBA" }, { 'X', "BABBB" }, 
-{ 'Y', "BBAAA" }, { 'Z', "BBAAB" } 
-};
-
-// This function generates the exact map typed above
+// This function generates a baconian map
 std::map<char, std::string> createBaconianMap()
 {
     std::map<char, std::string> cipher;
-    std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string value = "";
-    for (int i = 0; i < alphabet.length(); i++) 
+    std::string static alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string value;
+    for (std::size_t i = 0; i < alphabet.length(); ++i) 
     {
-        for (int j = 0; j < VALUE_LENGTH; j++)
+        for (std::size_t j = 0; j < 5; ++j)
         {
-	    if ((i & (1 << j)) == 0)
-                value = 'A' + value;
-            else
-                value = 'B' + value;
+	    ((i & (1 << j)) == 0) ? value = 'A' + value : value = 'B' + value;
         }
         char key = alphabet[i];
         cipher[key] = value;
-        value = "";
+        value.clear();
     }
+
     return cipher;
 }
 
-std::string encrypt(std::map<char, std::string> &cipher, std::string message)
+std::string encrypt(std::map<char, std::string>& cipher, std::string message)
 {
-    std::string newMessage = "";
-    for (int i = 0; i < message.length(); i++)
+    std::string newMessage;
+    for (std::size_t i = 0; i < message.length(); ++i)
     {
-        if (message[i] != ' ')
-            newMessage.append(cipher[char(toupper(message[i]))]);
-        else
-            newMessage.append(" ");
+        (message[i] != ' ') ? newMessage.append(cipher[char(toupper(message[i]))]) : 
+        newMessage.append(" ");
     }
+
     return newMessage;
 }
 
-std::string decrypt(std::map <char, std::string> &cipher, std::string message)
+std::string decrypt(std::map <char, std::string>& cipher, std::string message)
 {
-    std::string newMessage = "";
-    std::string currentString = "";
+    std::string newMessage;
+    std::string currentString;
     int currentStringLength = 0;
-    for (int i = 0; i < message.length() + 1; i++)
+    for (std::size_t i = 0; i < message.length() + 1; ++i)
     {
-        if (currentStringLength == VALUE_LENGTH)
+        if (currentStringLength == 5)
         {
 	    std::map<char, std::string>::iterator it = cipher.begin();
             while (it->second != currentString)
-                it++;
+                ++it;
             newMessage += it->first;
-            currentString = "";
+            currentString.clear();
             currentStringLength = 0;
         }
         
@@ -77,5 +59,6 @@ std::string decrypt(std::map <char, std::string> &cipher, std::string message)
             currentStringLength++;
         }
     }
+
     return newMessage;
 }
