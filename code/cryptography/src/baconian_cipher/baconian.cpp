@@ -27,8 +27,7 @@ std::string encrypt(std::map<char, std::string>& cipher, std::string message)
     std::string newMessage;
     for (std::size_t i = 0; i < message.length(); ++i)
     {
-        (message[i] != ' ') ? newMessage.append(cipher[char(toupper(message[i]))]) : 
-        newMessage.append(" ");
+        (message[i] != ' ') ? newMessage.append(cipher[char(toupper(message[i]))]) : newMessage.append(" ");
     }
 
     return newMessage;
