@@ -21,7 +21,7 @@ def power(F, n):
 
     M = [[1,1],[1,0]]
 
-    power(F, n/2)
+    power(F, n//2)
     multiply(F, F)
 
     if n%2 != 0:
@@ -47,6 +47,5 @@ def multiply(F, M):
 if __name__ == "__main__":
 
     # Test Case : Printing first 10 Fibonacci numbers
-    for i in xrange(10):
-        print fibonacci(i)
-
+    for i in range(10):
+        print(fibonacci(i))
