@@ -7,7 +7,7 @@ import operator
 
 
 def loadDataset(filename, split, trainingSet=[], testSet=[]):
-    with open(filename, 'rb') as csvfile:
+    with open(filename, 'rt') as csvfile:
         lines = csv.reader(csvfile)
         dataset = list(lines)
         for x in range(len(dataset) - 1):
@@ -48,7 +48,7 @@ def getResponse(neighbors):
         else:
             classVotes[response] = 1
     sortedVotes = sorted(
-        classVotes.iteritems(), key=operator.itemgetter(1), reverse=True)
+        classVotes.items(), key=operator.itemgetter(1), reverse=True)
     return sortedVotes[0][0]
 
 
@@ -66,8 +66,8 @@ def main():
     testSet = []
     split = 0.67
     loadDataset('iris.data', split, trainingSet, testSet)
-    print 'Train set: ' + repr(len(trainingSet))
-    print 'Test set: ' + repr(len(testSet))
+    print ('Train set: ' + repr(len(trainingSet)))
+    print ('Test set: ' + repr(len(testSet)))
     # generate predictions
     predictions = []
     k = 3

@@ -6,7 +6,7 @@ from csv import reader
 
 # Load a CSV file
 def load_csv(filename):
-    file = open(filename, "rb")
+    file = open(filename, "rt")
     lines = reader(file)
     dataset = list(lines)
     return dataset
