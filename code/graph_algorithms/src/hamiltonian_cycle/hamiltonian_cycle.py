@@ -109,4 +109,3 @@ g2.graph = [ [0, 1, 0, 1, 0], [1, 0, 1, 1, 1],
  
 # Print the solution
 g2.hamCycle();
- 
