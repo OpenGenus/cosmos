@@ -1,0 +1,6 @@
+The whole purpose of Facade is to "aggregate" multiple classes and functionality into a single place, thus acting like
+well... a Facade - beautiful on the outside, but hiding all the complexity of the "inside building". The example
+is taken to the extreme to showcase it properly - imagine each class that is managed has a fuckton of logic behind it
+that is quite specific and quite hard to understand.
+
+By using the Facade design pattern, that logic is encapsulated in the Facade and easily used.
