@@ -1,8 +1,8 @@
 // implementation of quicksort using randomization
 // by shobhit(dragon540)
-#include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <iostream>
 
 void quicksort(int arr[], int i, int n);
 int part(int arr[], int low, int high);
@@ -16,39 +16,39 @@ int main()
         quicksort(arr, 0, 9);
         
         for(int i=0; i < 10; i++) 
-                std::cout << arr[i] << " ";
+       	    std::cout << arr[i] << " ";
             
-        std::cout << std::endl;
+        std::cout << '\n';
         return 0;
 }
 void quicksort(int arr[], int low, int high) 
 {
-	    if(low < high)
-            {
-                int pi = part(arr, low, high);
+    if(low < high)
+    {
+         int pi = part(arr, low, high);
 
-                quicksort(arr, low, pi-1);
-                quicksort(arr, pi+1, high);
-            }
+         quicksort(arr, low, pi-1);
+         quicksort(arr, pi+1, high);
+    }
 }
 // sort a sub array in increasing order
 int part(int arr[], int low, int high)
 {
-    int pivotIndex = low + (rand() % (high - low + 1));
-    int pivot = arr[pivotIndex];
-    int l = low - 1;
+     int pivotIndex = low + (rand() % (high - low + 1));
+     int pivot = arr[pivotIndex];
+     int l = low - 1;
         
-    std::swap(arr[pivotIndex], arr[high]);
+     std::swap(arr[pivotIndex], arr[high]);
         
-	    for(int i = low; i < high; i++) 
+    for(int i = low; i < high; i++) 
+    {
+	    if(arr[i] < pivot) 
 	    {
-                if(arr[i] < pivot) 
-                {
-	            l++;
-                    std::swap(arr[l],arr[i]);
-                }
-	    }
-    std::swap(arr[l+1],arr[high]);
+		    ++l
+             std::swap(arr[l],arr[i]);
+          }
+    }    
+        std::swap(arr[l+1],arr[high]);
         
     return l+1;
 }
