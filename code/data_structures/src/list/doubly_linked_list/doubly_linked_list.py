@@ -76,7 +76,7 @@ class DoublyLinkedList:
         # lets Python know this class is iterable
         return self
 
-    def next(self):
+    def __next__(self):
         # provides things iterating over class with next element
         if self.current is None:
             # allows us to re-iterate
