@@ -29,4 +29,4 @@ def Dequeue(Queue):
 Enqueue(Queue, 'a')
 Enqueue(Queue, 'b')
 Enqueue(Queue, 'c')
-print Dequeue(Queue)
+print (Dequeue(Queue))
