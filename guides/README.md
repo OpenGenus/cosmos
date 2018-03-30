@@ -1,7 +1,7 @@
 # Cosmos Guides
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
-This folder contains various guidelines in terms of new documentatation and coding style that are useful when contributing to this repository.
+This folder contains various guidelines in terms of new documentation and coding style that are useful when contributing to this repository.
 
 The folder `coding_style` contains style guides for various programming languages.
 
