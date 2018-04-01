@@ -19,6 +19,4 @@ def pangram_checker(text):
     for index in arr:
         if not index:
             return False
-
-
     return True
