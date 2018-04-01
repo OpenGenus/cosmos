@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int t;
+	cout<<"Enter no. of test cases"<<endl;
+	cin>>t;
+	while(t--)
+	{
+		int num,count=0,x=5;
+		cout<<"Enter the number"<<endl;
+		cin>>num;
+		while(x<=num)
+		{
+			count=count+(num/x);
+			x=x*5;
+		}
+		cout<<count<<endl;
+	}
+}
