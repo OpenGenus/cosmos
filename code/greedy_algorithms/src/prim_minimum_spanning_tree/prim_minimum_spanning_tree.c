@@ -8,13 +8,12 @@ find_min_edge(int *k, int *l, int n, int c[][1024], int *e)
 	int i, j;
 	for (i = 0; i < n; ++i)
 		for (j = 0; j < n; ++j)
-			if (c[i][j] < min)
-			{
+			if (c[i][j] < min) {
 				min = c[i][j];
 				*k = i;
 				*l = j;
 			}
-	*e= *e - 1;
+	*e = *e - 1;
 	return (min);
 }
 
@@ -24,14 +23,11 @@ find_new_index(int c[][1024], int near[], int n, int *e)
 	int min=INT_MAX, index;
 	int i;
 	for (i = 0; i < n; ++i)
-	{
-		if (near[i] != 0 && c[i][near[i]] < min)
-		{
+		if (near[i] != 0 && c[i][near[i]] < min) {
 			min = c[i][near[i]];
 			index = i;
 
 		}
-	}
 	*e = *e - 1;
 	return (index);
 }
@@ -48,11 +44,9 @@ main()
 	printf("Enter cost matrix: \n");
 	int i, j;
 	for (i = 0; i < n; ++i)
-		for (j = 0; j < n; ++j)
-		{
+		for (j = 0; j < n; ++j) {
 			scanf("%d", &c[i][j]);
-			if (c[i][j] == -1)
-			{
+			if (c[i][j] == -1) {
 				c[i][j] = INT_MAX;
 				--e;
 			}
@@ -68,8 +62,7 @@ main()
 	t[0][0] = k;
 	t[0][1] = l;
 
-	for (i = 0; i < n; ++i)
-	{
+	for (i = 0; i < n; ++i) {
 		if (c[i][l] < c[i][k])
 			near[i] = l;
 		else
@@ -77,8 +70,7 @@ main()
 	}
 	near[k] = near[l] = 0;
 
-	for (i = 1; i < n - 1, e > 0; ++i)
-	{
+	for (i = 1; i < n - 1, e > 0; ++i) {
 		int index = find_new_index(c, near, n, &e);
 		t[i][0] = index;
 		t[i][1] = near[index];
@@ -93,8 +85,7 @@ main()
 
 	if(i != n - 1)
 		printf("There is no spanning tree\n");
-	else
-	{
+	else {
 		printf("Minimum Spanning Tree:- \n");
 
 		for (i = 0; i < n - 1; ++i)
