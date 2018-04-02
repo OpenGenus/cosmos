@@ -9,9 +9,9 @@ Insertion sort iterates through an array, taking one input element at each itera
 1. Get unsorted array/list
 2. Set 'marker' for sorted section after first element in array/list
 3. Select first unsorted number
-4. Swap number with left until it is in correct position
+4. Swap number with left elements until it is in correct position in sorted sub-array
 5. Move sorted section marker over to the right one position
-6. Repeat until no more elements exist in unsorted sub-array.
+6. Repeat steps 3 through 5 until no more elements exist in unsorted sub-array.
 
 
 ## Complexity
@@ -19,6 +19,7 @@ Insertion sort iterates through an array, taking one input element at each itera
 - Worst case: O(n<sup>2</sup>)
 - Average: O(n<sup>2</sup>)
 - Best case: O(n)
+
 **Space Complexity:**
 - Average: O(n)
 
