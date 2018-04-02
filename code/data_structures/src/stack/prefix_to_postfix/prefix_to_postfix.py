@@ -33,8 +33,8 @@ def typeof(s):
         return operand
 
 
-infix = input("Enter the infix notation : ")
-for i in infix:
+prefix = input("Enter the prefix notation : ")
+for i in prefix:
     type = typeof(i)
     if type is leftparentheses:
         temp.append(i)
