@@ -15,7 +15,7 @@ def findNext(number,n):
      # If no such digit found,then all numbers are in 
      # descending order, no greater number is possible
      if i == 0:
-        print "Next number not possible"
+        print("Next number not possible")
         return
          
      # Find the smallest digit on the right side of 
@@ -41,14 +41,12 @@ def findNext(number,n):
      for j in range(n-i):
         x = x * 10 + number[j]
       
-     print "Next number with set of digits is",x
+     print("Next number with set of digits is",x)
  
 
-digits = raw_input("Enter the Number")     
+digits = input("Enter the Number")     
  
 # converting into integer array,
 # number becomes [5,3,4,9,7,6]
-number = map(int ,digits) 
+number = list(map(int ,digits))
 findNext(number, len(digits))
- 
-

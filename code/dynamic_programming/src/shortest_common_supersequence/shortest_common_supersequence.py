@@ -27,4 +27,4 @@ def superSeq( X ,  Y , m , n):
 X="FABCDF"
 Y="HBABCDEF"
 #longest supersequence can be HBFABCDEF
-print "Length of the shortest supersequence = ",superSeq(X, Y, len(X), len(Y))
+print("Length of the shortest supersequence = ",superSeq(X, Y, len(X), len(Y)))

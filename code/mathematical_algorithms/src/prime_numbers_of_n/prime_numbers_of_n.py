@@ -3,18 +3,8 @@
 # Output is list of primes factors & exponents.
 # Example, N = 180 gives : [[2, 2], [3, 2], [5, 1]]
 
-import sys
 import random
-
-# For Python 2 & 3 compatibility
-if (sys.version_info > (3, 0)):
-	from queue import Queue
-	RANGE = range
-	INPUT = input
-else:
-	from Queue import Queue
-	RANGE = xrange
-	INPUT = raw_input
+from queue import Queue
 
 def gcd(a, b):
 	while b:
@@ -60,7 +50,7 @@ def rabin_miller(p):
 	s = p - 1
 	while(s % 2 == 0):
 		s >>= 1
-	for i in RANGE(5):
+	for i in range(5):
 		a = random.randrange(p - 1) + 1
 		temp = s
 		mod = pow(a, temp, p)
@@ -121,9 +111,9 @@ def factorise(n):
 
 if __name__ == "__main__":
 	sieve()
-	t = int(INPUT())		# Denotes number of testcases.
+	t = int(input())		# Denotes number of testcases.
 	for _ in range(t):
-		n = int(INPUT())
+		n = int(input())
 		L = factorise(n)
 		L.sort()
 		i = 0

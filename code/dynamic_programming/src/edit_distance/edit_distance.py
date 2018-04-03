@@ -44,4 +44,4 @@ def editDistance(str1, str2):
 # Driver program to test the above function
 str1 = "sunday"
 str2 = "saturday"
-print editDistance(str1, str2)
+print(editDistance(str1, str2))

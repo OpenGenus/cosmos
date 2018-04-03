@@ -1,5 +1,5 @@
 def main():
-    num = raw_input("enter a number")
+    num = input("enter a number")
     return ('{0:08b}'.format(x)).count("1")
 
 

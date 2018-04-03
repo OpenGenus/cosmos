@@ -25,7 +25,7 @@ def logistic_regression(features,
 
     weights = np.zeros(features.shape[1])
 
-    for step in xrange(num_steps):
+    for step in range(num_steps):
         scores = np.dot(features, weights)
         predictions = sigmoid(scores)
 
@@ -36,7 +36,7 @@ def logistic_regression(features,
 
         # Print log-likelihood every so often
         if step % 10000 == 0:
-            print log_likelihood(features, target, weights)
+            print(log_likelihood(features, target, weights))
 
     return weights
 

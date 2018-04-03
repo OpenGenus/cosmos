@@ -7,7 +7,7 @@ def smallest_digit(n):
         if (min_digit>n%10):
             min_digit=n%10
            
-        n=int(n/10)
+        n //= 10
         print(int (min_digit)) 
     return min_digit
 

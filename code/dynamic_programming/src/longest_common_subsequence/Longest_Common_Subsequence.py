@@ -17,4 +17,4 @@ def lcs(X , Y):
 X = "FABCDGH"
 Y = "AVBDC"
 #ABC is the longest common subsequence
-print "Length of LCS = ", lcs(X, Y)
+print("Length of LCS = ", lcs(X, Y))
