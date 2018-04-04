@@ -19,7 +19,7 @@ def rightViewUtil(root, level, max_level):
      
     # If this is the last node of its level
     if (max_level[0] < level):
-        print "%d   " %(root.data),
+        print ("%d   " %(root.data)),
         max_level[0] = level
  
     # Recur for right subtree first, then left subtree
