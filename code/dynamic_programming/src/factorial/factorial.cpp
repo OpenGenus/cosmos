@@ -1,6 +1,6 @@
 #include <iostream>
 
-int factorial(int n)
+unsigned long long int factorial(int n)
 {
 	if (n == 0 || n == 1)
 		return 1;
