@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="sbt: org.scala-lang:scala-library:2.12.4:jar" type="Scala">
+    <properties>
+      <compiler-classpath>
+        <root url="file://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/jline.jar" />
+        <root url="file://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-compiler.jar" />
+        <root url="file://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-library.jar" />
+        <root url="file://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-reflect.jar" />
+        <root url="file://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-xml_2.12.jar" />
+      </compiler-classpath>
+    </properties>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.sbt/boot/scala-2.12.4/lib/scala-library.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
