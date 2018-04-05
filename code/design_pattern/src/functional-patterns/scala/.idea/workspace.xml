@@ -56,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Functor.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Functor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/functors/functor/Functor.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -86,6 +86,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CostateMonad.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/monads/costate/monad/CostateMonad.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StateMonad.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/monads/state/monad/StateMonad.scala">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,21 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gonad.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/monads/gonad/Gonad.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Monad.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Monad.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="189">
+              <caret line="9" column="66" lean-forward="true" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -143,9 +143,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/functors/applicative/functor/ApplicativeFunctor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/functors/bifunctor/BiFunctor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/monads/state/monad/StateMonad.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/laws/FunctorLaws.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/functors/functor/Functor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala" />
       </list>
     </option>
   </component>
@@ -505,7 +505,7 @@
       <updated>1518386172718</updated>
       <workItem from="1518386178529" duration="47000" />
       <workItem from="1518862194192" duration="44000" />
-      <workItem from="1522936977713" duration="1413000" />
+      <workItem from="1522936977713" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="state monad definition">
       <created>1518457902964</created>
@@ -532,7 +532,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1504000" />
+    <option name="totallyTimeSpent" value="1684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -772,14 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/costate/monad/CostateMonad.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/monads/gonad/Gonad.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -800,14 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -836,14 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/functors/multifunctor/Multifunctor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/functors/contravariant/Contravariant.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -864,6 +840,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/functors/multifunctor/Multifunctor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/costate/monad/CostateMonad.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="66" lean-forward="true" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
           <folding />
         </state>
       </provider>
