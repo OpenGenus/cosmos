@@ -66,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StateMonad.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StateMonad.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/monads/state/monad/StateMonad.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Monad.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Monad.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -139,12 +139,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/functors/applicative/functor/ApplicativeFunctor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/functors/bifunctor/BiFunctor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/functors/functor/Functor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/monads/state/monad/StateMonad.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala" />
       </list>
     </option>
   </component>
@@ -504,7 +504,7 @@
       <updated>1518386172718</updated>
       <workItem from="1518386178529" duration="47000" />
       <workItem from="1518862194192" duration="44000" />
-      <workItem from="1522936977713" duration="424000" />
+      <workItem from="1522936977713" duration="449000" />
     </task>
     <task id="LOCAL-00001" summary="state monad definition">
       <created>1518457902964</created>
@@ -531,7 +531,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="515000" />
+    <option name="totallyTimeSpent" value="540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -803,14 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -855,6 +847,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/monads/monad/Monad.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding />
         </state>
       </provider>
