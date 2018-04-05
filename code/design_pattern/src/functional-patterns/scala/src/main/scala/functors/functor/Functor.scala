@@ -13,6 +13,7 @@ import scala.language.higherKinds
   *
   * Some functors include: List, Set, Map, Option, etc.
   */
-trait Functor[F[_]] {
-  def fmap[A, B](fA: F[A])(f: A => B): F[B]
+trait Functor[A, F[_]] {
+  def id: A
+  def fmap[B](fA: F[A])(f: A => B): F[B]
 }
