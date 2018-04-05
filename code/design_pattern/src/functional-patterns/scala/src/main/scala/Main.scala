@@ -1,0 +1,4 @@
+
+
+object Main extends App{
+}
