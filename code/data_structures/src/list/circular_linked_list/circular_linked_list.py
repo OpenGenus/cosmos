@@ -37,7 +37,7 @@ class CircularLinkedList:
         temp = self.head
         if self.head is not None:
             while (True):
-                print "%d" % (temp.data),
+                print ("%d" % (temp.data), end=' ')
                 temp = temp.next
                 if (temp == self.head):
                     break
@@ -54,5 +54,5 @@ cllist.push(56)
 cllist.push(2)
 cllist.push(11)
 
-print "Contents of circular Linked List"
+print ("Contents of circular Linked List")
 cllist.printList()
