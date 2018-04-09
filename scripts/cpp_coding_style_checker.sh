@@ -1,4 +1,4 @@
-CWD=$(pwd)
+CWD="$(pwd)"
 COSMOS_ROOT="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 COSMOS_CODE_ROOT="$COSMOS_ROOT/code"
 UNCRUSTIFY_ROOT="$COSMOS_ROOT/third_party/uncrustify"
@@ -28,9 +28,9 @@ cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
     # remove the output file if existed to prevent `uncrustify` is not override it
-    rm -f $cpp_file.uncrustify
+    rm -f "$cpp_file.uncrustify"
 
-    $UNCRUSTIFY -q -c $UNCRUSTIFY_CONFIG_PATH $cpp_file
+    "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG_PATH" "$cpp_file"
 done
 
 echo
@@ -40,7 +40,7 @@ echo "##################"
 cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
-    d=$(diff $cpp_file $cpp_file.uncrustify)
+    d=$(diff "$cpp_file" "$cpp_file.uncrustify")
 
     if [ "$d" != "" ]; then
         echo "# The \`$cpp_file\` is not passed"
