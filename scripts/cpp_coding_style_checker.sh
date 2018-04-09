@@ -3,7 +3,7 @@ COSMOS_ROOT="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 COSMOS_CODE_ROOT="$COSMOS_ROOT/code"
 UNCRUSTIFY_ROOT="$COSMOS_ROOT/third_party/uncrustify"
 UNCRUSTIFY="$UNCRUSTIFY_ROOT/build/uncrustify"
-UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
+UNCRUSTIFY_CONFIG="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
 
 error_times=0
 
@@ -32,7 +32,7 @@ do
     # remove the output file if existed to prevent `uncrustify` is not override it
     rm -f "$cpp_file.uncrustify"
 
-    "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG_PATH" "$cpp_file"
+    "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG" "$cpp_file"
 done
 
 echo """
