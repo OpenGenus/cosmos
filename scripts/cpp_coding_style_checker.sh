@@ -8,6 +8,24 @@ UNCRUSTIFY_CONFIG="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
 total=0
 error_times=0
 
+assert()
+{
+    error=$?
+    if [[ $# -eq 1 ]]; then
+        if [ $error -ne $1 ]; then
+            echo "exit ($error)"
+            error_code=1
+            exit 1
+        fi
+    else
+        if [ $error -ne 0 ]; then
+            echo "exit ($error)"
+            error_code=1
+            exit 1
+        fi
+    fi
+}
+
 echo """
 ###########################
 # Building uncrustify ... #
@@ -19,8 +37,11 @@ rm -rf build
 mkdir build
 cd build
 cmake .. > $tmp
+assert
 cmake --build . > $tmp
+assert
 rm -f $tmp
+assert
 
 echo """
 ########################
