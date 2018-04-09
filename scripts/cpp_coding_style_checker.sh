@@ -1,24 +1,24 @@
-cwd=$(pwd)
-cosmos_root_path="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
+CWD=$(pwd)
+COSMOS_ROOT_PATH="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
 
 error_times=0
 tmp=`mktemp tmp.XXXXXXXXXX`
 
-uncrustify_root_path="$cosmos_root_path/third_party/uncrustify"
-uncrustify="$uncrustify_root_path/build/uncrustify"
-uncrustify_config_path="$uncrustify_root_path/../uncrustify.cfg"
+UNCRUSTIFY_ROOT_PATH="$COSMOS_ROOT_PATH/third_party/uncrustify"
+UNCRUSTIFY="$UNCRUSTIFY_ROOT_PATH/build/uncrustify"
+UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT_PATH/../uncrustify.cfg"
 
 echo
 echo "###########################"
 echo "# Building uncrustify ... #"
 echo "###########################"
-rm -rf $uncrustify_root_path/build
-mkdir $uncrustify_root_path/build
-cd $uncrustify_root_path/build
+rm -rf $UNCRUSTIFY_ROOT_PATH/build
+mkdir $UNCRUSTIFY_ROOT_PATH/build
+cd $UNCRUSTIFY_ROOT_PATH/build
 cmake .. > $tmp
 cmake --build . > $tmp
 
-cd "$cosmos_root_path/code"
+cd "$COSMOS_ROOT_PATH/code"
 
 echo
 echo "###############################"
@@ -29,7 +29,7 @@ do
     # remove the output file if existed to prevent `uncrustify` is not override it
     rm -f $cpp_file.uncrustify
 
-    $uncrustify -q -c $uncrustify_config_path $cpp_file
+    $UNCRUSTIFY -q -c $UNCRUSTIFY_CONFIG_PATH $cpp_file
 done
 
 echo
@@ -51,7 +51,7 @@ do
     fi;
 done
 
-cd "$cwd"
+cd "$CWD"
 
 if [ $error_times != 0 ]; then
     echo "$error_times error(s) generated."
