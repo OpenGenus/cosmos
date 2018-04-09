@@ -1,5 +1,6 @@
 CWD=$(pwd)
 COSMOS_ROOT_PATH="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
+COSMOS_CODE_ROOT="$COSMOS_ROOT_PATH/code"
 UNCRUSTIFY_ROOT_PATH="$COSMOS_ROOT_PATH/third_party/uncrustify"
 UNCRUSTIFY="$UNCRUSTIFY_ROOT_PATH/build/uncrustify"
 UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT_PATH/../uncrustify.cfg"
@@ -10,20 +11,20 @@ echo
 echo "###########################"
 echo "# Building uncrustify ... #"
 echo "###########################"
+cd "$UNCRUSTIFY_ROOT_PATH"
 tmp=`mktemp tmp.XXXXXXXXXX`
-rm -rf $UNCRUSTIFY_ROOT_PATH/build
-mkdir $UNCRUSTIFY_ROOT_PATH/build
-cd $UNCRUSTIFY_ROOT_PATH/build
+rm -rf build
+mkdir build
+cd build
 cmake .. > $tmp
 cmake --build . > $tmp
 rm -f $tmp
-
-cd "$COSMOS_ROOT_PATH/code"
 
 echo
 echo "###############################"
 echo "# Creating files for diff ... #"
 echo "###############################"
+cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
     # remove the output file if existed to prevent `uncrustify` is not override it
@@ -36,6 +37,7 @@ echo
 echo "##################"
 echo "# Diff files ... #"
 echo "##################"
+cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
     d=$(diff $cpp_file $cpp_file.uncrustify)
