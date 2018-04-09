@@ -1,9 +1,9 @@
 CWD=$(pwd)
-COSMOS_ROOT_PATH="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
-COSMOS_CODE_ROOT="$COSMOS_ROOT_PATH/code"
-UNCRUSTIFY_ROOT_PATH="$COSMOS_ROOT_PATH/third_party/uncrustify"
-UNCRUSTIFY="$UNCRUSTIFY_ROOT_PATH/build/uncrustify"
-UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT_PATH/../uncrustify.cfg"
+COSMOS_ROOT="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
+COSMOS_CODE_ROOT="$COSMOS_ROOT/code"
+UNCRUSTIFY_ROOT="$COSMOS_ROOT/third_party/uncrustify"
+UNCRUSTIFY="$UNCRUSTIFY_ROOT/build/uncrustify"
+UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
 
 error_times=0
 
@@ -11,7 +11,7 @@ echo
 echo "###########################"
 echo "# Building uncrustify ... #"
 echo "###########################"
-cd "$UNCRUSTIFY_ROOT_PATH"
+cd "$UNCRUSTIFY_ROOT"
 tmp=`mktemp tmp.XXXXXXXXXX`
 rm -rf build
 mkdir build
