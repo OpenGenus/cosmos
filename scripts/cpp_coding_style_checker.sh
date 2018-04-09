@@ -5,6 +5,7 @@ UNCRUSTIFY_ROOT="$COSMOS_ROOT/third_party/uncrustify"
 UNCRUSTIFY="$UNCRUSTIFY_ROOT/build/uncrustify"
 UNCRUSTIFY_CONFIG="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
 
+total=0
 error_times=0
 
 echo """
@@ -31,8 +32,16 @@ for cpp_file in `find -name '*.cpp'`
 do
     # remove the output file if existed to prevent `uncrustify` is not override it
     rm -f "$cpp_file.uncrustify"
+    if [ $? != 0 ]; then
+        echo "# Failed to remove file: \`$COSMOS_CODE_ROOT/$cpp_file\`."
+    fi;
 
-    "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG" "$cpp_file"
+    "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG" "$COSMOS_CODE_ROOT/$cpp_file"
+    if [ $? != 0 ]; then
+        echo "# Failed to create uncrustify file: \`$COSMOS_CODE_ROOT/$cpp_file\`."
+    fi;
+
+    total=$(($total+1))
 done
 
 echo """
@@ -45,17 +54,18 @@ for cpp_file in `find -name '*.cpp'`
 do
     d=$(diff "$cpp_file" "$cpp_file.uncrustify")
 
-    if [ "$d" != "" ]; then
-        echo "# The \`$cpp_file\` is not passed"
+    if [ $? != 0 ]; then
+        echo "# Failed: \`$COSMOS_CODE_ROOT/$cpp_file\`"
         error_times=$(($error_times+1))
     fi;
 done
 
 cd "$CWD"
 
+echo
 if [ $error_times != 0 ]; then
-    echo "$error_times error(s) generated."
+    echo "Failed. $error_times/$total error(s) generated."
     exit 1
 else
-    echo "Done. \`checking coding style in c++ script\` exited with 0."
+    echo "Passed. \`checking coding style in c++ script\` exited with 0."
 fi;
