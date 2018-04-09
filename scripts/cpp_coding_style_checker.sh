@@ -1,22 +1,22 @@
 CWD=$(pwd)
 COSMOS_ROOT_PATH="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )/.."
-
-error_times=0
-tmp=`mktemp tmp.XXXXXXXXXX`
-
 UNCRUSTIFY_ROOT_PATH="$COSMOS_ROOT_PATH/third_party/uncrustify"
 UNCRUSTIFY="$UNCRUSTIFY_ROOT_PATH/build/uncrustify"
 UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT_PATH/../uncrustify.cfg"
+
+error_times=0
 
 echo
 echo "###########################"
 echo "# Building uncrustify ... #"
 echo "###########################"
+tmp=`mktemp tmp.XXXXXXXXXX`
 rm -rf $UNCRUSTIFY_ROOT_PATH/build
 mkdir $UNCRUSTIFY_ROOT_PATH/build
 cd $UNCRUSTIFY_ROOT_PATH/build
 cmake .. > $tmp
 cmake --build . > $tmp
+rm -f $tmp
 
 cd "$COSMOS_ROOT_PATH/code"
 
@@ -42,11 +42,6 @@ do
 
     if [ "$d" != "" ]; then
         echo "# The \`$cpp_file\` is not passed"
-        # echo
-        # echo "diff $cpp_file $cpp_file.uncrustify"
-        # echo
-        # echo "$d"
-        # echo
         error_times=$(($error_times+1))
     fi;
 done
