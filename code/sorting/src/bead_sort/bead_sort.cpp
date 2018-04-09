@@ -12,7 +12,7 @@ void beadSort(vector<int>& a)
     int max = a[0];
     for (size_t i = 1; i < a.size(); ++i)
         if (a[i] > max)
-           max = a[i];
+            max = a[i];
 
     // allocating memory
     vector<unsigned char> beads(max * a.size(), 0);
@@ -26,7 +26,7 @@ void beadSort(vector<int>& a)
     {
         // count how many beads are on each post
         int sum = 0;
-        for (size_t i=0; i < a.size(); ++i)
+        for (size_t i = 0; i < a.size(); ++i)
         {
             sum += BEAD(i, j);
             BEAD(i, j) = 0;
@@ -41,7 +41,8 @@ void beadSort(vector<int>& a)
     for (size_t i = 0; i < a.size(); ++i)
     {
         int j;
-        for (j = 0; j < max && BEAD(i, j); ++j);
+        for (j = 0; j < max && BEAD(i, j); ++j)
+            ;
 
         a[i] = j;
     }
@@ -54,9 +55,9 @@ int main()
 
     beadSort(a);
 
-    cout<<"After Sorting.. "<<endl;
+    cout << "After Sorting.. " << endl;
     for (size_t i = 0; i < a.size(); ++i)
-        cout<<a[i]<<" ";
+        cout << a[i] << " ";
 
     return 0;
 }

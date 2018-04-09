@@ -1,15 +1,15 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- insertion sort synopsis
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
-
-template<typename _Bidirectional_Iter>
-void
-insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * insertion sort synopsis
+ *
+ * template<typename _Bidirectional_Iter, typename _Compare>
+ * void
+ * insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
+ *
+ * template<typename _Bidirectional_Iter>
+ * void
+ * insertionSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
  */
 
 #include <functional>

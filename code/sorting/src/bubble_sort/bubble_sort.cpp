@@ -1,15 +1,15 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- bubble sort synopsis
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
-
-template<typename _Bidirectional_Iter>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * bubble sort synopsis
+ *
+ * template<typename _Bidirectional_Iter, typename _Compare>
+ * void
+ * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
+ *
+ * template<typename _Bidirectional_Iter>
+ * void
+ * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
  */
 
 #include <functional>
