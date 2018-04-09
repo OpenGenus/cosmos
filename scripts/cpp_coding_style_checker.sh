@@ -7,10 +7,11 @@ UNCRUSTIFY_CONFIG_PATH="$UNCRUSTIFY_ROOT/../uncrustify.cfg"
 
 error_times=0
 
-echo
-echo "###########################"
-echo "# Building uncrustify ... #"
-echo "###########################"
+echo """
+###########################
+# Building uncrustify ... #
+###########################
+"""
 cd "$UNCRUSTIFY_ROOT"
 tmp=`mktemp tmp.XXXXXXXXXX`
 rm -rf build
@@ -20,10 +21,11 @@ cmake .. > $tmp
 cmake --build . > $tmp
 rm -f $tmp
 
-echo
-echo "###############################"
-echo "# Creating files for diff ... #"
-echo "###############################"
+echo """
+########################
+# Formatting files ... #
+########################
+"""
 cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
@@ -33,10 +35,11 @@ do
     "$UNCRUSTIFY" -q -c "$UNCRUSTIFY_CONFIG_PATH" "$cpp_file"
 done
 
-echo
-echo "##################"
-echo "# Diff files ... #"
-echo "##################"
+echo """
+#######################
+# Comparing files ... #
+#######################
+"""
 cd "$COSMOS_CODE_ROOT"
 for cpp_file in `find -name '*.cpp'`
 do
