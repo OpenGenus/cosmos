@@ -7,7 +7,7 @@ A packet analyzer used for intercepting traffic on wireless networks is known as
 ## Algorithms
 
 ```python
-	#!/usr/bin/python
+#!/usr/bin/python
 
 import socket, os, sys, struct, binascii, textwrap, time
 
