@@ -1,19 +1,19 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- merge sort synopsis
-
-namespace merge_sort_impl {
-    template<typename _Random_Acccess_Iter>
-    _Random_Acccess_Iter
-    advance(_Random_Acccess_Iter it, std::ptrdiff_t n);
-}
-
-template<typename _Random_Acccess_Iter, typename _Compare>
-void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
-
-template<typename _Random_Acccess_Iter>
-void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * merge sort synopsis
+ *
+ * namespace merge_sort_impl {
+ *    template<typename _Random_Acccess_Iter>
+ *    _Random_Acccess_Iter
+ *    advance(_Random_Acccess_Iter it, std::ptrdiff_t n);
+ * }
+ *
+ * template<typename _Random_Acccess_Iter, typename _Compare>
+ * void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
+ *
+ * template<typename _Random_Acccess_Iter>
+ * void mergeSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
  */
 
 #include <list>
@@ -45,7 +45,7 @@ namespace merge_sort_impl {
 
         std::list<value_type> tmp{};
 
-        while (begin1 < end1 &&  begin2 < end2)
+        while (begin1 < end1 && begin2 < end2)
             tmp.push_back(comp(*begin1, *begin2) ? *begin1++ : *begin2++);
         while (begin1 < end1)
             *--begin2 = *--end1;

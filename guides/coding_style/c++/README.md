@@ -31,7 +31,7 @@
 - [Aliases](#aliases)
 
 ## Comments
-Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
+Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text.
 
 ```C++
 // Example text
@@ -43,19 +43,19 @@ Single line comments should use the standard style (`//`), and multi line commen
  */
 
 /*
-
- Simple multiline comment
-
- vector synopsis
-
-template <class T, class Allocator = allocator<T> >
-class vector
-{
-public:
-    using value_type = T;
-    using allocator_type = Allocator;
-}
-*/
+ *
+ * Simple multiline comment
+ *
+ * vector synopsis
+ *
+ * template <class T, class Allocator = allocator<T> >
+ * class vector
+ * {
+ * public:
+ *     using value_type = T;
+ *     using allocator_type = Allocator;
+ * }
+ */
 ```
 
 ## Code Width and Alignment

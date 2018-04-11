@@ -1,25 +1,25 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- interpolation search synopsis
-
- warning: in order to follow the convention of STL, the interface is [begin, end) !!!
-
- // [begin, end)
-template<typename _Random_Access_Iter,
-         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
-         typename _Compare>
-_Random_Access_Iter
-interpolationSearch(_Random_Access_Iter begin,
-                     _Random_Access_Iter end,
-                     _Type const &find,
-                     _Compare compare);
-
-// [begin, end)
-template<typename _Random_Access_Iter,
-         typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
-_Random_Access_Iter
-interpolationSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * interpolation search synopsis
+ *
+ * warning: in order to follow the convention of STL, the interface is [begin, end) !!!
+ *
+ * // [begin, end)
+ * template<typename _Random_Access_Iter,
+ *          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+ *          typename _Compare>
+ * _Random_Access_Iter
+ * interpolationSearch(_Random_Access_Iter begin,
+ *                     _Random_Access_Iter end,
+ *                     _Type const &find,
+ *                     _Compare compare);
+ *
+ * // [begin, end)
+ * template<typename _Random_Access_Iter,
+ *          typename _Type = typename std::iterator_traits<_Random_Access_Iter>::value_type>
+ * _Random_Access_Iter
+ * interpolationSearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Type const &find);
  */
 
 #include <functional>
@@ -30,9 +30,9 @@ template<typename _Random_Access_Iter,
          typename _Compare>
 _Random_Access_Iter
 interpolationSearch(_Random_Access_Iter begin,
-                     _Random_Access_Iter end,
-                     _Type const &find,
-                     _Compare compare)
+                    _Random_Access_Iter end,
+                    _Type const &find,
+                    _Compare compare)
 {
     auto notFound = end;
 
