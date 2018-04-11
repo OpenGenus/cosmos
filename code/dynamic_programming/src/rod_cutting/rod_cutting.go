@@ -25,7 +25,7 @@ func rodCut(price []float64, n int) float64 {
 	return val[n]
 }
 
-# Driver program to test rodCut function
+// Driver program to test rodCut function
 func main() {
 	arr := []float64{1, 5, 8, 9, 10, 17, 17, 20}
 	var size = len(arr)
