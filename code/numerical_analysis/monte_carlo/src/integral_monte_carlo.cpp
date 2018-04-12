@@ -28,9 +28,10 @@ int main()
     std::cin >> b;
     std::cout << "Enter point count: " << std::endl;
     std::cin >> pointCount;
-    res = integralMonteCarlo(a, b, pointCount, [](double x)->double{return x*x + x;});
+    res = integralMonteCarlo(a, b, pointCount, [](double x) -> double
+    {
+        return x * x + x;
+    });
     std::cout << "Result: " << res << std::endl;
     return 0;
 }
-
-
