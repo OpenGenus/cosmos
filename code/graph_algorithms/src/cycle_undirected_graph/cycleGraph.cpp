@@ -1,7 +1,7 @@
 /*
-Part of Cosmos by OpenGenus Foundation
-*/
-#include<iostream>
+ * Part of Cosmos by OpenGenus Foundation
+ */
+#include <iostream>
 #include <list>
 #include <limits.h>
 using namespace std;
@@ -37,11 +37,11 @@ bool Graph::isCyclicUtil(int v, bool visited[], int parent)
     {
         if (!visited[*i])
         {
-           if (isCyclicUtil(*i, visited, v))
-              return true;
+            if (isCyclicUtil(*i, visited, v))
+                return true;
         }
         else if (*i != parent)
-           return true;
+            return true;
     }
     return false;
 }
@@ -54,8 +54,8 @@ bool Graph::isCyclic()
 
     for (int u = 0; u < V; u++)
         if (!visited[u])
-          if (isCyclicUtil(u, visited, -1))
-             return true;
+            if (isCyclicUtil(u, visited, -1))
+                return true;
     return false;
 }
 
@@ -67,14 +67,14 @@ int main()
     g1.addEdge(2, 0);
     g1.addEdge(0, 3);
     g1.addEdge(3, 4);
-    g1.isCyclic()? cout << "Graph contains cycle\n":
-                   cout << "Graph doesn't contain cycle\n";
+    g1.isCyclic() ? cout << "Graph contains cycle\n" :
+        cout << "Graph doesn't contain cycle\n";
 
     Graph g2(3);
     g2.addEdge(0, 1);
     g2.addEdge(1, 2);
-    g2.isCyclic()? cout << "Graph contains cycle\n":
-                   cout << "Graph doesn't contain cycle\n";
+    g2.isCyclic() ? cout << "Graph contains cycle\n" :
+        cout << "Graph doesn't contain cycle\n";
 
     return 0;
 }
