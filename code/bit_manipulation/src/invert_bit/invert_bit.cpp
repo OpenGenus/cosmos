@@ -12,11 +12,11 @@ int invertBit(int n, int numBit)
 int main()
 {
     int numeric, numberBit, res;
-    std::cout << "Enter numeric: "<<std::endl;
+    std::cout << "Enter numeric: " << std::endl;
     std::cin >> numeric;
     std::bitset<32> bs(numeric);
     std::cout << bs << '\n';
-    std::cout << "Enter number bit: "<<std::endl;
+    std::cout << "Enter number bit: " << std::endl;
     std::cin >> numberBit;
     res = invertBit(numeric, numberBit);
     std::bitset<32> bsRes(res);

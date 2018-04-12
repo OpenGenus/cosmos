@@ -10,13 +10,13 @@ void xor_swap(int * a, int * b)
 
 int main()
 {
-  int a = 10, b = 15;
+    int a = 10, b = 15;
 
-  cout << "Before swapping: A = " << a << " and B = " << b << "\n";
+    cout << "Before swapping: A = " << a << " and B = " << b << "\n";
 
-  xor_swap(&a, &b);
+    xor_swap(&a, &b);
 
-  cout << "After swapping: A = " << a << " and B = " << b << "\n";
+    cout << "After swapping: A = " << a << " and B = " << b << "\n";
 
-  return 0;
+    return 0;
 }

@@ -11,7 +11,7 @@ int nthMagicNo(int n)
     // Go through every bit of n
     while (n)
     {
-        pow = pow*5;
+        pow = pow * 5;
 
         // If last bit of n is set
         if (n & 1)
@@ -25,9 +25,8 @@ int nthMagicNo(int n)
 
 int main()
 {
-    int n ;
-    cin>>n;
+    int n;
+    cin >> n;
     cout << "nth magic number is " << nthMagicNo(n) << endl;
     return 0;
 }
-
