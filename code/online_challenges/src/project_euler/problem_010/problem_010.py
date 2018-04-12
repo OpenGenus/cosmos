@@ -1,7 +1,7 @@
 def main():
     n = 2000000
     sum = 0
-    prime = [True for i in range(n + 1)]
+    prime = [True] * n
 
     for p in range(2, n):
         if prime[p]:

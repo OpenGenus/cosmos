@@ -5,7 +5,7 @@ def main():
     triangle_number = 0
     divisor_count = 0
 
-    while True:
+    while divisor_count < 500:
         triangle_number += i
         i += 1
         divisor_count = 0
@@ -13,9 +13,6 @@ def main():
         for z in range(1, int(math.sqrt(triangle_number))):
             if triangle_number % z == 0:
                 divisor_count += 2
-
-        if divisor_count > 499:
-            break
 
     print (triangle_number)
 
