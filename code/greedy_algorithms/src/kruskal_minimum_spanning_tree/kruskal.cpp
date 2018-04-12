@@ -1,12 +1,12 @@
 #include <algorithm>
 #include <vector>
 
-namespace kruskal_impl{
+namespace kruskal_impl {
     using namespace std;
 
     template<typename _ForwardIter, typename _ValueType>
     pair<_ValueType, _ValueType> edgeFuncPolicy(_ForwardIter it);
- 
+
     template<typename _ValueType>
     struct UnionFindPolicy
     {

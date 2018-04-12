@@ -1,5 +1,5 @@
 /*
- *Part of Cosmos by OpenGenus Foundation
+ * Part of Cosmos by OpenGenus Foundation
  */
 #include <iostream>
 #include <algorithm>
@@ -13,7 +13,8 @@ struct Item
 
     // Constructor to initialize weight and value
     Item(int value, int weight) : value(value), weight(weight)
-    {}
+    {
+    }
 };
 
 // Custom comparison function to sort Items according to val/weight ratio
@@ -42,7 +43,6 @@ double fractionalKnapsack(int W, struct Item arr[], int n)
             curWeight += arr[i].weight;
             finalvalue += arr[i].value;
         }
-
         // If we can't add current Item, add a fraction of it
         else
         {
