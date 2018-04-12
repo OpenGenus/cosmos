@@ -4,59 +4,59 @@ using namespace std;
 
 class Vigenere
 {
-    public:
-        string key;
+public:
+    string key;
 
-        Vigenere(string key)
+    Vigenere(string key)
+    {
+        for (size_t i = 0; i < key.size(); ++i)
         {
-            for (size_t i = 0; i < key.size(); ++i)
-            {
-                if (key[i] >= 'A' && key[i] <= 'Z')
-                    this->key += key[i];
-                else if (key[i] >= 'a' && key[i] <= 'z')
-                    this->key += key[i] + 'A' - 'a';
-            }
+            if (key[i] >= 'A' && key[i] <= 'Z')
+                this->key += key[i];
+            else if (key[i] >= 'a' && key[i] <= 'z')
+                this->key += key[i] + 'A' - 'a';
+        }
+    }
+
+    string encrypt(string text)
+    {
+        string out;
+
+        for (size_t i = 0, j = 0; i < text.length(); ++i)
+        {
+            char c = text[i];
+
+            if (c >= 'a' && c <= 'z')
+                c += 'A' - 'a';
+            else if (c < 'A' || c > 'Z')
+                continue;
+
+            out += (c + key[j] - 2 * 'A') % 26 + 'A';
+            j = (j + 1) % key.length();
         }
 
-        string encrypt(string text)
+        return out;
+    }
+
+    string decrypt(string text)
+    {
+        string out;
+
+        for (size_t i = 0, j = 0; i < text.length(); ++i)
         {
-            string out;
+            char c = text[i];
 
-            for (size_t i = 0, j = 0; i < text.length(); ++i)
-            {
-                char c = text[i];
+            if (c >= 'a' && c <= 'z')
+                c += 'A' - 'a';
+            else if (c < 'A' || c > 'Z')
+                continue;
 
-                if (c >= 'a' && c <= 'z')
-                    c += 'A' - 'a';
-                else if (c < 'A' || c > 'Z')
-                    continue;
-
-                out += (c + key[j] - 2 * 'A') % 26 + 'A';
-                j = (j + 1) % key.length();
-            }
-
-            return out;
+            out += (c - key[j] + 26) % 26 + 'A';
+            j = (j + 1) % key.length();
         }
 
-        string decrypt(string text)
-        {
-            string out;
-
-            for (size_t i = 0, j = 0; i < text.length(); ++i)
-            {
-                char c = text[i];
-
-                if (c >= 'a' && c <= 'z')
-                    c += 'A' - 'a';
-                else if (c < 'A' || c > 'Z')
-                    continue;
-
-                out += (c - key[j] + 26) % 26 + 'A';
-                j = (j + 1) % key.length();
-            }
-
-            return out;
-        }
+        return out;
+    }
 };
 
 int main()
@@ -64,7 +64,7 @@ int main()
     Vigenere cipher("VIGENERECIPHER");
 
     string original =
-            "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
+        "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
     string encrypted = cipher.encrypt(original);
     string decrypted = cipher.decrypt(encrypted);
 
