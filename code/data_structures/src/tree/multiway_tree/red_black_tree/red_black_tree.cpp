@@ -14,7 +14,9 @@ protected:
 
 public:
     BaseNode(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr)
-        :value_(v), left_(l), right_(r) {}
+        : value_(v), left_(l), right_(r)
+    {
+    }
 
     ValueType value()
     {
@@ -52,7 +54,7 @@ protected:
 };
 
 template<typename _Type>
-class RBNode :public BaseNode<_Type, RBNode<_Type>>
+class RBNode : public BaseNode<_Type, RBNode<_Type>>
 {
 private:
     using ValueType = _Type;
@@ -67,7 +69,9 @@ public:
     };
 
     RBNode(ValueType v, SPNodeType l = nullptr, SPNodeType r = nullptr, SPNodeType p = nullptr)
-        :BaseNode<_Type, RBNode<_Type>>(v, l, r), parent_(p), color_(Color::RED) {}
+        : BaseNode<_Type, RBNode<_Type>>(v, l, r), parent_(p), color_(Color::RED)
+    {
+    }
 
     SPNodeType parent()
     {
@@ -104,7 +108,7 @@ private:
     typedef typename RBNode<_Type>::Color Color;
 
 public:
-    RBTree() :root_(nullptr), sentinel_(std::make_shared<NodeType>(0)), compare_(_Compare())
+    RBTree() : root_(nullptr), sentinel_(std::make_shared<NodeType>(0)), compare_(_Compare())
     {
         sentinel_->left(sentinel_);
         sentinel_->right(sentinel_);
@@ -160,7 +164,7 @@ private:
 
     void deleteCase6(SPNodeType const &);
 
-    // for test
+// for test
     friend RBTreeTest;
 };
 
@@ -184,9 +188,7 @@ RBTree<_Type, _Compare>::erase(_Type const &value)
     if (delete_node != sentinel_)
     {
         if (delete_node->left() == sentinel_)
-        {
             deleteOneNode(delete_node);
-        }
         else
         {
             SPNodeType smallest = successor(delete_node);
@@ -212,24 +214,16 @@ RBTree<_Type, _Compare>::deleteOneNode(SPNodeType &pt)
     else
     {
         if (isLeftChild(pt))
-        {
             pt->parent()->left(child);
-        }
         else
-        {
             pt->parent()->right(child);
-        }
         child->parent(pt->parent());
         if (pt->color() == Color::BLACK)
         {
             if (child->color() == Color::RED)
-            {
                 child->color(Color::BLACK);
-            }
             else
-            {
                 deleteCase1(child);
-            }
         }
     }
 }
@@ -353,17 +347,13 @@ RBTree<_Type, _Compare>::_find(_Type const &value)->SPNodeType
     while (!st.empty())
     {
         if (compare_(st.top()->value(), pt->value()) == compare_(pt->value(), st.top()->value()))
-        {
             return st.top();
-        }
         while (st.top()->left() != sentinel_)
         {
             st.push(st.top()->left());
             if (compare_(st.top()->value(),
                          pt->value()) == compare_(pt->value(), st.top()->value()))
-            {
                 return st.top();
-            }
         }
         while (!st.empty() && st.top()->right() == sentinel_)
             st.pop();
@@ -371,9 +361,7 @@ RBTree<_Type, _Compare>::_find(_Type const &value)->SPNodeType
         {
             if (compare_(st.top()->value(),
                          pt->value()) == compare_(pt->value(), st.top()->value()))
-            {
                 return st.top();
-            }
             else
             {
                 SPNodeType &temp = st.top();
@@ -395,24 +383,16 @@ RBTree<_Type, _Compare>::rotateLeft(SPNodeType const &pt)
     pt->right() = pt_right->left();
 
     if (pt->right() != sentinel_)
-    {
         pt->right()->parent(pt);
-    }
 
     pt_right->parent(pt->parent());
 
     if (pt->parent() == sentinel_)
-    {
         root_ = pt_right;
-    }
     else if (pt == pt->parent()->left())
-    {
         pt->parent()->left(pt_right);
-    }
     else
-    {
         pt->parent()->right(pt_right);
-    }
 
     pt_right->left(pt);
     pt->parent(pt_right);
@@ -427,24 +407,16 @@ RBTree<_Type, _Compare>::rotateRight(SPNodeType const &pt)
     pt->left(pt_left->right());
 
     if (pt->left() != sentinel_)
-    {
         pt->left()->parent(pt);
-    }
 
     pt_left->parent(pt->parent());
 
     if (pt->parent() == sentinel_)
-    {
         root_ = pt_left;
-    }
     else if (pt == pt->parent()->left())
-    {
         pt->parent()->left(pt_left);
-    }
     else
-    {
         pt->parent()->right(pt_left);
-    }
 
     pt_left->right(pt);
     pt->parent(pt_left);
@@ -484,17 +456,17 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
         grand_parent_pt = pt->parent()->parent();
 
         /*
-         Case : A
-         Parent of pt is left child of Grand-parent of pt
+         * Case : A
+         * Parent of pt is left child of Grand-parent of pt
          */
         if (parent_pt == grand_parent_pt->left())
         {
             auto uncle_pt = grand_parent_pt->right();
 
             /*
-             Case : 1
-             The uncle of pt is also red
-             Only Recoloring required
+             * Case : 1
+             * The uncle of pt is also red
+             * Only Recoloring required
              */
             if (uncle_pt->color() == Color::RED)
             {
@@ -506,9 +478,9 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
             else
             {
                 /*
-                 Case : 2
-                 pt is right child of its parent
-                 Left-rotation required
+                 * Case : 2
+                 * pt is right child of its parent
+                 * Left-rotation required
                  */
                 if (pt == parent_pt->right())
                 {
@@ -518,9 +490,9 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
                 }
 
                 /*
-                 Case : 3
-                 pt is left child of its parent
-                 Right-rotation required
+                 * Case : 3
+                 * pt is left child of its parent
+                 * Right-rotation required
                  */
                 rotateRight(grand_parent_pt);
                 auto temp = parent_pt->color();
@@ -530,17 +502,17 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
             }
         }
         /*
-         Case : B
-         Parent of pt is right child of Grand-parent of pt
+         * Case : B
+         * Parent of pt is right child of Grand-parent of pt
          */
         else
         {
             auto uncle_pt = grand_parent_pt->left();
 
             /*
-             Case : 1
-             The uncle of pt is also red
-             Only Recoloring required
+             * Case : 1
+             * The uncle of pt is also red
+             * Only Recoloring required
              */
             if (uncle_pt->color() == Color::RED)
             {
@@ -552,9 +524,9 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
             else
             {
                 /*
-                 Case : 2
-                 pt is left child of its parent
-                 Right-rotation required
+                 * Case : 2
+                 * pt is left child of its parent
+                 * Right-rotation required
                  */
                 if (pt == parent_pt->left())
                 {
@@ -564,9 +536,9 @@ RBTree<_Type, _Compare>::fixViolation(SPNodeType &pt)
                 }
 
                 /*
-                 Case : 3
-                 pt is right child of its parent
-                 Left-rotation required
+                 * Case : 3
+                 * pt is right child of its parent
+                 * Left-rotation required
                  */
                 rotateLeft(grand_parent_pt);
                 auto temp = parent_pt->color();
@@ -606,9 +578,7 @@ void
 RBTree<_Type, _Compare>::deleteCase1(SPNodeType const &n)
 {
     if (n->parent() != sentinel_)
-    {
         deleteCase2(n);
-    }
 }
 
 template<typename _Type, typename _Compare>
@@ -621,13 +591,9 @@ RBTree<_Type, _Compare>::deleteCase2(SPNodeType const &n)
         n->parent()->color(Color::RED);
         s->color(Color::BLACK);
         if (isLeftChild(n))
-        {
             rotateLeft(n->parent());
-        }
         else
-        {
             rotateRight(n->parent());
-        }
     }
     deleteCase3(n);
 }
@@ -646,9 +612,7 @@ RBTree<_Type, _Compare>::deleteCase3(SPNodeType const &n)
         deleteCase1(n->parent());
     }
     else
-    {
         deleteCase4(n);
-    }
 }
 
 template<typename _Type, typename _Compare>
@@ -665,9 +629,7 @@ RBTree<_Type, _Compare>::deleteCase4(SPNodeType const &n)
         n->parent()->color(Color::BLACK);
     }
     else
-    {
         deleteCase5(n);
-    }
 }
 
 template<typename _Type, typename _Compare>

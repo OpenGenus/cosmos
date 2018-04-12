@@ -26,35 +26,35 @@ public:
 
 template <class T> Stack<T>::Stack()
 {
-    top=nullptr;
+    top = nullptr;
 }
 
 template <class T> void Stack<T>::push(T n)
 {
-    node<T> *ptr=new node<T>;
-    ptr->n=n;
-    ptr->next=top;
-    top=ptr;
+    node<T> *ptr = new node<T>;
+    ptr->n = n;
+    ptr->next = top;
+    top = ptr;
 }
 
 template <class T> T Stack<T>::pop()
 {
-    if(top==nullptr)
+    if (top == nullptr)
         return INT_MIN;
-    node<T> *ptr=top;
-    T n=ptr->n;
-    top=top->next;
+    node<T> *ptr = top;
+    T n = ptr->n;
+    top = top->next;
     delete ptr;
     return n;
 }
 
 template <class T> void Stack<T>::display()
 {
-    node<T> *ptr=top;
-    while(ptr!=nullptr)
+    node<T> *ptr = top;
+    while (ptr != nullptr)
     {
         cout << ptr->n << "-> ";
-        ptr=ptr->next;
+        ptr = ptr->next;
     }
     cout << "NULL" << endl;
 }
@@ -62,8 +62,8 @@ template <class T> void Stack<T>::display()
 int main()
 {
     Stack<int> S;
-    int n,choice;
-    while(true)
+    int n, choice;
+    while (true)
     {
         system("cls");
         cout << "1.Push" << endl
@@ -71,7 +71,7 @@ int main()
              << "3.Display" << endl
              << "4.Exit" << endl;
         cin >> choice;
-        switch(choice)
+        switch (choice)
         {
         case 1:
             cout << "Enter the element to be entered. ";

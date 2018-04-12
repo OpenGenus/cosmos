@@ -8,14 +8,16 @@
 using namespace std;
 
 // Linked list node
-struct Node{
-    public:
+struct Node
+{
+public:
 
     int data;
     Node *next;
 
-    Node(int data) {
-        this -> data = data;
+    Node(int data)
+    {
+        this->data = data;
         next = NULL;
     }
 };
@@ -29,16 +31,19 @@ Node* takeInput(int n)
 
     int i = n;
     cout << "Enter elements: ";
-    while(i--){
+    while (i--)
+    {
         int data;
         cin >> data;
         Node *newNode = new Node(data);
-        if(head == NULL) {
+        if (head == NULL)
+        {
             head = newNode;
             tail = newNode;
         }
-        else {
-            tail -> next = newNode;
+        else
+        {
+            tail->next = newNode;
             tail = newNode;
         }
     }
@@ -50,24 +55,25 @@ Node* takeInput(int n)
 int length(Node *head)
 {
     int l = 0;
-    while(head!=NULL){
+    while (head != NULL)
+    {
         head = head->next;
         l++;
     }
     return l;
 }
 
-void printNthFromEnd(Node *head,int n)
+void printNthFromEnd(Node *head, int n)
 {
     // Get length of linked list
     int len = length(head);
 
     // check if n is greater than length
-    if(n>len)
+    if (n > len)
         return;
 
     // nth from end = (len-n+1)th node from beginning
-    for(int i=1;i<len-n+1;i++)
+    for (int i = 1; i < len - n + 1; i++)
         head = head->next;
 
     cout << "Nth node from end: " << head->data << endl;
@@ -83,5 +89,5 @@ int main()
     cout << "Enter n (node from the end): ";
     int n;
     cin >> n;
-    printNthFromEnd(head,n);
+    printNthFromEnd(head, n);
 }

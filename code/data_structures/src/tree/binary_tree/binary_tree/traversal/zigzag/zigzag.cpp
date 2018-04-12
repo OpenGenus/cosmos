@@ -3,19 +3,23 @@
 
 class Node
 {
-    public:
-        int info;
-        Node* left_child;
-        Node* right_child;
-        Node (int info) : info{info}, left_child{nullptr}, right_child{nullptr} {}
+public:
+    int info;
+    Node* left_child;
+    Node* right_child;
+    Node (int info) : info{info}, left_child{nullptr}, right_child{nullptr}
+    {
+    }
 };
 
 class BinaryTree
 {
-    public:
-        Node* root;
-        BinaryTree() : root{nullptr} {}
-        void zigzag_traversal();
+public:
+    Node* root;
+    BinaryTree() : root{nullptr}
+    {
+    }
+    void zigzag_traversal();
 };
 
 void BinaryTree :: zigzag_traversal()
