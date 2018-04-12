@@ -9,7 +9,6 @@ def main():
             if n < number:
                 dic[number] = dic[n] + count
                 break
-
             if n % 2 == 0:
                 n = n / 2
                 count += 1
