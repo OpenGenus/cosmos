@@ -11,20 +11,17 @@ Counting sort is a a very time-efficient (and somewhat space-inefficient) algori
 
 ```
     Counting_sort(A, k)
-              for i ← 1 to k do
-                 c[i] ← 0
-              for j ← 1 to n do
-                 c[A[j]] ← c[A[j]] + 1
-              //c[i] now contains the number of elements equal to i
-
-              for i ← 2 to k do
-                 c[i] ← c[i] + c[i-1]
-              // c[i] now contains the number of elements ≤ i
-
-              for j ← n downto 1 do
-                 B[c[A[i]]] ← A[j]
-                 c[A[i]] ← c[A[j]] - 1
-              return B
+              n = length[A]
+              create array B[n] & C[k+1]
+              for i=0 to k
+                 C[i] = 0
+              for i = 1 to n
+                 C[A[i]]++
+              for i = 1 to k
+                 C[i] = C[i] + C[i - 1]
+              for i = n to 1
+                 B[C[A[i]]] = A[i]
+                 C[A[i]]--
 ```
 
 ## Complexity
