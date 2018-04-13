@@ -1,6 +1,9 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>
+
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+
 #include <windows.h>
 #include <process.h>
 
@@ -20,6 +23,15 @@ void sleepSort(int arr[], int n)
     WaitForMultipleObjects(n, threads, TRUE, INFINITE);
     return;
 }
+
+#else
+
+void sleepSort(int arr[], int n)
+{
+    // TODO implement other OS version
+}
+
+#endif // defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
 
 int main()
 {
