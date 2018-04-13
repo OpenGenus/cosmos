@@ -2,18 +2,18 @@
 #include <vector>
 
 namespace kruskal_impl {
-    using namespace std;
+using namespace std;
 
-    template<typename _ForwardIter, typename _ValueType>
-    pair<_ValueType, _ValueType> edgeFuncPolicy(_ForwardIter it);
+template<typename _ForwardIter, typename _ValueType>
+pair<_ValueType, _ValueType> edgeFuncPolicy(_ForwardIter it);
 
-    template<typename _ValueType>
-    struct UnionFindPolicy
-    {
-        void merge(_ValueType a, _ValueType b);
+template<typename _ValueType>
+struct UnionFindPolicy
+{
+    void merge(_ValueType a, _ValueType b);
 
-        bool connected(_ValueType a, _ValueType b);
-    };
+    bool connected(_ValueType a, _ValueType b);
+};
 }
 
 template<typename _HeapedContainer,

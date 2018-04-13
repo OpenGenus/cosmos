@@ -58,75 +58,75 @@
 
 namespace binary_search_impl
 {
-    struct binary_search_tag {};
-    struct recursive_binary_search_tag : public binary_search_tag {};
-    struct iterative_binary_search_tag : public binary_search_tag {};
+struct binary_search_tag {};
+struct recursive_binary_search_tag : public binary_search_tag {};
+struct iterative_binary_search_tag : public binary_search_tag {};
 
 // [first, last]
-    template<typename _Random_Access_Iter, typename _Comp,
-             typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
-             typename _Difference
-                 = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
-    std::pair<_Random_Access_Iter, bool>
-    binarySearchImpl(_Random_Access_Iter first,
-                     _Random_Access_Iter last,
-                     _Tp const &find,
-                     _Comp comp,
-                     std::random_access_iterator_tag,
-                     recursive_binary_search_tag)
+template<typename _Random_Access_Iter, typename _Comp,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Difference
+             = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+std::pair<_Random_Access_Iter, bool>
+binarySearchImpl(_Random_Access_Iter first,
+                 _Random_Access_Iter last,
+                 _Tp const &find,
+                 _Comp comp,
+                 std::random_access_iterator_tag,
+                 recursive_binary_search_tag)
+{
+    if (first <= last)
     {
-        if (first <= last)
-        {
-            _Random_Access_Iter mid = first + (last - first) / 2;
+        _Random_Access_Iter mid = first + (last - first) / 2;
 
-            if (comp(*mid, find))
-                return binarySearchImpl(mid + 1,
-                                        last,
-                                        find,
-                                        comp,
-                                        std::random_access_iterator_tag(),
-                                        recursive_binary_search_tag());
-            else if (comp(find, *mid))
-                return binarySearchImpl(first,
-                                        mid - 1,
-                                        find,
-                                        comp,
-                                        std::random_access_iterator_tag(),
-                                        iterative_binary_search_tag());
-            else
-                return std::make_pair(mid, true);
-        }
-
-        return std::make_pair(last, false);
+        if (comp(*mid, find))
+            return binarySearchImpl(mid + 1,
+                                    last,
+                                    find,
+                                    comp,
+                                    std::random_access_iterator_tag(),
+                                    recursive_binary_search_tag());
+        else if (comp(find, *mid))
+            return binarySearchImpl(first,
+                                    mid - 1,
+                                    find,
+                                    comp,
+                                    std::random_access_iterator_tag(),
+                                    iterative_binary_search_tag());
+        else
+            return std::make_pair(mid, true);
     }
+
+    return std::make_pair(last, false);
+}
 
 // [first, last]
-    template<typename _Random_Access_Iter, typename _Comp,
-             typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
-             typename _Difference
-                 = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
-    std::pair<_Random_Access_Iter, bool>
-    binarySearchImpl(_Random_Access_Iter first,
-                     _Random_Access_Iter last,
-                     _Tp const &find,
-                     _Comp comp,
-                     std::random_access_iterator_tag,
-                     iterative_binary_search_tag)
+template<typename _Random_Access_Iter, typename _Comp,
+         typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+         typename _Difference
+             = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+std::pair<_Random_Access_Iter, bool>
+binarySearchImpl(_Random_Access_Iter first,
+                 _Random_Access_Iter last,
+                 _Tp const &find,
+                 _Comp comp,
+                 std::random_access_iterator_tag,
+                 iterative_binary_search_tag)
+{
+    while (first <= last)
     {
-        while (first <= last)
-        {
-            _Random_Access_Iter mid = first + (last - first) / 2;
+        _Random_Access_Iter mid = first + (last - first) / 2;
 
-            if (comp(*mid, find))
-                first = mid + 1;
-            else if (comp(find, *mid))
-                last = mid - 1;
-            else
-                return std::make_pair(mid, true);
-        }
-
-        return std::make_pair(last, false);
+        if (comp(*mid, find))
+            first = mid + 1;
+        else if (comp(find, *mid))
+            last = mid - 1;
+        else
+            return std::make_pair(mid, true);
     }
+
+    return std::make_pair(last, false);
+}
 } // binary_search_impl
 
 // [begin, end)

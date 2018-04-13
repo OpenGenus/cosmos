@@ -17,11 +17,11 @@ using namespace std;
 
 #if __cplusplus <= 201103L
 namespace {
-    template <typename T, typename ... Args>
-    unique_ptr<T> make_unique(Args&& ... args)
-    {
-        return unique_ptr<T>(new T(forward<Args>(args) ...));
-    }
+template <typename T, typename ... Args>
+unique_ptr<T> make_unique(Args&& ... args)
+{
+    return unique_ptr<T>(new T(forward<Args>(args) ...));
+}
 }  // namespace
 #endif
 
