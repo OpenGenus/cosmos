@@ -1,6 +1,4 @@
 #include <iostream>
-namespace std {
-
 class Node {
 private:
     int _data;
@@ -52,18 +50,18 @@ void LinkedList::print_List()
     //Checking the list if there is a node or not.
     if (tmp == NULL)
     {
-        cout << "List is empty\n";
+        std::cout << "List is empty\n";
         return;
     }
 
     //Checking only one node situation.
     if (tmp->Next() == NULL)
-        cout << "Starting: " << tmp->Data()
+        std::cout << "Starting: " << tmp->Data()
              << "Next Value > NULL\n";
     else
         while (tmp != NULL)
         {
-            cout << tmp->Data() << " > ";
+            std::cout << tmp->Data() << " > ";
             tmp = tmp->Next();
         }
 }
@@ -110,12 +108,11 @@ void LinkedList::init_list(int data)
         head = NULL;
     head = newNode;
 }
-}
 
 int main()
 {
     //Creating a list
-    std::LinkedList list;
+    LinkedList list;
 
     //Initilizing it with 5
     list.init_list(5);
