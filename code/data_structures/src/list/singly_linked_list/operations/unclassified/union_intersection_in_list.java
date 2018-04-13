@@ -67,8 +67,7 @@ class LinkedList
     /*  Inserts a node at start of linked list */
     void push(int new_data)
     {
-        /* 1 & 2: Allocate the Node &
-                  Put in the data*/
+        /* 1 & 2: Allocate the Node & Put in the data*/
         Node new_node = new Node(new_data);
  
         /* 3. Make next of new Node as head */
@@ -128,5 +127,5 @@ class LinkedList
  
         System.out.println("Union List is");
         unin.printList();
-    }
+     }
     }
