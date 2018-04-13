@@ -1,18 +1,47 @@
 # Quicksort
 
-Quicksort is a comparison sort algorithm. It has an average performance of O(n\*log(n)) and is generally considered one of the most efficient sorting algorithms.
+Quicksort is a fast sorting algorithm that takes a **divide-and-conquer approach** for sorting lists. It picks one element as a pivot element and partitions the array around it such that: left side of pivot contains all the elements that are less than the pivot element and right side contains all elements greater than the pivot. 
 
-## Steps
+## Explanation
+Following example explains how the pivot value is found in an array.
 
-1. Choose any element in the array to be the pivot.
-2. Partition the array into sub-arrays:
-    - elements with lower values than the pivot
-    - elements with greater values than the pivot
-3. Recursively apply the algorithm to all partitions
+![image](https://www.tutorialspoint.com/data_structures_algorithms/images/quick_sort_partition_animation.gif)
 
-## Sources and more info:
+> Image credits: tutorialspoint
 
-- https://en.wikipedia.org/wiki/Quicksort
+The pivot value divides the list into two parts and recursively, we find the pivot for each sub-lists until all lists contains only one element.
+
+## Algorithm
+```
+procedure partition(A, start, end) is
+    pivot := A[end]
+    i := start - 1    
+    for j := start to end - 1 do
+        if A[j] < pivot then
+            i := i + 1
+            swap A[i] with A[j]
+    swap A[i + 1] with A[end]
+    return i + 1
+
+procedure quicksort(A, start, end) is
+    if start < end then
+        p := partition(A, start, end)
+        quicksort(A, start, p - 1 )
+        quicksort(A, p + 1, end)
+```
+The entire array is sorted by quicksort(A, 0, length(A)-1).
+
+## Complexity
+**Time complexity**
+- Worst case: O(n^2)
+- Average case: O(n * log n)
+- Best case:
+	* O(n * log n) for simple partition
+	* O(n) for three-way partition and equal keys
+
+**Space complexity**
+- Worst case: O(n) auxiliary (naive)
+- Average case: O(log n) auxiliary
 
 ---
 
