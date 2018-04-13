@@ -56,8 +56,7 @@ void LinkedList::print_List()
 
     //Checking only one node situation.
     if (tmp->Next() == NULL)
-        std::cout << "Starting: " << tmp->Data()
-             << "Next Value > NULL\n";
+        std::cout << "Starting: " << tmp->Data() << "Next Value > NULL\n";
     else
         while (tmp != NULL)
         {
