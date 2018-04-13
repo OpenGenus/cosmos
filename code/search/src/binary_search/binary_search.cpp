@@ -7,35 +7,35 @@
  *
  * namespace binary_search_impl
  * {
- *     struct binary_search_tag {};
- *     struct recursive_binary_search_tag :public binary_search_tag {};
- *     struct iterative_binary_search_tag :public binary_search_tag {};
+ * struct binary_search_tag {};
+ * struct recursive_binary_search_tag :public binary_search_tag {};
+ * struct iterative_binary_search_tag :public binary_search_tag {};
  *
- *     // [first, last]
- *     template<typename _Random_Access_Iter, typename _Comp,
- *              typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
- *              typename _Difference
- *                  = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
- *     std::pair<_Random_Access_Iter, bool>
- *     binarySearchImpl(_Random_Access_Iter first,
- *                      _Random_Access_Iter last,
- *                      _Tp const &find,
- *                      _Comp comp,
- *                      std::random_access_iterator_tag,
- *                      recursive_binary_search_tag);
+ * // [first, last]
+ * template<typename _Random_Access_Iter, typename _Comp,
+ *          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+ *          typename _Difference
+ *              = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+ * std::pair<_Random_Access_Iter, bool>
+ * binarySearchImpl(_Random_Access_Iter first,
+ *                  _Random_Access_Iter last,
+ *                  _Tp const &find,
+ *                  _Comp comp,
+ *                  std::random_access_iterator_tag,
+ *                  recursive_binary_search_tag);
  *
- *     // [first, last]
- *     template<typename _Random_Access_Iter, typename _Comp,
- *              typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
- *              typename _Difference
- *                  = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
- *     std::pair<_Random_Access_Iter, bool>
- *     binarySearchImpl(_Random_Access_Iter first,
- *                      _Random_Access_Iter last,
- *                      _Tp const &find,
- *                      _Comp comp,
- *                      std::random_access_iterator_tag,
- *                      iterative_binary_search_tag);
+ * // [first, last]
+ * template<typename _Random_Access_Iter, typename _Comp,
+ *          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+ *          typename _Difference
+ *              = typename std::iterator_traits<_Random_Access_Iter>::difference_type>
+ * std::pair<_Random_Access_Iter, bool>
+ * binarySearchImpl(_Random_Access_Iter first,
+ *                  _Random_Access_Iter last,
+ *                  _Tp const &find,
+ *                  _Comp comp,
+ *                  std::random_access_iterator_tag,
+ *                  iterative_binary_search_tag);
  * } // binary_search_impl
  *
  * // [begin, end)

@@ -7,15 +7,15 @@
  *
  * namespace ternary_search_impl
  * {
- *     template<typename _RandomAccessIter,
- *              typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
- *              typename _Less>
- *     _RandomAccessIter
- *     ternarySearchImpl(_RandomAccessIter first,
- *                       _RandomAccessIter last,
- *                       const _RandomAccessIter &notFoundSentinel,
- *                       const _ValueType &find,
- *                       _Less less);
+ * template<typename _RandomAccessIter,
+ *          typename _ValueType = typename std::iterator_traits<_RandomAccessIter>::value_type,
+ *          typename _Less>
+ * _RandomAccessIter
+ * ternarySearchImpl(_RandomAccessIter first,
+ *                   _RandomAccessIter last,
+ *                   const _RandomAccessIter &notFoundSentinel,
+ *                   const _ValueType &find,
+ *                   _Less less);
  * } // ternary_search_impl
  *
  * template<typename _RandomAccessIter,

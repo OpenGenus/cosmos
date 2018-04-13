@@ -7,15 +7,15 @@
  *
  * namespace jump_search_impl
  * {
- *     template<typename _Random_Access_Iter,
- *              typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
- *              typename _Compare>
- *     _Random_Access_Iter
- *     jumpSearchImpl(_Random_Access_Iter begin,
- *                    _Random_Access_Iter end,
- *                    _Tp const &find,
- *                    _Compare comp,
- *                    std::random_access_iterator_tag);
+ * template<typename _Random_Access_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Random_Access_Iter>::value_type,
+ *          typename _Compare>
+ * _Random_Access_Iter
+ * jumpSearchImpl(_Random_Access_Iter begin,
+ *                _Random_Access_Iter end,
+ *                _Tp const &find,
+ *                _Compare comp,
+ *                std::random_access_iterator_tag);
  * } // jump_search_impl
  *
  * template<typename _Random_Access_Iter,
