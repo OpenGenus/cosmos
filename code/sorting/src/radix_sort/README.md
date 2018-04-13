@@ -68,12 +68,12 @@ Radix-Sort (list, n)
 
 ## Complexity
 **Time complexity**
-- Worst, average and best case time complexity: O(nk)
+- Worst, average and best case time complexity: `O(nk)`
 Where, **n** is the input numbers with maximum **k** digits.
 
-If the numbers are of finite size, the algorithm runs in O(n) asymptotic time. 
+If the numbers are of finite size, the algorithm runs in `O(n)` asymptotic time. 
 
-**Space complexity**: O(n + k)
+**Space complexity**: `O(n + k)`
 
 ---
 <p align="center">

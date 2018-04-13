@@ -12,9 +12,9 @@ Consider the following example:
 
 > Image credits: Hackerearth
 
-Input: [7 5 4 2]
+Input: `[7 5 4 2]`
 
-Output: [2 4 5 7]
+Output: `[2 4 5 7]`
 
 ## Pseudocode
 ```

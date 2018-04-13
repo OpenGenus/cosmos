@@ -16,12 +16,12 @@ Insertion sort iterates through an array, taking one input element at each itera
 
 ## Complexity
 **Time Complexity:**
-- Worst case: O(n<sup>2</sup>)
-- Average: O(n<sup>2</sup>)
-- Best case: O(n)
+- Worst case: **O(n<sup>2</sup>)**
+- Average: **O(n<sup>2</sup>)**
+- Best case: **O(n)**
 
 **Space Complexity:**
-- Average: O(n)
+- Average: **O(n)**
 
 ---
 <p align="center">

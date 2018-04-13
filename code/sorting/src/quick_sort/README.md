@@ -29,19 +29,20 @@ procedure quicksort(A, start, end) is
         quicksort(A, start, p - 1 )
         quicksort(A, p + 1, end)
 ```
-The entire array is sorted by quicksort(A, 0, length(A)-1).
+
+The entire array is sorted by `quicksort(A, 0, length(A)-1)`.
 
 ## Complexity
 **Time complexity**
-- Worst case: O(n^2)
-- Average case: O(n * log n)
+- Worst case: **O(n<sup>2</sup>)**
+- Average case: **O(n * log n)**
 - Best case:
-	* O(n * log n) for simple partition
-	* O(n) for three-way partition and equal keys
+	- **O(n * log n)** for simple partition
+	- **O(n)** for three-way partition and equal keys
 
 **Space complexity**
-- Worst case: O(n) auxiliary (naive)
-- Average case: O(log n) auxiliary
+- Worst case: **O(n)** auxiliary (naive)
+- Average case: **O(log n)** auxiliary
 
 ---
 

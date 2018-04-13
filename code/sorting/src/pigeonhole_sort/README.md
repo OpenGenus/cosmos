@@ -17,14 +17,14 @@ It is similar to counting sort, but differs in that it "moves items twice: once 
 
 1. Find minimum and maximum values in array. Let the minimum and maximum values be ‘min’ and ‘max’ respectively. Also find range as ‘max-min-1’.
 2. Set up an array of initially empty “pigeonholes” with the same size as that of the range.
-3. Visit each element of the array and then put each element in its pigeonhole. An element arr[i] is put in hole at index arr[i] – min.
+3. Visit each element of the array and then put each element in its pigeonhole. An element `arr[i]` is put in hole at index `arr[i]` – min.
 4. Start the loop all over the pigeonhole array in order and put the elements from non- empty holes back into the original array.
 
 ## Complexity
-**Time complexity**: O(N + n) 
- where N is the range of key values and n is the input size
+**Time complexity**: `O(N + n)` 
+ where **N** is the range of key values and **n** is the input size
 
-**Space complexity**: O(N + n) 
+**Space complexity**: `O(N + n)` 
 
 ---
 <p align="center">

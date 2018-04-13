@@ -12,8 +12,9 @@ The algorithm is defined as follows:
 
 > Image credits: geeksforgeeks
 
-Input: 2 4 5 3 1
-Output: 1 2 3 4 5
+Input: `2 4 5 3 1`
+
+Output: `1 2 3 4 5`
 
 
 ## Algorithm
@@ -31,10 +32,10 @@ function stoogesort(array L, i = 0, j = length(L)-1)
 
 ## Complexity
 **Time complexity**: 
-O(n^(log3/log1.5)) = O(n^2.709)
+O(n<sup>(log3/log1.5)</sup>) = **O(n<sup>2.709</sup>)**
 
 **Space complexity**:
-Worst case space complexity: O(n)
+Worst case space complexity: **O(n)**
 
 ---
 <p align="center">

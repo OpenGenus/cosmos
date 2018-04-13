@@ -7,7 +7,7 @@ Then it merges the sublists to produce new sorted sublists, this is repeated unt
 
 ## Explanation
 The following illustrates complete merge sort process for the given array:
- {38, 27, 43, 3, 9, 82, 10}
+ `{38, 27, 43, 3, 9, 82, 10}`
 
 ![image](https://www.geeksforgeeks.org/wp-content/uploads/Merge-Sort-Tutorial.png)
 
@@ -57,10 +57,10 @@ end procedure
 
 ## Complexity
 **Time complexity**
-Worst, average and best case time complexity: O(n * logn)
+Worst, average and best case time complexity: **O(n * logn)**
 
 **Space Complexity**
-Auxillary space: O(n)
+Auxillary space: **O(n)**
 
 ---
 <p align="center">
