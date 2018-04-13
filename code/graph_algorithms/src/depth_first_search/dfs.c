@@ -1,4 +1,4 @@
-/*Time Complexity of this method using adjacency list*/
+/*Time Complexity of this method using adjacency list is O(V+E)*/
 
 #include<stdio.h>
 #include<stdlib.h>
