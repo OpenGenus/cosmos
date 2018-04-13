@@ -1,13 +1,10 @@
 # Radix Sort
+Radix sort is a **non-comparative integer sorting algorithm**. 
+It works by doing digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort the digits in each place value. This means that for a three-digit number in base 10, counting sort will be called to sort the 1's place, then it will be called to sort the 10's place, and finally, it will be called to sort the 100's place, resulting in a completely sorted list. 
 
-# Definition
-Each key is first figuratively dropped into one level of buckets corresponding to the value of the rightmost digit. Each bucket preserves the original order of the keys as the keys are dropped into the bucket. There is a one-to-one correspondence between the buckets and the values that can be represented by the rightmost digit. Then, the process repeats with the next neighbouring more significant digit until there are no more digits to process. In other words:
-Take the least significant digit (or group of bits, both being examples of radices) of each key.
-Group the keys based on that digit, but otherwise keep the original order of keys. (This is what makes the LSD radix sort a stable sort.)
-Repeat the grouping process with each more significant digit.
-The sort in step 2 is usually done using bucket sort or counting sort, which are efficient in this case since there are usually only a small number of digits.
+## Explanation
+Consider the following example:
 
-# An example
 Original, unsorted list:
 
 ```170, 45, 75, 90, 802, 2, 24, 66```
@@ -55,8 +52,32 @@ A third and final counting pass on the most significant digit of each key will p
 1 (bucket size for digits of 1: 170)
 1 (bucket size for digits of 8: 802)
 ```
-At least one LSD radix sort implementation now counts the number of times that each digit occurs in each column for all columns in a single counting pass. (See the external links section.) Other LSD radix sort implementations allocate space for buckets dynamically as the space is needed.
+At least one LSD radix sort implementation now counts the number of times that each digit occurs in each column for all columns in a single counting pass. Other LSD radix sort implementations allocate space for buckets dynamically as the space is needed.
 
-# Further Reading
+## Algorithm
+```
+Radix-Sort (list, n) 
+   shift = 1 
+   for loop = 1 to keysize do 
+      for entry = 1 to n do 
+         bucketnumber = (list[entry].key / shift) mod 10 
+         append (bucket[bucketnumber], list[entry]) 
+      list = combinebuckets() 
+      shift = shift * 10 
+```
 
-https://en.wikipedia.org/wiki/Radix_sort
+## Complexity
+**Time complexity**
+- Worst, average and best case time complexity: O(nk)
+Where, **n** is the input numbers with maximum **k** digits.
+
+If the numbers are of finite size, the algorithm runs in O(n) asymptotic time. 
+
+**Space complexity**: O(n + k)
+
+---
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
