@@ -26,9 +26,9 @@ Counting sort is a a very time-efficient (and somewhat space-inefficient) algori
 
 ## Complexity
 **Time complexity**
-O(n+k) where n is the number of elements in input array and k is the range of input.
+**O(n+k)** where **n** is the number of elements in input array and **k** is the range of input.
 
-**Space Comlexity**: O(n+k)
+**Space Comlexity**: `O(n+k)`
 
 ---
 <p align="center">

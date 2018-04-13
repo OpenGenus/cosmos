@@ -40,10 +40,10 @@ In comb sort, gaps (distance of two items from each other) are introduced. The g
 
 ## Complexity
 **Time complexity**
-- Worst case: O(n^2)
-- Best case: O(n)
+- Worst case: **O(n<sup>2</sup>)**
+- Best case: **O(n)**
 
-**Space complexity**: O(1) auxillary
+**Space complexity**: **O(1)** auxillary
 
 ---
 

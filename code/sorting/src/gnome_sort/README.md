@@ -5,7 +5,7 @@ Gnome Sort is based on the technique used by the standard Dutch Garden Gnome, i.
 
 ## Explanation
 Consider the given array:
-   arr = [34 2 10 -9]
+   `arr = [34 2 10 -9]`
 
 1. Underlined elements are the pair under consideration.
 2. **Red** colored are the pair which needs to be swapped.
@@ -30,11 +30,11 @@ procedure gnomeSort(a[]):
 
 ## Complexity
 **Time complexity**
-- Worst Case: O(n^2)
-- Average Case: O(n^2)
-- Best Case: O(n)
+- Worst Case: **O(n<sup>2</sup>)**
+- Average Case: **O(n<sup>2</sup>)**
+- Best Case: **O(n)**
 
-**Space complexity**: O(1) auxillary space
+**Space complexity**: **O(1)** auxillary space
 
 ---
 <p align="center">

@@ -49,10 +49,10 @@ end BubbleSort
 
 ## Complexity
 **Time complexity**
-- Average and worst case: O(n * n)
-- Best case: O(n)
+- Average and worst case: **O(n<sup>2</sup>)**
+- Best case: **O(n)**
 
-**Space complexity**: : O(1)
+**Space complexity**: : **O(1)** auxillary
 
 ---
 

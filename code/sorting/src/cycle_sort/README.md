@@ -39,13 +39,12 @@ end { procedure special_cycle_sort };
 
 ## Complexity
 **Time complexity**
-- Worst Case: O(n^2)
-- Average Case: O(n^2)
-- Best Case: O(n^2)
+- Worst, average and best case time complexity: **O(n<sup>2</sup>)**
+
 
 **Space complexity**
-- Worst case: O(n) total
-- Auxillary space: O(1)
+- Worst case: **O(n)** total
+- Auxillary space: **O(1)**
 
 ---
 <p align="center">

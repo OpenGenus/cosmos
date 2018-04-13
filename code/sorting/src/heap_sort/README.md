@@ -28,9 +28,9 @@ Thus, Heap Sort uses a heap to sort the given elements.
 
 ## Complexity
 **Time Complexity**:
-Worst, average and best case time complexity: O(n * log n)
+Worst, average and best case time complexity: **O(n * log n)**
 
-**Space complexity**: O(1)
+**Space complexity**: `O(1)`
 
 ---
 <p align="center">
