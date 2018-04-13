@@ -14,7 +14,7 @@ struct UnionFindPolicy
 
     bool connected(_ValueType a, _ValueType b);
 };
-}
+} // kruskal_impl
 
 template<typename _HeapedContainer,
          typename _HeapCompare,

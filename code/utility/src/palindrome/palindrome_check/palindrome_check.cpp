@@ -53,4 +53,4 @@ isPalindrome(_InputIter begin, _InputIter end)
     // default is iterative
     return isPalindromeIterative<_InputIter, _ValueNotEqualTo, _IterLess>(begin, end);
 }
-}
+} // palindrome_check

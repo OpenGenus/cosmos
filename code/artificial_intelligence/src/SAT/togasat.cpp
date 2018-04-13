@@ -646,4 +646,4 @@ public:
             std::cout << "UNSAT" << std::endl;
     }
 };
-}
+} // togasat
