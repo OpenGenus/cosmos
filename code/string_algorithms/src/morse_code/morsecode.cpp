@@ -81,6 +81,7 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
                 return it.second;
             }
     }
+    return std::string{};
 }
 std::string wordToMorse(const std::vector<std::pair<char, std::string>> &mp, std::string input)
 {
