@@ -38,14 +38,14 @@ def generateSquare(n):
  
     # Printing magic square
      
-    print "Magic Squre for n = ",n
-    print "Sum of each row or column",n*(n*n+1)/2
+    print("Magic Squre for n = ",n)
+    print("Sum of each row or column",n*(n*n+1)/2)
      
     for i in range(0,n):
         for j in range(0,n):
      
-            print '%2d ' %(magicSquare[i][j]),
-        print
+            print('%2d ' %(magicSquare[i][j]), end=" ")
+        print()
         
 # Driver program
  

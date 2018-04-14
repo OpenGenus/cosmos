@@ -75,10 +75,10 @@ class Graph():
         return True
  
     def printSolution(self, path):
-        print "Solution Exists: Following is one Hamiltonian Cycle"
+        print("Solution Exists: Following is one Hamiltonian Cycle")
         for vertex in path:
-            print vertex,
-        print path[0], "\n"
+            print (vertex, end="")
+        print(path[0])
  
 # Driver Code
  
@@ -109,4 +109,3 @@ g2.graph = [ [0, 1, 0, 1, 0], [1, 0, 1, 1, 1],
  
 # Print the solution
 g2.hamCycle();
- 

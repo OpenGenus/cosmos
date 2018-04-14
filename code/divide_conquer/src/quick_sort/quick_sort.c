@@ -4,7 +4,8 @@
 #include<stdio.h>
 
 // A utility function to swap two elements
-void swap(int* a, int* b)
+void 
+swap(int* a, int* b)
 {
     int t = *a;
     *a = *b;
@@ -16,7 +17,8 @@ void swap(int* a, int* b)
     array, and places all smaller (smaller than pivot)
    to left of pivot and all greater elements to right
    of pivot */
-int partition (int arr[], int low, int high)
+int 
+partition (int arr[], int low, int high)
 {
     int pivot = arr[high];    // pivot
     int i = (low - 1);  // Index of smaller element
@@ -39,7 +41,8 @@ int partition (int arr[], int low, int high)
  arr[] --> Array to be sorted,
   low  --> Starting index,
   high  --> Ending index */
-void quickSort(int arr[], int low, int high)
+void 
+quickSort(int arr[], int low, int high)
 {
     if (low < high)
     {
@@ -55,21 +58,23 @@ void quickSort(int arr[], int low, int high)
 }
 
 /* Function to print an array */
-void printArray(int arr[], int size)
+void 
+printArray(int arr[], int size)
 {
     int i;
-    for (i=0; i < size; i++)
+    for (i = 0; i < size; i++)
         printf("%d ", arr[i]);
     printf("n");
 }
 
 // Driver program to test above functions
-int main()
+int 
+main()
 {
     int arr[] = {10, 7, 8, 9, 1, 5};
     int n = sizeof(arr)/sizeof(arr[0]);
-    quickSort(arr, 0, n-1);
+    quickSort(arr, 0, n - 1);
     printf("Sorted array: n");
     printArray(arr, n);
-    return 0;
+    return (0);
 }

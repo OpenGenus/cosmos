@@ -1,7 +1,7 @@
 # Circle Sort
 Circle sort algorithm is an **inplace sorting algorithm** in which we compare the first element to the last element of the given array, the second element to the second last element, and so on and then split the array in two and recurse until we get pairs of sorted elements, which are then put together to get a sorted array.
 
-## Example
+## Explanation
 Circle sort is best explained by drawing concentric circles on an array of integers. 
 
 Now, the elements lying on the same circle (i.e., they are diametrically opposite) are compared and swapped. Then the array is split into two and recurse  until there are no more swaps.
@@ -10,7 +10,7 @@ Now, the elements lying on the same circle (i.e., they are diametrically opposit
 
 > Image credits: geeksforgeeks
 
-## Pseudocode
+## Algorithm
 
 ``` 
 function inner_circle (index a, index b)
@@ -44,7 +44,7 @@ function circle_sort (index a, n)
 }
 ```
 
-## Time complexity
+## Complexity
 The **best case time complexity** of circle sort is:**O(nlogn)**, while in **worst case**, it becomes: **O(nlogn logn)**.
 
 ---

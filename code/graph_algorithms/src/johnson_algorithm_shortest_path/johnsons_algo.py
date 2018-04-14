@@ -141,9 +141,9 @@ if __name__ == "__main__":
     t1 = datetime.utcnow()
     final_distances =  johnsons(graph_new)
     if not final_distances:
-        print "Negative cycle"
+        print("Negative cycle")
     else:
-        print compute_min(final_distances)
-    print datetime.utcnow() - t1
+        print(compute_min(final_distances))
+    print(datetime.utcnow() - t1)
 
 

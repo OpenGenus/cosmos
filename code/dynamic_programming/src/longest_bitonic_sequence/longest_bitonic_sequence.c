@@ -3,8 +3,10 @@
 #include <stdio.h>
 
 // helper function to get maximum of two integers
-int max(int a, int b) {
-    return a > b ? a : b;
+int 
+max(int a, int b) 
+{
+    return (a > b ? a : b);
 }
 
 /**
@@ -12,18 +14,19 @@ int max(int a, int b) {
  *  that is greater than or equal
  *  to x in O(log n).
  */
-int lower_bound(int v[], int n, int x) {
-    
+int
+lower_bound(int v[], int n, int x) 
+{    
     int low = 0;
     int high = n;
-    while(low < high) {
+    while (low < high) {
         int mid = (low + high) / 2;
-        if(v[mid] >= x)
+        if (v[mid] >= x)
             high = mid;
         else
             low = mid + 1;
     } 
-    return low;
+    return (low);
 }
 
 /**
@@ -31,7 +34,8 @@ int lower_bound(int v[], int n, int x) {
  *  bitonic sequence in v.
  *  Time complexity: O(n lg n).
  */
-int longest_bitonic_sequence(int v[], int n) {
+int 
+longest_bitonic_sequence(int v[], int n) {
     
     int lis[n]; // stores the longest increasing sequence that ends at ith position
     int lds[n]; // stores the longest decreasing sequence that starts at ith position
@@ -42,7 +46,7 @@ int longest_bitonic_sequence(int v[], int n) {
     tail[0] = v[0];
     tailSize = 1;
     lis[0] = 1;
-    for(i = 1; i < n; ++i) {
+    for (i = 1; i < n; ++i) {
         int idx = lower_bound(tail, tailSize, v[i]);
         if(idx == tailSize)
             tail[tailSize++] = v[i];
@@ -53,8 +57,9 @@ int longest_bitonic_sequence(int v[], int n) {
 
     // Computing LDS
     tailSize = 1;
-    lds[n-1] = 1;
-    for(int i = n-2; i >= 0; --i) {
+    lds[n - 1] = 1;
+    int i;
+    for(i = n - 2; i >= 0; --i) {
         int idx = lower_bound(tail, tailSize, v[i]);
         if(idx == tailSize)
             tail[tailSize++] = v[i];
@@ -67,14 +72,15 @@ int longest_bitonic_sequence(int v[], int n) {
     // longest bitonic sequence with max value
     // at position i.
     int ans = 0;
-    for(int i = 0; i < n; ++i)
+    for(i = 0; i < n; ++i)
         ans = max(ans, lis[i] + lds[i] - 1);
 
-    return ans;
+    return (ans);
 }
 
-int main() {
-    
+int 
+main() 
+{    
     int v1[] = {1, 2, 5, 3, 2};
     int v2[] = {1, 11, 2, 10, 4, 5, 2, 1};
 
@@ -83,5 +89,5 @@ int main() {
     // Expected output: 6 
     printf("%d\n", longest_bitonic_sequence(v2, sizeof(v2)/sizeof(v2[0])));
 
-    return 0;
+    return (0);
 }

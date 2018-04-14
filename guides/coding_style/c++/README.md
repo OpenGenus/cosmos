@@ -31,7 +31,7 @@
 - [Aliases](#aliases)
 
 ## Comments
-Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text (unless pure-code synopsis).
+Single line comments should use the standard style (`//`), and multi line comments should use multiline comments (`/* */`). There should be a space between the comment delimiter and the comment text.
 
 ```C++
 // Example text
@@ -43,19 +43,19 @@ Single line comments should use the standard style (`//`), and multi line commen
  */
 
 /*
-
- Simple multiline comment
-
- vector synopsis
-
-template <class T, class Allocator = allocator<T> >
-class vector
-{
-public:
-    using value_type = T;
-    using allocator_type = Allocator;
-}
-*/
+ *
+ * Simple multiline comment
+ *
+ * vector synopsis
+ *
+ * template <class T, class Allocator = allocator<T> >
+ * class vector
+ * {
+ * public:
+ *     using value_type = T;
+ *     using allocator_type = Allocator;
+ * }
+ */
 ```
 
 ## Code Width and Alignment
@@ -270,7 +270,7 @@ private:
 ```
 
 ## Braces
-When using braces, put them on their own lines. `for`s, `if`s and loops that have one line statements, omit the braces (unless 1. between `do` and `while` on do-while statements, 2. dangling else).
+When using braces, put them on their own lines. When loops or `if` statements have only one statement, omit the braces (unless between `do` and `while` on do-while statements or to disambiguate a dangling else).
 
 ```C++
 int main()
@@ -302,7 +302,7 @@ int main()
 ```
 
 ## Naming
-Names should be descriptive and avoid abbreviation (unless that most people know what mean for), and abbreviation should like .
+Names should be descriptive and avoid abbreviations, unless the abbreviation is commonly known.
 ```C++
 int errorFlag;
 int currentIter;    // the certain universally-known abbrs ("Iter") are OK

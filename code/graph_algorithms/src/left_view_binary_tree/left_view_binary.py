@@ -19,7 +19,7 @@ def leftViewUtil(root, level, max_level):
  
     # If this is the first node of its level
     if (max_level[0] < level):
-        print "%d\n" %(root.data),
+        print("%d\n" %(root.data), end=" ")
         max_level[0] = level
  
     # Recur for left and right subtree

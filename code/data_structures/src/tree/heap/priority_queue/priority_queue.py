@@ -77,7 +77,8 @@ class PriorityQueue(object):
         return len(self.data) == 0
 
     def __str__(self):
-        return f'PriorityQueue: {self.data}'
+        return "PriorityQueue: {}".format(self.data)
+        #return f'PriorityQueue: {self.data}'
 
 
 if __name__ == '__main__':

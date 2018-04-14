@@ -17,7 +17,7 @@ def height(node):
         # Compute the height of each subtree
         lh = height(node.left)
         rh = height(node.right)
- 	return max(lh,rh)+1
+    return max(lh,rh)+1
 
 
 root = Node(11)
@@ -26,4 +26,4 @@ root.right = Node(33)
 root.left.left = Node(44)
 root.left.right = Node(66)
  
-print "Height of tree is %d" %(height(root))
+print ("Height of tree is %d" %(height(root)))
