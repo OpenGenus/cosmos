@@ -69,7 +69,6 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
             {
                 val += it.first;
                 return val;
-                break;
             }
     }
     else
@@ -80,7 +79,6 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
             if (it.first == val)
             {
                 return it.second;
-                break;
             }
     }
 }
