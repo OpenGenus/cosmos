@@ -1,13 +1,10 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Vigenere
 {
 public:
-    string key;
-
-    Vigenere(string key)
+    Vigenere(const std::string& key)
     {
         for (size_t i = 0; i < key.size(); ++i)
         {
@@ -18,9 +15,9 @@ public:
         }
     }
 
-    string encrypt(string text)
+    std::string encrypt(const std::string& text)
     {
-        string out;
+        std::string result;
 
         for (size_t i = 0, j = 0; i < text.length(); ++i)
         {
@@ -31,16 +28,16 @@ public:
             else if (c < 'A' || c > 'Z')
                 continue;
 
-            out += (c + key[j] - 2 * 'A') % 26 + 'A';
+            result += (c + key[j] - 2 * 'A') % 26 + 'A';
             j = (j + 1) % key.length();
         }
 
-        return out;
+        return result;
     }
 
-    string decrypt(string text)
+    std::string decrypt(const std::string& text)
     {
-        string out;
+        std::string result;
 
         for (size_t i = 0, j = 0; i < text.length(); ++i)
         {
@@ -51,24 +48,27 @@ public:
             else if (c < 'A' || c > 'Z')
                 continue;
 
-            out += (c - key[j] + 26) % 26 + 'A';
+            result += (c - key[j] + 26) % 26 + 'A';
             j = (j + 1) % key.length();
         }
 
-        return out;
+        return result;
     }
+
+private:
+    std::string key;
 };
 
 int main()
 {
-    Vigenere cipher("VIGENERECIPHER");
+    Vigenere cipher{"VIGENERECIPHER"};
 
-    string original =
+    std::string original =
         "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
-    string encrypted = cipher.encrypt(original);
-    string decrypted = cipher.decrypt(encrypted);
+    std::string encrypted = cipher.encrypt(original);
+    std::string decrypted = cipher.decrypt(encrypted);
 
-    cout << original << endl;
-    cout << "Encrypted: " << encrypted << endl;
-    cout << "Decrypted: " << decrypted << endl;
+    std::cout << original << "\n";
+    std::cout << "Encrypted: " << encrypted << "\n";
+    std::cout << "Decrypted: " << decrypted << "\n";
 }
