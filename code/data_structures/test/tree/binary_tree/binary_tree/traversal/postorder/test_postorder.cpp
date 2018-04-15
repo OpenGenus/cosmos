@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "../../src/tree/binary_tree/binary_tree/traversal/postorder/postorder.cpp"
+#include "../../../src/tree/binary_tree/binary_tree/traversal/postorder/postorder.cpp"
 
 int main()
 {

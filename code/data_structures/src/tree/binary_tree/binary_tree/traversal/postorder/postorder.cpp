@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 // Part of Cosmos by OpenGenus Foundation
 struct node
 {
@@ -17,10 +18,10 @@ node *newnode(int data)
      return temp;
 }
 
-void post_order(node *root)
+int post_order(node *root)
 {
-    if (root == nullptr)
-        return;
+    if (!root)
+        return 0;
 
     post_order(root->left);
     post_order(root->right);

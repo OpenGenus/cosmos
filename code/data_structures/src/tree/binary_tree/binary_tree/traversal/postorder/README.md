@@ -16,4 +16,4 @@ postorder(tree)
 3. Visit the root.
  
 ## Complexity
-The time complexity of depth first postorder traversal of binary tree is ```O(n)```because we traverse each node exactly once.
+The time complexity of depth first postorder traversal of binary tree is `O(n)` because we traverse each node exactly once.
