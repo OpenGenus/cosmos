@@ -104,7 +104,6 @@ private:
         return p;
     }
     const Lit lit_Undef = {-2};
-    const Lit lit_Error = {-1};
 
     // lifted boolean
     // VarData
