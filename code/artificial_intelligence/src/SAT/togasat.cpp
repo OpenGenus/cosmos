@@ -182,7 +182,7 @@ private:
     CRef allocClause(std::vector<Lit> &ps, bool learnt = false)
     {
         static CRef res = 0;
-        ca[res] = std::move(Clause(ps, learnt));
+        ca[res] = Clause(ps, learnt);
         return res++;
     }
 
@@ -334,7 +334,7 @@ private:
     {
         assert(value(p) == l_Undef);
         assigns[var(p)] = sign(p);
-        vardata[var(p)] = std::move(mkVarData(from, decisionLevel()));
+        vardata[var(p)] = mkVarData(from, decisionLevel());
         trail.emplace_back(p);
     }
     // decision
@@ -623,7 +623,7 @@ public:
             int var = abs(clause[i]) - 1;
             while (var >= nVars())
                 newVar();
-            lits[i] = std::move((clause[i] > 0 ? mkLit(var, false) : mkLit(var, true)));
+            lits[i] = clause[i] > 0 ? mkLit(var, false) : mkLit(var, true);
         }
         addClause_(lits);
     }
