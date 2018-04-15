@@ -80,7 +80,7 @@ private:
         Lit p;
         p.x = var + var + sign;
         return p;
-    };
+    }
     inline bool sign(Lit p) const
     {
         return p.x & 1;
@@ -559,7 +559,7 @@ private:
                 uncheckedEnqueue(next);
             }
         }
-    };
+    }
 
 public:
     std::vector<lbool> assigns;     // The current assignments (ex assigns[0] = 0 ->
@@ -613,7 +613,7 @@ public:
         }
         answer = status;
         return status;
-    };
+    }
 
     void addClause(std::vector<int> &clause)
     {
