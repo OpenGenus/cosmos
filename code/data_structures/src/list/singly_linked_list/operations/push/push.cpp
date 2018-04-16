@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 // Everytime you work with Append or Push function, there is a corner case.
@@ -7,20 +7,24 @@ using namespace std;
 // 1. Receive the double pointer as an argument.
 // 2. Return the new Node.
 
-struct Node{
+struct Node
+{
     int data;
     Node* next;
 };
 
-void printList( Node *head){
-    while(head){
-        cout<<head->data<<" ";
+void printList( Node *head)
+{
+    while (head)
+    {
+        cout << head->data << " ";
         head = head->next;
     }
-    cout<<endl;
+    cout << endl;
 }
 
-void push( Node** headref, int x){
+void push( Node** headref, int x)
+{
     Node* head = *headref;
     Node* newNode = new Node();
     newNode->data = x;
@@ -29,32 +33,35 @@ void push( Node** headref, int x){
 }
 
 
-void pushAfter(Node* prev_Node, int data){
-    Node* newNode= new Node();
-    newNode->data =data;
+void pushAfter(Node* prev_Node, int data)
+{
+    Node* newNode = new Node();
+    newNode->data = data;
     newNode->next = prev_Node->next;
     prev_Node->next = newNode;
 }
 
-void append( Node** headref, int x){
+void append( Node** headref, int x)
+{
     Node* head = *headref;
-    if(head==nullptr){
+    if (head == nullptr)
+    {
         Node* newNode = new Node();
         newNode->data = x;
         newNode->next = nullptr;
-        *headref= newNode;
+        *headref = newNode;
         return;
     }
-    while(head->next){
-        head= head->next;
-    }
+    while (head->next)
+        head = head->next;
     Node *temp = new Node();
     head->next = temp;
     temp->data = x;
 }
 
-int main(){
-    Node *head =nullptr;
+int main()
+{
+    Node *head = nullptr;
     append(&head, 5);
     append(&head, 10);
     push(&head, 2);

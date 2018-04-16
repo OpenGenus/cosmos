@@ -2,25 +2,29 @@
 #include <iostream>
 
 class Node {
-    public:
-        int data;
-        Node *next;
+public:
+    int data;
+    Node *next;
 };
 
-void printReverse(Node *head) {
-    if (head == nullptr) { return; }
+void printReverse(Node *head)
+{
+    if (head == nullptr)
+        return;
     printReverse(head->next);
-    std::cout<<head->data<<" ";
+    std::cout << head->data << " ";
 }
 
-void push(Node **head_ref, char new_data) {
+void push(Node **head_ref, char new_data)
+{
     auto new_node = (Node *) malloc(sizeof(Node));
     new_node->data = new_data;
     new_node->next = (*head_ref);
     (*head_ref) = new_node;
 }
 
-int main() {
+int main()
+{
     Node *head = nullptr;
     push(&head, 4);
     push(&head, 3);

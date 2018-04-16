@@ -7,10 +7,8 @@ int tree[N + 1], lazy[N + 1], A[N];
 void build(int node, int start, int end)
 {
     if (start == end)
-    {
         // Leaf node will have a single element
         tree[node] = A[start];
-    }
     else
     {
         int mid = (start + end) / 2;
@@ -73,14 +71,12 @@ int queryRange(int node, int start, int end, int l, int r)
         lazy[node] = 0; // Reset it
     }
     if (start >= l and end <= r) // Current segment is totally within range [l, r]
-    {
         //cout<<"tree"<<node<<" "<<tree[node]<<" ";
         return tree[node];
-    }
     int mid = (start + end) / 2;
     int p1 = queryRange(node * 2, start, mid, l, r);       // Query left child
     int p2 = queryRange(node * 2 + 1, mid + 1, end, l, r); // Query right child
-    return (p1 + p2);
+    return p1 + p2;
 }
 
 int main()
@@ -88,9 +84,7 @@ int main()
     fill(lazy, lazy + N + 1, 0);
     fill(tree, tree + N + 1, 0);
     for (int i = 0; i < 10; i++)
-    {
         A[i] = 1;
-    }
     build(1, 0, 9);
     cout << queryRange(1, 0, 9, 3, 9);
     updateRange(1, 0, 9, 3, 7, 1);

@@ -16,6 +16,6 @@ int main()
         }
         ++c;
     }
-    
+
     std::cout << h << "\n";
 }

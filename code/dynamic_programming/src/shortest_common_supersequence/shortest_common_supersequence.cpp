@@ -19,19 +19,21 @@ int SCSLength(string& X, string& Y, int m, int n)
         return n + m;
 
     // if we have already computed this state
-    if(memo[m-1][n-1] > -1) return memo[m-1][n-1];
+    if (memo[m - 1][n - 1] > -1)
+        return memo[m - 1][n - 1];
 
     // if last character of X and Y matches
     if (X[m - 1] == Y[n - 1])
-        return memo[m-1][n-1] = SCSLength(X, Y, m - 1, n - 1) + 1;
+        return memo[m - 1][n - 1] = SCSLength(X, Y, m - 1, n - 1) + 1;
     else
-    // else if last character of X and Y don't match
-        return memo[m-1][n-1] = 1 + min(SCSLength(X, Y, m, n - 1),
-                                        SCSLength(X, Y, m - 1, n));
+        // else if last character of X and Y don't match
+        return memo[m - 1][n - 1] = 1 + min(SCSLength(X, Y, m, n - 1),
+                                            SCSLength(X, Y, m - 1, n));
 }
 
 // helper function
-int findSCSLength(string& X, string& Y) {
+int findSCSLength(string& X, string& Y)
+{
     memset(memo, -1, sizeof memo);
     return SCSLength(X, Y, X.length(), Y.length());
 }
