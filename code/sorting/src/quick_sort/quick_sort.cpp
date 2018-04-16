@@ -1,126 +1,126 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- quick sort synopsis
-
-namespace quick_sort_impl {
-    struct quick_sort_tag {};
-    struct iterative_quick_sort_tag :quick_sort_tag {};
-    struct recursive_quick_sort_tag :quick_sort_tag {};
-
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    _Random_Acccess_Iter
-    partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp);
-
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    void
-    quickSortImpl(_Random_Acccess_Iter first,
-                  _Random_Acccess_Iter last,
-                  _Compare comp,
-                  std::random_access_iterator_tag,
-                  recursive_quick_sort_tag);
-
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    void
-    quickSortImpl(_Random_Acccess_Iter first,
-                  _Random_Acccess_Iter last,
-                  _Compare comp,
-                  std::random_access_iterator_tag,
-                  iterative_quick_sort_tag);
-}
-
-template<typename _Random_Acccess_Iter, typename _Compare>
-void
-quickSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
-
-template<typename _Random_Acccess_Iter>
-void
-quickSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * quick sort synopsis
+ *
+ * namespace quick_sort_impl {
+ * struct quick_sort_tag {};
+ * struct iterative_quick_sort_tag :quick_sort_tag {};
+ * struct recursive_quick_sort_tag :quick_sort_tag {};
+ *
+ * template<typename _Random_Acccess_Iter, typename _Compare>
+ * _Random_Acccess_Iter
+ * partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp);
+ *
+ * template<typename _Random_Acccess_Iter, typename _Compare>
+ * void
+ * quickSortImpl(_Random_Acccess_Iter first,
+ *               _Random_Acccess_Iter last,
+ *               _Compare comp,
+ *               std::random_access_iterator_tag,
+ *               recursive_quick_sort_tag);
+ *
+ * template<typename _Random_Acccess_Iter, typename _Compare>
+ * void
+ * quickSortImpl(_Random_Acccess_Iter first,
+ *               _Random_Acccess_Iter last,
+ *               _Compare comp,
+ *               std::random_access_iterator_tag,
+ *               iterative_quick_sort_tag);
+ * } // quick_sort_impl
+ *
+ * template<typename _Random_Acccess_Iter, typename _Compare>
+ * void
+ * quickSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end, _Compare comp);
+ *
+ * template<typename _Random_Acccess_Iter>
+ * void
+ * quickSort(_Random_Acccess_Iter begin, _Random_Acccess_Iter end);
  */
 
 #include <stack>
 #include <functional>
 
 namespace quick_sort_impl {
-    struct quick_sort_tag {};
-    struct iterative_quick_sort_tag :quick_sort_tag {};
-    struct recursive_quick_sort_tag :quick_sort_tag {};
+struct quick_sort_tag {};
+struct iterative_quick_sort_tag : quick_sort_tag {};
+struct recursive_quick_sort_tag : quick_sort_tag {};
 
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    _Random_Acccess_Iter
-    partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp)
+template<typename _Random_Acccess_Iter, typename _Compare>
+_Random_Acccess_Iter
+partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp)
+{
+    _Random_Acccess_Iter i = first, j = last + 1;
+    while (true)
     {
-        _Random_Acccess_Iter i = first, j = last + 1;
-        while (true)
-        {
-            while (i + 1 <= last && comp(*++i, *first))
-                ;
-            while (j - 1 >= first && comp(*first, *--j))
-                ;
-            if (i >= j)
-                break;
-            std::swap(*i, *j);
-        }
-        std::swap(*first, *j);
-
-        return j;
+        while (i + 1 <= last && comp(*++i, *first))
+            ;
+        while (j - 1 >= first && comp(*first, *--j))
+            ;
+        if (i >= j)
+            break;
+        std::swap(*i, *j);
     }
+    std::swap(*first, *j);
 
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    void
-    quickSortImpl(_Random_Acccess_Iter first,
-                  _Random_Acccess_Iter last,
-                  _Compare comp,
-                  std::random_access_iterator_tag,
-                  recursive_quick_sort_tag)
+    return j;
+}
+
+template<typename _Random_Acccess_Iter, typename _Compare>
+void
+quickSortImpl(_Random_Acccess_Iter first,
+              _Random_Acccess_Iter last,
+              _Compare comp,
+              std::random_access_iterator_tag,
+              recursive_quick_sort_tag)
+{
+    if (first < last)
     {
-        if (first < last)
-        {
-            // first is pivot
-            auto mid = quick_sort_impl::partition(first, last, comp);
-            quickSortImpl(first,
-                          mid - 1,
-                          comp,
-                          std::random_access_iterator_tag(),
-                          recursive_quick_sort_tag());
-            quickSortImpl(mid + 1,
-                          last,
-                          comp,
-                          std::random_access_iterator_tag(),
-                          recursive_quick_sort_tag());
-        }
+        // first is pivot
+        auto mid = quick_sort_impl::partition(first, last, comp);
+        quickSortImpl(first,
+                      mid - 1,
+                      comp,
+                      std::random_access_iterator_tag(),
+                      recursive_quick_sort_tag());
+        quickSortImpl(mid + 1,
+                      last,
+                      comp,
+                      std::random_access_iterator_tag(),
+                      recursive_quick_sort_tag());
     }
+}
 
-    template<typename _Random_Acccess_Iter, typename _Compare>
-    void
-    quickSortImpl(_Random_Acccess_Iter first,
-                  _Random_Acccess_Iter last,
-                  _Compare comp,
-                  std::random_access_iterator_tag,
-                  iterative_quick_sort_tag)
+template<typename _Random_Acccess_Iter, typename _Compare>
+void
+quickSortImpl(_Random_Acccess_Iter first,
+              _Random_Acccess_Iter last,
+              _Compare comp,
+              std::random_access_iterator_tag,
+              iterative_quick_sort_tag)
+{
+    if (first < last)
     {
-        if (first < last)
+        std::stack<std::pair<_Random_Acccess_Iter, _Random_Acccess_Iter>> st;
+        st.push(std::make_pair(first, last));
+
+        while (!st.empty())
         {
-            std::stack<std::pair<_Random_Acccess_Iter, _Random_Acccess_Iter>> st;
-            st.push(std::make_pair(first, last));
+            _Random_Acccess_Iter left, right, i, j;
+            left = st.top().first;
+            right = st.top().second;
+            st.pop();
 
-            while (!st.empty())
-            {
-                _Random_Acccess_Iter left, right, i, j;
-                left = st.top().first;
-                right = st.top().second;
-                st.pop();
-
-                // ignore if only one elem
-                if (left >= right)
-                    continue;
-                auto mid = quick_sort_impl::partition(left, right, comp);
-                st.push(std::make_pair(left, mid - 1));
-                st.push(std::make_pair(mid + 1, right));
-            }
+            // ignore if only one elem
+            if (left >= right)
+                continue;
+            auto mid = quick_sort_impl::partition(left, right, comp);
+            st.push(std::make_pair(left, mid - 1));
+            st.push(std::make_pair(mid + 1, right));
         }
     }
 }
+} // quick_sort_impl
 
 template<typename _Random_Acccess_Iter, typename _Compare>
 void

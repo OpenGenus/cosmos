@@ -6,12 +6,12 @@ class Queue:
 		self.max = size_max
 		self.size = 0
 		self.data = []
+  
+  def empty(self):
+    return self.size == 0
 
-	def empty(self):
-		return self.size == 0
-
-	def full(self):
-		return self.size == self.max
+  def full(self):
+    return self.size == self.max
 
 	def enqueue(self, x):
 		if self.size == self.max:
@@ -65,3 +65,4 @@ while True:
 		q.display()
 	if opt == "X":
 		break
+

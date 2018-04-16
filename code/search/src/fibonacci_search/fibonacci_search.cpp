@@ -1,31 +1,31 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- fibonacci search synopsis
-
- warning: in order to follow the convention of STL, the interface is [begin, end) !!!
-
-namespace fibonacci_search_impl
-{
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
-_Input_Iter
-fibonacciSearchImpl(_Input_Iter begin,
-                    _Input_Iter end,
-                    _Tp const &find,
-                    _Compare comp,
-                    std::input_iterator_tag);
-} // fibonacci_search_impl
-
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
-_Input_Iter
-fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp);
-
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
-_Input_Iter
-fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * fibonacci search synopsis
+ *
+ * warning: in order to follow the convention of STL, the interface is [begin, end) !!!
+ *
+ * namespace fibonacci_search_impl
+ * {
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+ * _Input_Iter
+ * fibonacciSearchImpl(_Input_Iter begin,
+ *                     _Input_Iter end,
+ *                     _Tp const &find,
+ *                     _Compare comp,
+ *                     std::input_iterator_tag);
+ * } // fibonacci_search_impl
+ *
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+ * _Input_Iter
+ * fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp);
+ *
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
+ * _Input_Iter
+ * fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
  */
 
 #include <functional>
@@ -33,7 +33,8 @@ fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
 namespace fibonacci_search_impl
 {
 template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
+         typename _Compare>
 _Input_Iter
 fibonacciSearchImpl(_Input_Iter begin,
                     _Input_Iter end,
@@ -45,8 +46,8 @@ fibonacciSearchImpl(_Input_Iter begin,
         return end;
 
     size_t dist = std::distance(begin, end);
-    size_t fibMMm2 = 0;   // (m-2)'th Fibonacci No.
-    size_t fibMMm1 = 1;   // (m-1)'th Fibonacci No.
+    size_t fibMMm2 = 0;     // (m-2)'th Fibonacci No.
+    size_t fibMMm1 = 1;     // (m-1)'th Fibonacci No.
     size_t fibM = fibMMm2 + fibMMm1;
 
     while (fibM < dist)

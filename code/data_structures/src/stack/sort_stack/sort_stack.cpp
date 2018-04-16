@@ -2,31 +2,34 @@
 
 /* Sort a stack */
 
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 using namespace std;
-void InputElements(stack<int> &s){              //////////// Function to insert the elements in stack
-
-    //no. of elements to be inserted
+void InputElements(stack<int> &s)               //////////// Function to insert the elements in stack
+{   //no. of elements to be inserted
     int size;
-    cin>>size;
+    cin >> size;
 
-    while(size--){
+    while (size--)
+    {
         int num;
-        cin>>num;
+        cin >> num;
         s.push(num);
     }
 }
-void PrintStack(stack<int> s){          //////////// Function to print the contents of stack
-    while(!s.empty()){
-        cout<<s.top()<<" ";
+void PrintStack(stack<int> s)           //////////// Function to print the contents of stack
+{
+    while (!s.empty())
+    {
+        cout << s.top() << " ";
         s.pop();
     }
-    cout<<endl;
+    cout << endl;
 }
 void SortedInsert(stack<int> &s, int num)  ////////// Function to insert a element at its right position in sorted way
 {
-    if(s.empty() || s.top() > num){
+    if (s.empty() || s.top() > num)
+    {
         s.push(num);
         return;
     }
@@ -37,7 +40,7 @@ void SortedInsert(stack<int> &s, int num)  ////////// Function to insert a eleme
 }
 void SortStack(stack<int> &s)            //////////// Function to sort the stack
 {
-    if(s.empty())
+    if (s.empty())
         return;
     int top_element = s.top();
     s.pop();

@@ -46,10 +46,10 @@ int main()
     std::cin >> finishInterval;
     std::cout << "Enter step: " << std::endl;
     std::cin >> step;
-    auto func = [](double x, double y)->double
-    {
-        return std::pow(x, 2) * (3* y + std::exp(std::pow(x, 3)));
-    };
+    auto func = [](double x, double y) -> double
+                {
+                    return std::pow(x, 2) * (3 * y + std::exp(std::pow(x, 3)));
+                };
     res = rungeKutt(startConditions, startInterval, finishInterval, step, func);
 
     for (auto it = res.begin(); it != res.end(); ++it)

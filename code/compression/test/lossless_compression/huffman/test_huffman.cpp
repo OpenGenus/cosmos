@@ -7,11 +7,10 @@ using namespace std;
 // test only for Huffman::base_type is 64bit
 class HuffmanTest {
 public:
-    HuffmanTest() {
+    HuffmanTest()
+    {
         if (sizeof(Huffman::base_type) != 8)
-        {
             cout << "the test require that Huffman::base_type based on 64bit\n";
-        }
 
         testCalculateFrequency();
         testImportDictionary();
@@ -23,7 +22,8 @@ public:
         testHexToBinary();
     }
 
-    void testCalculateFrequency() {
+    void testCalculateFrequency()
+    {
         Huffman huf;
 
         assert(huf.frequency_.empty() == true);
@@ -44,7 +44,8 @@ public:
                && huf.frequency_.find('c') == huf.frequency_.end());
     }
 
-    void testImportDictionary() {
+    void testImportDictionary()
+    {
         Huffman huf;
         std::string parameter{};
 
@@ -67,7 +68,8 @@ public:
                && huf.reverse_dictionary_.find("123")->second == 'c');
     }
 
-    void testExportDictionary() {
+    void testExportDictionary()
+    {
         Huffman huf;
         std::string res{};
 
@@ -78,7 +80,8 @@ public:
                && huf.dictionary_.find('c')->second == "123");
     }
 
-    void testSeperateHeaderAndCode() {
+    void testSeperateHeaderAndCode()
+    {
         Huffman huf;
         std::pair<std::string, std::string> res;
         res = huf.seperateHeaderAndCode(huf.addSeperateCode(""));
@@ -91,7 +94,8 @@ public:
         assert(res.first == "123" && res.second == "456");
     }
 
-    void testSeperateCode() {
+    void testSeperateCode()
+    {
         Huffman huf;
         std::string res;
         res = huf.removeSeperateCode(huf.addSeperateCode(""));
@@ -108,7 +112,8 @@ public:
         assert(res == "456");
     }
 
-    void testStringToBinary() {
+    void testStringToBinary()
+    {
         Huffman huf;
         std::string res;
         huf.dictionary_.insert(std::make_pair('a', "0"));
@@ -134,7 +139,8 @@ public:
         assert(res == "111001011");
     }
 
-    void testBinaryToHex() {
+    void testBinaryToHex()
+    {
         Huffman huf;
         std::string res, expect;
         std::string delim{}, bin{};
@@ -190,7 +196,8 @@ public:
         assert(res == expect);
     }
 
-    void testHexToBinary() {
+    void testHexToBinary()
+    {
         Huffman huf;
         std::string hex, res;
         std::string delim{};
@@ -217,7 +224,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     HuffmanTest test;
 
     Huffman huf;
@@ -231,7 +239,7 @@ int main() {
 
     Huffman huf6;
     if (huf6.decompression(huf6.compression(huf6.decompression(
-        huf6.compression("COMPRESSION_TESTCOMPRESSION_TEST"))))
+                                                huf6.compression("COMPRESSION_TESTCOMPRESSION_TEST"))))
         != "COMPRESSION_TESTCOMPRESSION_TEST")
         cout << "error binary6\n";
 

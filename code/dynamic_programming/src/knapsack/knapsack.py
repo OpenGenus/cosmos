@@ -30,7 +30,7 @@ def main():
 	W = 40
 
 	#Call knapsack routine to compute value
-	print "Result - {}".format(knapsack(weights, values, W))
+	print("Result - {}".format(knapsack(weights, values, W)))
 
 	return
 

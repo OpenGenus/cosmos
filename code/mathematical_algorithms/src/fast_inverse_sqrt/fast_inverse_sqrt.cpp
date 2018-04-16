@@ -7,8 +7,9 @@
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 
-double fastInverseSqrt(double x){
-	float xhalf = 0.5f * x;
+double fastInverseSqrt(double x)
+{
+    float xhalf = 0.5f * x;
     int i = *(int*)&x;              // get bits for floating value
     i = 0x5f375a86 - (i >> 1);      // gives initial guess y0
     x = *(float*)&i;                // convert bits back to float
@@ -16,11 +17,12 @@ double fastInverseSqrt(double x){
     return x;
 }
 
-int main(){
-	double input;
-	std::cin >> input;
+int main()
+{
+    double input;
+    std::cin >> input;
 
-	std::cout << fastInverseSqrt(input) << std::endl;
+    std::cout << fastInverseSqrt(input) << std::endl;
 
-	return 0;
+    return 0;
 }

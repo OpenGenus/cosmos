@@ -9,7 +9,8 @@
 #include <random>
 #include <vector>
 
-struct StopCondition {
+struct StopCondition
+{
     StopCondition(double tol, long iter)
         : tolerance(tol)
         , iterations(iter)
@@ -19,7 +20,8 @@ struct StopCondition {
     long iterations;
 };
 
-struct GAConfig {
+struct GAConfig
+{
     GAConfig(double learning_rate, double variance, long generation_size)
         : lr(learning_rate)
         , var(variance)
@@ -48,7 +50,8 @@ double solve(UnaryFunc f, double initial, GAConfig conf, StopCondition cond)
 
     do {
         double delta = 0;
-        for (int i = 0; i < conf.size; ++i) {
+        for (int i = 0; i < conf.size; ++i)
+        {
             noise[i] = normal(gen);
             generation[i] = x + conf.var * noise[i];
             fitness[i] = exp(-abs(f(generation[i])));
@@ -65,7 +68,10 @@ double solve(UnaryFunc f, double initial, GAConfig conf, StopCondition cond)
 
 int main()
 {
-    auto f = [](double x) { return (x - 1.0) * (x - 2.0); };
+    auto f = [](double x)
+             {
+                 return (x - 1.0) * (x - 2.0);
+             };
 
     auto config = GAConfig{ 0.2, 0.1, 10 };
     auto stop_condition = StopCondition{ 1e-3, 10000 };

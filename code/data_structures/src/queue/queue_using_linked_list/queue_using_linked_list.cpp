@@ -6,10 +6,10 @@ using namespace std;
 template <class T>
 class Queue
 {
-  private:
+private:
     class Node
     {
-      public:
+    public:
         Node(const T &data, Node *next)
             : data(data), next(next)
         {
@@ -19,7 +19,7 @@ class Queue
         Node *next;
     };
 
-  public:
+public:
     Queue(void);
     ~Queue();
 
@@ -30,7 +30,7 @@ class Queue
     int size(void) const;
     T &front(void);
 
-  private:
+private:
     Node *head;
     Node *back;
     int items;
@@ -58,9 +58,7 @@ void Queue<T>::enqueue(const T &data)
 {
     Node *newNode = new Node(data, NULL);
     if (empty())
-    {
         head = (back = newNode);
-    }
     else
     {
         back->next = newNode;
@@ -114,9 +112,7 @@ int main()
     cout << queue.size() << endl;
 
     while (!queue.empty())
-    {
         cout << queue.dequeue() << endl;
-    }
 
     cout << queue.size() << endl;
 

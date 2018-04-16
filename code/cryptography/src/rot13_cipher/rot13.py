@@ -16,4 +16,4 @@ if __name__ == '__main__':
 					ciphertext += chr(ascii_value - 13)	
 			else:
 				ciphertext += chr(ascii_value + 13)		
-	print ciphertext
+	print(ciphertext)

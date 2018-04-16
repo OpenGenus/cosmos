@@ -5,7 +5,7 @@ using namespace std;
 
 // modulo function to perform binary exponentiation
 long long modulo(long long base, long long exponent,
-                                      long long mod)
+                 long long mod)
 {
     long long x = 1;
     long long y = base;
@@ -25,7 +25,7 @@ long long modulo(long long base, long long exponent,
 int calculateJacobian(long long a, long long n)
 {
     if (!a)
-        return 0;// (0/n) = 0
+        return 0; // (0/n) = 0
 
     int ans = 1;
     if (a < 0)
@@ -36,7 +36,7 @@ int calculateJacobian(long long a, long long n)
     }
 
     if (a == 1)
-        return ans;// (1/n) = 1
+        return ans; // (1/n) = 1
 
     while (a)
     {
@@ -44,7 +44,7 @@ int calculateJacobian(long long a, long long n)
         {
             a = -a;// (a/n) = (-a/n)*(-1/n)
             if (n % 4 == 3)
-                ans = -ans;// (-1/n) = -1 if n = 3 (mod 4)
+                ans = -ans; // (-1/n) = -1 if n = 3 (mod 4)
         }
 
         while (a % 2 == 0)

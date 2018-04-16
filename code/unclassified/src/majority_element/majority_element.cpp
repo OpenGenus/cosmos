@@ -9,23 +9,27 @@ int main()
 {
     cin >> n;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         int tmp;
         cin >> tmp;
         v.push_back(tmp);
     }
-        
+
     int m, i = 0;
 
-    for (int k = 0; k < n; k++) {
+    for (int k = 0; k < n; k++)
+    {
         int x = v[k];
-        if(!i) {
+        if (!i)
+        {
             m = x;
             i = 1;
-        } else if(m == x) {
-            i++;
         }
-        else i--;
+        else if (m == x)
+            i++;
+        else
+            i--;
     }
 
     cout << "The majority element is: " << m;

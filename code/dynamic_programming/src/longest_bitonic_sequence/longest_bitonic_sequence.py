@@ -11,9 +11,9 @@ def longest_increasing_seq(numbers):
 
     # start filling using dp - forwards
 
-    for i in xrange(1, len(numbers)):
+    for i in range(1, len(numbers)):
         lis.append([])
-        for j in xrange(i):
+        for j in range(i):
             if numbers[j] < numbers[i] and len(lis[j]) > len(lis[i]):
                 lis[i] = copy.copy(lis[j])
         lis[i].append(numbers[i])
@@ -25,14 +25,14 @@ def longest_decreasing_seq(numbers):
     lds = []
 
     # to make an n sized list
-    lds = [[] for _ in xrange(len(numbers))]
+    lds = [[] for _ in range(len(numbers))]
 
     #base case
     lds[-1].append(numbers[-1])
 
     # start filling using dp backwards
-    for i in xrange(len(numbers)-2, -1, -1):
-        for j in xrange(len(numbers)-1, i, -1):
+    for i in range(len(numbers)-2, -1, -1):
+        for j in range(len(numbers)-1, i, -1):
             if numbers[j] < numbers[i] and len(lds[j]) > len(lds[i]):
                 lds[i] = copy.copy(lds[j])
 
@@ -47,7 +47,7 @@ def longest_bitonic_seq(numbers):
     maxi = len(lis[0]+lds[0])
     output = lis[0][:-1]+lds[0][::-1]
 
-    for i in xrange(1, len(numbers)):
+    for i in range(1, len(numbers)):
         if len(lis[i]+lds[i]) > maxi:
             maxi = len(lis[i]+lds[i])
             output = lis[i][:-1]+lds[i][::-1]
@@ -60,4 +60,4 @@ numbers = [1, 11, 2, 10, 4, 5, 2, 1]
 
 output = longest_bitonic_seq(numbers)
 
-print output
+print(output)

@@ -20,7 +20,7 @@ void KMPSearch(string pat, string txt)
     computeLPSArray(pat, M, lps);
 
     int i = 0;  // index for txt[]
-    int j  = 0;  // index for pat[]
+    int j = 0;   // index for pat[]
     while (i < N)
     {
         if (pat[j] == txt[i])
@@ -31,19 +31,18 @@ void KMPSearch(string pat, string txt)
 
         if (j == M)
         {
-            printf("Found pattern at index %d \n", i-j);
-            j = lps[j-1];
+            printf("Found pattern at index %d \n", i - j);
+            j = lps[j - 1];
         }
-
         // mismatch after j matches
         else if (i < N && pat[j] != txt[i])
         {
             // Do not match lps[0..lps[j-1]] characters,
             // they will match anyway
             if (j != 0)
-                j = lps[j-1];
+                j = lps[j - 1];
             else
-                i = i+1;
+                i = i + 1;
         }
     }
 }
@@ -72,12 +71,10 @@ void computeLPSArray(string pat, int M, int *lps)
             // AAACAAAA and i = 7. The idea is similar
             // to search step.
             if (len != 0)
-            {
-                len = lps[len-1];
+                len = lps[len - 1];
 
-                // Also, note that we do not increment
-                // i here
-            }
+            // Also, note that we do not increment
+            // i here
             else // if (len == 0)
             {
                 lps[i] = 0;
@@ -90,11 +87,11 @@ void computeLPSArray(string pat, int M, int *lps)
 // Driver program to test above function
 int main()
 {
-    string txt,pat;
-    cout<<"Enter string to be searched on: ";
-    cin>>txt;
-    cout<<"Enter pattern to be searched: ";
-    cin>>pat;
+    string txt, pat;
+    cout << "Enter string to be searched on: ";
+    cin >> txt;
+    cout << "Enter pattern to be searched: ";
+    cin >> pat;
     KMPSearch(pat, txt);
     return 0;
 }

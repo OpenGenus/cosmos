@@ -6,10 +6,10 @@
 # and '&', '|' and '^' as the operators
 
 def boolean_parenthesization(c,o,n):
-    t = [[0 for i in xrange(n)] for j in xrange(n)]
-    f = [[0 for i in xrange(n)] for j in xrange(n)]
+    t = [[0 for i in range(n)] for j in range(n)]
+    f = [[0 for i in range(n)] for j in range(n)]
 
-    for i in xrange(n):
+    for i in range(n):
         if (c[i]=='T'):
             t[i][i]=1;
             f[i][i]=0;
@@ -17,14 +17,14 @@ def boolean_parenthesization(c,o,n):
             t[i][i]=0;
             f[i][i]=1;
 
-    for i in xrange(1,n):
+    for i in range(1,n):
         j,k = 0,i
         while (k<n):
 
             t[j][k] = 0;
             f[j][k] = 0;
 
-            for a in xrange(i):
+            for a in range(i):
                 b = j + a;
                 d = t[j][b]+f[j][b];
                 e = t[b+1][k]+f[b+1][k];
@@ -46,7 +46,7 @@ def main():
     c = "TFTTF";
     s =  "|&|^";
     n = len(c);
-    print boolean_parenthesization(c, s, n);
+    print(boolean_parenthesization(c, s, n))
 
 if __name__== "__main__":
   main()

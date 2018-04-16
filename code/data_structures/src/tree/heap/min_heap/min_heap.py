@@ -22,13 +22,15 @@ def heapify(a, i):
 
 
 def build_min_heap(a):
-    for i in range((len(a) - 1) / 2, -1, -1):
+    for i in range((len(a) - 1) // 2, -1, -1):
         heapify(a, i)
 
 
-print "Enter the array of which you want to create a min heap"
-a = map(int, raw_input().split())
-build_min_heap(a)
-print "The min heap is -"
-for i in a:
-    print i,
+if __name__ == '__main__':
+    print("Enter the array of which you want to create a min heap")
+    a = [int(x) for x in input().split()]
+    build_min_heap(a)
+    print("The min heap is -")
+    for i in a:
+        print(i, end=' ')
+    print('')

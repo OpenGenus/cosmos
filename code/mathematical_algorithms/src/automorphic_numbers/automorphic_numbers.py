@@ -16,6 +16,6 @@ def automorphic(num):
 		return False
 if __name__ == '__main__':
 	if(automorphic(138)):
-		print "Automorphic Number"
+		print("Automorphic Number")
 	else:
-		print "Not Automorphic Number"
+		print("Not Automorphic Number")

@@ -1,31 +1,31 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- linear search synopsis
-
- warning: in order to follow the convention of STL, the interface is [begin, end) !!!
-
-namespace linear_search_impl
-{
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
-_Input_Iter
-linearSearchImpl(_Input_Iter begin,
-                 _Input_Iter end,
-                 _Tp const &find,
-                 _Compare comp,
-                 std::input_iterator_tag);
-} // linear_search_impl
-
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
-_Input_Iter
-linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp);
-
-template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
-_Input_Iter
-linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * linear search synopsis
+ *
+ * warning: in order to follow the convention of STL, the interface is [begin, end) !!!
+ *
+ * namespace linear_search_impl
+ * {
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+ * _Input_Iter
+ * linearSearchImpl(_Input_Iter begin,
+ *                  _Input_Iter end,
+ *                  _Tp const &find,
+ *                  _Compare comp,
+ *                  std::input_iterator_tag);
+ * } // linear_search_impl
+ *
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+ * _Input_Iter
+ * linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp);
+ *
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type>
+ * _Input_Iter
+ * linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
  */
 
 #include <functional>
@@ -33,7 +33,8 @@ linearSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find);
 namespace linear_search_impl
 {
 template<typename _Input_Iter,
-         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
+         typename _Compare>
 _Input_Iter
 linearSearchImpl(_Input_Iter begin,
                  _Input_Iter end,

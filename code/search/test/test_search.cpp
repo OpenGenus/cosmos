@@ -1,5 +1,5 @@
 /*
- Part of Cosmos by OpenGenus Foundation
+ * Part of Cosmos by OpenGenus Foundation
  */
 
 #define CATCH_CONFIG_MAIN
@@ -43,46 +43,48 @@ TEST_CASE("search algorithm")
     psf = SearchFunc;
 
     auto testWithRandomValue = [&](size_t size)
-    {
-        using std::rand;
-        using std::sort;
+                               {
+                                   using std::rand;
+                                   using std::sort;
 
-        // size == 0: avoid division by 0
-        int boundaryOfPossibleValue = static_cast<int>(size + (size == 0));
+                                   // size == 0: avoid division by 0
+                                   int boundaryOfPossibleValue =
+                                       static_cast<int>(size + (size == 0));
 
-        // initial containers
-        int *podPtr = new int[size];
-        auto podPtrEnd = podPtr + size;
-        Container<int> container(size);
+                                   // initial containers
+                                   int *podPtr = new int[size];
+                                   auto podPtrEnd = podPtr + size;
+                                   Container<int> container(size);
 
-        // initial random values for containers
-        for (size_t i = 0; i < size; ++i)
-        {
-            int randomValue = rand() % boundaryOfPossibleValue;
-            podPtr[i] = randomValue;
-            container[i] = randomValue;
-        }
-        sort(podPtr, podPtrEnd);
-        sort(container.begin(), container.end());
+                                   // initial random values for containers
+                                   for (size_t i = 0; i < size; ++i)
+                                   {
+                                       int randomValue = rand() % boundaryOfPossibleValue;
+                                       podPtr[i] = randomValue;
+                                       container[i] = randomValue;
+                                   }
+                                   sort(podPtr, podPtrEnd);
+                                   sort(container.begin(), container.end());
 
-        // based standard search
-        // if found then compare to value, else compare to pointer is end
-        // range of random values is [0:boundOfPossibleValue]
-        // +/-30 is test out of boundary
-        for (int i = - 30; i < boundaryOfPossibleValue + 30; ++i)
-            if (std::binary_search(podPtr, podPtrEnd, i))
-            {
-                CHECK(*psf(podPtr, podPtrEnd, i) == i);
-                CHECK(*vsf(container.begin(), container.end(), i) == i);
-            }
-            else
-            {
-                CHECK(psf(podPtr, podPtrEnd, i) == podPtrEnd);
-                CHECK(vsf(container.begin(), container.end(), i) == container.end());
-            }
+                                   // based standard search
+                                   // if found then compare to value, else compare to pointer is end
+                                   // range of random values is [0:boundOfPossibleValue]
+                                   // +/-30 is test out of boundary
+                                   for (int i = -30; i < boundaryOfPossibleValue + 30; ++i)
+                                       if (std::binary_search(podPtr, podPtrEnd, i))
+                                       {
+                                           CHECK(*psf(podPtr, podPtrEnd, i) == i);
+                                           CHECK(*vsf(container.begin(), container.end(), i) == i);
+                                       }
+                                       else
+                                       {
+                                           CHECK(psf(podPtr, podPtrEnd, i) == podPtrEnd);
+                                           CHECK(vsf(container.begin(),
+                                                     container.end(), i) == container.end());
+                                       }
 
-        delete[] podPtr;
-    };
+                                   delete[] podPtr;
+                               };
 
     SECTION("empty")
     {

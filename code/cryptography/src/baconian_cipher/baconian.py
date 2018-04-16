@@ -14,4 +14,4 @@ if __name__ == '__main__':
 			ciphertext += baconian_codes[ch.lower()]
 		else:
 			ciphertext += ' '
-	print ciphertext
+	print(ciphertext)

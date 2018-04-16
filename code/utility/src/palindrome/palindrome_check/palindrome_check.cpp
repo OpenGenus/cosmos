@@ -2,7 +2,7 @@
 #include <type_traits>
 #include <functional>
 
-namespace palindrome_check{
+namespace palindrome_check {
 template<typename _InputIter,
          typename _ValueNotEqualTo
              = std::not_equal_to<typename std::iterator_traits<_InputIter>::value_type>,
@@ -36,10 +36,8 @@ isPalindromeIterative(_InputIter begin, _InputIter end)
     {
         --end;
         while (_IterLess()(begin, end))
-        {
             if (_ValueNotEqualTo()(*begin++, *end--))
                 return false;
-        }
     }
 
     return true;
@@ -55,4 +53,4 @@ isPalindrome(_InputIter begin, _InputIter end)
     // default is iterative
     return isPalindromeIterative<_InputIter, _ValueNotEqualTo, _IterLess>(begin, end);
 }
-}
+} // palindrome_check

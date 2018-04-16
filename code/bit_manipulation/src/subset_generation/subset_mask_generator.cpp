@@ -11,13 +11,16 @@ typedef unsigned long long ll;
 //001
 //000
 
-void generate_masks(ll to_mask){
-  for(int mask = to_mask; mask;){
-    --mask &= to_mask;
-    std::cout << mask << std::endl;
-  }
+void generate_masks(ll to_mask)
+{
+    for (int mask = to_mask; mask;)
+    {
+        --mask &= to_mask;
+        std::cout << mask << std::endl;
+    }
 }
 
-int main(){
-  generate_masks(7);
+int main()
+{
+    generate_masks(7);
 }
