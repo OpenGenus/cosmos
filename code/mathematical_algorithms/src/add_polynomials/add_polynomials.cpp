@@ -109,9 +109,12 @@ void Polynomial::free() {
       tmp = t->next;
       delete t;
       t = tmp;
+    } else {
+      delete t;
+      t = tmp;
     }
-    t = tmp;
   }
+  delete head;
 }
 
 int main() {
