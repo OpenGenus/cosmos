@@ -114,7 +114,6 @@ void Polynomial::free() {
       t = tmp;
     }
   }
-  delete head;
 }
 
 int main() {
