@@ -69,7 +69,6 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
             {
                 val += it.first;
                 return val;
-                break;
             }
     }
     else
@@ -80,20 +79,20 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
             if (it.first == val)
             {
                 return it.second;
-                break;
             }
     }
+    return std::string{};
 }
 std::string wordToMorse(const std::vector<std::pair<char, std::string>> &mp, std::string input)
 {
     std::string tempr, encoded = "";
-    for (int i = 0; i < input.length(); i++)
+    for (const auto& elem : input)
     {
-        if (input[i] == ' ')
+        if (elem == ' ')
             encoded += '/';
         else
         {
-            tempr = std::toupper(input[i]);
+            tempr = std::toupper(elem);
             tempr = finder(mp, tempr);
             encoded += tempr + " ";
         }
@@ -103,11 +102,11 @@ std::string wordToMorse(const std::vector<std::pair<char, std::string>> &mp, std
 std::string morseToWord(const std::vector<std::pair<char, std::string>> &mp, std::string input)
 {
     std::string new_input = input + " ", decoded = "", pseudo_morse = "";
-    for (int i = 0; i < new_input.length(); i++)
+    for (const auto& elem : input)
     {
-        if (new_input[i] != ' ' && new_input[i] != '/')
-            pseudo_morse += new_input[i];
-        else if (new_input[i] == ' ')
+        if (elem != ' ' && elem != '/')
+            pseudo_morse += elem;
+        else if (elem == ' ')
         {
             decoded += finder(mp, pseudo_morse);
             pseudo_morse.clear();
