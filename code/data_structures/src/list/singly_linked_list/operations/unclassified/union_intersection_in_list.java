@@ -1,6 +1,5 @@
 class LinkedList
-{
-    Node head;  // head of list
+{   Node head;  // head of list
  
     /* Linked list Node*/
     class Node
@@ -16,8 +15,7 @@ class LinkedList
  
     /* Function to get Union of 2 Linked Lists */
     void getUnion(Node head1, Node head2)
-    {
-        Node t1 = head1, t2 = head2;
+    {   Node t1 = head1, t2 = head2;
  
         //insert all elements of list1 in the result
         while (t1 != null)
@@ -36,8 +34,7 @@ class LinkedList
     }
  
     void getIntersection(Node head1, Node head2)
-    {
-        Node result = null;
+    {   Node result = null;
         Node t1 = head1;
  
         // Traverse list1 and search each element of it in list2.
@@ -53,8 +50,7 @@ class LinkedList
  
     /* Utility function to print list */
     void printList()
-    {
-        Node temp = head;
+    {   Node temp = head;
         while(temp != null)
         {
             System.out.print(temp.data+" ");
@@ -81,8 +77,7 @@ class LinkedList
     /* A utilty function that returns true if data is present
        in linked list  else return false */
     boolean isPresent (Node head, int data)
-    {
-        Node t = head;
+    {   Node t = head;
         while (t != null)
         {
             if (t.data == data)
