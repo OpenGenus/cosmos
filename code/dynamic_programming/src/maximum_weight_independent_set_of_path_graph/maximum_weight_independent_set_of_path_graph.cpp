@@ -20,13 +20,13 @@ int main()
     cout << "The selected verices are : ";
     while (i >= 1)
     {
-	if (sol[i - 1] >= sol[i - 2] + g[i - 1])
-	    i--;
-	else
+        if (sol[i - 1] >= sol[i - 2] + g[i - 1])
+            i--;
+        else
         {
-	    cout << g[i - 1] << " ";
-	    i -= 2;
-	}
+            cout << g[i - 1] << " ";
+            i -= 2;
+        }
     }
-    return 0;    
+    return 0;
 }

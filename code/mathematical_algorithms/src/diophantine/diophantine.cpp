@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cmath>
 // Part of Cosmos by OpenGenus Foundation
-// find all solution ax + by = c for (x, y) in  range of [minx : maxx] and [miny : maxy] 
+// find all solution ax + by = c for (x, y) in  range of [minx : maxx] and [miny : maxy]
 
 int x, y, g, lx, rx;
 
@@ -16,7 +16,7 @@ int gcd (int a, int b, int & x, int & y)
     }
 
     int x1, y1;
-    int d = gcd (b%a, a, x1, y1);
+    int d = gcd (b % a, a, x1, y1);
     x = y1 - (b / a) * x1;
     y = x1;
     return d;
@@ -45,12 +45,13 @@ void shift_solution(int & x, int & y, int a, int b, int cnt)
 //this returns the number of solutions exist
 int find_all_solutions(int a, int b, int c, int minx, int maxx, int miny, int maxy)
 {
-    if (!find_any_solution(a, b, c, x, y, g)) return 0;
-    a /= g;  
-    b /= g; 
+    if (!find_any_solution(a, b, c, x, y, g))
+        return 0;
+    a /= g;
+    b /= g;
 
-    int sign_a = a>0 ? +1 : -1;
-    int sign_b = b>0 ? +1 : -1;
+    int sign_a = a > 0 ? +1 : -1;
+    int sign_b = b > 0 ? +1 : -1;
 
     shift_solution(x, y, a, b, (minx - x) / b);
     if (x < minx)
@@ -64,35 +65,33 @@ int find_all_solutions(int a, int b, int c, int minx, int maxx, int miny, int ma
         shift_solution(x, y, a, b, -sign_b);
     int rx1 = x;
 
-    shift_solution(x, y, a, b, - (miny - y) / a);
+    shift_solution(x, y, a, b, -(miny - y) / a);
     if (y < miny)
         shift_solution(x, y, a, b, -sign_a);
     if (y > maxy)
         return 0;
     int lx2 = x;
 
-    shift_solution(x, y, a, b, - (maxy - y) / a);
+    shift_solution(x, y, a, b, -(maxy - y) / a);
     if (y > maxy)
         shift_solution(x, y, a, b, sign_a);
     int rx2 = x;
 
     if (lx2 > rx2)
-    {
-       std::swap(lx2, rx2);
-    }
-    
-	lx = std::max (lx1, lx2);
-    rx = std::min (rx1, rx2); 
+        std::swap(lx2, rx2);
+
+    lx = std::max (lx1, lx2);
+    rx = std::min (rx1, rx2);
 
     return (rx - lx) / abs(b) + 1;
-}  
+}
 
 int main()
 {
     using namespace std;
-	int a, b, c, maxx, maxy, minx, miny;
-	cin >> a >> b >> c >> minx >> maxx >> miny >> maxy;
-	if (find_all_solutions(a, b, c, minx, maxx, miny, maxy) != 0 )
-		for (int i = lx; i <= rx; i += b  )
-			cout << i << "\t" << ( c - a*i ) / b << endl;
+    int a, b, c, maxx, maxy, minx, miny;
+    cin >> a >> b >> c >> minx >> maxx >> miny >> maxy;
+    if (find_all_solutions(a, b, c, minx, maxx, miny, maxy) != 0)
+        for (int i = lx; i <= rx; i += b)
+            cout << i << "\t" << ( c - a * i ) / b << endl;
 }

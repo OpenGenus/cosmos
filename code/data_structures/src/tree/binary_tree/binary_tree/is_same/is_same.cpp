@@ -1,20 +1,20 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- tree comparer synopsis
-
-template<typename _Tp, typename _Comp = std::equal_to<_Tp> >
-class TreeComparer
-{
-public:
-    using NodeType = TreeNode<_Tp>;
-    using PNodeType = std::shared_ptr<NodeType>;
-
-    bool isSameTree(PNodeType p, PNodeType q) const;
-
-private:
-    _Comp comp_;
-};
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * tree comparer synopsis
+ *
+ * template<typename _Tp, typename _Comp = std::equal_to<_Tp> >
+ * class TreeComparer
+ * {
+ * public:
+ *  using NodeType = TreeNode<_Tp>;
+ *  using PNodeType = std::shared_ptr<NodeType>;
+ *
+ *  bool isSameTree(PNodeType p, PNodeType q) const;
+ *
+ * private:
+ *  _Comp comp_;
+ * };
  */
 
 #include <stack>
@@ -32,7 +32,8 @@ public:
     using NodeType = TreeNode<_Tp>;
     using PNodeType = std::shared_ptr<NodeType>;
 
-    bool isSameTree(PNodeType const &f, PNodeType const &s) const {
+    bool isSameTree(PNodeType const &f, PNodeType const &s) const
+    {
         std::stack<PNodeType> first, second;
         first.push(f);
         second.push(s);
@@ -41,12 +42,12 @@ public:
         while (!first.empty() || !second.empty())
         {
             // mining left
-            while (first.top()!=nullptr
-                   || second.top()!=nullptr)
+            while (first.top() != nullptr
+                   || second.top() != nullptr)
             {
                 // check not same node and not same value
-                if (first.top()==nullptr
-                    || second.top()==nullptr
+                if (first.top() == nullptr
+                    || second.top() == nullptr
                     || !comp_(first.top()->value(), second.top()->value()))
                     return false;
 
@@ -56,8 +57,8 @@ public:
 
             // escape if top is empty or right is empty
             while (!first.empty()
-                   && ((first.top()==nullptr && second.top()==nullptr)
-                       || (first.top()->right()==nullptr && second.top()->right()==nullptr)))
+                   && ((first.top() == nullptr && second.top() == nullptr)
+                       || (first.top()->right() == nullptr && second.top()->right() == nullptr)))
             {
                 first.pop();
                 second.pop();

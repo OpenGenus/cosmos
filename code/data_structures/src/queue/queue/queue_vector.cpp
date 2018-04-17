@@ -6,7 +6,7 @@ using namespace std;
 class Queue
 {
 private:
-    // Vector for storing all of the values
+// Vector for storing all of the values
     vector<int> _vec;
 
 public:
@@ -43,7 +43,8 @@ bool Queue::is_empty()
 
 // Purpose: Returns the value at the front of the queue, without popping it
 // Params : p_peek_obj - reference to the object to be overwritten by the data in the front of the queue
-void Queue::peek(int &p_peek_obj) {
+void Queue::peek(int &p_peek_obj)
+{
     p_peek_obj = _vec[0];
 }
 
@@ -59,7 +60,7 @@ int main()
     q.enqueue(j);
     cout << "Enqueueing " << j << " to the queue" << endl;
 
-    int k,l,m;
+    int k, l, m;
 
     q.peek(m);
     cout << "Peeking into the queue, found " << m << endl;
@@ -67,7 +68,7 @@ int main()
     cout << "Dequeueing, found " << k << endl;
     q.dequeue(l);
     cout << "Dequeueing, found " << l << endl;
-    if(q.is_empty())
+    if (q.is_empty())
         cout << "The queue is now empty" << endl;
     else
         cout << "The queue is not empty" << endl;

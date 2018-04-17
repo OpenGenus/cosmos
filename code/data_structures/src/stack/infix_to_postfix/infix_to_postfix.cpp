@@ -29,7 +29,7 @@ struct Stack* createStack( unsigned capacity )
 }
 int isEmpty(struct Stack* stack)
 {
-    return stack->top == -1 ;
+    return stack->top == -1;
 }
 char peek(struct Stack* stack)
 {
@@ -38,7 +38,7 @@ char peek(struct Stack* stack)
 char pop(struct Stack* stack)
 {
     if (!isEmpty(stack))
-        return stack->array[stack->top--] ;
+        return stack->array[stack->top--];
     return '$';
 }
 void push(struct Stack* stack, char op)
@@ -82,7 +82,7 @@ int infixToPostfix(char* exp)
 
     // Create a stack of capacity equal to expression size
     struct Stack* stack = createStack(strlen(exp));
-    if(!stack) // See if stack was created successfully
+    if (!stack) // See if stack was created successfully
         return -1;
 
     for (i = 0, k = -1; exp[i]; ++i)

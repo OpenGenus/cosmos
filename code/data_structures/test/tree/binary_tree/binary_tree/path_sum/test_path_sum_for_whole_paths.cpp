@@ -10,13 +10,15 @@
 using Node = TreeNode<int>;
 using PNode = std::shared_ptr<Node>;
 
-bool isSame(std::vector<std::vector<int>> &a, std::vector<std::vector<int>> &b) {
+bool isSame(std::vector<std::vector<int>> &a, std::vector<std::vector<int>> &b)
+{
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
 
     if (a.size() != b.size())
         return false;
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i)
+    {
         if (a.at(i).size() != b.at(i).size())
             return false;
         for (size_t j = 0; j < a.at(i).size(); ++j)

@@ -1,17 +1,17 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- xor linked list synopsis
-
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * xor linked list synopsis
+ *
  *** incomplete ***
-
- Begin *** Iterator invalidation rules are NOT applicable. ***
- [x] Insertion: all iterators and references unaffected.
- [x] Erasure: only the iterators and references to the erased element is invalidated.
- [o] Resizing: as per insert/erase.
-
- Refer to: https://stackoverflow.com/questions/6438086/iterator-invalidation-rules
- End *** Iterator invalidation rules are NOT applicable. ***
+ ***
+ ***Begin *** Iterator invalidation rules are NOT applicable. ***
+ ***[x] Insertion: all iterators and references unaffected.
+ ***[x] Erasure: only the iterators and references to the erased element is invalidated.
+ ***[o] Resizing: as per insert/erase.
+ ***
+ ***Refer to: https://stackoverflow.com/questions/6438086/iterator-invalidation-rules
+ ***End *** Iterator invalidation rules are NOT applicable. ***
  */
 
 #ifndef XOR_LINKED_LIST_CPP
@@ -39,7 +39,9 @@ private:
     using SPNode = __Node<value_type> *;
 
 public:
-    explicit __Node(value_type value) :value_(value), around_(nullptr) {}
+    explicit __Node(value_type value) : value_(value), around_(nullptr)
+    {
+    }
 
     inline value_type &value()
     {
@@ -78,7 +80,7 @@ private:
 };
 
 template<class _Type>
-class ListIter :public std::iterator<std::bidirectional_iterator_tag, _Type>
+class ListIter : public std::iterator<std::bidirectional_iterator_tag, _Type>
 {
 public:
     using value_type = _Type;
@@ -92,11 +94,17 @@ private:
     using Self = ListIter<value_type>;
 
 public:
-    ListIter() {}
+    ListIter()
+    {
+    }
 
-    explicit ListIter(NodePtr prev, NodePtr curr) :prev_(prev), curr_(curr) {}
+    explicit ListIter(NodePtr prev, NodePtr curr) : prev_(prev), curr_(curr)
+    {
+    }
 
-    ListIter(const Self &it) :prev_(it.prev_), curr_(it.curr_) {}
+    ListIter(const Self &it) : prev_(it.prev_), curr_(it.curr_)
+    {
+    }
 
     reference operator*()
     {
@@ -160,7 +168,7 @@ private:
 };
 
 template<class _Type>
-class ListConstIter :public std::iterator<std::bidirectional_iterator_tag, _Type>
+class ListConstIter : public std::iterator<std::bidirectional_iterator_tag, _Type>
 {
 public:
     using value_type = _Type;
@@ -175,11 +183,17 @@ private:
     using Iter = ListIter<value_type>;
 
 public:
-    ListConstIter() {}
+    ListConstIter()
+    {
+    }
 
-    explicit ListConstIter(NodePtr prev, NodePtr curr) :prev_(prev), curr_(curr) {}
+    explicit ListConstIter(NodePtr prev, NodePtr curr) : prev_(prev), curr_(curr)
+    {
+    }
 
-    ListConstIter(const Iter &it) :prev_(it.prev_), curr_(it.curr_) {}
+    ListConstIter(const Iter &it) : prev_(it.prev_), curr_(it.curr_)
+    {
+    }
 
     reference operator*() const
     {
@@ -268,12 +282,12 @@ public:
     using reverse_iterator = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-    explicit XorLinkedList() :sz_(0)
+    explicit XorLinkedList() : sz_(0)
     {
         construct();
     }
 
-    XorLinkedList(const Self &list) :sz_(0)
+    XorLinkedList(const Self &list) : sz_(0)
     {
         construct();
         std::for_each(list.begin(), list.end(), [&](value_type v)
@@ -282,7 +296,7 @@ public:
         });
     };
 
-    XorLinkedList(std::initializer_list<value_type> &&vs) :sz_(0)
+    XorLinkedList(std::initializer_list<value_type> &&vs) : sz_(0)
     {
         construct();
         std::for_each(vs.begin(), vs.end(), [&](value_type v)
@@ -297,7 +311,7 @@ public:
         destruct();
     }
 
-    // element access
+// element access
     inline reference back();
 
     inline const_reference back() const;
@@ -306,7 +320,7 @@ public:
 
     inline const_reference front() const;
 
-    // modifiers
+// modifiers
     void clear();
 
     template<class ... Args>
@@ -344,14 +358,14 @@ public:
 
     void swap(Self&other);
 
-    // capacity
+// capacity
     inline bool empty() const;
 
     inline size_type max_size() const;
 
     inline size_type size() const;
 
-    // iterators
+// iterators
     iterator begin();
 
     const_iterator begin() const;
@@ -376,7 +390,7 @@ public:
 
     const_reverse_iterator crend() const;
 
-    // operations
+// operations
     void merge(Self&other);
 
     void merge(Self&&other);

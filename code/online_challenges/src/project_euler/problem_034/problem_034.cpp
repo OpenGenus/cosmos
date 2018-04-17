@@ -21,7 +21,7 @@ int main()
         std::size_t temp = 0;
         for(std::size_t i = num; i > 0; i /= 10)
             temp += factorials[i % 10];
-        if(temp == num)
+        if (temp == num)
             sum += num;
         ++num;
     }

@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 struct node
@@ -9,7 +9,7 @@ struct node
 
 struct node *newNode(int item)
 {
-    struct node *temp =  new node;
+    struct node *temp = new node;
     temp->key = item;
     temp->left = temp->right = NULL;
     return temp;
@@ -21,7 +21,7 @@ void inorder(struct node *root)
     if (root != NULL)
     {
         inorder(root->left);
-        cout<<root->key<<" ";
+        cout << root->key << " ";
         inorder(root->right);
     }
 }
@@ -29,9 +29,9 @@ void inorder(struct node *root)
 //Preorder traversal
 void preorder(struct node *root)
 {
-    if(root == NULL)
+    if (root == NULL)
         return;
-    cout<<root->key<<" ";
+    cout << root->key << " ";
     preorder(root->left);
     preorder(root->right);
 }
@@ -39,19 +39,20 @@ void preorder(struct node *root)
 //Postorder traversal
 void postorder(struct node *root)
 {
-    if(root == NULL)
+    if (root == NULL)
         return;
     postorder(root->left);
     postorder(root->right);
-    cout<<root->key<<" ";
+    cout << root->key << " ";
 }
 
 //Insert key
 struct node* insert(struct node* node, int key)
 {
-    if (node == NULL) return newNode(key);
+    if (node == NULL)
+        return newNode(key);
     if (key < node->key)
-        node->left  = insert(node->left, key);
+        node->left = insert(node->left, key);
     else if (key > node->key)
         node->right = insert(node->right, key);
     return node;
@@ -61,11 +62,11 @@ struct node* insert(struct node* node, int key)
 int main()
 {
     /* Let us create following BST
-             50
-           /    \
-          30     70
-         /  \   /  \
-       20   40 60   80 */
+     *       50
+     *     /    \
+     *    30     70
+     *   /  \   /  \
+     * 20   40 60   80 */
     struct node *root = NULL;
     root = insert(root, 50);
     insert(root, 30);
@@ -75,14 +76,14 @@ int main()
     insert(root, 60);
     insert(root, 80);
 
-    cout<<"Inorder traversal: ";
+    cout << "Inorder traversal: ";
     inorder(root);
 
-    cout<<"\nPreorder traversal: ";
+    cout << "\nPreorder traversal: ";
     preorder(root);
 
-    cout<<"\nPostorder traversal: ";
+    cout << "\nPostorder traversal: ";
     postorder(root);
-    cout<<endl;
+    cout << endl;
     return 0;
 }

@@ -1,115 +1,115 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- huffman compression synopsis
-
-template<typename _Tp>
-struct BinaryTreeNode {
-    _Tp value;
-    std::shared_ptr<BinaryTreeNode<_Tp> > left, right;
-    BinaryTreeNode(_Tp v,
-                   std::shared_ptr<BinaryTreeNode<_Tp> > l = {},
-                   std::shared_ptr<BinaryTreeNode<_Tp> > r = {});
-};
-
-template<typename _Tp>
-struct Comp {
-public:
-    bool operator()(_Tp a, _Tp b) const;
-};
-
-class HuffmanTest;
-
-class Huffman {
-private:
-    typedef size_t                                                       size_type;
-    typedef unsigned long long                                           base_type;
-    typedef std::pair<char, size_type>                                   freq_node_type;
-    typedef std::unordered_map<char, size_type>                          freq_type;
-    typedef std::pair<size_type, std::pair<char, std::string> >          value_type;
-    typedef BinaryTreeNode<value_type>                                   tree_node_type;
-    typedef std::priority_queue<std::shared_ptr<tree_node_type>,
-                                std::vector<std::shared_ptr<tree_node_type> >,
-                                Comp<std::shared_ptr<tree_node_type> > > tree_type;
-    typedef std::unordered_map<char, std::string>                        dictionary_type;
-    typedef std::unordered_map<std::string, char>                        reverse_dictionary_type;
-
-public:
-    Huffman()
-        :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_();
-
-    std::string compression(std::string const &in);
-
-    std::string compression(std::istream &in);
-
-    void compression(std::string const &in, std::ostream &out);
-
-    void compression(std::istream &in, std::ostream &out);
-
-    std::string decompression(std::string const &in);
-
-    std::string decompression(std::istream &in);
-
-    void decompression(std::string const &in, std::ostream &out);
-
-    void decompression(std::istream &in, std::ostream &out);
-
-private:
-    freq_type frequency_;
-    tree_type tree_;
-    dictionary_type dictionary_;
-    reverse_dictionary_type reverse_dictionary_;
-    std::shared_ptr<tree_node_type> sentinel_;
-    size_type binary_bit_;
-    std::vector<size_type> power_;
-    const char DELIMITER = ' ';
-    const size_type GUARANTEE_BIT = sizeof(base_type) * 8;
-    const int HEX_BIT = 16;
-
-    void calculateFrequency(std::string const &input);
-
-    // no cover test
-    void buildForest();
-
-    // no cover test
-    void initialTree();
-
-    // no cover test
-    void initialForest();
-
-    // no cover test
-    void appendDegree();
-
-    // no cover test
-    void buildDictionary();
-
-    std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str);
-
-    // no cover test
-    std::string restore(std::string const &input);
-
-    std::string exportHeader();
-
-    std::string exportDictionary();
-
-    void importHeader(std::string const &str);
-
-    void importDictionary(std::string const &str);
-
-    std::string addSeperateCode(std::string const &str);
-
-    std::string removeSeperateCode(std::string const &str);
-
-    std::string stringToHex(std::string const &str);
-
-    std::string stringToBinary(std::string const &input);
-
-    // return string always fill 0 while size is not N * GUARANTEE_BIT
-    std::string binaryToHex(std::string const &str);
-
-    std::string hexToBinary(std::string const &str);
-};
-*/
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * huffman compression synopsis
+ *
+ * template<typename _Tp>
+ * struct BinaryTreeNode {
+ *  _Tp value;
+ *  std::shared_ptr<BinaryTreeNode<_Tp> > left, right;
+ *  BinaryTreeNode(_Tp v,
+ *                 std::shared_ptr<BinaryTreeNode<_Tp> > l = {},
+ *                 std::shared_ptr<BinaryTreeNode<_Tp> > r = {});
+ * };
+ *
+ * template<typename _Tp>
+ * struct Comp {
+ * public:
+ *  bool operator()(_Tp a, _Tp b) const;
+ * };
+ *
+ * class HuffmanTest;
+ *
+ * class Huffman {
+ * private:
+ *  typedef size_t                                                       size_type;
+ *  typedef unsigned long long                                           base_type;
+ *  typedef std::pair<char, size_type>                                   freq_node_type;
+ *  typedef std::unordered_map<char, size_type>                          freq_type;
+ *  typedef std::pair<size_type, std::pair<char, std::string> >          value_type;
+ *  typedef BinaryTreeNode<value_type>                                   tree_node_type;
+ *  typedef std::priority_queue<std::shared_ptr<tree_node_type>,
+ *                              std::vector<std::shared_ptr<tree_node_type> >,
+ *                              Comp<std::shared_ptr<tree_node_type> > > tree_type;
+ *  typedef std::unordered_map<char, std::string>                        dictionary_type;
+ *  typedef std::unordered_map<std::string, char>                        reverse_dictionary_type;
+ *
+ * public:
+ *  Huffman()
+ *      :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_();
+ *
+ *  std::string compression(std::string const &in);
+ *
+ *  std::string compression(std::istream &in);
+ *
+ *  void compression(std::string const &in, std::ostream &out);
+ *
+ *  void compression(std::istream &in, std::ostream &out);
+ *
+ *  std::string decompression(std::string const &in);
+ *
+ *  std::string decompression(std::istream &in);
+ *
+ *  void decompression(std::string const &in, std::ostream &out);
+ *
+ *  void decompression(std::istream &in, std::ostream &out);
+ *
+ * private:
+ *  freq_type frequency_;
+ *  tree_type tree_;
+ *  dictionary_type dictionary_;
+ *  reverse_dictionary_type reverse_dictionary_;
+ *  std::shared_ptr<tree_node_type> sentinel_;
+ *  size_type binary_bit_;
+ *  std::vector<size_type> power_;
+ *  const char DELIMITER = ' ';
+ *  const size_type GUARANTEE_BIT = sizeof(base_type) * 8;
+ *  const int HEX_BIT = 16;
+ *
+ *  void calculateFrequency(std::string const &input);
+ *
+ *  // no cover test
+ *  void buildForest();
+ *
+ *  // no cover test
+ *  void initialTree();
+ *
+ *  // no cover test
+ *  void initialForest();
+ *
+ *  // no cover test
+ *  void appendDegree();
+ *
+ *  // no cover test
+ *  void buildDictionary();
+ *
+ *  std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str);
+ *
+ *  // no cover test
+ *  std::string restore(std::string const &input);
+ *
+ *  std::string exportHeader();
+ *
+ *  std::string exportDictionary();
+ *
+ *  void importHeader(std::string const &str);
+ *
+ *  void importDictionary(std::string const &str);
+ *
+ *  std::string addSeperateCode(std::string const &str);
+ *
+ *  std::string removeSeperateCode(std::string const &str);
+ *
+ *  std::string stringToHex(std::string const &str);
+ *
+ *  std::string stringToBinary(std::string const &input);
+ *
+ *  // return string always fill 0 while size is not N * GUARANTEE_BIT
+ *  std::string binaryToHex(std::string const &str);
+ *
+ *  std::string hexToBinary(std::string const &str);
+ * };
+ */
 
 #include <functional>
 #include <algorithm>
@@ -126,18 +126,23 @@ private:
 #include <iostream>
 
 template<typename _Tp>
-struct BinaryTreeNode {
+struct BinaryTreeNode
+{
     _Tp value;
-    std::shared_ptr<BinaryTreeNode<_Tp> > left, right;
+    std::shared_ptr<BinaryTreeNode<_Tp>> left, right;
     BinaryTreeNode(_Tp v,
-                   std::shared_ptr<BinaryTreeNode<_Tp> > l = {},
-                   std::shared_ptr<BinaryTreeNode<_Tp> > r = {}) :value(v), left(l), right(r) {};
+                   std::shared_ptr<BinaryTreeNode<_Tp>> l = {},
+                   std::shared_ptr<BinaryTreeNode<_Tp>> r = {}) : value(v), left(l), right(r)
+    {
+    };
 };
 
 template<typename _Tp>
-struct Comp {
+struct Comp
+{
 public:
-    bool operator()(_Tp a, _Tp b) const {
+    bool operator()(_Tp a, _Tp b) const
+    {
         return a->value.first > b->value.first;
     }
 };
@@ -146,27 +151,29 @@ class HuffmanTest;
 
 class Huffman {
 private:
-    typedef size_t                                                       size_type;
-    typedef unsigned long long                                           base_type;
+    typedef size_t size_type;
+    typedef unsigned long long base_type;
     typedef std::pair<char, size_type>                                   freq_node_type;
     typedef std::unordered_map<char, size_type>                          freq_type;
-    typedef std::pair<size_type, std::pair<char, std::string> >          value_type;
+    typedef std::pair<size_type, std::pair<char, std::string>>          value_type;
     typedef BinaryTreeNode<value_type>                                   tree_node_type;
     typedef std::priority_queue<std::shared_ptr<tree_node_type>,
-                                std::vector<std::shared_ptr<tree_node_type> >,
-                                Comp<std::shared_ptr<tree_node_type> > > tree_type;
+                                std::vector<std::shared_ptr<tree_node_type>>,
+                                Comp<std::shared_ptr<tree_node_type>>> tree_type;
     typedef std::unordered_map<char, std::string>                        dictionary_type;
     typedef std::unordered_map<std::string, char>                        reverse_dictionary_type;
 
 public:
     Huffman()
-        :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_() {
+        : frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_()
+    {
         power_.resize(GUARANTEE_BIT);
         for (auto i = GUARANTEE_BIT; i > 0; --i)
             power_.at(i - 1) = pow(2, GUARANTEE_BIT - i);
     };
 
-    std::string compression(std::string const &in) {
+    std::string compression(std::string const &in)
+    {
         calculateFrequency(in);
         buildForest();
         buildDictionary();
@@ -179,19 +186,23 @@ public:
         return res;
     }
 
-    std::string compression(std::istream &in) {
+    std::string compression(std::istream &in)
+    {
         return compression(readFile(in));
     }
 
-    void compression(std::string const &in, std::ostream &out) {
+    void compression(std::string const &in, std::ostream &out)
+    {
         out << compression(in);
     }
 
-    void compression(std::istream &in, std::ostream &out) {
+    void compression(std::istream &in, std::ostream &out)
+    {
         out << compression(in);
     }
 
-    std::string decompression(std::string const &in) {
+    std::string decompression(std::string const &in)
+    {
         std::pair<std::string, std::string> header_and_code = seperateHeaderAndCode(in);
         importHeader(header_and_code.first);
         std::string res = hexToBinary(header_and_code.second);
@@ -200,15 +211,18 @@ public:
         return res;
     }
 
-    std::string decompression(std::istream &in) {
+    std::string decompression(std::istream &in)
+    {
         return decompression(readFile(in));
     }
 
-    void decompression(std::string const &in, std::ostream &out) {
+    void decompression(std::string const &in, std::ostream &out)
+    {
         out << decompression(in);
     }
 
-    void decompression(std::istream &in, std::ostream &out) {
+    void decompression(std::istream &in, std::ostream &out)
+    {
         out << decompression(in);
     }
 
@@ -224,7 +238,8 @@ private:
     const unsigned long long GUARANTEE_BIT = sizeof(base_type) * 8;
     const unsigned long long HEX_BIT = 16;
 
-    std::string readFile(std::istream &in) {
+    std::string readFile(std::istream &in)
+    {
         std::string s{};
         char c;
         while (in >> std::noskipws >> c)
@@ -233,7 +248,8 @@ private:
         return s;
     }
 
-    void calculateFrequency(std::string const &input) {
+    void calculateFrequency(std::string const &input)
+    {
         char c;
         std::stringstream in(input);
         while (in >> std::noskipws >> c)
@@ -245,18 +261,21 @@ private:
         }
     }
 
-    // no cover test
-    void buildForest() {
+// no cover test
+    void buildForest()
+    {
         initialTree();
         initialForest();
         appendDegree();
     }
 
-    // no cover test
-    void initialTree() {
+// no cover test
+    void initialTree()
+    {
         for_each(frequency_.begin(),
                  frequency_.end(),
-                 [&] (freq_node_type freq_node) {
+                 [&] (freq_node_type freq_node)
+        {
             value_type n{std::make_pair(freq_node.second, std::make_pair(freq_node.first, ""))};
             tree_.push({std::make_shared<tree_node_type>(tree_node_type((n),
                                                                         sentinel_,
@@ -266,8 +285,9 @@ private:
             tree_.push({std::make_shared<tree_node_type>(tree_node_type({}))});
     }
 
-    // no cover test
-    void initialForest() {
+// no cover test
+    void initialForest()
+    {
         while (tree_.size() > 1)
         {
             std::shared_ptr<tree_node_type> left{}, right{}, parent{};
@@ -275,7 +295,7 @@ private:
             tree_.pop();
             right = tree_.top();
             tree_.pop();
-            if (Comp<std::shared_ptr<tree_node_type> >()(left, right))
+            if (Comp<std::shared_ptr<tree_node_type>>()(left, right))
                 swap(left, right);
             parent = std::make_shared<tree_node_type>(tree_node_type({}, left, right));
             parent->value.first = left->value.first + right->value.first;
@@ -283,12 +303,13 @@ private:
         }
     }
 
-    // no cover test
-    void appendDegree() {
+// no cover test
+    void appendDegree()
+    {
         if (!tree_.empty())
         {
             std::string degree{};
-            std::stack<std::shared_ptr<tree_node_type> > nodes;
+            std::stack<std::shared_ptr<tree_node_type>> nodes;
             nodes.push(tree_.top());
 
             // post order travel
@@ -320,11 +341,12 @@ private:
         }
     }
 
-    // no cover test
-    void buildDictionary() {
+// no cover test
+    void buildDictionary()
+    {
         if (tree_.size() == 1)
         {
-            std::stack<std::shared_ptr<tree_node_type> > nodes;
+            std::stack<std::shared_ptr<tree_node_type>> nodes;
             nodes.push(tree_.top());
             tree_.pop();
 
@@ -351,7 +373,8 @@ private:
         }
     }
 
-    std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str) {
+    std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str)
+    {
         auto it = --str.begin();
         size_type separate_count{};
         while (++it != str.end())
@@ -366,8 +389,9 @@ private:
         return std::make_pair(std::string{str.begin(), it - 4}, std::string{it, str.end()});
     }
 
-    // no cover test
-    std::string restore(std::string const &input) {
+// no cover test
+    std::string restore(std::string const &input)
+    {
         std::stringstream ss{input};
         std::string res{};
         char c;
@@ -392,15 +416,18 @@ private:
         return res;
     }
 
-    std::string exportHeader() {
+    std::string exportHeader()
+    {
         return std::to_string(binary_bit_) + DELIMITER + exportDictionary();
     }
 
-    std::string exportDictionary() {
+    std::string exportDictionary()
+    {
         std::string res{};
         for_each(dictionary_.begin(),
                  dictionary_.end(),
-                 [&] (std::pair<char, std::string> value) {
+                 [&] (std::pair<char, std::string> value)
+        {
             res.push_back(value.first);
             res += DELIMITER;
             res.append(value.second);
@@ -412,7 +439,8 @@ private:
         return res;
     }
 
-    void importHeader(std::string const &str) {
+    void importHeader(std::string const &str)
+    {
         auto it = str.begin();
         while (it != str.end() && *it != DELIMITER)
             ++it;
@@ -422,7 +450,8 @@ private:
         importDictionary({it, str.end()});
     }
 
-    void importDictionary(std::string const &str) {
+    void importDictionary(std::string const &str)
+    {
         char key{}, delimiter{};
         std::stringstream ss{str};
         std::string value{};
@@ -435,11 +464,13 @@ private:
         }
     }
 
-    std::string addSeperateCode(std::string const &str) {
+    std::string addSeperateCode(std::string const &str)
+    {
         return str + DELIMITER + DELIMITER + DELIMITER + DELIMITER;
     }
 
-    std::string removeSeperateCode(std::string const &str) {
+    std::string removeSeperateCode(std::string const &str)
+    {
         if (str.size() >= 4)
         {
             auto it = str.end();
@@ -453,11 +484,13 @@ private:
         return str;
     }
 
-    std::string stringToHex(std::string const &str) {
+    std::string stringToHex(std::string const &str)
+    {
         return binaryToHex(stringToBinary(str));
     }
 
-    std::string stringToBinary(std::string const &input) {
+    std::string stringToBinary(std::string const &input)
+    {
         std::string res{};
         char c{};
         std::stringstream in(input);
@@ -468,8 +501,9 @@ private:
         return res;
     }
 
-    // return string always fill 0 while size is not N * GUARANTEE_BIT
-    std::string binaryToHex(std::string const &str) {
+// return string always fill 0 while size is not N * GUARANTEE_BIT
+    std::string binaryToHex(std::string const &str)
+    {
         if (str.empty())
             return {};
 
@@ -494,7 +528,8 @@ private:
         return res.str();
     }
 
-    std::string hexToBinary(std::string const &str) {
+    std::string hexToBinary(std::string const &str)
+    {
         std::stringstream in_ss{str};
         std::string res{}, s{};
         size_type seat{}, g{};
@@ -525,6 +560,6 @@ private:
         return res;
     }
 
-    // for test
+// for test
     friend HuffmanTest;
 };
