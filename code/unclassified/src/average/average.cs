@@ -17,10 +17,9 @@ namespace Average
         {
             float sum = 0.0f;
             float n;
-            foreach(var num in argv)
+            foreach(string num in argv)
             {
-                n = float.Parse(num);
-                sum += n;
+                sum += float.Parse(num);
             }
 
             Console.WriteLine(sum / argv.Length);
