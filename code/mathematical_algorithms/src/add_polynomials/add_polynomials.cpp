@@ -27,6 +27,7 @@ class Polynomial {
   void insert_term(int, int);
   void print();
   friend Polynomial operator+(Polynomial, Polynomial);
+  void free(); 
 };
 
 // constructor 
@@ -97,6 +98,19 @@ Polynomial operator+(Polynomial p1, Polynomial p2) {
   return p;
 }
 
+void Polynomial::free() {
+  Term* t = head;
+  while (t) {
+    Term* tmp = NULL;
+    if (t->next) {
+      tmp = t->next;
+      delete t;
+      t = tmp;
+    }
+    t = tmp;
+  }
+}
+
 int main() {
   Polynomial p1, p2;
   p1.insert_term(7, 4);
@@ -114,5 +128,8 @@ int main() {
   Polynomial p3 = p1 + p2;
   cout << "Sum:";
   p3.print();
+  p1.free();
+  p2.free();
+  p3.free();
   return 0;
 }
