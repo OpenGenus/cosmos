@@ -16,8 +16,7 @@ struct Node
 /*
  * Function to create new node.
  */
-void 
-create_node(int x, int y, struct Node **temp)
+void create_node(int x, int y, struct Node **temp)
 {
     struct Node *r, *z;
     z = *temp;
@@ -31,9 +30,7 @@ create_node(int x, int y, struct Node **temp)
         r->next = (struct Node*)malloc(sizeof(struct Node));
         r = r->next;
         r->next = NULL;
-    }
- 
-    else {
+    } else {
         r->coeff = x;
         r->pow = y;
         r->next = (struct Node*)malloc(sizeof(struct Node));
@@ -46,8 +43,7 @@ create_node(int x, int y, struct Node **temp)
 /* 
  * Function Adding two polynomial numbers
  */
-void 
-polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly)
+void polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly)
 {
     while (poly1->next && poly2->next) {
         /* If power of 1st polynomial is greater then 2nd, then store 1st as it is
@@ -100,8 +96,7 @@ polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly)
 }
  
 /* Display Linked list. */
-void 
-show(struct Node *node)
+void show(struct Node *node)
 {
     while (node->next != NULL) {
         printf("%dx^%d", node->coeff, node->pow);
@@ -112,9 +107,29 @@ show(struct Node *node)
     }
 }
  
+
+void free_poly(struct Node * poly)  
+{
+    struct Node* tmp;
+    while(poly)
+    {
+        tmp = NULL;
+        if (poly->next) 
+        {
+            tmp = poly->next;
+            free(poly);
+            poly = tmp;
+        } else 
+        {
+            free(poly);
+            poly = NULL;
+        }
+        
+    }
+}
+
 /* Driver program. */
-int 
-main()
+int main()
 {
     struct Node *poly1 = NULL, *poly2 = NULL, *poly = NULL;
      
@@ -141,6 +156,10 @@ main()
     /* Display resultant List */
     printf("\nAdded polynomial: ");
     show(poly);
- 
-    return (0);
+    
+    free_poly(poly);
+    free_poly(poly1);
+    free_poly(poly2);
+
+    return 0;
 }
