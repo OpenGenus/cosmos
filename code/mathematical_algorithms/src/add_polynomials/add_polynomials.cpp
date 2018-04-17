@@ -5,50 +5,52 @@
 #include <stddef.h>
 using namespace std;
 
-struct term {
-  int coeff;
-  int pow;
-  term* next;
-  term(int, int);
+
+class Term {
+  public:
+    Term(int c, int p) {
+      coeff = c;
+      pow = p;
+      next = NULL;
+    }
+    int coeff;
+    int pow;
+    Term* next;
 };
 
-term::term(int c, int p) {
-  coeff = c;
-  pow = p;
-  next = NULL;
-}
-
-class polynomial {
-  term* head;
+class Polynomial {
+ private:
+  Term* head;
 
  public:
-  polynomial();
+  Polynomial();
   void insert_term(int, int);
   void print();
-  friend polynomial operator+(polynomial, polynomial);
+  friend Polynomial operator+(Polynomial, Polynomial);
 };
 
-polynomial::polynomial() { head = NULL; }
+// constructor 
+Polynomial::Polynomial() { head = NULL; }
 
-void polynomial::insert_term(int c, int p) {
+void Polynomial::insert_term(int c, int p) {
   if (head == NULL) {
-    head = new term(c, p);
+    head = new Term(c, p);
     return;
   }
   if (p > head->pow) {
-    term* t = new term(c, p);
+    Term* t = new Term(c, p);
     t->next = head;
     head = t;
     return;
   }
-  term* cur = head;
+  Term* cur = head;
   while (cur != NULL) {
     if (cur->pow == p) {
       cur->coeff += c;
       return;
     }
     if ((cur->next == NULL) || (cur->next->pow < p)) {
-      term* t = new term(c, p);
+      Term* t = new Term(c, p);
       t->next = cur->next;
       cur->next = t;
       return;
@@ -57,8 +59,8 @@ void polynomial::insert_term(int c, int p) {
   }
 }
 
-void polynomial::print() {
-  term* t = head;
+void Polynomial::print() {
+  Term* t = head;
   while (t != NULL) {
     cout << t->coeff;
     if (t->pow) cout << "x^" << t->pow;
@@ -68,9 +70,9 @@ void polynomial::print() {
   cout << endl;
 }
 
-polynomial operator+(polynomial p1, polynomial p2) {
-  polynomial p;
-  term *t1 = p1.head, *t2 = p2.head;
+Polynomial operator+(Polynomial p1, Polynomial p2) {
+  Polynomial p;
+  Term *t1 = p1.head, *t2 = p2.head;
   while ((t1 != NULL) && (t2 != NULL)) {
     if (t1->pow > t2->pow) {
       p.insert_term(t1->coeff, t1->pow);
@@ -96,7 +98,7 @@ polynomial operator+(polynomial p1, polynomial p2) {
 }
 
 int main() {
-  polynomial p1, p2;
+  Polynomial p1, p2;
   p1.insert_term(7, 4);
   p1.insert_term(4, 5);
   p1.insert_term(10, 0);
@@ -109,7 +111,7 @@ int main() {
   p2.insert_term(3, 2);
   cout << "Second polynomial:";
   p2.print();
-  polynomial p3 = p1 + p2;
+  Polynomial p3 = p1 + p2;
   cout << "Sum:";
   p3.print();
   return 0;
