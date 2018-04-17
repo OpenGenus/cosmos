@@ -24,6 +24,9 @@ class Polynomial {
 
  public:
   Polynomial();
+  ~Polynomial() {
+    free();
+  }
   void insert_term(int, int);
   void print();
   friend Polynomial operator+(Polynomial, Polynomial);
@@ -128,8 +131,5 @@ int main() {
   Polynomial p3 = p1 + p2;
   cout << "Sum:";
   p3.print();
-  p1.free();
-  p2.free();
-  p3.free();
   return 0;
 }
