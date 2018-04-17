@@ -11,8 +11,11 @@ namespace LeapTest
         
         public static void Main()
         {
-            int startYear = 2001;
-            int endYear = 2101;
+            int startYear, endYear;
+            Console.Write("enter starting year : ");
+            Int32.TryParse(Console.ReadLine(), out startYear);
+            Console.Write("enter ending year : ");
+            Int32.TryParse(Console.ReadLine(), out endYear);
             
             for(int i = startYear; i <= endYear; ++i) 
             {
