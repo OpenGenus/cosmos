@@ -1,5 +1,5 @@
 def main():
-	name = [  
+	name_s_ = [  
 	"MARY", "PATRICIA", "LINDA", "BARBARA", "ELIZABETH", "JENNIFER", "MARIA", "SUSAN", "MARGARET", "DOROTHY",
 	"LISA", "NANCY", "KAREN", "BETTY", "HELEN", "SANDRA", "DONNA", "CAROL", "RUTH", "SHARON",
 	"MICHELLE", "LAURA", "SARAH", "KIMBERLY", "DEBORAH", "JESSICA", "SHIRLEY", "CYNTHIA", "ANGELA", "MELISSA",
@@ -520,9 +520,9 @@ def main():
 	]
 	total_sum = 0
 	temp_sum = 0
-	name.sort()
-	for i in range(len(name)):
-		for j in name[i]:
+	name_s_.sort()
+	for i in range(len(name_s_)):
+		for j in name_s_[i]:
 			temp_sum += ord(j) - ord('A') + 1
 		total_sum += (i + 1) * temp_sum
 		temp_sum = 0
