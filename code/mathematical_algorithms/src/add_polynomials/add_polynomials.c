@@ -17,7 +17,8 @@ struct Node
  * Function to create new node.
  */
 void 
-create_node(int x, int y, struct Node **temp) {
+create_node(int x, int y, struct Node **temp) 
+{
     struct Node *r, *z;
     z = *temp;
  
@@ -44,7 +45,8 @@ create_node(int x, int y, struct Node **temp) {
  * Function Adding two polynomial numbers
  */
 void 
-polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly) {
+polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly) 
+{
     while (poly1->next && poly2->next) {
         /* If power of 1st polynomial is greater then 2nd, then store 1st as it is
            and move its pointer. */
@@ -97,7 +99,8 @@ polyadd(struct Node *poly1, struct Node *poly2, struct Node *poly) {
  
 /* Display Linked list. */
 void 
-show(struct Node *node) {
+show(struct Node *node) 
+{
     while (node->next != NULL) {
         printf("%dx^%d", node->coeff, node->pow);
      
