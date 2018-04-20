@@ -7,15 +7,18 @@ using namespace std;
 
 
 class Term {
+  private:
+    int coeff_;
+    int pow_;
+    Term* next_;
   public:
-    Term(int c, int p) {
-      coeff = c;
-      pow = p;
-      next = NULL;
-    }
-    int coeff;
-    int pow;
-    Term* next;
+    Term(int c, int p): coeff_(c), pow_(p), next_(NULL) {}
+    void set_coeff(int c) {coeff_ = c;}
+    int get_coeff() {return coeff_;}
+    void set_pow(int p) {pow_ = p;}
+    int get_pow() {return pow_;}
+    Term* get_next() {return next_;}
+    void set_next(Term* n) {next_ = n;}
 };
 
 class Polynomial {
@@ -41,35 +44,35 @@ void Polynomial::insert_term(int c, int p) {
     head = new Term(c, p);
     return;
   }
-  if (p > head->pow) {
+  if (p > head->get_pow()) {
     Term* t = new Term(c, p);
-    t->next = head;
+    t->set_next(head);
     head = t;
     return;
   }
   Term* cur = head;
   while (cur != NULL) {
-    if (cur->pow == p) {
-      cur->coeff += c;
+    if (cur->get_pow() == p) {
+      cur->set_coeff(cur->get_coeff()+c);
       return;
     }
-    if ((cur->next == NULL) || (cur->next->pow < p)) {
+    if ((cur->get_next() == NULL) || (cur->get_next()->get_pow() < p)) {
       Term* t = new Term(c, p);
-      t->next = cur->next;
-      cur->next = t;
+      t->set_next(cur->get_next());
+      cur->set_next(t);
       return;
     }
-    cur = cur->next;
+    cur = cur->get_next();
   }
 }
 
 void Polynomial::print() {
   Term* t = head;
   while (t != NULL) {
-    cout << t->coeff;
-    if (t->pow) cout << "x^" << t->pow;
-    if (t->next != NULL) cout << "+";
-    t = t->next;
+    cout << t->get_coeff();
+    if (t->get_pow()) cout << "x^" << t->get_pow();
+    if (t->get_next() != NULL) cout << "+";
+    t = t->get_next();
   }
   cout << endl;
 }
@@ -78,25 +81,25 @@ Polynomial operator+(Polynomial p1, Polynomial p2) {
   Polynomial p;
   Term *t1 = p1.head, *t2 = p2.head;
   while ((t1 != NULL) && (t2 != NULL)) {
-    if (t1->pow > t2->pow) {
-      p.insert_term(t1->coeff, t1->pow);
-      t1 = t1->next;
-    } else if (t1->pow < t2->pow) {
-      p.insert_term(t2->coeff, t2->pow);
-      t2 = t2->next;
+    if (t1->get_pow() > t2->get_pow()) {
+      p.insert_term(t1->get_coeff(), t1->get_pow());
+      t1 = t1->get_next();
+    } else if (t1->get_pow() < t2->get_pow()) {
+      p.insert_term(t2->get_coeff(), t2->get_pow());
+      t2 = t2->get_next();
     } else {
-      p.insert_term(t1->coeff + t2->coeff, t1->pow);
-      t1 = t1->next;
-      t2 = t2->next;
+      p.insert_term(t1->get_coeff() + t2->get_coeff(), t1->get_pow());
+      t1 = t1->get_next();
+      t2 = t2->get_next();
     }
   }
   while (t1 != NULL) {
-    p.insert_term(t1->coeff, t1->pow);
-    t1 = t1->next;
+    p.insert_term(t1->get_coeff(), t1->get_pow());
+    t1 = t1->get_next();
   }
   while (t2 != NULL) {
-    p.insert_term(t2->coeff, t2->pow);
-    t2 = t2->next;
+    p.insert_term(t2->get_coeff(), t2->get_pow());
+    t2 = t2->get_next();
   }
   return p;
 }
@@ -105,8 +108,8 @@ void Polynomial::free() {
   Term* t = head;
   while (t) {
     Term* tmp = NULL;
-    if (t->next) {
-      tmp = t->next;
+    if (t->get_next()) {
+      tmp = t->get_next();
       delete t;
       t = tmp;
     } else {
