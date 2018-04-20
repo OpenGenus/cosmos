@@ -6,6 +6,7 @@ public class Conway extends JFrame {
 
 	private int size = 80, gen =0, kill = 1;
 	private JButton grid[][] = new JButton[size][size], toggle, wow, gun, clear;
+	private JButton exit; // for termination of the program
 	private int grid_num[][] = new int[size][size];
 	private JLabel status;
 	Conway() {
@@ -26,16 +27,19 @@ public class Conway extends JFrame {
 		wow = new JButton("Benchmark");
 		gun = new JButton("Glider Gun");
 		clear = new JButton("Clear");
+		exit = new JButton("Exit");
 
 		st_bar.add(status);
 		st_bar.add(toggle);
 		st_bar.add(wow);
 		st_bar.add(gun);
 		st_bar.add(clear);
+		st_bar.add(exit);
 		toggle.addActionListener(new Listen());
 		wow.addActionListener(new Listen());
 		gun.addActionListener(new Listen());
 		clear.addActionListener(new Listen());
+		exit.addActionListener(new Listen());
 
 		cp.setLayout(new BorderLayout());
 		cp.add(gd, BorderLayout.CENTER);
@@ -155,6 +159,9 @@ public class Conway extends JFrame {
 						grid_num[i][j] = 0;
 						grid[i][j].setBackground(Color.GRAY);
 						}
+			}
+			else if (ae.getSource() == exit) {
+				System.exit(0);
 			}
 			else {
 				for (int i = 0;i<size;i++)
