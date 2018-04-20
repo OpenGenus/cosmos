@@ -5,7 +5,6 @@ import javax.swing.*;
 public class Conway extends JFrame {
 
 	private int size = 80, gen =0, kill = 1;
-	private boolean check = false;
 	private JButton grid[][] = new JButton[size][size], toggle, wow, gun, clear;
 	private int grid_num[][] = new int[size][size];
 	private JLabel status;
@@ -161,9 +160,16 @@ public class Conway extends JFrame {
 				for (int i = 0;i<size;i++)
 					for(int j=0;j<size;j++) {
 						if (ae.getSource() == grid[i][j]) {
-							grid_num[i][j] = 1;
-							grid[i][j].setBackground(Color.BLACK);
-							return;
+							if (grid_num[i][j] == 0) {
+								grid_num[i][j] = 1;
+								grid[i][j].setBackground(Color.BLACK);
+								return;
+							} else if (grid_num[i][j] == 1) {
+								grid_num[i][j] = 0;
+								grid[i][j].setBackground(Color.WHITE);
+								return;
+							}
+							
 						}
 					}
 			}
