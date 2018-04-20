@@ -13,8 +13,7 @@ def is_square_free(n):
 
 		if n % i == 0:
 			n = n / i;
-
-		if n % i == 0:
+			if n % i == 0:
 			return False
 
 	return True
