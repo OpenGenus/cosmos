@@ -173,21 +173,8 @@ public class Affine {
         for (int i = 0; i < plaintext.length(); i++) {
             char agent = plaintext.charAt(i);
             int value = ((a * (agent - 97) + b) % ALPHABET_SIZE);
-            ciphertext.append((char) getChar(value));
+            ciphertext.append((char) (value + 97));
         }
         System.out.println("Ciphertext: " + ciphertext);
-    }
-    
-    /**
-     * 
-     * @param index
-     * @return lower case letter according to the index
-     */
-    private static char getChar(int index) {
-    	if (index >= 0 && index < 26) {
-    		return (char) (index + 97);
-    	} else {
-    		throw new RuntimeException("getChar: index out of range");
-    	}
     }
 }
