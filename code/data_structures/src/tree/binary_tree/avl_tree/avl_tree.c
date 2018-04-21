@@ -59,7 +59,7 @@ RightRotate(struct node *rptr)
 struct node *
 LeftRotate(struct node *rptr)
 {
-	struct node *jptr = srptr;
+	struct node *jptr = rptr;
 	struct node *kptr = rptr->rcptr;
 	jptr->rcptr = kptr->lcptr;
 	kptr->lcptr = jptr;
@@ -262,10 +262,10 @@ int main()
 	while (1) {
 		printf("1.Insert\n2.Delete\n3.Search\n4.Height\n5.Count\n6.Inorder\n7.Preorder\n8.Postorder\n9.AVL Check\n10.Exit\n");
 		scanf("%d",&t);
+        int x;
 		switch(t) {
 			
 			case 1 :
-				int x;
 				printf("Enter integer to be inserted\n");
 				scanf("%d",&x);
 				rptr = insert(rptr,x);
@@ -273,7 +273,6 @@ int main()
 				break;
 
 			case 2 :
-				int x;
 				printf("Enter integer to be deleted\n");
 				scanf("%d",&x);
 				f = 0;
@@ -285,7 +284,6 @@ int main()
 				break;
 			
 			case 3 :
-				int x;
 				printf("Enter integer to be searched\n");
 				scanf("%d",&x);
 				search(x);

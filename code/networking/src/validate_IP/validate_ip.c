@@ -16,33 +16,33 @@ valid_digit(char *ip_str)
         if (*ip_str >= '0' && *ip_str <= '9')
             ++ip_str;
         else
-            return 0;
+            return (0);
     }
-    return 1;
+    return (1);
 }
  
 /* return 1 if IP string is valid, else return 0 */
 int 
 is_valid_ip(char *ip_str)
 {
-    int i, num, dots = 0;
+    int num, dots = 0;
     char *ptr;
  
     if (ip_str == NULL)
-        return 0;
+        return (0);
  
     /* See following link for strtok()
        http://pubs.opengroup.org/onlinepubs/009695399/functions/strtok_r.html */
     ptr = strtok(ip_str, DELIM);
  
     if (ptr == NULL)
-        return 0;
+        return (0);
  
     while (ptr) {
  
         /* after parsing string, it must contain only digits */
         if (!valid_digit(ptr))
-            return 0;
+            return (0);
  
         num = atoi(ptr);
  
@@ -53,7 +53,7 @@ is_valid_ip(char *ip_str)
             if (ptr != NULL)
                 ++dots;
         } else
-            return 0;
+            return (0);
     }
  
     /* valid IP string must contain 3 dots */
