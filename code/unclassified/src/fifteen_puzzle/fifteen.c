@@ -14,8 +14,7 @@
  * Author:- Rishav Pandey
  * Part of Cosmos by OpenGenus Foundation
  */
- 
- 
+
 #define _XOPEN_SOURCE 500
 
 #include <stdio.h>
@@ -40,7 +39,7 @@ void draw(void);
 int move(int tile);
 int won(void);
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     // ensure proper usage
     if (argc != 2)
@@ -54,7 +53,7 @@ int main(int argc, char* argv[])
     if (d < DIM_MIN || d > DIM_MAX)
     {
         printf("Board must be between %i x %i and %i x %i, inclusive.\n",
-            DIM_MIN, DIM_MIN, DIM_MAX, DIM_MAX);
+               DIM_MIN, DIM_MIN, DIM_MAX, DIM_MAX);
         return 2;
     }
 
@@ -103,10 +102,10 @@ int main(int argc, char* argv[])
         }
 
         // prompt for move
-        printf("Tile to move: ");
+        printf("Tile to move: (0)exit ");
         int tile;
         scanf("%d", &tile);
-        
+
         // quit if user inputs 0 (for testing)
         if (tile == 0)
         {
@@ -126,7 +125,7 @@ int main(int argc, char* argv[])
         // sleep thread for animation's sake
         usleep(500000);
     }
-    
+
     // close log
     fclose(file);
 
@@ -160,24 +159,22 @@ void greet(void)
 void init(void)
 {
     // TODO
-    
-    int tiles = (d *d -1);
-    for(int i = 0; i < d; i++)
-        for(int j = 0; j < d; j++)
+
+    int tiles = (d * d - 1);
+    for (int i = 0; i < d; i++)
+        for (int j = 0; j < d; j++)
         {
             board[i][j] = tiles;
             tiles--;
         }
-        
 
-    // to swap the second last and third last index of board when d is even.    
-    if(d % 2 == 0)
+    // to swap the second last and third last index of board when d is even.
+    if (d % 2 == 0)
     {
         int temp = board[d - 1][d - 3];
         board[d - 1][d - 3] = board[d - 1][d - 2];
         board[d - 1][d - 2] = temp;
     }
-        
 }
 /**
  * Prints the board in its current state.
@@ -185,20 +182,21 @@ void init(void)
 void draw(void)
 {
     // TODO
-    for(int i = 0; i < d; i++)
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
         {
-            for(int j = 0; j < d; j++)
+            if (!board[i][j])
             {
-            	if(board[i][j] == 0)
-            	{
-            		printf(" _ ");
-            	}
-            	else
-            	{
-                	printf("%2i ", board[i][j]);
-            	}
-            }printf("\n");
+                printf(" _ ");
+            }
+            else
+            {
+                printf("%2i ", board[i][j]);
+            }
         }
+        printf("\n");
+    }
 }
 
 /**
@@ -212,56 +210,59 @@ int move(int tile)
     int row, column;
     for (int i = 0; i < d; ++i)
     {
-    	for (int j = 0; j < d; ++j)
-    	{
-    		if (board[i][j] == tile)
-    		{
-    			row = i;
-    			column = j;
-    		}
-    	}
+        for (int j = 0; j < d; ++j)
+        {
+            if (board[i][j] == tile)
+            {
+                row = i;
+                column = j;
+            }
+        }
     }
+    
     // For keeping the track of blank tile in the Game
     int row1, column1;
     for (int i = 0; i < d; ++i)
     {
-    	for (int j = 0; j < d; ++j)
-    	{
-    		if (board[i][j] == 0)
-    		{
-    			row1 = i;
-    			column1 = j;
-    		}
-    	}
-    }    
-    // For legal move of the tile towards Right 
-	if (board[row][column] == board[row1][column1 + 1])
+        for (int j = 0; j < d; ++j)
+        {
+            if (board[i][j] == 0)
+            {
+                row1 = i;
+                column1 = j;
+            }
+        }
+    }
+
+    // For legal move of the tile towards Right
+    if (board[row][column] == board[row1][column1 + 1])
     {
-    	board[row1][column1 + 1] = 0;
-    	board[row1][column1] = tile;
-    	return 1;
-    }    
+        board[row1][column1 + 1] = 0;
+        board[row1][column1] = tile;
+        return 1;
+    }
+    //usleep(15000000);
     // For legal move of the tile towards Left
-	if (board[row][column] == board[row1][column1 - 1])
+    if (board[row][column] == board[row1][column1 - 1])
     {
-    	board[row1][column1 - 1] = 0;
-    	board[row1][column1] = tile;
-    	return 1;
+        board[row1][column1 - 1] = 0;
+        board[row1][column1] = tile;
+        return 1;
     }
     // For legal move of the tile towards Up
-	if (board[row][column] == board[row1 - 1][column1])
-	{
-		board[row1 - 1][column1] = 0;
-		board[row1][column1] = tile;
-		return 1;
-	}
-	// For legal move of the tile towards Down
-	if (board[row][column] == board[row1 + 1][column1])
-	{
-		board[row1 + 1][column1] = 0;
-		board[row1][column1] = tile;
-		return 1;
-	}
+    if (board[row][column] == board[row1 - 1][column1])
+    {
+        board[row1 - 1][column1] = 0;
+        board[row1][column1] = tile;
+        return 1;
+    }
+    // For legal move of the tile towards Down
+    if (board[row][column] == board[row1 + 1][column1])
+    {
+        board[row1 + 1][column1] = 0;
+        board[row1][column1] = tile;
+        return 1;
+    }
     return 0;
 }
 
@@ -273,7 +274,7 @@ int won(void)
 {
     // TODO
     int counter = 0;
-    
+
     for (int i = 0; i < d; i++)
     {
         for (int j = 0; j < d; j++)
@@ -288,5 +289,4 @@ int won(void)
     }
 
     return 1;
-
 }
