@@ -19,7 +19,6 @@ public class DiamondSquare{
         }
     }
 
-
     public static void diamondSquare(double[][] matrix){
         int height = matrix.length;
         int boundary = 40;
