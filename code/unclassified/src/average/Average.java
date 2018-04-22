@@ -1,6 +1,6 @@
 import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
-class average
+class Average
 {
     /**
     * @param arr array of integers to get the average of.
