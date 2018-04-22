@@ -7,31 +7,31 @@ class Average
     * @param n number of elements.
     * @return the average calculated as sum(arr)/n
     */
-    static double avrg(int arr[], int n)
+    static double avrg(Vector<Integer> arr)
     {
-        if (n == 0) return 0.0;
-        int sum = 0;
+        if (arr.isEmpty()) return 0.0;
+        double sum = 0;
         double avg = 0.0;
-        for(int i=0;i<n;i++)
+        final int SIZE = arr.size();
+        for(int i = 0;i < SIZE; i++)
         {
-            sum += arr[i];
+            sum += arr.get(i);
         }
-        avg = (double)sum/n;
-        return avg;
+        
+        return sum / SIZE;
     }
     public static void main(String args[])
     {
         int n;
-	int[] arr = new int[1000];
-        System.out.print("Enter n = ");
-        Scanner s1 = new Scanner(System.in);
-        n = s1.nextInt();
-        if (n > 0) System.out.println("Enter elements in array");
-        for(int i=0;i<n;i++)
-        {
-            arr[i] = s1.nextInt();
-        }
-        double avg = avrg(arr, n);
-        System.out.println("Average = " + avg);
+        // int[] arr = new int[1000];
+        Vector<Integer> arr = new Vector<Integer>();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter elements in array (-1)exit ");
+        
+        while ((n = scan.nextInt()) != -1)
+            arr.add(n);
+
+        double avg = avrg(arr);
+        System.out.printf("Average = %2.2f\n",avg);
     }
 }
