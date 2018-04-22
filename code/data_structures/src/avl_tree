@@ -37,7 +37,7 @@ int max(int a,int b)
 {
     return(a>b)?a:b;
 }
-// A fuction which calculates balancing factor of respective node
+// A fuction  which calculates balancing factor of respective node
 int getBalance(struct Node *node) 
 {
     if(node==NULL)
