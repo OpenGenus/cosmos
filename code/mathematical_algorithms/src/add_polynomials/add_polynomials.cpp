@@ -13,67 +13,67 @@ class Term {
     Term* next_;
   public:
     Term(int c, int p): coeff_(c), pow_(p), next_(nullptr) {}
-    void set_coeff(int c) {coeff_ = c;}
-    int get_coeff() {return coeff_;}
-    void set_pow(int p) {pow_ = p;}
-    int get_pow() {return pow_;}
-    Term* get_next() {return next_;}
-    void set_next(Term* n) {next_ = n;}
+    void setCoeff(int c) {coeff_ = c;}
+    int getCoeff() {return coeff_;}
+    void setPow(int p) {pow_ = p;}
+    int getPow() {return pow_;}
+    Term* getNext() {return next_;}
+    void setNext(Term* n) {next_ = n;}
 };
 
 class Polynomial {
  private:
   Term* head;
+  void free();
 
  public:
   Polynomial();
   ~Polynomial() {
     free();
   }
-  void insert_term(int, int);
+  void insertTerm(int, int);
   void print();
   friend ostream& operator<< (ostream& stream, Polynomial poly);
-  friend Polynomial operator+(Polynomial, Polynomial);
-  void free(); 
+  friend Polynomial operator+(Polynomial, Polynomial); 
 };
 
 // constructor 
 Polynomial::Polynomial() { head = nullptr; }
 
-void Polynomial::insert_term(int c, int p) {
+void Polynomial::insertTerm(int c, int p) {
   if (!head) {
     head = new Term(c, p);
     return;
   }
-  if (p > head->get_pow()) {
+  if (p > head->getPow()) {
     Term* t = new Term(c, p);
-    t->set_next(head);
+    t->setNext(head);
     head = t;
     return;
   }
   Term* cur = head;
   while (cur) {
-    if (cur->get_pow() == p) {
-      cur->set_coeff(cur->get_coeff()+c);
+    if (cur->getPow() == p) {
+      cur->setCoeff(cur->getCoeff()+c);
       return;
     }
-    if ((!cur->get_next()) || (cur->get_next()->get_pow() < p)) {
+    if ((!cur->getNext()) || (cur->getNext()->getPow() < p)) {
       Term* t = new Term(c, p);
-      t->set_next(cur->get_next());
-      cur->set_next(t);
+      t->setNext(cur->getNext());
+      cur->setNext(t);
       return;
     }
-    cur = cur->get_next();
+    cur = cur->getNext();
   }
 }
 
 void Polynomial::print() {
   Term* t = head;
   while (t) {
-    cout << t->get_coeff();
-    if (t->get_pow()) cout << "x^" << t->get_pow();
-    if (t->get_next()) cout << "+";
-    t = t->get_next();
+    cout << t->getCoeff();
+    if (t->getPow()) cout << "x^" << t->getPow();
+    if (t->getNext()) cout << "+";
+    t = t->getNext();
   }
   cout << endl;
 }
@@ -82,25 +82,25 @@ Polynomial operator+(Polynomial p1, Polynomial p2) {
   Polynomial p;
   Term *t1 = p1.head, *t2 = p2.head;
   while (t1 && t2) {
-    if (t1->get_pow() > t2->get_pow()) {
-      p.insert_term(t1->get_coeff(), t1->get_pow());
-      t1 = t1->get_next();
-    } else if (t1->get_pow() < t2->get_pow()) {
-      p.insert_term(t2->get_coeff(), t2->get_pow());
-      t2 = t2->get_next();
+    if (t1->getPow() > t2->getPow()) {
+      p.insertTerm(t1->getCoeff(), t1->getPow());
+      t1 = t1->getNext();
+    } else if (t1->getPow() < t2->getPow()) {
+      p.insertTerm(t2->getCoeff(), t2->getPow());
+      t2 = t2->getNext();
     } else {
-      p.insert_term(t1->get_coeff() + t2->get_coeff(), t1->get_pow());
-      t1 = t1->get_next();
-      t2 = t2->get_next();
+      p.insertTerm(t1->getCoeff() + t2->getCoeff(), t1->getPow());
+      t1 = t1->getNext();
+      t2 = t2->getNext();
     }
   }
   while (t1) {
-    p.insert_term(t1->get_coeff(), t1->get_pow());
-    t1 = t1->get_next();
+    p.insertTerm(t1->getCoeff(), t1->getPow());
+    t1 = t1->getNext();
   }
   while (t2) {
-    p.insert_term(t2->get_coeff(), t2->get_pow());
-    t2 = t2->get_next();
+    p.insertTerm(t2->getCoeff(), t2->getPow());
+    t2 = t2->getNext();
   }
   return p;
 }
@@ -108,10 +108,10 @@ Polynomial operator+(Polynomial p1, Polynomial p2) {
 ostream& operator<< (ostream& stream, Polynomial poly) {
   Term* t = poly.head;
   while (t) {
-    stream << t->get_coeff();
-    if (t->get_pow()) stream << "x^" << t->get_pow();
-    if (t->get_next()) stream << "+";
-    t = t->get_next();
+    stream << t->getCoeff();
+    if (t->getPow()) stream << "x^" << t->getPow();
+    if (t->getNext()) stream << "+";
+    t = t->getNext();
   }
   stream << "\n";
   return stream;
@@ -121,8 +121,8 @@ void Polynomial::free() {
   Term* t = head;
   while (t) {
     Term* tmp = nullptr;
-    if (t->get_next()) {
-      tmp = t->get_next();
+    if (t->getNext()) {
+      tmp = t->getNext();
       delete t;
       t = tmp;
     } else {
@@ -134,16 +134,16 @@ void Polynomial::free() {
 
 int main() {
   Polynomial p1, p2;
-  p1.insert_term(7, 4);
-  p1.insert_term(4, 5);
-  p1.insert_term(10, 0);
-  p1.insert_term(9, 2);
+  p1.insertTerm(7, 4);
+  p1.insertTerm(4, 5);
+  p1.insertTerm(10, 0);
+  p1.insertTerm(9, 2);
   cout << "First polynomial:";
   p1.print();
-  p2.insert_term(5, 0);
-  p2.insert_term(6, 5);
-  p2.insert_term(7, 0);
-  p2.insert_term(3, 2);
+  p2.insertTerm(5, 0);
+  p2.insertTerm(6, 5);
+  p2.insertTerm(7, 0);
+  p2.insertTerm(3, 2);
   cout << "Second polynomial:";
   p2.print();
   Polynomial p3 = p1 + p2;
