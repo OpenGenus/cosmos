@@ -2,6 +2,8 @@
 #include <cstring>
 // Part of Cosmos by OpenGenus Foundation
 
+using namespace std;
+
 char *myStrTok(char *input, char delim)
 {
 
@@ -18,8 +20,14 @@ char *myStrTok(char *input, char delim)
     {
         if (ptr[i] == delim)
         {
+
             output[i] = '\0';
-            ptr = ptr + i + 1;
+
+            // for the case that the delimiter occurs multiple times.
+            while (ptr[i] == delim)
+                i++;
+
+            ptr = ptr + i;
             return output;
         }
         output[i] = ptr[i];
@@ -32,7 +40,6 @@ char *myStrTok(char *input, char delim)
 
 int main()
 {
-    using namespace std;
     char in[] = "Hello   this is a string tokenizer!";
 
     char *ans = myStrTok(in, ' ');
@@ -47,6 +54,8 @@ int main()
     cout << endl << ans << endl;
     ans = myStrTok(nullptr, ' ');
     cout << endl << ans << endl;
+
+    delete ans;
 
     return 0;
 }
