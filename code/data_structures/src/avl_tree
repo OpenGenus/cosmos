@@ -1,0 +1,161 @@
+// Implementation of AVL tree
+// following is code for insertion of data in AVL tree
+#include <bits/stdc++.h> 
+using namespace std;
+// AVL tree node
+struct Node 
+{
+    int data;
+    Node *left;
+    Node *right;
+    int height;
+};
+ // A function which creates new node and assigns given value to node
+struct Node *NewNode(int key)
+{
+    struct Node *temp=(struct Node*)malloc(sizeof(struct Node));
+    temp->data=key;
+    temp->left=temp->right=NULL;
+    return temp;
+}
+// A fuction which calculates height of respective node
+int height(struct Node *node) 
+{
+    if(node==NULL)
+    {return 0;}
+    
+    int lh=height(node->left);
+    int rh=height(node->right);
+    
+    if(lh > rh)
+    {return lh+1;}
+    else
+    {return rh+1;}
+}
+ // A fuction which returns maximum of two numbers
+int max(int a,int b)
+{
+    return(a>b)?a:b;
+}
+// A fuction which calculates balancing factor of respective node
+int getBalance(struct Node *node) 
+{
+    if(node==NULL)
+    {return 0;}
+    
+    return height(node->left)-height(node->right);
+}
+// Right rotaion with respect to given node
+struct Node *getRightRotate(struct Node *y) 
+{
+    struct Node *x=y->left;
+    struct Node *T2=x->right;
+    
+    x->right=y;
+    y->left=T2;
+    
+    y->height=max(height(y->left),height(y->right))+1;
+    x->height=max(height(x->left),height(x->right))+1;
+    
+    return x;
+    
+}
+// Left rotation with respect to given node
+struct Node *getLeftRotate(struct Node *x)
+{
+   struct Node *y=x->right;
+    struct Node *T2=y->left;
+    
+    y->left=x;
+    x->right=T2;
+    
+    x->height=max(height(x->left),height(x->right))+1;
+    y->height=max(height(y->left),height(y->right))+1;
+    
+    return y; 
+}
+
+// insetion of given data in AVL tree
+Node* insertToAVL( Node* node, int data)
+{
+    if(node==NULL)
+    {return NewNode(data);}
+    
+    if(data < node->data)
+    {
+        node->left=insertToAVL(node->left,data);
+    }
+    else if(data > node->data)
+    {
+        node->right=insertToAVL(node->right,data);
+    }
+    else
+    {
+        return node;
+    }
+    node->height=1+max(height(node->left),height(node->right));
+    int balance = getBalance(node);
+    
+    //left left rotation
+    if(balance > 1 && data < node->left->data)
+    {
+        return getRightRotate(node);
+    }
+    
+   // right right rotation
+    if(balance < -1 && data > node->right->data)
+    {
+        return getLeftRotate(node);
+    }
+    
+    //left Right Rotation
+    if(balance > 1 && data > node->left->data)
+    {
+        node->left=getLeftRotate(node->left);
+        return getRightRotate(node);
+    }
+    
+    //Right Left Rotation
+    if(balance < -1 && data < node->right->data)
+    {
+        node->right=getRightRotate(node->right);
+        return getLeftRotate(node);
+    }
+    
+    return node;
+}
+// displays inorder transversal of AVL tree
+void inoder(struct Node *root)
+{
+    if(root != NULL)
+    {
+       
+        inoder(root->left);
+         cout<<root->data<<" ";
+        inoder(root->right);
+    }
+}
+ 
+int main()
+{
+  struct Node *root = NULL;
+ 
+  
+  root = insertToAVL(root, 63);
+  root = insertToAVL(root, 45);
+  root = insertToAVL(root, 25);
+  root = insertToAVL(root, 77);
+  root = insertToAVL(root, 42);
+  root = insertToAVL(root, 11);
+  root = insertToAVL(root, 92);
+  root = insertToAVL(root, 112);
+  root = insertToAVL(root, 29);
+  root = insertToAVL(root, 35);
+  root = insertToAVL(root, 55);
+ 
+ 
+  cout<<"inorder transversal of given tree is"<<endl;
+  inoder(root);
+ 
+  return 0;
+}
