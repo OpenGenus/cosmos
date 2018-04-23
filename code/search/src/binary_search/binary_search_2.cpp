@@ -11,15 +11,15 @@ using namespace std;
 
 void fill(vector<int> &v)
 {
-    for (std::size_t i = 0; i < v.size(); i++)
-        v[i] = rand() % 100;
+    for (auto& elem : v)
+        elem = rand() % 100;
 }
 
 void printarr(vector<int> &v)
 {
-    for (std::size_t i = 0; i < v.size(); i++)
-        cout << v[i] << " ";
-    cout << endl;
+    for (const auto& elem : v)
+        cout << elem << " ";
+    cout << "\n";
 }
 
 /* Binary search with fewer comparisons */
@@ -49,7 +49,7 @@ int binary_search(vector<int> &v, int key)
 int main()
 {
     int size;
-    cout << "Set array size:";
+    cout << "Enter the array size:";
     cin >> size;
 
     vector<int> v(size);
