@@ -22,12 +22,11 @@ class Average
     }
     public static void main(String args[])
     {
-        int n;
-        // int[] arr = new int[1000];
+        
         ArrayList<Integer> arr = new ArrayList<Integer>();
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter elements in array (-1)exit ");
-        
+        int n;
         while ((n = scan.nextInt()) != -1)
             arr.add(n);
 
