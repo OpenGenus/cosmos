@@ -2,8 +2,6 @@
 #include <cstring>
 // Part of Cosmos by OpenGenus Foundation
 
-using namespace std;
-
 char *myStrTok(char *input, char delim)
 {
 
@@ -46,14 +44,14 @@ int main()
 
     while (ans != nullptr)
     {
-        cout << ans << endl;
+        std::cout << ans << "\n";
         ans = myStrTok(nullptr, ' ');
     }
     char arr[] = "Hello world!";
     ans = myStrTok(arr, ' ');
-    cout << endl << ans << endl;
+    std::cout << std::endl << ans << "\n";
     ans = myStrTok(nullptr, ' ');
-    cout << endl << ans << endl;
+    std::cout << std::endl << ans << "\n";
 
     delete ans;
 
