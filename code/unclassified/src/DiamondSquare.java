@@ -7,14 +7,11 @@ import java.util.Scanner;
  */
 public class DiamondSquare{
     public static void main(String[] args){
-        double[][] matrix;
-        double size;
-
         Scanner sc = new Scanner(System.in);
 
         System.out.println("The size of your matrix needs to be 2^n+1. Enter the number n please : ");
-        size = Math.pow(2, sc.nextInt())+1;
-        matrix = new double[(int)size][(int)size];
+        double size = Math.pow(2, sc.nextInt())+1;
+        double[][] matrix = new double[(int)size][(int)size];
         diamondSquare(matrix);
 
         for(int i = 0; i < matrix.length; i++){
