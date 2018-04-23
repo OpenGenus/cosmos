@@ -1,0 +1,166 @@
+#include<iostream>
+#include<algorithm>
+#define nullptr NULL
+
+
+struct Node 
+{
+    int data;
+    Node *left;
+    Node *right;
+    int height;
+}*root;
+class avl{
+	public:
+
+    Node *NewNode(int key) 
+{
+    Node *temp=( Node*)malloc(sizeof( Node));
+    temp->data=key;
+    temp->left=temp->right=nullptr;
+    return temp;
+}
+
+int height( Node *node) 
+{
+    if(node==nullptr) return 0;
+    int lh=height(node->left);
+    int rh=height(node->right);
+    if(lh > rh) return lh+1;
+    else return rh+1;
+}
+
+int getBalance(Node *node) 
+{
+    if(node==nullptr) return 0;
+    return height(node->left)-height(node->right);
+}
+
+Node *getRightRotate( Node *y) 
+{
+     Node *x=y->left;
+     Node *T2=x->right;
+    
+    x->right=y;
+    y->left=T2;
+    
+    y->height=std::max(height(y->left),height(y->right))+1;
+    x->height=std::max(height(x->left),height(x->right))+1;
+    
+    return x;
+    
+}
+
+Node *getLeftRotate( Node *x)
+{
+    Node *y=x->right;
+    Node *T2=y->left;
+    
+    y->left=x;
+    x->right=T2;
+    
+    x->height=std::max(height(x->left),height(x->right))+1;
+    y->height=std::max(height(y->left),height(y->right))+1;
+    
+    return y; 
+}
+
+
+Node* insertToAVL( Node* node, int data)
+{
+    if(node==NULL) return NewNode(data);
+    if(data < node->data)
+    {
+        node->left=insertToAVL(node->left,data);
+    }
+    else if(data > node->data)
+    {
+        node->right=insertToAVL(node->right,data);
+    }
+    else
+    {
+        return node;
+    }
+    node->height=1+std::max(height(node->left),height(node->right));
+    int balance = getBalance(node);
+    
+    //left left rotation
+    if(balance > 1 && data < node->left->data)
+    {
+        return getRightRotate(node);
+    }
+    
+   // right right rotation
+    if(balance < -1 && data > node->right->data)
+    {
+        return getLeftRotate(node);
+    }
+    
+    //left Right Rotation
+    if(balance > 1 && data > node->left->data)
+    {
+        node->left=getLeftRotate(node->left);
+        return getRightRotate(node);
+    }
+    
+    //Right Left Rotation
+    if(balance < -1 && data < node->right->data)
+    {
+        node->right=getRightRotate(node->right);
+        return getLeftRotate(node);
+    }
+    
+    return node;
+}
+
+void inorder(Node *root)
+{
+    if(root != NULL)
+    {
+       
+        inorder(root->left);
+        std::cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
+ 
+};
+
+int main(){
+	int l,m;
+	avl t;
+	 while (1)
+    {
+       
+        std::cout<<"AVL Tree Implementation"<<std::endl;
+        std::cout<<"1.Insert Element into the tree"<<std::endl;
+        std::cout<<"2.InOrder traversal"<<std::endl;
+		std::cout<<"3.Exit"<<std::endl;
+        std::cout<<"Enter your Choice: ";
+        std::cin>>l;
+        switch(l)
+        {
+        case 1:
+            std::cout<<"Enter value to be inserted: ";
+            std::cin>>m;
+            root = t.insertToAVL(root,m);
+            break;
+        case 2:
+            if (root == nullptr)
+            {
+                std::cout<<"Tree is Empty"<<std::endl;
+                continue;
+            }
+            std::cout<<"Inorder Traversal:"<<std::endl;
+            t.inorder(root);
+            std::cout<<std::endl;
+            break;
+        case 3:
+            std::exit(1);
+            break;
+        default:
+            std::cout<<"Wrong Choice"<<std::endl;
+        }
+    }
+    return 0;
+}
