@@ -1,17 +1,17 @@
 #include <iostream>
-#include <cstring>
+#include <string>
 // Part of Cosmos by OpenGenus Foundation
+using namespace std;
 
-char *myStrTok(char *input, char delim)
+string myStrTok(char *input, char delim)
 {
-
     static char* ptr;
     if (input != nullptr)
         ptr = input;
     if (ptr == nullptr)
-        return nullptr;
+        return "";
 
-    char* output = new char[strlen(ptr) + 1]; //1 for '\0'
+    string output = "";
 
     int i;
     for (i = 0; ptr[i] != '\0'; i++)
@@ -28,9 +28,8 @@ char *myStrTok(char *input, char delim)
             ptr = ptr + i;
             return output;
         }
-        output[i] = ptr[i];
+        output += ptr[i];
     }
-    output[i] = '\0'; //for last when delim is not found
     ptr = nullptr;
     return output;
 }
@@ -40,20 +39,19 @@ int main()
 {
     char in[] = "Hello   this is a string tokenizer!";
 
-    char *ans = myStrTok(in, ' ');
+    string ans = myStrTok(in, ' ');
 
-    while (ans != nullptr)
+    while (ans != "")
     {
         std::cout << ans << "\n";
         ans = myStrTok(nullptr, ' ');
     }
+
     char arr[] = "Hello world!";
     ans = myStrTok(arr, ' ');
-    std::cout << std::endl << ans << "\n";
+    cout << "\n" << ans << "\n";
     ans = myStrTok(nullptr, ' ');
-    std::cout << std::endl << ans << "\n";
-
-    delete ans;
+    cout << "\n" << ans << "\n";
 
     return 0;
 }
