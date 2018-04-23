@@ -23,24 +23,19 @@ void printArr(std::vector<int> &v)
 /* Binary search with fewer comparisons */
 int binarySearch(std::vector<int> &v, int key)
 {
-    int m;
-
     int l = 0, r = v.size();
 
     while (r - l > 1)
     {
-        m = l + (r - l) / 2;
+        int m = l + (r - l) / 2;
 
         if (v[m] > key)
             r = m;
         else
             l = m;
     }
-
-    if (v[l] == key)
-        return l;
-    else
-        return -1;
+    
+    return (v[l] == key) ? l : -1;
 }
 
 /* Driver program */
