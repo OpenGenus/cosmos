@@ -54,7 +54,7 @@ public:
 
         return result;
     }
-    
+
 private:
     std::string key;
 };
@@ -64,7 +64,7 @@ int main()
     Vigenere cipher{"VIGENERECIPHER"};
 
     std::string original =
-            "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
+        "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
     std::string encrypted = cipher.encrypt(original);
     std::string decrypted = cipher.decrypt(encrypted);
 

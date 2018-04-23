@@ -1,23 +1,23 @@
 /*
- Part of Cosmos by OpenGenus Foundation
-
- tree serializer synopsis
-
-class TreeSerializer
-{
-public:
-    using NodeType = TreeNode<int>;
-    using PNodeType = std::shared_ptr<NodeType>;
-
-    // Encodes a tree to a single string.
-    std::string serialize(PNodeType root);
-
-    // Decodes your encoded data to tree.
-    PNodeType deserialize(std::string data);
-
-private:
-    std::vector<std::string> splitToVector(std::string s);
-};
+ * Part of Cosmos by OpenGenus Foundation
+ *
+ * tree serializer synopsis
+ *
+ * class TreeSerializer
+ * {
+ * public:
+ *  using NodeType = TreeNode<int>;
+ *  using PNodeType = std::shared_ptr<NodeType>;
+ *
+ *  // Encodes a tree to a single string.
+ *  std::string serialize(PNodeType root);
+ *
+ *  // Decodes your encoded data to tree.
+ *  PNodeType deserialize(std::string data);
+ *
+ * private:
+ *  std::vector<std::string> splitToVector(std::string s);
+ * };
  */
 
 #ifndef TREE_SERIALIZER
@@ -38,8 +38,9 @@ public:
     using NodeType = TreeNode<int>;
     using PNodeType = std::shared_ptr<NodeType>;
 
-    // Encodes a tree to a single string.
-    std::string serialize(PNodeType root) {
+// Encodes a tree to a single string.
+    std::string serialize(PNodeType root)
+    {
         if (root)
         {
             std::string ret {};
@@ -80,9 +81,10 @@ public:
             return "# ";
     }
 
-    // Decodes your encoded data to tree.
-    PNodeType deserialize(std::string data) {
-        if (data.at(0)=='#')
+// Decodes your encoded data to tree.
+    PNodeType deserialize(std::string data)
+    {
+        if (data.at(0) == '#')
             return nullptr;
 
         auto nodes = splitToVector(data);
@@ -94,7 +96,7 @@ public:
         bool check_l{true};
         while (!st.empty())
         {
-            while (i<sz && nodes.at(i)!="#" && check_l)
+            while (i < sz && nodes.at(i) != "#" && check_l)
             {
                 st.top()->left(std::make_shared<NodeType>(stoi(nodes.at(i++))));
                 st.push(st.top()->left());
@@ -107,7 +109,7 @@ public:
                 old = st.top();
                 st.pop();
                 check_l = true;
-                if (nodes.at(i)!="#")
+                if (nodes.at(i) != "#")
                 {
                     old->right(std::make_shared<NodeType>(stoi(nodes.at(i++))));
                     st.push(old->right());
@@ -125,7 +127,8 @@ public:
     }
 
 private:
-    std::vector<std::string> splitToVector(std::string s) {
+    std::vector<std::string> splitToVector(std::string s)
+    {
         std::stringstream ss(s);
         std::istream_iterator<std::string> begin(ss);
         std::istream_iterator<std::string> end;

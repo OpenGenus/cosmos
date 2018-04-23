@@ -3,36 +3,72 @@ The Shellsort algorithm is a search algorithm. It's a generalization of the inse
 
 The method starts by sorting pair of elements far apart from each other in the array, then progressively reducing the gap between the elements to be compared.
 
-It has a worst-case performance of O(n²) and a best-case performance of O(n log n).
+## Explanation
+Consider the following example:
 
-## Pseudocode
+![image1](http://interactivepython.org/runestone/static/pythonds/_images/shellsortA.png)
 
-	# Sort an array a[0...n-1].
-	gaps = [701, 301, 132, 57, 23, 10, 4, 1]
+This list has nine items. If we use an increment of three, there are three sublists, each of which can be sorted by an insertion sort. After completing these sorts, we get the list as shown below. 
 
-	# Start with the largest gap and work down to a gap of 1
-	foreach (gap in gaps)
-	{
-	    # Do a gapped insertion sort for this gap size.
-	    # The first gap elements a[0..gap-1] are already in gapped order
-	    # keep adding one more element until the entire array is gap sorted
-	    for (i = gap; i < n; i += 1)
-	    {
-		# add a[i] to the elements that have been gap sorted
-		# save a[i] in temp and make a hole at position i
-		temp = a[i]
-		# shift earlier gap-sorted elements up until the correct location for a[i] is found
-		for (j = i; j >= gap and a[j - gap] > temp; j -= gap)
-		{
-		    a[j] = a[j - gap]
-		}
-		# put temp (the original a[i]) in its correct location
-		a[j] = temp
-	    }
-	}
+![img2](http://interactivepython.org/runestone/static/pythonds/_images/shellsortB.png)
+
+Although this list is not completely sorted, something very interesting has happened. By sorting the sublists, we have moved the items closer to where they actually belong.
+
+Figure below shows a final insertion sort using an increment of one; in other words, a standard insertion sort. Note that by performing the earlier sublist sorts, we have now reduced the total number of shifting operations necessary to put the list in its final order. For this case, we need only four more shifts to complete the process.
+
+![img3](http://interactivepython.org/runestone/static/pythonds/_images/shellsortC.png)
+
+> Image credits: http://interactivepython.org
 
 
-## Further Reading
-[Wikipedia - Shellsort](https://en.wikipedia.org/wiki/Shellsort)
+## Algorithm
+```
+procedure shellSort()
+   A : array of items 
+	
+   /* calculate interval*/
+   while interval < A.length /3 do:
+      interval = interval * 3 + 1	    
+   end while
+   
+   while interval > 0 do:
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+      for outer = interval; outer < A.length; outer ++ do:
+
+      /* select value to be inserted */
+      valueToInsert = A[outer]
+      inner = outer
+
+         /*shift element towards right*/
+         while inner > interval -1 && A[inner - interval] >= valueToInsert do:
+            A[inner] = A[inner - interval]
+            inner = inner - interval
+         end while
+
+      /* insert the number at hole position */
+      A[inner] = valueToInsert
+
+      end for
+
+   /* calculate interval*/
+   interval = (interval -1)/3  
+
+   end while
+   
+end procedure
+```
+
+## Complexity
+**Time complexity**
+- Worst Case: **O(n<sup>2</sup>)**
+- Average Case: depends on gap sequence
+- Best Case: **O(n logn)**
+
+**Space complexity**: **O(n)** total, **O(1)** auxillary
+
+---
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---

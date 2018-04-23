@@ -15,9 +15,11 @@ class UnionFind
 public:
     using value_type = _ValueType;
 
-    UnionFind(){}
+    UnionFind()
+    {
+    }
 
-    // Connect vertices `a` and `b`.
+// Connect vertices `a` and `b`.
     void merge(value_type a, value_type b)
     {
         // 1. to guarantee that the set has both `a` and `b`
@@ -88,7 +90,7 @@ private:
     {
         size_t operator()(const SetIt& it) const
         {
-            return std::hash<const int*>{}(&*it);
+            return std::hash<const int*>{} (&*it);
         }
     };
 

@@ -5,7 +5,7 @@
 // Part of Cosmos by OpenGenus Foundation
 int main()
 {
-    std::string baconianString = "AABBBAABAAABABBABABBABBBA BABBAABBBABAAABABABBAAABB"; 
+    std::string baconianString = "AABBBAABAAABABBABABBABBBA BABBAABBBABAAABABABBAAABB";
     std::string englishString = "HELLO WORLD";
     std::map<char, std::string> generatedCipher = createBaconianMap();
     assert(encrypt(generatedCipher, englishString) == baconianString);

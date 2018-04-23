@@ -28,15 +28,19 @@ int rootChildren;
 
 bool articulation_vertex[MAXV];
 
-void articulation(int u) {
+void articulation(int u)
+{
     dfs_low[u] = dfs_num[u] = dfsNumberCounter++;
 
-    for(vii::iterator it = adjList[u].begin(); it != adjList[u].end(); it++) {
-        if (dfs_num[it->first] == WHITE) {
+    for (vii::iterator it = adjList[u].begin(); it != adjList[u].end(); it++)
+    {
+        if (dfs_num[it->first] == WHITE)
+        {
             dfs_parent[it->first] = u;
-            
-            if (u == dfsRoot) rootChildren++;
-            
+
+            if (u == dfsRoot)
+                rootChildren++;
+
             articulation(it->first);
 
             if (dfs_low[it->first] >= dfs_num[u]) // Articulation check
@@ -46,42 +50,43 @@ void articulation(int u) {
                 cout << "Bridge: (" << u << "," << it->first << ") " << endl;
 
             dfs_low[u] = min(dfs_low[u], dfs_low[it->first]);
-        
-        } else if (it->first != dfs_parent[u]) {
-            dfs_low[u] = min(dfs_low[u], dfs_num[it->first]);
+
         }
-            
+        else if (it->first != dfs_parent[u])
+            dfs_low[u] = min(dfs_low[u], dfs_num[it->first]);
+
     }
 }
 
-int main() {
-    int V,E,X,Y;
+int main()
+{
+    int V, E, X, Y;
 
     cin >> V >> E;
 
-    for (int i=0; i<E; i++) {
+    for (int i = 0; i < E; i++)
+    {
         cin >> X >> Y;
 
-        adjList[X].push_back(make_pair(Y,0));
-        adjList[Y].push_back(make_pair(X,0));
+        adjList[X].push_back(make_pair(Y, 0));
+        adjList[Y].push_back(make_pair(X, 0));
     }
 
-    for (int i=0; i<V; i++) {
-        if (dfs_num[i] == WHITE) {
+    for (int i = 0; i < V; i++)
+        if (dfs_num[i] == WHITE)
+        {
             dfsRoot = i;
             rootChildren = 0;
             articulation(i);
-            
+
             // Special case where the initial vertex is articulation
-            articulation_vertex[dfsRoot] = (rootChildren > 1); 
+            articulation_vertex[dfsRoot] = (rootChildren > 1);
         }
-    }
 
     cout << "Articulation Points: " << endl;
-    for (int i=0; i<V-1; i++) {
-        if (articulation_vertex[i]) 
+    for (int i = 0; i < V - 1; i++)
+        if (articulation_vertex[i])
             cout << "Vertex: " << i << endl;
-    }
 
     return 0;
 }

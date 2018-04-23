@@ -5,7 +5,7 @@ long long int collatzSequenceSize(long long int n)
     long long int result = 0;
     while (n != 1)
     {
-        n = (n % 2 == 0) ? n/2 : n*3 + 1;
+        n = (n % 2 == 0) ? n / 2 : n * 3 + 1;
         ++result;
     }
     return result;
@@ -24,6 +24,6 @@ int main()
             lSize = currentSize;
         }
     }
-    
+
     std::cout << l << "\n";
 }

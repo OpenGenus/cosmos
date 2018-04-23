@@ -1,24 +1,33 @@
 # Bead sort
+**Bead sort**, also called **gravity sort**, is a natural sorting algorithm. 
+In this algorithm, the idea is to represent positive integers by a set of beads, like those in an abacus. Beads are attached to vertical rods and appear to be suspended in air just before sliding down (a number is read by counting the number of beads horizontally). After these beads fall due to gravity, we get a sorted sequence of numbers from top to bottom.
 
-**Bead sort**, also called **gravity sort**, is a natural sorting algorithm. Both digital and analog hardware implementations of bead sort can achieve a sorting time of *O*(*n*); however, the implementation of this algorithm tends to be significantly slower in software and can only be used to sort lists of positive integers. Also, it would seem that even in the best case, the algorithm requires *O*(*n^2*) space.
+## Explanation
 
-## Overview
+![image1](https://raw.githubusercontent.com/pooyahatami/Algorithm-Sort-Bead/master/img/Blank-ERD-Data-Flow-Page-1.png)
 
-The bead sort operation can be compared to the manner in which beads slide on parallel poles, such as on an abacus. However, each pole may have a distinct number of beads. Initially, it may be helpful to imagine the beads suspended on vertical poles. In Step 1, put *n* rows of beads on *m* vertical poles from left to right, *n* is the length of the array to be sorted, *m* is the max num in the array.
+Sorting of `{3, 4, 1, 2}` using Bead Sort. Beads fall down one by one if there is space below.
 
-If we then allow the beads to fall, the rows now represent the same integers in sorted order. Row 1 contains the largest number in the set, while row *n* contains the smallest.
+## Algorithm
+1. Find size, **n** and maximum element, **m** of the given array `A[]`.
+2. Allocate memory and mark the beads such that there are n levels/rows and m rods/columns.
+3. For all n in `A[]`, drop **n** beads(one bead per rod) along the rods, such that no bead is already present below it.
+4. Repeat step 3 till a sorted sequence of numbers is obtained from top to bottom.
+5. Put sorted values in array using beads.
+
 
 ## Complexity
+**Time complexity**
+- **O(1)**: All beads are dropped simultaneously in a single operation. It cannot be implemented in practice.
 
-- *O*(1): The beads are all moved simultaneously in the same time unit, as would be the case with the simple physical example above. This is an abstract complexity, and cannot be implemented in practice.
-- *O*(S), where S is the sum of the integers in the input set: Each bead is moved individually. This is the case when bead sort is implemented without a mechanism to assist in finding empty spaces below the beads, such as in software implementations.
+- **O(n<sup>0.5</sup>)**: It’s the estimation for the physical model, in which beads slide down along the greased spokes. The time of free fall is proportional to the square root of the maximum height, which is proportional to n.
 
-## Further reading
+- **O(n)**: The beads are moved one row at a time.
+- **O(S)**: where S is the sum of the integers in the input set: Each bead is moved individually. 
 
-[Wikipedia - Bead sort](https://en.wikipedia.org/wiki/Bead_sort)
+**Space complexity**: **O(n<sup>2</sup>)**
 
 ---
-
 <p align="center">
 	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
 </p>

@@ -22,7 +22,10 @@ int main()
     std::cin >> b;
     std::cout << "Enter integration step: " << std::endl;
     std::cin >> step;
-    res = integralTrapezoid(a, b, step, [](double x)->double{return x;});
+    res = integralTrapezoid(a, b, step, [](double x) -> double
+    {
+        return x;
+    });
     std::cout << "Result: " << res << std::endl;
     return 0;
 }
