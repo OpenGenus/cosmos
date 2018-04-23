@@ -5,25 +5,23 @@
 #include <iostream>
 #include <algorithm>
 
-using namespace std;
-
 /* Utility functions */
 
-void fill(vector<int> &v)
+void fill(std::vector<int> &v)
 {
     for (auto& elem : v)
         elem = rand() % 100;
 }
 
-void printarr(vector<int> &v)
+void printarr(std::vector<int> &v)
 {
     for (const auto& elem : v)
-        cout << elem << " ";
-    cout << "\n";
+        std::cout << elem << " ";
+    std::cout << "\n";
 }
 
 /* Binary search with fewer comparisons */
-int binary_search(vector<int> &v, int key)
+int binary_search(std::vector<int> &v, int key)
 {
     int m;
 
@@ -49,19 +47,19 @@ int binary_search(vector<int> &v, int key)
 int main()
 {
     int size;
-    cout << "Enter the array size:";
-    cin >> size;
+    std::cout << "Enter the array size:";
+    std::cin >> size;
 
-    vector<int> v(size);
+    std::vector<int> v(size);
     fill(v);
 
-    cout << "Array (sorted) : ";
+    std::cout << "Array (sorted) : ";
     sort(v.begin(), v.end());
     printarr(v);
 
-    cout << "Search for (input search key) : ";
+    std::cout << "Search for (input search key) : ";
     int key;
-    cin >> key;
+    std::cin >> key;
 
-    cout << "Found " << key << " at index " << binary_search(v, key) << endl;
+    std::cout << "Found " << key << " at index " << binary_search(v, key) << "\n";
 }
