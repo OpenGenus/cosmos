@@ -13,7 +13,7 @@ void fill(std::vector<int> &v)
         elem = rand() % 100;
 }
 
-void printarr(std::vector<int> &v)
+void printArr(std::vector<int> &v)
 {
     for (const auto& elem : v)
         std::cout << elem << " ";
@@ -21,7 +21,7 @@ void printarr(std::vector<int> &v)
 }
 
 /* Binary search with fewer comparisons */
-int binary_search(std::vector<int> &v, int key)
+int binarySearch(std::vector<int> &v, int key)
 {
     int m;
 
@@ -55,11 +55,11 @@ int main()
 
     std::cout << "Array (sorted) : ";
     sort(v.begin(), v.end());
-    printarr(v);
+    printArr(v);
 
-    std::cout << "Search for (input search key) : ";
     int key;
+    std::cout << "Search for (input search key) : ";
     std::cin >> key;
 
-    std::cout << "Found " << key << " at index " << binary_search(v, key) << "\n";
+    std::cout << "Found " << key << " at index " << binarySearch(v, key) << "\n";
 }
