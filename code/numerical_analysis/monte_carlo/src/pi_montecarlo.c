@@ -6,7 +6,7 @@
 double
 pi_monte_carlo(double point_count)
 {
-    double pi, x, y, circle_points = 0;
+    double x, y, circle_points = 0;
     int i;
     for (i = 0; i < point_count; ++i){
         x = (double)random() / RAND_MAX;
