@@ -1,3 +1,5 @@
+//The following is a task given as a part of screening test for internship
+//implemention of an AVL tree data structure
 #include<iostream>
 #include<algorithm>
 #define nullptr NULL
