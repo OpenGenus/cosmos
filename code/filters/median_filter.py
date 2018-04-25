@@ -35,6 +35,7 @@ def main():
     arr = numpy.array(img)
 
     ##3 defines the no of layers for the filter
+    ##It also defines that the filter will be 3x3 size. Change 3 to 5 for a 5x5 filter
 
     removed_noise = median_filter(arr, 3)
     img = Image.fromarray(removed_noise)
