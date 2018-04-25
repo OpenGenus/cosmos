@@ -41,5 +41,5 @@ def main():
     img = Image.fromarray(removed_noise)
     img.show()
 
-
-main()
+if __name__ == '__main__':
+    main()
