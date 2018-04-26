@@ -7,7 +7,6 @@ long long int sumOfPrimesUpto(size_t limit) // Function that implements the Siev
     std::vector<bool> primesBoolArray(limit, true);
     long long int sum = 0;
     primesBoolArray[0] = primesBoolArray[1] = false;
-    size_t sqrtLimit = std::sqrt(limit) + 1;
     for (size_t i = 2; i < limit; ++i)
         if (primesBoolArray[i])
         {
