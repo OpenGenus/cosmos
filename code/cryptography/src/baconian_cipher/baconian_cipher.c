@@ -10,13 +10,19 @@ char *codes[] = {
     "BABAA", "BABAB", "BABBA", "BABBB", "BBAAA",
     "BBAAB", "BBBAA"
 };
- 
-char *get_code(const char c) {
+
+/*Function that takes a char and returns its code*/
+char 
+*get_code(const char c) 
+{
     if (c >= 97 && c <= 122) return codes[c - 97];
-    return codes[26];
+    return (codes[26]);
 }
- 
-char get_char(const char *code) {
+
+/*Function that takes a code and returns the corresponding char*/
+char 
+get_char(const char *code) 
+{
     int i;
     if (!strcmp(codes[26], code)) return ' ';
     for (i = 0; i < 26; ++i) {
@@ -26,12 +32,16 @@ char get_char(const char *code) {
     exit(1);
 }
  
-void str_tolower(char s[]) {
+void 
+str_tolower(char s[]) 
+{
     int i;
     for (i = 0; i < strlen(s); ++i) s[i] = tolower(s[i]);
 }
  
-char *bacon_encode(char plain_text[], char message[]) {
+char 
+*bacon_encode(char plain_text[], char message[]) 
+{
     int i, count;
     int plen = strlen(plain_text), mlen = strlen(message);
     int elen = 5 * plen;
@@ -60,10 +70,12 @@ char *bacon_encode(char plain_text[], char message[]) {
         else mt[i] = c;
     }
     free(et);     
-    return mt;
+    return (mt);
 }
  
-char *bacon_decode(char cipher_text[]) {
+char 
+*bacon_decode(char cipher_text[]) 
+{
     int i, count, clen = strlen(cipher_text);
     int plen;
     char *p, *ct, *pt;
@@ -86,13 +98,14 @@ char *bacon_decode(char cipher_text[]) {
     }
     pt[plen] = '\0';
     free(ct);
-    return pt;
+    return (pt);
 } 
  
-int main() {
+int 
+main() 
+{
     char plain_text[] = "this is plain text";
-    char message[] = "this is a message"
-        "such as the space.";
+    char message[] = "this is a message";
     char *cipher_text, *hidden_text;
     cipher_text = bacon_encode(plain_text, message);
     printf("Cipher text is\n\n%s\n", cipher_text);
@@ -100,5 +113,5 @@ int main() {
     printf("\nHidden text is\n\n%s\n", hidden_text);
     free(cipher_text);
     free(hidden_text);
-    return 0;
+    return (0);
 }
