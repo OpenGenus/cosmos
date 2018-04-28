@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
  
-char *codes[] = {
+const char *codes[] = {
     "AAAAA", "AAAAB", "AAABA", "AAABB", "AABAA",
     "AABAB", "AABBA", "AABBB", "ABAAA", "ABAAB",
     "ABABA", "ABABB", "ABBAA", "ABBAB", "ABBBA",
@@ -12,11 +12,10 @@ char *codes[] = {
 };
 
 /*Function that takes a char and returns its code*/
-char 
-*get_code(const char c) 
+char*
+get_code(const char c) 
 {
-    if (c >= 97 && c <= 122) (return codes[c - 97]);
-    return (codes[26]);
+    (c >= 97 && c <= 122) ? return (codes[c - 97]) : return (codes[26]);
 }
 
 /*Function that takes a code and returns the corresponding char*/
@@ -39,8 +38,8 @@ str_tolower(char s[])
     for (i = 0; i < strlen(s); ++i) s[i] = tolower(s[i]);
 }
  
-char
-*bacon_encode(char plain_text[], char message[]) 
+char*
+bacon_encode(char plain_text[], char message[]) 
 {
     int i, count;
     int plen = strlen(plain_text), mlen = strlen(message);
@@ -72,8 +71,8 @@ char
     return (mt);
 }
  
-char 
-*bacon_decode(char cipher_text[]) 
+char*
+bacon_decode(char cipher_text[]) 
 {
     int i, count, clen = strlen(cipher_text);
     int plen;
