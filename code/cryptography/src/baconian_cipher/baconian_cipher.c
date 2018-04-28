@@ -15,7 +15,7 @@ char *codes[] = {
 char 
 *get_code(const char c) 
 {
-    if (c >= 97 && c <= 122) return codes[c - 97];
+    if (c >= 97 && c <= 122) (return codes[c - 97]);
     return (codes[26]);
 }
 
@@ -39,15 +39,14 @@ str_tolower(char s[])
     for (i = 0; i < strlen(s); ++i) s[i] = tolower(s[i]);
 }
  
-char 
+char
 *bacon_encode(char plain_text[], char message[]) 
 {
     int i, count;
     int plen = strlen(plain_text), mlen = strlen(message);
     int elen = 5 * plen;
     char c;
-    char *p, *et, *mt;
-    et = malloc(elen + 1);  
+    char *p, *et = malloc(elen + 1), *mt;
     str_tolower(plain_text);
     for (i = 0, p = et; i < plen; ++i, p += 5) {
         c = plain_text[i];
@@ -78,9 +77,8 @@ char
 {
     int i, count, clen = strlen(cipher_text);
     int plen;
-    char *p, *ct, *pt;
+    char *p, *ct = calloc(clen + 1, 1), *pt;
     char c, quintet[6];
-    ct = calloc(clen + 1, 1);
     for (i = 0, count = 0; i < clen; ++i) {
         c = cipher_text[i];
         if (c >= 'a' && c <= 'z')
