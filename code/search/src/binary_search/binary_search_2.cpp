@@ -5,63 +5,56 @@
 #include <iostream>
 #include <algorithm>
 
-using namespace std;
-
 /* Utility functions */
 
-void fill(vector<int> &v)
+void fill(std::vector<int> &v)
 {
-    for (std::size_t i = 0; i < v.size(); i++)
-        v[i] = rand() % 100;
+    for (auto& elem : v)
+        elem = rand() % 100;
 }
 
-void printarr(vector<int> &v)
+void printArr(std::vector<int> &v)
 {
-    for (std::size_t i = 0; i < v.size(); i++)
-        cout << v[i] << " ";
-    cout << endl;
+    for (const auto& elem : v)
+        std::cout << elem << " ";
+    std::cout << "\n";
 }
 
 /* Binary search with fewer comparisons */
-int binary_search(vector<int> &v, int key)
+int binarySearch(std::vector<int> &v, int key)
 {
-    int m;
-
     int l = 0, r = v.size();
 
     while (r - l > 1)
     {
-        m = l + (r - l) / 2;
+        int m = l + (r - l) / 2;
 
         if (v[m] > key)
             r = m;
         else
             l = m;
     }
-
-    if (v[l] == key)
-        return l;
-    else
-        return -1;
+    
+    return (v[l] == key) ? l : -1;
 }
 
 /* Driver program */
 int main()
 {
     int size;
-    cout << "Set array size:";
-    cin >> size;
+    std::cout << "Enter the array size:";
+    std::cin >> size;
 
-    vector<int> v(size);
+    std::vector<int> v(size);
     fill(v);
 
-    cout << "Array (sorted) : ";
+    std::cout << "Array (sorted) : ";
     sort(v.begin(), v.end());
-    printarr(v);
+    printArr(v);
 
-    cout << "Search for (input search key) : ";
     int key;
-    cin >> key;
+    std::cout << "Search for (input search key) : ";
+    std::cin >> key;
 
-    cout << "Found " << key << " at index " << binary_search(v, key) << endl;
+    std::cout << "Found " << key << " at index " << binarySearch(v, key) << "\n";
 }
