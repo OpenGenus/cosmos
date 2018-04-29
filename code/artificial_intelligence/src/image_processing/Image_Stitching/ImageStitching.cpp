@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <stdio.h>
 #include <opencv2/opencv_modules.hpp>
 #include <opencv2/core/utility.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -15,28 +16,25 @@
 #include <opencv2/stitching/detail/warpers.hpp>
 #include <opencv2/stitching/warpers.hpp>
 
-using namespace std;
-using namespace cv;
-using namespace cv::detail;
 int main(int argc, char* argv[])
 {
 // Default parameters
-	vector<String> img_names;
+	std::vector<std::string> img_names;
 	double scale = 1;
-	string features_type = "orb";//"surf" or "orb" features type
+	std::string features_type = "orb";//"surf" or "orb" features type
 	float match_conf = 0.3f;
 	float conf_thresh = 1.f;
-	string adjuster_method = "ray";//"reproj" or "ray" adjuster method
+	std::string adjuster_method = "ray";//"reproj" or "ray" adjuster method
 	bool do_wave_correct = true;
-	WaveCorrectKind wave_correct_type = WAVE_CORRECT_HORIZ;
-	string warp_type = "spherical";
-	int expos_comp_type = ExposureCompensator::GAIN_BLOCKS;
-	string seam_find_type = "gc_color";
+	cv::detail::WaveCorrectKind wave_correct_type = cv::detail::WAVE_CORRECT_HORIZ;
+	std::string warp_type = "spherical";
+	int expos_comp_type = cv::detail::ExposureCompensator::GAIN_BLOCKS;
+	std::string seam_find_type = "gc_color";
 
 	float blend_strength = 5;
-	int blend_type = Blender::MULTI_BAND;
-	string result_name = "img/panorama_result.jpg";
-	double start_time = getTickCount();
+	int blend_type = cv::detail::Blender::MULTI_BAND;
+	std::string result_name = "img/panorama_result.jpg";
+	double start_time = cv::getTickCount();
 	// 1-Input images
 	if(argc > 1)
 	{
@@ -50,52 +48,52 @@ int main(int argc, char* argv[])
 	}
 	// Check if have enough images
 	int num_images = static_cast<int>(img_names.size());
-	if (num_images < 2) {cout << "Need more images" << endl; return -1; }
+	if (num_images < 2) {std::cout << "Need more images" << std::endl; return -1; }
 	// 2- Resize images and find features steps
-	cout << "Finding features..." << endl;
-	double t = getTickCount();
-	Ptr<FeaturesFinder> finder;
+	std::cout << "Finding features..." << std::endl;
+	double t = cv::getTickCount();
+	cv::Ptr<cv::detail::FeaturesFinder> finder;
 	if (features_type == "surf")
-		finder = makePtr<SurfFeaturesFinder>();
+		finder = cv::makePtr<cv::detail::SurfFeaturesFinder>();
 	else if (features_type == "orb")
-		finder = makePtr<OrbFeaturesFinder>();
+		finder = cv::makePtr<cv::detail::OrbFeaturesFinder>();
 	else 
-		{cout << "Unknown 2D features type: '" << features_type <<	endl; return -1; }
+		{std::cout << "Unknown 2D features type: '" << features_type <<	std::endl; return -1; }
 	
-	Mat full_img, img;
-	vector<ImageFeatures> features(num_images);
-	vector<Mat> images(num_images);
+	cv::Mat full_img, img;
+	std::vector<cv::detail::ImageFeatures> features(num_images);
+	std::vector<cv::Mat> images(num_images);
 
-	vector<Size> full_img_sizes(num_images);
+	std::vector<cv::Size> full_img_sizes(num_images);
 	for (int i = 0; i < num_images; ++i)
 	{
-		full_img = imread(img_names[i]);
+		full_img = cv::imread(img_names[i]);
 		full_img_sizes[i] = full_img.size();
 		if (full_img.empty()) 
-			{cout << "Can't open image " << img_names[i] << endl; return -1; }
-		resize(full_img, img, Size(), scale, scale);
+			{std::cout << "Can't open image " << img_names[i] << std::endl; return -1; }
+		resize(full_img, img, cv::Size(), scale, scale);
 		images[i] = img.clone();
 		(*finder)(img, features[i]);
 		features[i].img_idx = i;
-		cout << "Features in image #" << i+1 << " are : " <<features[i].keypoints.size() << endl;
+		std::cout << "Features in image #" << i+1 << " are : " <<features[i].keypoints.size() << std::endl;
 	}
 	finder->collectGarbage();
 	full_img.release();
 	img.release();
-	cout << "Finding features, time: " << ((getTickCount() - t) /getTickFrequency()) << " sec" << endl;
-	// 3- Match features
-	cout << "Pairwise matching" << endl;
-	t = getTickCount();
-	vector<MatchesInfo> pairwise_matches;
-	BestOf2NearestMatcher matcher(false, match_conf);
+	std::cout << "Finding features, time: " << ((cv::getTickCount() - t) /cv::getTickFrequency()) << " sec" << std::endl;
+	// 3- cv::Match features
+	std::cout << "Pairwise matching" << std::endl;
+	t = cv::getTickCount();
+	std::vector<cv::detail::MatchesInfo> pairwise_matches;
+	BestOf2Nearestcv::Matcher matcher(false, match_conf);
 	matcher(features, pairwise_matches);
 	matcher.collectGarbage();
-	cout << "Pairwise matching, time: " << ((getTickCount() - t) /getTickFrequency()) << " sec" << endl;
+	std::cout << "Pairwise matching, time: " << ((cv::getTickCount() - t) /cv::getTickFrequency()) << " sec" << std::endl;
 	// 4- Select images and matches subset to build panorama
-	vector<int> indices = leaveBiggestComponent(features, pairwise_matches, conf_thresh);
-	vector<Mat> img_subset;
-	vector<String> img_names_subset;
-	vector<Size> full_img_sizes_subset;
+	std::vector<int> indices = leaveBiggestComponent(features, pairwise_matches, conf_thresh);
+	std::vector<cv::Mat> img_subset;
+	std::vector<std::string> img_names_subset;
+	std::vector<cv::Size> full_img_sizes_subset;
 
 	for (size_t i = 0; i < indices.size(); ++i)
 	{
@@ -109,37 +107,37 @@ int main(int argc, char* argv[])
 	full_img_sizes = full_img_sizes_subset;
 	// Estimate camera parameters rough
 	HomographyBasedEstimator estimator;
-	cout<<"0\n";
-	vector<CameraParams> cameras;
+	std::cout<<"0\n";
+	std::vector<CameraParams> cameras;
 	estimator(features, pairwise_matches, cameras);
 	// // if (!estimator(features, pairwise_matches, cameras))
-	// // 	{cout <<"Homography estimation failed." << endl; return -1; }
-	cout<<"1\n";
+	// // 	{std::cout <<"Homography estimation failed." << std::endl; return -1; }
+	std::cout<<"1\n";
 	for (size_t i = 0; i < cameras.size(); ++i)
 	{
-		Mat R;
-		cout<<"2\n";
+		cv::Mat R;
+		std::cout<<"2\n";
 		cameras[i].R.convertTo(R, CV_32F);
 		cameras[i].R = R;
-		cout << "Initial intrinsic #" << indices[i]+1 << ":\n" <<cameras[i].K() << endl;
+		std::cout << "Initial intrinsic #" << indices[i]+1 << ":\n" <<cameras[i].K() << std::endl;
 	}
 	// 5- Refine camera parameters globally
-	Ptr<BundleAdjusterBase> adjuster;
+	cv::Ptr<BundleAdjusterBase> adjuster;
 	if (adjuster_method == "reproj")
 	// "reproj" method
-	adjuster = makePtr<BundleAdjusterReproj>();
+	adjuster = cv::makePtr<BundleAdjusterReproj>();
 	else // "ray" method
-	adjuster = makePtr<BundleAdjusterRay>();
+	adjuster = cv::makePtr<BundleAdjusterRay>();
 	adjuster->setConfThresh(conf_thresh);
 	if (!(*adjuster)(features, pairwise_matches, cameras)) 
-		{cout <<"Camera parameters adjusting failed." << endl; return -1; }
+		{std::cout <<"Camera parameters adjusting failed." << std::endl; return -1; }
 	// Find median focal length
-	vector<double> focals;
+	std::vector<double> focals;
 
 
 	for (size_t i = 0; i < cameras.size(); ++i)
 	{
-		cout << "Camera #" << indices[i]+1 << ":\n" << cameras[i].K()<< endl;
+		std::cout << "Camera #" << indices[i]+1 << ":\n" << cameras[i].K()<< std::endl;
 		focals.push_back(cameras[i].focal);
 	}
 	sort(focals.begin(), focals.end());
@@ -151,7 +149,7 @@ int main(int argc, char* argv[])
 	// 6- Wave correlation (optional)
 	if (do_wave_correct)
 	{
-		vector<Mat> rmats;
+		std::vector<cv::Mat> rmats;
 		for (size_t i = 0; i < cameras.size(); ++i)
 			rmats.push_back(cameras[i].R.clone());
 		waveCorrect(rmats, wave_correct_type);
@@ -159,41 +157,41 @@ int main(int argc, char* argv[])
 			cameras[i].R = rmats[i];
 	}
 	// 7- Warp images
-	cout << "Warping images (auxiliary)... " << endl;
-	t = getTickCount();
-	vector<Point> corners(num_images);
-	vector<UMat> masks_warped(num_images);
-	vector<UMat> images_warped(num_images);
-	vector<Size> sizes(num_images);
-	vector<UMat> masks(num_images);
+	std::cout << "Warping images (auxiliary)... " << std::endl;
+	t = cv::getTickCount();
+	std::vector<Point> corners(num_images);
+	std::vector<Ucv::Mat> masks_warped(num_images);
+	std::vector<Ucv::Mat> images_warped(num_images);
+	std::vector<cv::Size> sizes(num_images);
+	std::vector<Ucv::Mat> masks(num_images);
 	// Prepare images masks
 	for (int i = 0; i < num_images; ++i)
 	{
 		masks[i].create(images[i].size(), CV_8U);
-		masks[i].setTo(Scalar::all(255));
+		masks[i].setTo(cv::Scalar::all(255));
 	}
 	// Map projections
-	Ptr<WarperCreator> warper_creator;
+	cv::Ptr<WarperCreator> warper_creator;
 	if (warp_type == "rectilinear")
-		warper_creator = makePtr<cv::CompressedRectilinearWarper>(2.0f, 1.0f);
+		warper_creator = cv::makePtr<cv::CompressedRectilinearWarper>(2.0f, 1.0f);
 	else if (warp_type == "cylindrical")
-		warper_creator = makePtr<cv::CylindricalWarper>();
+		warper_creator = cv::makePtr<cv::CylindricalWarper>();
 	else if (warp_type == "spherical")
-		warper_creator = makePtr<cv::SphericalWarper>();
+		warper_creator = cv::makePtr<cv::SphericalWarper>();
 	else if (warp_type == "stereographic")
-		warper_creator = makePtr<cv::StereographicWarper>();
+		warper_creator = cv::makePtr<cv::StereographicWarper>();
 	else if (warp_type == "panini")
-		warper_creator = makePtr<cv::PaniniWarper>(2.0f, 1.0f);
+		warper_creator = cv::makePtr<cv::PaniniWarper>(2.0f, 1.0f);
 
 	if (!warper_creator)
 	{ 
-			cout << "Can't create the following warper" << warp_type << endl; return 1;
+			std::cout << "Can't create the following warper" << warp_type << std::endl; return 1;
 	}
-	Ptr<RotationWarper> warper = warper_creator->create(static_cast<float>(warped_image_scale * scale));
+	cv::Ptr<RotationWarper> warper = warper_creator->create(static_cast<float>(warped_image_scale * scale));
 
 	for (int i = 0; i < num_images; ++i)
 	{
-		Mat_<float> K;
+		cv::Mat_<float> K;
 		cameras[i].K().convertTo(K, CV_32F);
 		float swa = (float)scale;
 		K(0,0) *= swa; K(0,2) *= swa;
@@ -201,34 +199,34 @@ int main(int argc, char* argv[])
 		corners[i] = warper->warp(images[i], K, cameras[i].R, INTER_LINEAR, BORDER_REFLECT, images_warped[i]);
 
 		sizes[i] = images_warped[i].size();
-		warper->warp(masks[i], K, cameras[i].R, INTER_NEAREST, BORDER_CONSTANT, masks_warped[i]);
+		warper->warp(masks[i], K, cameras[i].R, cv::INTER_NEAREST, cv::BORDER_CONSTANT, masks_warped[i]);
 	}
-	vector<UMat> images_warped_f(num_images);
+	std::vector<Ucv::Mat> images_warped_f(num_images);
 
 	for (int i = 0; i < num_images; ++i)
 		images_warped[i].convertTo(images_warped_f[i], CV_32F);
 	
-	cout << "Warping images, time: " << ((getTickCount() - t) /	getTickFrequency()) << " sec" << endl;
+	std::cout << "Warping images, time: " << ((cv::getTickCount() - t) /cv::getTickFrequency()) << " sec" << std::endl;
 	// 8- Compensate exposure errors
-	Ptr<ExposureCompensator> compensator = ExposureCompensator::createDefault(expos_comp_type);
+	cv::Ptr<Ecv::detail::xposureCompensator> compensatcv::detail::or = ExposureCompensator::createDefault(expos_comp_type);
 	compensator->feed(corners, images_warped, masks_warped);
 	// 9- Find seam masks
-	Ptr<SeamFinder> seam_finder;
+	cv::Ptr<SeamFinder> seam_finder;
 	if (seam_find_type == "no")
-		seam_finder = makePtr<NoSeamFinder>();
+		seam_finder = cv::makePtr<NoSeamFinder>();
 	else if (seam_find_type == "voronoi")
-		seam_finder = makePtr<VoronoiSeamFinder>();
+		seam_finder = cv::makePtr<VoronoiSeamFinder>();
 	else if (seam_find_type == "gc_color")
-		seam_finder = makePtr<GraphCutSeamFinder>(GraphCutSeamFinderBase::COST_COLOR);
+		seam_finder = cv::makePtr<GraphCutSeamFinder>(GraphCutSeamFinderBase::COST_COLOR);
 	else if (seam_find_type == "gc_colorgrad")
-		seam_finder = makePtr<GraphCutSeamFinder>(GraphCutSeamFinderBase::COST_COLOR_GRAD);
+		seam_finder = cv::makePtr<GraphCutSeamFinder>(GraphCutSeamFinderBase::COST_COLOR_GRAD);
 	else if (seam_find_type == "dp_color")
-		seam_finder = makePtr<DpSeamFinder>(DpSeamFinder::COLOR);
+		seam_finder = cv::makePtr<DpSeamFinder>(DpSeamFinder::COLOR);
 	else if (seam_find_type == "dp_colorgrad")
-		seam_finder = makePtr<DpSeamFinder>(DpSeamFinder::COLOR_GRAD);
+		seam_finder = cv::makePtr<DpSeamFinder>(DpSeamFinder::COLOR_GRAD);
 	if (!seam_finder)
 	{
-		cout << "Can't create the following seam finder" << seam_find_type << endl; 
+		std::cout << "Can't create the following seam finder" << seam_find_type << std::endl; 
 		return 1; 
 	}
 
@@ -240,59 +238,59 @@ int main(int argc, char* argv[])
 	images_warped_f.clear();
 	masks.clear();
 	// 10- Create a blender
-	Ptr<Blender> blender = Blender::createDefault(blend_type, false);
-	Size dst_sz = resultRoi(corners, sizes).size();
+	cv::Ptr<cv::detail::Blender> blender = cv::detail::Blender::createDefault(blend_type, false);
+	cv::Size dst_sz = resultRoi(corners, sizes).size();
 	float blend_width = sqrt(static_cast<float>(dst_sz.area())) *blend_strength / 100.f;
 
 	if (blend_width < 1.f)
-		blender = Blender::createDefault(Blender::NO, false);
-	else if (blend_type == Blender::MULTI_BAND)
+		blender = cv::detail::Blender::createDefault(cv::detail::Blender::NO, false);
+	else if (blend_type == cv::detail::Blender::MULTI_BAND)
 	{
-		MultiBandBlender* mb = dynamic_cast<MultiBandBlender*>(blender.get());
+		MultiBandcv::detail::Blender* mb = dynamic_cast<MultiBandcv::detail::Blender*>(blender.get());
 		mb->setNumBands(static_cast<int>(ceil(log(blend_width)/	log(2.)) - 1.));
-		cout << "Multi-band blender, number of bands: " << mb->numBands() << endl;
+		std::cout << "Multi-band blender, number of bands: " << mb->numBands() << std::endl;
 	}
-	else if (blend_type == Blender::FEATHER)
+	else if (blend_type == cv::detail::Blender::FEATHER)
 	{
-		FeatherBlender* fb = dynamic_cast<FeatherBlender*>(blender.get());
+		Feathercv::detail::Blender* fb = dynamic_cast<Feathercv::detail::Blender*>(blender.get());
 		fb->setSharpness(1.f/blend_width);
-		cout << "Feather blender, sharpness: " << fb->sharpness() <<	endl;
+		std::cout << "Feather blender, sharpness: " << fb->sharpness() <<	std::endl;
 	}
 	blender->prepare(corners, sizes);
 	// 11- Compositing step
-	cout << "Compositing..." << endl;
-	t = getTickCount();
-	Mat img_warped, img_warped_s;
+	std::cout << "Compositing..." << std::endl;
+	t = cv::getTickCount();
+	cv::Mat img_warped, img_warped_s;
 
 
 
-	Mat dilated_mask, seam_mask, mask, mask_warped;
+	cv::Mat dilated_mask, seam_mask, mask, mask_warped;
 	for (int img_idx = 0; img_idx < num_images; ++img_idx)
 	{
-		cout << "Compositing image #" << indices[img_idx]+1	<< endl;
+		std::cout << "Compositing image #" << indices[img_idx]+1	<< std::endl;
 		// 11.1- Read image and resize it if necessary
-		full_img = imread(img_names[img_idx]);
+		full_img = cv::imread(img_names[img_idx]);
 		if (abs(scale - 1) > 1e-1)
-			resize(full_img, img, Size(), scale, scale);
+			resize(full_img, img, cv::Size(), scale, scale);
 		else
 			img = full_img;
 		full_img.release();
-		Size img_size = img.size();
-		Mat K;
+		cv::Size img_size = img.size();
+		cv::Mat K;
 		cameras[img_idx].K().convertTo(K, CV_32F);
 		// 11.2- Warp the current image
 		warper->warp(img, K, cameras[img_idx].R, INTER_LINEAR, BORDER_REFLECT,img_warped);
 		// Warp the current image mask
 		mask.create(img_size, CV_8U);
-		mask.setTo(Scalar::all(255));
-		warper->warp(mask, K, cameras[img_idx].R, INTER_NEAREST,BORDER_CONSTANT, mask_warped);
+		mask.setTo(cv::Scalar::all(255));
+		warper->warp(mask, K, cameras[img_idx].R, cv::INTER_NEAREST,cv::BORDER_CONSTANT, mask_warped);
 		// 11.3- Compensate exposure error step
 		compensator->apply(img_idx, corners[img_idx], img_warped, mask_warped);
 		img_warped.convertTo(img_warped_s, CV_16S);
 		img_warped.release();
 		img.release();
 		mask.release();
-		dilate(masks_warped[img_idx], dilated_mask, Mat());
+		dilate(masks_warped[img_idx], dilated_mask, cv::Mat());
 		resize(dilated_mask, seam_mask, mask_warped.size());
 
 
@@ -300,12 +298,12 @@ int main(int argc, char* argv[])
 		// 11.4- Blending images step
 		blender->feed(img_warped_s, mask_warped, corners[img_idx]);
 	}
-	Mat result, result_mask;
+	cv::Mat result, result_mask;
 	blender->blend(result, result_mask);
-	cout << "Compositing, time: " << ((getTickCount() - t) /getTickFrequency()) << " sec" << endl;
+	std::cout << "Compositing, time: " << ((cv::getTickCount() - t) /cv::getTickFrequency()) << " sec" << std::endl;
 	imwrite(result_name, result);
 	// imshow(result_name,result);
 	// waitKey(8000);
-	cout << "Finished, total time: " << ((getTickCount() - start_time)/ getTickFrequency()) << " sec" << endl;
+	std::cout << "Finished, total time: " << ((cv::getTickCount() - start_time)/ cv::getTickFrequency()) << " sec" << std::endl;
 	return 0;
 }
