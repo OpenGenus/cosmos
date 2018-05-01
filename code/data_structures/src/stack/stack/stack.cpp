@@ -19,6 +19,7 @@ private:
     node<T> *top;
 public:
     Stack();
+    ~Stack();
     void push(T);
     T pop();
     void display();
@@ -27,6 +28,21 @@ public:
 template <class T> Stack<T>::Stack()
 {
     top = nullptr;
+}
+
+template <class T> Stack<T>::~Stack()
+{
+    if (top)
+    {
+        node<T> * ptr = top;
+        node<T> * tmp = nullptr;
+        while (ptr)
+        {
+            tmp = ptr;
+            ptr = ptr->next;
+            delete tmp;
+        }
+    }
 }
 
 template <class T> void Stack<T>::push(T n)
@@ -63,9 +79,8 @@ int main()
 {
     Stack<int> S;
     int n, choice;
-    while (true)
+    while (choice != 4)
     {
-        system("cls");
         cout << "1.Push" << endl
              << "2.Pop" << endl
              << "3.Display" << endl
@@ -83,10 +98,9 @@ int main()
             break;
         case 3:
             S.display();
-            system("pause");
             break;
         default:
-            exit(0);
+            break;
         }
     }
     return 0;
