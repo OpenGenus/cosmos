@@ -11,13 +11,11 @@
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 
-using namespace std;
-using namespace cv;
 
 
-canny::canny(String filename)
+canny::canny(std::string filename)
 {
-	img = imread(filename);
+	img = cv::imread(filename);
 	
 	if (!img.data) // Check for invalid input
 	{
@@ -27,7 +25,7 @@ canny::canny(String filename)
 	else
 	{
 
-	vector<vector<double>> filter = createFilter(3, 3, 1);
+	std::vector<std::vector<double>> filter = createFilter(3, 3, 1);
 
     //Print filter
     for (int i = 0; i<filter.size(); i++) 
@@ -37,26 +35,26 @@ canny::canny(String filename)
             cout << filter[i][j] << " ";
         }
     }
-    grayscaled = Mat(img.toGrayScale()); //Grayscale the image
-    gFiltered = Mat(useFilter(grayscaled, filter)); //Gaussian Filter
-    sFiltered = Mat(sobel()); //Sobel Filter
+    grayscaled = cv::Mat(img.toGrayScale()); //Grayscale the image
+    gFiltered = cv::Mat(useFilter(grayscaled, filter)); //Gaussian Filter
+    sFiltered = cv::Mat(sobel()); //Sobel Filter
 
-    non = Mat(nonMaxSupp()); //Non-Maxima Suppression
-    thres = Mat(threshold(non, 20, 40)); //Double Threshold and Finalize
+    non = cv::Mat(nonMaxSupp()); //Non-Maxima Suppression
+    thres = cv::Mat(threshold(non, 20, 40)); //Double Threshold and Finalize
 	
-	namedWindow("Original");  
-    namedWindow("GrayScaled");
-    namedWindow("Gaussian Blur");
-    namedWindow("Sobel Filtered");
-    namedWindow("Non-Maxima Supp.");
-    namedWindow("Final");
+	cv::namedWindow("Original");  
+    cv::namedWindow("GrayScaled");
+    cv::namedWindow("Gaussian Blur");
+    cv::namedWindow("Sobel Filtered");
+    cv::namedWindow("Non-Maxima Supp.");
+    cv::namedWindow("Final");
 
-    imshow("Original", img);                  
-    imshow("GrayScaled", grayscaled);
-    imshow("Gaussian Blur", gFiltered);
-    imshow("Sobel Filtered", sFiltered);
-    imshow("Non-Maxima Supp.", non);
-    imshow("Final", thres);
+    cv::imshow("Original", img);                  
+    cv::imshow("GrayScaled", grayscaled);
+    cv::imshow("Gaussian Blur", gFiltered);
+    cv::imshow("Sobel Filtered", sFiltered);
+    cv::imshow("Non-Maxima Supp.", non);
+    cv::imshow("Final", thres);
 
 	}
 }
@@ -78,13 +76,13 @@ Mat canny::toGrayScale()
     return grayscaled;
 }
 
-vector<vector<double>> canny::createFilter(int row, int column, double sigmaIn)
+std::vector<std::vector<double>> canny::createFilter(int row, int column, double sigmaIn)
 {
-	vector<vector<double>> filter;
+	std::vector<std::vector<double>> filter;
 
 	for (int i = 0; i < row; i++)
 	{
-        vector<double> col;
+        std::vector<double> col;
         for (int j = 0; j < column; j++)
         {
             col.push_back(-1);
@@ -117,10 +115,10 @@ vector<vector<double>> canny::createFilter(int row, int column, double sigmaIn)
 
 }
 
-Mat canny::useFilter(Mat img_in, vector<vector<double>> filterIn)
+cv::Mat canny::useFilter(cv::Mat img_in, std::vector<std::vector<double>> filterIn)
 {
     int size = (int)filterIn.size()/2;
-	Mat filteredImg = Mat(img_in.rows - 2*size, img_in.cols - 2*size, CV_8UC1);
+	cv::Mat filteredImg = cv::Mat(img_in.rows - 2*size, img_in.cols - 2*size, CV_8UC1);
 	for (int i = size; i < img_in.rows - size; i++)
 	{
 		for (int j = size; j < img_in.cols - size; j++)
@@ -140,7 +138,7 @@ Mat canny::useFilter(Mat img_in, vector<vector<double>> filterIn)
 	return filteredImg;
 }
 
-Mat canny::sobel()
+cv::Mat canny::sobel()
 {
 
     //Sobel X Filter
@@ -148,7 +146,7 @@ Mat canny::sobel()
     double x2[] = {-2.0, 0, 2.0};
     double x3[] = {-1.0, 0, 1.0};
 
-    vector<vector<double>> xFilter(3);
+    std::vector<std::vector<double>> xFilter(3);
     xFilter[0].assign(x1, x1+3);
     xFilter[1].assign(x2, x2+3);
     xFilter[2].assign(x3, x3+3);
@@ -158,7 +156,7 @@ Mat canny::sobel()
     double y2[] = {0, 0, 0};
     double y3[] = {-1.0, -2.0, -1.0};
     
-    vector<vector<double>> yFilter(3);
+    std::vector<std::vector<double>> yFilter(3);
     yFilter[0].assign(y1, y1+3);
     yFilter[1].assign(y2, y2+3);
     yFilter[2].assign(y3, y3+3);
@@ -166,9 +164,9 @@ Mat canny::sobel()
     //Limit Size
     int size = (int)xFilter.size()/2;
     
-	Mat filteredImg = Mat(gFiltered.rows - 2*size, gFiltered.cols - 2*size, CV_8UC1);
+	cv::Mat filteredImg = cv::Mat(gFiltered.rows - 2*size, gFiltered.cols - 2*size, CV_8UC1);
     
-    angles = Mat(gFiltered.rows - 2*size, gFiltered.cols - 2*size, CV_32FC1); //AngleMap
+    angles = cv::Mat(gFiltered.rows - 2*size, gFiltered.cols - 2*size, CV_32FC1); //AngleMap
 
 	for (int i = size; i < gFiltered.rows - size; i++)
 	{
@@ -203,9 +201,9 @@ Mat canny::sobel()
 }
 
 
-Mat canny::nonMaxSupp()
+cv::Mat canny::nonMaxSupp()
 {
-    Mat nonMaxSupped = Mat(sFiltered.rows-2, sFiltered.cols-2, CV_8UC1);
+    cv::Mat nonMaxSupped = cv::Mat(sFiltered.rows-2, sFiltered.cols-2, CV_8UC1);
     for (int i=1; i< sFiltered.rows - 1; i++) {
         for (int j=1; j<sFiltered.cols - 1; j++) {
             float Tangent = angles.at<float>(i,j);
@@ -242,14 +240,14 @@ Mat canny::nonMaxSupp()
     return nonMaxSupped;
 }
 
-Mat canny::threshold(Mat imgin,int low, int high)
+cv::Mat canny::threshold(cv::Mat imgin,int low, int high)
 {
     if(low > 255)
         low = 255;
     if(high > 255)
         high = 255;
     
-    Mat EdgeMat = Mat(imgin.rows, imgin.cols, imgin.type());
+    cv::Mat EdgeMat = cv::Mat(imgin.rows, imgin.cols, imgin.type());
     
     for (int i=0; i<imgin.rows; i++) 
     {

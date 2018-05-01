@@ -1,16 +1,13 @@
 #include<iostream>
-#include<cmath>
 #include<opencv2/imgproc/imgproc.hpp>
 #include<opencv2/highgui/highgui.hpp>
  
-using namespace std;
-using namespace cv;
  
  
 // Computes the x component of the gradient vector
 // at a given point in a image.
 // returns gradient in the x direction
-int xGradient(Mat image, int x, int y)
+int xGradient(cv::Mat image, int x, int y)
 {
     return image.at<uchar>(y-1, x-1) 
                 +2*image.at<uchar>(y, x-1) 
@@ -24,7 +21,7 @@ int xGradient(Mat image, int x, int y)
 // at a given point in a image
 // returns gradient in the y direction
  
-int yGradient(Mat image, int x, int y)
+int yGradient(cv::Mat image, int x, int y)
 {
     return image.at<uchar>(y-1, x-1) 
                 +2*image.at<uchar>(y-1, x) 
@@ -37,11 +34,11 @@ int yGradient(Mat image, int x, int y)
 int main()
 {
  
-      Mat src, dst;
+      cv::Mat src, dst;
       int gx, gy, sum;
  
       // Load an image
-      src = imread("lena.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+      src = cv::imread("lena.jpg", CV_LOAD_IMAGE_GRAYSCALE);
       dst = src.clone();
       if( !src.data )
       { return -1; }
@@ -62,13 +59,13 @@ int main()
             }
         }
  
-        namedWindow("final");
-        imshow("final", dst);
+        cv::namedWindow("final");
+        cv::imshow("final", dst);
  
-        namedWindow("initial");
-        imshow("initial", src);
+        cv::namedWindow("initial");
+        cv::imshow("initial", src);
  
-      waitKey();
+      cv::waitKey();
  
  
     return 0;
