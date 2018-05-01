@@ -10,7 +10,7 @@ main()
     
     printf("Enter the total number of inputs : ");
     scanf("%d", &n);
-	printf("\nEnter the numbers\n");
+    printf("\nEnter the numbers\n");
     
     for (i = 0; i < n; i++, sum += tmp) {
 	   scanf("%d", &tmp);		
