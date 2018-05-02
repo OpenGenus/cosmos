@@ -9,14 +9,14 @@ template <typename T>
 struct Node
 {
     T n;
-    Node *next;
+    Node* next;
 };
 
 template <class T>
 class Stack
 {
 private:
-    Node<T> *top;
+    Node<T>* top;
 public:
     Stack();
     ~Stack();
@@ -34,10 +34,10 @@ template <class T> Stack<T>::~Stack()
 {
     if (top)
     {
-        Node<T> * ptr = top;
+        Node<T>* ptr = top;
         while (ptr)
         {
-            Node<T> * tmp = ptr;
+            Node<T>* tmp = ptr;
             ptr = ptr->next;
             delete tmp;
         }
@@ -46,7 +46,7 @@ template <class T> Stack<T>::~Stack()
 
 template <class T> void Stack<T>::push(T n)
 {
-    Node<T> *ptr = new Node<T>;
+    Node<T>* ptr = new Node<T>;
     ptr->n = n;
     ptr->next = top;
     top = ptr;
@@ -56,7 +56,7 @@ template <class T> T Stack<T>::pop()
 {
     if (top == nullptr)
         return INT_MIN;
-    Node<T> *ptr = top;
+    Node<T>* ptr = top;
     T n = ptr->n;
     top = top->next;
     delete ptr;
@@ -65,7 +65,7 @@ template <class T> T Stack<T>::pop()
 
 template <class T> void Stack<T>::display()
 {
-    Node<T> *ptr = top;
+    Node<T>* ptr = top;
     while (ptr != nullptr)
     {
         cout << ptr->n << "-> ";
