@@ -68,7 +68,7 @@ is_valid_ip(char* ip_str)
 int 
 main(void)
 {
-    char ip_correct[] = "172.31.255.255\0";
+    char ip_correct[] = "172.31.255.255";
     char ip_incorrect[] = "192.168.2.300";
     assert(is_valid_ip(ip_correct));
     assert(!is_valid_ip(ip_incorrect));
