@@ -35,10 +35,9 @@ template <class T> Stack<T>::~Stack()
     if (top)
     {
         Node<T> * ptr = top;
-        Node<T> * tmp = nullptr;
         while (ptr)
         {
-            tmp = ptr;
+            Node<T> * tmp = ptr;
             ptr = ptr->next;
             delete tmp;
         }
