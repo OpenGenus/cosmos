@@ -17,10 +17,11 @@ create_stack(unsigned capacity)
     stack->capacity = capacity;
     stack->top = -1;
     stack->array = (int*) malloc(stack->capacity * sizeof(int));
-    return stack;
+    return (stack);
 }
 
-void delete_stack(struct Stack * stack)
+void 
+delete_stack(struct Stack * stack)
 {
     free(stack->array);
     free(stack);
@@ -29,13 +30,13 @@ void delete_stack(struct Stack * stack)
 int 
 is_full(struct Stack* stack)
 {   
-    return stack->top == stack->capacity - 1; 
+    return (stack->top == stack->capacity - 1); 
 }
  
 int 
 is_empty(struct Stack* stack)
 {   
-    return stack->top == -1;  
+    return (stack->top == -1);  
 }
  
 void 
@@ -50,7 +51,7 @@ int
 pop(struct Stack* stack)
 {
     assert(!is_empty(stack));
-    return stack->array[stack->top--];
+    return (stack->array[stack->top--]);
 }
 
 int 
