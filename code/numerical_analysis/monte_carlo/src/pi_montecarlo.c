@@ -6,16 +6,15 @@
 double
 pi_monte_carlo(double point_count)
 {
-    double pi, x, y, circle_points = 0;
+    double x, y, circle_points = 0;
     int i;
     for (i = 0; i < point_count; ++i){
         x = (double)random() / RAND_MAX;
         y = (double)random() / RAND_MAX;
-        if (x * x + y * y < 1)
+        if (x * x + y * y <= 1)
             ++circle_points;
     }
-    pi = (circle_points / point_count) * 4;
-    return (pi);
+    return ((circle_points / point_count) * 4);
 }
 
 int
