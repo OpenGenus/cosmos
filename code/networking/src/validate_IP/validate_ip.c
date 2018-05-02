@@ -32,7 +32,6 @@ is_valid_ip(char* ip_str)
     if (ip_str == NULL)
         return (0);
 
- 
     /* See following link for strtok()
        http://pubs.opengroup.org/onlinepubs/009695399/functions/strtok_r.html */
     ptr = strtok(ip_str, DELIM);
