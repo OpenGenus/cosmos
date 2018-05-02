@@ -9,19 +9,20 @@ def median(nums):
     """
     sorted_nums = sorted(nums)
     len_nums = len(nums)
+    odd = len_nums % 2
 
     # If the length is odd, the median is the middle value of the sorted list.
-    if len_nums % 2:
+    if odd:
         return sorted_nums[(len_nums-1)//2]
 
     # Otherwise it's the average of the middle two.
-    return (nums[len_nums//2] + nums[(len_nums//2)-1])/2.0
+    return (nums[len_nums // 2] + nums[(len_nums // 2) - 1]) / 2
 
 
 def main():
     """Calculates median of numbers in stdin."""
     # Read stdin until EOF
-    nums_string = input("Enter the values: ")
+    nums_string = sys.stdin.read()
 
     # Split on whitespace
     num_strings = nums_string.split()
@@ -33,7 +34,7 @@ def main():
     if not nums:
         print("You didn't enter any numbers.")
     else:
-        print("The median is {0}".format(median(nums)))
+        print(median(nums))
 
 
 def test_median():
