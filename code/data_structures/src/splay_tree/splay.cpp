@@ -1,31 +1,53 @@
 #include <iostream>
 #include <stdlib.h>
 
-struct Node
+class SplayTree
 {
-    int value;
-    Node *left;
-    Node *right;
-    Node *parent;
-};
-Node *g_root;
+    public:
 
-void inOrder(Node *cur, std::string &s)
+    class Node
+    {
+        public:
+        int value;
+        Node *left = nullptr;
+        Node *right = nullptr;
+        Node *parent = nullptr;
+
+        Node(int v){
+            value = v;
+        }
+    };
+
+    void inOrder(Node*, std::string &s);
+    void rightRotate(Node*);
+    void leftRotate(Node*);
+    void splay(Node*);
+    void insert(int val);
+    Node* find(int val);
+    bool remove(int val);
+
+    Node *root=nullptr;
+
+};
+
+void SplayTree::inOrder(Node *cur, std::string &s)
 {
-    if(cur==NULL)
+    if (cur == nullptr)
         return;
-    if(cur->left)
+    if (cur->left)
         inOrder(cur->left, s);
     s += std::to_string(cur->value) + " ";
-    if(cur->right)
+    if (cur->right)
         inOrder(cur->right, s);
 }
-void rightRotate(Node *z)
+
+
+void SplayTree::rightRotate(Node *z)
 {
     Node *l = z->left;
     Node *c = l->right;
     Node *p = z->parent;
-    if (p != NULL)
+    if (p != nullptr)
     {
         if (p->left == z)
             p->left = l;
@@ -36,16 +58,16 @@ void rightRotate(Node *z)
     l->right = z;
     z->parent = l;
     z->left = c;
-    if (c != NULL)
+    if (c != nullptr)
         c->parent = z;
 }
 
-void leftRotate(Node *z)
+void SplayTree::leftRotate(Node *z)
 {
     Node *r = z->right;
     Node *c = r->left;
     Node *p = z->parent;
-    if (p != NULL)
+    if (p != nullptr)
     {
         if (p->left == z)
             p->left = r;
@@ -56,29 +78,29 @@ void leftRotate(Node *z)
     r->left = z;
     z->parent = r;
     z->right = c;
-    if (c != NULL)
+    if (c != nullptr)
         c->parent = z;
 }
 
-void splay(Node *z)
+void SplayTree::splay(Node *z)
 {
-    if (z == NULL)
+    if (z == nullptr)
         return;
     while (true)
     {
         Node *par = z->parent;
-        if (par == NULL)
+        if (par == nullptr)
         {
             // z is the root
             break;
         }
         Node *gPar = par->parent;
-        if (gPar == NULL && par->left == z)
+        if (gPar == nullptr && par->left == z)
         {
             // zig
             rightRotate(par);
         }
-        else if (gPar == NULL && par->right == z)
+        else if (gPar == nullptr && par->right == z)
         {
             // zag
             leftRotate(par);
@@ -108,27 +130,23 @@ void splay(Node *z)
             leftRotate(gPar);
         }
     }
-    g_root = z;
+    root = z;
 }
 
-void insert(int val)
+void SplayTree::insert(int val)
 {
-    Node *t = new Node();
-    t->left = NULL;
-    t->right = NULL;
-    t->left = NULL;
-    t->value = val;
-    if (g_root == NULL)
+    Node *t = new Node(val);
+    if (root == nullptr)
     {
-        g_root = t;
+        root = t;
         return;
     }
-    Node *z = g_root;
+    Node *z = root;
     while (true)
     {
         if (z->value > val)
         {
-            if (z->left == NULL)
+            if (z->left == nullptr)
             {
                 z->left = t;
                 t->parent = z;
@@ -139,7 +157,7 @@ void insert(int val)
         }
         else if (z->value < val)
         {
-            if (z->right == NULL)
+            if (z->right == nullptr)
             {
                 z->right = t;
                 t->parent = z;
@@ -157,67 +175,65 @@ void insert(int val)
     splay(t);
 }
 
-Node* find(int val)
+SplayTree::Node* SplayTree::find(int val)
 {
-    if (g_root == NULL)
-    {
-        return NULL;
-    }
-    Node *cur = g_root;
+    if (root == nullptr)
+        return nullptr;
+    Node *cur = root;
     while (true)
     {
         if (cur->value == val)
             break;
         else if (cur->value > val)
         {
-            if (cur->left == NULL)
+            if (cur->left == nullptr)
                 break;
             else
                 cur = cur->left;
         }
         else
         {
-            if (cur->right == NULL)
+            if (cur->right == nullptr)
                 break;
             else
                 cur = cur->right;
         }
     }
-    if(cur != NULL){
+    if(cur != nullptr){
         splay(cur);
         if (cur->value == val)
             return cur;
         else
-            return NULL;
+            return nullptr;
 
     }
     else
-        return NULL;
+        return nullptr;
 }
 
-bool remove(int val)
+bool SplayTree::remove(int val)
 {
     Node *z = find(val);
-    if (z == NULL)
+    if (z == nullptr)
         return false;
     splay(z);
     Node *t = z->left;
-    if (t == NULL)
+    if (t == nullptr)
     {
-        g_root = z->right;
-        g_root->parent = NULL;
+        root = z->right;
+        root->parent = nullptr;
     }
     else
     {
         while (t->right)
             t = t->right;
-        if (z->right != NULL)
+        if (z->right != nullptr)
         {
             t->right = z->right;
             z->right->parent=t;
         }
-        g_root = z->left;
-        g_root->parent = NULL;
+        root = z->left;
+        root->parent = nullptr;
     }
     free(z);
     return true;
@@ -228,7 +244,8 @@ int main()
 {
     int a, v;
     bool c;
-    Node *temp;
+    SplayTree t;
+    SplayTree::Node *temp;
     while (true)
     {
         std::cout<<"1. Insert Element \n";
@@ -241,14 +258,14 @@ int main()
         {
             std::cout<<"Enter the value to be inserted: \n";
             std::cin>>v;
-            insert(v);
+            t.insert(v);
         }
         else if (a == 2)
         {
             std::cout<<"Enter the value to be searched: \n";
             std::cin>>v;
-            temp=find(v);
-            if ((temp != NULL) && (temp->value == v))  
+            temp=t.find(v);
+            if ((temp != nullptr) && (temp->value == v))  
                 std::cout<<"Found! \n";
             else
                 std::cout<<"Not Found! \n";
@@ -257,7 +274,7 @@ int main()
         {
             std::cout<<"Enter the value to be deleted: \n";
             std::cin>>v;
-            c = remove(v);
+            c = t.remove(v);
             if (c)
                 std::cout<<"Element deleted! \n";
             else
@@ -266,7 +283,7 @@ int main()
         else if (a == 4)
         {
             std::string ino;
-            inOrder(g_root, ino);
+            t.inOrder(t.root,ino);
             std::cout<<"Inorder travelsal: \n";
             std::cout<<ino<<"\n";
         }
