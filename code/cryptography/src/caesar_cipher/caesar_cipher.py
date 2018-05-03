@@ -18,11 +18,10 @@ def get_message():
 #Gets key from the user
 def get_key():
      key = 0
-     while True:
+     while key < 1 or key > MAX_KEY_SIZE:
          print('Enter the key number (1-%s)' % (MAX_KEY_SIZE))
          key = int(input())
-         if (key >= 1 and key <= MAX_KEY_SIZE):
-             return key
+     return key
 
 #Translation logic here
 def get_translated_message(mode, message, key):
