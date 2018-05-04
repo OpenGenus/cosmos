@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <iostream>
 
 // Part of Cosmos by OpenGenus Foundation
 // This function generates a baconian map
@@ -57,4 +58,13 @@ std::string decrypt(std::map <char, std::string>& cipher, std::string message)
     }
 
     return newMessage;
+}
+
+// main : for testing 
+int main()
+{
+    std::map<char, std::string> cipher = createBaconianMap();
+    std::cout << encrypt(cipher, "Wikipedia") << "\n";
+    std::cout << decrypt(cipher, "BABBAABAAAABABAABAAAABBBBAABAAAAABBABAAAAAAAA") << "\n";
+    return 0;
 }
