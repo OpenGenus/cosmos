@@ -16,10 +16,12 @@ class Stack(object):
 
     # When the client requests a pop just run the pop function on the array
     def pop(self):
+        assert len(self.stack_arr) > 0, 'The stack is empty!'
         return self.stack_arr.pop()
 
     # When the client requests a peek just return the top value
     def peek(self):
+        assert len(self.stack_arr) > 0, 'The stack is empty!'
         return self.stack_arr[-1]
 
 def main():
