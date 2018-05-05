@@ -16,7 +16,7 @@ class Stack(object):
 
     # When the client requests a pop just run the pop function on the array
     def pop(self):
-        return self.stack_arr.pop(-1)
+        return self.stack_arr.pop()
 
     # When the client requests a peek just return the top value
     def peek(self):
