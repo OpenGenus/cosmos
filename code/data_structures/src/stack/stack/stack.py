@@ -22,8 +22,7 @@ class Stack(object):
     def peek(self):
         return self.stack_arr[-1]
 
-
-if __name__ == "__main__":
+def main():
     stk = Stack()
     stk.push(1)
     stk.push(2)
@@ -32,3 +31,7 @@ if __name__ == "__main__":
 
     print(stk.pop())
     print(stk.pop())
+    
+
+if __name__ == "__main__":
+    main()
