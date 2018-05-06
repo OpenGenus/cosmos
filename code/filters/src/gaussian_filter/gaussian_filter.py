@@ -1,3 +1,5 @@
+##Author - Sagar Vakkala (@codezoned)
+
 
 from PIL import Image
 import numpy
