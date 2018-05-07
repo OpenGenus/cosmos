@@ -4,10 +4,11 @@ public class Median{
     public static void main(String[] args) {
         int length;
         int median;
-        System.out.println("Enter Length of array");
+        System.out.print("Enter Length of array ");
         Scanner scanner = new Scanner(System.in);
         length = scanner.nextInt();
         int array[] = new int[length];
+        System.out.printf("Enter %d values: \n", length);
         for (int i=0 ; i<length ; i++){
             array[i] = scanner.nextInt();
         }
@@ -18,6 +19,6 @@ public class Median{
         else {
             median = array[array.length / 2];
         }
-        System.out.println(median);
+        System.out.printf("The median is %d\n", median);
     }
 }
