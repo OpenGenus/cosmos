@@ -1,6 +1,6 @@
 # Cosmos
 
-[![Help Contribute to Open Source](https://www.codetriage.com/opengenus/cosmos/badges/users.svg)](https://www.codetriage.com/opengenus/cosmos)
+> [Join our discussion now](https://discourse.opengenus.org/) 
 
 > The universe of algorithm and data structures
 
