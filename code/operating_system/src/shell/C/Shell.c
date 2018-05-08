@@ -142,7 +142,7 @@ int main(void)
                 }
                 close(fd[0]); 
                 close(fd[1]); 
-                waitpid(pid[1], NULL, 0); /*pid[1]=0 will wiat any wait group process ID and parent process that have same child process to leave*/
+                waitpid(pid[1], NULL, 0); /*pid[1]=0 will wait any wait group process ID and parent process that have same child process to leave*/
                 break;
 
             case 2: /*input*/
