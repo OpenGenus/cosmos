@@ -73,12 +73,12 @@ display(int n)
 	int *a[n];
 	for(int i=0; i<n; i++)
 	{
-         	a[i] = (int *)calloc(n,sizeof(int));
+        a[i] = (int *)calloc(n,sizeof(int));
 	}
 
 	for(int i=s.top;i>=0;i--)
 	{
-		a[i][s.arr[i]]=1;
+		a[i][s.arr[i]] = 1;
 	}
 
 	for(int i=0;i<n;i++)
@@ -108,7 +108,7 @@ sol()
     	{
     		if(safe(currRow, i))
     		{
-				currCol=i;
+				currCol = i;
 				flag=1;
 				break;
     		}
@@ -136,13 +136,13 @@ sol()
     	}
 
 
-    	if(s.top==n-1)
+    	if(s.top == n-1)
     	{
     		printf("Solution No. : %d\n", ++counter);
     		display(n);
     		currCol++;
     	}
-    	flag=0;
+    	flag = 0;
     }
 }
 
