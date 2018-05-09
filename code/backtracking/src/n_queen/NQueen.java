@@ -2,7 +2,7 @@ import java.util.Scanner;
 /*
  *	Part of Cosmos by OpenGenus Foundation
 */
- class NQueen{
+ class NQueen {
 
 	public static int[][] array;
 	
@@ -12,7 +12,7 @@ import java.util.Scanner;
 		}
 		
 		for (int j =0; j <queens; j++) {
-			if(isSafe(i, j, queens)){
+			if(isSafe(i, j, queens)) {
 				array[i][j] = 1;
 				if(solveNQueen(queens, i+1))				
 					return true;
@@ -23,18 +23,18 @@ import java.util.Scanner;
 	}
 	
 	public static boolean isSafe(int row, int column, int n){
-		for(int i = 0; i < n; i++){
+		for(int i = 0; i < n; i++) {
 			if(array[row][i] == 1)
 				return false;
 		}
 	 
-		for(int i = 0; i < n; i++){
+		for(int i = 0; i < n; i++) {
 			if(array[i][column] == 1)
 				return false;
 		}
 	 
 		int copyRow = row, copyColumn = column;
-		while(copyRow >= 0 && copyColumn >= 0){
+		while(copyRow >= 0 && copyColumn >= 0) {
 			if(array[copyRow][copyColumn] == 1)
 				return false;
 			copyRow--; 
@@ -42,7 +42,7 @@ import java.util.Scanner;
 		}
 	 
 		copyRow = row; copyColumn = column;
-		while(copyRow >= 0 && copyColumn <= n-1){
+		while(copyRow >= 0 && copyColumn <= n-1) {
 			if(array[copyRow][copyColumn] == 1)
 				return false;
 			copyRow--; 
@@ -59,7 +59,7 @@ import java.util.Scanner;
 				array[i][j] = 0;
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Type in the number of queens: ");
