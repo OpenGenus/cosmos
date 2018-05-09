@@ -4,9 +4,9 @@ import java.util.Scanner;
 */
  class NQueen{
 
-	int[][] array;
+	public static int[][] array;
 	
-	boolean solveNQueen(int queens, int i){
+	public static boolean solveNQueen(int queens, int i){
 		if(i == queens){
 			return true;
 		}
@@ -22,44 +22,55 @@ import java.util.Scanner;
 		return false;
 	}
 	
-	boolean isSafe(int row, int column, int n){
-		for(int i=0; i<n; i++){
+	public static boolean isSafe(int row, int column, int n){
+		for(int i = 0; i < n; i++){
 			if(array[row][i] == 1)
 				return false;
 		}
 	 
-		for(int i=0; i<n; i++){
+		for(int i = 0; i < n; i++){
 			if(array[i][column] == 1)
 				return false;
 		}
 	 
-		int copyRow=row, copyColumn=column;
-		while(copyRow>=0 && copyColumn>=0){
+		int copyRow = row, copyColumn = column;
+		while(copyRow >= 0 && copyColumn >= 0){
 			if(array[copyRow][copyColumn] == 1)
 				return false;
-			copyRow--; copyColumn--;
+			copyRow--; 
+			copyColumn--;
 		}
 	 
-		copyRow=row; copyColumn=column;
-		while(copyRow>=0 && copyColumn<=n-1){
+		copyRow = row; copyColumn = column;
+		while(copyRow >= 0 && copyColumn <= n-1){
 			if(array[copyRow][copyColumn] == 1)
 				return false;
-			copyRow--; copyColumn++;
+			copyRow--; 
+			copyColumn++;
 		}
 	 
 		return true;
 	}
+
+	public static void initField(int queens) {
+		array = new int[queens][queens];
+		for (int i=0;i < queens ; i++) {
+			for (int j = 0;j < queens ; j++)
+				array[i][j] = 0;
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.print("Type in the number of queens: ");
 		int queens = sc.nextInt();
-		NQueen object = new NQueen();
-		object.array = new int[queens][queens];
-		if(!object.solveNQueen(queens, 0))
+		initField(queens);
+		if(!solveNQueen(queens, 0))
 			System.out.println("No combination possible!");
 		else
-			for (int k=0;k<queens ;k++ ){
-				for (int j=0;j<queens ;j++ )
-					System.out.print(object.array[k][j]>0 ? "Q " : ". ");
+			for (int k = 0; k < queens ;k++ ){
+				for (int j = 0; j < queens ;j++ )
+					System.out.print(array[k][j] > 0 ? "Q " : ". ");
 				System.out.println();
 			}
 	}
