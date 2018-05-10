@@ -35,10 +35,10 @@ namespace LUV
     using LuVector3f = LuVector<3, float>;
     using LuVector3d = LuVector<3, double>;
     using LuVector3c = LuVector<3, std::complex<double>>;
-	
-	// Added for cosmos
-	const double pi = 3.14159265358979323846;
-	//
+    
+    // Added for cosmos
+    const double pi = 3.14159265358979323846;
+    //
     
     // LuVector_Op.hpp
     
