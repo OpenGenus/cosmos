@@ -1,10 +1,11 @@
 /*
-N dimensional loop unrolled vector class.
-
-https://github.com/RedBlight/LoopUnrolledVector
-
-Refactored a little bit for "cosmos" repository.
-*/
+ * N dimensional loop unrolled vector class.
+ * 
+ * https://github.com/RedBlight/LoopUnrolledVector
+ * 
+ * Refactored a little bit for "cosmos" repository.
+ *
+ */
 
 #ifndef LU_VECTOR_INCLUDED
 #define LU_VECTOR_INCLUDED
@@ -38,22 +39,14 @@ namespace LUV
     
     // Added for cosmos
     const double pi = 3.14159265358979323846;
-    //
     
     // LuVector_Op.hpp
-    
-    //////////////////////////////////////////////////////////////
-    // TEMPLATE LOOP INDEX VARIABLE
-    //////////////////////////////////////////////////////////////
+	
     template<std::size_t N>
     struct LoopIndex
     {
 
     };
-
-    //////////////////////////////////////////////////////////////
-    // TEMPLATE LOOP UnrollING OPERATION FUNCTORS
-    //////////////////////////////////////////////////////////////
 
     template<class T, class S>
     struct OpCopy
@@ -161,10 +154,6 @@ namespace LUV
     };
     
     // LuVector_Unroll.hpp
-    
-    //////////////////////////////////////////////////////////////
-    // TEMPLATE LOOP UnrollING
-    //////////////////////////////////////////////////////////////
 
     // VECTOR OP SCALAR
     template<std::size_t I, std::size_t N, class T, class S, template<class, class> class OP>
@@ -314,10 +303,6 @@ namespace LUV
     };
     
     // LuVector_Overload.hpp
-    
-    //////////////////////////////////////////////////////////////
-    // OPERATOR OVERLOADS
-    //////////////////////////////////////////////////////////////
 
     // OSTREAM << VECTOR
     template<std::size_t N, class T>
@@ -505,13 +490,6 @@ namespace LUV
     }
 
     //////////////////////////////////////////////////////////////
-
-    // VECTOR == VECTOR
-    //    template<std::size_t N, class T, class S>
-    //    inline bool operator ==(const Vec<N, T>& lhs, const Vec<N, S>& rhs)
-    //    {
-    //        return lhs[0] == static_cast<T>(rhs[0]) && lhs[1] == static_cast<T>(rhs[1]) && lhs[2] == static_cast<T>(rhs[2]);
-    //    }
     
     // LuVector_Math.hpp
     
@@ -746,10 +724,6 @@ namespace LUV
     }
     
     // LuVector_Geometry.hpp
-    
-    //////////////////////////////////////////////////////////////
-    // LUV GEOMETRY
-    //////////////////////////////////////////////////////////////
 
     // ProjLine N=3
     template<class T>

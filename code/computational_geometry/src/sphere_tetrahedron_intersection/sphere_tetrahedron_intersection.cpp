@@ -1,27 +1,26 @@
 /*
-    Analytical calculations for sphere-tetrahedron intersections.
-    See here for it's mathematical description:
-    https://www.quora.com/What-are-some-equations-that-you-made-up/answer/Mahmut-Akku%C5%9F
-     - RedBlight
-*/
+ * Analytical calculations for sphere-tetrahedron intersections.
+ *
+ * See here for it's mathematical description:
+ * https://www.quora.com/What-are-some-equations-that-you-made-up/answer/Mahmut-Akku%C5%9F
+ *
+ *   - RedBlight
+ *
+ */
 
 #include <cmath>
 #include "LuVector.hpp"
 using Vec3 = LUV::LuVector<3, double>;
 
-/*
-    Returns the solid angle of sphere cap contended by a cone.
-    Apex of the cone is center of the sphere. 
-*/
+// Returns the solid angle of sphere cap contended by a cone.
+// Apex of the cone is center of the sphere. 
 double SolidAngleCap(double apexAngle)
 {
     return 2.0 * LUV::pi * (1.0 - std::cos(apexAngle));
 }
 
-/*
-    Returns the solid angle of a spherical triangle.
-    v1, v2, v3 are vertices of the triangle residing on a unit sphere.
-*/
+// Returns the solid angle of a spherical triangle.
+// v1, v2, v3 are vertices of the triangle residing on a unit sphere.
 double SolidAngleSphtri(const Vec3& v1, const Vec3& v2, const Vec3& v3)
 {
     double ang0 = std::acos(LUV::Dot(v1, v2));
@@ -36,45 +35,38 @@ double SolidAngleSphtri(const Vec3& v1, const Vec3& v2, const Vec3& v3)
    ));
 }
 
-/*
-    Returns the volume of spherical cap.
-*/
+// Returns the volume of spherical cap.
 double VolumeCap(double radius, double height)
 {
     return radius * radius * height * LUV::pi * (2.0 / 3.0); 
 }
 
-/*
-    Returns the volume of cone.
-*/
+// Returns the volume of cone.
 double VolumeCone(double radius, double height)
 {
     return radius * radius * height * LUV::pi * (1.0 / 3.0);
 }
 
-/*
-    Returns the volume of tetrahedron given it's 4 vertices.
-*/
+// Returns the volume of tetrahedron given it's 4 vertices.
 double VolumeTetrahedron(const Vec3& v1, const Vec3& v2, const Vec3& v3, const Vec3& v4)
 {
     return std::abs(LUV::Dot(v1 - v4, LUV::Cross(v2 - v4, v3 - v4))) / 6.0;
 }
 
-/*
-    Returns the volume of triangular slice taken from a sphere.
-*/
+// Returns the volume of triangular slice taken from a sphere.
 double VolumeSphtri(const Vec3& v1, const Vec3& v2, const Vec3& v3, double radius)
 {
     return SolidAngleSphtri(v1, v2, v3) * radius * radius * radius / 3.0;
 }
 
 /*
-    Observation tetrahedra (OT) are special tetrahedra constructed for analytical calculations.
-    OTs have right angles in many of their corners, and one of their vertices are the center of the sphere.
-    For this reason, their intersections with the sphere can be calculated analytically.
-    When 24 OTs contructed for each vertex, of each edge, of each face, of any arbitrary tetrahedron,
-    their combinations can be used to analytically calculate intersections of any arbitrary sphere and tetrahedron.
-*/
+ * Observation tetrahedra (OT) are special tetrahedra constructed for analytical calculations.
+ * OTs have right angles in many of their corners, and one of their vertices are the center of the sphere.
+ * For this reason, their intersections with the sphere can be calculated analytically.
+ * When 24 OTs contructed for each vertex, of each edge, of each face, of any arbitrary tetrahedron,
+ * their combinations can be used to analytically calculate intersections of any arbitrary sphere and tetrahedron.
+ *
+ */
 class ObservationTetrahedron
 {
 public:
