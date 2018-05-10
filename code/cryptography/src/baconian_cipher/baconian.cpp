@@ -8,14 +8,14 @@ std::map<char, std::string> createBaconianMap()
 {
     std::map<char, std::string> cipher;
     std::string static alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string value = "";
+    std::string value;
     for (std::size_t i = 0; i < alphabet.length(); ++i)
     {
         for (std::size_t j = 0; j < 5; ++j)
             ((i & (1 << j)) == 0) ? value = 'A' + value : value = 'B' + value;
         char key = alphabet[i];
         cipher[key] = value;
-        value = "";
+        value.clear();
     }
 
     return cipher;
@@ -33,8 +33,8 @@ std::string encrypt(std::map<char, std::string>& cipher, std::string message)
 
 std::string decrypt(std::map <char, std::string>& cipher, std::string message)
 {
-    std::string newMessage = "";
-    std::string currentString = "";
+    std::string newMessage;
+    std::string currentString;
     int currentStringLength = 0;
     for (std::size_t i = 0; i < message.length() + 1; ++i)
     {
@@ -64,7 +64,11 @@ std::string decrypt(std::map <char, std::string>& cipher, std::string message)
 int main()
 {
     std::map<char, std::string> cipher = createBaconianMap();
+
+    // => BABBAABAAAABABAABAAAABBBBAABAAAAABBABAAAAAAAA
     std::cout << encrypt(cipher, "Wikipedia") << "\n";
+
+    // => WIKIPEDIA
     std::cout << decrypt(cipher, "BABBAABAAAABABAABAAAABBBBAABAAAAABBABAAAAAAAA") << "\n";
     return 0;
 }
