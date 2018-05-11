@@ -17,9 +17,9 @@ encrypt(char* msg)
     char* letters[] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
                       "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
-    for(i = 0;i < size; i++)
-        if(msg[i] != ' ')
-            if(msg[i] >= '0' && msg[i] <= '9')
+    for (i = 0;i < size; i++)
+        if (msg[i] != ' ')
+            if (msg[i] >= '0' && msg[i] <= '9')
                 strcat(morse_code, num[msg[i] - 48]);
             else
                 strcat(morse_code, letters[msg[i] - 65]);
