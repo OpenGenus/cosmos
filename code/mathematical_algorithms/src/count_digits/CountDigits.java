@@ -1,5 +1,5 @@
 /* Part of Cosmos by OpenGenus Foundation */
-public class Count_digits {
+public class CountDigits {
     public static void main(String args[]) {
         int num = 12345678;
         System.out.println(count_digits(num));
