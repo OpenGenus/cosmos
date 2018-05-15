@@ -3,7 +3,8 @@
 // Code written by Adeen Shukla (adeen-s)
 
 int 
-countDigits(unsigned long n) {
+countDigits(unsigned long n) 
+{
 	if(n == 0) {
 		return (1);
 	}
@@ -16,7 +17,8 @@ countDigits(unsigned long n) {
 }
 
 int 
-main(){
+main()
+{
 	unsigned long n;
 	printf("\nEnter a number\n");	
 	scanf("%lu", &n);
