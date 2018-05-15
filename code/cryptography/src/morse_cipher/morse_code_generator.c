@@ -7,8 +7,7 @@
 void 
 encrypt(char* msg)
 {
-    int i, size = strlen(msg);
-
+    int size = strlen(msg);
     char * morse_code = (char*) malloc(size * 5);
 
     // Morse Code for the numbers [0-10]
@@ -17,6 +16,7 @@ encrypt(char* msg)
     char* letters[] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
                       "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
+    int i;
     for (i = 0;i < size; i++)
         if (msg[i] != ' ')
             if (msg[i] >= '0' && msg[i] <= '9')
