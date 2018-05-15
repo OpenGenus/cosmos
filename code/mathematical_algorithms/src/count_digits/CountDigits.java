@@ -1,16 +1,19 @@
 /* Part of Cosmos by OpenGenus Foundation */
 public class CountDigits {
+    
     public static void main(String args[]) {
-        int num = 12345678;
-        System.out.println(count_digits(num));
+        System.out.println(countDigits(0)); // => 1
+        System.out.println(countDigits(2)); // => 1
+        System.out.println(countDigits(337)); // => 3
     }
     
-    public static int count_digits(int n)
+    public static int countDigits(int n)
     {
-    	if(n == 0) return 1;
+        if(n == 0) 
+            return 1;
     	
         int count = 0;
-        while(n != 0){
+        while(n != 0) {
             count++;
             n /= 10;
         }
