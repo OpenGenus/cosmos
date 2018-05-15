@@ -41,7 +41,7 @@ public class MorseCode {
         String[] words = morse.split("\\s{2}");
         for (String word : words) {
             String[] letters = word.split("\\s");
-            for (String letter: letters) {
+            for (String letter : letters) {
                 plainText += morseToEng.get(letter);
             }
             plainText += " ";
