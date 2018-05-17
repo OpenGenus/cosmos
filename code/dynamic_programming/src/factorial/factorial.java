@@ -1,23 +1,16 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// factorial of a number by using dynami programming // contributed by deepyadav442
 
-/**
- * Implements factorial using recursion
- */
+
 public class Factorial {
-
-    private static int factorial(int num) {
-        if (num == 0) {
-            return 1;
-        } else {
-            return (num * factorial(num - 1));
-        }
-    }
-
     public static void main(String[] args) {
-        int number = 5;
-        int result;
-        result = factorial(number);
-        System.out.printf("The factorial of %d is %d", number, result);
-    }
+        long number = 7;
+        long result[] = new long[100001];
+        result[0]=1;
+        for(int i=1;i<=number;i++)
+        {
+        	result[i]=i*result[i-1];
+        }
     
+        System.out.println("factorial of "+number +" is :"+result[(int) number]);
+    }
 }
