@@ -10,10 +10,9 @@
 
 std::vector<int> kasaiAlgorithm(std::string s, std::vector<int> suffix_array)
 {
-    using namespace std;
     size_t m = 0;
-    vector<int> LCP(s.size(), 0);
-    vector<size_t> rank(s.size(), 0);
+    std::vector<int> LCP(s.size(), 0);
+    std::vector<size_t> rank(s.size(), 0);
 
     for (size_t i = 0; i < s.size(); i++)
         rank[suffix_array[i]] = i;
