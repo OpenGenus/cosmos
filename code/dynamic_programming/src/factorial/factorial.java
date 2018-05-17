@@ -1,7 +1,7 @@
 // factorial of a number by using dynami programming // contributed by deepyadav442
 
 
-public class Factorial {
+public class factorial {
     public static void main(String[] args) {
         long number = 7;
         long result[] = new long[100001];
