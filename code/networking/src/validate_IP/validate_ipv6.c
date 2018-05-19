@@ -9,21 +9,15 @@ from https://beej.us/guide/bgnet/html/multi/inet_ntopman.html */
 #include <string.h>
 #include <arpa/inet.h>
 
-char 
-*is_ipv6(char *ip_addr);
+char*
+is_ipv6(char *ip_addr);
 
-char 
-*is_ipv6(char *ip_addr) 
+char*
+is_ipv6(char *ip_addr) 
 {
 	char *ans = "";
 	struct sockaddr_in6 sa_6;
-
-	if(inet_pton(AF_INET6, ip_addr, &(sa_6.sin6_addr))) {
-		ans = "yes";
-	} else {
-		ans = "no";
-	}
-
+	ans = inet_pton(AF_INET6, ip_addr, &(sa_6.sin6_addr)) ? "yes" : "no";
 	return ans;
 }
 
@@ -45,7 +39,7 @@ main(int argc, char *argv[])
 	}
 
 	while ((n = getline(&line, &size, fp)) != -1) {
-		if(line[n-1] == '\n') {
+		if (line[n-1] == '\n') {
 			line[n-1] = '\0';
 			ip_addr = (char *) malloc(n-2);
 			strncpy(ip_addr, line, n-2);
@@ -53,10 +47,10 @@ main(int argc, char *argv[])
 			ip_addr = (char *) malloc(n);
 			strncpy(ip_addr, line, n);
 		}
-		char* ans = is_ipv6(ip_addr);
-		printf("Is '%s' valid IPv6? \n%s\n", ip_addr, ans);
+		printf("Is '%s' valid IPv6? \n%s\n", ip_addr, is_ipv6(ip_addr));
 	}
 
 	fclose(fp);
-	return 0;
+	return(0);
+
 }
