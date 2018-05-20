@@ -6,12 +6,12 @@
 
 const char* clear = "\e[1;1H\e[2J";
 
-enum states{ 	U,								//Empty state
-		S, S0, S00, S000, S01, S1, S10, S11,	//Transition states
-		C00, C01, C10, C11, 					//Confluent  states
-		C_NORTH, C_EAST, C_SOUTH, C_WEST, 		//Common Transmition states
-		S_NORTH, S_EAST, S_SOUTH, S_WEST		//Special Transition states
-	};
+enum states{ 	U,					//Empty state (__)
+		S, S0, S00, S000, S01, S1, S10, S11,	//Transition states (??)
+		C00, C01, C10, C11, 			//Confluent  states ([])
+		C_NORTH, C_EAST, C_SOUTH, C_WEST, 	//Common Transmition states (/\, ->, \/, <-)
+		S_NORTH, S_EAST, S_SOUTH, S_WEST	//Special Transition states (/\, ->, \/, <-)
+	};						
 
 struct cell{
 	short state;
@@ -136,7 +136,7 @@ void transmition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, i
 }
 
 void confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
-	int aux[4]; //Neigbourhood vector [up, left, down, right]
+	int aux[4]; //Neighborhood vector [up, left, down, right]
 	int in = 0, out = 0;
 
 	aux[0] =  (i > 0 && board[i -1][j].state == C_SOUTH && ++in) - 
@@ -156,7 +156,7 @@ void confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int
 			break;
 
 		case C01:
-			if(out > 0){
+			if(out > 0){			//Transfering data for neighborhood	
 				if(aux[0] == -1)	temp[i -1][j].active++;
 				if(aux[1] == -1)	temp[i][j -1].active++;
 				if(aux[2] == -1)	temp[i +1][j].active++;
@@ -287,13 +287,13 @@ void update(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	for(i = 0; i < HEIGHT; i++){
 			for(j = 0; j < WIDTH; j++){
 				
-				if(board[i][j].state == U)	//Empty state
+				if(board[i][j].state == U)		//Empty state
 					continue;
 
-				else if(board[i][j].state < C00) //Transition states
+				else if(board[i][j].state < C00) 	//Transition states
 					transition(board, temp, i, j);
 
-				else if(board[i][j].state < C_NORTH) //Confluent states
+				else if(board[i][j].state < C_NORTH) 	//Confluent states
 					confluent(board, temp, i, j);
 				
 			}
@@ -306,15 +306,15 @@ void print_board(struct cell board[][WIDTH]){
 	int i, j;
 	for(i = 0; i < HEIGHT; i++){
 		for(j = 0; j < WIDTH; j++){
-			if(board[i][j].active == 1)				printf("++");
-			else if(board[i][j].state == U )				printf("__");
+			if(board[i][j].active == 1)			printf("++");
+			else if(board[i][j].state == U )		printf("__");
 			else if(board[i][j].state < C00)		printf("??");
-			else if(board[i][j].state < C_NORTH)	printf("<>");
+			else if(board[i][j].state < C_NORTH)		printf("<>");
 			else{ 
 				if((board[i][j].state - C_NORTH) % 4 == 0)		printf("/\\");
-				else if((board[i][j].state - C_NORTH) % 4 == 1)	printf("->");
-				else if((board[i][j].state - C_NORTH) % 4 == 2)	printf("\\/");
-				else if((board[i][j].state - C_NORTH) % 4 == 3)	printf("<-");
+				else if((board[i][j].state - C_NORTH) % 4 == 1)		printf("->");
+				else if((board[i][j].state - C_NORTH) % 4 == 2)		printf("\\/");
+				else if((board[i][j].state - C_NORTH) % 4 == 3)		printf("<-");
 			}
 			printf(".");
 		}
