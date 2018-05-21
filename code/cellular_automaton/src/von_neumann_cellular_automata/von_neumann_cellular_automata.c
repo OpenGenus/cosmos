@@ -6,11 +6,11 @@
 
 const char* clear = "\e[1;1H\e[2J";
 
-enum states{ 	U,					//Empty state (__)
-		S, S0, S00, S000, S01, S1, S10, S11,	//Transition states (??)
-		C00, C01, C10, C11, 			//Confluent  states ([])
-		C_NORTH, C_EAST, C_SOUTH, C_WEST, 	//Common Transmition states (/\, ->, \/, <-)
-		S_NORTH, S_EAST, S_SOUTH, S_WEST	//Special Transition states (/\, ->, \/, <-)
+enum states{ 	U,								/*Empty state (__)*/
+		S, S0, S00, S000, S01, S1, S10, S11,	//Transition states (??)*/
+		C00, C01, C10, C11, 					/*Confluent  states ([])*/
+		C_NORTH, C_EAST, C_SOUTH, C_WEST, 		/*Common Transmition states (/\, ->, \/, <-)*/
+		S_NORTH, S_EAST, S_SOUTH, S_WEST		/*Special Transition states (/\, ->, \/, <-)*/
 	};						
 
 struct cell{
@@ -18,12 +18,12 @@ struct cell{
 	short active; 
 };
 
-void transmition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
-//	int m, n; //aux variables
+void 
+transmition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
 	assert(board[i][j].active <= 1);
 	if(board[i][j].active == 1){
 		switch(board[i][j].state){
-		//Common States
+		/*Common States*/
 			case C_NORTH:
 				if(i > 0 && board[i -1][j].state <= C_WEST){
 					if(board[i -1][j].state == U)
@@ -73,7 +73,7 @@ void transmition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, i
 				temp[i][j].active--;
 				break;
 
-		//Special states
+		/*Special states*/
 			case S_NORTH:
 				if(i > 0 && (board[i -1][j].state >= S_NORTH || board[i -1][j].state < C_NORTH)){
 					if(board[i -1][j].state == U)
@@ -135,8 +135,9 @@ void transmition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, i
 	}
 }
 
-void confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
-	int aux[4]; //Neighborhood vector [up, left, down, right]
+void 
+confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
+	int aux[4];		/*Neighborhood vector [up, left, down, right]*/
 	int in = 0, out = 0;
 
 	aux[0] =  (i > 0 && board[i -1][j].state == C_SOUTH && ++in) - 
@@ -156,7 +157,7 @@ void confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int
 			break;
 
 		case C01:
-			if(out > 0){			//Transfering data for neighborhood	
+			if(out > 0){			/*Transfering data for neighborhood*/
 				if(aux[0] == -1)	temp[i -1][j].active++;
 				if(aux[1] == -1)	temp[i][j -1].active++;
 				if(aux[2] == -1)	temp[i +1][j].active++;
@@ -195,7 +196,8 @@ void confluent(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int
 	}
 }
 
-void transition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
+void 
+transition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, int j){
 	
 	switch(board[i][j].state){
 		case S:
@@ -265,7 +267,8 @@ void transition(struct cell board[][WIDTH], struct cell temp[][WIDTH], int i, in
 	}
 }
 
-void update(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
+void 
+update(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	int i, j;
 
 	for(i = 0; i < HEIGHT; i++){
@@ -279,7 +282,7 @@ void update(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 
 	for(i = 0; i < HEIGHT; i++){
 			for(j = 0; j < WIDTH; j++){
-				if(board[i][j].state >= C_NORTH)	//Transmition states
+				if(board[i][j].state >= C_NORTH)	/*Transmition states*/
 					transmition(board, temp, i, j);
 			}
 	}
@@ -287,13 +290,13 @@ void update(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	for(i = 0; i < HEIGHT; i++){
 			for(j = 0; j < WIDTH; j++){
 				
-				if(board[i][j].state == U)		//Empty state
+				if(board[i][j].state == U)				/*Empty state*/
 					continue;
 
-				else if(board[i][j].state < C00) 	//Transition states
+				else if(board[i][j].state < C00) 		/*Transition states*/
 					transition(board, temp, i, j);
 
-				else if(board[i][j].state < C_NORTH) 	//Confluent states
+				else if(board[i][j].state < C_NORTH) 	/*Confluent states*/
 					confluent(board, temp, i, j);
 				
 			}
@@ -306,15 +309,23 @@ void print_board(struct cell board[][WIDTH]){
 	int i, j;
 	for(i = 0; i < HEIGHT; i++){
 		for(j = 0; j < WIDTH; j++){
-			if(board[i][j].active == 1)			printf("++");
-			else if(board[i][j].state == U )		printf("__");
-			else if(board[i][j].state < C00)		printf("??");
-			else if(board[i][j].state < C_NORTH)		printf("<>");
+			if(board[i][j].active == 1)
+				printf("++");
+			else if(board[i][j].state == U )
+				printf("__");
+			else if(board[i][j].state < C00)
+				printf("??");
+			else if(board[i][j].state < C_NORTH)
+				printf("<>");
 			else{ 
-				if((board[i][j].state - C_NORTH) % 4 == 0)		printf("/\\");
-				else if((board[i][j].state - C_NORTH) % 4 == 1)		printf("->");
-				else if((board[i][j].state - C_NORTH) % 4 == 2)		printf("\\/");
-				else if((board[i][j].state - C_NORTH) % 4 == 3)		printf("<-");
+				if((board[i][j].state - C_NORTH) % 4 == 0)
+					printf("/\\");
+				else if((board[i][j].state - C_NORTH) % 4 == 1)
+					printf("->");
+				else if((board[i][j].state - C_NORTH) % 4 == 2)
+					printf("\\/");
+				else if((board[i][j].state - C_NORTH) % 4 == 3)
+					printf("<-");
 			}
 			printf(".");
 		}
@@ -324,7 +335,6 @@ void print_board(struct cell board[][WIDTH]){
 
 void clear_board(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	int i, j;	
-	//Cleanning the board
 	for(i = 0; i < HEIGHT; i++){
 		for(j = 0; j < WIDTH; j++){
 			board[i][j].state = U;
@@ -337,14 +347,13 @@ void clear_board(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 
 void initial_board(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	int i;
-	//Create loop
+	/*Create loop*/
 	for(i = 5; i <= 10; i++){
 		board[5][i].state = C_EAST;
 		board[10][i].state = C_WEST;
 		board[i][5].state = C_NORTH;
 		board[i][10].state = C_SOUTH;
-		
-		//=====
+
 		temp[5][i].state = C_EAST;
 		temp[10][i].state = C_WEST;
 		temp[i][5].state = C_NORTH;
@@ -356,12 +365,12 @@ void initial_board(struct cell board[][WIDTH], struct cell temp[][WIDTH]){
 	board[10][10].state = C_WEST;
 	board[10][5].state = C_NORTH;
 	temp[5][5].state = C_EAST;
-	temp[5][10].state = C00;//C_SOUTH;
+	temp[5][10].state = C00;
 	temp[5][11].state = S_EAST;
 	temp[10][10].state = C_WEST;
 	temp[10][5].state = C_NORTH;
 	
-	//initial condition
+	/*initial condition*/
 	temp[10][5].active = 1;
 	temp[10][7].active = 1;
 	temp[10][8].active = 1; 
@@ -376,7 +385,7 @@ int main(){
 
 	do{
 		
-		//Update boards
+		/*Update boards*/
 		update(board, temp);
 		print_board(board);		
 
