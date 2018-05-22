@@ -1,9 +1,10 @@
 #include "red_black_tree.cpp"
 
 void
-test() {
-    std::shared_ptr<RBTree<int> > rbt;
-    rbt = make_shared<RBTree<int> >();
+test()
+{
+    std::shared_ptr<RBTree<int>> rbt;
+    rbt = make_shared<RBTree<int>>();
     rbt->find(3);
     assert(rbt->preOrder() == "");
     assert(rbt->find(32) == nullptr);
@@ -49,7 +50,7 @@ test() {
     assert(rbt->preOrder() == "2074213659810156040333031373550806763657069100");
     assert(rbt->find(31) != nullptr);
     assert(rbt->find(32) == nullptr);
-    
+
     rbt->erase(69);
     assert(rbt->preOrder() == "20742136598101560403330313735508067636570100");
     rbt->erase(65);
@@ -93,10 +94,11 @@ struct RBTreeTest
     using node_type = tree_type::NodeType;
     using p_node_type = tree_type::SPNodeType;
     using Color = tree_type::Color;
-    
-    RBTreeTest() {
+
+    RBTreeTest()
+    {
         testSibling();
-        
+
         // below test of delete cases need ignore invoke
         testDeleteCase2();
         testDeleteCase3();
@@ -104,11 +106,12 @@ struct RBTreeTest
         testDeleteCase5();
         testDeleteCase6();
     }
-    
-    void testSibling() {
+
+    void testSibling()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), l = std::make_shared<node_type>(0),
-        r = std::make_shared<node_type>(0);
+                    r = std::make_shared<node_type>(0);
         n->left(l);
         n->right(r);
         l->parent(n);
@@ -116,13 +119,14 @@ struct RBTreeTest
         assert(t.sibling(l) == r);
         assert(t.sibling(r) == l);
     }
-    
-    void testDeleteCase2() {
+
+    void testDeleteCase2()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), p = std::make_shared<node_type>(0),
-        s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
-        sr = std::make_shared<node_type>(0);
-        
+                    s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
+                    sr = std::make_shared<node_type>(0);
+
         // test n is left of parent
         p->color(Color::BLACK);
         s->color(Color::RED);
@@ -159,7 +163,7 @@ struct RBTreeTest
         assert(p->right() == sl);
         assert(n->parent() == p);
         assert(sl->parent() == p);
-        
+
         // test n is right of parent
         p->color(Color::BLACK);
         s->color(Color::RED);
@@ -198,12 +202,13 @@ struct RBTreeTest
         assert(sr->parent() == p);
         assert(n->parent() == p);
     }
-    
-    void testDeleteCase3() {
+
+    void testDeleteCase3()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), p = std::make_shared<node_type>(0),
-        s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
-        sr = std::make_shared<node_type>(0);
+                    s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
+                    sr = std::make_shared<node_type>(0);
         sr->color(Color::BLACK);
         sl->color(sr->color());
         s->color(sl->color());
@@ -258,12 +263,13 @@ struct RBTreeTest
         assert(sl->color() == Color::BLACK);
         assert(sr->color() == Color::BLACK);
     }
-    
-    void testDeleteCase4() {
+
+    void testDeleteCase4()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), p = std::make_shared<node_type>(0),
-        s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
-        sr = std::make_shared<node_type>(0);
+                    s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
+                    sr = std::make_shared<node_type>(0);
         sr->color(Color::BLACK);
         sl->color(sr->color());
         s->color(sl->color());
@@ -290,7 +296,7 @@ struct RBTreeTest
         assert(n->color() == Color::BLACK);
         assert(sl->color() == Color::BLACK);
         assert(sr->color() == Color::BLACK);
-        
+
         sr->color(Color::BLACK);
         sl->color(sr->color());
         s->color(sl->color());
@@ -318,13 +324,14 @@ struct RBTreeTest
         assert(sl->color() == Color::BLACK);
         assert(sr->color() == Color::BLACK);
     }
-    
-    void testDeleteCase5() {
+
+    void testDeleteCase5()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), p = std::make_shared<node_type>(0),
-        s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
-        sr = std::make_shared<node_type>(0), s_l = std::make_shared<node_type>(0),
-        s_r = std::make_shared<node_type>(0);
+                    s = std::make_shared<node_type>(0), sl = std::make_shared<node_type>(0),
+                    sr = std::make_shared<node_type>(0), s_l = std::make_shared<node_type>(0),
+                    s_r = std::make_shared<node_type>(0);
         s_r->color(Color::BLACK);
         s_l->color(s_r->color());
         sr->color(s_l->color());
@@ -382,7 +389,7 @@ struct RBTreeTest
         assert(s->right() == sr);
         assert(s_r->parent() == s);
         assert(sr->parent() == s);
-        
+
         s_r->color(Color::BLACK);
         s_l->color(s_r->color());
         sl->color(s_l->color());
@@ -441,11 +448,12 @@ struct RBTreeTest
         assert(sl->parent() == s);
         assert(s_l->parent() == s);
     }
-    
-    void testDeleteCase6() {
+
+    void testDeleteCase6()
+    {
         tree_type t;
         p_node_type n = std::make_shared<node_type>(0), p = std::make_shared<node_type>(0),
-        s = std::make_shared<node_type>(0), sc = std::make_shared<node_type>(0);
+                    s = std::make_shared<node_type>(0), sc = std::make_shared<node_type>(0);
         s->color(Color::BLACK);
         n->color(s->color());
         p->color(n->color());
@@ -479,7 +487,7 @@ struct RBTreeTest
         assert(sc->parent() == s);
         assert(p->left() == n);
         assert(n->parent() == p);
-        
+
         s->color(Color::BLACK);
         n->color(s->color());
         p->color(n->color());
@@ -522,6 +530,6 @@ main()
 {
     RBTreeTest t;
     test();
-    
+
     return 0;
 }

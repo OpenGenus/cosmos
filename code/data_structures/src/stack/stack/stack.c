@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <assert.h>
  
 struct Stack
 {
@@ -9,45 +10,64 @@ struct Stack
     int* array;
 };
  
-struct Stack* createStack(unsigned capacity)
+struct Stack* 
+create_stack(unsigned capacity)
 {
     struct Stack* stack = (struct Stack*) malloc(sizeof(struct Stack));
     stack->capacity = capacity;
     stack->top = -1;
     stack->array = (int*) malloc(stack->capacity * sizeof(int));
-    return stack;
+    return (stack);
+}
+
+void 
+delete_stack(struct Stack * stack)
+{
+    free(stack->array);
+    free(stack);
 }
  
-int isFull(struct Stack* stack)
-{   return stack->top == stack->capacity - 1; }
+int 
+is_full(struct Stack* stack)
+{   
+    return (stack->top == stack->capacity - 1); 
+}
  
-int isEmpty(struct Stack* stack)
-{   return stack->top == -1;  }
+int 
+is_empty(struct Stack* stack)
+{   
+    return (stack->top == -1);  
+}
  
-void push(struct Stack* stack, int item)
+void 
+push(struct Stack* stack, int item)
 {
-    if (isFull(stack))
-        return;
+    assert(!is_full(stack));
     stack->array[++stack->top] = item;
-    printf("%d pushed to stack\n", item);
 }
  
 
-int pop(struct Stack* stack)
+int 
+pop(struct Stack* stack)
 {
-    if (isEmpty(stack))
-        return INT_MIN;
-    return stack->array[stack->top--];
+    assert(!is_empty(stack));
+    return (stack->array[stack->top--]);
 }
-int main()
+
+int 
+main()
 {
-    struct Stack* stack = createStack(100);
+    struct Stack* stack = create_stack(100);
  
     push(stack, 10);
     push(stack, 20);
     push(stack, 30);
  
     printf("%d popped from stack\n", pop(stack));
- 
-    return 0;
+    printf("%d popped from stack\n", pop(stack));
+    printf("%d popped from stack\n", pop(stack));
+
+    delete_stack(stack);
+    
+    return (0);
 }

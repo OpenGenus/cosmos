@@ -1,27 +1,27 @@
 /*
-    Part of Cosmos by OpenGenus Foundation
-
-    diameter of tree synopsis
-
-template<typename _TreeNode>
-size_t
-diameter(_TreeNode node);
-
-template<typename _TreeNode>
-void
-diameterIterative(_TreeNode const &node, size_t &maximum);
-
-template<typename _TreeNode>
-size_t
-getDiameter(_TreeNode const &node);
-
-template<typename _TreeNode>
-size_t
-getDeep(_TreeNode const &node);
-
-template<typename _TreeNode>
-size_t
-diameterRecursive(_TreeNode node, size_t &maximum);
+ *  Part of Cosmos by OpenGenus Foundation
+ *
+ *  diameter of tree synopsis
+ *
+ * template<typename _TreeNode>
+ * size_t
+ * diameter(_TreeNode node);
+ *
+ * template<typename _TreeNode>
+ * void
+ * diameterIterative(_TreeNode const &node, size_t &maximum);
+ *
+ * template<typename _TreeNode>
+ * size_t
+ * getDiameter(_TreeNode const &node);
+ *
+ * template<typename _TreeNode>
+ * size_t
+ * getDeep(_TreeNode const &node);
+ *
+ * template<typename _TreeNode>
+ * size_t
+ * diameterRecursive(_TreeNode node, size_t &maximum);
  */
 
 #include <algorithm>

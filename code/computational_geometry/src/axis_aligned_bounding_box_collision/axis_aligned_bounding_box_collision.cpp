@@ -1,23 +1,27 @@
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
-struct Vector {
+struct Vector
+{
     int x;
     int y;
 };
 
-struct Shape {
+struct Shape
+{
     Vector center;
     int width;
     int height;
 };
 
-bool checkAABBCollision(Shape &a, Shape &b) {
+bool checkAABBCollision(Shape &a, Shape &b)
+{
     // change '<' to '<=' if you want to include edge touching as a collision
     return (abs(a.center.x - b.center.x) * 2 < (a.width + b.width)) &&
            (abs(a.center.y - b.center.y) * 2 < (a.height + b.height));
 }
 
-int main() {
+int main()
+{
     Shape a = { Vector {3, 3}, 4, 5 };
     Shape b = { Vector {9, 3}, 6, 4 };
 

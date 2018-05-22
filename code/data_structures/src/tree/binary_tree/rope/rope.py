@@ -57,7 +57,9 @@ class Rope:
         else:
             self.head = node()
 
-    def Index(self, ind, node=self.head):
+    def Index(self, ind, node=None):
+        if node is None:
+            node = self.head
         if node.weight <= ind:
             return self.Index(ind - node.weight, node.right)
         elif node.left:

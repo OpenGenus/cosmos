@@ -1,75 +1,84 @@
 /* Part of Cosmos by OpenGenus Foundation */
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class minHeap{
+class minHeap {
     vector<int> v;
 
-    void heapify(size_t i){
-        size_t l = 2*i;
-        size_t r = 2*i + 1;
+    void heapify(size_t i)
+    {
+        size_t l = 2 * i;
+        size_t r = 2 * i + 1;
         size_t min = i;
-        if(l < v.size() && v[l] < v[min]){
+        if (l < v.size() && v[l] < v[min])
             min = l;
-        }
-        if(r < v.size() && v[r] < v[min]){
+        if (r < v.size() && v[r] < v[min])
             min = r;
-        }
 
-        if(min!=i){
-            swap(v[i],v[min]);
+        if (min != i)
+        {
+            swap(v[i], v[min]);
             heapify(min);
         }
     }
 
 public:
-    minHeap(){
+    minHeap()
+    {
         v.push_back(-1);
     }
-    void insert(int data){
+    void insert(int data)
+    {
         v.push_back(data);
         int i = v.size() - 1;
-        int parent = i/2;
+        int parent = i / 2;
 
-        while(v[i] < v[parent] && i > 1){
-            swap(v[i],v[parent]);
+        while (v[i] < v[parent] && i > 1)
+        {
+            swap(v[i], v[parent]);
             i = parent;
-            parent = parent/2;
+            parent = parent / 2;
         }
 
     }
-    int top(){
+    int top()
+    {
         return v[1];
     }
 
-    void pop(){
+    void pop()
+    {
 
-        int last = v.size()-1;
-        swap(v[1],v[last]);
+        int last = v.size() - 1;
+        swap(v[1], v[last]);
         v.pop_back();
         heapify(1);
     }
 
-    bool isEmpty(){
+    bool isEmpty()
+    {
         return v.size() == 1;
     }
 
 };
 
-int main(){
+int main()
+{
 
     int data;
-    cout<<"\nEnter data : ";
+    cout << "\nEnter data : ";
     cin >> data;
     minHeap h;
-    while( data != -1){
+    while (data != -1)
+    {
         h.insert(data);
-        cout<<"\nEnter data(-1 to exit) : ";
+        cout << "\nEnter data(-1 to exit) : ";
         cin >> data;
     }
 
-    while(!h.isEmpty()){
+    while (!h.isEmpty())
+    {
         cout << h.top() << " ";
         h.pop();
     }

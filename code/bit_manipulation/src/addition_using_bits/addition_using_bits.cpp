@@ -7,7 +7,7 @@ int bitwiseAddition(int n, int m)
     {
         int carry = n & m;  // Variable carry keeps track of bits that carry over
         n = n ^ m;          // This adds up the individual bits
-        m = carry << 1;     // Shift carry over bits so they can be added 
+        m = carry << 1;     // Shift carry over bits so they can be added
     }
     return n;
 }

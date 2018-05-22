@@ -5,8 +5,8 @@ import javax.swing.*;
 public class Conway extends JFrame {
 
 	private int size = 80, gen =0, kill = 1;
-	private boolean check = false;
 	private JButton grid[][] = new JButton[size][size], toggle, wow, gun, clear;
+	private JButton exit; // for termination of the program
 	private int grid_num[][] = new int[size][size];
 	private JLabel status;
 	Conway() {
@@ -27,16 +27,19 @@ public class Conway extends JFrame {
 		wow = new JButton("Benchmark");
 		gun = new JButton("Glider Gun");
 		clear = new JButton("Clear");
+		exit = new JButton("Exit");
 
 		st_bar.add(status);
 		st_bar.add(toggle);
 		st_bar.add(wow);
 		st_bar.add(gun);
 		st_bar.add(clear);
+		st_bar.add(exit);
 		toggle.addActionListener(new Listen());
 		wow.addActionListener(new Listen());
 		gun.addActionListener(new Listen());
 		clear.addActionListener(new Listen());
+		exit.addActionListener(new Listen());
 
 		cp.setLayout(new BorderLayout());
 		cp.add(gd, BorderLayout.CENTER);
@@ -157,13 +160,23 @@ public class Conway extends JFrame {
 						grid[i][j].setBackground(Color.GRAY);
 						}
 			}
+			else if (ae.getSource() == exit) {
+				System.exit(0);
+			}
 			else {
 				for (int i = 0;i<size;i++)
 					for(int j=0;j<size;j++) {
 						if (ae.getSource() == grid[i][j]) {
-							grid_num[i][j] = 1;
-							grid[i][j].setBackground(Color.BLACK);
-							return;
+							if (grid_num[i][j] == 0) {
+								grid_num[i][j] = 1;
+								grid[i][j].setBackground(Color.BLACK);
+								return;
+							} else if (grid_num[i][j] == 1) {
+								grid_num[i][j] = 0;
+								grid[i][j].setBackground(Color.WHITE);
+								return;
+							}
+							
 						}
 					}
 			}

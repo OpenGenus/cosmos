@@ -7,14 +7,14 @@
  *
  * namespace linear_search_impl
  * {
- *     template<typename _Input_Iter,
- *              typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
- *     _Input_Iter
- *     linearSearchImpl(_Input_Iter begin,
- *                      _Input_Iter end,
- *                      _Tp const &find,
- *                      _Compare comp,
- *                      std::input_iterator_tag);
+ * template<typename _Input_Iter,
+ *          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type, typename _Compare>
+ * _Input_Iter
+ * linearSearchImpl(_Input_Iter begin,
+ *                  _Input_Iter end,
+ *                  _Tp const &find,
+ *                  _Compare comp,
+ *                  std::input_iterator_tag);
  * } // linear_search_impl
  *
  * template<typename _Input_Iter,
@@ -32,27 +32,27 @@
 
 namespace linear_search_impl
 {
-    template<typename _Input_Iter,
-             typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
-             typename _Compare>
-    _Input_Iter
-    linearSearchImpl(_Input_Iter begin,
-                     _Input_Iter end,
-                     _Tp const &find,
-                     _Compare comp,
-                     std::input_iterator_tag)
+template<typename _Input_Iter,
+         typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
+         typename _Compare>
+_Input_Iter
+linearSearchImpl(_Input_Iter begin,
+                 _Input_Iter end,
+                 _Tp const &find,
+                 _Compare comp,
+                 std::input_iterator_tag)
+{
+    _Input_Iter current = begin;
+
+    while (current != end)
     {
-        _Input_Iter current = begin;
-
-        while (current != end)
-        {
-            if (comp(*current, find))
-                break;
-            ++current;
-        }
-
-        return current;
+        if (comp(*current, find))
+            break;
+        ++current;
     }
+
+    return current;
+}
 } // linear_search_impl
 
 template<typename _Input_Iter,

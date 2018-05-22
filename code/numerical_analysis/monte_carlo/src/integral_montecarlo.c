@@ -6,14 +6,13 @@
 double
 integral_monte_carlo(double a, double b, double point_count, double (*f)(double))
 {
-    double res, x, y = 0;
+    double x, y = 0;
     int i;
     for (i = 0; i < point_count; ++i){
-        x = ((b - a) * (double)random() / RAND_MAX) + a;
+        x = ((b - a) * ((double)random() / RAND_MAX)) + a;
         y += f(x);
     }
-    res = (b - a) * (y / point_count);
-    return (res);
+    return ((b - a) * (y / point_count));
 }
 
 int

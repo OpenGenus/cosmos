@@ -20,7 +20,8 @@ TEST_CASE("sum of paths between root to bottom") {
 
     SECTION("give empty tree") {
         root = ts.deserialize("# ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             CHECK(res == 0);
         }
@@ -28,7 +29,8 @@ TEST_CASE("sum of paths between root to bottom") {
 
     SECTION("give one node") {
         root = ts.deserialize("1 # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 1)
                 CHECK(res == 1);
@@ -39,7 +41,8 @@ TEST_CASE("sum of paths between root to bottom") {
 
     SECTION("give balance tree") {
         root = ts.deserialize("1 2 # # 3 # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 3 || i == 4)
                 CHECK(res == 1);
@@ -48,7 +51,8 @@ TEST_CASE("sum of paths between root to bottom") {
         }
 
         root = ts.deserialize("1 2 4 # # # 3 5 # # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 7 || i == 9)
                 CHECK(res == 1);
@@ -57,7 +61,8 @@ TEST_CASE("sum of paths between root to bottom") {
         }
 
         root = ts.deserialize("1 2 4 # # # 3 # 5 # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 7 || i == 9)
                 CHECK(res == 1);
@@ -66,7 +71,8 @@ TEST_CASE("sum of paths between root to bottom") {
         }
 
         root = ts.deserialize("1 2 # 4 # # 3 5 # # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 7 || i == 9)
                 CHECK(res == 1);
@@ -75,7 +81,8 @@ TEST_CASE("sum of paths between root to bottom") {
         }
 
         root = ts.deserialize("1 2 # 4 # # 3 # 5 # # ");
-        for(int i = -20; i < 20; ++i) {
+        for (int i = -20; i < 20; ++i)
+        {
             res = (sol.*pf)(root, i);
             if (i == 7 || i == 9)
                 CHECK(res == 1);
@@ -87,7 +94,8 @@ TEST_CASE("sum of paths between root to bottom") {
     SECTION("give unbalance tree") {
         SECTION("left is more deep") {
             root = ts.deserialize("1 2 # # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 3)
                     CHECK(res == 1);
@@ -96,7 +104,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 3 # # # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 6)
                     CHECK(res == 1);
@@ -105,7 +114,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 # 3 # # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 6)
                     CHECK(res == 1);
@@ -114,7 +124,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 4 # # # 3 # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 4 || i == 7)
                     CHECK(res == 1);
@@ -123,7 +134,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 # 4 # # 3 # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 4 || i == 7)
                     CHECK(res == 1);
@@ -134,7 +146,8 @@ TEST_CASE("sum of paths between root to bottom") {
 
         SECTION("right is more deep") {
             root = ts.deserialize("1 # 2 # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 3)
                     CHECK(res == 1);
@@ -143,7 +156,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 # 2 3 # # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 6)
                     CHECK(res == 1);
@@ -152,7 +166,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 # 2 # 3 # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 6)
                     CHECK(res == 1);
@@ -161,7 +176,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 # # 3 4 # # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 3 || i == 8)
                     CHECK(res == 1);
@@ -170,7 +186,8 @@ TEST_CASE("sum of paths between root to bottom") {
             }
 
             root = ts.deserialize("1 2 # # 3 # 4 # # ");
-            for(int i = -20; i < 20; ++i) {
+            for (int i = -20; i < 20; ++i)
+            {
                 res = (sol.*pf)(root, i);
                 if (i == 3 || i == 8)
                     CHECK(res == 1);

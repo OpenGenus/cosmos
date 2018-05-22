@@ -1,19 +1,22 @@
 /*
-* policy_design.cpp
-*
-* Created: 3/15/2018 1:14:41 AM
-*  Author: n-is
-*   email: 073bex422.nischal@pcampus.edu.np
-*/
+ * policy_design.cpp
+ *
+ * Created: 3/15/2018 1:14:41 AM
+ *  Author: n-is
+ *   email: 073bex422.nischal@pcampus.edu.np
+ */
 
 #include <iostream>
 
 class Classical
 {
 public:
-    Classical(int a) { }
+    Classical(int a)
+    {
+    }
 
-    void solve() {
+    void solve()
+    {
         std::cout << "The differential equation was solved by the classical" <<
             " method." << std::endl;
     }
@@ -22,7 +25,8 @@ public:
 class Laplace
 {
 public:
-    void solve() {
+    void solve()
+    {
         std::cout << "The differential equation was solved by the Laplace" <<
             " Transform method." << std::endl;
     }
@@ -34,10 +38,13 @@ class DifferentialEquaton
 private:
     Method m_;
 public:
-    DifferentialEquaton(const Method & m = Method()):
-    m_(m) { }
+    DifferentialEquaton(const Method & m = Method()) :
+        m_(m)
+    {
+    }
 
-    void solve() {
+    void solve()
+    {
         m_.solve();
     }
 };

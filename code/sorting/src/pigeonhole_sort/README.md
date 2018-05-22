@@ -1,14 +1,34 @@
 # Pigeonhole Sort
-The Pigeonhole sort is a sorting algorithm suitable for sorting lists of elements where the number (n) of elements and the length of the range of possible key values (N) are approximately the same. It requires O(n + N) time.
+The Pigeonhole sort is a sorting technique that is used when the range of keys is relatively small. 
+An array of pigeonholes (buckets, chunks of RAM) is reserved for each possible key value. The records from the unsorted list are scanned and copied into their respective pigeonholes based on their key values. Then, the contents of the pigeonholes are copied in sequence to the final destination.
 
-The algorithm works as follows:
-1. Given the array; sets up an auxiliary array of initial empty 'pigeonholes', one for each key through the range of the original array.
 
-2. Going over the original array, put each value into the pigeonhole corresponding to it's key, such that each pigeonhole eventually contains a list of all values with that key.
+## Explanation
+Pigeonhole sort works in the following way:
 
-3. Iterate over the pigeonhole array in order, and put the elements from non-empty pigeonholes back into the original array.
+![image1](https://cdncontribute.geeksforgeeks.org/wp-content/uploads/countingsort.png)
 
-## Further Reading
-[Wikipedia - Pigeonhole Sort](https://en.wikipedia.org/wiki/Pigeonhole_sort)
+> Image credits: geeksforgeeks
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+It is similar to counting sort, but differs in that it "moves items twice: once to the bucket array and again to the final destination [whereas] counting sort builds an auxiliary array then uses the array to compute each item's final destination and move the item there".
+
+
+## Algorithm
+
+1. Find minimum and maximum values in array. Let the minimum and maximum values be ‘min’ and ‘max’ respectively. Also find range as ‘max-min-1’.
+2. Set up an array of initially empty “pigeonholes” with the same size as that of the range.
+3. Visit each element of the array and then put each element in its pigeonhole. An element `arr[i]` is put in hole at index `arr[i]` – min.
+4. Start the loop all over the pigeonhole array in order and put the elements from non- empty holes back into the original array.
+
+## Complexity
+**Time complexity**: `O(N + n)` 
+ where **N** is the range of key values and **n** is the input size
+
+**Space complexity**: `O(N + n)` 
+
+---
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---

@@ -8,21 +8,21 @@ using namespace std;
 // Class to represent a graph
 class Graph
 {
-int V;        // No. of vertices'
+    int V;    // No. of vertices'
 
 // Pointer to an array containing adjacency listsList
-list<int> *adj;
+    list<int> *adj;
 
 // A function used by topologicalSort
-void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);
+    void topologicalSortUtil(int v, bool visited[], stack<int> &Stack);
 public:
-Graph(int V);       // Constructor
+    Graph(int V);   // Constructor
 
 // function to add an edge to graph
-void addEdge(int v, int w);
+    void addEdge(int v, int w);
 
 // prints a Topological Sort of the complete graph
-void topologicalSort();
+    void topologicalSort();
 };
 
 Graph::Graph(int V)

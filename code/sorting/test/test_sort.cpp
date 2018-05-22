@@ -1,13 +1,13 @@
 /*
- Part of Cosmos by OpenGenus Foundation
+ * Part of Cosmos by OpenGenus Foundation
  */
 
 /*
- guide
-
- 1. substitute iterator (col:28)
- 2. substitute sort algorithm (col: 70)
- 3. run
+ * guide
+ *
+ * 1. substitute iterator (col:28)
+ * 2. substitute sort algorithm (col: 70)
+ * 3. run
  */
 
 #define CATCH_CONFIG_MAIN
@@ -81,56 +81,56 @@ TEST_CASE("sort algorithm")
 //    psf = quickSort;
 
     auto stdSort = [](ContainerType<int>&expectStdContainer)
-    {
+                   {
 #ifdef AT_LEAST_RANDOM_ITERATOR
-        std::sort(expectStdContainer.begin(), expectStdContainer.end());
+                       std::sort(expectStdContainer.begin(), expectStdContainer.end());
 #else
-        expectStdContainer.sort();
+                       expectStdContainer.sort();
 #endif
-    };
+                   };
 
     auto testSTLContainer = [&](int sz)
-    {
-        ContainerType<int> actualStdContainer, expectStdContainer;
+                            {
+                                ContainerType<int> actualStdContainer, expectStdContainer;
 
-        // randomize elems
-        for (int i = 0; i < sz; ++i)
-        {
-            int randomValue = std::rand() % (sz / 2 + 1);
-            actualStdContainer.push_front(randomValue);
-            expectStdContainer.push_front(randomValue);
-        }
+                                // randomize elems
+                                for (int i = 0; i < sz; ++i)
+                                {
+                                    int randomValue = std::rand() % (sz / 2 + 1);
+                                    actualStdContainer.push_front(randomValue);
+                                    expectStdContainer.push_front(randomValue);
+                                }
 
-        stdSort(expectStdContainer);
-        vsf(actualStdContainer.begin(), actualStdContainer.end());
+                                stdSort(expectStdContainer);
+                                vsf(actualStdContainer.begin(), actualStdContainer.end());
 
-        CHECK(isSame(actualStdContainer.begin(),
-                     actualStdContainer.end(),
-                     expectStdContainer.begin()));
-    };
+                                CHECK(isSame(actualStdContainer.begin(),
+                                             actualStdContainer.end(),
+                                             expectStdContainer.begin()));
+                            };
 
     auto testPODPtr = [&](int sz)
-    {
-        int *actualDynamicArray = new int[sz];
-        int *actualDynamicArrayEnd = actualDynamicArray + sz;
-        ContainerType<int> expectStdContainer;
+                      {
+                          int *actualDynamicArray = new int[sz];
+                          int *actualDynamicArrayEnd = actualDynamicArray + sz;
+                          ContainerType<int> expectStdContainer;
 
-        // randomize elems
-        for (int i = 0; i < sz; ++i)
-        {
-            int randomValue = std::rand() % (sz / 2 + 1);
-            actualDynamicArray[i] = randomValue;
-            expectStdContainer.push_front(randomValue);
-        }
+                          // randomize elems
+                          for (int i = 0; i < sz; ++i)
+                          {
+                              int randomValue = std::rand() % (sz / 2 + 1);
+                              actualDynamicArray[i] = randomValue;
+                              expectStdContainer.push_front(randomValue);
+                          }
 
-        stdSort(expectStdContainer);
-        psf(actualDynamicArray, actualDynamicArrayEnd);
+                          stdSort(expectStdContainer);
+                          psf(actualDynamicArray, actualDynamicArrayEnd);
 
-        CHECK(isSame(actualDynamicArray,
-                     actualDynamicArrayEnd,
-                     expectStdContainer.begin()));
-        delete[] actualDynamicArray;
-    };
+                          CHECK(isSame(actualDynamicArray,
+                                       actualDynamicArrayEnd,
+                                       expectStdContainer.begin()));
+                          delete[] actualDynamicArray;
+                      };
 
     SECTION("empty")
     {

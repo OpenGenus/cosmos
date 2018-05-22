@@ -13,22 +13,14 @@ int longestRepeatingSubsequence(std::string s)
 
     // Implementation is very similar to Longest Common Subsequence problem
     for (int x = 1; x <= n; ++x)
-    {
         for (int y = 1; y <= n; ++y)
         {
             if (s[x - 1] == s[y - 1] && x != y)
-            {
                 dp[x][y] = 1 + dp[x - 1][y - 1];
-            }
             else
-            {
                 dp[x][y] = std::max(dp[x - 1][y], dp[x][y - 1]);
-             }
         }
-    }
 
     // Returning the value of the result
     return dp[n][n];
 }
-
-

@@ -4,13 +4,15 @@
 #include "../IStack.h"
 #include "ArrayStack.h"
 
-int main() {
+int main()
+{
     int s;
     IStack<int> *stack = new ArrayStack<int>();
-    
+
     try {
         stack->peek();
-    } catch(char const *e) {
+    } catch (char const *e)
+    {
         std::cout << e << std::endl << std::endl;
     }
 
@@ -22,20 +24,20 @@ int main() {
     std::cout << stack->toString() << std::endl;
     std::cout << "2 " << std::endl;
     std::cout << stack2->toString() << std::endl;
- 
+
     stack->push(30);
     std::cout << "Added 30" << std::endl;
-    
+
     std::cout << std::endl << std::endl << stack->toString() << std::endl << std::endl;
-    
+
     s = stack->peek();
-    std::cout << "First element is now: "  << s << std::endl;
+    std::cout << "First element is now: " << s << std::endl;
     std::cout << "removed: " << stack->pop() << std::endl;
-        
+
     s = stack->peek();
-    std::cout << "First element is now: "  << s << std::endl;
-        
+    std::cout << "First element is now: " << s << std::endl;
+
     delete stack;
-    
+
     return 0;
 }

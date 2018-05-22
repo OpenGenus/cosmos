@@ -172,7 +172,8 @@ public class Affine {
 
         for (int i = 0; i < plaintext.length(); i++) {
             char agent = plaintext.charAt(i);
-            ciphertext.append(((char) ('A' + a * (agent - 97) + b % ALPHABET_SIZE)));
+            int value = ((a * (agent - 97) + b) % ALPHABET_SIZE);
+            ciphertext.append((char) (value + 97));
         }
         System.out.println("Ciphertext: " + ciphertext);
     }
