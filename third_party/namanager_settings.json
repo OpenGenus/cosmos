@@ -1,0 +1,23 @@
+{
+    "CHECK_DIRS": ["code/"],
+    "DIR_FORMATS": {
+        "LETTER_CASE": "lower_case",
+        "SEP": ["dash_to_underscore"]
+    },
+    "DIR_PREFIX": "",
+    "DIR_PREFIX_MODE": "ignore",
+    "DIR_SUFFIX": "",
+    "DIR_SUFFIX_MODE": "ignore",
+    "FILE_FORMATS": {
+        "LETTER_CASE": "lower_case",
+        "SEP": ["dash_to_underscore"]
+    },
+    "FILE_PREFIX": "",
+    "FILE_PREFIX_MODE": "ignore",
+    "FILE_SUFFIX": "",
+    "FILE_SUFFIX_MODE": "ignore",
+    "IGNORE_DIRS": ["^/$"],
+    "IGNORE_FILES": ["README.MD", "README.md", "Readme.md", "readme.md", ".DS_Store"],
+    "INCLUDE_DIRS": [],
+    "INCLUDE_FILES": []
+}
