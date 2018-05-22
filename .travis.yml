@@ -61,7 +61,7 @@ matrix:
         - "3.6"
       script:
         pip install namanager
-        ./scripts/filename_verification.sh
+        namanager -s third_party/namanager_settings.json --required
 
 before_install:
    - eval "${MATRIX_EVAL}"
