@@ -60,8 +60,8 @@ matrix:
       python:
         - "3.6"
       script:
-        pip install namanager
-        namanager -s third_party/namanager_settings.json --required
+        - pip install namanager
+        - namanager -s third_party/namanager_settings.json --required
 
 before_install:
    - eval "${MATRIX_EVAL}"
