@@ -8,7 +8,7 @@
         "LETTER_CASE": "lower_case",
         "SEP": ["dash_to_underscore"]
     },
-    "IGNORE_DIRS": [],
+    "IGNORE_DIRS": ["^/$"],
     "IGNORE_FILES": ["README.MD", "README.md", "Readme.md", "readme.md"],
     "INCLUDE_DIRS": [],
     "INCLUDE_FILES": []
