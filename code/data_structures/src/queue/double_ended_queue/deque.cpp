@@ -8,7 +8,7 @@ void showdq (deque <int> g)
 	deque <int> :: iterator it;				// Iterator to iterate over the deque . 
 	
 		for (it = g.begin(); it != g.end(); ++it)
-			cout << '\t' << *it;
+		   	cout << '\t' << *it;
 	
 	cout << '\n';
 }
@@ -48,7 +48,7 @@ int main ()
 			case 5:    showdq(que);
 						break;  
 		}
-	}while (option!=6); 
+	} while (option!=6); 
 		
 	return 0;
 }
