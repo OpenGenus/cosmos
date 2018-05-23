@@ -49,16 +49,16 @@ void inputdeque( )
 		switch (option)  
 		{   
 			case 1:    insertright();    
-						break;   
+					break;   
 			case 2:    deleteleft();    
-						break;   
+					break;   
 			case 3:    deleteright();    
-						break;   
+					break;   
 			case 4:    display();    
-						break;  
+					break;  
 		}
 		 
-	}while (option!=5);
+	} while (option!=5);
 } 
 
 void outputdeque( ) 
@@ -92,8 +92,10 @@ void outputdeque( )
 void insertright( ) 
 { 
 	int val; 
+	
 	printf("\n Enter the value to be added:"); 
 	scanf("%d", &val); 
+	
 	if ( (left == 0 && right == MAX-1 ) || (left == right+1) )
 	{  
 		printf("\n OVERFLOW");
@@ -103,7 +105,7 @@ void insertright( )
 	{  
 		left = 0;  
 		right = 0;
-    } 
+    	} 
 	else 
 	{
   		if (right == MAX-1) 							//right is at last position of queue    
@@ -213,6 +215,7 @@ void display( )
 			front++;  
 		}  
 		front = 0;  
+		
 		while (front <= rear)  
 		{   
 			printf("%d ",deque[front]);   
