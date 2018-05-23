@@ -1,55 +1,53 @@
-import java.lang.StringBuilder;
 import java.util.Scanner;
 
-public final class caesar_cipher {
+public final class CaesarCipher {
     private final static int MIN_KEY = 1;
     private final static int MAX_KEY = 26;
 
     public static void main(String[] args){
         final Scanner scanner = new Scanner(System.in);
-        final StringBuilder sb = new StringBuilder();
+        String ans = "";
 
         System.out.print("Enter a message: ");
         String message = scanner.nextLine();
 
         System.out.print("Encrypt or Decrypt: ");
         char type = scanner.next().charAt(0);
+        int key = 0;
 
-        System.out.print("Enter a key: ");
-        int key = (type == 'd' || type == 'D') ? -scanner.nextInt() : scanner.nextInt();
+        do {
+            System.out.print("Enter a key: ");
+            key = scanner.nextInt();
+        } while (key < MIN_KEY || key > MAX_KEY);
+        
+        key = (type == 'd' || type == 'D') ? -key : key;
 
-        if (Math.abs(key) < MIN_KEY || Math.abs(key) > MAX_KEY) {
-            System.out.println("Key out of bounds.");
-            System.exit(1);
-        }
-
-        message.chars().forEach(c -> {
+        for (char c : message.toCharArray()) {
             int num = (int) c;
 
             if (Character.isAlphabetic(c)) {
                 num += key;
-
                 if (Character.isUpperCase(c)) {
-                    if (c > 'Z') {
+                    if (num > 'Z') {
                         num -= MAX_KEY;
                     }
-                    else if (c < 'A') {
+                    else if (num < 'A') {
                         num += MAX_KEY;
                     }
                 }
                 else if (Character.isLowerCase(c)) {
-                    if (c > 'z') {
+                    if (num > 'z') {
                         num -= MAX_KEY;
                     }
-                    else if (c < 'a') {
+                    else if (num < 'a') {
                         num += MAX_KEY;
                     }
                 }
             }
 
-            sb.append((char)num);
-        });
+            ans += (char) num;
+        }
 
-        System.out.println(sb.toString());
+        System.out.println(ans);
     }
 }
