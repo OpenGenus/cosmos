@@ -16,28 +16,28 @@ void display(void);
 
 int main( ) 
 { 
-	int option; 
-	printf("\n *****MAIN MENU*****"); 
-	printf("\n 1.Input restricted deque"); 
-	printf("\n 2.Output restricted deque"); 
-	printf("\n Enter your option : "); 
-	scanf("%d",&option); 
+    int option; 
+    printf("\n *****MAIN MENU*****"); 
+    printf("\n 1.Input restricted deque"); 
+    printf("\n 2.Output restricted deque"); 
+    printf("\n Enter your option : "); 
+    scanf("%d",&option); 
 	
-	switch (option) 
-	{  
-		case 1:   inputdeque();   
-			    	break;  
-		case 2:   outputdeque();   
-					break; 
-	} return 0;
+    switch (option) 
+    {  
+        case 1 : inputdeque();   
+	        	 break;  
+	    case 2 : outputdeque();   
+			     break; 
+    } return 0;
 } 
 
 void inputdeque( ) 
 { 
-	int option;
+    int option;
 	do 
 	{  
-		printf("\n\n INPUT RESTRICTED DEQUE");  
+	    printf("\n\n INPUT RESTRICTED DEQUE");  
 		printf("\n 1.Insert at right");  
 		printf("\n 2.Delete from left");  
 		printf("\n 3.Delete from right");  
@@ -48,14 +48,14 @@ void inputdeque( )
 		scanf("%d",&option);  
 		switch (option)  
 		{   
-			case 1:    insertright();    
-					break;   
-			case 2:    deleteleft();    
-					break;   
-			case 3:    deleteright();    
-					break;   
-			case 4:    display();    
-					break;  
+			case 1 : insertright();    
+					 break;   
+			case 2 : deleteleft();    
+					 break;   
+			case 3 : deleteright();    
+					 break;   
+			case 4 : display();    
+					 break;  
 		}
 		 
 	} while (option!=5);
@@ -77,16 +77,16 @@ void outputdeque( )
 		scanf("%d",&option);  
 		switch(option)  
 			{   
-				case 1:    insertright();
-				  	    	break;   
-				case 2:    insertleft();    
-							break;   
-				case 3:    deleteleft(); 
-				   			break;   
-				case 4:    display();    
-							break;  
+				case 1 : insertright();
+				  	     break;   
+				case 2 : insertleft();    
+						 break;   
+				case 3 : deleteleft(); 
+				   		 break;   
+				case 4 : display();    
+					     break;  
 			}
-	}while (option!=5); 
+	} while (option!=5); 
 } 
 
 void insertright( ) 
@@ -98,14 +98,14 @@ void insertright( )
 	
 	if ( (left == 0 && right == MAX-1 ) || (left == right+1) )
 	{  
-		printf("\n OVERFLOW");
-	    return; 
+	   	printf("\n OVERFLOW");
+		return; 
 	}
 	if (left == -1) // Queue is Empty Inititally
 	{  
 		left = 0;  
 		right = 0;
-    	} 
+    } 
 	else 
 	{
   		if (right == MAX-1) 							//right is at last position of queue    
@@ -118,9 +118,9 @@ void insertright( )
 
 void insertleft( ) 
 { 
-	int val;
-	 printf("\n Enter the value to be added:"); 
-	 scanf("%d", &val); 
+    int val;
+	printf("\n Enter the value to be added:"); 
+	scanf("%d", &val); 
 	  
 	if( (left ==0 && right == MAX-1) || (left == right+1) )
 	{  
@@ -135,9 +135,9 @@ void insertleft( )
 	else 
 	{  
 		if(left == 0)
-		left = MAX - 1 ;  
+		    left = MAX - 1 ;  
 		else   
-		left = left - 1 ; 
+		    left = left - 1 ; 
 	} 
 	
 	deque[left] = val; 
@@ -197,7 +197,7 @@ void display( )
 	if ( front == -1 ) 
 	{  
 	 	printf("\n QUEUE IS EMPTY");  
-		 return; 
+		return; 
 	} 
 	printf("\n The elements of the queue are : ");
 	if (front <= rear ) 
