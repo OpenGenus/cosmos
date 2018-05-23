@@ -139,6 +139,7 @@ void insertleft( )
 		else   
 		left = left - 1 ; 
 	} 
+	
 	deque[left] = val; 
 }
  
