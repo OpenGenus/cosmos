@@ -11,18 +11,18 @@ public class RotN {
     public static String rot(String str, int n) {
         n = Math.max(0, n);
         
-        StringBuilder sb = new StringBuilder();
+        String result = "";
     
         for (char c : str.toCharArray()) {
-            if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(c) < 0)
-                sb.append(c);
+            if (!Character.isLetter(c))
+                result += c;
             else {
                 int b = c - 'a';
                 int m = (b + n) % 26;
-                sb.append((char) (m + 'a'));
+                result += (char) (m + 'a');
             }
         }
         
-        return sb.toString();
+        return result;
     }
 }
