@@ -49,13 +49,13 @@ void inputdeque( )
 		switch (option)  
 		{   
 			case 1:    insertright();    
-						break;   
+					break;   
 			case 2:    deleteleft();    
-						break;   
+					break;   
 			case 3:    deleteright();    
-						break;   
+					break;   
 			case 4:    display();    
-						break;  
+					break;  
 		}
 		 
 	}while (option!=5);
@@ -80,11 +80,11 @@ void outputdeque( )
 			case 1:    insertright();
 			  	    	break;   
 			case 2:    insertleft();    
-						break;   
+					break;   
 			case 3:    deleteleft(); 
-			   			break;   
+			   		break;   
 			case 4:    display();    
-						break;  
+					break;  
 		}
 	}while (option!=5); 
 } 
