@@ -10,7 +10,7 @@ void showdq (deque <int> g)
 		for (it = g.begin(); it != g.end(); ++it)
 		   	cout << '\t' << *it;
 	
-	cout << '\n';
+	cout << "\n";
 }
 
 int main ()
@@ -33,20 +33,23 @@ int main ()
 		
 		switch (option)  
 		{   
-			case 1:    cout<<"\n Enter number : ";
-					   cin>>x; 
-					   que.push_front(x);											
-			  	       break;   
-			case 2:    cout<<"\n Enter number : ";
-					   cin>>x; 
-					   que.push_back(x);    										
-					   break;   
-			case 3:    que.pop_front(); 											
-			   		   break;   
-			case 4:    que.pop_back();    
-						break;
-			case 5:    showdq(que);
-						break;  
+			case 1 : cout<<"\n Enter number : ";
+				 cin>>x; 
+				 que.push_front(x);											
+			  	 break;   
+			
+			case 2 : cout<<"\n Enter number : ";
+				 cin>>x; 
+				 que.push_back(x);    										
+				 break;   
+			
+			case 3 : que.pop_front(); 											
+			   	 break;   
+			
+			case 4 : que.pop_back();    
+				 break;
+			case 5 : showdq(que);
+				 break;  
 		}
 	} while (option!=6); 
 		
