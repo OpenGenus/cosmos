@@ -28,7 +28,7 @@ int main( )
 		case 1:   inputdeque();   
 			    	break;  
 		case 2:   outputdeque();   
-					break; 
+				break; 
 	} return 0;
 } 
 
