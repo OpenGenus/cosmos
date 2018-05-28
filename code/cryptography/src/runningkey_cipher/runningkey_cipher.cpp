@@ -7,7 +7,7 @@ int main()
     std::string key = "HOWDOESTHEDUCKKNOWTHATSAIDVI";
     std::string ciphertext;
     
-    for (int i = 0; i < plaintext.size(); i++)
+    for (size_t i = 0; i < plaintext.size(); i++)
     {
         if (isalpha(plaintext[i]) && isalpha(key[i]))
         {
