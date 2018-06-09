@@ -1,8 +1,9 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>
-#include <windows.h>
-#include <process.h>
+//Uncomment when using in your system
+//#include <windows.h>
+//#include <process.h>
 
 void routine(void *a)
 {
