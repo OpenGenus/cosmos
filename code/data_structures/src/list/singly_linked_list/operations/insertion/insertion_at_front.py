@@ -1,5 +1,6 @@
-#Python Utility to add element at the beginning of the Singly Linked List
-#Part of Cosmos by OpenGenus Foundation
+# Python Utility to add element at the beginning of the Singly Linked List
+# Part of Cosmos by OpenGenus Foundation
+
 
 class Node:
     '''
@@ -24,7 +25,8 @@ class Node:
         ''' Node representation as required'''
         return (self.data)
 
-class Singly_Linked_List:
+
+class SinglyLinkedList:
     '''
     A structure of singly linked lists
     '''
@@ -32,14 +34,13 @@ class Singly_Linked_List:
     def __init__(self):
         '''Creates a Singly Linked List in O(1) Time'''
         self.head = None
-    
-    def Insert_In_Front(self,data):
+
+    def insert_in_front(self, data):
         '''
         Inserts New data at the beginning of the Linked List
         Takes O(1) time
         '''
-        self.head=Node(self,data=data,next=self.head)
-        
+        self.head = Node(self, data=data, next=self.head)
 
     def __repr__(self):
         '''
@@ -48,12 +49,12 @@ class Singly_Linked_List:
 
         a -> b -> c -> d
         '''
-        AllNodes = []
+        all_nodes = []
         current_node = self.head
         while current_node:
-            AllNodes.append(str(current_node.data))
+            all_nodes.append(str(current_node.data))
             current_node = current_node.next
-        if len(AllNodes) > 0:
-            return ' -> '.join(AllNodes)
+        if len(all_nodes) > 0:
+            return ' -> '.join(all_nodes)
         else:
             return 'Linked List is empty'
