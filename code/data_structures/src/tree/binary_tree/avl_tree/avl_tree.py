@@ -10,7 +10,7 @@ def height(node):
 	return node.height
 
 
-def rightRotate(node):
+def right_rotate(node):
 	x = node.left
 	T2 = x.right
 
@@ -22,7 +22,7 @@ def rightRotate(node):
 
 	return x
 
-def leftRotate(node):
+def left_rotate(node):
 	y = node.right
 	T2 = y.left
 
@@ -34,7 +34,7 @@ def leftRotate(node):
 
 	return y
 
-def getBalance(node):
+def get_balance(node):
 	if node is None:
 		return 0
 	return height(node.left) - height(node.right)
@@ -52,25 +52,25 @@ def insert(node, key):
 
 	node.height = 1 + max(height(node.left), height(node.right))
 	
-	balance = getBalance(node)
+	balance = get_balance(node)
 
 	if balance > 1 and key < node.left.key:
-		return rightRotate(node)
+		return right_rotate(node)
 		
 	if balance < -1 and key > node.right.key:
-		return leftRotate(node)
+		return left_rotate(node)
 
 	if balance > 1 and key > node.left.key:
 	
-		node.left = leftRotate(node.left)
-		return rightRotate(node)
+		node.left = left_rotate(node.left)
+		return right_rotate(node)
 
 	if balance < -1 and key < node.right.key:
-		node.right = rightRotate(node.right)
-		return leftRotate(node)
+		node.right = right_rotate(node.right)
+		return left_rotate(node)
 	return node
  
-def minValueNode(node):
+def min_value_node(node):
 	current = node
 
 	while current.left is not None:
@@ -78,15 +78,15 @@ def minValueNode(node):
 
 	return current
 
-def deleteNode(root, key):
+def delete_node(root, key):
 	if root is None:
 		return root
 
 	if key < root.key:
-		root.left = deleteNode(root.left, key)
+		root.left = delete_node(root.left, key)
 
 	elif key > root.key:
-		root.right = deleteNode(root.right, key)
+		root.right = delete_node(root.right, key)
 
 	else:
 		if root.left is None or root.right is None:
@@ -102,38 +102,38 @@ def deleteNode(root, key):
 			else:
 				root = temp 
 		else:
-			temp = minValueNode(root.right)
+			temp = min_value_node(root.right)
 			root.key = temp.key
-			root.right = deleteNode(root.right, temp.key)
+			root.right = delete_node(root.right, temp.key)
 
 	if root is None:
 		return root
 
 	root.height = max(height(root.left), height(root.right)) + 1
 
-	balance = getBalance(root)
+	balance = get_balance(root)
 
-	if balance > 1 and getBalance(root.left) >= 0:
-		return rightRotate(root)
+	if balance > 1 and get_balance(root.left) >= 0:
+		return right_rotate(root)
 
-	if balance > 1 and getBalance(root.left) < 0:
-		root.left = leftRotate(root.left)
-		return rightRotate(root)
+	if balance > 1 and get_balance(root.left) < 0:
+		root.left = left_rotate(root.left)
+		return right_rotate(root)
 
-	if balance < -1 and getBalance(root.right) <= 0:
-		return leftRotate(root)
+	if balance < -1 and get_balance(root.right) <= 0:
+		return left_rotate(root)
 
-	if balance < -1 and getBalance(root.right) > 0:
-		root.right = rightRotate(root.right)
-		return leftRotate(root)
+	if balance < -1 and get_balance(root.right) > 0:
+		root.right = right_rotate(root.right)
+		return left_rotate(root)
 	return root
 
 
-def preOrder(node):
+def pre_order(node):
 	if node is not None:
 		print str(node.key),
-		preOrder(node.left)
-		preOrder(node.right)
+		pre_order(node.left)
+		pre_order(node.right)
 		
 def main():
 	print "Enter numbers (space seperated) to be added to the AVL Tree: ",
@@ -142,13 +142,14 @@ def main():
 	tree = Node(arr[0])
 	for i in arr[1::]:
 		tree = insert(tree, i)
- 	print "Preorder traversal of constructed tree is : ",
-	preOrder(tree)
+ 	print "pre_order traversal of constructed tree is : ",
+	pre_order(tree)
 	print
-	tree = deleteNode(tree, arr[0])
+	tree = delete_node(tree, arr[0])
 	print
-	print "Preorder traversal after deletion of " + str(arr[0]) + ": ",
-	preOrder(tree)
+	print "pre_order traversal after deletion of " + str(arr[0]) + ": ",
+	pre_order(tree)
+	
 if __name__ == "__main__":
 	main()
 
