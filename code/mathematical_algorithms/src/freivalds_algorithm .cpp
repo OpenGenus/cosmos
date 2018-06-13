@@ -1,3 +1,7 @@
+/*
+  Implementation of Freivalds’ algorithm in cpp
+  Part of Cosmos by OpenGenus Foundation
+ */
 
 #include <iostream>
 #include <stdio.h>
