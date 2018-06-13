@@ -5,13 +5,13 @@ import wx
 import regex
 import os
 import wikipedia
-import time 
+import time
 import webbrowser
-import youtube_dl 
+import youtube_dl
 #import winshell
 import json
 import requests
-import ctypes 
+import ctypes
 import random
 import urllib
 import ssl
@@ -25,6 +25,7 @@ from xlsxwriter import Workbook
 import subprocess
 import sys
 import pyttsx3
+import getpass
 from pytube import YouTube
 
 requests.packages.urllib3.disable_warnings()
@@ -34,7 +35,7 @@ except 'AttributeError':
 		pass
 else:
 		ssl._create_default_https_context=_create_unverified_https_context
-		
+
 headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
 speak = pyttsx3.init()
@@ -50,8 +51,9 @@ def events(frame,put):
     download_music=("download ","download music ")
     search_pc= ("find ","lookfor ")
     close_keywords=("close ","over ","stop ","exit ")
+    pc_locations = ("desktop", "documents", "downloads")
     link = put.split()
-  
+
 	#Add note
     if put.startswith("note") or put.startswith("not") or put.startswith("node"):
         try:
@@ -65,7 +67,7 @@ def events(frame,put):
             if check in check_keywords:
                 text += "?"
             else:
-                text += "."	
+                text += "."
             f1.write(text)
             f1.write("\n")
             f1.close()
@@ -73,8 +75,32 @@ def events(frame,put):
             speak.runAndWait()
         except:
             print("Could not add the specified note!")
+	#Open a existing folder
+    elif put.startswith(search_pc):
+        try:
+            if any(word in put for word in pc_locations):
+                username = getpass.getuser()
+                location = link[-1]
+                file_name = link[1]
+                path = r"C:\Users\%s\%s\%s" %( username, location, file_name)
+                os.system("start "+path)
+            elif link[-1] == "drive" and link[-3] == "in":
+                drive = link[-2]
+                file_name1 = link[1]
+                if link[2] == link[-3]:
+                    file_name2 = ''
+                else:
+                    file_name2 = link[2]
+                path = r"%s:\%s %s " %(drive, file_name1, file_name2)
+                os.system("start " +path)
+            elif link[-1] == "drive":
+                drive = link[-2]
+                path = r"%s:\ " %(drive)
+                os.system("start "+path)
+        except Exception as e:
+            print(e)
     #Screen Recorder
-    elif link[0] == "recorder":        
+    elif link[0] == "recorder":
         try:
             if len(link) < 2:
                 video = '"UScreenCapture"'
@@ -83,8 +109,8 @@ def events(frame,put):
                 video = link[1]
                 video = video.replace('_',' ')
                 video = '"' + video + '"'
-                audio = '"Microphone (Realtek High Definition Audio)"'    
-            else:   
+                audio = '"Microphone (Realtek High Definition Audio)"'
+            else:
                 video = link[1]
                 video = video.replace('_',' ')
                 video = '"' + video + '"'
@@ -103,7 +129,7 @@ def events(frame,put):
         try:
             if len(link) < 3:
                 audio = '"Microphone (Realtek High Definition Audio)"'
-            else:   
+            else:
                 audio = link[2]
                 audio = audio.replace('_',' ')
                 audio = '"' + audio + '"'
@@ -122,7 +148,7 @@ def events(frame,put):
             else:
                 video = link[2]
                 video = video.replace('_',' ')
-                video = '"' + video + '"'   
+                video = '"' + video + '"'
             username = os.getlogin()
             speak.say("Recording started!")
             speak.runAndWait()
@@ -137,8 +163,8 @@ def events(frame,put):
             os.chdir(r'''C:\Users\{}\Desktop'''.format(username))
             video = link[1]
             audio = link[2]
-            output = link[3] 
-            subprocess.call(r'''ffmpeg -i {} -i {} -c:v copy -c:a copy {}'''.format(video,audio,output),shell=True) 
+            output = link[3]
+            subprocess.call(r'''ffmpeg -i {} -i {} -c:v copy -c:a copy {}'''.format(video,audio,output),shell=True)
         except:
             print("Unable to process requested service!")
     #Convert video
@@ -152,30 +178,30 @@ def events(frame,put):
                 form_out = link[4]
                 video2 = link[5]
                 if (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv") and (form_out == "mp4" or form_out == "mkv"):
-                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -an {}'''.format(video1,video2), shell = True) 
+                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -an {}'''.format(video1,video2), shell = True)
                 elif (form_in == "avi" or form_in == "mp4" or form_in == "mkv") and form_out == "webm":
-                    subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -an {}'''.format(video1,video2),shell=True)            
+                    subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -an {}'''.format(video1,video2),shell=True)
             else:
                 form_in = link[1]
                 video1 = link[2]
                 form_out = link[3]
                 video2 = link[4]
                 if (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv") and (form_out == "mp4" or form_out == "mkv"):
-                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -acodec aac {}'''.format(video1,video2), shell = True) 
+                    subprocess.call(r'''ffmpeg -i {} -c:v libx264 -acodec aac {}'''.format(video1,video2), shell = True)
                 elif (form_in == "avi" or form_in == "mp4" or form_in == "mkv") and form_out == "webm":
                     subprocess.call(r'''ffmpeg -i {} -c:v libvpx-vp9 -b:v 2M -cpu-used -5 -deadline realtime -c:a libvorbis {}'''.format(video1,video2), shell = True)
                 elif (form_in == "mp4" or form_in == "mkv" or form_in == "webm") and form_out == "avi":
-                    subprocess.call(r'''ffmpeg -i {} -c:v mpeg4 -vtag xvid -qscale:v 0 -acodec libmp3lame {}'''.format(video1,video2), shell = True)                
+                    subprocess.call(r'''ffmpeg -i {} -c:v mpeg4 -vtag xvid -qscale:v 0 -acodec libmp3lame {}'''.format(video1,video2), shell = True)
                 elif (form_in == "avi" or form_in == "webm" or form_in == "mp4" or form_in == "mkv" or form_in == "mp3" or form_in == "m4a") and (form_out == "m4a" or form_out == "mp3"):
                     subprocess.call(r'''ffmpeg -i {} {}'''.format(video1,video2), shell = True)
         except:
             print("Unable to process requested service!")
-    
+
     #Closing Benji
     elif put.startswith(close_keywords):
         os._exit(0)
 
-                       
+
     #Images to video
     elif put.startswith("images to video "):
         try:
@@ -256,7 +282,7 @@ def events(frame,put):
             speak.say("download complete!")
             speak.runAndWait()
         except:
-            print('Sorry Ethan. Looks like its not working!')        
+            print('Sorry Ethan. Looks like its not working!')
     #Download music
     elif put.startswith(download_music):
         try:
@@ -289,8 +315,8 @@ def events(frame,put):
             speak.say("download completed Check your desktop for the song")
             speak.runAndWait()
         except:
-            print("Unable to download requested music!")    
-    #Location     
+            print("Unable to download requested music!")
+    #Location
     elif any(word in put for word in location_keywords):
         try:
             link='+'.join(link[1:])
@@ -302,7 +328,7 @@ def events(frame,put):
             print('The place seems to be sequestered.')
 	#Who are you?
     elif any(word in put for word in identity_keywords):
-        try: 
+        try:
             speak.say("I am BENJI, a digital assistant declassified for civilian use. Previously I was used by the Impossible Missions Force")
             speak.runAndWait()
         except:
@@ -325,8 +351,8 @@ def events(frame,put):
             speak.runAndWait()
             webbrowser.open('https://www.google.com/search?q='+link)
         except:
-            print('Nope, this is not working.')        
-	#Google Images	
+            print('Nope, this is not working.')
+	#Google Images
     elif put.startswith("images of "):
         try:
             link='+'.join(link[2:])
@@ -335,8 +361,8 @@ def events(frame,put):
             speak.runAndWait()
             webbrowser.open('https://www.google.co.in/search?q=' + link + '&source=lnms&tbm=isch')
         except:
-            print('Could not search for images!')	
-	#Gmail		
+            print('Could not search for images!')
+	#Gmail
     elif put.startswith("gmail"):
         try:
             speak.say("Opening Gmail!")
@@ -351,7 +377,7 @@ def events(frame,put):
             speak.runAndWait()
             webbrowser.open('https://www.google.com/cloudprint')
         except:
-            print("Could not open Google Cloud Print!")        
+            print("Could not open Google Cloud Print!")
     #Google Others
     elif put.startswith("google "):
         try:
@@ -360,7 +386,7 @@ def events(frame,put):
             speak.runAndWait()
             webbrowser.open('https://'+ say +'.google.com')
         except:
-            print("Could not open Google " + say.capitalize() + "!")        
+            print("Could not open Google " + say.capitalize() + "!")
 	#Blogger
     elif put.startswith("blogger"):
         try:
@@ -388,16 +414,16 @@ def events(frame,put):
             webbrowser.open('https://castbox.fm/home')
         except:
             print("Could not open podcast!")
-    #Lock the device 
+    #Lock the device
     elif put.startswith('secure ') or put.startswith('lock '):
         try:
             speak.say("locking the device")
             speak.runAndWait()
             ctypes.windll.user32.LockWorkStation()
         except :
-            print('Cannot lock device')  
+            print('Cannot lock device')
 	#News of various press agencies
-    elif put.startswith('news '): 
+    elif put.startswith('news '):
         try:
             say = '+'.join(link[1:])
             say = say.replace('+','-')
@@ -406,7 +432,7 @@ def events(frame,put):
             elif link[1] == "bbc":
                 say += "-news"
             elif link[1] == "espn" and link[2] == "cric":
-                say += "-info"      
+                say += "-info"
             url = ('https://newsapi.org/v1/articles?source=' + say + '&sortBy=latest&apiKey=571863193daf421082a8666fe4b666f3')
             newsresponce = requests.get(url)
             newsjson = newsresponce.json()
@@ -427,22 +453,22 @@ def events(frame,put):
                 if link[2] == "zero":
                     link[2] = "0"
                 if link[4] == "zero":
-                    link[4] = "0"    
+                    link[4] = "0"
                 hours = int(link[2])
                 minutes = int(link[4])
-                time_seconds = 60 * minutes 
-                time_seconds = time_seconds + hours * 3600	
+                time_seconds = 60 * minutes
+                time_seconds = time_seconds + hours * 3600
                 subprocess.call("shutdown /s /t {0}".format(str(time_seconds)), shell = True)
                 speak.say("Shutdown initialized!")
                 speak.runAndWait()
         except:
-            print("Please shutdown manually!")		
+            print("Please shutdown manually!")
 	#shutdown now
     elif put.startswith("shutdown now"):
         try:
             subprocess.call("shutdown /s /t 0", shell = True)
         except:
-            print("Please shutdown manually!")			
+            print("Please shutdown manually!")
 	#abort shutdown
     elif put.startswith("cancel shutdown"):
         try:
@@ -450,13 +476,13 @@ def events(frame,put):
             speak.say("Shutdown cancelled!")
             speak.runAndWait()
         except:
-            print("Unable do cancel shutdown!")	
+            print("Unable do cancel shutdown!")
 	#restart
     elif put.startswith("restart now"):
         try:
             subprocess.call("shutdown /r /t 0", shell = True)
         except:
-            print("Unable do restart device!")		
+            print("Unable do restart device!")
     #Folder
     elif put.startswith('create ') and link[-1] == "folder":
         try:
@@ -468,7 +494,7 @@ def events(frame,put):
             speak.say("Folder created!")
             speak.runAndWait()
         except:
-            print("Couldn't create specified folder!")        
+            print("Couldn't create specified folder!")
 	#create file
     elif put.startswith('create ') and link[-1] == "document":
         try:
@@ -482,13 +508,13 @@ def events(frame,put):
             elif link[-2] == "word" or link[-2] == "world":
                 filename += ".docx"
                 f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
-                f1.close() 
+                f1.close()
             elif link[-2] == "powerpoint" or link[-2] =="presentation":
                 filename += ".pptx"
                 prs = Presentation()
                 title_slide_layout = prs.slide_layouts[0]
                 slide = prs.slides.add_slide(title_slide_layout)
-                os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))	
+                os.chdir(r'''C:\Users\{0}\Desktop'''.format(username))
                 prs.save(filename)
             elif link[-2] == "excel" or link[-2] == "Excel":
                 filename += ".xlsx"
@@ -503,7 +529,7 @@ def events(frame,put):
             elif link[-2] == "rich" or link[-2] == "reach":
                 filename += ".rtf"
                 f1 = open(r'''C:\Users\{0}\Desktop\{1}'''.format(username,filename),'a')
-                f1.close()	
+                f1.close()
             speak.say("Created" + filename)
             speak.runAndWait()
         except:
@@ -513,8 +539,8 @@ def events(frame,put):
         try:
             subprocess.call('calc',shell=True)
         except:
-            print("Unable to open calculator!")        	
-    #Exit/Quit        
+            print("Unable to open calculator!")
+    #Exit/Quit
     elif put.startswith('exit') or put.startswith('quit'):
         sys.exit()
 
@@ -550,7 +576,7 @@ class MyFrame(tk.Frame):
         self.btn = ttk.Button(root,command=self.OnClicked,
         image=self.photo1, style="C.TButton")
         self.btn.grid(row=1,column=2, padx=10, pady=20)
-        
+
         '''
         self.output_window = tk.Toplevel()
         output_text_window = tk.Text(self.output_window)
