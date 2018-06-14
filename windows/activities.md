@@ -97,7 +97,7 @@ The commands for the various functions are as follows:
 * "***convert*** _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_". This will convert the input file to the output file. To create a file without audio, use "convert na _InputFormat_ _InputFile_ _OutputFormat_ _OutputFile_".Here "na" stands for "no audio".
 NOTE: All the recorded files will be saved on the desktop. Make sure that the file names should not be same. "input.avi" and "input.mp3" have no conflicts. But "input.avi" and "input.avi" will result into conflicts.
 * "***images to video*** _time_". Here time is the display time of each image. For this feature to run, you should create a folder "Images" on desktop. Add the images to the folder and rename them as "img001.jpg", "img002.jpg" and so on. After running the command, you will get the video in the same folder in ".avi" format.
-* "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it. Also you can open files from C drive, D drive, Desktop, Documents, Downloads by saying- find/lookfor in <C or D drive/Documents/Desktop?downloads>. C and D drive can be opened by saying- lookfor/find C/D drive
+* "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it. Also you can open files from C drive, D drive, Desktop, Documents, Downloads by saying- find/lookfor in <C or D drive/Documents/Desktop?downloads>. C and D drive can be opened by saying- lookfor/find C/D drive(Version: Microsoft Windows [Version 10.0.16299.431]).
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***download video*** _SongName_" to download video.
 * "***download music*** _SongName_" to download a song.
