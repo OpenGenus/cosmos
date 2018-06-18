@@ -21,7 +21,7 @@ class AVLTree(object):
 			self.insert(i)
 	
 	def height(self):
-		if self.node:
+		if self.node is not None:
 			return self.node.height
 		else:
 			return 0
@@ -86,7 +86,7 @@ class AVLTree(object):
 			
 	def insert(self, key):
 		#First do normal BST, according to key
-		if not self.node:
+		if self.node is None:
 			self.node = Node(key)
 			self.node.left = AVLTree()
 			self.node.right = AVLTree()
@@ -101,13 +101,13 @@ class AVLTree(object):
 
 
 	def delete(self, key):
-		if self.node: #check for a node
+		if self.node is not None: #check for a node
 			if self.node.key == key: #If key is root
-				if (not self.node.left.node) and (not self.node.right.node):
+				if (self.node.left.node is None) and (self.node.right.node is None):
 					self.node = None #No children, YAY, remove root
-				elif not self.node.left.node:
+				elif self.node.left.node is None:
 					self.node = self.node.right.node #If left child, make it the right
-				elif not self.node.right.node:
+				elif self.node.right.node is None:
 					self.node = self.node.left.node
 				
 				# both children present. Find logical successor
@@ -127,7 +127,7 @@ class AVLTree(object):
 	
 			
 	def update_heights(self, recurse = True):
-		if self.node: 
+		if self.node is not None: 
 			if recurse: 
 				if self.node.left: 
 					self.node.left.update_heights()
@@ -152,7 +152,7 @@ class AVLTree(object):
 
 
 	def check_balanced(self):
-		if not self == None or not self.node:
+		if (self is None) or (self.node is None):
 			return True
 		
 		self.update_heights()
@@ -163,7 +163,7 @@ class AVLTree(object):
 		return False
 		
 	def inorder_traverse(self):
-		if self.node:
+		if self.node is not None:
 			self.node.left.inorder_traverse()
 			print self.node.key, 
 			self.node.right.inorder_traverse()
@@ -174,7 +174,7 @@ class AVLTree(object):
 		"""
 		if node: #safety check
 			while node.left:
-				if not node.left.node:
+				if node.left.node is None:
 					return node 
 				else: 
 					node = node.left.node  
