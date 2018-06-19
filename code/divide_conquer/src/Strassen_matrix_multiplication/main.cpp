@@ -6,29 +6,26 @@
 
 // Although mathematcially the fast multiplication algorithm should take less time, since it is of lesser order O(n^t)
 // however it has a large preceeding constant thus the effect of the algorthm can only be seen in larger matrices
-
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <chrono>
+#include <iostream>
 #include <random>
-
-using namespace std;
+#include <vector>
+using namesapce std;
 using namespace std::chrono;
 
 vector<vector<int>> generator(int m, int n){
     std::mt19937 rng;
     rng.seed(std::random_device()());
     std::uniform_int_distribution<std::mt19937::result_type> dist6(0,1);
-    int i, j;
     vector<vector<int>> ans;
-    for( i = 0; i < m; i++){
+    for( int i = 0; i < m; i++){
         vector<int> row;
-        for(j = 0;j < n ; j++){
+        for(int j = 0;j < n ; j++){  
             if (i+j % 5 != 5) {
                 row.push_back(dist6(rng));
             }
-            else{
+            else {
                 row.push_back(0);
             }
         }
@@ -38,10 +35,10 @@ vector<vector<int>> generator(int m, int n){
 }
 
 
-int f(vector<vector<int>> a){
+int f(const vector<vector<int>>& a){
     return a[0][0];
 }
-vector<vector<int>> retriever(vector<vector<int>> matrix, int x, int y){
+vector<vector<int>> retriever( const vector<vector<int>>& matrix, int x, int y){
     vector<vector<int>> ans;
     for (int i = 0; i < x; i++ )
     {
@@ -56,16 +53,16 @@ vector<vector<int>> retriever(vector<vector<int>> matrix, int x, int y){
 }
 
 
-vector<vector<int>> converter(vector<vector<int>> matrix){
-    vector<vector<int>>::size_type x = matrix.size();
-    vector<vector<int>>::size_type y = matrix[0].size();
+vector<vector<int>> converter(const vector<vector<int>>& matrix){
+    auto no_of_rows = matrix.size();
+    auto no_of_cols = matrix[0].size();
     vector<vector<int>>::size_type t = 1;
     vector<vector<int>>::size_type p;
     if(x > y){
-        p = x;
+        p = no_of_rows;
     }
     else{
-        p = y;
+        p = no_of_cols;
     }
     while( t < p){
         t = t*2;
@@ -75,7 +72,7 @@ vector<vector<int>> converter(vector<vector<int>> matrix){
     vector<vector<int>> ans;
     for ( std::vector<std::vector<int>>::size_type i = 0; i < p; i++ )
     {
-        if(i >= matrix.size()){
+        if(i >= no_of_rows){
             flag = 1;
         }
         vector<int> row;
@@ -85,7 +82,7 @@ vector<vector<int>> converter(vector<vector<int>> matrix){
                 row.push_back(0);
             }
             else{
-                if(j >= matrix[i].size()){
+                if(j >= no_of_cols){
                     row.push_back(0);
                 }
                 else{
@@ -98,7 +95,7 @@ vector<vector<int>> converter(vector<vector<int>> matrix){
     return ans;
 }
 
-void print(vector<vector<int>> grid){
+void print(const vector<vector<int>>& grid){
     for ( std::vector<std::vector<int>>::size_type i = 0; i < grid.size(); i++ )
     {
         for ( std::vector<int>::size_type j = 0; j < grid[i].size(); j++ )
@@ -109,7 +106,7 @@ void print(vector<vector<int>> grid){
     }
 }
 
-vector<vector<int>> add(vector<vector<int>> a, vector<vector<int>> b){
+vector<vector<int>> add(const vector<vector<int>>& a, const vector<vector<int>>& b){
     vector<vector<int>> ans;
     for ( std::vector<std::vector<int>>::size_type i = 0; i < a.size(); i++ )
     {
@@ -124,7 +121,7 @@ vector<vector<int>> add(vector<vector<int>> a, vector<vector<int>> b){
     return ans;
 }
 
-vector<vector<int>> subtract(vector<vector<int>> a, vector<vector<int>> b){
+vector<vector<int>> subtract(const vector<vector<int>>& a, const vector<vector<int>>& b){
     vector<vector<int>> ans;
     for ( std::vector<std::vector<int>>::size_type i = 0; i < a.size(); i++ )
     {
@@ -141,7 +138,7 @@ vector<vector<int>> subtract(vector<vector<int>> a, vector<vector<int>> b){
 
 
 
-vector<vector<int>> naive_multi(vector<vector<int>> a,  vector<vector<int>> b){
+vector<vector<int>> naive_multi(const vector<vector<int>>& a, const vector<vector<int>>& b){
     int s = 0;
     vector<vector<int>> ans;
     for ( std::vector<std::vector<int>>::size_type i = 0; i < a.size(); i++ )
@@ -162,7 +159,7 @@ vector<vector<int>> naive_multi(vector<vector<int>> a,  vector<vector<int>> b){
 }
 
 
-vector<vector<int>> strassen(vector<vector<int>> m1, vector<vector<int>> m2){
+vector<vector<int>> strassen(const vector<vector<int>>& m1, const vector<vector<int>>& m2){
     std::vector<std::vector<int>>::size_type s1 = m1.size();
     std::vector<std::vector<int>>::size_type s2 = m2.size();
     if ( s1 > 2 && s2 > 2) {
@@ -279,7 +276,7 @@ vector<vector<int>> strassen(vector<vector<int>> m1, vector<vector<int>> m2){
     }
 }
 
-vector<vector<int>> fast_multi(vector<vector<int>> m1, vector<vector<int>> m2){
+vector<vector<int>> fast_multi(const vector<vector<int>>& m1, const vector<vector<int>>& m2){
     vector<int> ranges, ranges_c, ind;
     vector<vector<int>> ans;
     for( vector<vector<int>>::size_type i = 0; i < m1.size(); i++){
@@ -367,13 +364,6 @@ vector<vector<int>> fast_multi(vector<vector<int>> m1, vector<vector<int>> m2){
     }
     return ans;
 }
-
-
-
-
-
-
-
 
 
 int main() {
