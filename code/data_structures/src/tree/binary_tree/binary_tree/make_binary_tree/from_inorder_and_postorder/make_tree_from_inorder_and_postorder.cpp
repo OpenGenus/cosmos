@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <queue>
 
 using namespace std;
 
@@ -46,13 +45,13 @@ TreeNode<int>* buildTreeHelper(BidiIt in_first, BidiIt in_last,
     return root;
 }
 
-void preorderPrint(TreeNode<int>* root)
+void postorderPrint(TreeNode<int>* root)
 {
     if (root == NULL)
         return;
 
-    preorderPrint(root->left);
-    preorderPrint(root->right);
+    postorderPrint(root->left);
+    postorderPrint(root->right);
     cout << root->data << " ";
 
     return;
@@ -65,7 +64,7 @@ int main()
 
     TreeNode<int>* root = buildTree(inorder, postorder);
 
-    preorderPrint(root);    // 7 8 6 4 2 5 3 1
+    postorderPrint(root);    // 7 8 6 4 2 5 3 1
 
     return 0;
 }
