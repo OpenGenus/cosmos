@@ -70,4 +70,4 @@ class SinglyLinkedList:
         if len(all_nodes) > 0:
             return ' -> '.join(all_nodes)
         else:
-            return
+            return ""
