@@ -1,10 +1,7 @@
-# Python Utility to add element at the end of the Singly Linked List
-# Part of Cosmos by OpenGenus Foundation
-
-
 class Node:
     '''
     A Node in a singly-linked list
+
     Parameters
     -------------------
     data :
@@ -14,7 +11,6 @@ class Node:
     '''
 
     def __init__(self, data=None, next=None):
-        ''' Initializes node structure'''
         self.data = data
         self.next = next
 
@@ -24,12 +20,7 @@ class Node:
 
 
 class SinglyLinkedList:
-    '''
-    A structure of singly linked lists
-    '''
-
     def __init__(self):
-        '''Creates a Singly Linked List in O(1) Time'''
         self.head = None
 
     def append(self, data):
@@ -49,19 +40,21 @@ class SinglyLinkedList:
         current_node.next = new_node
 
     def find(self, data):
+        '''
+        Returns the first index at which the element is found
+        Returns -1 if not found
+        Takes O(n) time
+        '''
+
         if self.head is None:
             return 'Linked List is Empty'
         current_node = self.head
-        node_indices = []
-        counter = 0
+        index = 0
         while current_node:
             if current_node.data = data:
-                node_indices.append(counter)
-            counter += 1
-        if len(node_indices > 0):
-            return str(Indexes where requested data was found were :)+str(*node_indices)
-        else:
-            return 'Requested data not found in Linked List'
+                return str('Element found at ')+str(index)
+            index += 1
+        return -1
 
     def __repr__(self):
         '''
@@ -77,4 +70,4 @@ class SinglyLinkedList:
         if len(all_nodes) > 0:
             return ' -> '.join(all_nodes)
         else:
-            return 'Linked List is empty'
+            return
