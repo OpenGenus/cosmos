@@ -5,7 +5,8 @@
 using namespace std;
 
 template<typename T>
-class TreeNode {
+class TreeNode 
+{
     using Treetype = TreeNode<T>;
 
 public:
