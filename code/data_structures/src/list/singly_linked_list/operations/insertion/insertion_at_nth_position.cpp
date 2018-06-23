@@ -5,8 +5,6 @@
 #include<iostream>
 #include<cstdlib>
 
-using namespace std;
-
 
 struct node{
              int data;
@@ -16,13 +14,13 @@ struct node{
 
 void printList(node *head)
 {
-    cout<<"This is your current List\n";
+    std::cout<<"This is your current List\n";
     while(head!=NULL)
     {
-        cout<<head->data<<" => ";
+        std::cout<<head->data<<" => ";
         head=head->next;
     }
-    cout<<"NULL\n";
+    std::cout<<"NULL\n";
 }
 
 void insertAtTail(node **head,int data)
@@ -58,37 +56,46 @@ void insertAtPosition(node **head,int position,int data)
 int main()
 {
     node *head = new node;
-    int choice(0),first(1),data;            //first is to check if its the first item of the List
-    cout<<"List is currently empty. Press 1 to add an Element\n";
-    cin>>choice;
+    int choice(0),first(1),data;
+    int length=0;           //first is to check if its the first item of the List
+    std::cout<<"List is currently empty. Press 1 to add an Element\n";
+    std::cin>>choice;
     while(choice)
     {
         if(first==1){
-            cout<<"\nEnter the Data Element\n";
-            cin>>head->data;
+            std::cout<<"\nEnter the Data Element\n";
+            std::cin>>head->data;
             head->next=NULL;
             first=0;
+            length++;
         }
         else{
-            cout<<"\nEnter the Data Element\n";
-            cin>>data;
+            std::cout<<"\nEnter the Data Element\n";
+            std::cin>>data;
             insertAtTail(&head,data);
+            length++;
         }
-       cout<<"Do you want to add more Elements at the TAIL?(0 for NO, 1 for YES)";
-       cin>>choice;
+       std::cout<<"Do you want to add more Elements at the TAIL?(0 for NO, 1 for YES)";
+       std::cin>>choice;
     }
     printList(head);
 
-    cout<<"\nDo you want to add an Element at a certain Position?(0 for NO, 1 for YES)\n";
-    cin>>choice;
+    std::cout<<"\nDo you want to add an Element at a certain Position?(0 for NO, 1 for YES)\n";
+    std::cin>>choice;
     if(choice==1)
     {
         int position;
-        cout<<"\nEnter the Position where new Element is to be inserted";
-        cin>>position;
-        cout<<"\nEnter the Data";
-        cin>>data;
-        insertAtPosition(&head,position,data);
+        std::cout<<"\nEnter the Position where new Element is to be inserted";
+        std::cin>>position;
+        if(position>=0 && position<=length+1){
+            std::cout<<"\nEnter the Data";
+            std::cin>>data;
+            insertAtPosition(&head,position,data);
+            length++;
+        }
+        else{
+            std::cout<<"Postion entered is not valid;No Element added.";
+        }
     }
     printList(head);
 }
