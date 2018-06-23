@@ -5,8 +5,6 @@
 #include<iostream>
 #include<cstdlib>
 
-using namespace std;
-
 
 struct node{
              int data;
@@ -16,13 +14,13 @@ struct node{
 
 void printList(node *head)
 {
-    cout<<"This is your current List\n";
+    std::cout<<"This is your current List\n";
     while(head!=NULL)
     {
-        cout<<head->data<<" => ";
+        std::cout<<head->data<<" => ";
         head=head->next;
     }
-    cout<<"NULL\n";
+    std::cout<<"NULL\n";
 }
 
 void insertAtTail(node **head,int data)
@@ -42,24 +40,23 @@ int main()
 {
     node *head = new node;
     int choice(0),first(1),data;            //first is to check if its the first item of the List
-    cout<<"List is currently empty. Press 1 to add an Element\n";
-    cin>>choice;
+    std::cout<<"List is currently empty. Press 1 to add an Element\n";
+    std::cin>>choice;
     while(choice)
     {
         if(first==1){
-            cout<<"\nEnter the Data Element\n";
-            cin>>head->data;
+            std::cout<<"\nEnter the Data Element\n";
+            std::cin>>head->data;
             head->next=NULL;
             first=0;
         }
-       // printList(head);
         else{
-            cout<<"\nEnter the Data Element\n";
-            cin>>data;
+            std::cout<<"\nEnter the Data Element\n";
+            std::cin>>data;
             insertAtTail(&head,data);
         }
-       cout<<"Do you want to add more Elements at the TAIL?(0 for NO, 1 for YES)";
-       cin>>choice;
+       std::cout<<"Do you want to add more Elements at the TAIL?(0 for NO, 1 for YES)";
+       std::cin>>choice;
     }
     printList(head);
 }
