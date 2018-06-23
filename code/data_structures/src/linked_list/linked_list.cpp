@@ -1,353 +1,335 @@
-#ifndef _LINKED_LIST_CPP
-#define _LINKED_LIST_CPP
+#ifndef _LINKED_LIST_CPP_
+#define _LINKED_LIST_CPP_
 
-#include <algorithm>
-#include <initializer_list>
 #include <iostream>
-#include <iterator>
-#include <sstream>
-#include <string>
-#include <list>
-#include <vector>
 
-template <typename Type>
-class LinkedList
+template <typename T>
+struct Node
 {
-public:
-	LinkedList();
-	LinkedList(const std::list<Type>& v);
-	LinkedList(std::initializer_list<Type> list);
-	virtual ~LinkedList();
-
-	void add(Type value);
-	LinkedList<Type>& addAll(const LinkedList<Type>& list);
-	LinkedList<Type>& addAll(std::initializer_list<Type> list);
-
-	Type& front();
-	const Type& front() const;
-
-	Type& back();
-	const Type& back() const;
-
-	Type popBack();
-	Type popFront();
-
-	void pushBack(const Type& value);
-	void pushFront(const Type& value);
-
-	// Removes first element equal to the value.
-	void removeValue(const Type& value);
-
-	// Removes all elements.
-	void clear();
-
-	void insert(int index, Type value);
-
-	bool isEmpty() const;
-
-	int size() const;
-
-	Type& operator [](int index);
-	const Type& operator [](int index) const;
-
-	LinkedList operator +(const LinkedList& l2) const;
-	LinkedList operator +(std::initializer_list<Type> list) const;
-
-	bool operator ==(const LinkedList& list2) const;
-	bool operator !=(const LinkedList& list2) const;
-
-private:
-	std::list<Type> _elements;
-
-	class Iterator : public std::list<Type>::iterator
-	{
-	public:
-		Iterator() : std::list<Type>::iterator(), pointer(nullptr) {}
-
-		Iterator(const Iterator& it) : std::list<Type>::iterator(it), pointer(it.pointer) {}
-
-		Iterator(LinkedList* pointer, const typename std::list<Type>::iterator& it)
-				: std::list<Type>::iterator(it), pointer(pointer)
-		{}
-
-		Type& operator *()
-		{
-			return std::list<Type>::iterator::operator *();
-		}
-
-		Type* operator ->()
-		{
-			return std::list<Type>::iterator::operator ->();
-		}
-	private:
-		LinkedList* pointer;
-	};
-
-	class ConstIterator : public std::list<Type>::const_iterator
-	{
-	public:
-		ConstIterator() : std::list<Type>::const_iterator(), pointer(nullptr) {}
-
-		ConstIterator(const ConstIterator& it) : std::list<Type>::const_iterator(it), pointer(it.pointer) {}
-
- 		ConstIterator(const LinkedList* pointer, const typename std::list<Type>::const_iterator& it)
-				: std::list<Type>::const_iterator(it),
-				  pointer(pointer)
-		{}
-
-	private:
-		const LinkedList* pointer;
-	};
-
-
-	Iterator begin()
-	{
-		return Iterator(this, _elements.begin());
-	}
-
-	ConstIterator begin() const
-	{
-		auto itr = _elements.begin();
-		return ConstIterator(this, itr);
-	}
-
-	Iterator end()
-	{
-		auto itr = _elements.end();
-		return Iterator(this, itr);
-	}
-
-	ConstIterator end() const
-	{
-		auto itr = _elements.end();
-		return ConstIterator(this, itr);
-	}
+    T date;
+    Node* pNext;
 };
 
-
-template <typename Type>
-LinkedList<Type>::LinkedList() {}
-
-template <typename Type>
-LinkedList<Type>::LinkedList(const std::list<Type>& v) : _elements(v) {}
-
-template <typename Type>
-LinkedList<Type>::LinkedList(std::initializer_list<Type> list)
+template <typename T>
+class Linkedlist
 {
-	addAll(list);
+public:
+    Linkedlist();
+    Linkedlist(const Linkedlist<T> &list);
+    Linkedlist<T>& operator= (const Linkedlist<T> &rhs);
+    ~Linkedlist();
+
+    void headAdd(const T& date);
+    void rearAdd(const T& date);
+    int size() const;
+    bool isEmpty() const;
+    void print() const;
+    T getPos(int pos) const;
+    void insert(int pos,const T& data);
+    void deletePos(int pos);
+    void modify(int pos, const T& date);
+    int find(const T& date);
+    void sort();
+    void destroy();
+
+private:
+    Node<T>* header;
+    int length;
+};
+
+template <typename T>
+Linkedlist<T>::Linkedlist() : header(nullptr), length(0) {};
+
+template <typename T>
+Linkedlist<T>::Linkedlist(const Linkedlist<T> &list) : header(nullptr), length(0)
+{
+    int i = 1;
+    while (i <= list.size())
+    {
+        rearAdd(list.getPos(i));
+        i++;
+    }
 }
 
-template <typename Type>
-LinkedList<Type>::~LinkedList() {}
-
-template <typename Type>
-void LinkedList<Type>::add(Type value)
+template <typename T>
+Linkedlist<T>& Linkedlist<T>::operator= (const Linkedlist<T> &rhs)
 {
-	_elements.push_back(value);
+    if (this == &rhs)
+    {
+        return *this;
+    }
+    destroy();
+    for (int i = 1; i <= rhs.size(); ++i)
+    {
+        rearAdd(rhs.getPos(i));
+    }
+    return *this;
 }
 
-template <typename Type>
-LinkedList<Type>& LinkedList<Type>::addAll(const LinkedList<Type>& list)
+template <typename T>
+Linkedlist<T>::~Linkedlist()
 {
-	for (const Type& value : list)
-	{
-		add(value);
-	}
-	return *this;
+    destroy();
 }
 
-template <typename Type>
-LinkedList<Type>& LinkedList<Type>::addAll(std::initializer_list<Type> list)
+template <typename T>
+void Linkedlist<T>::headAdd(const T& date)
 {
-	for (const Type& value : list) 
-	{
-		add(value);
-	}
-	return *this;
+    Node<T> *pNode = new Node<T>;
+    pNode->date = date;
+    pNode->pNext = nullptr;
+    if (header == nullptr)
+    {
+        header = pNode;
+    }
+    else
+    {
+        pNode->pNext = header;
+        header = pNode;
+    }
+    length++;
 }
 
-template <typename Type>
-Type& LinkedList<Type>::front()
+template <typename T>
+void Linkedlist<T>::rearAdd(const T& date)
 {
-	if (isEmpty()) 
-	{
-		std::cerr << "LinkedList::front: list is empty" << std::endl;
-	}
-	return _elements.front();
+    Node<T> *pNode = new Node<T>;
+    pNode->date = date;
+    pNode->pNext = nullptr;
+    if (header == nullptr)
+    {
+        header = pNode;
+    }
+    else
+    {
+        Node<T>* rear = header;
+        while (rear->pNext != nullptr)
+        {
+            rear = rear->pNext;
+        }
+        rear->pNext = pNode;        
+    }
+    length++;
 }
 
-template <typename Type>
-const Type& LinkedList<Type>::front() const
+template <typename T>
+int Linkedlist<T>::size() const
 {
-	if (isEmpty())
-	{
-		std::cerr << "LinkedList::front: list is empty" << std::endl;
-	}
-	return _elements.front();
+    return length;
 }
 
-template <typename Type>
-Type& LinkedList<Type>::back()
+template <typename T>
+bool Linkedlist<T>::isEmpty() const
 {
-	if (isEmpty())
-	{
-		std::cerr << "LinkedList::back: list is empty" << std::endl;
-	}
-	return _elements.back();
+    return header == nullptr;
 }
 
-template <typename Type>
-const Type& LinkedList<Type>::back() const
+template <typename T>
+void Linkedlist<T>::print() const
 {
-	if (isEmpty())
-	{
-		std::cerr << "LinkedList::back: list is empty" << std::endl;
-	}
-	return _elements.back();
+    Node<T> *pTemp = header;
+    int count = 0;
+    while (pTemp != nullptr)
+    {
+        std::cout << pTemp->date << "\t";
+        pTemp = pTemp->pNext;
+        count++;
+        if (count % 5 == 0)
+        {
+            std::cout << std::endl;
+        }
+    }
+    std::cout << std::endl;
 }
 
-template <typename Type>
-Type LinkedList<Type>::popBack()
+template <typename T>
+T Linkedlist<T>::getPos(int pos) const
 {
-	if (isEmpty())
-	{
-		std::cerr << "LinkedList::pop_back: list is empty" << std::endl;
-	}
-	Type back = _elements.back();
-	_elements.pop_back();
-	return back;
+    if (pos < 1 || pos > length)
+    {
+        std::cerr << "get element position error!" << std::endl;
+    }
+    else
+    {
+        int i = 1;
+        Node<T> *pTemp = header;
+        while (i++ < pos)
+        {
+            pTemp = pTemp->pNext;
+        }
+        return pTemp->date;
+    }
 }
 
-template <typename Type>
-Type LinkedList<Type>::popFront()
+template <typename T>
+void Linkedlist<T>::insert(int pos, const T& date)
 {
-	if (isEmpty())
-	{
-		std::cerr << "LinkedList::pop_front: list is empty" << std::endl;
-	}
-	Type front = _elements.front();
-	_elements.pop_front();
-	return front;
+    if (pos < 1 || pos > length)
+    {
+        std::cerr << "insert element position error!" << std::endl;
+    }
+    else
+    {
+        if (pos == 1)
+        {
+            Node<T> *pTemp = new Node<T>;
+            pTemp->date = date;
+            pTemp->pNext = header;
+            header = pTemp;
+        }
+        else
+        {
+            int i = 1;
+            Node<T> *pTemp = header;
+            while (++i < pos)
+            {
+                pTemp = pTemp->pNext;
+            }
+            Node<T> *pInsert = new Node<T>;
+            pInsert->date = date;
+            pInsert->pNext = pTemp->pNext;
+            pTemp->pNext = pInsert;
+        }
+        length++;
+    }
+    return;
 }
 
-template <typename Type>
-void LinkedList<Type>::pushBack(const Type& value)
+template <typename T>
+void Linkedlist<T>::deletePos(int pos)
 {
-	_elements.push_back(value);
+    if (pos < 0 || pos > length)
+    {
+        std::cerr << "delete element position error!" << std::endl;
+    }
+    else
+    {
+        Node<T> *deleteElement;
+        if (pos == 0)
+        {
+            deleteElement = header;
+            header = header->pNext;
+        }
+        else
+        {
+            int i = 0;
+            Node<T> *pTemp = header;
+            while (++i < pos)
+            {
+                pTemp = pTemp->pNext;
+            }
+            deleteElement = pTemp->pNext;
+            pTemp->pNext = deleteElement->pNext;
+        }
+        delete deleteElement;
+        length--;
+    }
+    return;
 }
 
-template <typename Type>
-void LinkedList<Type>::pushFront(const Type& value)
+template <typename T>
+void Linkedlist<T>::modify(int pos, const T& date)
 {
-	_elements.push_front(value);
+    if (pos < 1 || pos > length)
+    {
+        std::cerr << "modify element position error!" << std::endl;
+    }
+    else
+    {
+        if (pos == 1)
+        {
+            header->date = date;
+        }
+        else
+        {
+            Node<T> *pTemp = header;
+            int i = 1;
+            while (i++ < pos)
+            {
+                pTemp = pTemp->pNext;
+            }
+            pTemp->date = date;
+        }
+    }
+    return;
 }
 
-template <typename Type>
-void LinkedList<Type>::removeValue(const Type& value)
+template <typename T>
+int Linkedlist<T>::find(const T& date)
 {
-	auto itr = this->begin();
-	auto end = this->end();
-	while (itr != end)
-	{
-		if (*itr == value)
-		{
-			_elements.erase(itr);
-			break;
-		}
-		itr++;
-	}
+    int i = 1;
+    int ret = -1;
+    Node<T> *pTemp = header;
+    while (!pTemp)
+    {
+        if (pTemp->date == date)
+        {
+            ret = i;
+            break;
+        }
+        i++;
+        pTemp = pTemp->pNext;
+    }
+    return ret;
 }
 
-template <typename Type>
-void LinkedList<Type>::clear()
+template <typename T>
+void Linkedlist<T>::sort()
 {
-	_elements.clear();
+    if (length > 1)
+    {
+        for (int i = length; i > 0; --i)
+        {
+            for (int j = 1; j < i; j++)
+            {
+                T left = getPos(j);
+                T right = getPos(j + 1);
+                if (left > right)
+                {
+                    modify(j, right);
+                    modify(j + 1, left);
+                }
+            }
+        }
+    }
+    return;
 }
 
-template <typename Type>
-void LinkedList<Type>::insert(int index, Type value)
+template <typename T>
+void Linkedlist<T>::destroy()
 {
-	if (index < 0 || index > size())
-	{
-		std::ostringstream out;
-		out << "LinkedList::insert" << ": index of " << index
-			<< " is outside of valid range [" << size() << "]";
-		std::cerr << out.str() << std::endl;
-	}
-
-	auto itr = _elements.begin();
-	std::advance(itr, index);
-	_elements.insert(itr, value);
+    while (header != nullptr)
+    {
+        Node<T> *pTemp = header;
+        header = header->pNext;
+        delete pTemp;
+    }
+    length = 0;
 }
 
-template <typename Type>
-bool LinkedList<Type>::isEmpty() const
+#endif // _LINKED_LIST_CPP_
+
+int main()
 {
-	return _elements.empty();
+    Linkedlist<int> link;
+    for (int i = 10; i > 0; --i)
+    {
+        link.rearAdd(i);
+    }
+    link.print();
+    std::cout << link.size() << std::endl;
+    Linkedlist<int> link1(link);
+    link1 = link1;
+    link1.print();
+    link1.deletePos(100);
+    link1.modify(5, 100);
+    link1.insert(3, 50);
+    std::cout << link1.size() << std::endl;
+    link1.print();
+
+    link1.sort();
+    link1.print();
+    link1.destroy();
+    std::cout << link1.size() << std::endl;
+    return 0;
 }
-
-template <typename Type>
-int LinkedList<Type>::size() const
-{
-	return _elements.size();
-}
-
-template <typename Type>
-Type& LinkedList<Type>::operator [](int index)
-{
-	if (index < 0 || index > size())
-	{
-		std::ostringstream out;
-		out << "LinkedList::operator []" << ": index of " << index
-			<< " is outside of valid range [" << size() << "]";
-		std::cerr << out.str() << std::endl;
-	}
-
-	auto itr = _elements.begin();
-	advance(itr, index);
-	return *itr;
-}
-
-template <typename Type>
-const Type& LinkedList<Type>::operator [](int index) const
-{
-	if (index < 0 || index > size())
-	{
-		std::ostringstream out;
-		out << "LinkedList::operator []" << ": index of " << index
-			<< " is outside of valid range [" << size() << "]";
-		std::cerr << out.str() << std::endl;
-	}
-
-	auto itr = _elements.begin();
-	advance(itr, index);
-	return *itr;
-}
-
-template <typename Type>
-LinkedList<Type> LinkedList<Type>::operator +(const LinkedList& list2) const
-{
-	LinkedList<Type> list = *this;
-	return list.addAll(list2);
-}
-
-template <typename Type>
-LinkedList<Type> LinkedList<Type>::operator +(std::initializer_list<Type> list) const
-{
-	LinkedList<Type> result = *this;
-	return result.addAll(list);
-}
-
-template <typename Type>
-bool LinkedList<Type>::operator ==(const LinkedList& list2) const
-{
-	return _elements == list2._elements;
-}
-
-template <typename Type>
-bool LinkedList<Type>::operator !=(const LinkedList& list2) const
-{
-	return _elements != list2._elements;
-}
-
-#endif // _LINKED_LIST_CPP
