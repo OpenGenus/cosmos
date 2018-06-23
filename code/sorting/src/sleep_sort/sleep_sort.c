@@ -1,32 +1,63 @@
-/* Part of Cosmos by OpenGenus Foundation */
-
+// sleep sort for ubuntu as the earlier code was using windows.h header and due to which travis was not able to build any project.
+// trying to solve the problem of build --- dated 21 may 2018--10:26 IST
+#include <assert.h>
+#include <signal.h>
 #include <stdio.h>
-#include <windows.h>
-#include <process.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-void routine(void *a)
+static void fdpipe(FILE** readFp, FILE** writeFp)
 {
-    int n = *(int *) a;
-    Sleep(n);
-    printf("%d ", n);
+  int fds[2], err;
+
+  err = pipe(fds);
+  assert(err == 0);
+
+  *readFp = fdopen(fds[0], "r");
+  *writeFp = fdopen(fds[1], "w");
 }
 
-void sleepSort(int arr[], int n)
+void sleep_sort(int* values, size_t cnt)
 {
-    int i;
-    HANDLE threads[n];
-    for (i = 0; i < n; i++)
-        threads[i] = (HANDLE)_beginthread(&routine, 0, &arr[i]);
-    WaitForMultipleObjects(n, threads, TRUE, INFINITE);
-    return;
+  FILE* readFp, * writeFp;
+  size_t i;
+  int tmp;
+
+  fdpipe(&readFp, &writeFp);
+  
+  for (i = 0; i < cnt; i++)
+    switch (fork()) {
+    case -1:
+      assert(0);
+      break;
+    case 0:
+      /* child process */
+      sleep(values[i]);
+      fprintf(writeFp, "%d\n", values[i]);
+      exit(0);
+      break;
+    default:
+      break;
+    }
+  fclose(writeFp);
+
+  for (i = 0; i < cnt; i++) {
+    tmp = fscanf(readFp, "%d\n", values + i);
+    assert(tmp == 1);
+  }
 }
 
-int main()
+int main(int argc, char** argv)
 {
-    int arr[] = {12, 23, 42, 3};
-    int n = sizeof(arr) / sizeof(arr[0]);
+  int values[] = { 1, 9, 5, 3 };
+  int i;
 
-    sleepSort (arr, n);
+  signal(SIGCHLD, SIG_IGN);
 
-    return 0;
+  sleep_sort(values, 4);
+
+  for (i = 0; i < 4; i++)
+    printf("%d\n", values[i]);
+
+  return 0;
 }
