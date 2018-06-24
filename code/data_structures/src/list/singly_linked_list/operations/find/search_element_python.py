@@ -28,15 +28,15 @@ class SinglyLinkedList:
         Inserts New data at the ending of the Linked List
         Takes O(n) time
         '''
+        new_node = Node(data=data)
         if not self.head:
-            self.head = Node(data=data)
+            self.head = new_node
             return
 
         current_node = self.head
-        while current_node.next:
+        while current_node.next is not None:
             current_node = current_node.next
 
-        new_node = Node(data=data, next=None)
         current_node.next = new_node
 
     def find(self, data):
@@ -46,14 +46,13 @@ class SinglyLinkedList:
         Takes O(n) time
         '''
 
-        if self.head is None:
-            return 'Linked List is Empty'
-        current_node = self.head
-        index = 0
-        while current_node:
-            if current_node.data = data:
-                return str('Element found at ')+str(index)
-            index += 1
+        if self.head is not None:
+            current_node = self.head
+            index = 0
+            while current_node.next is not None:
+                if current_node.data = data:
+                    return index
+                index += 1
         return -1
 
     def __repr__(self):
