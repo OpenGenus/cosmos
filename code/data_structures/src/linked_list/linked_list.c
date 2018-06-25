@@ -190,7 +190,7 @@ void*
 linked_list_pop_tail(linked_list* p_linked_list)
 {
     linked_list_node* p_pop_node;
-    linked_list_node* p_tailPrevNode;
+    linked_list_node* p_tail_prev_node;
     void* pPop_data;
 
     if (p_linked_list == NULL || p_linked_list->p_head == NULL) {
@@ -200,27 +200,27 @@ linked_list_pop_tail(linked_list* p_linked_list)
     p_pop_node = p_linked_list->p_tail;
     pPop_data = p_pop_node->p_data;
 
-    p_tailPrevNode = p_linked_list->p_head;
+    p_tail_prev_node = p_linked_list->p_head;
 
     if (p_linked_list->p_tail == p_linked_list->p_head) {
-        p_tailPrevNode = NULL;
+        p_tail_prev_node = NULL;
         p_linked_list->p_head = NULL;
     }
     else {
-        while (p_tailPrevNode != NULL) {
-            if (p_tailPrevNode->p_next == p_linked_list->p_tail) {
+        while (p_tail_prev_node != NULL) {
+            if (p_tail_prev_node->p_next == p_linked_list->p_tail) {
                 break;
             }
-            p_tailPrevNode = p_tailPrevNode->p_next;
+            p_tail_prev_node = p_tail_prev_node->p_next;
         }
     }
     if (p_linked_list->p_cur == p_linked_list->p_tail) {
-        p_linked_list->p_cur = p_tailPrevNode;
+        p_linked_list->p_cur = p_tail_prev_node;
     }
-    p_linked_list->p_tail = p_tailPrevNode;
+    p_linked_list->p_tail = p_tail_prev_node;
 
-    if (p_tailPrevNode != NULL) {
-        p_tailPrevNode->p_next = NULL;
+    if (p_tail_prev_node != NULL) {
+        p_tail_prev_node->p_next = NULL;
     }
     p_linked_list->u_count--;
 
