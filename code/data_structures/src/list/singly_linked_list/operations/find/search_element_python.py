@@ -49,9 +49,10 @@ class SinglyLinkedList:
         if self.head is not None:
             current_node = self.head
             index = 0
-            while current_node.next is not None:
-                if current_node.data = data:
+            while current_node is not None:
+                if current_node.data == data:
                     return index
+                current_node = current_node.next
                 index += 1
         return -1
 
