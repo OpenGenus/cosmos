@@ -3,374 +3,373 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h> // C99 required
+#include <stdbool.h> /* C99 required */
 
-typedef unsigned int UINT;
+typedef bool (*compare_func)(void* p_data1, void* p_data2);
+typedef void (*traverse_func)(void *p_data);
+typedef void (*destroy_func)(void* p_data);
 
-typedef bool (*COMPAREFUNC)(void* pData1, void* pData2);
-typedef void(*TRAVERSEFUNC)(void *pData);
-typedef void(*DESTROYFUNC)(void* pData);
-
-typedef struct LinkedListNode
+typedef struct linked_list_node
 {
-    struct LinkedListNode* pNext;
-    void* pData;
-}LinkedListNode, *pLinkedListNode;
+    struct linked_list_node* p_next;
+    void* p_data;
+} linked_list_node, *p_linked_list_node;
 
-typedef struct LinkedList
+typedef struct linked_list
 {
-    LinkedListNode* pHead;
-    LinkedListNode* pTail;
-    LinkedListNode* pCur;
-    UINT uCount;
-}LinkedList, *pLinkedList;
+    linked_list_node* p_head;
+    linked_list_node* p_tail;
+    linked_list_node* p_cur;
+    unsigned int u_count;
+} linked_list, *p_linked_list;
 
 
-LinkedList* LinkedList_Create();
-void LinkedList_Destroy(LinkedList* pLinkedList, DESTROYFUNC DestroyFunc);
-bool LinkedList_Delete(LinkedList* pLinkedList, void* pMatchData,
-    COMPAREFUNC CompareFunc, DESTROYFUNC DestroyFunc);
-void* LinkedList_GetAt(LinkedList* pLinkedList, UINT uIndex);
-bool LinkedList_Traverse(LinkedList* pLinkedList, TRAVERSEFUNC TraverseFunc);
-UINT LinkedList_GetCount(LinkedList* pLinkedList);
-void LinkedList_Begin(LinkedList* pLinkedList);
-void* LinkedList_Next(LinkedList* pLinkedList);
-void* LinkedList_GetHead(LinkedList* pLinkedList);
-void* LinkedList_GetTail(LinkedList* pLinkedList);
-void* LinkedList_GetCursor(LinkedList* pLinkedList);
-void* LinkedList_PopHead(LinkedList* pLinkedList);
-void* LinkedList_PopTail(LinkedList* pLinkedList);
-bool LinkedList_InSertHead(LinkedList* pLinkedList, void* pData);
-bool LinkedList_InsertTail(LinkedList* pLinkedList, void* pData);
+linked_list*
+linked_list_create();
+
+void
+linked_list_destroy(linked_list* p_linked_list, destroy_func destroy_func);
+
+bool
+linked_list_delete(linked_list* p_linked_list, void* pMatchData,
+    compare_func compare_func, destroy_func destroy_func);
+
+void*
+linked_list_get_at(linked_list* p_linked_list, unsigned int uIndex);
+
+bool
+linked_list_traverse(linked_list* p_linked_list, traverse_func traverse_func);
+
+unsigned int
+linked_list_get_count(linked_list* p_linked_list);
+
+void
+linked_list_begin(linked_list* p_linked_list);
+
+void*
+linked_list_next(linked_list* p_linked_list);
+
+void*
+linked_list_get_head(linked_list* p_linked_list);
+
+void*
+linked_list_get_tail(linked_list* p_linked_list);
+
+void*
+linked_list_get_cursor(linked_list* p_linked_list);
+
+void*
+linked_list_pop_head(linked_list* p_linked_list);
+
+void*
+linked_list_pop_tail(linked_list* p_linked_list);
+
+bool
+linked_list_insert_head(linked_list* p_linked_list, void* p_data);
+
+bool
+linked_list_insert_tail(linked_list* p_linked_list, void* p_data);
 
 
-LinkedList* LinkedList_Create()
+linked_list*
+linked_list_create()
 {
-    LinkedList* pLinkedList;
+    linked_list* p_linked_list;
 
-    pLinkedList = (LinkedList*)malloc(sizeof(LinkedList));
-    if (pLinkedList != NULL)
-    {
-        pLinkedList->pCur = NULL;
-        pLinkedList->pHead = NULL;
-        pLinkedList->pTail = NULL;
-        pLinkedList->uCount = 0;
+    p_linked_list = (linked_list*)malloc(sizeof(linked_list));
+    if (p_linked_list != NULL) {
+        p_linked_list->p_cur = NULL;
+        p_linked_list->p_head = NULL;
+        p_linked_list->p_tail = NULL;
+        p_linked_list->u_count = 0;
     }
-    return pLinkedList;
+    return p_linked_list;
 }
 
-void LinkedList_Destroy(LinkedList* pLinkedList, DESTROYFUNC DestroyFunc)
+void
+linked_list_destroy(linked_list* p_linked_list, destroy_func destroy_func)
 {
-    LinkedListNode* pNode;
-    if (pLinkedList)
-    {
-        pNode = pLinkedList->pHead;
-        while (pNode != NULL)
-        {
-            LinkedListNode* pDelNode;
-            pDelNode = pNode;
-            pNode = pNode->pNext;
+    linked_list_node* p_node;
+    if (p_linked_list) {
+        p_node = p_linked_list->p_head;
+        while (p_node != NULL) {
+            linked_list_node* p_del_node;
+            p_del_node = p_node;
+            p_node = p_node->p_next;
 
-            if (DestroyFunc != NULL && pDelNode->pData != NULL)
-            {
-                (*DestroyFunc)(pDelNode->pData);
+            if (destroy_func != NULL && p_del_node->p_data != NULL) {
+                (*destroy_func)(p_del_node->p_data);
             }
-            free(pDelNode);
+            free(p_del_node);
         }
-        free(pLinkedList);
+        free(p_linked_list);
     }
 }
 
-bool LinkedList_InSertHead(LinkedList* pLinkedList, void* pData)
+bool
+linked_list_insert_head(linked_list* p_linked_list, void* p_data)
 {
-    LinkedListNode* pNode;
+    linked_list_node* p_node;
 
-    if (pLinkedList == NULL || pData == NULL)
-    {
+    if (p_linked_list == NULL || p_data == NULL) {
         return false;
     }
 
-    pNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
-    if (pNode == NULL)
-    {
+    p_node = (linked_list_node*)malloc(sizeof(linked_list_node));
+    if (p_node == NULL) {
         return false;
     }
-    pNode->pData = pData;
-    pNode->pNext = pLinkedList->pHead;
-    pLinkedList->pHead = pNode;
+    p_node->p_data = p_data;
+    p_node->p_next = p_linked_list->p_head;
+    p_linked_list->p_head = p_node;
 
-    if (pLinkedList->pTail == NULL)
-    {
-        pLinkedList->pTail = pNode;
+    if (p_linked_list->p_tail == NULL) {
+        p_linked_list->p_tail = p_node;
     }
-    pLinkedList->uCount++;
+    p_linked_list->u_count++;
     
     return true;
 }
 
-bool LinkedList_InsertTail(LinkedList* pLinkedList, void* pData)
+bool
+linked_list_insert_tail(linked_list* p_linked_list, void* p_data)
 {
-    LinkedListNode* pNode;
+    linked_list_node* p_node;
 
-    if (pLinkedList == NULL || pData == NULL)
-    {
+    if (p_linked_list == NULL || p_data == NULL) {
         return false;
     }
 
-    pNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
-    if (pNode == NULL)
-    {
+    p_node = (linked_list_node*)malloc(sizeof(linked_list_node));
+    if (p_node == NULL) {
         return false;
     }
-    pNode->pData = pData;
-    pNode->pNext = NULL;
+    p_node->p_data = p_data;
+    p_node->p_next = NULL;
 
-    if (pLinkedList->pTail == NULL)
-    {
-        pLinkedList->pTail = pNode;
-        pLinkedList->pHead = pNode;
+    if (p_linked_list->p_tail == NULL) {
+        p_linked_list->p_tail = p_node;
+        p_linked_list->p_head = p_node;
     }
-    else
-    {
-        pLinkedList->pTail->pNext = pNode;
-        pLinkedList->pTail = pNode;
+    else {
+        p_linked_list->p_tail->p_next = p_node;
+        p_linked_list->p_tail = p_node;
     }
-    pLinkedList->uCount++;
+    p_linked_list->u_count++;
 
     return true;
 }
 
-void* LinkedList_PopHead(LinkedList* pLinkedList)
+void*
+linked_list_pop_head(linked_list* p_linked_list)
 {
-    LinkedListNode* pPopNode;
-    void* pPopData;
+    linked_list_node* p_pop_node;
+    void* pPop_data;
 
-    if (pLinkedList == NULL || pLinkedList->pHead == NULL)
-    {
+    if (p_linked_list == NULL || p_linked_list->p_head == NULL) {
         return NULL;
     }
-    pPopNode = pLinkedList->pHead;
-    pPopData = pPopNode->pData;
+    p_pop_node = p_linked_list->p_head;
+    pPop_data = p_pop_node->p_data;
 
-    if (pLinkedList->pCur == pLinkedList->pHead)
-    {
-        pLinkedList->pCur = pLinkedList->pHead->pNext;
+    if (p_linked_list->p_cur == p_linked_list->p_head) {
+        p_linked_list->p_cur = p_linked_list->p_head->p_next;
     }
-    pLinkedList->pHead = pLinkedList->pHead->pNext;
-    pLinkedList->uCount--;
+    p_linked_list->p_head = p_linked_list->p_head->p_next;
+    p_linked_list->u_count--;
 
-    if (pLinkedList->uCount == 0)
-    {
-        pLinkedList->pTail = NULL;
+    if (p_linked_list->u_count == 0) {
+        p_linked_list->p_tail = NULL;
     }
-    free(pPopNode);
+    free(p_pop_node);
 
-    return pPopData;
+    return pPop_data;
 }
 
-void* LinkedList_PopTail(LinkedList* pLinkedList)
+void*
+linked_list_pop_tail(linked_list* p_linked_list)
 {
-    LinkedListNode* pPopNode;
-    LinkedListNode* pTailPrevNode;
-    void* pPopData;
+    linked_list_node* p_pop_node;
+    linked_list_node* p_tailPrevNode;
+    void* pPop_data;
 
-    if (pLinkedList == NULL || pLinkedList->pHead == NULL)
-    {
+    if (p_linked_list == NULL || p_linked_list->p_head == NULL) {
         return NULL;
     }
 
-    pPopNode = pLinkedList->pTail;
-    pPopData = pPopNode->pData;
+    p_pop_node = p_linked_list->p_tail;
+    pPop_data = p_pop_node->p_data;
 
-    pTailPrevNode = pLinkedList->pHead;
+    p_tailPrevNode = p_linked_list->p_head;
 
-    if (pLinkedList->pTail == pLinkedList->pHead)
-    {
-        pTailPrevNode = NULL;
-        pLinkedList->pHead = NULL;
+    if (p_linked_list->p_tail == p_linked_list->p_head) {
+        p_tailPrevNode = NULL;
+        p_linked_list->p_head = NULL;
     }
-    else
-    {
-        while (pTailPrevNode != NULL)
-        {
-            if (pTailPrevNode->pNext == pLinkedList->pTail)
-            {
+    else {
+        while (p_tailPrevNode != NULL) {
+            if (p_tailPrevNode->p_next == p_linked_list->p_tail) {
                 break;
             }
-            pTailPrevNode = pTailPrevNode->pNext;
+            p_tailPrevNode = p_tailPrevNode->p_next;
         }
     }
-    if (pLinkedList->pCur == pLinkedList->pTail)
-    {
-        pLinkedList->pCur = pTailPrevNode;
+    if (p_linked_list->p_cur == p_linked_list->p_tail) {
+        p_linked_list->p_cur = p_tailPrevNode;
     }
-    pLinkedList->pTail = pTailPrevNode;
+    p_linked_list->p_tail = p_tailPrevNode;
 
-    if (pTailPrevNode != NULL)
-    {
-        pTailPrevNode->pNext = NULL;
+    if (p_tailPrevNode != NULL) {
+        p_tailPrevNode->p_next = NULL;
     }
-    pLinkedList->uCount--;
+    p_linked_list->u_count--;
 
-    free(pPopNode);
+    free(p_pop_node);
 
-    return pPopData;
+    return pPop_data;
 }
 
-bool LinkedList_Delete(LinkedList* pLinkedList, void* pMatchData,
-    COMPAREFUNC CompareFunc, DESTROYFUNC DestroyFunc)
+bool
+linked_list_delete(linked_list* p_linked_list, void* pMatchData,
+    compare_func compare_func, destroy_func destroy_func)
 {
-    LinkedListNode* pNode;
-    LinkedListNode* pPrevNode;
+    linked_list_node* p_node;
+    linked_list_node* pPrevNode;
 
-    if (pLinkedList == NULL || CompareFunc == NULL)
-    {
+    if (p_linked_list == NULL || compare_func == NULL) {
         return false;
     }
 
-    pNode = pLinkedList->pHead;
-    pPrevNode = pNode;
+    p_node = p_linked_list->p_head;
+    pPrevNode = p_node;
 
-    while (pNode != NULL)
-    {
-        if ((*CompareFunc)(pNode->pData, pMatchData) == 0)
-        {
-            if (pPrevNode == pNode)
-            {
-                pLinkedList->pHead = pNode->pNext;
-                if (pLinkedList->pTail == pNode)
-                {
-                    pLinkedList->pTail = NULL;
-                    pLinkedList->pCur = NULL;
+    while (p_node != NULL) {
+        if ((*compare_func)(p_node->p_data, pMatchData) == 0) {
+            if (pPrevNode == p_node) {
+                p_linked_list->p_head = p_node->p_next;
+                if (p_linked_list->p_tail == p_node) {
+                    p_linked_list->p_tail = NULL;
+                    p_linked_list->p_cur = NULL;
                 }
             }
-            else
-            {
-                pPrevNode->pNext = pNode->pNext;
-                if (pLinkedList->pTail == pNode)
-                {
-                    pLinkedList->pTail = pPrevNode;
+            else {
+                pPrevNode->p_next = p_node->p_next;
+                if (p_linked_list->p_tail == p_node) {
+                    p_linked_list->p_tail = pPrevNode;
                 }
-                if (pLinkedList->pCur == pNode)
-                {
-                    pLinkedList->pCur = pNode->pNext;
+                if (p_linked_list->p_cur == p_node) {
+                    p_linked_list->p_cur = p_node->p_next;
                 }
             }
-            if (DestroyFunc != NULL && pNode->pData != NULL)
-            {
-                (*DestroyFunc)(pNode->pData);
+            if (destroy_func != NULL && p_node->p_data != NULL) {
+                (*destroy_func)(p_node->p_data);
             }
-            free(pNode);
+            free(p_node);
             break;
         }
-        pPrevNode = pNode;
-        pNode = pNode->pNext;
+        pPrevNode = p_node;
+        p_node = p_node->p_next;
     }
     return true;
 }
 
-void* LinkedList_GetAt(LinkedList* pLinkedList, UINT uIndex)
+void*
+linked_list_get_at(linked_list* p_linked_list, unsigned int uIndex)
 {
-    UINT i;
-    LinkedListNode* pNode;
+    unsigned int i;
+    linked_list_node* p_node;
 
-    if (pLinkedList == NULL || pLinkedList->uCount >= uIndex)
-    {
+    if (p_linked_list == NULL || p_linked_list->u_count >= uIndex) {
         return NULL;
     }
 
-    pNode = pLinkedList->pHead;
-    for (i = 0; i < uIndex; i++)
-    {
-        pNode = pNode->pNext;
+    p_node = p_linked_list->p_head;
+    for (i = 0; i < uIndex; i++) {
+        p_node = p_node->p_next;
     }
-    return pNode->pData;
+    return p_node->p_data;
 }
 
-UINT LinkedList_GetCount(LinkedList* pLinkedList)
+unsigned int
+linked_list_get_count(linked_list* p_linked_list)
 {
-    if (pLinkedList == NULL)
-    {
-        return 0;
+    if (p_linked_list == NULL) {
+        return (0);
     }
-    return pLinkedList->uCount;
+    return p_linked_list->u_count;
 }
 
-void* LinkedList_GetHead(LinkedList* pLinkedList)
+void*
+linked_list_get_head(linked_list* p_linked_list)
 {
-    if (pLinkedList == NULL)
-    {
+    if (p_linked_list == NULL) {
         return NULL;
     }
-    if (pLinkedList->pHead == NULL)
-    {
+    if (p_linked_list->p_head == NULL) {
         return NULL;
     }
-    return pLinkedList->pHead->pData;
+    return p_linked_list->p_head->p_data;
 }
 
-void* LinkedList_GetCursor(LinkedList* pLinkedList)
+void*
+linked_list_get_cursor(linked_list* p_linked_list)
 {
-    if (pLinkedList == NULL)
-    {
+    if (p_linked_list == NULL) {
         return NULL;
     }
-    if (pLinkedList == NULL)
-    {
+    if (p_linked_list == NULL) {
         return NULL;
     }
-    return pLinkedList->pCur->pData;
+    return p_linked_list->p_cur->p_data;
 }
 
-void* LinkedList_GetTail(LinkedList* pLinkedList)
+void*
+linked_list_get_tail(linked_list* p_linked_list)
 {
-    if (pLinkedList == NULL)
-    {
+    if (p_linked_list == NULL) {
         return NULL;
     }
-    if (pLinkedList->pTail != NULL)
-    {
-        return pLinkedList->pTail->pData;
+    if (p_linked_list->p_tail != NULL) {
+        return p_linked_list->p_tail->p_data;
     }
-    else
-    {
+    else {
         return NULL;
     }
 }
 
-void LinkedList_Begin(LinkedList* pLinkedList)
+void
+linked_list_begin(linked_list* p_linked_list)
 {
-    pLinkedList->pCur = pLinkedList->pHead;
+    p_linked_list->p_cur = p_linked_list->p_head;
     return;
 }
 
-void* LinkedList_Next(LinkedList* pLinkedList)
+void*
+linked_list_next(linked_list* p_linked_list)
 {
-    LinkedListNode* pCur;
+    linked_list_node* p_cur;
 
-    pCur = pLinkedList->pCur;
+    p_cur = p_linked_list->p_cur;
 
-    if (pCur == NULL)
-    {
-        pLinkedList->pCur = pCur->pNext;
-        return pCur->pData;
+    if (p_cur == NULL) {
+        p_linked_list->p_cur = p_cur->p_next;
+        return p_cur->p_data;
     }
     return NULL;
 }
 
-bool LinkedList_Traverse(LinkedList* pLinkedList, TRAVERSEFUNC TraverseFunc)
+bool
+linked_list_traverse(linked_list* p_linked_list, traverse_func traverse_func)
 {
-    LinkedListNode* pNode;
-    if (pLinkedList == NULL || TraverseFunc == NULL)
-    {
+    linked_list_node* p_node;
+    if (p_linked_list == NULL || traverse_func == NULL) {
         return false;
     }
-    pNode = pLinkedList->pHead;
+    p_node = p_linked_list->p_head;
 
-    while (pNode != NULL)
-    {
-        (*TraverseFunc)(pNode->pData);
-        pNode = pNode->pNext;
+    while (p_node != NULL) {
+        (*traverse_func)(p_node->p_data);
+        p_node = p_node->p_next;
     }
     return true;
 }
