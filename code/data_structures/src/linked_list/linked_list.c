@@ -31,7 +31,7 @@ void
 linked_list_destroy(linked_list* p_linked_list, destroy_func destroy_func);
 
 bool
-linked_list_delete(linked_list* p_linked_list, void* pMatchData,
+linked_list_delete(linked_list* p_linked_list, void* p_match_data,
     compare_func compare_func, destroy_func destroy_func);
 
 void*
@@ -230,7 +230,7 @@ linked_list_pop_tail(linked_list* p_linked_list)
 }
 
 bool
-linked_list_delete(linked_list* p_linked_list, void* pMatchData,
+linked_list_delete(linked_list* p_linked_list, void* p_match_data,
     compare_func compare_func, destroy_func destroy_func)
 {
     linked_list_node* p_node;
@@ -244,7 +244,7 @@ linked_list_delete(linked_list* p_linked_list, void* pMatchData,
     p_prev_node = p_node;
 
     while (p_node != NULL) {
-        if ((*compare_func)(p_node->p_data, pMatchData) == 0) {
+        if ((*compare_func)(p_node->p_data, p_match_data) == 0) {
             if (p_prev_node == p_node) {
                 p_linked_list->p_head = p_node->p_next;
                 if (p_linked_list->p_tail == p_node) {
