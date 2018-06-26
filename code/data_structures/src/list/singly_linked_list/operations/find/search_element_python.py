@@ -27,7 +27,7 @@ class NodeAdapter2(Node):
         return True
     
 class SinglyLinkedList:
-    def __init__(self,NodeType):
+    def __init__(self, NodeType):
         self.head = None
         self._NodeType = NodeType
 
@@ -36,7 +36,7 @@ class SinglyLinkedList:
         Inserts New data at the ending of the Linked List
         Takes O(n) time
         '''
-        new_node = _NodeType(data = data)
+        new_node = self._NodeType(data=data)
         if self.head is None:
             self.head = new_node
             return
