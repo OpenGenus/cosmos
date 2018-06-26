@@ -1,41 +1,30 @@
 
 class DFA(object):
 	"""Class for Deterministic Finite Atomata"""
-	def __init__(self, states, alphabet, transitions, start, accepting, add_dead_state=False):
+	def __init__(self, transitions, start, accepting):
 		
-		assert start in states
-		assert accepting.issubset(states)
 		self.start = start
 		self.accepting = accepting
 
-		if not add_dead_state:
+		self.transitions = transitions
 
-			self.states = states
-			self.alphabet = alphabet
-			self.transitions = transitions
+	def accepts(self, word):
 
-			for state, state_transition in transitions.items():
+		curr_state = self.start
 
-				assert state in states
-				assert state_transition.keys().issubset(alphabet)
+		for char in word:
+			try:
+				curr_state = self.transitions[curr_state][char]
+			except KeyError:
+				print("WARNING: Missing entry in transition assumed leading to dead state")
+				return False
 
-				for letter, next_state in state_transition.items():
-
-					assert letter in alphabet
-					assert next_state in states
-
-		else:
-
-			self.states = set(states)
-			self.states.add("DEAD")
-
+		return curr_state in self.accepting
 
 def main():
 
 	# Automata for strings containing 'aaa'
 	dfa = DFA(
-			states=[1, 2, 3, 4],
-			alphabet=['a', 'b'],
 			transitions={
 				1: {'a': 2, 'b': 1},
 				2: {'a': 3, 'b': 1},
@@ -43,8 +32,13 @@ def main():
 				4: {'a': 4, 'b': 4},
 			},
 			start=1,
-			accepting=set([4])
+			accepting=[4]
 		)
+
+	words = ["a", "aa", "aaa", "abab", "abaaab"]
+
+	for word in words:
+		print("{} accepted? {}".format(word, dfa.accepts(word)))
 
 
 if __name__=='__main__':
