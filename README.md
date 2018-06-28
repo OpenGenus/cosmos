@@ -49,6 +49,34 @@ You can install B.E.N.J.I. on your laptop by cloning this repository as of first
 2. Open your `IPython notebook` to `%run benji.py`. For `Command Prompt` try `python benji.py`. <br><br>
 P.S. B.E.N.J.I. now works for Windows, Linux and Mac OS :tada:
 
+#### Mac installation Troubleshooting
+
+````
+    creating build/temp.macosx-10.12-x86_64-3.6/src
+    clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -DMACOSX=1 -I/usr/local/include -I/usr/local/opt/openssl/include -I/usr/local/opt/sqlite/include -I/usr/local/Cellar/python3/3.6.4/Frameworks/Python.framework/Versions/3.6/include/python3.6m -c src/_portaudiomodule.c -o build/temp.macosx-10.12-x86_64-3.6/src/_portaudiomodule.o
+    src/_portaudiomodule.c:29:10: fatal error: 'portaudio.h' file not found
+    #include "portaudio.h"
+             ^~~~~~~~~~~~~
+    1 error generated.
+    error: command 'clang' failed with exit status 1
+    
+    ----------------------------------------
+Command "/usr/local/opt/python3/bin/python3.6 -u -c "import setuptools, tokenize;__file__='/private/var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-build-z73z9sim/PyAudio/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-wh091sp7-record/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /private/var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-build-z73z9sim/PyAudio/
+You are using pip version 9.0.1, however version 10.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+````
+Command to solve the above: ```brew install portaudio && pip3 install pyaudio```
+
+```
+Traceback (most recent call last):
+  File "MacOS/benji.py", line 3, in <module>
+    from PIL import ImageTk
+ModuleNotFoundError: No module named 'PIL'
+```
+Command to solve the above: ```pip3 install Pillow```
+
+Change the pip version above according to what you have installed on your mac.
+
 ### B.E.N.J.I working in Linux
 ![Working in Linux](working-benjion-linux.gif) 
 
