@@ -25,10 +25,8 @@ bool isBalanced(char popped, char now)
 
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    /* The code takes a string str as input from stdin and prints "YES" 
+    if str is a balanced expression else it prints "NO".*/
         stack<char> s;
         string str;
         cin>>str;
@@ -68,6 +66,5 @@ int main()
         {
             cout<<"YES\n";
         }
-    }
     return 0;
 }
