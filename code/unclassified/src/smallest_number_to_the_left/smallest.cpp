@@ -39,3 +39,6 @@ int main()
     int n = sizeof(arr)/sizeof(arr[0]);
     printPrevSmaller(arr, n);
     return 0;
+
+}
+
