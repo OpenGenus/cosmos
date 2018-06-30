@@ -1,41 +1,55 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
+
 int main() 
 {
-    //t is the number of test case
-    int t;
-    cin>>t;
+    
+    int t;         //t is the number of test case
+    cin >> t;
+    
     while(t--)
     {
-        int n;//size of metrix n * n
-        cin>>n;
+        int n;               //size of metrix n * n
+        cin >> n;
         vector <int> a(n);
         vector <int> b(n);
-        for(int i=0;i<n;i++){
-            int sum=0;
-            for(int j=0;j<n;j++){
-                int temp;
-                cin>>temp;
-                a[j]=a[j]+temp;
-                sum=sum+temp;
-            }    
-            b[i]=sum;
-        }
-        sort(a.begin(),a.end());//used Sort function of C++ STL
-        sort(b.begin(),b.end());
-        int flag=0;
-        for(int i=0;i<n;i++)
+        
+        for(int i = 0; i < n; i++)
         {
-            if(a[i]!=b[i]){
+            int sum = 0;
+            
+            for(int j = 0; j < n; j++)
+            {
+                int temp;
+                cin >> temp;
+                a[j] = a[j] + temp;
+                
+                sum = sum + temp;
+            }    
+            b[i] = sum;
+        }
+        
+        sort(a.begin(), a.end());       //used Sort function of C++ STL
+        sort(b.begin(), b.end());
+        
+        int flag = 0;
+        
+        for(int i = 0; i < n; i++)
+        {
+            if(a[i] != b[i])
+            {
                 flag++;
                 break;
             }
         }
-        if(flag==0)
-            cout<<"Possible"<<endl;
+        
+        if(flag == 0)
+            cout << "Possible\n";
         else
-            cout<<"Impossible"<<endl;
+            cout << "Impossible\n";
     }
-    /* Complexity =  O(T*(N^2))*/   
+                                      // Complexity =  O(T*(N^2))*/   
     return 0;
 }
