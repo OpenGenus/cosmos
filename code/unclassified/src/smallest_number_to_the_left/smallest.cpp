@@ -1,3 +1,6 @@
+//Part of Cosmos by OpenGenus Foundation 
+
+
 // C++ implementation of simple algorithm to find
 // smaller element on left side
 #include <iostream>
