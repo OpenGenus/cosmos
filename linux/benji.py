@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-import regex
+import re
 import os
 import wikipedia
 import time
