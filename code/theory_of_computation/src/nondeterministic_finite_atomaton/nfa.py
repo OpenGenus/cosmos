@@ -1,4 +1,4 @@
-from dfa import DFA
+from dfa import DFA # located at code/theory_of_computation/src/deterministic_finite_automaton/dfa.py
 
 class NFA(object):
 	"""Class for Non-deterministic Finite Atomata"""
