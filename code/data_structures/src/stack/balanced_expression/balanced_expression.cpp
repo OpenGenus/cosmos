@@ -5,20 +5,14 @@ using namespace std;
 
 inline bool isOpen(char c)
 {
-    if(c == '(' || c == '{' || c == '[')
-        return true;
-    return false;
+    return (c == '(' || c == '{' || c == '[');
 }
 
 bool isBalanced(char popped, char now)
 {
-    if(popped == '(' && now ==')')
-        return true;
-    if(popped == '[' && now ==']')
-        return true;
-    if(popped == '{' && now =='}')
-        return true;
-    return false;
+    return (popped == '(' && now ==')') ||
+    (popped == '[' && now ==']') ||
+    (popped == '{' && now =='}');
 }
 
 int main()
