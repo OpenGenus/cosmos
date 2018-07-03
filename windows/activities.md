@@ -11,6 +11,7 @@
 
 List of the things that B.E.N.J.I. can do:
 
+* Authenticate user by using facial recognition with the help of webcam
 * Add and save notes
 * Screen Recorder(Audio+Video)
 * Audio Recorder
@@ -89,6 +90,8 @@ You can always type in your commands in the Command Box and hit 'Enter' and B.E.
 The commands for the various functions are as follows:
 
 * "***Who are you/Identify Youself/What is your name***" for B.E.N.J.I. to introduce itself.
+* Face detection feature will automatically fetch images for first time user. From next time, it will predict the authenticity of user. If yes, then B.E.N.J.I.will start running and if no, then it will show a message "Permission Denied!". If user want to add another user, he/she can use "***face*** id". Here "id" is an integer. By default, id = 1. So, make sure, while adding a new user, use integers other than "1". B.E.N.J.I. will fetch 500 images of the user. User can see a rectangle box around the face which depicts that the system is fetching images. If this is not the case, try to move your face forward/backward/left(still)/right(still). 
+NOTE: Try different expression to make B.E.N.J.I. more secure.
 * "***note*** _NoteContent_" to add a note. The note is saved on your desktop.
 * "***recorder*** _VideoName_ _AudioName_" to initiate screen recorder. If only "***recorder***" is used, it will use "UScreenCapture" and "Microphone (Realtek High Definition Audio)" as default video and audio. You can choose them, by using "ffmpeg -list_devices true -f dshow -i dummy" in command prompt. If only "***recorder*** _VideoName_" is used, then the audio will be chosen as per the default one. NOTE: Press 'q' in the command prompt when you are done with the recording. This holds true for every other recording feature.
 * "***audio recorder*** _AudioName_" records audio. Use "***audio recorder***", this will use default audio "Microphone (Realtek High Definition Audio)".
