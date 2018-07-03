@@ -17,9 +17,9 @@ def xyz():
 	for(x,y,w,h) in faces:
 		cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
 		id, conf = rec.predict(gray[y:y+h,x:x+w])		
-
-	print(id)	
+	
 	if id == 0:
+		print("Permission denied!")
 		sys.exit()
 
 	cam.release()
