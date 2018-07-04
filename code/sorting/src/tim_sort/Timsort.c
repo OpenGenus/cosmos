@@ -7,8 +7,8 @@ const int RUN = 32;
 
 
 /*InsertionSort*/
-void 
-insertionSort(int *A , int left, int right) 
+void
+insertionSort(int *A , int left, int right)
 {
 
     int i, j;
@@ -24,8 +24,8 @@ insertionSort(int *A , int left, int right)
 }
 
 /*Merge*/
-void 
-merge(int *A, int p, int q, int r) 
+void
+merge(int *A, int p, int q, int r)
 {
 
     int i, j;
@@ -60,16 +60,16 @@ merge(int *A, int p, int q, int r)
     free(L2);
 }
 
-int 
-min(int a, int b) 
+int
+min(int a, int b)
 {
     if(a < b) return (a);
     else return (b);
 }
 
 /*TimSort*/
-void 
-timSort(int *A, int tamanho) 
+void
+timSort(int *A, int tamanho)
 {
 
     int i;
@@ -89,13 +89,19 @@ timSort(int *A, int tamanho)
     }
 }
 
-int 
-main() 
+int
+main()
 {
 
-    int A[5] = {5, 21, 7, 23, 9};
+    int A[5];
+
+    for(int i; i < 5; i++) {
+      scanf("%d", &A[i]);
+    }
 
     timSort(A, 5);
     int i;
-    for(i = 0;i < 5; i++) printf("-%d-", A[i]);
+    for(i = 0;i < 5; i++) {
+      printf("-%d-", A[i]);
+    }
 }
