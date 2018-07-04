@@ -1,8 +1,6 @@
 #include <iostream>
 #include <stack>
 
-using namespace std;
-
 inline bool isOpen(char c)
 {
     return (c == '(' || c == '{' || c == '[');
@@ -19,9 +17,9 @@ int main()
 {
     /* The code takes a string str as input from stdin and prints "YES" 
     if str is a balanced expression else it prints "NO".*/
-    stack<char> s;
-    string str;
-    cin >> str;
+    std::stack<char> s;
+    std::string str;
+    std::cin >> str;
     int no = 0;
     for(int i = 0; i < str.length(); i++)
     {
@@ -53,10 +51,8 @@ int main()
     if(!s.empty())
         no = 1;
     if(no)
-        cout<<"NO\n";
+        std::cout<<"NO\n";
     else
-    {
-        cout<<"YES\n";
-    }
+        std::cout<<"YES\n";
 return 0;
 }
