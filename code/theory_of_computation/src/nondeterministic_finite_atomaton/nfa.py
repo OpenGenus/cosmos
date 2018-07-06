@@ -11,7 +11,7 @@ class NFA(object):
 
 		self.transitions = transitions
 
-	def accepts(self, word, _start=None, _marked=set()):
+	def accepts(self, word, _start=None, _marked=set(), _warn=True):
 
 		if _start is None:
 			curr_state = self.start
@@ -25,7 +25,7 @@ class NFA(object):
 
 			for next_state in self.transitions[curr_state][EPSILON]:
 
-				if self.accepts(word, _start=next_state, _marked=new_marked):
+				if self.accepts(word, _start=next_state, _marked=new_marked, _warn=_warn):
 					return True
 
 		if len(word) == 0:
@@ -39,13 +39,14 @@ class NFA(object):
 
 				for choice in choices:
 
-					if self.accepts(word[1:], _start=choice, _marked=new_marked):
+					if self.accepts(word[1:], _start=choice, _marked=new_marked, _warn=_warn):
 						return True
 
 				return False
 
 			except KeyError:
-				print("WARNING: Missing entry in transition assumed leading to dead state")
+				if _warn:
+					print("WARNING: Missing entry in transition assumed leading to dead state")
 				return False
 
 	def remove_epsilon(self):
@@ -159,7 +160,7 @@ class NFA(object):
 
 def main():
 
-	print("Automata that accepts strings with 'a' in 2nd, 3rd or 4th character from last")
+	print("Automata that accepts strings with 'a' in 3rd, 4th or 5th positions from last")
 
 	nfa_with_epsilon = NFA(
 			transitions={
@@ -167,19 +168,19 @@ def main():
 				2: {'a': [3], 'b': [3], '': [3]},
 				3: {'a': [4], 'b': [4], '': [4]},
 				4: {'a': [5], 'b': [5]},
-				5: {},
+				5: {'a': [6], 'b': [6]},
+				6: {},
 			},
 			start=1,
-			accepting=[5]
+			accepting=[6]
 		)
 
-
-	words = ["a", "b", "ab", "bb", "baa", "aba", "abba", "bbba"]
+	words = ["a", "b", "ab", "bb", "baa", "aba", "abba", "bbba", "aaabbba", "aaabbbba"]
 	print()
 	print("Tests for NFA with epsilon:-")
 
 	for word in words:
-		print("'{}' accepted? {}".format(word, nfa_with_epsilon.accepts(word)))
+		print("'{}' accepted? {}".format(word, nfa_with_epsilon.accepts(word, _warn=False)))
 
 	nfa_wo_epsilon = nfa_with_epsilon.remove_epsilon()
 	
@@ -187,7 +188,7 @@ def main():
 	print("Tests for NFA without epsilon:-")
 
 	for word in words:
-		print("'{}' accepted? {}".format(word, nfa_wo_epsilon.accepts(word)))
+		print("'{}' accepted? {}".format(word, nfa_wo_epsilon.accepts(word, _warn=False)))
 
 
 	print()
@@ -195,7 +196,7 @@ def main():
 	dfa = nfa_wo_epsilon.determinize(remove_epsilon=False)
 
 	for word in words:
-		print("'{}' accepted? {}".format(word, dfa.accepts(word)))
+		print("'{}' accepted? {}".format(word, dfa.accepts(word, _warn=False)))
 
 	print()
 	print("Number of states in NFA with epsilon: ", len(nfa_with_epsilon.transitions))
