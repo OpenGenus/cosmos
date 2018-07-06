@@ -13,6 +13,7 @@ ipython-genutils==0.2.0
 jedi==0.11.0
 latex==0.7.0
 mpmath==1.0.0
+matplotlib
 numpy==1.13.3
 opencv-python==3.4.1.15
 opencv-contrib-python==3.4.1.15
