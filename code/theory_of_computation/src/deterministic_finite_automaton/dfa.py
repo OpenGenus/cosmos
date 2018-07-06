@@ -8,7 +8,7 @@ class DFA(object):
 
 		self.transitions = transitions
 
-	def accepts(self, word):
+	def accepts(self, word, _warn=True):
 
 		curr_state = self.start
 
@@ -16,7 +16,8 @@ class DFA(object):
 			try:
 				curr_state = self.transitions[curr_state][char]
 			except KeyError:
-				print("WARNING: Missing entry in transition assumed leading to dead state")
+				if _warn:
+					print("WARNING: Missing entry in transition assumed leading to dead state")
 				return False
 
 		return curr_state in self.accepting
@@ -70,7 +71,7 @@ class DFA(object):
 
 		n_since_change = 0
 
-		while n_since_change < len(partitions):
+		while n_since_change <= len(partitions):
 
 			i = 0
 
@@ -91,15 +92,16 @@ class DFA(object):
 							partitions.append(set())
 
 						partition_copy = set(partitions[i])
+						partition_number_copy = partition_number.copy()
 						partitions[i] = set()
 
-						for state in partition_copy:
-							number = partition_number[self.transitions[state].get(action)]
-							partition_number[state] = new_partition_numbers[number]
-							partitions[number].add(state)
-					else:
-						n_since_change += 1
 
+						for state in partition_copy:
+							number = partition_number_copy[self.transitions[state].get(action)]
+							partition_number[state] = new_partition_numbers[number]
+							partitions[new_partition_numbers[number]].add(state)
+
+				n_since_change += 1
 				i += 1
 
 		new_states = range(1, len(partitions)+1)
@@ -145,7 +147,7 @@ def main():
 	print("Tests for DFA:-")
 
 	for word in words:
-		print("'{}' accepted? {}".format(word, dfa.accepts(word)))
+		print("'{}' accepted? {}".format(word, dfa.accepts(word, _warn=False)))
 
 	minimized_dfa = dfa.minimize()
 
@@ -153,7 +155,7 @@ def main():
 	print("Tests for minimized DFA:-")
 
 	for word in words:
-		print("'{}' accepted? {}".format(word, minimized_dfa.accepts(word)))
+		print("'{}' accepted? {}".format(word, minimized_dfa.accepts(word, _warn=False)))
 
 	print()
 	print("Number of states in DFA: ", len(dfa.transitions))
