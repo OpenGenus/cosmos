@@ -137,7 +137,7 @@ def events(frame,put):
 	                d = link[-3]
 	                e = link[-1]
 	                date = d+"T00:00:00-07:00"
-	                end = e+"T12:00:00-07:00"
+	                end = e+"T00:00:00-07:00"
 	                event = {
 				'summary': summary,
 				'start': {
