@@ -255,11 +255,13 @@ def events(frame,put):
 			x = np.array(range(lower_limit,upper_limit))
 			y = eval(formula)
 			speak.say("Plotting The Graph")
+			speak.runAndWait()
 			plt.plot(x, y)
 			plt.show()
 		except:
 			print("Error")
 			speak.say("Sorry Graph can not be Plotted")
+			speak.runAndWait()
 
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
