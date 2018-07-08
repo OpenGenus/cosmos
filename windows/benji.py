@@ -59,11 +59,6 @@ def events(frame,put):
 	link = put.split()
 
 	#Add user for face detection
-	#if link[0] == "face" or link[0] == "phase":
-	#	dataset.abc(link[1])    
-	#	username = os.getlogin()
-	#	path = 'C:/dataset'.format(username) 
-	#	trainer.getImagesWithID(path)
 	if link[0] == "face" or link[0] == "phase":
 		name = link[1]
 		path = 'C:/dataset' 
@@ -648,26 +643,6 @@ class MyFrame(tk.Frame):
 if __name__=="__main__":
 
 	#Face detection
-	#username = os.getlogin()
-	#path = 'C:/'
-	#isdir = os.listdir(path)
-	#flag = 0
-	#for lis in lisdir:
-		# if users face is in dataset, then the following code will run for authentication
-	#	if lis == 'dataset':
-	#		recognizer.xyz()
-#
-#			flag = 1
-#			if id == 0:
-#				sys.exit()
-#	#if there is no folder of dataset, then new dataset will be created			
-#	if flag != 1:       
-#		os.mkdir('C:/dataset'.format(username))
-#		dataset.abc()
-#
-#		path = 'C:/dataset'.format(username)
-#		trainer.getImagesWithID(path)
-
 	path = 'C:/'
 	lisdir = os.listdir(path)
 	flag = 0
