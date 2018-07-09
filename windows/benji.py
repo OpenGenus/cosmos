@@ -4,6 +4,7 @@ from tkinter import ttk
 import wx
 import regex
 import os
+import pyautogui
 import wikipedia
 import time
 import webbrowser
@@ -66,6 +67,14 @@ def events(frame,put):
 		path = 'C:/dataset'.format(username) 
 		trainer.getImagesWithID(path)
 
+    #Screenshot    
+	elif put.startswith('take screenshot') or put.startswith("screenshot"):
+		try:
+			pic = pyautogui.screenshot()
+			spath = os.path.expanduser('~') + '/Desktop/screenshot.jpg'
+			pic.save(spath)
+		except:
+			print("Unable to take screenshot.")
 	#Add note
 	elif put.startswith("note") or put.startswith("not") or put.startswith("node"):
 		try:
