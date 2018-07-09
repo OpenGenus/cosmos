@@ -1,3 +1,4 @@
+apiclient==1.0.3
 beautifulsoup4==4.6.0
 certifi==2017.11.5
 chardet==3.0.4
@@ -7,6 +8,8 @@ data==0.4
 decorator==4.1.2
 funcsigs==1.0.2
 future==0.16.0
+google-api-python-client
+httplib2==0.11.3
 idna==2.6
 ipython==6.2.1
 ipython-genutils==0.2.0
@@ -17,6 +20,7 @@ matplotlib
 numpy==1.13.3
 opencv-python==3.4.1.15
 opencv-contrib-python==3.4.1.15
+oauth2client==4.1.2
 pandas==0.21.0
 parso==0.1.0
 pickleshare==0.7.4
