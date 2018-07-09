@@ -1,4 +1,3 @@
-// convert prefix to postfix. CPP
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -18,7 +17,10 @@ struct Stack
     }
     char* rtop() 
     { 
-        return stacks[top];
+        if(top!= -1)
+            return stacks[top];
+        else
+            return "$";
     }
     void push(char* x) 
     {
@@ -27,7 +29,7 @@ struct Stack
     }
     void pop() 
     {
-        if (top != -1) 
+        if (top > -1) 
             top--;
     }
 };
@@ -64,7 +66,7 @@ char* preToPost(char* pre_exp)
             s.push(op3);
         }
         // If symbol is operator
-        else 
+        else if(pre_exp[i] != '(' || pre_exp[i] != ')')
         {
             // Pop two operands from stack
             char* op1 = s.rtop();
@@ -95,7 +97,7 @@ char* preToPost(char* pre_exp)
 // Driver Code
 int main() 
 {
-    char exp[] = "*-A/BC-/AKL";
+    char exp[] = "+++*AB/CDEF";
     printf("%s\n", preToPost(exp));
     
     return 0;
