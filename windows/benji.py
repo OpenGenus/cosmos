@@ -1,4 +1,5 @@
 # coding: utf-8
+from __future__ import print_function
 import tkinter as tk
 from tkinter import ttk
 import wx
@@ -32,6 +33,16 @@ import trainer
 import recognizer
 import matplotlib.pyplot as plt
 import numpy as np
+
+import httplib2
+import os
+
+from apiclient import discovery
+from oauth2client import client
+from oauth2client import tools
+from oauth2client.file import Storage
+
+import datetime
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -90,6 +101,73 @@ def events(frame,put):
 			speak.runAndWait()
 		except:
 			print("Could not add the specified note!")
+			
+	#adding an event in google calendar
+	elif link[0] == "add" and link[1]=="event":
+		try:
+	            try:
+	                import argparse
+	                flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+	            except ImportError:
+	                flags = None
+
+	            SCOPES = 'https://www.googleapis.com/auth/calendar'
+	            CLIENT_SECRET_FILE = 'Client_Secret.json'
+	            APPLICATION_NAME = 'GSSOC 	'
+
+	            def get_credentials():
+	                home_dir = os.path.expanduser('~')
+	                credential_dir = os.path.join(home_dir, '.credentials')
+	                if not os.path.exists(credential_dir):
+	                    os.makedirs(credential_dir)
+	                credential_path = os.path.join(credential_dir,'calendar-python-quickstart.json')
+	                store = Storage(credential_path)
+	                credentials = store.get()
+	                if not credentials or credentials.invalid:
+	                    flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+	                    flow.user_agent = APPLICATION_NAME
+	                    if flags:
+	                        credentials = tools.run_flow(flow, store, flags)
+	                    else:
+	                        credentials = tools.run(flow, store)
+	                    print('Storing credentials to ' + credential_path)
+	                return credentials
+
+	            def main():
+	                credentials = get_credentials()
+	                http = credentials.authorize(httplib2.Http())
+	                service = discovery.build('calendar', 'v3', http=http)
+	                summary = link[2]
+	                d = link[-3]
+	                e = link[-1]
+	                date = d+"T00:00:00-07:00"
+	                end = e+"T00:00:00-07:00"
+	                event = {
+				'summary': summary,
+				'start': {
+					'dateTime': date,
+			    },
+			  'end': {
+			    'dateTime': end,
+			    },
+			  'reminders': {
+			    'useDefault': False,
+			    'overrides': [
+			      {'method': 'email', 'minutes': 24 * 60},
+			      {'method': 'popup', 'minutes': 15},
+			    ],
+			  },
+			}
+
+	                event = service.events().insert(calendarId='primary', body=event).execute()
+                    #print('Event created: %s' % (event.get('htmlLink')))
+					#webbrowser.open('https://calendar.google.com/calendar/r')
+
+	            if __name__ == '__main__':
+	                main()
+
+		except Exception as e:
+	            print(e)
 	#Open a existing folder
 	elif put.startswith(search_pc):
 		try:
