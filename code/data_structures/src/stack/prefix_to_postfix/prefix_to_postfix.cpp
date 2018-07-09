@@ -16,23 +16,19 @@ struct Stack
         top = -1;
         stacks = (char**)malloc(x * sizeof(char*));
     }
-
     char* rtop() 
     { 
         return stacks[top];
     }
-  
     void push(char* x) 
     {
         top++;
         stacks[top] = x;
     }
-
     void pop() 
     {
         if (top != -1) 
             top--;
-        
     }
 };
 
