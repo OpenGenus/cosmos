@@ -20,9 +20,9 @@
 
 A digital assistant for your device that uses speech-recognition to obey your commands
 
-NOTE: B.E.N.J.I. has been selected as a project for the [Kharagpur Winter of Code 2017](https://kwoc.kossiitkgp.in/) :tada:
+NOTE #1: B.E.N.J.I. has participated in the following Open-Source Programs: Kharagpur Winter of Code 2017 and GirlScript Summer Of Code 2018. :tada:
 
-NOTE #2: I was invited to talk about B.E.N.J.I at the [Open-Source Summit held at IIT Kharagpur](https://kwoc.kossiitkgp.in/summit) on the 21st of January 2018. You can view the slides [here](https://github.com/the-ethan-hunt/B.E.N.J.I./blob/master/OSS_IIT_KGP_Dhruv_Apte.pdf). The video session is available to watch [here](https://www.youtube.com/watch?v=dydyiqR49KE&list=PLzumvJj1-3nDRq6Le2bFSmbtz0g7CppKb&index=11) :tada: 
+NOTE #2: I was invited to talk about B.E.N.J.I at the Open-Source Summit held at IIT Kharagpur on the 21st of January 2018. You can view the slides [here](https://github.com/the-ethan-hunt/B.E.N.J.I./blob/master/OSS_IIT_KGP_Dhruv_Apte.pdf). The video session is available to watch [here](https://www.youtube.com/watch?v=dydyiqR49KE&list=PLzumvJj1-3nDRq6Le2bFSmbtz0g7CppKb&index=11) :tada:
 
 ### List of contents
 
@@ -32,7 +32,7 @@ NOTE #2: I was invited to talk about B.E.N.J.I at the [Open-Source Summit held a
 - [FAQs](#faqs)
 - [License](#license)
 
-### Declassified debrief 
+### Declassified debrief
 
 [(Back to top)](#list-of-contents)
 
@@ -59,7 +59,7 @@ P.S. B.E.N.J.I. now works for Windows, Linux and Mac OS :tada:
              ^~~~~~~~~~~~~
     1 error generated.
     error: command 'clang' failed with exit status 1
-    
+
     ----------------------------------------
 Command "/usr/local/opt/python3/bin/python3.6 -u -c "import setuptools, tokenize;__file__='/private/var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-build-z73z9sim/PyAudio/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-wh091sp7-record/install-record.txt --single-version-externally-managed --compile" failed with error code 1 in /private/var/folders/fv/cy3_1czs31q64478bzxd7_m5vdlrd8/T/pip-build-z73z9sim/PyAudio/
 You are using pip version 9.0.1, however version 10.0.1 is available.
@@ -78,9 +78,9 @@ Command to solve the above: ```pip3 install Pillow```
 Change the pip version above according to what you have installed on your mac.
 
 ### B.E.N.J.I working in Linux
-![Working in Linux](working-benjion-linux.gif) 
+![Working in Linux](working-benjion-linux.gif)
 
-### B.E.N.J.I working on Windows 
+### B.E.N.J.I working on Windows
 ![Working on Windows](working-benji-windows.gif)
 
 ### Contributing
@@ -93,9 +93,9 @@ Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! 
 
 [(Back to top)](#list-of-contents)
 
-1. How to use B.E.N.J.I. to open a website/webpage? 
-* Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com". 
-2. How to use the news feature? 
+1. How to use B.E.N.J.I. to open a website/webpage?
+* Say "facebook.com" and B.E.N.J.I. will open the requested page. Here, it's important to specify the top-level domain i.e. ".com".
+2. How to use the news feature?
 * Say "news the hindu" and B.E.N.J.I. will open list of latest "news" by requested news agency.
 3. How to use the recording feature? (Windows)
 * "UScreenCapture" and "ffmpeg" needed to run this feature.   
@@ -105,5 +105,3 @@ Contributions are welcomed heartily; any new `feature` or a `bug fix` is great! 
 [(Back to top)](#list-of-contents)
 
 The MIT License 2017 - [Dhruv Apte](http://github.com/the-ethan-hunt/).
-
-
