@@ -5,6 +5,7 @@ from tkinter import ttk
 import wx
 import regex
 import os
+import pyautogui
 import wikipedia
 import time
 import webbrowser
@@ -15,6 +16,7 @@ import requests
 import ctypes
 import random
 import urllib
+import datetime
 import ssl
 from bs4 import BeautifulSoup
 import win32com.client as wicl
@@ -43,7 +45,6 @@ from oauth2client import tools
 from oauth2client.file import Storage
 
 import datetime
-
 requests.packages.urllib3.disable_warnings()
 try:
 		_create_unverified_https_context=ssl._create_unverified_context
@@ -79,6 +80,56 @@ def events(frame,put):
 		username = os.getlogin()
 		path = 'C:/dataset'.format(username) 
 		trainer.getImagesWithID(path)
+
+    #Screenshot    
+	elif put.startswith('take screenshot') or put.startswith("screenshot"):
+		try:
+			pic = pyautogui.screenshot()
+			spath = os.path.expanduser('~') + '/Desktop/screenshot.jpg'
+			pic.save(spath)
+		except:
+			print("Unable to take screenshot.")
+
+	#Upcoming events
+	elif put.startswith("upcoming events") or put.startswith("coming events") or put.startswith("events"):
+		try:
+			SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+			store = file.Storage('credentials.json')
+			creds = store.get()
+			if not creds or creds.invalid:
+				flow = client.flow_from_clientsecrets('client_secret.json', SCOPES)
+				creds = tools.run_flow(flow, store)
+			service = build('calendar', 'v3', http=creds.authorize(Http()))
+				
+			now = datetime.datetime.utcnow().isoformat() + 'z' # 'Z' indicates UTC time
+			root = tk.Tk()
+			root.title("Top 10 Upcoming Events")
+
+			events_result = service.events().list(calendarId='primary', timeMin=now,maxResults=10, singleEvents=True,orderBy='startTime').execute()
+			events = events_result.get('items', [])
+
+			if not events:
+				w = tk.Label(root, text="No upcoming events found.")
+				w.pack()
+				
+			w = tk.Label(root, text="Event Title")
+			w.grid(row=0, column=1)
+			w = tk.Label(root, text="Time And Date Of Event")
+			w.grid(row=0, column=2)
+
+			i=1
+			for event in events:
+				start = event['start'].get('dateTime', event['start'].get('date'))
+				w = tk.Label(root, text=event['summary'])
+				w.grid(row=i, column=1)
+				w = tk.Label(root, text=start)
+				w.grid(row=i, column=2)
+				i=i+1
+				
+			root.geometry("400x400")
+			root.mainloop()
+		except:
+			print("Unable to take upcoming events")
 
 	#Add note
 	elif put.startswith("note") or put.startswith("not") or put.startswith("node"):
