@@ -102,6 +102,8 @@ NOTE: Try different expression to make B.E.N.J.I. more secure. Make sure to make
 NOTE: All the recorded files will be saved on the desktop. Make sure that the file names should not be same. "input.avi" and "input.mp3" have no conflicts. But "input.avi" and "input.avi" will result into conflicts.
 * "***images to video*** _time_". Here time is the display time of each image. For this feature to run, you should create a folder "Images" on desktop. Add the images to the folder and rename them as "img001.jpg", "img002.jpg" and so on. After running the command, you will get the video in the same folder in ".avi" format.
 * "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it. Also you can open files from C drive, D drive, Desktop, Documents, Downloads by saying- find/lookfor in <C or D drive/Documents/Desktop?downloads>. C and D drive can be opened by saying- lookfor/find C/D drive(Version: Microsoft Windows [Version 10.0.16299.431]).
+* "***draw graph for*** _formula_ ***from*** _Upper-limit_ ***to*** _Lower-limit_" to plot graph for formula like(x^n+ax^m+b ...) for example,
+  _draw graph for x**2+4*x+6 from -100 to 100_.
 * "***add event in google calendar*** to add event on your google calendar, type(or say) in the following format: "add event <event_name> <start date in format yyyy-mm-dd> to <end date in format yyyy-mm-dd>" and it will save the event on your google calendar.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***download video*** _SongName_" to download video.
