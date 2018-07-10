@@ -31,6 +31,9 @@ from pytube import YouTube
 import dataset
 import trainer
 import recognizer
+import matplotlib.pyplot as plt
+import numpy as np
+
 import httplib2
 import os
 
@@ -63,6 +66,7 @@ def events(frame,put):
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
 	download_music=("download ","download music ")
 	search_pc= ("find ","lookfor ")
+	graph_generation = ("draw graph for ")
 	close_keywords=("close ","over ","stop ","exit ")
 	pc_locations = ("desktop", "documents", "downloads")
 	
@@ -302,6 +306,8 @@ def events(frame,put):
 			speak.runAndWait()
 		except:
 			print("Unable to create video file!")
+
+	#Open Files
 	elif put.startswith(search_pc):
 		try:
 			name=link[1]
@@ -317,6 +323,23 @@ def events(frame,put):
 			os.startfile(realpath)
 		except:
 			print("Error")
+
+	#Plotting of graph 
+	elif put.startswith(graph_generation):
+		try:
+			formula = link[3]
+			lower_limit = int(link[5])
+			upper_limit = int(link[7])
+			x = np.array(range(lower_limit,upper_limit))
+			y = eval(formula)
+			speak.say("Plotting The Graph")
+			speak.runAndWait()
+			plt.plot(x, y)
+			plt.show()
+		except:
+			print("Error")
+			speak.say("Sorry Graph can not be Plotted")
+			speak.runAndWait()
 
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
