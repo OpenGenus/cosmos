@@ -30,8 +30,6 @@ import sys
 import pyttsx3
 import getpass
 from pytube import YouTube
-import face_recognition
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import httplib2
@@ -41,6 +39,8 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 import datetime
+import face_recognition
+import cv2
 
 requests.packages.urllib3.disable_warnings()
 try:
