@@ -1,9 +1,11 @@
 # coding: utf-8
+from __future__ import print_function
 import tkinter as tk
 from tkinter import ttk
 import wx
 import regex
 import os
+import pyautogui
 import wikipedia
 import time
 import webbrowser
@@ -14,6 +16,7 @@ import requests
 import ctypes
 import random
 import urllib
+import datetime
 import ssl
 from bs4 import BeautifulSoup
 import win32com.client as wicl
@@ -29,6 +32,15 @@ import getpass
 from pytube import YouTube
 import face_recognition
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+import httplib2
+import os
+from apiclient import discovery
+from oauth2client import client
+from oauth2client import tools
+from oauth2client.file import Storage
+import datetime
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -52,6 +64,7 @@ def events(frame,put):
 	check_keywords = ["what","when","was","how","has","had","should","would","can","could","cool","good"] #could or cool or good
 	download_music=("download ","download music ")
 	search_pc= ("find ","lookfor ")
+	graph_generation = ("draw graph for ")
 	close_keywords=("close ","over ","stop ","exit ")
 	pc_locations = ("desktop", "documents", "downloads")
 	
@@ -67,6 +80,56 @@ def events(frame,put):
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
 		cv2.destroyAllWindows()
+
+    #Screenshot    
+	elif put.startswith('take screenshot') or put.startswith("screenshot"):
+		try:
+			pic = pyautogui.screenshot()
+			spath = os.path.expanduser('~') + '/Desktop/screenshot.jpg'
+			pic.save(spath)
+		except:
+			print("Unable to take screenshot.")
+
+	#Upcoming events
+	elif put.startswith("upcoming events") or put.startswith("coming events") or put.startswith("events"):
+		try:
+			SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+			store = file.Storage('credentials.json')
+			creds = store.get()
+			if not creds or creds.invalid:
+				flow = client.flow_from_clientsecrets('client_secret.json', SCOPES)
+				creds = tools.run_flow(flow, store)
+			service = build('calendar', 'v3', http=creds.authorize(Http()))
+				
+			now = datetime.datetime.utcnow().isoformat() + 'z' # 'Z' indicates UTC time
+			root = tk.Tk()
+			root.title("Top 10 Upcoming Events")
+
+			events_result = service.events().list(calendarId='primary', timeMin=now,maxResults=10, singleEvents=True,orderBy='startTime').execute()
+			events = events_result.get('items', [])
+
+			if not events:
+				w = tk.Label(root, text="No upcoming events found.")
+				w.pack()
+				
+			w = tk.Label(root, text="Event Title")
+			w.grid(row=0, column=1)
+			w = tk.Label(root, text="Time And Date Of Event")
+			w.grid(row=0, column=2)
+
+			i=1
+			for event in events:
+				start = event['start'].get('dateTime', event['start'].get('date'))
+				w = tk.Label(root, text=event['summary'])
+				w.grid(row=i, column=1)
+				w = tk.Label(root, text=start)
+				w.grid(row=i, column=2)
+				i=i+1
+				
+			root.geometry("400x400")
+			root.mainloop()
+		except:
+			print("Unable to take upcoming events")
 
 	#Add note
 	elif put.startswith("note") or put.startswith("not") or put.startswith("node"):
@@ -89,6 +152,73 @@ def events(frame,put):
 			speak.runAndWait()
 		except:
 			print("Could not add the specified note!")
+			
+	#adding an event in google calendar
+	elif link[0] == "add" and link[1]=="event":
+		try:
+	            try:
+	                import argparse
+	                flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+	            except ImportError:
+	                flags = None
+
+	            SCOPES = 'https://www.googleapis.com/auth/calendar'
+	            CLIENT_SECRET_FILE = 'Client_Secret.json'
+	            APPLICATION_NAME = 'GSSOC 	'
+
+	            def get_credentials():
+	                home_dir = os.path.expanduser('~')
+	                credential_dir = os.path.join(home_dir, '.credentials')
+	                if not os.path.exists(credential_dir):
+	                    os.makedirs(credential_dir)
+	                credential_path = os.path.join(credential_dir,'calendar-python-quickstart.json')
+	                store = Storage(credential_path)
+	                credentials = store.get()
+	                if not credentials or credentials.invalid:
+	                    flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+	                    flow.user_agent = APPLICATION_NAME
+	                    if flags:
+	                        credentials = tools.run_flow(flow, store, flags)
+	                    else:
+	                        credentials = tools.run(flow, store)
+	                    print('Storing credentials to ' + credential_path)
+	                return credentials
+
+	            def main():
+	                credentials = get_credentials()
+	                http = credentials.authorize(httplib2.Http())
+	                service = discovery.build('calendar', 'v3', http=http)
+	                summary = link[2]
+	                d = link[-3]
+	                e = link[-1]
+	                date = d+"T00:00:00-07:00"
+	                end = e+"T00:00:00-07:00"
+	                event = {
+				'summary': summary,
+				'start': {
+					'dateTime': date,
+			    },
+			  'end': {
+			    'dateTime': end,
+			    },
+			  'reminders': {
+			    'useDefault': False,
+			    'overrides': [
+			      {'method': 'email', 'minutes': 24 * 60},
+			      {'method': 'popup', 'minutes': 15},
+			    ],
+			  },
+			}
+
+	                event = service.events().insert(calendarId='primary', body=event).execute()
+                    #print('Event created: %s' % (event.get('htmlLink')))
+					#webbrowser.open('https://calendar.google.com/calendar/r')
+
+	            if __name__ == '__main__':
+	                main()
+
+		except Exception as e:
+	            print(e)
 	#Open a existing folder
 	elif put.startswith(search_pc):
 		try:
@@ -227,6 +357,8 @@ def events(frame,put):
 			speak.runAndWait()
 		except:
 			print("Unable to create video file!")
+
+	#Open Files
 	elif put.startswith(search_pc):
 		try:
 			name=link[1]
@@ -242,6 +374,23 @@ def events(frame,put):
 			os.startfile(realpath)
 		except:
 			print("Error")
+
+	#Plotting of graph 
+	elif put.startswith(graph_generation):
+		try:
+			formula = link[3]
+			lower_limit = int(link[5])
+			upper_limit = int(link[7])
+			x = np.array(range(lower_limit,upper_limit))
+			y = eval(formula)
+			speak.say("Plotting The Graph")
+			speak.runAndWait()
+			plt.plot(x, y)
+			plt.show()
+		except:
+			print("Error")
+			speak.say("Sorry Graph can not be Plotted")
+			speak.runAndWait()
 
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
