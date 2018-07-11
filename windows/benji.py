@@ -30,21 +30,18 @@ import sys
 import pyttsx3
 import getpass
 from pytube import YouTube
-import dataset
-import trainer
-import recognizer
 import matplotlib.pyplot as plt
 import numpy as np
-
 import httplib2
 import os
-
 from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
-
 import datetime
+import face_recognition
+import cv2
+
 requests.packages.urllib3.disable_warnings()
 try:
 		_create_unverified_https_context=ssl._create_unverified_context
@@ -76,10 +73,13 @@ def events(frame,put):
 
 	#Add user for face detection
 	if link[0] == "face" or link[0] == "phase":
-		dataset.abc(link[1])    
-		username = os.getlogin()
-		path = 'C:/dataset'.format(username) 
-		trainer.getImagesWithID(path)
+		name = link[1]
+		path = 'C:/dataset' 
+		cam = cv2.VideoCapture(0)
+		ret, img = cam.read()
+		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
+		cam.release()
+		cv2.destroyAllWindows()
 
     #Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
@@ -792,25 +792,24 @@ class MyFrame(tk.Frame):
 if __name__=="__main__":
 
 	#Face detection
-	username = os.getlogin()
 	path = 'C:/'
 	lisdir = os.listdir(path)
 	flag = 0
 	for lis in lisdir:
 		# if users face is in dataset, then the following code will run for authentication
 		if lis == 'dataset':
-			recognizer.xyz()
-
+			face_recognition.main()
 			flag = 1
-			if id == 0:
-				sys.exit()
-	#if there is no folder of dataset, then new dataset will be created			
-	if flag != 1:       
-		os.mkdir('C:/dataset'.format(username))
-		dataset.abc()
 
-		path = 'C:/dataset'.format(username)
-		trainer.getImagesWithID(path)
+	if flag != 1:		
+		os.mkdir('C:/dataset')
+		name = "admin"
+		path = 'C:/dataset'
+		cam = cv2.VideoCapture(0)
+		ret, img = cam.read()
+		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
+		cam.release()
+		cv2.destroyAllWindows()
 
 	#GUI    
 	root = tk.Tk()

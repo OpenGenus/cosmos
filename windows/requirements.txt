@@ -3,9 +3,12 @@ beautifulsoup4==4.6.0
 certifi==2017.11.5
 chardet==3.0.4
 client==0.0.1
+cmake=3.11.0
 colorama==0.3.9
 data==0.4
 decorator==4.1.2
+dlib=19.14.0
+face-recognition==1.2.2
 funcsigs==1.0.2
 future==0.16.0
 google-api-python-client
@@ -27,6 +30,7 @@ pickleshare==0.7.4
 prompt-toolkit==1.0.15
 PyAudio==0.2.11
 #incase pyAudio blows up first install portaudio19-dev and then try installing pyaudio
+PyAutoGUI==0.9.36
 Pygments==2.2.0
 pypiwin32
 python-dateutil==2.6.1
