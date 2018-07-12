@@ -80,6 +80,7 @@ List of the things that B.E.N.J.I. can do:
 * Create a file(txt, docx, pptx,xlsx, vsdx and rtf supported)
 * Podcast
 * Calculator
+* Get top 10 tweets
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
@@ -124,6 +125,7 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * "***podcast***". This will redirect you to "CastBox" which is a good source of podcasts.
 * "***calculator***". This will open Calculator.
 * "***exit/over/close/stop*** to exit BENJI.
+* "***get tweets***" get latest 10 tweets from timeline. For this an app is to be registered at https://apps.twitter.com/ (if confused, have a look at https://spring.io/guides/gs/register-twitter-app/). A new file named "twitterCredentials.py" is to be made in the windows folder. Save the consumer key, consumer secret, access token, access token secret with the names consumer_key, consumer_secret, access_token, access_secret repectively in the "twitterCredentials.py"
 
 
 >In cases where the commands are separated by '/', use any one of the mentioned commands
