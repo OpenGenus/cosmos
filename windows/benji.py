@@ -84,15 +84,15 @@ def events(frame,put):
 		cam.release()
 		cv2.destroyAllWindows()
 	
-	#get top 10 tweets
-	elif link[0] =="get" and link[-1] == "tweets":
+	#Get top 10 tweets
+	elif link[0] == "get" and link[-1] == "tweets":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 		api = tweepy.API(auth)
 
 		for status in tweepy.Cursor(api.home_timeline).items(10):
-			print("\n",status.text)
-			print("By ",status.user.screen_name," at ",status.user.created_at)
+			print("\n", status.text)
+			print("By ", status.user.screen_name, " at ", status.user.created_at)
 	
     	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
