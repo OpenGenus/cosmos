@@ -41,6 +41,9 @@ from oauth2client.file import Storage
 import datetime
 import face_recognition
 import cv2
+import tweepy
+from tweepy import OAuthHandler
+import twitterCredentials
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -80,8 +83,18 @@ def events(frame,put):
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
 		cv2.destroyAllWindows()
+	
+	#Get top 10 tweets
+	elif link[0] == "get" and link[-1] == "tweets":
+		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+		api = tweepy.API(auth)
 
-    #Screenshot    
+		for status in tweepy.Cursor(api.home_timeline).items(10):
+			print("\n", status.text)
+			print("By ", status.user.screen_name, " at ", status.user.created_at)
+	
+    	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
 			pic = pyautogui.screenshot()

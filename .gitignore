@@ -104,3 +104,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Credentials to access twitter
+twitterCredentials.py
