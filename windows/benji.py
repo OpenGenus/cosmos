@@ -39,7 +39,7 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 import datetime
-import face_recognition
+#import face_recognition
 import cv2
 import tweepy
 from tweepy import OAuthHandler
@@ -89,10 +89,21 @@ def events(frame,put):
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 		api = tweepy.API(auth)
-
-		for status in tweepy.Cursor(api.home_timeline).items(10):
-			print("\n", status.text)
-			print("By ", status.user.screen_name, " at ", status.user.created_at)
+		if link[-2] == "my":
+			for tweet in tweepy.Cursor(api.user_timeline).items(10):
+				print("\n", json.dumps(tweet.text))
+				print("on ", tweet.created_at)
+		elif link[1] == "tweets":
+			for status in tweepy.Cursor(api.home_timeline).items(10):
+				print("\n", status.text)
+				print("By ", status.user.screen_name, " at ", status.user.created_at)
+	
+	elif link[-2] == "twitter" and link[-1] == "friends":
+		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+		api = tweepy.API(auth)
+		for friend in tweepy.Cursor(api.friends).items():
+			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
 	
     	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
@@ -804,7 +815,7 @@ class MyFrame(tk.Frame):
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
 
-	#Face detection
+	"""#Face detection
 	path = 'C:/'
 	lisdir = os.listdir(path)
 	flag = 0
@@ -822,7 +833,7 @@ if __name__=="__main__":
 		ret, img = cam.read()
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
-		cv2.destroyAllWindows()
+		cv2.destroyAllWindows()"""
 
 	#GUI    
 	root = tk.Tk()
