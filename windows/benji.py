@@ -97,7 +97,8 @@ def events(frame,put):
 			for status in tweepy.Cursor(api.home_timeline).items(10):
 				print("\n", status.text)
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
-	
+				
+	#Get friends from twitter
 	elif link[-2] == "twitter" and link[-1] == "friends":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
