@@ -39,7 +39,7 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 import datetime
-#import face_recognition
+import face_recognition
 import cv2
 import tweepy
 from tweepy import OAuthHandler
@@ -815,7 +815,7 @@ class MyFrame(tk.Frame):
 	#Trigger the GUI. Light the fuse!
 if __name__=="__main__":
 
-	"""#Face detection
+	#Face detection
 	path = 'C:/'
 	lisdir = os.listdir(path)
 	flag = 0
@@ -833,7 +833,7 @@ if __name__=="__main__":
 		ret, img = cam.read()
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
-		cv2.destroyAllWindows()"""
+		cv2.destroyAllWindows()
 
 	#GUI    
 	root = tk.Tk()
