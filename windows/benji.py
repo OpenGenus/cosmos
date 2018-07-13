@@ -99,7 +99,7 @@ def events(frame,put):
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
 				
 	#Get friends from twitter
-	elif link[-2] == "twitter" and link[-1] == "friends":
+	elif link[-3] == "follow" and link[-1] == "twitter":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 		api = tweepy.API(auth)
