@@ -125,8 +125,8 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * "***podcast***". This will redirect you to "CastBox" which is a good source of podcasts.
 * "***calculator***". This will open Calculator.
 * "***exit/over/close/stop*** to exit BENJI.
-* "***get tweets***" get latest 10 tweets from timeline. For this an app is to be registered at https://apps.twitter.com/ (if confused, have a look at https://spring.io/guides/gs/register-twitter-app/). A new file named "twitterCredentials.py" is to be made in the windows folder. Save the consumer key, consumer secret, access token, access token secret with the names consumer_key, consumer_secret, access_token, access_secret repectively in the "twitterCredentials.py". Speak/type "get tweets" and top 10 tweets will be shown, also when and by whom it was created.
-
+* "***get tweets***" Get latest 10 tweets from timeline. For this an app is to be registered at https://apps.twitter.com/ (if confused, have a look at https://spring.io/guides/gs/register-twitter-app/). A new file named "twitterCredentials.py" is to be made in the windows folder. Save the consumer key, consumer secret, access token, access token secret with the names consumer_key, consumer_secret, access_token, access_secret repectively in the "twitterCredentials.py". Speak/type "get tweets" and top 10 tweets will be shown, also when and by whom it was created.
+Get latest 10 tweets done by the user. Speak/type "get my tweets" and top 10 tweets done by the user(you) will be shown with the time when it was tweeted
 
 >In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
