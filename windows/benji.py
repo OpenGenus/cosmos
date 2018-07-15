@@ -89,10 +89,22 @@ def events(frame,put):
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 		api = tweepy.API(auth)
-
-		for status in tweepy.Cursor(api.home_timeline).items(10):
-			print("\n", status.text)
-			print("By ", status.user.screen_name, " at ", status.user.created_at)
+		if link[-2] == "my":
+			for tweet in tweepy.Cursor(api.user_timeline).items(10):
+				print("\n", json.dumps(tweet.text))
+				print("on ", tweet.created_at)
+		elif link[1] == "tweets":
+			for status in tweepy.Cursor(api.home_timeline).items(10):
+				print("\n", status.text)
+				print("By ", status.user.screen_name, " at ", status.user.created_at)
+				
+	#Get friends from twitter
+	elif link[-3] == "follow" and link[-1] == "twitter":
+		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+		api = tweepy.API(auth)
+		for friend in tweepy.Cursor(api.friends).items():
+			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
 	
     	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
