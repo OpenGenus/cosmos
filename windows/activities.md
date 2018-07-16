@@ -81,8 +81,8 @@ List of the things that B.E.N.J.I. can do:
 * Podcast
 * Calculator
 * Twitter(get top 10 tweets, get list of people you are following)
-* Say "spanish", and then give the commands in Spanish
-* Say "french", and then give the commands in French
+* Say "Spanish", and then give the commands in Spanish
+* Say "French", and then give the commands in French
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
