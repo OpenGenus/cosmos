@@ -130,8 +130,8 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * "***get tweets***" Get latest 10 tweets from timeline. For this an app is to be registered at https://apps.twitter.com/ (if confused, have a look at https://spring.io/guides/gs/register-twitter-app/). A new file named "twitterCredentials.py" is to be made in the windows folder. Save the consumer key, consumer secret, access token, access token secret with the names consumer_key, consumer_secret, access_token, access_secret repectively in the "twitterCredentials.py". Speak/type "get tweets" and top 10 tweets will be shown, also when and by whom it was created.
 * Get latest 10 tweets done by the user. Speak/type "get my tweets" and top 10 tweets done by the user(you) will be shown with the time when it was tweeted
 * You can get a list of everyone you follow from twitter by saying "get list of people I follow on twitter"
-* "***Command in Spanish***" You just need to speak/type "spanish" and then give your command(in Spanish language). For example, speak/type "spanish abierto facebook.com" opens facebook homepage, "spanish buscar India" does a google search for India.
-* "***Command in French***" You just need to speak/type "french" and then give your command(in French language). For example, speak/type "french ouvert facebook.com" opens facebook homepage, "french trouver C drive" opens C drive.
+* "***Commands in Spanish***" You just need to speak/type "Spanish" and then give your command(in Spanish language). For example, speak/type "Spanish abierto facebook.com" opens facebook homepage, "Spanish buscar India" does a google search for India.
+* "***Commands in French***" You just need to speak/type "French" and then give your command(in French language). For example, speak/type "French ouvert facebook.com" opens facebook homepage, "French trouver C drive" opens C drive.
 >In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
 
