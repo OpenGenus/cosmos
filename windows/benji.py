@@ -81,6 +81,14 @@ def events(frame,put):
 		link = put.split()
 	else:
 		link = put.split()
+		
+	if put.startswith("french"):
+		word, space, rest = put.partition(' ')
+		translated = translator.translate(rest, src='fr', dest='en')
+		put = translated.text
+		link = put.split()
+	else:
+		link = put.split()
 
 	#Add user for face detection
 	if link[0] == "face" or link[0] == "phase":

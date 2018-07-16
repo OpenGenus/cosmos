@@ -82,6 +82,7 @@ List of the things that B.E.N.J.I. can do:
 * Calculator
 * Twitter(get top 10 tweets, get list of people you are following)
 * Say "spanish", and then give the commands in Spanish
+* Say "french", and then give the commands in French
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
@@ -130,6 +131,7 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * Get latest 10 tweets done by the user. Speak/type "get my tweets" and top 10 tweets done by the user(you) will be shown with the time when it was tweeted
 * You can get a list of everyone you follow from twitter by saying "get list of people I follow on twitter"
 * "***Command in Spanish***" You just need to speak/type "spanish" and then give your command(in Spanish language). For example, speak/type "spanish abierto facebook.com" opens facebook homepage, "spanish buscar India" does a google search for India.
+* "***Command in French***" You just need to speak/type "french" and then give your command(in French language). For example, speak/type "french ouvert facebook.com" opens facebook homepage, "french trouver C drive" opens C drive.
 >In cases where the commands are separated by '/', use any one of the mentioned commands
 >For example, use either ***What is your name*** or ***Identify Yourself*** or ***Who are you***. Don't type all of them at once.
 
