@@ -91,7 +91,28 @@ def events(frame,put):
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
 		cv2.destroyAllWindows()
-			
+		
+	#Get top 10 tweets
+	elif link[0] == "get" and link[-1] == "tweets":
+		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+		api = tweepy.API(auth)
+		if link[-2] == "my":
+			for tweet in tweepy.Cursor(api.user_timeline).items(10):
+				print("\n", json.dumps(tweet.text))
+				print("on ", tweet.created_at)
+		elif link[1] == "tweets":
+			for status in tweepy.Cursor(api.home_timeline).items(10):
+				print("\n", status.text)
+				print("By ", status.user.screen_name, " at ", status.user.created_at)
+				
+	#Get friends from twitter
+	elif link[-1] == "twitter" and link[-3] == "follow":
+		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+		api = tweepy.API(auth)
+		for friend in tweepy.Cursor(api.friends).items():
+			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))		
     #Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
@@ -714,28 +735,6 @@ def events(frame,put):
 	#Exit/Quit
 	elif put.startswith('exit') or put.startswith('quit'):
 		sys.exit()
-		
-	#Get top 10 tweets
-	elif link[0] == "get" and link[-1] == "tweets":
-		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
-		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
-		api = tweepy.API(auth)
-		if link[-2] == "my":
-			for tweet in tweepy.Cursor(api.user_timeline).items(10):
-				print("\n", json.dumps(tweet.text))
-				print("on ", tweet.created_at)
-		elif link[1] == "tweets":
-			for status in tweepy.Cursor(api.home_timeline).items(10):
-				print("\n", status.text)
-				print("By ", status.user.screen_name, " at ", status.user.created_at)
-				
-	#Get friends from twitter
-	elif link[-3] == "follow" and link[-1] == "twitter":
-		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
-		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
-		api = tweepy.API(auth)
-		for friend in tweepy.Cursor(api.friends).items():
-			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
 
 #A stdout class to redirect output to tkinter window
 class StdRedirector(object):
