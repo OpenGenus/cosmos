@@ -1,8 +1,13 @@
 # Python Program to shuffle a given array
 import random
+import time
 # Part of Cosmos by OpenGenus Foundation
 # A function to generate a random permutation of arr[]
-def randomize (arr, n):
+
+
+def randomize (arr):
+    random.seed(time.time()) # seed the random generator
+    n = len(arr) # fetches the length of the array
     # Start from the last element and swap one by one. We don't
     # need to run for the first element that's why i > 0
     for i in range(n-1,0,-1):
