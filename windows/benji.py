@@ -79,10 +79,7 @@ def events(frame,put):
 		translated = translator.translate(rest, src='es', dest='en')
 		put = translated.text
 		link = put.split()
-	else:
-		link = put.split()
-		
-	if put.startswith("french"):
+	elif put.startswith("french"):
 		word, space, rest = put.partition(' ')
 		translated = translator.translate(rest, src='fr', dest='en')
 		put = translated.text
