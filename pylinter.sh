@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directories="linux"
+directories="linux MacOS windows"
 pass=0
 fail=0
 
