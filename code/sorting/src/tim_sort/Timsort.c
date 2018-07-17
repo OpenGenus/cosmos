@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<limits.h>
 #include<stdlib.h>
-
+#define min(a,b) (((a) < (b)) ? (a) : (b))
 
 const int RUN = 32;
 
@@ -12,7 +12,7 @@ insertionSort(int *A , int left, int right)
 {
 
     int i, j;
-    for (int i = left + 1; i <= right; i++) {
+    for (i = left + 1; i <= right; i++) {
         int temp = A[i];
         int j = i - 1;
         while (A[j] > temp && j >= left) {
@@ -60,21 +60,14 @@ merge(int *A, int p, int q, int r)
     free(L2);
 }
 
-int
-min(int a, int b)
-{
-    if(a < b) return (a);
-    else return (b);
-}
-
 /*TimSort*/
 void
-timSort(int *A, int tamanho)
+timSort(int *A, int len)
 {
 
     int i;
-    for(i = 0; i < tamanho; i += RUN) {
-        insertionSort(A, i, min((i + 31), (tamanho - 1)));
+    for(i = 0; i < len; i += RUN) {
+        insertionSort(A, i, min((i + 31), (len - 1)));
     }
 
 
