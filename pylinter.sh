@@ -11,7 +11,7 @@ function prepare_venv() {
         VIRTUALENV=$(which venv-3)
     fi
 
-    ${VIRTUALENV} python3 -m venv mybenjienv && source myenv/bin/activate && python3 "$(which pip3)" install pycodestyle
+    ${VIRTUALENV} python3 -m venv mybenjienv && source mybenjienv/bin/activate && python3 "$(which pip3)" install pycodestyle
 }
 
 
