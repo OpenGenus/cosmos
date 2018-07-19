@@ -432,6 +432,17 @@ def events(frame,put):
 		end  = str(i).index("title=")
 		soup_level2.append("https://in.bookmyshow.com"+str(i)[start+6:end-2])
 
+		show_status_raw = soup.find_all('div',attrs={'class':'popularity sa-data-plugin'})
+		for i in show_status_raw:
+			start = str(i).index("data-coming-soon=")
+			end  = str(i).index('data-event-code')
+			data = str(i)[start+18:end-2]
+			
+			if data == "false":
+				show_status_list.append("In Cinemas Now...")
+			if data == "true":
+				show_status_list.append("Coming Soon...")
+
 		
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
