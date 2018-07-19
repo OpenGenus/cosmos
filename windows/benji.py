@@ -99,13 +99,14 @@ def events(frame,put):
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
 				
 	#Get friends from twitter
-	elif link[-3] == "follow" and link[-1] == "twitter":
-		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
-		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
-		api = tweepy.API(auth)
-		for friend in tweepy.Cursor(api.friends).items():
-			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
-	
+	elif len(link[-1]) == "twitter":
+		if link[-3] == "follow" and link[-1] == "twitter":
+			auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+			auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+			api = tweepy.API(auth)
+			for friend in tweepy.Cursor(api.friends).items():
+				print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
+		
     	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
@@ -416,7 +417,7 @@ def events(frame,put):
 			print("Error")
 			speak.say("Sorry Graph can not be Plotted")
 			speak.runAndWait()
-
+			
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
 #        while True:
