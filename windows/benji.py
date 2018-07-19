@@ -459,6 +459,8 @@ def events(frame,put):
 			for i in Names_raw:
 				Name_list.append(str(i)[str(i).index('">')+2:str(i).index("</h1>")])
 
+		speak.say("Preparing List")
+		speak.runAndWait()
 		cntr = len(Name_list)
 		print("----------------------------------------------")
 		print(link[0].capitalize())
