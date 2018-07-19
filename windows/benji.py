@@ -43,7 +43,7 @@ import face_recognition
 import cv2
 import tweepy
 from tweepy import OAuthHandler
-import twitterCredentials
+#import twitterCredentials
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -428,9 +428,9 @@ def events(frame,put):
 		show_status_list=[]
 		shows_list = soup.find_all('div',attrs={'class':'card-container wow fadeIn movie-card-container'})
 		for i in shows_list:
-		start = str(i).index("href=")
-		end  = str(i).index("title=")
-		soup_level2.append("https://in.bookmyshow.com"+str(i)[start+6:end-2])
+			start = str(i).index("href=")
+			end  = str(i).index("title=")
+			soup_level2.append("https://in.bookmyshow.com"+str(i)[start+6:end-2])
 
 		show_status_raw = soup.find_all('div',attrs={'class':'popularity sa-data-plugin'})
 		for i in show_status_raw:
@@ -443,6 +443,34 @@ def events(frame,put):
 			if data == "true":
 				show_status_list.append("Coming Soon...")
 
+		Tags_list=[]
+		Name_list=[]
+
+		for url in soup_level2:
+			r= requests.get(url)
+			tags = BeautifulSoup(r.content,'html.parser')
+			Tags_raw = tags.find_all('span',attrs={'class':'__genre-tag'})
+			tmp_tags = ""
+			for i in Tags_raw:
+				tmp_tags = tmp_tags + str(i)[str(i).index('">')+2:str(i).index("</span>")] + " - "
+			Tags_list.append(tmp_tags[:-3])
+
+			Names_raw = tags.find_all('h1',attrs={'class':'__name'})
+			for i in Names_raw:
+				Name_list.append(str(i)[str(i).index('">')+2:str(i).index("</h1>")])
+
+		cntr = len(Name_list)
+		print("----------------------------------------------")
+		print(link[0].capitalize())
+		print("----------------------------------------------")
+		print("")
+		for i in range(cntr):
+			print("Name : "+ Name_list[i])
+			print("Tags : " + Tags_list[i])
+			print("Status : "+ show_status_list[i])
+			print("")
+			print("----------------------------------------------")
+			print("")
 		
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
