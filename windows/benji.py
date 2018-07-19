@@ -417,7 +417,22 @@ def events(frame,put):
 			print("Error")
 			speak.say("Sorry Graph can not be Plotted")
 			speak.runAndWait()
-			
+
+	#Box Office Status
+	elif link[-1] == "boxoffice":
+		url="https://in.bookmyshow.com/"+ link[0] +"/movies/nowshowing"
+		r= requests.get(url)
+		soup = BeautifulSoup(r.content,'html.parser')
+
+		soup_level2=[]
+		show_status_list=[]
+		shows_list = soup.find_all('div',attrs={'class':'card-container wow fadeIn movie-card-container'})
+		for i in shows_list:
+		start = str(i).index("href=")
+		end  = str(i).index("title=")
+		soup_level2.append("https://in.bookmyshow.com"+str(i)[start+6:end-2])
+
+		
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
 #        while True:
