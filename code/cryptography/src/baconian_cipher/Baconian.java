@@ -69,7 +69,9 @@ public class Baconian {
 
     public static void main(String [] args) {
         Baconian bac = new Baconian();
-        System.out.println(bac.encode("Wikipedia"));
+        // => babbaabaaaababaabaaaabbbbaabaaaaabbabaaaaaaaa
+        System.out.println(bac.encode("Wikipedia")); 
+        // => wikipedia
         System.out.println(bac.decode("babbaabaaaababaabaaaabbbbaabaaaaabbabaaaaaaaa"));
     }
 }
