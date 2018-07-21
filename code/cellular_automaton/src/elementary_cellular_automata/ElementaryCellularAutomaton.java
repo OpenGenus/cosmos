@@ -67,12 +67,8 @@ public class ElementaryCellularAutomaton {
 	public String toString() {
 		String result = "";
 		boolean[] array = grid[step];
-		for (int i = 0; i < array.length; i++) {
-		    if (array[i]) {
-				result += "1";
-			} else {
-				result += "0";
-			}
+		for (boolean flag : array) {
+			result += (flag) ? "1" : "0";
 		}
 		return result;
 	}
