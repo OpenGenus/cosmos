@@ -105,6 +105,7 @@ NOTE: All the recorded files will be saved on the desktop. Make sure that the fi
 * "***lookfor/find*** _Filename_ _PathWhereYouWantToSearch_" to look for a file at a specified location and open it. Also you can open files from C drive, D drive, Desktop, Documents, Downloads by saying- find/lookfor in <C or D drive/Documents/Desktop?downloads>. C and D drive can be opened by saying- lookfor/find C/D drive(Version: Microsoft Windows [Version 10.0.16299.431]).
 * "***draw graph for*** _formula_ ***from*** _Upper-limit_ ***to*** _Lower-limit_" to plot graph for formula like(x^n+ax^m+b ...) for example,
   _draw graph for x**2+4*x+6 from -100 to 100_.
+* "*_city_name_* ***boxoffice***" to get list of Movies from the Cinemas of Town within `Indian Region`.
 * "***add event in google calendar*** to add event on your google calendar, type(or say) in the following format: "add event <event_name> <start date in format yyyy-mm-dd> to <end date in format yyyy-mm-dd>" and it will save the event on your google calendar.
 * "***play/stream/queue*** _Song/VideoName_" to play any song or video on Youtube.
 * "***download video*** _SongName_" to download video.

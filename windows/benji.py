@@ -99,13 +99,14 @@ def events(frame,put):
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
 				
 	#Get friends from twitter
-	elif link[-3] == "follow" and link[-1] == "twitter":
-		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
-		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
-		api = tweepy.API(auth)
-		for friend in tweepy.Cursor(api.friends).items():
-			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
-	
+	elif link[-1] == "twitter":
+		if link[-3] == "follow" and link[-1] == "twitter":
+			auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
+			auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
+			api = tweepy.API(auth)
+			for friend in tweepy.Cursor(api.friends).items():
+				print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
+		
     	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
@@ -417,6 +418,67 @@ def events(frame,put):
 			speak.say("Sorry Graph can not be Plotted")
 			speak.runAndWait()
 
+	#Box Office Status
+	elif link[-1] == "boxoffice":
+		try:
+			url = "https://in.bookmyshow.com/" + link[0] + "/movies/nowshowing"
+			r =  requests.get(url)
+			soup = BeautifulSoup(r.content, 'html.parser')
+
+			soup_level2 = []
+			show_status_list = []
+			shows_list = soup.find_all('div', attrs={'class': 'card-container wow fadeIn movie-card-container'})
+			for i in shows_list:
+				start = str(i).index("href=")
+				end = str(i).index("title=")
+				soup_level2.append("https://in.bookmyshow.com" + str(i)[start+6 : end-2])
+
+			show_status_raw = soup.find_all('div', attrs={'class': 'popularity sa-data-plugin'})
+			for i in show_status_raw:
+				start = str(i).index("data-coming-soon=")
+				end = str(i).index('data-event-code')
+				data = str(i)[start+18 : end-2]
+				
+				if data == "false":
+					show_status_list.append("In Cinemas Now...")
+				if data == "true":
+					show_status_list.append("Coming Soon...")
+
+			Tags_list = []
+			Name_list = []
+
+			for url in soup_level2:
+				r =  requests.get(url)
+				tags = BeautifulSoup(r.content, 'html.parser')
+				Tags_raw = tags.find_all('span', attrs={'class': '__genre-tag'})
+				tmp_tags = ""
+				for i in Tags_raw:
+					tmp_tags = tmp_tags + str(i)[str(i).index('">')+2 : str(i).index("</span>")] + " - "
+				Tags_list.append(tmp_tags[:-3])
+
+				Names_raw = tags.find_all('h1', attrs={'class': '__name'})
+				for i in Names_raw:
+					Name_list.append(str(i)[str(i).index('">')+2 : str(i).index("</h1>")])
+
+			speak.say("Preparing List")
+			speak.runAndWait()
+			cntr = len(Name_list)
+			print("----------------------------------------------")
+			print(link[0].capitalize())
+			print("----------------------------------------------")
+			print("")
+			for i in range(cntr):
+				print("Name : " + Name_list[i])
+				print("Tags : " + Tags_list[i])
+				print("Status : " + show_status_list[i])
+				print("")
+				print("----------------------------------------------")
+				print("")
+		except:
+			print("Sorry, List Cannot be Prepared...")
+			speak.say("Sorry, List Cannot be Prepared...")
+			speak.runAndWait()
+			
 #    elif put.startswith(search_pc):
 #        process=subprocess.Popen("dir /b/s "+link[1],shell=True,stdout=subprocess.PIPE)
 #        while True:
