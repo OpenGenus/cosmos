@@ -3,18 +3,16 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-using namespace std;
-
 
 int main()
 {
     int n;
-    cin >> n;
-    vector <int> a(n);
-    vector <int> b(n);
+    std::cin >> n;
+    std::vector <int> a(n);
+    std::vector <int> b(n);
     for(int i; i < n; i++)
         {
-          cin >> a[i];
+          std::cin >> a[i];
           b[i] = a[i];
         }
     sort(b.begin(), b.end());
@@ -39,13 +37,13 @@ int main()
 
     if(p == 0)
         {
-          cout << "yes";
+          std::cout << "yes";
           return 0;
         }
      else if(p == 2)
         {
-          cout << "yes" << "\n";
-          cout << "swap " << s + 1 << " " << l + 1;
+          std::cout << "yes" << "\n";
+          std::cout << "swap " << s + 1 << " " << l + 1;
           return 0;
     }
 
@@ -55,13 +53,13 @@ int main()
         {
             if(a[i] > a[i-1])
             {
-                cout << "no";
+                std::cout << "no";
                 return 0;
             }
         }
 
-        cout << "yes" << "\n";
-        cout << "reverse " << s + 1 << " " << l + 1;
+        std::cout << "yes" << "\n";
+        std::cout << "reverse " << s + 1 << " " << l + 1;
     }
 
 

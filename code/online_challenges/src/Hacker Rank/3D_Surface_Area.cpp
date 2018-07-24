@@ -1,17 +1,15 @@
 
 #include <iostream>
-using namespace std;
-
 
 int main()
 {
 int h, w;
-    cin >> h >> w;
+    std::cin >> h >> w;
     int a[h][w];
     for(int i = 0; i < h; i++)
     {
         for(int j = 0; j < w; j++)
-            cin >> a[i][j];
+            std::cin >> a[i][j];
     }
     int sum = 0;
     for(int i = 0; i < h; i++)
@@ -30,7 +28,7 @@ int h, w;
              else
                  {
                      temp = (a[i][j] - 1) * 4 + 6;
-                     int d = min(a[i][j-1], a[i][j]);
+                     int d = std::min(a[i][j-1], a[i][j]);
                      temp=temp - (d * 2);
                      sum = sum + temp;
                  }
@@ -44,7 +42,7 @@ int h, w;
                 if(j==0)
                   {
                       temp = (a[i][j] - 1) * 4 + 6;
-                      int d = min(a[i][j], a[i-1][j]);
+                      int d = std::min(a[i][j], a[i-1][j]);
                       temp = temp - (d * 2);
                       sum = sum + temp;
                   }
@@ -52,9 +50,9 @@ int h, w;
              else
                 {
                      temp = (a[i][j] - 1) * 4 + 6;
-                     int d = min(a[i][j-1], a[i][j]);
+                     int d = std::min(a[i][j-1], a[i][j]);
                      temp = temp - (d * 2);
-                     d = min(a[i][j], a[i-1][j]);
+                     d = std::min(a[i][j], a[i-1][j]);
                      temp = temp - (d * 2);
                      sum = sum + temp;
                }
@@ -62,7 +60,7 @@ int h, w;
         }
 
     }
-      cout << sum;
+      std::cout << sum;
 
     return 0;
 }

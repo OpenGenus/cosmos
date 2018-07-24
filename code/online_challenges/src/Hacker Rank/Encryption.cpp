@@ -1,12 +1,10 @@
 #include <cmath>
 #include <iostream>
-using namespace std;
-
 
 int main()
 {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
 
     int r, c;
     int  l = s.size();
@@ -17,9 +15,9 @@ int main()
       {
 
           for(int j = i; j < l; j = j + c)
-              cout << s[j];
+              std::cout << s[j];
 
 
-          cout << " ";
+          std::cout << " ";
       }
 }

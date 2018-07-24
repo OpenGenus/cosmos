@@ -1,20 +1,19 @@
 #include <iostream>
 #include <algorithm>
-using namespace std;
 
 int main()
 {
     int t;
-    cin >> t;
+    std::cin >> t;
 
     while(t--)
     {
-        string s;
-        cin >> s;
+        std::string s;
+        std::cin >> s;
         bool ans = next_permutation(s.begin(), s.end());                       // do permutation and store it in string ans
         if(ans == false)                                                        // if there is no permutation possible original and ans will be same
-            cout <<"no answer " << endl;
+            std::cout <<"no answer \n";
         else
-            cout << s << endl;                                                  // else print ans
+            std::cout << s << "\n";                                                  // else print ans
     }
 }
