@@ -84,6 +84,16 @@ def events(frame,put):
 		cam.release()
 		cv2.destroyAllWindows()
 	
+	#Get lyrics
+	elif link[0] == "lyrics":
+		link = '+'.join(link[1:])
+		link = link.replace('+',' ')
+		title = link[1:]
+		goog_search = "https://www.google.com/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + title + "lyrics"
+		r = requests.get(goog_search)
+		soup = BeautifulSoup(r.text, "html.parser")
+		webbrowser.open(soup.find('cite').text)
+
 	#Get top 10 tweets
 	elif link[0] == "get" and link[-1] == "tweets":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
