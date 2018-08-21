@@ -45,6 +45,7 @@ import tweepy
 from tweepy import OAuthHandler
 import twitterCredentials
 from googletrans import Translator
+from langdetect import detect
 
 requests.packages.urllib3.disable_warnings()
 try:
@@ -73,19 +74,31 @@ def events(frame,put):
 	pc_locations = ("desktop", "documents", "downloads")
 	
 	put = put.lower()
-	translator = Translator()
-	if put.startswith("spanish"):
-		word, space, rest = put.partition(' ')
-		translated = translator.translate(rest, src='es', dest='en')
-		put = translated.text
-	elif put.startswith("french"):
-		word, space, rest = put.partition(' ')
-		translated = translator.translate(rest, src='fr', dest='en')
-		put = translated.text
 	link = put.split()
-
+	
+	#translate
+	if link[0] == "translate" and link[-2] == "to":
+		translator = Translator()
+		l = link[1:-2]
+		pystring = " ".join(l)
+		lang = detect(pystring)
+		if link[-1] == "english":
+			id = "en"
+		elif link[-1] == "spanish":
+			id = "es"
+		elif link[-1] == "french":
+			id = "fr"
+		elif link[-1] == "german":
+			id = "de"
+		elif link[-1] == "italian":
+			id = "it"
+		elif link[-1] == "portugese":
+			id = "pt"
+		translated = translator.translate(pystring, src=lang, dest=id)
+		print(translated.text)
+	
 	#Add user for face detection
-	if link[0] == "face" or link[0] == "phase":
+	elif link[0] == "face" or link[0] == "phase":
 		name = link[1]
 		path = 'C:/dataset' 
 		cam = cv2.VideoCapture(0)
@@ -108,26 +121,16 @@ def events(frame,put):
 				print("\n", status.text)
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
 				
+		
 	#Get friends from twitter
-<<<<<<< HEAD
 	elif link[-1] == "twitter" and link[-3] == "follow":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
 		auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 		api = tweepy.API(auth)
 		for friend in tweepy.Cursor(api.friends).items():
 			print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))		
-    #Screenshot    
-=======
-	elif link[-1] == "twitter":
-		if link[-3] == "follow" and link[-1] == "twitter":
-			auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
-			auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
-			api = tweepy.API(auth)
-			for friend in tweepy.Cursor(api.friends).items():
-				print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
-		
-    	#Screenshot    
->>>>>>> aa4b6dcd165e235775edf60253956e3a22f9673a
+    
+	#Screenshot
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
 			pic = pyautogui.screenshot()
@@ -176,7 +179,8 @@ def events(frame,put):
 			root.mainloop()
 		except:
 			print("Unable to take upcoming events")
-
+			
+	
 	#Add note
 	elif put.startswith("note") or put.startswith("not") or put.startswith("node"):
 		try:
