@@ -92,7 +92,7 @@ def events(frame,put):
 			id = "de"
 		elif link[-1] == "italian":
 			id = "it"
-		elif link[-1] == "portugese":
+		elif link[-1] == "portugese" or link[-1] == "portuguese":
 			id = "pt"
 		translated = translator.translate(pystring, src=lang, dest=id)
 		print(translated.text)
