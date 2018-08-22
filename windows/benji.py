@@ -79,8 +79,7 @@ def events(frame,put):
 	#translate
 	if link[0] == "translate" and link[-2] == "to":
 		translator = Translator()
-		l = link[1:-2]
-		pystring = " ".join(l)
+		pystring = " ".join(link[1:-2])
 		lang = detect(pystring)
 		if link[-1] == "english":
 			id = "en"
@@ -94,8 +93,15 @@ def events(frame,put):
 			id = "it"
 		elif link[-1] == "portugese" or link[-1] == "portuguese":
 			id = "pt"
+		else:
+			id = "en"
 		translated = translator.translate(pystring, src=lang, dest=id)
 		print(translated.text)
+		try:
+			speak.say("The translated text is "+translated.text)
+			speak.runAndWait()
+		except:
+			print('Error.')
 	
 	#Add user for face detection
 	elif link[0] == "face" or link[0] == "phase":
