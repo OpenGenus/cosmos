@@ -101,7 +101,7 @@ def events(frame,put):
 			speak.say("The translated text is "+translated.text)
 			speak.runAndWait()
 		except:
-			print('Error.')
+			print("Error speaking, here is the translated text: {}".format(translated.text))
 	
 	#Add user for face detection
 	elif link[0] == "face" or link[0] == "phase":
