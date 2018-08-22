@@ -89,7 +89,7 @@ def events(frame,put):
 		link = '+'.join(link[1:])
 		link = link.replace('+',' ')
 		title = link[1:]
-		goog_search = "https://www.google.com/search?sclient=psy-ab&client=ubuntu&hs=k5b&channel=fs&biw=1366&bih=648&noj=1&q=" + title + "lyrics"
+		goog_search = "https://www.google.com/search?q=" + title + "+lyrics"
 		r = requests.get(goog_search)
 		soup = BeautifulSoup(r.text, "html.parser")
 		webbrowser.open(soup.find('cite').text)
