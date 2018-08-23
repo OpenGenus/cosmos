@@ -60,7 +60,7 @@ headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 speak = pyttsx3.init()
 
 def events(frame,put):
-	identity_keywords = ["who are you", "who r u", "what is your name", "who you are"]
+	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ("play ", "stream ", "queue ")
 	launch_keywords = ["open ", "launch "]
 	search_keywords = ["search "]
@@ -102,7 +102,7 @@ def events(frame,put):
 			speak.runAndWait()
 		except:
 			print("Error speaking, here is the translated text: {}".format(translated.text))
-	
+			
 	#Add user for face detection
 	elif link[0] == "face" or link[0] == "phase":
 		name = link[1]
@@ -112,7 +112,17 @@ def events(frame,put):
 		cv2.imwrite(path + "/" + str(name) + ".jpg", img)
 		cam.release()
 		cv2.destroyAllWindows()
-		
+	
+	#Get lyrics
+	elif link[0] == "lyrics":
+		link = '+'.join(link[1:])
+		link = link.replace('+',' ')
+		title = link[1:]
+		goog_search = "https://www.google.com/search?q=" + title + "+lyrics"
+		r = requests.get(goog_search)
+		soup = BeautifulSoup(r.text, "html.parser")
+		webbrowser.open(soup.find('cite').text)
+
 	#Get top 10 tweets
 	elif link[0] == "get" and link[-1] == "tweets":
 		auth = OAuthHandler(twitterCredentials.consumer_key, twitterCredentials.consumer_secret)
@@ -127,7 +137,6 @@ def events(frame,put):
 				print("\n", status.text)
 				print("By ", status.user.screen_name, " at ", status.user.created_at)
 				
-		
 	#Get friends from twitter
 	elif link[-1] == "twitter":
 		if link[-3] == "follow" and link[-1] == "twitter":
@@ -135,9 +144,9 @@ def events(frame,put):
 			auth.set_access_token(twitterCredentials.access_token, twitterCredentials.access_secret)
 			api = tweepy.API(auth)
 			for friend in tweepy.Cursor(api.friends).items():
-				print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))		
-    
-	#Screenshot
+				print("\nName: ", json.dumps(friend.name), " Username: ", json.dumps(friend.screen_name))
+		
+    	#Screenshot    
 	elif put.startswith('take screenshot') or put.startswith("screenshot"):
 		try:
 			pic = pyautogui.screenshot()
@@ -186,8 +195,7 @@ def events(frame,put):
 			root.mainloop()
 		except:
 			print("Unable to take upcoming events")
-			
-	
+
 	#Add note
 	elif put.startswith("note") or put.startswith("not") or put.startswith("node"):
 		try:

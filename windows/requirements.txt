@@ -9,6 +9,7 @@ data==0.4
 decorator==4.1.2
 dlib=19.14.0
 face-recognition==1.2.2
+face-recognition-models==0.3.0
 funcsigs==1.0.2
 future==0.16.0
 google-api-python-client
