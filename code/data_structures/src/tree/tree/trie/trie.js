@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 class Node {
   constructor() {
     this.keys = new Map();

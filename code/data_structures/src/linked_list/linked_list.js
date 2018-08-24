@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+
 // Singly Linked List
 class Node {
   constructor(data) {
