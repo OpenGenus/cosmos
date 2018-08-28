@@ -4,6 +4,7 @@ Part of Cosmos by OpenGenus Foundation
 Program for InsertionSort sorting
 '''
 
+import numpy as np  
 
 def insertion_sort(L):
     length = len(L)
