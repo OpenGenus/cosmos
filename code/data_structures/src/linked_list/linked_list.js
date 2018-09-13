@@ -74,6 +74,13 @@ class LinkedList {
   }
 }
 
+// SLL Examples
+List.add('Luke');
+List.add('Leia');
+List.add('R2D2');
+List.get(1);
+List.remove(2);
+
 // Doubly Linked List
 class Node {
   constructor(data) {
@@ -172,3 +179,13 @@ class DoublyLinkedList {
     console.log(string.trim());
   }
 }
+
+// DLL Examples
+const doublyLinkedList = new DoublyLinkedList();
+
+doublyLinkedList.print();
+doublyLinkedList.add(1);
+doublyLinkedList.add(2);
+doublyLinkedList.add(3);
+doublyLinkedList.add(4);
+doublyLinkedList.print();

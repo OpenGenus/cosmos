@@ -60,3 +60,18 @@ class Trie {
     return words.length > 0 ? words : mo;
   }
 }
+
+// Trie Examples
+
+myTrie.add('cat');
+myTrie.add('catch');
+myTrie.add('dog');
+myTrie.add('good');
+myTrie.add('goof');
+myTrie.add('jest');
+myTrie.add('come');
+myTrie.add('comedy');
+myTrie.isWord('catc');
+myTrie.isWord('jest');
+myTrie.isWord('come');
+myTrie.print();
