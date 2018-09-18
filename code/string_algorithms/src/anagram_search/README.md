@@ -1,4 +1,21 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter
+## Analgram Search 
+An anagram of a string is another string that contains same characters, only the order of characters can be different. For example, “abcd” and “dabc” are anagram of each other.
 
-Collaborative effort by [OpenGenus](https://github.com/opengenus)
+![download](https://user-images.githubusercontent.com/29759141/45692328-21a91980-bb78-11e8-90f8-c484de6fc894.png)
+
+
+### There are two methods used to implement the above algortithms - 
+
+### Method 1 (Use Sorting)
+- Sort both strings
+- Compare the sorted strings
+
+- Time Complexity: Time complexity of this method depends upon the sorting technique used. In the above implementation, quickSort is used which may be O(n^2) in worst case. If we use a O(nLogn) sorting algorithm like merge sort, then the complexity becomes O(nLogn)
+
+### Method 2 (Count characters)
+This method assumes that the set of possible characters in both strings is small. In the following implementation, it is assumed that the characters are stored using 8 bit and there can be 256 possible characters.
+- Create count arrays of size 256 for both strings. Initialize all values in count arrays as 0.
+- Iterate through every character of both strings and increment the count of character in the corresponding count arrays.
+- Compare count arrays. If both count arrays are same, then return true.
+
+- Time Complexity - O(n)
