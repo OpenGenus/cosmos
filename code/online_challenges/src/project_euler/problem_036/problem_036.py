@@ -1,7 +1,7 @@
 
 def base_check(a, y):
 	ans = 0
-	while a!=0:
+	while a ! = 0:
 		ans = ans * 10 + a  %  y
 		a = a // y
 	return ans 
@@ -12,7 +12,7 @@ def palindrome(x):
 	while x ! = 0:
 		reverse = reverse * 10 + x % 10
 		x = x // 10
-	if reverse==num:
+	if reverse = = num:
 		return True
 	else:
 		return False
