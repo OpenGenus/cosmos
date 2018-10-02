@@ -1,4 +1,5 @@
 /**
+ * Part of Cosmos by OpenGenus
  * Javascript program for Bellman Ford algorithm.
  * Given a graph and a source vertex, it finds the
  * shortest path to all vertices from source vertex.
