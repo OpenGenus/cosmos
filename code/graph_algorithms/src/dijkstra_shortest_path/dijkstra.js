@@ -1,4 +1,5 @@
 /**
+ * Part of Cosmos by OpenGenus
  * Javascript program for Dijkstra's single
  * source shortest path algorithm. The program is
  * for adjacency matrix representation of the graph
