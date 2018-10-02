@@ -2,6 +2,7 @@ import java.util.*
 
 /**
  * Created by Phuwarin on 10/1/2018
+ * Part of Cosmos by OpenGenus
  */
 
 object AffineKotlin {
