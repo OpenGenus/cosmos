@@ -13,7 +13,7 @@ btree *makeTree(int *in , int *post , int start , int end , int *index) {
 	btree *nn = (btree*)malloc(sizeof(btree));
 	nn -> data = post[*index];
 	int i;
-	for (i=start;i <= end;i++) {
+	for (i = start;i <= end;i++) {
 		if (post[*index] == in[i]) break;
 	}
 	(*index)--;
