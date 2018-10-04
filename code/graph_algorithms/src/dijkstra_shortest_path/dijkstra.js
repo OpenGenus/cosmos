@@ -6,9 +6,9 @@
  */
 
 class Graph {
-  constructor(noOfVertices) {
-    this.V = noOfVertices;
-    this.graph = Array(noOfVertices).fill(Array(noOfVertices).fill(0)); // Creates an nxn zero matrix
+  constructor(graph) {
+    this.V = graph.length;
+    this.graph = graph;
   }
 
   printSolution(dist) {
@@ -37,7 +37,7 @@ class Graph {
   // Funtion that implements Dijkstra's single source
   // shortest path algorithm for a graph represented
   // using adjacency matrix representation
-  dijkstra(src) {
+  dijkstra(src = 0) {
     let dist = Array(this.V).fill(Infinity);
     let shortestPathSet = Array(this.V).fill(false);
     dist[src] = 0;
@@ -71,9 +71,7 @@ class Graph {
   }
 }
 
-g = new Graph(9);
-
-g.graph = [
+g = new Graph([
   [0, 4, 0, 0, 0, 0, 0, 8, 0],
   [4, 0, 8, 0, 0, 0, 0, 11, 0],
   [0, 8, 0, 7, 0, 4, 0, 0, 2],
@@ -83,6 +81,6 @@ g.graph = [
   [0, 0, 0, 0, 0, 2, 0, 1, 6],
   [8, 11, 0, 0, 0, 0, 1, 0, 7],
   [0, 0, 2, 0, 0, 0, 6, 7, 0]
-];
+]);
 
-g.dijkstra(0);
+g.dijkstra();
