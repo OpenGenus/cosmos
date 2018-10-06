@@ -1,5 +1,3 @@
-package csd.gisc.hacktoberfest2018
-
 import java.math.BigInteger
 import java.util.*
 
