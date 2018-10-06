@@ -38,9 +38,9 @@ checkBalanced(char *s) {
 	int len = strlen(s);
 	if (len % 2 != 0) return 0;
 	stack *head = NULL;
-	for (int i=0;i < len ;i++) {
+	for (int i = 0;i < len ;i++) {
 		if (s[i] == '{' || s[i] == '[' || s[i] == '(') {
-			push(&head,s[i]);
+			push(&head, s[i]);
 		}
 		else {
 			char temp = peek(head);
