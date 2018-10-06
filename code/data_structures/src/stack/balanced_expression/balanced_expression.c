@@ -5,35 +5,40 @@
 typedef struct stack {
 	char data;
 	struct stack* next;
-}stack;
+} stack;
 
-void push(stack** top, char data) {
-    stack* new = (stack*)malloc(sizeof(stack));
+void
+push(stack** top, char data) {
+    stack* new = (stack*) malloc(sizeof(stack));
     new->data = data;
     new->next = *top;
     *top = new;
 }
 
-char peek(stack* top) {
-    return top->data;
+char
+peek(stack* top) {
+    return ( top -> data );
 }
 
-int empty(stack* top) {
-    if(top == NULL) return 1;
-    return 0;
+int
+empty(stack* top) {
+    return (top == NULL);
 }
 
-void pop(stack** top) {
+void
+pop(stack** top) {
     stack* temp = *top;
     *top = (*top)->next;
     free(temp);
     temp = NULL;    
 }
 
-int checkBalanced(char *s) {
-	if (strlen(s) % 2 != 0) return 0;
+int
+checkBalanced(char *s) {
+	int len = strlen(s);
+	if (len % 2 != 0) return 0;
 	stack *head = NULL;
-	for (int i=0;i < strlen(s);i++) {
+	for (int i=0;i < len ;i++) {
 		if (s[i] == '{' || s[i] == '[' || s[i] == '(') {
 			push(&head,s[i]);
 		}
@@ -45,12 +50,13 @@ int checkBalanced(char *s) {
 			else return 0;
 		}
 	}
-	return empty(head);
+	return (empty(head));
 }
 
-int main()
+int
+main()
 {
-	char *s = (char*)malloc(sizeof(char) * 100);
+	char *s = (char*) malloc(sizeof(char) * 100);
 	printf("Enter the expression\n");
 	scanf("%[^\n]s" , s);
 	int res = checkBalanced(s);
