@@ -4,7 +4,7 @@
 void
 find_power_set(char *set, int set_size)
 {
-	unsigned int power_set_size = pow(2, set_size);
+	unsigned int power_set_size = 1 << set_size;
 	int counter, j;
 
 	for (counter = 0; counter < power_set_size; counter++) {
@@ -21,6 +21,5 @@ main()
 {
 	char set[] = {'a', 'b', 'c'};
 	find_power_set(set, sizeof(set) / sizeof(set[0]));
-
 	return (0);
 }
