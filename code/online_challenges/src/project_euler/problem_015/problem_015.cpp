@@ -1,7 +1,7 @@
 #include <iostream>
 
 // O(n^2) bottom-up dynamic programming solution
-long long solve_dp(int n)
+long long solveDP(int n)
 {
     long long dp[n+1][n+1];
 
@@ -15,7 +15,7 @@ long long solve_dp(int n)
 }
 
 // O(n) combinatorial solution
-long long solve_combinatorics(int n)
+long long solveCombinatorics(int n)
 {
     long long ans = 1;
     for (int i = 1; i <= n; ++i)
@@ -25,8 +25,7 @@ long long solve_combinatorics(int n)
 
 int main()
 {
-    std::cout << "Solution using DP: " << solve_dp(20) << std::endl;
-    std::cout << "Solution using combinatorics: " << solve_combinatorics(20) << std::endl;
+    std::cout << "Solution using DP: " << solveDP(20) << std::endl;
+    std::cout << "Solution using combinatorics: " << solveCombinatorics(20) << std::endl;
     return 0;
 }
-
