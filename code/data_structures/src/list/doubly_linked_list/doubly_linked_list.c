@@ -39,7 +39,7 @@ int insert_node(){
      case 2 :insert_position();
              break;
      case 3 :insert_end();
-             break();
+             break;
      default:printf("enter valid input");
   }
   return(0);
