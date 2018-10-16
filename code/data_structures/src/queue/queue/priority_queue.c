@@ -1,13 +1,14 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int head=0,tail=0;
+int head = 0,tail = 0;
 int queue[2][50];
 
 void enqueue(int);
 void dequeue(int);
-void display(int);
+void display();
 
-int main()
+int 
+main()
 {
     int n;
     int max=50; 
@@ -34,14 +35,15 @@ int main()
     return (0);
 }
 
-void enqueue(int max)
+void 
+enqueue(int max)
 {
     int value,priority,x,i,j;
     printf("enter the value and its priority");
     scanf("%d%d",&value,&priority);
-    if (tail==max) {
+    if (tail==max) 
         printf("queue is full");
-    }
+    
     else if (tail<max) {
         queue[0][tail]=value;
         queue[1][tail[=priority;
@@ -60,11 +62,12 @@ void enqueue(int max)
     }
 }
 
-void dequeue(int max)
+void
+dequeue(int max)
 {
-    if (tail==0 || head==max) {
+    if (tail==0 || head==max) {\
         printf("queue is empty");
-    }
+    
     else {
         int i;
         printf("the element removed is %d",queue[0][head]);
@@ -72,12 +75,13 @@ void dequeue(int max)
     }
 }
 
-void display()
+void 
+display()
 {
     int i;
-    if (tail==0) {
+    if (tail==0) 
         printf("queue is empty");
-    }
+    
     else {
         for (i=head;i<tail;i++)
         {
