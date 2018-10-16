@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+# created by Flavian Feugueur
+# flavian.feugueur@epitech.eu
+
 # source, middle, and target represent the number of rod
 
 import sys
