@@ -1,20 +1,10 @@
-#import random, math
-
-outputdebug = False 
-
-def debug(msg):
     if outputdebug:
         print msg
 
 class Node():
     def __init__(self, key):
         self.key = key
-        self.left = None 
-        self.right = None 
-
-
-
-
+        
 class AVLTree():
     def __init__(self, *args):
         self.node = None 
@@ -24,15 +14,12 @@ class AVLTree():
         if len(args) == 1: 
             for i in args[0]: 
                 self.insert(i)
-                
-    def height(self):
+     def height(self):
         if self.node: 
-            return self.node.height 
-        else: 
             return 0 
     
-    def is_leaf(self):
-        return (self.height == 0) 
+    def is_leaf (self):
+        return self.height == 0
     
     def insert(self, key):
         tree = self.node
@@ -40,11 +27,10 @@ class AVLTree():
         newnode = Node(key)
         
         if tree == None:
-            self.node = newnode 
+               self.node = newnode 
             self.node.left = AVLTree() 
-            self.node.right = AVLTree()
-            debug("Inserted key [" + str(key) + "]")
-        
+            self.node.right = AVLTree()   
+			
         elif key < tree.key: 
             self.node.left.insert(key)
             
@@ -52,7 +38,6 @@ class AVLTree():
             self.node.right.insert(key)
         
         else: 
-            debug("Key [" + str(key) + "] already in tree.")
             
         self.rebalance() 
         
@@ -86,7 +71,7 @@ class AVLTree():
             
     def rrotate(self):
         # Rotate left pivoting on self
-        debug ('Rotating ' + str(self.node.key) + ' right') 
+        
         A = self.node 
         B = self.node.left.node 
         T = B.right.node 
@@ -98,7 +83,7 @@ class AVLTree():
     
     def lrotate(self):
         # Rotate left pivoting on self
-        debug ('Rotating ' + str(self.node.key) + ' left') 
+
         A = self.node 
         B = self.node.right.node 
         T = B.left.node 
@@ -134,10 +119,10 @@ class AVLTree():
             self.balance = 0 
 
     def delete(self, key):
-        # debug("Trying to delete at node: " + str(self.node.key))
+        
         if self.node != None: 
             if self.node.key == key: 
-                debug("Deleting ... " + str(key))  
+               
                 if self.node.left.node == None and self.node.right.node == None:
                     self.node = None # leaves can be killed at will 
                 # if only one subtree, take that 
@@ -150,7 +135,7 @@ class AVLTree():
                 else:  
                     replacement = self.logical_successor(self.node)
                     if replacement != None: # sanity check 
-                        debug("Found replacement for " + str(key) + " -> " + str(replacement.key))  
+                        
                         self.node.key = replacement.key 
                         
                         # replaced. Now delete the key from right child 
@@ -236,13 +221,6 @@ class AVLTree():
                 self.node.right.display(level + 1, '>')
         
 
-
-
-# Usage example
-if __name__ == "__main__": 
-    a = AVLTree()
-    print "----- Inserting -------"
-    #inlist = [5, 2, 12, -4, 3, 21, 19, 25]
     inlist = [7, 5, 2, 6, 3, 4, 1, 8, 9, 0]
     for i in inlist: 
         a.insert(i)
@@ -260,3 +238,5 @@ if __name__ == "__main__":
     print "deleting ...       ", 3
     print "deleting ...       ", 4
     print "Inorder traversal:", a.inorder_traverse() 
+	
+	
