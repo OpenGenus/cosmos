@@ -1,16 +1,17 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int queue[5];
-int head=0,tail=0;
+int head = 0,tail = 0;
 
 void enqueue(int);
 void dequeue(int);
 void display(int);
 
-int main()
+int 
+main()
 {
      int x;
-     int max=5;
+     int max = 5;
      while (1)
      {
          printf("enter i to enqueue\n 2 to dequeue \n 3 to display");
@@ -33,7 +34,8 @@ int main()
 }
 
 
-void enqueue(int max)
+void 
+enqueue(int max)
 {
      int val;
      printf("enter a value");
@@ -46,37 +48,39 @@ void enqueue(int max)
            queue[tail]=max;
            tail=0;
      }
-     else {
+     else 
            printf("queue is full");
-     }
+     
 }
 
 
 
-void dequeue(int max)
+void 
+dequeue(int max)
 {
-      if (tail==0 || head==tail) {
+      if (tail==0 || head==tail) 
            printf("queue is empty");
-      }
+      
       else {
            printf("the element is %d",queue[head]); 
-           if (head==max-1) {
+           if (head==max-1) 
                 head=0; 
-           }
-           else {
+           
+           else 
                 head++;
-           }
+           
       }     
 }
 
-void display(int max)
+void 
+display(int max)
 {
-      if (tail==0) {
+      if (tail==0) 
            printf("queue is empty");
-      }
+      
       else {
            int i;
-           i=head;
+           i = head;
            if (head>tail) {
                      for (;i!=max;i++)
                      {
