@@ -55,18 +55,18 @@ void enqueue(int max)
 
 void dequeue(int max)
 {
-      if (tail==0) {
+      if (tail==0 || head==tail) {
            printf("queue is empty");
       }
       else {
            printf("the element is %d",queue[head]); 
-      }
-      if (head==max-1) {
-           head=0; 
-      }
-      else {
-           head++;
-      }
+           if (head==max-1) {
+                head=0; 
+           }
+           else {
+                head++;
+           }
+      }     
 }
 
 void display(int max)
