@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class FunWithRecursion {
+public class TowerOfHanoi{
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
