@@ -68,7 +68,7 @@ matrix:
     # Lint Python 3 with flake8
     - os: linux
       language: python
-      python: 2.7
+      python: 3.6
       before_install: pip install flake8
       script:
         # stop the build if there are Python 3 syntax errors or undefined names
