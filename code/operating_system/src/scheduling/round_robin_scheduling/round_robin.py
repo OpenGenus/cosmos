@@ -59,4 +59,4 @@ if __name__ =='__main__':
 
 
     print("\nAvg Waiting Time is ", (wait_time * 1) / total_p_no)
-    print("Avg Turnaround Time is ",(turnaround_time*1.0)/total_p_no,"\n")
+    print("Avg Turnaround Time is ", (turnaround_time * 1) / total_p_no)
