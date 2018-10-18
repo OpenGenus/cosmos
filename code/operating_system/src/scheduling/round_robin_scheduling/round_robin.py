@@ -1,5 +1,5 @@
 
-if __name__ == __main__:
+if __name__ =='__main__':
     
     # Python program for implementation of RR Scheduling
 
