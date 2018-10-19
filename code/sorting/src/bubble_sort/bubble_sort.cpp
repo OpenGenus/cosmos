@@ -1,50 +1,40 @@
-/*
- * Part of Cosmos by OpenGenus Foundation
- *
- * bubble sort synopsis
- *
- * template<typename _Bidirectional_Iter, typename _Compare>
- * void
- * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
- *
- * template<typename _Bidirectional_Iter>
- * void
- * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
- */
-
-#include <functional>
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
-{
-    if (begin != end)
-    {
-        auto frontOfSorted = end;
-
-        for (--frontOfSorted; frontOfSorted != begin; --frontOfSorted)
-        {
-            bool swapped{};
-            for (auto j = begin; j != frontOfSorted; ++j)
-            {
-                auto nextOfJ = j;
-                if (compare(*++nextOfJ, *j))
-                {
-                    std::iter_swap(nextOfJ, j);
-                    swapped = true;
-                }
-            }
-            if (swapped == false)
-                break;
-        }
-    }
-}
-
-template<typename _Bidirectional_Iter>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
-{
-    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
-
-    bubbleSort(begin, end, std::less<value_type>());
-}
+#include <stdio.h> 
+  
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+// A function to implement bubble sort 
+void bubbleSort(int arr[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
+} 
+  
+/* Function to print an array */
+void printArray(int arr[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%d ", arr[i]); 
+    printf("n"); 
+} 
+  
+// Driver program to test above functions 
+int main() 
+{ 
+    int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    bubbleSort(arr, n); 
+    printf("Sorted array: \n"); 
+    printArray(arr, n); 
+    return 0; 
+} 
