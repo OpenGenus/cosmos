@@ -1,30 +1,20 @@
 """
 Hebb Net algorithm is one of the earliest 
 and simplest neural net.
-
 The learning occurs ,that is the weight increases when both the 
 neuron are activated simultaneously and the weight decreases when 
 atleast one of them is not acitvated
 
-
-
 Wi(new)=Wi(old)+Xi*Yi
-
 Xi is the input neuron
 Yi is the output neuron
-
 Xi,Yi are preferred to be in bipolar form +1/-1
-
 so weight is modified when both are ON
 
 Reference-Fundamentals of Neural Networks
-
-
 """
 import numpy as np
-
 #This Hebbnet algorithm tries to predict the AND gate
-
 class HebbNet():
 	def __init__(self):
 		self.weights = np.zeros((2,1))
