@@ -2,7 +2,7 @@
 def base_check(a, y):
 	ans = 0
 	while a != 0:
-		ans = ans*10 + a % y
+		ans = ans*10 + a%y
 		a = a // y
 	return ans 
 
