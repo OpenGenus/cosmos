@@ -1,8 +1,8 @@
-'''
+"""
 Mean filter algorithm
 Part of Cosmos by OpenGenus Foundation
 Author: Matheus Guimaraes (@matheusguimr)
-'''
+"""
 
 import cv2
 import numpy as np
