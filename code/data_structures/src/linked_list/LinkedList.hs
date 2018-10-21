@@ -1,3 +1,5 @@
+{-/* Part of Cosmos by OpenGenus Foundation */-}
+
 module LinkedList where
 import Data.Maybe
 {-| A node for a linked list of type `a`-}
@@ -39,3 +41,12 @@ sumLinkedList :: (Num a) => a -> LinkedList a -> a
 sumLinkedList total Nothing = total
 sumLinkedList x (Just node) =
     sumLinkedList (x + value node) (next node)
+    
+{-
+Example:
+> let ll = addValue 2 $ addValue 3 $ addValue 1 Nothing
+> ll
+Just 2 -> 3 -> 1 -> None
+> sumLinkedList 0 ll
+6
+-}
