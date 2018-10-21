@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func isLeapyear(year int) bool {
+func IsLeapYear(year int) bool {
 	if year%400 == 0 {
 		return true
 	}
@@ -16,10 +16,10 @@ func isLeapyear(year int) bool {
 	return false
 }
 
-func leapYearsInRange(min, max int) []int {
+func LeapYearsInRange(min, max int) []int {
 	var res []int
 	for i := min; i <= max; i++ {
-		if isLeapyear(i) {
+		if IsLeapYear(i) {
 			res = append(res, i)
 		}
 	}
@@ -28,7 +28,7 @@ func leapYearsInRange(min, max int) []int {
 }
 
 func main() {
-	res := leapYearsInRange(2010, 2030)
+	res := LeapYearsInRange(2010, 2030)
 	for _, year := range res {
 		fmt.Println(year)
 	}
