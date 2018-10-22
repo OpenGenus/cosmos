@@ -36,3 +36,4 @@ if __name__ == '__main__':
     cv2.imshow('mask 3x3', mean_img_3x3)
     cv2.imshow('mask 5x5', mean_img_5x5)
     cv2.waitKey(0)
+
