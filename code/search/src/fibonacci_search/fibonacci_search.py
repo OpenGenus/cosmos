@@ -1,3 +1,7 @@
+'''
+Part of Cosmos by OpenGenus Foundation
+'''
+
 memo = {}
 
 
