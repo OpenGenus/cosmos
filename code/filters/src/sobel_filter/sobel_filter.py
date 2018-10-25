@@ -4,6 +4,7 @@ Part of Cosmos by OpenGenus Foundation
 Author: Matheus Guimaraes (@matheusguimr)
 """
 
+
 import cv2
 import math as mt
 import numpy as np
@@ -55,3 +56,4 @@ if __name__ == '__main__':
     ppl.subplot(1, 3, 2), ppl.imshow(sobel_vertical, 'gray')
     ppl.subplot(1, 3, 3), ppl.imshow(sobel, 'gray')
     ppl.show()
+
