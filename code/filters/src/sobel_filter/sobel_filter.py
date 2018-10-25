@@ -4,10 +4,10 @@ Part of Cosmos by OpenGenus Foundation
 Author: Matheus Guimaraes (@matheusguimr)
 """
 
-
 import cv2
 import math as mt
 import numpy as np
+from matplotlib import pyplot as ppl
 
 
 def set_kernel(direction):
@@ -24,7 +24,7 @@ def set_kernel(direction):
 
 
 def get_sobel_filter(gray):
-    bd = int(3 / 2)
+    bd = int(np.ndim(gray) / 2)
     kernel_x = set_kernel(False)
     kernel_y = set_kernel(True)
     sob_x = np.zeros(gray.shape, dtype=np.int16)
@@ -50,8 +50,8 @@ if __name__ == '__main__':
     sobel, sobel_vertical, sobel_horizontal = get_sobel_filter(gray_img)
 
     # Show the images
-    cv2.imshow('sobel horizontal', sobel_horizontal)
-    cv2.imshow('sobel vertical', sobel_vertical)
-    cv2.imshow('sobel', sobel)
-    cv2.waitKey(0)
-
+    fig = ppl.figure()
+    ppl.subplot(1, 3, 1), ppl.imshow(sobel_horizontal, 'gray')
+    ppl.subplot(1, 3, 2), ppl.imshow(sobel_vertical, 'gray')
+    ppl.subplot(1, 3, 3), ppl.imshow(sobel, 'gray')
+    ppl.show()
