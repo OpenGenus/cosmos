@@ -1,5 +1,17 @@
 matrix:
   include:
+    # python 3
+    - os: linux
+      language: python
+      include:
+        python: 3.4
+        python: 3.5
+        python: 3.6
+      before_install:
+        - pip install -r test_requirements.txt
+      script:
+        - flake8 lib test --count --exclude __init__.py
+
     #C with clang
     - os: linux
       language: c
