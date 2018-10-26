@@ -187,7 +187,10 @@ class AVLTree():
         # We always need to make sure we are balanced 
         self.update_heights()
         self.update_balances()
-        return ((abs(self.balance) < 2) and self.node.left.check_balanced() and self.node.right.check_balanced())  
+        return (
+            abs(self.balance) < 2 and 
+            self.node.left.check_balanced() and 
+            self.node.right.check_balanced())  
         
     def inorder_traverse(self):
         if self.node == None:
