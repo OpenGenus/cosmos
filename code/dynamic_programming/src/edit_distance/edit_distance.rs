@@ -1,4 +1,4 @@
-// dynamic programming | edit distance | Python
+// dynamic programming | edit distance | Rust
 // Part of Cosmos by OpenGenus Foundation
 
 use std::cmp;
