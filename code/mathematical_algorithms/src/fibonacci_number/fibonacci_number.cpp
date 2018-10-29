@@ -30,6 +30,20 @@ unsigned long long recursive_fibonacci(unsigned short n)
     return recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2);
 }
 
+//Returns the nth term in the Fibonacci Sequence (DP): O(N) [average performance + extra space used]
+std::vector<unsigned long long> marked(100000+1,0);
+unsigned long long dp_fibonacci(unsigned short n)
+{
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    if(marked[n]!=0)
+    	return marked[n];
+    marked[n]=recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2);
+    return marked[n];
+}
+
 int main()
 {
     unsigned short n = 45;
@@ -38,4 +52,6 @@ int main()
     std::cout << "Calculating fib(" << n << ") using recursive method: ";
     std::cout << recursive_fibonacci(n) << std::endl;
     // As you can see bottom-up it's instantanious but recursive takes some seconds to calculate fib.
+    std::cout << "Calculating fib(" << n << ") using Dynamic Programming method: ";
+    std::cout << dp_fibonacci(n) << std::endl;
 }
