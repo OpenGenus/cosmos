@@ -1,19 +1,19 @@
-def gcd(n1, n2):
-    remainder = 1
-    while remainder != 0:
-        remainder = n1 % n2
-        n1 = n2
-        n2 = remainder
-    return n1
-
-def lcm(n1, n2):
-    return (n1 * n2) / gcd(n1, n2)
+def divendo(number):
+    min = 1
+    max = number
+    n = 1
+    while True:
+        arr_divendo = []
+        for i in range(min, max + 1):
+            arr_divendo.append(i) if n % i == 0 else None
+        if len(arr_divendo) == max:
+            num = n
+            break
+        n += 1
+    print(num)
 
 def main():
-    num = 1
-    for i in range(1, 21):
-        num = lcm(num, i)
-    print(num)
+    divendo(20)
 
 if __name__ == '__main__':
     main()

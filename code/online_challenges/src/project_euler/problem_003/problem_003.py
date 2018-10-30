@@ -1,15 +1,16 @@
 def main():
-    n = 600851475143
-    h = 0
-    c = 2
-
-    while n != 1:
-        if n % c == 0 and c > h:
-            h = c
-            n /= c
-        c += 1
-
-    print(h)
+    value = 600851475143
+    count = 1
+    arr_prime = []
+    while True:
+        if value == 1:
+            break
+        if value % count == 0:
+            arr_prime.append(count)
+            value = value / count
+            count = 1
+        count += 1
+    print(max(arr_prime))
 
 if __name__ == '__main__':
     main()
