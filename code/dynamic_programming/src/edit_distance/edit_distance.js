@@ -1,7 +1,7 @@
 // dynamic programming | edit distance | Javascript
 // Part of Cosmos by OpenGenus Foundation
 
-editDistance = (str1, str2) => {
+function editDistance(str1, str2) {
     const lenStr1 = str1.length;
     const lenStr2 = str2.length;
     
@@ -17,12 +17,12 @@ editDistance = (str1, str2) => {
     let distanceVectorInit = [];
     let distanceVectorFinal = [];
 
-    for(var i=0; i<=lenStr1; i++) {
+    for(let i=0; i<=lenStr1; i++) {
        distanceVectorInit.push(i);
        distanceVectorFinal.push(0);
     }
 
-    for(var i=0; i<lenStr2; i++) {
+    for(let i=0; i<lenStr2; i++) {
         distanceVectorFinal[0] = i+1;
         // use formula to fill in the rest of the row
         for (let j = 0; j < lenStr1; j++) {
