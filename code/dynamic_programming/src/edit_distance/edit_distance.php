@@ -17,13 +17,10 @@ function editDistance($str1, $str2)
 
     $distanceVectorInit = [];
     $distanceVectorFinal = [];
-    for ($i = 0; $i < $lenStr1 + 1; $i++) {
-        $distanceVectorInit[] = 0;
-        $distanceVectorFinal[] = 0;
-    }
 
     for ($i = 0; $i < $lenStr1 + 1; $i++) {
         $distanceVectorInit[$i] = $i;
+        $distanceVectorFinal[] = 0;
     }
 
     for ($i = 0; $i < $lenStr2; $i++) {
@@ -47,4 +44,4 @@ function editDistance($str1, $str2)
     return $distanceVectorFinal[$lenStr1];
 }
 
-echo editDistance("saturday", "sunday");
+echo editDistance("hello", "hallo");
