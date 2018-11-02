@@ -23,7 +23,7 @@ function editDistance(str1, str2) {
     }
 
     for(let i = 0; i < lenStr2; i++) {
-        distanceVectorFinal[0] = i+1;
+        distanceVectorFinal[0] = i + 1;
         // use formula to fill in the rest of the row
         for (let j = 0; j < lenStr1; j++) {
             let substitutionCost = 0;
@@ -33,7 +33,7 @@ function editDistance(str1, str2) {
                 substitutionCost = distanceVectorInit[j] + 1
             }
 
-            distanceVectorFinal[j+1] = Math.min(distanceVectorInit[j + 1] + 1, distanceVectorFinal[j] + 1, substitutionCost);
+            distanceVectorFinal[j + 1] = Math.min(distanceVectorInit[j + 1] + 1, distanceVectorFinal[j] + 1, substitutionCost);
         }
 
         distanceVectorInit = distanceVectorFinal.slice(0);
