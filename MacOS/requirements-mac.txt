@@ -36,7 +36,7 @@ python-dateutil==2.6.1
 pyttsx3==2.7
 pytz==2017.3
 regex==2017.12.12
-requests==2.18.4
+requests==2.20.0
 scandir==1.6
 shutilwhich==1.1.0
 simplegeneric==0.8.1
