@@ -1,5 +1,3 @@
-# Programmer: Shlok Gilda
-# Updated: 18/1/2018
 # Part of Cosmos by OpenGenus Foundation
 
 """
