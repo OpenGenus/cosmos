@@ -18,21 +18,25 @@ unsigned int ugly_number(unsigned int input)
     uglyNumbers[0] = 1;
 	
 	//loops through until the intened input to get the ugly number
-    for(unsigned int i = 1; i < input; i++){		
+    for(unsigned int i = 1; i < input; i++)
+	{		
         nextUglyNumber = min(nextMultipleOf2, min(nextMultipleOf3, nextMultipleOf5));
 		
         uglyNumbers[i] = nextUglyNumber;
 		
 		//If the ugly number is same as any of the multiples, icrements the index for that multiple and updates the next multiple
-        if(nextUglyNumber == nextMultipleOf2){
+        if(nextUglyNumber == nextMultipleOf2)
+		{
             indexForNextMultipleOf2 += 1;
             nextMultipleOf2 = uglyNumbers[indexForNextMultipleOf2]*2;
         }
-        if(nextUglyNumber == nextMultipleOf3){
+        if(nextUglyNumber == nextMultipleOf3)
+		{
             indexForNextMultipleOf3 += 1;
             nextMultipleOf3 = uglyNumbers[indexForNextMultipleOf3]*3;
         }
-        if(nextUglyNumber == nextMultipleOf5){
+        if(nextUglyNumber == nextMultipleOf5)
+		{
             indexForNextMultipleOf5 += 1;
             nextMultipleOf5 = uglyNumbers[indexForNextMultipleOf5]*5;
         }
