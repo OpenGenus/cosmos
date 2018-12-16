@@ -1,11 +1,11 @@
-public class WilliamsHeap{
+public class BinomialHeap{
 
 	private Node array[];//Heap's array
 	private int k = 0;
 	private int n;//Max number of nodes
 	
 
-	public WilliamsHeap(int n){
+	public BinomialHeap(int n){
 
 		array = new Node[n+1];
 		this.n = n;
