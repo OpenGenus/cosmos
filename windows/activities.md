@@ -83,6 +83,7 @@ List of the things that B.E.N.J.I. can do:
 * Calculator
 * Twitter(get top 10 tweets, get list of people you are following)
 * Translate text
+* Adviser for maintaining good eyesight - It will run in background.
 
 Keep reading to see how to do all the above mentioned jobs with B.E.N.J.I.
 
