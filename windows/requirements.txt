@@ -52,6 +52,7 @@ tweepy==3.3.0
 urllib3==1.22
 wcwidth==0.1.7
 wikipedia==1.4.0
+win10toast==0.9
 winshell==0.6
 wxPython==4.0.0b2
 XlsxWriter==1.0.2
