@@ -20,9 +20,11 @@
 
 A digital assistant for your device that uses speech-recognition to obey your commands
 
-NOTE #1: B.E.N.J.I. has participated in the following Open-Source Programs: Kharagpur Winter of Code 2017 and GirlScript Summer Of Code 2018. :tada:
+NOTE #1: B.E.N.J.I. has participated in the following Open-Source Programs: Kharagpur Winter of Code 2017, GirlScript Summer Of Code 2018, NJACK Winter of Code 2018 and Kharagpur Winter of Code 2018 :tada:
 
 NOTE #2: I was invited to talk about B.E.N.J.I at the Open-Source Summit held at IIT Kharagpur on the 21st of January 2018. You can view the slides [here](https://github.com/the-ethan-hunt/B.E.N.J.I./blob/master/OSS_IIT_KGP_Dhruv_Apte.pdf). The video session is available to watch [here](https://www.youtube.com/watch?v=dydyiqR49KE&list=PLzumvJj1-3nDRq6Le2bFSmbtz0g7CppKb&index=11) :tada:
+
+Maintainers : [Dhruv Apte](https://github.com/the-ethan-hunt), [Abhimanyu Thakre](https://github.com/abhimanyuthakre)
 
 ### List of contents
 
@@ -37,7 +39,7 @@ NOTE #2: I was invited to talk about B.E.N.J.I at the Open-Source Summit held at
 [(Back to top)](#list-of-contents)
 
 <p>Impossible Missions Force's debrief issued to the POTUS dated 30th May 2017:<br>
-&nbsp;&nbsp;&nbsp; "On properly documented analysis and Congressional finding, the Impossible Missions Force(IMF) therefore, declassifies it's junior level digital assistant titled B.E.N.J.I.,short for Brilliant and Efficient non-Javascript enabled Intelligence Systems for civilian use. It might be noted that, this is only for peaceful purposes and the IMF does not hold any responsibility on its misuse. The Force however,has full right to control the activities of the system both,legally and illegally. The Force also submits that any covert action taken due to the system is not questionable to any Congressional hearing. Finally the Force asserts that none of its agents,operatives or analysts neither accept nor deny details of any operation regarding B.E.N.J.I. to any hearing without the Secretary's approval."
+&nbsp;&nbsp;&nbsp; "On properly documented analysis and Congressional finding, the Impossible Missions Force(IMF) therefore, declassifies it's junior level digital assistant titled B.E.N.J.I.,short for Brilliant and Efficient non-Javascript enabled Intelligence Systems for civilian use. It might be noted that, this is only for peaceful purposes and the IMF does not hold any responsibility on its misuse. The Force however,has full right to control the activities of the system both,legally and illegally. The Force also submits that any covert action taken due to the system is not questionable to any Congressional hearing. Finally the Force asserts that its agents,operatives or analysts neither accept nor deny details of any operation regarding B.E.N.J.I. to any hearing without the Secretary's approval."
 </p>
 
 ### Installation
