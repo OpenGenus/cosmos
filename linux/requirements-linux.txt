@@ -47,7 +47,7 @@ style==1.1.0
 tempdir==0.7.1
 traitlets==4.3.2
 update==0.0.1
-urllib3==1.22
+urllib3>=1.23
 wcwidth==0.1.7
 wikipedia==1.4.0
 wrapt==1.10.10
