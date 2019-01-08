@@ -46,18 +46,39 @@ from tweepy import OAuthHandler
 import twitterCredentials
 from googletrans import Translator
 from langdetect import detect
+import threading
+from win10toast import ToastNotifier
 
-requests.packages.urllib3.disable_warnings()
-try:
-		_create_unverified_https_context=ssl._create_unverified_context
-except 'AttributeError':
-		pass
-else:
-		ssl._create_default_https_context=_create_unverified_https_context
+#requests.packages.urllib3.disable_warnings()
+#try:
+#		_create_unverified_https_context=ssl._create_unverified_context
+#except 'AttributeError':
+#		pass
+#else:
+#		ssl._create_default_https_context=_create_unverified_https_context
 
-headers = {'''user-agent':'Chrome/53.0.2785.143'''}
+#headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 #speak=wicl.Dispatch("SAPI.SpVoice")
 speak = pyttsx3.init()
+
+#Function providing feature for maintaining good eye-sight.
+#Provides notification to look 20 feet away for 20 seconds every 20 minutes.
+def run():
+	toaster = ToastNotifier()
+	time_seconds = 60
+	while True:
+		time.sleep(time_seconds-5)
+		speak.say("Please look 20 feet away for 20 seconds")
+		speak.runAndWait()
+		#Takes 5 seconds to execute
+		toaster.show_toast("Advice","Please look 20 feet away for 20 seconds")
+		time.sleep(5)
+		#Takes 5 seconds to execute
+		toaster.show_toast("Remaining Time", "10 seconds remaining")
+		time.sleep(5)
+		toaster.show_toast("Get Ready!", "Please carry your work!")
+		speak.say("Please carry your work!")
+		speak.runAndWait()
 
 def events(frame,put):
 	identity_keywords = ["who are you", "who r u", "what is your name"]
@@ -940,6 +961,12 @@ if __name__=="__main__":
 	#GUI    
 	root = tk.Tk()
 	view = MyFrame(root)
+
+	#Thread for running run() mthod in parallel
+	t1 = threading.Thread(target=run)
+	t1.start()
+	#
+
 	style = ttk.Style()
 	style.configure('C.TButton',
 		background='#555',
