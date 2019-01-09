@@ -24,7 +24,7 @@ def binary_search_recursive(arr, x):
     return _binary_search_recursive_impl(arr, x, 0, len(arr))
 
 
-def _binary_search_interactive_impl(arr, x, left, right):
+def _binary_search_iterative_impl(arr, x, left, right):
     while left < right:
         mid = left + int((right - left) / 2)
 
@@ -38,8 +38,8 @@ def _binary_search_interactive_impl(arr, x, left, right):
     return left if left in range(0, len(arr)) and arr[left] == x else -1
 
 
-def binary_search_interactive(arr, x):
-    return _binary_search_interactive_impl(arr, x, 0, len(arr))
+def binary_search_iterative(arr, x):
+    return _binary_search_iterative_impl(arr, x, 0, len(arr))
 
 
-binary_search = binary_search_interactive
+binary_search = binary_search_iterative
