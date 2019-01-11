@@ -12,14 +12,14 @@ int equalLength(string &bitStr1, string &bitStr2)
 	int strLen2 = bitStr2.size();
 
 	if (strLen1 > strLen2)
-    {
+    	{
 		int numZerosToPad = strLen1 - strLen2;
 		for(int i = 0; i < numZerosToPad; i++)
 			bitStr2 = '0' + bitStr2;
 	}
 
-	else if(strLen2>strLen1)
-    {
+	else if(strLen2 > strLen1)
+    	{
 		int numZerosToPad = strLen2 - strLen1;
 		for (int i = 0; i < numZerosToPad; i++)
 			bitStr1 = '0' + bitStr1;
@@ -36,7 +36,7 @@ string addBitStrings(string bitStr1, string bitStr2)
 	//For first bit addition carry is 0
 	int carry = 0; 
 	for (int i = len-1; i >= 0; --i)
-    {
+    	{
 		// We need to convert '0' or '1' to 0 or 1. Subtracting '0' from the character, subtracts
 		// their ascii values which results in 0 or 1.
 		int bit1 = bitStr1[i] - '0';
@@ -61,10 +61,10 @@ string addBitStrings(string bitStr1, string bitStr2)
 
 long long int karatsubaMultiply(string x, string y)
 {
-	int n = equalLength(x, y);
+     int n = equalLength(x, y);
 
-	//Recursion base cases(when length of the bit string is 0 or 1)
-	if (n == 0) return 0; 
+    //Recursion base cases(when length of the bit string is 0 or 1)
+    if (n == 0) return 0; 
     if (n == 1)
     {
     	// Single bit multiplication. 
