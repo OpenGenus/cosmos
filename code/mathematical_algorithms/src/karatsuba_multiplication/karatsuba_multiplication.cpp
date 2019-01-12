@@ -85,8 +85,8 @@ long long int karatsubaMultiply(std::string x, std::string y)
 
 int main()
 {
-    std::cout<<"Product of 1011 and 110 = "<<karatsubaMultiply("1011", "110")<<"\n";
-    std::cout<<"Product of 1111 and 0 = "<<karatsubaMultiply("1111", "0")<<"\n";
-    std::cout<<"Product of 100000 and 10 = "<<karatsubaMultiply("100000", "10")<<"\n";
-    std::cout<<"Product of 101 and 101101 = "<<karatsubaMultiply("101", "101101")<<"\n";
+    std::cout << "Product of 1011 and 110 = " << karatsubaMultiply("1011", "110") << "\n";
+    std::cout << "Product of 1111 and 0 = " << karatsubaMultiply("1111", "0") << "\n";
+    std::cout << "Product of 100000 and 10 = "<< karatsubaMultiply("100000", "10") << "\n";
+    std::cout << "Product of 101 and 101101 = "<< karatsubaMultiply("101", "101101") << "\n";
 }
