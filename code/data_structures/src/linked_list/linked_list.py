@@ -1,52 +1,90 @@
 ''' simple prpgrame for single linked list in python '''
 
 
-Head=None   ''' head node, initilase Null or none '''
-Tail=None   ''' tail node, initilase Null or none '''
+class Node:
+    '''
 
-'''  object class '''
+    This is class to create a node
 
-class A:
-	def __init__(self):
-		self.data=0
-		self.next=None
+    Attributes:
+        :data: contains data element
+        :link: points to the next Node
 
-''' function for creating node '''
+    '''
 
-def create_node():
-	t=A()
-	return t
+    def __init__(self, data, next=None):
+        '''
+        The constructor for Node class
 
-'''  function for inserting node '''
+        Parameters:
+            :data: (required)
+            :link: (optional)
+        '''
 
-def insert_node():
-	global Head,Tail
-	temp=create_node()
-	print("Enter your value",end="\n")
-	a=input()	
-	temp.data=a
-	if(Head==None):
-		Head=temp
-		Tail=temp
-	else:
-		Tail.next=temp
-		Tail=temp
+        self.data = data
+        self.next = next
 
-''' function for traversing linked list '''
 
-def traverse(Head):
-	t=Head
-	while(t.next!=None):
-		print(t.data,end="\n")
-		t=t.next
-	print(t.data,end="\n")
 
-''' main function '''
+class LinkedList:
+    '''
+    This is class to create a Linked List
 
-insert_node()
-insert_node()
-insert_node()
-insert_node()
+    Attributes:
+        :head: points to the starting node of Linked List
 
-traverse(Head)   ''' passing head node for tarversing'''
+    '''
 
+    def __init__(self):
+        '''
+        The constructor to LinkedList Class
+
+        Parameter:
+            :head: 
+        '''
+
+        self.head = None
+        
+
+    def insertAtEnding(self, data):
+        '''
+        The function to add the node at the end of Linked List
+
+        Parameters:
+            :data: (required)
+        '''
+
+        newNode = Node(data)
+        if self.head == None:
+            self.head == newNode
+        else:
+            current = self.head
+            while current.next != None:
+                current = current.next
+            current.next = newNode
+
+
+    def printLinkedList(self):
+        '''
+            The function to traverse and print the data elements present in each node
+        '''
+
+        if self.head == None:
+            print("No Liked List exists")
+        else:
+            current = self.head
+            while current != None:
+                print(str(current.data), end=" --> ")
+                current = current.next
+            print("NULL")         
+
+
+
+if __name__ == '__main__':
+    list1 = LinkedList()            # Creating LinkedList Object
+    list1.head = Node(2)            # Creating first node
+    list1.insertAtEnding(6)
+    list1.insertAtEnding(5)
+    list1.insertAtEnding(10)
+    list1.insertAtEnding(20)
+    list1.printLinkedList()
