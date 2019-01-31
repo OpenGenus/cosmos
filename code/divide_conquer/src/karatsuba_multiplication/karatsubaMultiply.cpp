@@ -1,9 +1,10 @@
+// Author: Tote93
 #include <iostream>
 #include <string> 
 #include <sstream>
 #include <stdlib.h> 
-
 using namespace std;
+
 /* Prototypes */
 void addZerosAtFirst(string &c, int nZeros);
 int getBiggerSize(string number1, string number2);
@@ -104,7 +105,6 @@ string KaratsubaMultiply(string &numero1, string &numero2, int limite)
 		final3 = KaratsubaMultiply ( x, z, limite );
 		total = AddNumbers ( final1, final2 );
 		return ( AddNumbers ( total, final3 ) );
-
 	}
 }
 
