@@ -156,7 +156,7 @@ std::string AddNumbers(std::string &number1, std::string &number2)
 
 		total2 = '0' + aux;
 		total.insert(0, total2);
-		if (i == 0 and aux2 == 1) {
+		if (i == 0 && aux2 == 1) {
 			total2 = "1";
 			total.insert(0, total2);
 			removeNonSignificantZeros(total);
