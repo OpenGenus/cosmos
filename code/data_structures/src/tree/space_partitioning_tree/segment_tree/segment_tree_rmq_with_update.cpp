@@ -48,14 +48,10 @@ int query(std::vector<int> &array, Node *node, int start, int end)
     int R = node->interval.second;
 
     if (R < start || L > end)
-    {
         return -1;
-    }
 
     if (start <= L && end >= R)
-    {
         return node->index;
-    }
 
     int leftIndex = query(array, node->left, start, end);
     int rightIndex = query(array, node->right, start, end);
@@ -119,7 +115,6 @@ int main()
     build(array, root, 0, n - 1);
 
     // sample query
-
     std::cout << "The smallest element in the interval [1, 6] is "
               << array[query(array, root, 0, 5)] << '\n';
 
