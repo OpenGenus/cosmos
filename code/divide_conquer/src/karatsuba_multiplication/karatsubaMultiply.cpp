@@ -49,46 +49,46 @@ void checkNumbers(int size, std::string &number1, std::string &number2)
 	nZeros = newSize - number2.length();
 	number2.insert(number2.begin(), nZeros, '0');
 
-	if (number1.length() % 2 != 0 )
+	if (number1.length() % 2 != 0)
 		number1.insert(number1.begin(), 1, '0');
-	if ( number2.length() % 2 != 0) 
+	if (number2.length() % 2 != 0)
 		number2.insert(number2.begin(), 1, '0');
 }
 
 std::string KaratsubaMultiply(std::string &number1, std::string &number2, int limit)
 {
 	int n = number1.length(), s;
-	std::string w = "", x = "", y = "", z = "";
-	std::string final1 = "", final2 = "", final3 = "";
-	std::string total = "";
+	std::string w, x, y, z;
+	std::string final1, final2, final3;
+	std::string total;
 
-	if ( n == 1) {
+	if (n == 1) {
 		int integer1, integer2, aux;
-		integer1 = atoi ( number1.c_str() );
-		integer2 = atoi ( number2.c_str() );
+		integer1 = atoi (number1.c_str());
+		integer2 = atoi (number2.c_str());
 		aux = integer1 * integer2;
 		//We can replace two next lines with -> total = to_string(aux) using c++11
 		std::ostringstream temp;
 		temp << aux;
 		total = temp.str();
-		removeNonSignificantZeros ( total );
+		removeNonSignificantZeros (total);
 		return total;
 	} else {
 		s = n / 2;
-		splitString ( number1, w, x );
-		splitString ( number2, y, z );
+		splitString (number1, w, x);
+		splitString (number2, y, z);
 
-		final1 = KaratsubaMultiply ( w, y, n );
+		final1 = KaratsubaMultiply (w, y, n);
 		final1.append(2 * s, '0');
 
-		std::string wz = KaratsubaMultiply ( w, z, n );
-		std::string xy = KaratsubaMultiply ( x, y, n );
-		final2 = AddNumbers ( wz , xy );
+		std::string wz = KaratsubaMultiply (w, z, n);
+		std::string xy = KaratsubaMultiply (x, y, n);
+		final2 = AddNumbers (wz , xy);
 		final2.append(s, '0');
 
-		final3 = KaratsubaMultiply ( x, z, n );
-		total = AddNumbers ( final1, final2 );
-		return ( AddNumbers ( total, final3 ) );
+		final3 = KaratsubaMultiply (x, z, n);
+		total = AddNumbers (final1, final2);
+		return (AddNumbers (total, final3));
 	}
 }
 
@@ -134,11 +134,11 @@ std::string AddNumbers(std::string &number1, std::string &number2)
 {
 	int x, y, aux = 0, aux2 = 0;
 	int digitos = getBiggerSize(number1, number2);
-	std::string total = "", total2 = "", cadena = "";
+	std::string total, total2, cadena;
 	int n1 = number1.length();
 	int n2 = number2.length();
 
-	if ( n1 > n2 ) 
+	if (n1 > n2)
 		number2.insert(number2.begin(), n1 - n2, '0');
 	else
 		number1.insert(number1.begin(), n2 - n1, '0');
@@ -153,7 +153,7 @@ std::string AddNumbers(std::string &number1, std::string &number2)
 			aux = aux % 10;
 		} else
 			aux2 = 0;
-			
+
 		total2 = '0' + aux;
 		total.insert(0, total2);
 		if (i == 0 and aux2 == 1) {
