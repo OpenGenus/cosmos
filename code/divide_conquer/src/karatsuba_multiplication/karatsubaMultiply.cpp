@@ -49,12 +49,10 @@ void checkNumbers(int size, std::string &number1, std::string &number2)
 	nZeros = newSize - number2.length();
 	number2.insert(number2.begin(), nZeros, '0');
 
-	if (number1.length() % 2 != 0 ) {
+	if (number1.length() % 2 != 0 )
 		number1.insert(number1.begin(), 1, '0');
-	}
-	if ( number2.length() % 2 != 0) {
+	if ( number2.length() % 2 != 0) 
 		number2.insert(number2.begin(), 1, '0');
-	}
 }
 
 std::string KaratsubaMultiply(std::string &number1, std::string &number2, int limit)
@@ -98,17 +96,15 @@ void removeNonSignificantZeros(std::string &c)
 {
 	int acum = 0;
 	for (int i = 0; i < c.length(); ++i) {
-		if (c[i] != '0') {
+		if (c[i] != '0')
 			break;
-		} else {
+		else
 			acum++;
-		}
 	}
-	if (c.length() != acum) {
+	if (c.length() != acum)
 		c = c.substr(acum, c.length());
-	} else {
+	else
 		c = c.substr(acum - 1, c.length());
-	}
 }
 
 void splitString(std::string original, std::string &sub1, std::string &sub2)
@@ -128,12 +124,10 @@ void splitString(std::string original, std::string &sub1, std::string &sub2)
 	sub1 = original.substr(0, n1);
 	sub2 = original.substr(n1, n);
 
-	if (sub1.length() % 2 != 0 && sub2.length() > 2) {
+	if (sub1.length() % 2 != 0 && sub2.length() > 2)
 		sub1.insert(sub1.begin(), 1, '0');
-	}
-	if (sub2.length() > 2 && sub2.length() % 2 != 0) {
+	if (sub2.length() > 2 && sub2.length() % 2 != 0)
 		sub2.insert(sub2.begin(), 1, '0');
-	}
 }
 
 std::string AddNumbers(std::string &number1, std::string &number2)
@@ -144,11 +138,10 @@ std::string AddNumbers(std::string &number1, std::string &number2)
 	int n1 = number1.length();
 	int n2 = number2.length();
 
-	if ( n1 > n2 ) {
+	if ( n1 > n2 ) 
 		number2.insert(number2.begin(), n1 - n2, '0');
-	} else {
+	else
 		number1.insert(number1.begin(), n2 - n1, '0');
-	}
 
 	for (int i = digitos - 1; i >= 0; i--) {
 		x = number1[i] - '0';
@@ -158,9 +151,9 @@ std::string AddNumbers(std::string &number1, std::string &number2)
 		if (aux >= 10) {
 			aux2 = 1;
 			aux = aux % 10;
-		} else {
+		} else
 			aux2 = 0;
-		}
+			
 		total2 = '0' + aux;
 		total.insert(0, total2);
 		if (i == 0 and aux2 == 1) {
