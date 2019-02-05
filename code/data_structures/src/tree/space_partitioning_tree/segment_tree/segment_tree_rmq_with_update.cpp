@@ -20,90 +20,120 @@ struct Node
     Node *right;
 };
 
-int build(std::vector<int> &array, Node *node, int L, int R)
-{
-    node->interval = std::make_pair(L, R);
-    if (L == R)
-    {
-        node->index = L;
-        return node->index;
-    }
-
-    node->left = new Node;
-    node->right = new Node;
-    int leftIndex = build(array, node->left, L, (L + R) / 2);
-    int rightIndex = build(array, node->right, (L + R) / 2 + 1, R);
-
-    node->index = (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
-
-    return node->index;
-}
-
-// returns the index of smallest element in the range [start, end]
-int query(std::vector<int> &array, Node *node, int start, int end)
-{
-    if (start > end)
-        return -1;
-    int L = node->interval.first;
-    int R = node->interval.second;
-
-    if (R < start || L > end)
-        return -1;
-
-    if (start <= L && end >= R)
-        return node->index;
-
-    int leftIndex = query(array, node->left, start, end);
-    int rightIndex = query(array, node->right, start, end);
-
-    if (leftIndex == -1)
-        return rightIndex;
-    if (rightIndex == -1)
-        return leftIndex;
-
-    return (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
-}
-
 // update adds new value to array[x] rather than replace it
-void update(std::vector<int> &array, Node *node, int x, int value)
-{
-    int L = node->interval.first;
-    int R = node->interval.second;
 
-    if (L == R)
+class SegmentTree{
+private:
+    Node *root;
+
+    int build(std::vector<int> &array, Node *node, int L, int R)
     {
-        array[L] += value;
-        return;
+        node->interval = std::make_pair(L, R);
+        if (L == R)
+        {
+            node->index = L;
+            return node->index;
+        }
+
+        node->left = new Node;
+        node->right = new Node;
+        int leftIndex = build(array, node->left, L, (L + R) / 2);
+        int rightIndex = build(array, node->right, (L + R) / 2 + 1, R);
+
+        node->index = (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
+
+        return node->index;
     }
 
-    if (L <= x && (L + R)/2 >= x)
-        // x is in left subtree
-        update(array, node->left, x, value);
-    else
-        // x is in right subtree
-        update(array, node->right, x, value);
-
-    int leftIndex = node->left->index;
-    int rightIndex = node->right->index;
-
-    //update current node
-    node->index = (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
-}
-
-// To clear allocated memory at end of program
-void clearMem(Node *node)
-{
-    int L = node->interval.first;
-    int R = node->interval.second;
-
-    if (L != R)
+    // returns the index of smallest element in the range [start, end]
+    int query(Node *node, int start, int end)
     {
-        clearMem(node->left);
-        clearMem(node->right);
-    }
-    delete node;
-}
+        if (start > end)
+            return -1;
+        int L = node->interval.first;
+        int R = node->interval.second;
 
+        if (R < start || L > end)
+        return -1;
+
+        if (start <= L && end >= R)
+            return node->index;
+
+        int leftIndex = query(node->left, start, end);
+        int rightIndex = query(node->right, start, end);
+
+        if (leftIndex == -1)
+            return rightIndex;
+        if (rightIndex == -1)
+            return leftIndex;
+
+        return (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
+    }
+
+    void update(Node *node, int x, int value)
+    {
+        int L = node->interval.first;
+        int R = node->interval.second;
+
+        if (L == R)
+        {
+            array[L] += value;
+            return;
+        }
+
+        if (L <= x && (L + R)/2 >= x)
+            // x is in left subtree
+            update(node->left, x, value);
+        else
+            // x is in right subtree
+            update(node->right, x, value);
+
+        int leftIndex = node->left->index;
+        int rightIndex = node->right->index;
+
+        //update current node
+        node->index = (array[leftIndex] < array[rightIndex]) ? leftIndex : rightIndex;
+    }
+
+    // To clear allocated memory at end of program
+    void clearMem(Node *node)
+    {
+        int L = node->interval.first;
+        int R = node->interval.second;
+
+        if (L != R)
+        {
+            clearMem(node->left);
+            clearMem(node->right);
+        }
+        delete node;
+    }
+
+public:
+    std::vector<int> array;
+
+    SegmentTree(std::vector<int> &ar)
+    {
+        array = ar;
+        root = new Node;
+        build(ar, root, 0, ar.size() - 1);
+    }
+
+    int query(int L, int R)
+    {
+        return query(root, L, R);
+    }
+
+    void update(int pos, int value)
+    {
+        return update(root, pos, value);
+    }
+
+    ~SegmentTree()
+    {
+        clearMem(root);
+    }
+};
 
 int main()
 {
@@ -111,23 +141,28 @@ int main()
     int n = 8;
     std::vector<int> array = {5, 4, 3, 2, 1, 0, 7, 0};
 
-    Node *root = new Node;
-    build(array, root, 0, n - 1);
+    SegmentTree st(array);
+
+    std::cout << "Array:\n";
+    for (int i = 0; i < n; ++i)
+        std::cout<<st.array[i] << ' ';
+    std::cout << '\n';
 
     // sample query
     std::cout << "The smallest element in the interval [1, 6] is "
-              << array[query(array, root, 0, 5)] << '\n';
+              << array[st.query(0, 5)] << '\n'; // since array is 0 indexed.
 
     // change 0 at index 5 to 8
-    update(array, root, 5, 8);
+    st.update(5, 8);
+    array[5] += 8;
 
+    std::cout << "After update, array:\n";
     for (int i = 0; i < n; ++i)
-        std::cout<<array[query(array, root, i, i)] << ' ';
+        std::cout<<st.array[i] << ' ';
     std::cout << '\n';
 
     std::cout << "The smallest element in the interval [1, 6] after update is "
-              << array[query(array, root, 0, 5)] << '\n';
+              << array[st.query(0, 5)] << '\n';
 
-    clearMem(root);
     return 0;
 }
