@@ -81,7 +81,7 @@ private:
             return;
         }
 
-        if (L <= x && (L + R)/2 >= x)
+        if (L <= x && (L + R) / 2 >= x)
             // x is in left subtree
             update(node->left, x, value);
         else
