@@ -145,7 +145,7 @@ int main()
 
     std::cout << "Array:\n";
     for (int i = 0; i < n; ++i)
-        std::cout<<st.array[i] << ' ';
+        std::cout << st.array[i] << ' ';
     std::cout << '\n';
 
     // sample query
@@ -158,7 +158,7 @@ int main()
 
     std::cout << "After update, array:\n";
     for (int i = 0; i < n; ++i)
-        std::cout<<st.array[i] << ' ';
+        std::cout << st.array[i] << ' ';
     std::cout << '\n';
 
     std::cout << "The smallest element in the interval [1, 6] after update is "
