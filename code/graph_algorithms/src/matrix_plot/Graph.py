@@ -303,3 +303,5 @@ class Adjacency(object):
 
         plt.show()
         
+
+        
