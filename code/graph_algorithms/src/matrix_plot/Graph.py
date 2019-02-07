@@ -8,13 +8,13 @@ from copy import deepcopy
 # Adjacency Class generates a figure through an adjacency matrix #
 ##################################################################
 
+
 class AdjacencyMatrix(object):
 
     def __init__(self, nodes):
-        self.nodes = nodes              #number of nodes
+        self.nodes = nodes  # number of nodes
 
-    
-    def plot_graph_1(self, graph, title = 'Plot 1'):
+    def plot_graph_1(self, graph, title='Plot 1'):
 
         graph_layout = nx.Graph()
         adjacent_matrix = deepcopy(graph)
@@ -29,7 +29,7 @@ class AdjacencyMatrix(object):
                     graph_layout.add_edge(i+1, j+1)
                     adjacent_matrix[i][j] = 0
                     adjacent_matrix[j][i] = 0
-        
+
         dictionary = nx.spring_layout(Graph_layout)
         nx.draw_networkx_nodes(Graph_layout, dictionary)
         nx.draw_networkx_labels(Graph_layout, dictionary)
@@ -37,7 +37,7 @@ class AdjacencyMatrix(object):
         plt.title(title)
         plt.show()
 
-    def plot_graph_2(self, graph1, graph2, title1 = 'Plot 1', title2 = 'Plot 2'):
+    def plot_graph_2(self, graph1, graph2, title1='Plot 1', title2='Plot 2'):
         graph_layout1 = nx.Graph()
         graph_layout2 = nx.Graph()
 
@@ -61,25 +61,25 @@ class AdjacencyMatrix(object):
                     adjacent_matrix2[i][j] = 0
                     adjacent_matrix2[j][i] = 0
 
-          
-        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10,5))   
-             
+        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
+
         dictionary1 = nx.spring_layout(G)
         dictionary2 = nx.spring_layout(H)
 
-        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax = axes[0])
-        nx.draw_networkx_labels(graph_layout1, dictionary1, ax= axes[0])
-        nx.draw_networkx_edges(graph_layout1, dictionary1, ax = axes[0], edge_color = 'r')
+        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax=axes[0])
+        nx.draw_networkx_labels(graph_layout1, dictionary1, ax=axes[0])
+        nx.draw_networkx_edges(graph_layout1, dictionary1,
+                               ax=axes[0], edge_color='r')
         axes[0].set_title(title1)
-        
-        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax = axes[1])
-        nx.draw_networkx_labels(graph_layout2, dictionary2, ax= axes[1])
-        nx.draw_networkx_edges(graph_layout2, dictionary2, ax = axes[1], edge_color = 'b')
+
+        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax=axes[1])
+        nx.draw_networkx_labels(graph_layout2, dictionary2, ax=axes[1])
+        nx.draw_networkx_edges(graph_layout2, dictionary2,
+                               ax=axes[1], edge_color='b')
         axes[1].set_title(title2)
         plt.show()
 
-    
-    def plot_graph_3(self, graph1, graph2, graph3, title1 = 'Plot 1', title2 = 'Plot 2', title3 = 'Plot 3'):
+    def plot_graph_3(self, graph1, graph2, graph3, title1='Plot 1', title2='Plot 2', title3='Plot 3'):
         graph_layout1 = nx.Graph()
         graph_layout2 = nx.Graph()
         graph_layout3 = nx.Graph()
@@ -110,31 +110,32 @@ class AdjacencyMatrix(object):
                     graph_layout3.add_edge(i+1, j+1)
                     adjacent_matrix3[i][j] = 0
                     adjacent_matrix3[j][i] = 0
-  
-        
-        fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(8,4))   
+
+        fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(8, 4))
         dictionary1 = nx.spring_layout(G)
         dictionary2 = nx.spring_layout(H)
         dictionary3 = nx.spring_layout(I)
 
-
-        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax = axes[0])
-        nx.draw_networkx_labels(graph_layout1, dictionary1, ax= axes[0])
-        nx.draw_networkx_edges(graph_layout1, dictionary1, ax = axes[0], edge_color = 'r')
+        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax=axes[0])
+        nx.draw_networkx_labels(graph_layout1, dictionary1, ax=axes[0])
+        nx.draw_networkx_edges(graph_layout1, dictionary1,
+                               ax=axes[0], edge_color='r')
         axes[0].set_title(title1)
-        
-        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax = axes[1])
-        nx.draw_networkx_labels(graph_layout2, dictionary2, ax= axes[1])
-        nx.draw_networkx_edges(graph_layout2, dictionary2, ax = axes[1], edge_color = 'b')
+
+        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax=axes[1])
+        nx.draw_networkx_labels(graph_layout2, dictionary2, ax=axes[1])
+        nx.draw_networkx_edges(graph_layout2, dictionary2,
+                               ax=axes[1], edge_color='b')
         axes[1].set_title(title2)
-        
-        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax = axes[2])
-        nx.draw_networkx_labels(graph_layout3, dictionary3, ax = axes[2])
-        nx.draw_networkx_edges(graph_layout3, dictionary3, ax = axes[2], edge_color= 'g')
+
+        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax=axes[2])
+        nx.draw_networkx_labels(graph_layout3, dictionary3, ax=axes[2])
+        nx.draw_networkx_edges(graph_layout3, dictionary3,
+                               ax=axes[2], edge_color='g')
         axes[2].set_title(title3)
         plt.show()
-    
-    def plot_graph_4(self, graph1, graph2, graph3, graph4, title1 = 'Plot 1', title2 = 'Plot 2', title3 = 'Plot 3', title4 = 'Plot 4'):
+
+    def plot_graph_4(self, graph1, graph2, graph3, graph4, title1='Plot 1', title2='Plot 2', title3='Plot 3', title4='Plot 4'):
         graph_layout1 = nx.Graph()
         graph_layout2 = nx.Graph()
         graph_layout3 = nx.Graph()
@@ -173,38 +174,41 @@ class AdjacencyMatrix(object):
                     graph_layout4.add_edge(i+1, j+1)
                     adjacent_matrix4[i][j] = 0
                     adjacent_matrix4[j][i] = 0
-  
-        
-        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(4,2))   
+
+        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(4, 2))
         dictionary1 = nx.spring_layout(G)
         dictionary2 = nx.spring_layout(H)
         dictionary3 = nx.spring_layout(I)
         dictionary4 = nx.spring_layout(J)
 
-        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax = axes[0,0])
-        nx.draw_networkx_labels(graph_layout1, dictionary1, ax= axes[0,0])
-        nx.draw_networkx_edges(graph_layout1, dictionary1, ax = axes[0,0], edge_color = 'r')
-        axes[0,0].set_title(title1)
-        
-        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax = axes[0,1])
-        nx.draw_networkx_labels(graph_layout2, dictionary2, ax= axes[0,1])
-        nx.draw_networkx_edges(graph_layout2, dictionary2, ax = axes[0,1], edge_color = 'b')
-        axes[0,1].set_title(title2)
-        
-        plt.subplots_adjust(hspace = 0.236, wspace= 0.101)
+        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax=axes[0, 0])
+        nx.draw_networkx_labels(graph_layout1, dictionary1, ax=axes[0, 0])
+        nx.draw_networkx_edges(graph_layout1, dictionary1,
+                               ax=axes[0, 0], edge_color='r')
+        axes[0, 0].set_title(title1)
 
-        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax = axes[1,0])
-        nx.draw_networkx_labels(graph_layout3, dictionarys3, ax = axes[1,0])
-        nx.draw_networkx_edges(graph_layout3, dictionary3, ax = axes[1,0], edge_color= 'g')
-        axes[1,0].set_title(title3)
+        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax=axes[0, 1])
+        nx.draw_networkx_labels(graph_layout2, dictionary2, ax=axes[0, 1])
+        nx.draw_networkx_edges(graph_layout2, dictionary2,
+                               ax=axes[0, 1], edge_color='b')
+        axes[0, 1].set_title(title2)
 
-        nx.draw_networkx_nodes(graph_layout4, dictionary4, ax = axes[1,1])
-        nx.draw_networkx_labels(graph_layout4, dictionary4, ax = axes[1,1])
-        nx.draw_networkx_edges(graph_layout4, dictionary4, ax = axes[1,1], edge_color= 'm')
-        axes[1,1].set_title(title4)
+        plt.subplots_adjust(hspace=0.236, wspace=0.101)
+
+        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax=axes[1, 0])
+        nx.draw_networkx_labels(graph_layout3, dictionary3, ax=axes[1, 0])
+        nx.draw_networkx_edges(graph_layout3, dictionary3,
+                               ax=axes[1, 0], edge_color='g')
+        axes[1, 0].set_title(title3)
+
+        nx.draw_networkx_nodes(graph_layout4, dictionary4, ax=axes[1, 1])
+        nx.draw_networkx_labels(graph_layout4, dictionary4, ax=axes[1, 1])
+        nx.draw_networkx_edges(graph_layout4, dictionary4,
+                               ax=axes[1, 1], edge_color='m')
+        axes[1, 1].set_title(title4)
         plt.show()
 
-    def plot_graph_6(self, graph1, graph2, graph3, graph4, graph5, graph6, title1 = 'Plot 1', title2 = 'Plot 2', title3 = 'Plot 3', title4 = 'Plot 4', title5 = 'Plot 5', title6 = 'Plot 6'):
+    def plot_graph_6(self, graph1, graph2, graph3, graph4, graph5, graph6, title1='Plot 1', title2='Plot 2', title3='Plot 3', title4='Plot 4', title5='Plot 5', title6='Plot 6'):
         graph_layout1 = nx.Graph()
         graph_layout2 = nx.Graph()
         graph_layout3 = nx.Graph()
@@ -259,9 +263,8 @@ class AdjacencyMatrix(object):
                     graph_layout6.add_edge(i+1, j+1)
                     adjacent_matrix6[i][j] = 0
                     adjacent_matrix6[j][i] = 0
-  
-        
-        fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(24,24))   
+
+        fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(24, 24))
         dictionary1 = nx.spring_layout(G)
         dictionary2 = nx.spring_layout(H)
         dictionary3 = nx.spring_layout(I)
@@ -269,39 +272,44 @@ class AdjacencyMatrix(object):
         dictionary5 = nx.spring_layout(K)
         dictionary6 = nx.spring_layout(L)
 
-        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax = axes[0,0])
-        nx.draw_networkx_labels(graph_layout1, dictionary1, ax= axes[0,0])
-        nx.draw_networkx_edges(graph_layout1, dictionary1, ax = axes[0,0], edge_color = 'r')
-        axes[0,0].set_title(title1)
-        
-        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax = axes[0,1])
-        nx.draw_networkx_labels(graph_layout2, dictionary2, ax= axes[0,1])
-        nx.draw_networkx_edges(graph_layout2, dictionary2, ax = axes[0,1], edge_color = 'b')
-        axes[0,1].set_title(title2)
-        
-        plt.subplots_adjust(hspace = 0.236, wspace= 0.176)
+        nx.draw_networkx_nodes(graph_layout1, dictionary1, ax=axes[0, 0])
+        nx.draw_networkx_labels(graph_layout1, dictionary1, ax=axes[0, 0])
+        nx.draw_networkx_edges(graph_layout1, dictionary1,
+                               ax=axes[0, 0], edge_color='r')
+        axes[0, 0].set_title(title1)
 
-        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax = axes[0,2])
-        nx.draw_networkx_labels(graph_layout3, dictionary3, ax = axes[0,2])
-        nx.draw_networkx_edges(graph_layout3, dictionary3, ax = axes[0,2], edge_color= 'g')
-        axes[0,2].set_title(title3)
+        nx.draw_networkx_nodes(graph_layout2, dictionary2, ax=axes[0, 1])
+        nx.draw_networkx_labels(graph_layout2, dictionary2, ax=axes[0, 1])
+        nx.draw_networkx_edges(graph_layout2, dictionary2,
+                               ax=axes[0, 1], edge_color='b')
+        axes[0, 1].set_title(title2)
 
-        nx.draw_networkx_nodes(graph_layout4, dictionary4, ax = axes[1,0])
-        nx.draw_networkx_labels(graph_layout4, dictionary4, ax = axes[1,0])
-        nx.draw_networkx_edges(graph_layout4, dictionary4, ax = axes[1,0], edge_color= 'm')
-        axes[1,0].set_title(title4)
+        plt.subplots_adjust(hspace=0.236, wspace=0.176)
 
-        nx.draw_networkx_nodes(graph_layout5, dictionary5, ax = axes[1,1])
-        nx.draw_networkx_labels(graph_layout5, dictionary5, ax = axes[1,1])
-        nx.draw_networkx_edges(graph_layout5, dictionary5, ax = axes[1,1], edge_color= 'y')
-        axes[1,1].set_title(title5)
+        nx.draw_networkx_nodes(graph_layout3, dictionary3, ax=axes[0, 2])
+        nx.draw_networkx_labels(graph_layout3, dictionary3, ax=axes[0, 2])
+        nx.draw_networkx_edges(graph_layout3, dictionary3,
+                               ax=axes[0, 2], edge_color='g')
+        axes[0, 2].set_title(title3)
 
-        nx.draw_networkx_nodes(graph_layout6, dictionary6, ax = axes[1,2])
-        nx.draw_networkx_labels(graph_layout6, dictionary6, ax = axes[1,2])
-        nx.draw_networkx_edges(graph_layout6, dictionary6, ax = axes[1,2], edge_color= 'c')
-        axes[1,2].set_title(title6)
+        nx.draw_networkx_nodes(graph_layout4, dictionary4, ax=axes[1, 0])
+        nx.draw_networkx_labels(graph_layout4, dictionary4, ax=axes[1, 0])
+        nx.draw_networkx_edges(graph_layout4, dictionary4,
+                               ax=axes[1, 0], edge_color='m')
+        axes[1, 0].set_title(title4)
+
+        nx.draw_networkx_nodes(graph_layout5, dictionary5, ax=axes[1, 1])
+        nx.draw_networkx_labels(graph_layout5, dictionary5, ax=axes[1, 1])
+        nx.draw_networkx_edges(graph_layout5, dictionary5,
+                               ax=axes[1, 1], edge_color='y')
+        axes[1, 1].set_title(title5)
+
+        nx.draw_networkx_nodes(graph_layout6, dictionary6, ax=axes[1, 2])
+        nx.draw_networkx_labels(graph_layout6, dictionary6, ax=axes[1, 2])
+        nx.draw_networkx_edges(graph_layout6, dictionary6,
+                               ax=axes[1, 2], edge_color='c')
+        axes[1, 2].set_title(title6)
 
         plt.show()
-        
 
         
