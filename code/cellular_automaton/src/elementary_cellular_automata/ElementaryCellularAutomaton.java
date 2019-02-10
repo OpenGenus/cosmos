@@ -65,11 +65,11 @@ public class ElementaryCellularAutomaton {
 	
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
+		String result = "";
 		boolean[] array = grid[step];
-		for (int i = 0; i < array.length; i++) {
-		    if (array[i]) builder.append("1"); else builder.append("0");
+		for (boolean flag : array) {
+			result += (flag) ? "1" : "0";
 		}
-		return builder.toString();
+		return result;
 	}
 }
