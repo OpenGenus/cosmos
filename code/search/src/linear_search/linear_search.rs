@@ -1,7 +1,7 @@
-fn search(vec: &[i32], n: i32) -> Option<i32> {
+fn search(vec: &[i32], n: i32) -> Option<usize> {
     for i in 0..vec.len() {
         if vec[i] == n {
-            return Some(i as i32); // Element found
+            return Some(i); // Element found
         }
     }
     None
