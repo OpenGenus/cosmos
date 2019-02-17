@@ -12,7 +12,7 @@ function LSB(i):
         return i & (-i)
 ```
 A Fenwick tree preforms two functions:
-* query(b) -- Queries for the range `[1, b]`. query(b) - query(a - 1) queries for range `[a, b]`.
+* query(x, y) -- Queries for the submatrix `((0, 0), (x, y)`. This function is used to query any submatrix in form `(x<sub>1</sub>, y<sub>1</sub>), (x<sub>2</sub>, y<sub>2</sub>))`.
 ```
 function query(x, y):
     sum = 0
@@ -26,7 +26,7 @@ function query(x, y):
         x = x + LSB(x)
     return sum
 ```
-* update(pos, value) -- Updates index `pos` with `value`.
+* update(x, y, value) -- Updates position `(s, y)` with `value`.
 ```
 function update(x, y, value):
     while x <= m:
