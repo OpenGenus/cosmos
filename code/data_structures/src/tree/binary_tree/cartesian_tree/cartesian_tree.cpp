@@ -108,7 +108,7 @@ public:
         sorted_ar.assign(0, 0);
 
         // Initialize priority queue
-        std::priority_queue<Node *, std::vector<Node *>, compare> p_queue;
+        std::priority_queue<Node *, std::vector<Node *>, Compare> p_queue;
         p_queue.push(root);
 
         Node *temp = NULL;
