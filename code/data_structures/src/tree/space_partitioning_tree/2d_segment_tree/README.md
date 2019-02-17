@@ -12,8 +12,8 @@ The process to build a 2D segment tree is similar to process of building a 1D se
 __Space complexity__ : O(4*M*N)
 
 Worst case time complexities:
-* __Build__ : O(4*M*N)
-* __Query__ : O(log<sub>2</sub>(M) * log<sub>2</sub>(N))
+* __Build__ : O(4\*M \*N)
+* __Query__ : O(log<sub>2</sub>(M) \* log<sub>2</sub>(N))
 Where the matrix is of size `M x N`
 
 ---
