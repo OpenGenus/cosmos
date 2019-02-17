@@ -15,7 +15,7 @@ A Fenwick tree preforms two functions:
 * query(b) -- Queries for the range `[1, b]`. query(b) - query(a - 1) queries for range `[a, b]`.
 ```
 function query(b):
-  while b &gt; 0:
+  while b > 0:
       # process appropriately
       ...
 
@@ -25,7 +25,7 @@ function query(b):
 * update(pos, value) -- Updates index `pos` with `value`.
 ```
 function update(pos, value):
-    while pos &lt;= n:
+    while pos <= n:
         # Update array[pos] and FenwickTree[[pos] appropriately.
         ...
         
