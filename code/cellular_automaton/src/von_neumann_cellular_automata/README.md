@@ -5,11 +5,6 @@
 
 Jonh Von Neumann worked for years on a simple model for a logical cellular automaton with the purpose to build a self-replication machine. Wich logical organization an automaton will need to be able to control itself in a way that it reproduces itself? To answer that, Von Neumann thought on logical operations and states with different objectives, capable to construct and deconstruct other states for their own. This lead to Von Neumann Cellular System.
 
-To represent a finite automaton on a cellular system, we can mark a finite area of the cellular space, specifies the states of the cells in this area and create a mechanism which simulates the automaton. The Von Neumann automaton has a total of 29 states for each cell.
-This cells can receive signals from the neighbors positioned in a 2D Cartesian grid, Von Neumann define as neighborhood (**D**) only the four cells who share a face with the target one (**P**), illustrated for the image below.
-
-![Von Neumann Neighborhood](https://iq.opengenus.org/content/images/2019/02/Von_Neumann_neighborhood.svg-1.png)
-
 ## States
 
 To maintain your simplicity, Von Neumann limited your automaton to only 29 states, is that the minimum to build a self-replication machine. This states can be divided into four groups:
