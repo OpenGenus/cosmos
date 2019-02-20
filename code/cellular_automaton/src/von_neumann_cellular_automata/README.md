@@ -7,7 +7,7 @@ Jonh Von Neumann worked for years on a simple model for a logical cellular autom
 
 ## States
 
-To maintain your simplicity, Von Neumann limited your automaton to only 29 states, is that the minimum to build a self-replication machine. This states can be divided into four groups:
+To maintain simplicity, Von Neumann limited the automaton to only 29 states, which is the minimum needed to build a self-replicating machine. These states can be divided into four groups:
 
  - The **blank state** or unexcitable state (**U**) is the basic and initial state, when it is excited it will become one of the transmission states or a confluent state. If another state has been deconstructed, that cell returns to the blank state.
 
