@@ -35,12 +35,10 @@ Now, the array is already sorted, but our algorithm does not know if it is compl
 ```
 begin BubbleSort(list)
 
-   for unsorted_end in list[n...1]
-      for unsorted_beg of list[1...unsorted_end-1]
-         if list[unsorted_beg] > list[unsorted_beg+1]
-            swap(list[unsorted_beg], list[unsorted_beg+1])
-         end if
-      end for
+   for all elements of list
+      if list[i] > list[i+1]
+         swap(list[i], list[i+1])
+      end if
    end for
    
    return list
