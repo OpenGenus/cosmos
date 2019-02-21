@@ -1,9 +1,9 @@
 # cosmos
 > Your personal library of every algorithm and data structure code that you will ever encounter
 
-# Biggest Of n numbers
+# Apriori Algoithm
 
-The aim is to items that occur together frequently in a set of transactions using the Apriori algorithm.
+The aim is to find items that occur together frequently in a set of transactions using the Apriori algorithm.
 ---
 
 <p align="center">
