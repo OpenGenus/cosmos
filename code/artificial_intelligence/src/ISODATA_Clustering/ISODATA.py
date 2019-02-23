@@ -11,7 +11,9 @@ def volume_estimation(cluster, center):
     num_of_points = len(cluster)
     distance = []
     for i in range(num_of_points):
-        distance.append(distance_2point(center[0], center[1], cluster[i][0], cluster[i][1]))
+        distance.append(
+            distance_2point(center[0], center[1], cluster[i][0], cluster[i][1])
+        )
 
     return sum(distance) / num_of_points
 
@@ -33,7 +35,9 @@ def center_distance(centers):
             if i == j:
                 pass
             else:
-                D_ij[(i, j)] = distance_2point(centers[i][0], centers[i][1], centers[j][0], centers[j][1])
+                D_ij[(i, j)] = distance_2point(
+                    centers[i][0], centers[i][1], centers[j][0], centers[j][1]
+                )
         k += 1
     return D_ij
 
@@ -66,7 +70,11 @@ def cluster_points_distribution(centers, points):
     for i in range(points_len):
         # iteration throught all centers
         for j in range(centers_len):
-            distance.append(distance_2point(centers[j][0], centers[j][1], points[i][0], points[i][1]))
+            distance.append(
+                distance_2point(
+                    centers[j][0], centers[j][1], points[i][0], points[i][1]
+                )
+            )
         distances.append(distance)
         distance = []
 
@@ -210,8 +218,12 @@ def clusterize():
                 length = len(clusters[i])
                 coef = 2 * (THETA_N + 1)
 
-                if (max_s[i] > THETA_S) and ((D_vol[i] > D and length > coef) or N_c < float(K) / 2):
-                    center1, center2 = cluster_division(clusters[i], centers[i], vectors[i])
+                if (max_s[i] > THETA_S) and (
+                    (D_vol[i] > D and length > coef) or N_c < float(K) / 2
+                ):
+                    center1, center2 = cluster_division(
+                        clusters[i], centers[i], vectors[i]
+                    )
                     del centers[i]
                     centers.append(center1)
                     centers.append(center2)
@@ -221,14 +233,14 @@ def clusterize():
                     pass
 
         # for i in clusters:
-        #	print(i)
+        # 	print(i)
 
         # step 11
         D_ij = center_distance(centers)
         rang = {}
         for coord in D_ij:
             if D_ij[coord] < THETA_C:
-                rang[coord] = (D_ij[coord])
+                rang[coord] = D_ij[coord]
             else:
                 pass
 
@@ -245,7 +257,7 @@ def clusterize():
     return clusters
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # if file called as a script
     # cluster points
     points1 = [
@@ -261,7 +273,7 @@ if __name__ == '__main__':
         (5, -6),
         (6, -5),
         (44, 49),
-        (45, 50)
+        (45, 50),
     ]
     points2 = [
         (-0.99, 1.09),
@@ -276,7 +288,7 @@ if __name__ == '__main__':
         (0.96, 1.06),
         (0.97, 1.07),
         (0.98, 1.08),
-        (0.99, 1.09)
+        (0.99, 1.09),
     ]
     points3 = [
         (-99, 109),
@@ -291,13 +303,9 @@ if __name__ == '__main__':
         (96, 106),
         (97, 107),
         (98, 108),
-        (99, 109)
+        (99, 109),
     ]
     points = points3
     cl = clusterize()
     for i in cl:
         print("Cl", i)
-
-
-
-

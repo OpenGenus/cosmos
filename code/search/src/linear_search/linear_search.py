@@ -1,6 +1,6 @@
-'''
+"""
 Part of Cosmos by OpenGenus Foundation
-'''
+"""
 
 
 def linear_search(arr, x):

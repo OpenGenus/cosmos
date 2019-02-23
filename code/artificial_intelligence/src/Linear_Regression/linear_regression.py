@@ -33,8 +33,8 @@ def plot_regression_line(x, y, b):
     plt.plot(x, y_pred, color="r")
 
     # putting labels
-    plt.xlabel('x')
-    plt.ylabel('y')
+    plt.xlabel("x")
+    plt.ylabel("y")
 
     # function to show plot
     plt.show()
@@ -47,8 +47,12 @@ def main():
 
     # estimating coefficients
     b = estimate_coef(x, y)
-    print("Estimated coefficients are:\nb_0 = {}  \
-          \nb_1 = {}".format(b[0], b[1]))
+    print(
+        "Estimated coefficients are:\nb_0 = {}  \
+          \nb_1 = {}".format(
+            b[0], b[1]
+        )
+    )
 
     # plotting regression line
     plot_regression_line(x, y, b)

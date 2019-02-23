@@ -1,4 +1,3 @@
-
 # Rabin Karp Algorithm in python using hash values
 # d is the number of characters in input alphabet
 d = 2560
