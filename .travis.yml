@@ -54,6 +54,13 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
 
+    # Autoformat Python code
+    - os: linux
+      language: python
+      python: 3.6
+      script:
+        - pip install black
+        - find code/ -type f -name "*.py" | xargs black --check
+
 before_install:
    - eval "${MATRIX_EVAL}"
-
