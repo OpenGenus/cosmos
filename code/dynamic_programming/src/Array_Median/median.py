@@ -2,6 +2,7 @@ import sys
 
 # Part of Cosmos by OpenGenus Foundation
 
+
 def median(nums):
     """
         Calculates the median of a list of numbers.
@@ -13,7 +14,7 @@ def median(nums):
 
     # If the length is odd, the median is the middle value of the sorted list.
     if odd:
-        return sorted_nums[(len_nums-1)//2]
+        return sorted_nums[(len_nums - 1) // 2]
 
     # Otherwise it's the average of the middle two.
     return (nums[len_nums // 2] + nums[(len_nums // 2) - 1]) / 2
@@ -55,24 +56,24 @@ def test_main():
     def print_patch(arg):
         assert arg == 5.5
 
-    main.__globals__['print'] = print_patch
+    main.__globals__["print"] = print_patch
 
-    #patch main's stdin
-    class stdin_patch():
+    # patch main's stdin
+    class stdin_patch:
         def read(self):
             return "1 2 3 4 5.5 6 7 8 9\n"
 
-    main.__globals__['sys'].stdin = stdin_patch()
+    main.__globals__["sys"].stdin = stdin_patch()
 
     # invoke main with mocks
     main()
 
     # undo patches
-    main.__globals__['sys'].stdin.read = _stdin_read
-    del main.__globals__['print']
+    main.__globals__["sys"].stdin.read = _stdin_read
+    del main.__globals__["print"]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_median()
-#    test_main()
+    #    test_main()
     main()

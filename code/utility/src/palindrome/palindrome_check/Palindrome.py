@@ -1,4 +1,3 @@
-
 def main():
     """
     Determine whether or not a string is a palindrome.
@@ -31,6 +30,7 @@ def is_palindrome(string):
         # if it gets to this statement, it's a palindrome
         return is_palindrome(string[1:-1])
 
+
 # Call the main function.
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
