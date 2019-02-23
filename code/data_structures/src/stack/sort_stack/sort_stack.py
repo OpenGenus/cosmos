@@ -1,5 +1,4 @@
-
-class stack():
+class stack:
     def __init__(self):
         self.__stack = []
         pass
@@ -22,6 +21,7 @@ class stack():
 
     def sort(self):
         self.__stack = sorted(self.__stack)
+
     pass
 
 
@@ -34,10 +34,10 @@ stk.push(2)
 stk.push(-1)
 
 # viewing
-print("Original Stack : ",stk.get_elements())
+print("Original Stack : ", stk.get_elements())
 
 # sorting stack
 stk.sort()
 
 # viewing again
-print("Sorted Stack : ",stk.get_elements())
+print("Sorted Stack : ", stk.get_elements())
