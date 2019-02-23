@@ -9,7 +9,6 @@
 
 class FenwickTree
 {
-private:
     // Matrix to store the tree
     std::vector<std::vector<int>> ft;
 

@@ -30,13 +30,13 @@ public:
             segTree[index] = ar[L];
         else
         {
-        int mid = (L + R) / 2;
-        // 2*index will be left child
-        build(segTree, ar, 2*index, L, mid);
-        // 2*index + 1 will be right child
-        build(segTree, ar, 2*index + 1, mid + 1, R);
-        // finally, add the values from two children into the parent
-        segTree[index] = segTree[2*index] + segTree[2*index + 1];
+            int mid = (L + R) / 2;
+            // 2*index will be left child
+            build(segTree, ar, 2*index, L, mid);
+            // 2*index + 1 will be right child
+            build(segTree, ar, 2*index + 1, mid + 1, R);
+            // finally, add the values from two children into the parent
+            segTree[index] = segTree[2*index] + segTree[2*index + 1];
         }
     }
 
@@ -67,7 +67,6 @@ public:
         // if at leaf node, build a 1D segment tree
         if (L == R)
             build(st[index], mat[L], 1, 0, n - 1);
-
         else
         {
             int mid = (L + R) / 2;

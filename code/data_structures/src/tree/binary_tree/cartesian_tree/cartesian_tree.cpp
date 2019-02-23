@@ -19,9 +19,9 @@ struct Node
     Node ()
     {
         value = 0;
-        parent = NULL;
-        left = NULL;
-        right = NULL;
+        parent = nullptr;
+        left = nullptr;
+        right = nullptr;
     }
 };
 
@@ -36,7 +36,6 @@ struct Compare
 
 class CartesianTree
 {
-private:
     // last pointer to keep track of last node added
     Node *root, *last;
 
@@ -44,10 +43,10 @@ private:
     {
         if (node->value < x)
             return node;
-        else if (node->parent != NULL)
+        else if (node->parent != nullptr)
             return findLowestNode(node->parent, x);
         else
-            return NULL;
+            return nullptr;
     }
 
 public:
@@ -60,14 +59,14 @@ public:
     {
         Node *new_node = new Node;
         new_node->value = x;
-        if (root == NULL)
+        if (root == nullptr)
         {
             last = new_node;
             root = new_node;
             return;
         }
         Node *z = findLowestNode(last, x);
-        if (z == NULL)
+        if (z == nullptr)
         {
             new_node->left = root;
             root->parent = new_node;
@@ -84,17 +83,17 @@ public:
 
     CartesianTree (std::vector<int> ar)
     {
-        root = NULL;
-        last = NULL;
+        root = nullptr;
+        last = nullptr;
         // Call addNode function for each element of the array
         for (auto x : ar)
             addNode(x);
     }
 
-    void InorderTraversal (Node *node)
+    void inorderTraversal (Node *node)
     {
         // To print inorder traversal of the tree
-        if(node == NULL)
+        if(node == nullptr)
             return;
         InorderTraversal(node->left);
         std::cout << node->value << ' ';
@@ -111,7 +110,7 @@ public:
         std::priority_queue<Node *, std::vector<Node *>, Compare> p_queue;
         p_queue.push(root);
 
-        Node *temp = NULL;
+        Node *temp = nullptr;
         while (!p_queue.empty())
         {
             temp = p_queue.top();
@@ -122,6 +121,18 @@ public:
             if (temp->right)
                 p_queue.push(temp->right);
         }
+    }
+
+    void deleteTree(Node *node){
+        if(node == nullptr)
+            return;
+        deleteTree(node->left);
+        deleteTree(node->right);
+        delete node;
+    }
+
+    ~CartesianTree(){
+        deleteTree(root);
     }
 };
 
@@ -140,4 +151,6 @@ int main ()
     for(auto x : sorted)
         std::cout << x << ' ';
     std::cout << '\n';
+
+    return 0;
 }
