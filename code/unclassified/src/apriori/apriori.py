@@ -5,48 +5,42 @@
 
 import csv
 from itertools import combinations, chain
-
+from collections import defaultdict
 
 min_support = 0.1
 
 
 def csv_to_list(filename):
-	"""
-		Function to convert the transaction-dataset into a list of lists
+	"""Function to convert the transaction-dataset into a list of lists
 	"""
 	with open(filename, 'r') as f:
 		reader = csv.reader(f)
-		data = [row for row in reader]
+		data = list(reader)
 		return data
 
 
 def count_support(transactions):
+	"""Function to count the support of each unique item in the dataset
+	Returns a dictionary with item names as keys, and support as values
 	"""
-		Function to count the support of each unique item in the dataset
-		Returns a dictionary with item names as keys, and support as values
-	"""
-	sup = {}
+	sup = defaultdict(int)
 	num_transactions = len(transactions)
 	for row in transactions:
 		for col in row:
-			if col not in sup.keys():
-				sup[col] = 1
-			else:
-				sup[col] += 1
-	for item in sup.keys():
+			sup[col] += 1
+	for item in sup:
 		sup[item] /= num_transactions
-	return sup
+	return dict(sup)
 
 
 def join_itemset(a, b):
-	"""
-		Function to merge to length-N itemsets with (N-1)-length common prefix
-		Returns an itemset of length N+1
+	"""Function to merge to length-N itemsets with (N-1)-length common prefix
+	Returns an itemset of length N+1
 	"""
 	a = list(a)
 	b = list(b)
-	x = a[: -1]
-	y = b[: -1]
+	x = a[:-1]
+	y = b[:-1]
 	if x == y:
 		x.extend([a[-1], b[-1]])
 		return tuple(x)
@@ -54,8 +48,7 @@ def join_itemset(a, b):
 
 
 def subsets(itemlist):
-	"""
-		Function to generate all subsets of a given itemset
+	"""Function to generate all subsets of a given itemset
 	"""
 	subs = []
 	for i in range(1, len(itemlist)):
@@ -64,11 +57,10 @@ def subsets(itemlist):
 
 
 def frequent_candidates(transactions, candidates):
-	"""
-		Function to count support of candidate itemsets,
-		and filter out ones which do not meet the criteria.
-		Returns a list of frequent itemsets from the candiates,
-		and a dictionary containing their support.
+	"""Function to count support of candidate itemsets,
+	and filter out ones which do not meet the criteria.
+	Returns a list of frequent itemsets from the candiates,
+	and a dictionary containing their support.
 	"""
 	count = {}
 	freq = {}
@@ -79,16 +71,15 @@ def frequent_candidates(transactions, candidates):
 			if set(c) <= set(t):
 				count[c] += 1
 	for c in count:
-		if count[c] >= min_support*len(transactions):
-			freq[c] = count[c]/len(transactions)
+		if count[c] >= min_support * len(transactions):
+			freq[c] = count[c] / len(transactions)
 	return freq.keys(), freq
 
 
 def apriori(items, transactions, support):
-	"""
-		Apriori algorithm to extract frequent itemsets from a set of transactions.
-		Uses anti-montone property for support to prune the search space.
-		Returns a dictionary of frequent itemsets as keys and support as values
+	"""Apriori algorithm to extract frequent itemsets from a set of transactions.
+	Uses anti-montone property for support to prune the search space.
+	Returns a dictionary of frequent itemsets as keys and support as values
 	"""
 	freq = dict()
 	# Make 1-itemsets from frequent items
