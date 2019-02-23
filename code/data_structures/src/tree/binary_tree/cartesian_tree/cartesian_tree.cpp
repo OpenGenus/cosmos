@@ -95,9 +95,9 @@ public:
         // To print inorder traversal of the tree
         if(node == nullptr)
             return;
-        InorderTraversal(node->left);
+        inorderTraversal(node->left);
         std::cout << node->value << ' ';
-        InorderTraversal(node->right);
+        inorderTraversal(node->right);
     }
 
     // Function to sort and store values in array
@@ -142,7 +142,7 @@ int main ()
 
     CartesianTree tree(ar);
     std::cout << "Inorder Traversal\n";
-    tree.InorderTraversal(tree.getRoot());
+    tree.inorderTraversal(tree.getRoot());
     std::cout << '\n';
 
     std::vector<int> sorted;

@@ -9,7 +9,7 @@ Segment Tree is used to answer range queries in an array. The data structure can
 The process to build a 2D segment tree is similar to process of building a 1D segment tree. Only difference is that every node in a 2D segment tree is a 1D segment tree in itself, so it can be called a segment tree of segment trees.
 
 ## Complexity
-__Space complexity__ : O(4*M*N)
+__Space complexity__ : O(4\*M \*N)
 
 Worst case time complexities:
 * __Build__ : O(4\*M \*N)

@@ -1,4 +1,4 @@
-# Cartesian tree
+# Treap
 
 ## Explaination
 A treap is a height balanced binary tree. Treap is used to store a sequence in a tree, which allows for various applications like searching. A treap can is a combination of a tree and a heap, possessing properties of both:

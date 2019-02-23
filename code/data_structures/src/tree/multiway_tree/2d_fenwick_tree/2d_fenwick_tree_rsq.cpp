@@ -70,7 +70,6 @@ int main ()
             std::cout << matrix[i][j] << ' ';
         std::cout << '\n';
     }
-    std::cout << '\n';
     std::cout << "Sum of submatrix ((2, 2), (4, 4)) is " << ft.query(2, 2, 4, 4) << '\n';
 
     std::cout << "After changing 3 at (2, 2) to 10, matrix is\n";
@@ -83,7 +82,6 @@ int main ()
             std::cout << matrix[i][j] << ' ';
         std::cout << '\n';
     }
-    std::cout << '\n';
     std::cout << "Sum of submatrix ((2, 2), (4, 4)) is " << ft.query(2, 2, 4, 4) << '\n';
 
     return 0;
