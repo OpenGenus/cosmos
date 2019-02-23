@@ -60,7 +60,7 @@ matrix:
       python: 3.6
       script:
         - pip install black
-        - find code/ -type f -name "*.py" | xargs black --check
+        - ./scripts/python_code_style_checker.sh
 
 before_install:
    - eval "${MATRIX_EVAL}"
