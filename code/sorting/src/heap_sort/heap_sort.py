@@ -22,16 +22,15 @@ def swap(arr, a, b):
     arr[a], arr[b] = arr[b], arr[a]
 
 
-#sorting is in the ascending order
+# sorting is in the ascending order
 def heap_sort(arr):
-    #form a max heap
+    # form a max heap
     for i in range(math.floor(len(arr) / 2), -1, -1):
         heap_root(arr, i, len(arr))
 
     length = len(arr)
-    #remove the root and reform the heap
+    # remove the root and reform the heap
     for i in range(len(arr) - 1, 0, -1):
         swap(arr, 0, i)
         length -= 1
         heap_root(arr, 0, length)
-

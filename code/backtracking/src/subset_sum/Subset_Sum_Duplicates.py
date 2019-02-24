@@ -18,6 +18,7 @@ def combinationSum(candidates, target):
     backtrack(0, sorted(candidates), target, 0, result_set, [])
     return result_set
 
+
 def backtrack(pos, candidates, target, currentSum, result_set, sequence):
     """
     Helper function for backtracking. Initially does a DFS traversal on each
@@ -46,8 +47,6 @@ def backtrack(pos, candidates, target, currentSum, result_set, sequence):
             sequence.pop()
 
 
-
-if __name__ == '__main__':
-    arr = [2,3,6,7]
+if __name__ == "__main__":
+    arr = [2, 3, 6, 7]
     print(combinationSum(arr, 7))
-
