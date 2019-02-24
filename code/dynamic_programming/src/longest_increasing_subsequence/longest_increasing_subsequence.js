@@ -3,9 +3,9 @@
  */
 
 /**
-  * Method that returns the length of the Longest Increasing Subsequence for the input array
-  * @param {array} inputArray
-  */
+ * Method that returns the length of the Longest Increasing Subsequence for the input array
+ * @param {array} inputArray
+ */
 function longestIncreasingSubsequence(inputArray) {
   // Get the length of the array
   let arrLength = inputArray.length;
@@ -40,6 +40,6 @@ console.log(
     50,
     41,
     60,
-    80,
+    80
   ])}`
 );

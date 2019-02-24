@@ -5,8 +5,8 @@
  * @return {string} Encoded string
  */
 const rotN = function rot(text, n) {
-  let output = '';
-  
+  let output = "";
+
   // Loop through input
   for (let char of text) {
     // Get ASCII code
@@ -16,7 +16,7 @@ const rotN = function rot(text, n) {
       output += String(char);
     } else {
       // Subtract 'A' if uppercase, 'a' if lowercase
-      let sub = (ascii >= 65 && ascii <= 90) ? 'A' : 'a';
+      let sub = ascii >= 65 && ascii <= 90 ? "A" : "a";
       // Convert to alphabet index starting from zero (0 - 25)
       ascii -= sub.charCodeAt(0);
       // Shift
@@ -27,10 +27,9 @@ const rotN = function rot(text, n) {
       output += String.fromCharCode(ascii + sub.charCodeAt(0));
     }
   }
-  
+
   return output;
 };
 
 // Examples
-console.log(rotN('Hello, world!', 13));  // Outputs "Uryyb, jbeyq!"
-
+console.log(rotN("Hello, world!", 13)); // Outputs "Uryyb, jbeyq!"
