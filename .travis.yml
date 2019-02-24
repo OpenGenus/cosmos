@@ -54,13 +54,21 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
 
-    # Autoformat Python code
+    # Check formatting of Python code
     - os: linux
       language: python
       python: 3.6
       script:
         - pip install black
         - ./scripts/python_code_style_checker.sh
+
+    # Check formatting of Javascript code
+    - os: linux
+      language: node_js
+      node_js: node
+      script:
+        - npm install -g prettier
+        - ./scripts/javascript_code_style_checker.sh
 
 before_install:
    - eval "${MATRIX_EVAL}"
