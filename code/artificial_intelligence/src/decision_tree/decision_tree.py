@@ -102,9 +102,8 @@ def get_split(dataset):
             groups = test_split(index, row[index], dataset)
             gini = gini_index(groups, class_values)
             if gini < b_score:
-                b_index, b_value, b_score, b_groups = index, row[
-                    index], gini, groups
-    return {'index': b_index, 'value': b_value, 'groups': b_groups}
+                b_index, b_value, b_score, b_groups = index, row[index], gini, groups
+    return {"index": b_index, "value": b_value, "groups": b_groups}
 
 
 # Create a terminal node value
@@ -115,28 +114,28 @@ def to_terminal(group):
 
 # Create child splits for a node or make terminal
 def split(node, max_depth, min_size, depth):
-    left, right = node['groups']
-    del (node['groups'])
+    left, right = node["groups"]
+    del (node["groups"])
     # check for a no split
     if not left or not right:
-        node['left'] = node['right'] = to_terminal(left + right)
+        node["left"] = node["right"] = to_terminal(left + right)
         return
     # check for max depth
     if depth >= max_depth:
-        node['left'], node['right'] = to_terminal(left), to_terminal(right)
+        node["left"], node["right"] = to_terminal(left), to_terminal(right)
         return
     # process left child
     if len(left) <= min_size:
-        node['left'] = to_terminal(left)
+        node["left"] = to_terminal(left)
     else:
-        node['left'] = get_split(left)
-        split(node['left'], max_depth, min_size, depth + 1)
+        node["left"] = get_split(left)
+        split(node["left"], max_depth, min_size, depth + 1)
     # process right child
     if len(right) <= min_size:
-        node['right'] = to_terminal(right)
+        node["right"] = to_terminal(right)
     else:
-        node['right'] = get_split(right)
-        split(node['right'], max_depth, min_size, depth + 1)
+        node["right"] = get_split(right)
+        split(node["right"], max_depth, min_size, depth + 1)
 
 
 # Build a decision tree
@@ -148,16 +147,16 @@ def build_tree(train, max_depth, min_size):
 
 # Make a prediction with a decision tree
 def predict(node, row):
-    if row[node['index']] < node['value']:
-        if isinstance(node['left'], dict):
-            return predict(node['left'], row)
+    if row[node["index"]] < node["value"]:
+        if isinstance(node["left"], dict):
+            return predict(node["left"], row)
         else:
-            return node['left']
+            return node["left"]
     else:
-        if isinstance(node['right'], dict):
-            return predict(node['right'], row)
+        if isinstance(node["right"], dict):
+            return predict(node["right"], row)
         else:
-            return node['right']
+            return node["right"]
 
 
 # Classification and Regression Tree Algorithm
@@ -167,13 +166,13 @@ def decision_tree(train, test, max_depth, min_size):
     for row in test:
         prediction = predict(tree, row)
         predictions.append(prediction)
-    return (predictions)
+    return predictions
 
 
 # Test CART on Bank Note dataset
 seed(1)
 # load and prepare data
-filename = 'data_banknote_authentication.csv'
+filename = "data_banknote_authentication.csv"
 dataset = load_csv(filename)
 # convert string attributes to integers
 for i in range(len(dataset[0])):
@@ -182,23 +181,24 @@ for i in range(len(dataset[0])):
 n_folds = 5
 max_depth = 5
 min_size = 10
-scores = evaluate_algorithm(dataset, decision_tree, n_folds, max_depth,
-                            min_size)
-print('Scores: %s' % scores)
-print('Mean Accuracy: %.3f%%' % (sum(scores) / float(len(scores))))
+scores = evaluate_algorithm(dataset, decision_tree, n_folds, max_depth, min_size)
+print("Scores: %s" % scores)
+print("Mean Accuracy: %.3f%%" % (sum(scores) / float(len(scores))))
 
 # Evaluate algorithm by computing ROC (Receiver Operating Characteristic) and AUC (area the curve)
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
+
 false_positve_rate, true_positive_rate = roc_curve(actual, predictions)
 roc_auc = auc(false_positve_rate, true_positive_rate)
 plt.plot(
     false_positve_rate,
     true_positive_rate,
     lw=1,
-    label='ROC curve (area = %0.2f)' % roc_auc[2])
-plt.title('Receiver operating characteristic example')
-plt.ylabel('True Positive Rate')
-plt.xlabel('False Positive Rate')
+    label="ROC curve (area = %0.2f)" % roc_auc[2],
+)
+plt.title("Receiver operating characteristic example")
+plt.ylabel("True Positive Rate")
+plt.xlabel("False Positive Rate")
 plt.show()
-print('AUC: %s' % roc_auc)
+print("AUC: %s" % roc_auc)

@@ -46,7 +46,7 @@ public class RSA {
     
     public static void main(String[] args) {
         RSA rsa=new RSA();
-       Scanner sc=new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
         System.out.println("Enter the plain text: ");
         String plaintext=sc.nextLine();
         System.out.println("Encryption in progress..");
