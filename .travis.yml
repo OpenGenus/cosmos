@@ -76,6 +76,13 @@ matrix:
         # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
         - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+    # Autoformat Python code
+    - os: linux
+      language: python
+      python: 3.6
+      script:
+        - pip install black
+        - ./scripts/python_code_style_checker.sh
+
 before_install:
    - eval "${MATRIX_EVAL}"
-

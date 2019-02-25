@@ -1,7 +1,7 @@
 """LIS implementation in Python"""
-#Part of Cosmos by OpenGenus Foundation
+# Part of Cosmos by OpenGenus Foundation
 
-#Time Complexity: O(nlogn)
+# Time Complexity: O(nlogn)
 def length_of_lis(nums):
     """Return the length of the Longest increasing subsequence"""
     tails = [0] * len(nums)
