@@ -3,7 +3,8 @@ def isPalindromeRecursive(string):
         return True
     if string[0] != string[len(string) - 1]:
         return False
-    return isPalindromeRecursive(string[1:len(string) - 1])
+    return isPalindromeRecursive(string[1 : len(string) - 1])
+
 
 def isPalindromeReverse(string):
     return string == string[::-1]
@@ -19,8 +20,9 @@ def isPalindromeIterative(string):
             return False
     return True
 
+
 if __name__ == "__main__":
-    print(isPalindromeRecursive("alpha")) # should output false
+    print(isPalindromeRecursive("alpha"))  # should output false
     print(isPalindromeRecursive("racecar"))  # should output true
     print(isPalindromeRecursive("abba"))  # should output true
 
@@ -30,5 +32,4 @@ if __name__ == "__main__":
 
     print(isPalindromeIterative("alpha"))  # should output false
     print(isPalindromeIterative("racecar"))  # should output true
-    print(isPalindromeIterative("abba")) # should output true
-    
+    print(isPalindromeIterative("abba"))  # should output true
