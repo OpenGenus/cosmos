@@ -4,7 +4,7 @@
 bool checkBalanced(string s) {
 	if (s.length() % 2 != 0) return false;
 	std::stack <char> st;
-	for (int i = 0; i < s.length(); i++) {
+	for (const char: s) {
 		if (s[i] == '{' || s[i] == '[' || s[i] == '(') 
 			st.push(s[i]);
 		else {
@@ -23,11 +23,8 @@ int main()
 	std::string s;
 	std::cin >> s;
 	bool res = checkBalanced(s);
-	if (res) {
+	if (res)
 		std::cout << "Expression is balanced";
-	}
-	else {
+	else
 		std::cout << "Expression is not balanced";
-	}
-	return 0;
 }
