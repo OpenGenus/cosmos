@@ -20,7 +20,7 @@ bool checkBalanced(string s) {
 
 int main()
 {
-	string s;
+	std::string s;
 	std::cin >> s;
 	bool res = checkBalanced(s);
 	if (res) {
