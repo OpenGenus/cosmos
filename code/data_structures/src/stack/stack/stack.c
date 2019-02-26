@@ -10,7 +10,8 @@ struct Stack
     int* array;
 };
  
-struct Stack* create_stack(unsigned capacity)
+struct Stack* 
+create_stack(unsigned capacity)
 {
     struct Stack* stack = (struct Stack*) malloc(sizeof(struct Stack));
     stack->capacity = capacity;
@@ -19,36 +20,44 @@ struct Stack* create_stack(unsigned capacity)
     return (stack);
 }
 
-void delete_stack(struct Stack * stack)
-{   /* completely delete stack */
+void 
+delete_stack(struct Stack * stack)
+{   
+    /* completely deletes stack */
     free(stack->array);
     free(stack);
 }
  
-int is_full(struct Stack* stack)
+int 
+is_full(struct Stack* stack)
 {   
     /* checks for overflow error */
     return (stack->top == stack->capacity - 1); 
 }
  
-int is_empty(struct Stack* stack)
-{   /* checks for underflow error */
+int 
+is_empty(struct Stack* stack)
+{   
+    /* checks for underflow error */
     return (stack->top == -1);  
 }
  
-void push(struct Stack* stack, int item)
+void 
+push(struct Stack* stack, int item)
 {
     assert(!is_full(stack));
     stack->array[++stack->top] = item;
 }
 
-int pop(struct Stack* stack)
+int 
+pop(struct Stack* stack)
 {   
     assert(!is_empty(stack));
     return (stack->array[stack->top--]);
 }
 
-int main()
+int 
+main()
 {
     struct Stack* stack = create_stack(100);
  
