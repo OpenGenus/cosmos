@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-using namespace std;
 
 bool checkBalanced(string s) {
 	if (s.length() % 2 != 0) return false;
@@ -22,13 +21,13 @@ bool checkBalanced(string s) {
 int main()
 {
 	string s;
-	cin >> s;
+	std::cin >> s;
 	bool res = checkBalanced(s);
 	if (res) {
-		cout << "Expression is balanced";
+		std::cout << "Expression is balanced";
 	}
 	else {
-		cout << "Expression is not balanced";
+		std::cout << "Expression is not balanced";
 	}
 	return 0;
 }
