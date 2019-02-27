@@ -3,7 +3,7 @@
 
 # Von Neumann Cellular Automaton
 
-Jonh Von Neumann worked for years on a simple model for a logical cellular automaton with the purpose to build a self-replication machine. Wich logical organization an automaton will need to be able to control itself in a way that it reproduces itself? To answer that, Von Neumann thought on logical operations and states with different objectives, capable to construct and deconstruct other states for their own. This lead to Von Neumann Cellular System.
+Jonh Von Neumann worked for years on a simple model for a logical cellular automaton with the purpose of building a self-replicating machine. But what kind of logical organization would an automaton need to have in order to control itself in a way that it reproduces itself? To answer that, Von Neumann thought of logical operations and states with different objectives, capable of constructing and deconstructing other states on their own. This lead to the Von Neumann Cellular System.
 
 ## States
 
