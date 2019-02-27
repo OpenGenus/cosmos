@@ -21,7 +21,7 @@ To maintain simplicity, Von Neumann limited the automaton to only 29 states, whi
 
 ## Construction
 
-The construction mechanism starts when a blank state (**U**) is excited by a transmission state in your neighborhood. At this moment the cell becomes **"sensitive"** (**S**), passing through the transition states until stops in one of the ordinary or special transmission states, or in a confluent state. The chosen state is determined by the sequence of input signals that arrive on that cell. The options of that sequence can be represented by a binary tree.
+The construction mechanism starts when a blank state (**U**) is excited by a transmission state in its neighborhood. At this moment the cell becomes **"sensitive"** (**S**), passing through the transition states until it stops in one of the ordinary or special transmission states, or in a confluent state. The chosen state is determined by the sequence of input signals that arrive on that cell. The options of that sequence can be represented by a binary tree.
 
 ![Binary Tree for the Construction Mechanism](https://iq.opengenus.org/content/images/2019/02/ChoiceTree.png)
 
