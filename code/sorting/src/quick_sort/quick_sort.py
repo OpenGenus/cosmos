@@ -1,6 +1,6 @@
-'''
+"""
 Part of Cosmos by OpenGenus Foundation
-'''
+"""
 
 
 def quick_sort(arr):
@@ -28,7 +28,7 @@ def partition(arr, first, last):
             left = left + 1
 
         while arr[right] >= pivot and right >= left:
-            right = right -1
+            right = right - 1
 
         if right < left:
             done = True
@@ -42,4 +42,3 @@ def partition(arr, first, last):
     arr[right] = temp
 
     return right
-

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
+
 def compress(input_string):
     """Compresses the given input string"""
 
-    #Build the dictionary
-    dict_size = 256 #All ASCII characters
+    # Build the dictionary
+    dict_size = 256  # All ASCII characters
     dictionary = {chr(i): i for i in range(dict_size)}
 
     buffer = ""
@@ -22,10 +23,11 @@ def compress(input_string):
         result.append(dictionary[buffer])
     return result
 
+
 def decompress(compressed):
     """Given a list of numbers given by compress to a string"""
 
-    dict_size = 256 #ASCII characters
+    dict_size = 256  # ASCII characters
     dictionary = {i: chr(i) for i in range(dict_size)}
 
     result = ""
@@ -37,9 +39,9 @@ def decompress(compressed):
         elif ch == dict_size:
             entry = ch + ch[0]
         else:
-            raise ValueError("Bad Compression for %s" %ch)
+            raise ValueError("Bad Compression for %s" % ch)
         result += entry
-    
+
         dictionary[dict_size] = buffer = entry[0]
         dict_size += 1
 
@@ -50,11 +52,9 @@ def decompress(compressed):
 if __name__ == "__main__":
     """Test cases for LZW"""
 
-    #Test 1
+    # Test 1
     test_case_1 = "Hello World!!"
     compressed = compress(test_case_1)
     print(compressed)
     decompressed = decompress(compressed)
-    print (decompressed)
-
-    
+    print(decompressed)
