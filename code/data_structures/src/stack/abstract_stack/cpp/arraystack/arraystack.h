@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 
-#include "../IStack.h"
+#include "../istack.h"
 
 template<typename T>
 class ArrayStack : public IStack<T> {
