@@ -15,9 +15,9 @@ Functions
 
 Time Complexity
 ---
-Insertion : O(1)
-Deletion  : O(1)
-Access    : O(n)
-Search    : O(n)
+- Insertion : O(1)
+- Deletion  : O(1)
+- Access    : O(n)
+- Search    : O(n)
 
 ![visualization](https://www.tutorialspoint.com/data_structures_algorithms/images/linked_list.jpg)
