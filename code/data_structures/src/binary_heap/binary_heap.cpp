@@ -64,7 +64,7 @@ void BinaryHeap::DisplayHeap(){
 
     std::cout << "Heap -->  ";
     while (pos != heap.end()){
-        cout<<*pos<<" ";
+        std::cout << *pos << " ";
         pos++;
     }
     std::cout << endl;
@@ -141,8 +141,8 @@ int main(){
         std::cout << "4.Print Heap"<< std::endl;
         std::cout << "5.Exit"<< std::endl;
 
-        std::cout<<"Enter your choice: ";
-        std::cin>>choice;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
 
         switch(choice){
         case 1:
@@ -159,7 +159,7 @@ int main(){
                 std::cout << "Heap is Empty" << std::endl;
             }
             else
-                std::cout << "Minimum Element:  "<< h.ExtractMin()<< std::endl;
+                std::cout << "Minimum Element:  "<< h.ExtractMin() << std::endl;
             break;
         case 4:
             std::cout << "Displaying elements of Hwap:  ";
