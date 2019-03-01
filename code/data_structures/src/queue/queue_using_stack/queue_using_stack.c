@@ -59,14 +59,6 @@ deleteStack(stack* S)
 	free(S);
 }
 
-void 
-deleteQueue(queue* Q)
-{
-	free(Q->S1);
-	free(Q->S2);
-	free(Q);
-}
-
 /*QUEUE*/
 queue* 
 createQueue(stack* S1, stack* S2)
@@ -95,6 +87,13 @@ dequeue(queue* Q)
     return (pop(Q->S2));
 }
 
+void 
+deleteQueue(queue* Q)
+{
+	free(Q->S1);
+	free(Q->S2);
+	free(Q);
+}
 
 /*driver program*/
 int 
