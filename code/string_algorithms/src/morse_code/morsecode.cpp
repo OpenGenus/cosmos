@@ -77,8 +77,9 @@ std::string finder(const std::vector<std::pair<char, std::string>> &mp, std::str
         char val = value[0];
         for (const auto &it : mp)
             if (it.first == val)
+            {
                 return it.second;
-
+            }
     }
     return std::string{};
 }

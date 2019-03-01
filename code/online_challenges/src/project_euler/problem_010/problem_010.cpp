@@ -14,7 +14,7 @@ long long int sumOfPrimesUpto(size_t limit) // Function that implements the Siev
             for (size_t j = (2 * i); j < limit; j += i)
                 primesBoolArray[j] = false;
         }
-
+        
     return sum;
 }
 

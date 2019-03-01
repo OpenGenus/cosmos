@@ -41,16 +41,16 @@ class Queue:
         return return_value
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from random import choice
 
     a = Queue()
 
     l = [choice(range(1, 500)) for i in range(1, 10)]
-    print (l)
+    print(l)
 
     for i in l:
         a.enqueue(i)
 
     for i in range(len(l)):
-        print ('Dequeued:', a.dequeue())
+        print("Dequeued:", a.dequeue())

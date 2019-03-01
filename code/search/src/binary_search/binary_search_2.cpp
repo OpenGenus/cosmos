@@ -34,7 +34,7 @@ int binarySearch(std::vector<int> &v, int key)
         else
             l = m;
     }
-
+    
     return (v[l] == key) ? l : -1;
 }
 

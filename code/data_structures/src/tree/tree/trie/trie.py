@@ -18,6 +18,7 @@ def insert(root_node, word):
             n.children[character] = t
         n = t
 
+
 def search(root_node, search_string):
     node = root_node
     for character in search_string:
@@ -33,5 +34,5 @@ root = TrieNode()
 insert(root, "abc")
 insert(root, "pqrs")
 
-print(search(root, "abc")) # will print True
-print(search(root, "xyz")) # will print False
+print(search(root, "abc"))  # will print True
+print(search(root, "xyz"))  # will print False
