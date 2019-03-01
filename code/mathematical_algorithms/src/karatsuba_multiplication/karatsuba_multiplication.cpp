@@ -3,18 +3,17 @@
 // To pad both input strings with 0's so they have same size
 int equalLength(std::string &bitStr1, std::string &bitStr2)
 {
-    
+
     int strLen1 = bitStr1.size();
     int strLen2 = bitStr2.size();
 
     if (strLen1 > strLen2)
     {
         int numZerosToPad = strLen1 - strLen2;
-        for(int i = 0; i < numZerosToPad; i++)
+        for (int i = 0; i < numZerosToPad; i++)
             bitStr2 = '0' + bitStr2;
     }
-
-    else if(strLen2 > strLen1)
+    else if (strLen2 > strLen1)
     {
         int numZerosToPad = strLen2 - strLen1;
         for (int i = 0; i < numZerosToPad; i++)
@@ -30,8 +29,8 @@ std::string addBitStrings(std::string bitStr1, std::string bitStr2)
     int len = equalLength(bitStr1, bitStr2);
 
     //For first bit addition carry is 0
-    int carry = 0; 
-    for (int i = len-1; i >= 0; --i)
+    int carry = 0;
+    for (int i = len - 1; i >= 0; --i)
     {
         // We need to convert '0' or '1' to 0 or 1. Subtracting '0' from the character, subtracts
         // their ascii values which results in 0 or 1.
@@ -48,26 +47,25 @@ std::string addBitStrings(std::string bitStr1, std::string bitStr2)
 
     }
 
-    // if overflow, then add a leading 1 
-    if (carry)  
-        result = '1' + result; 
+    // if overflow, then add a leading 1
+    if (carry)
+        result = '1' + result;
 
     return result;
 }
 
 long long int karatsubaMultiply(std::string x, std::string y)
 {
-        int n = equalLength(x, y);
+    int n = equalLength(x, y);
 
-        //Recursion base cases(when length of the bit string is 0 or 1)
-    if (n == 0) return 0; 
+    //Recursion base cases(when length of the bit string is 0 or 1)
+    if (n == 0)
+        return 0;
     if (n == 1)
-    {
-        // Single bit multiplication. 
+        // Single bit multiplication.
         return (x[0] - '0') * (y[0] - '0');
-    }
 
-    int firstHalfLen = n / 2;    
+    int firstHalfLen = n / 2;
     int secondHalfLen = (n - firstHalfLen);
     std::string Xleft = x.substr(0, firstHalfLen);
     std::string Xright = x.substr(firstHalfLen, secondHalfLen);
@@ -80,13 +78,14 @@ long long int karatsubaMultiply(std::string x, std::string y)
     long long int product3 = karatsubaMultiply(addBitStrings(Xleft, Xright),
                                                addBitStrings(Yleft, Yright));
 
-    return product1 * (1 << (2 * secondHalfLen)) + (product3 - product1 - product2) * (1 << secondHalfLen) + product2;
+    return product1 * (1 << (2 * secondHalfLen)) + (product3 - product1 - product2) *
+           (1 << secondHalfLen) + product2;
 }
 
 int main()
 {
     std::cout << "Product of 1011 and 110 = " << karatsubaMultiply("1011", "110") << "\n";
     std::cout << "Product of 1111 and 0 = " << karatsubaMultiply("1111", "0") << "\n";
-    std::cout << "Product of 100000 and 10 = "<< karatsubaMultiply("100000", "10") << "\n";
-    std::cout << "Product of 101 and 101101 = "<< karatsubaMultiply("101", "101101") << "\n";
+    std::cout << "Product of 100000 and 10 = " << karatsubaMultiply("100000", "10") << "\n";
+    std::cout << "Product of 101 and 101101 = " << karatsubaMultiply("101", "101101") << "\n";
 }

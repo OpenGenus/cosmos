@@ -17,7 +17,6 @@ int main()
 {
     std::string filePath = "lena.jpg"; //Filepath of input image
     canny cny(filePath);
-        
+
     return 0;
 }
-

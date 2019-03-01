@@ -1,10 +1,10 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 /*
-* Processes range minimum query.
-* Query function returns index of minimum element in given interval.
-* Code assumes that length of array can be contained into integer.
-*/
+ * Processes range minimum query.
+ * Query function returns index of minimum element in given interval.
+ * Code assumes that length of array can be contained into integer.
+ */
 
 #include <iostream>
 #include <utility>
@@ -22,7 +22,7 @@ struct Node
 
 // update adds new value to array[x] rather than replace it
 
-class SegmentTree{
+class SegmentTree {
 private:
     Node *root;
 
@@ -54,7 +54,7 @@ private:
         int R = node->interval.second;
 
         if (R < start || L > end)
-        return -1;
+            return -1;
 
         if (start <= L && end >= R)
             return node->index;
