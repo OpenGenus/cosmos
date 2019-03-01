@@ -16,7 +16,7 @@
     "FILE_PREFIX_MODE": "ignore",
     "FILE_SUFFIX": "",
     "FILE_SUFFIX_MODE": "ignore",
-    "IGNORE_DIRS": ["^/$"],
+    "IGNORE_DIRS": ["^/$", "/design_pattern/src/OOP_patterns$"],
     "IGNORE_FILES": ["README.MD", "README.md", "Readme.md", "readme.md", ".DS_Store"],
     "INCLUDE_DIRS": [],
     "INCLUDE_FILES": []
