@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
         (*finder)(img, features[i]);
         features[i].img_idx = i;
         std::cout << "Features in image #" << i + 1 << " are : " << features[i].keypoints.size() <<
-        std::endl;
+            std::endl;
     }
     finder->collectGarbage();
     full_img.release();
@@ -128,7 +128,7 @@ int main(int argc, char* argv[])
         cameras[i].R.convertTo(R, CV_32F);
         cameras[i].R = R;
         std::cout << "Initial intrinsic #" << indices[i] + 1 << ":\n" << cameras[i].K() <<
-        std::endl;
+            std::endl;
     }
     // 5- Refine camera parameters globally
     cv::Ptr<BundleAdjusterBase> adjuster;
@@ -222,7 +222,7 @@ int main(int argc, char* argv[])
         images_warped[i].convertTo(images_warped_f[i], CV_32F);
 
     std::cout << "Warping images, time: " << ((cv::getTickCount() - t) / cv::getTickFrequency()) <<
-    " sec" << std::endl;
+        " sec" << std::endl;
     // 8- Compensate exposure errors
     cv::Ptr<Ecv::detail::xposureCompensator> compensatcv::detail::or =
         ExposureCompensator::createDefault(expos_comp_type);
@@ -320,7 +320,7 @@ int main(int argc, char* argv[])
     cv::Mat result, result_mask;
     blender->blend(result, result_mask);
     std::cout << "Compositing, time: " << ((cv::getTickCount() - t) / cv::getTickFrequency()) <<
-    " sec" << std::endl;
+        " sec" << std::endl;
     imwrite(result_name, result);
     // imshow(result_name,result);
     // waitKey(8000);

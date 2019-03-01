@@ -126,7 +126,7 @@ void veb::remove(int x)
                     *min = 1;
             }
         }
-        else    if (max != NULL)
+        else if (max != NULL)
         {
 
             if (*min == 1)

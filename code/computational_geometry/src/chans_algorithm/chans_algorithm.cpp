@@ -254,7 +254,7 @@ int main()
     int T = 0, x = 0, y = 0;
     cout <<
         "Enter Total Number of points" \ n
-    ";
+        ";
 		cin>>T;
 		if(T<=0)
 			return -1;
@@ -275,4 +275,5 @@ int main()
 		cout<<"\n";
 		return 0;
 	}
+
 

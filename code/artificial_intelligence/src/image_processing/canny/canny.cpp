@@ -18,7 +18,6 @@ canny::canny(std::string filename)
     img = cv::imread(filename);
 
     if (!img.data)     // Check for invalid input
-
         cout << "Could not open or find the image" << std::endl;
 
     else
