@@ -252,28 +252,24 @@ vector<Point> chansalgorithm(vector<Point> v)
 int main()
 {
     int T = 0, x = 0, y = 0;
-    cout <<
-        "Enter Total Number of points" \ n
-        ";
-		cin>>T;
-		if(T<=0)
-			return -1;
-		Point Points[T];
-		for(int i=0;i<T;++i)
-		{
-			cin>>x>>y;
-			Points[i].x=x;
-			Points[i].y=y;
-		}
-		vector<Point> v(Points,Points+T);
-		vector<Point> output = chansalgorithm(v);
-		cout<<" \ n-------------------- After Using Chan
-        's Algorithm --------------------\n";
-		cout<<"\n******************** CONVEX HULL ********************\n";
-		for(int i=0; i< output.size(); ++i)
-			cout<<output[i]<<" ";
-		cout<<"\n";
-		return 0;
-	}
-
-
+    cout << "Enter Total Number of points";
+    cin >> T;
+    if (T <= 0)
+        return -1;
+    Point Points[T];
+    for (int i = 0; i < T; ++i)
+    {
+        cin >> x >> y;
+        Points[i].x = x;
+        Points[i].y = y;
+    }
+    vector<Point> v(Points, Points + T);
+    vector<Point> output = chansalgorithm(v);
+    cout << " \ n-------------------- After Using Chan
+    's Algorithm --------------------\n";
+    cout << "\n******************** CONVEX HULL ********************\n";
+    for (int i = 0; i < output.size(); ++i)
+        cout << output[i] << " ";
+    cout << "\n";
+    return 0;
+}
