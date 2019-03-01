@@ -54,6 +54,15 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
 
+    # Verify file name
+    - os: linux
+      language: python
+      python:
+        - "3.6"
+      script:
+        - pip install namanager
+        - namanager -s third_party/namanager_settings.json --required
+
     # Autoformat Python code
     - os: linux
       language: python
