@@ -2,6 +2,7 @@
 
 import collections
 
+
 class Graph:
     def __init__(self):
         self.adjList = collections.defaultdict(set)
@@ -10,24 +11,27 @@ class Graph:
         self.adjList[node1].add(node2)
         self.adjList[node2].add(node1)
 
+
 def dfsHelper(current, graph, visited, visitFunc):
-    if (visited[current]):
+    if visited[current]:
         return
-    
-    visited[current] = True;
-    
+
+    visited[current] = True
+
     visitFunc(current)
-    
+
     for neighbor in graph.adjList[current]:
         dfsHelper(neighbor, graph, visited, visitFunc)
-    
+
 
 def dfs(current, graph, visitFunc):
     visited = collections.defaultdict(bool)
     dfsHelper(current, graph, visited, visitFunc)
 
+
 def visitPrint(i):
     print(i)
+
 
 # Testing the depth first search implementation
 if __name__ == "__main__":
@@ -39,7 +43,7 @@ if __name__ == "__main__":
     #   2     3
     #  / \   / \
     # 4   5 6   7
-    
+
     g = Graph()
     g.addEdge(1, 2)
     g.addEdge(1, 3)
@@ -50,7 +54,7 @@ if __name__ == "__main__":
 
     print("Test 1:")
     dfs(1, g, visitPrint)
-    
+
     print("\nTest2:")
     dfs(2, g, visitPrint)
 
