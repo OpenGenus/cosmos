@@ -7,10 +7,15 @@ fn complement_dna(dna: &str) -> String {
             'C' => 'G',
             'G' => 'C',
             _ => ' ',
-        }).collect()
+        })
+        .collect()
 }
 
-#[test]
-fn sample_test() {
-    assert_eq!(complement_dna("AAAACCCGGT"), "ACCGGGTTTT");
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn sample_test() {
+        assert_eq!(complement_dna("AAAACCCGGT"), "ACCGGGTTTT");
+    }
 }
