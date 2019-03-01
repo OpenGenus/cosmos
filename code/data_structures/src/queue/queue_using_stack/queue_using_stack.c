@@ -52,6 +52,21 @@ pop(stack* S)
     return (S->A[S->top--]);
 }
 
+void 
+deleteStack(stack* S)
+{
+	free(S->A);
+	free(S);
+}
+
+void 
+deleteQueue(queue* Q)
+{
+	free(Q->S1);
+	free(Q->S2);
+	free(Q);
+}
+
 /*QUEUE*/
 queue* 
 createQueue(stack* S1, stack* S2)
@@ -81,7 +96,6 @@ dequeue(queue* Q)
 }
 
 
-
 /*driver program*/
 int 
 main()
@@ -104,5 +118,6 @@ main()
     printf("%d\n", dequeue(Q));
     printf("%d\n", dequeue(Q));
     /*Current appearance of Q : | 8 | */
+    deleteQueue(Q);
     return 0;
 }
