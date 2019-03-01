@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
-
+import math 
 
 class Point:
     def __init__(self, x, y):
@@ -37,7 +36,7 @@ def iter(pts):
     colinear = list()
     curr_pt = left_most_point(pts)
     convex_list = [curr_pt]
-
+    
     for pt1 in pts:
         if curr_pt.equal(pt1):
             continue
@@ -58,41 +57,30 @@ def iter(pts):
                     if target not in colinear:
                         colinear.append(target)
                     target = pt2
-
+        
         if target not in convex_list:
             convex_list.append(target)
 
         for colinear_pt in colinear:
             if colinear_pt not in convex_list:
                 convex_list.append(colinear_pt)
-
+  
         curr_pt = target
     return convex_list
 
-
+    
 def main():
-    pts = [Point(x, y) for x, y in np.random.rand(100, 2)]
+    pts = [Point(x, y) for x, y in np.random.rand(100,2)]
     convex_lst = iter(pts)
     len_convex_pts = len(convex_lst)
 
     print(*convex_lst)
-
-    plt.plot(
-        [p.x for p in convex_lst] + [convex_lst[0].x],
-        [p.y for p in convex_lst] + [convex_lst[0].y],
-        "-",
-    )
+    
+    plt.plot([p.x for p in convex_lst] + [convex_lst[0].x], [p.y for p in convex_lst]+[convex_lst[0].y], '-')
     plt.scatter([p.x for p in pts], [p.y for p in pts], color="red")
-    plt.title(
-        "Jarvis March Algorithm (Total "
-        + str(len_convex_pts)
-        + "/"
-        + str(len(pts))
-        + " points)"
-    )
+    plt.title("Jarvis March Algorithm (Total "+ str(len_convex_pts)+"/"+str(len(pts))+" points)")
     plt.grid()
     plt.show()
-
 
 if __name__ == "__main__":
     main()

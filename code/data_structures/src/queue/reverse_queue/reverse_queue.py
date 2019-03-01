@@ -9,21 +9,21 @@ class Queue:
     # Adds an item to the end of the queue.
     def enqueue(self, x):
         if len(self.__data) == self.__max:
-            print("Queue is full")
+            print ("Queue is full")
         else:
             self.__data.append(x)
 
     # Removes the first item of the queue without returning it.
     def dequeue(self):
         if len(self.__data) == 0:
-            print("Queue is empty")
+            print ("Queue is empty")
         else:
             self.__data.pop(0)
 
     # Returns the first item of the queue.
     def front(self):
         if len(self.__data) == 0:
-            print("Queue is empty")
+            print ("Queue is empty")
             return False
         return self.__data[0]
 
@@ -39,7 +39,7 @@ class Queue:
 # Return all items from queue in list.
 def get(queue):
     lst = []
-    while queue.size() > 0:
+    while(queue.size()>0):
         lst.append(queue.front())
         queue.dequeue()
 
@@ -49,7 +49,6 @@ def get(queue):
         queue.enqueue(item)
 
     return lst
-
 
 # Return reversed queue.
 def reverse(queue):
@@ -62,14 +61,12 @@ def reverse(queue):
         rev.enqueue(item)
     return rev
 
-
 # Print formatted output.
 def display(queue):
     # First, it will show you the original queue.
-    print("Original queue: {}".format(get(queue)))
+    print ("Original queue: {}".format(get(queue)))
     # Then, it will show the reversed one.
-    print("Reversed queue: {}\n".format(get(reverse(queue))))
-
+    print ("Reversed queue: {}\n".format(get(reverse(queue))))
 
 # Add all item in list to queue.
 def listToQueue(lst):
@@ -77,13 +74,12 @@ def listToQueue(lst):
     for item in lst:
         queue.enqueue(item)
     return queue
-
-
+    
 # Examples.
 int_arr = [1, 3, 2, 5, 4]
 string_arr = ["alpha", "beta", "gamma", "echo", "delta"]
 double_arr = [1.1, 3.2, 1.2, 5.4, 4.3]
-mix_arr = [1, "alpha", 2.1, True, "D"]
+mix_arr = [1, "alpha", 2.1, True, 'D']
 
 # Collect all example in one list.
 examples = [int_arr, string_arr, double_arr, mix_arr]

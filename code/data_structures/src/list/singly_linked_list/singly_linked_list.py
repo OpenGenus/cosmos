@@ -57,8 +57,8 @@ class LinkedList:
             if start == 1:
                 start = 0
             else:
-                print("->"),
-            print(cur_node.get_data()),
+                print ('->'),
+            print (cur_node.get_data()),
             cur_node = cur_node.get_next()
 
     def insert(self, data):

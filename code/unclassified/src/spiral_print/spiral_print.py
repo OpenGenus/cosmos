@@ -1,8 +1,7 @@
 from __future__ import print_function
-
-"""
+'''
 Part of Cosmos by OpenGenus Foundation
-"""
+'''
 
 matrix = lambda x: list(map(list, zip(*[iter(range(1, x * x + 1))] * x)))
 """
@@ -22,22 +21,22 @@ def main(size):
     r = c = center
     l = 1
     while l <= center:
-        while c <= center + l:  # right
+        while c <= center + l:  #right
             print(a[r][c])
             c += 1
         c -= 1
         r += 1
-        while r <= center + l:  # down
+        while r <= center + l:  #down
             print(a[r][c])
             r += 1
         r -= 1
         c -= 1
-        while c >= center - l:  # left
+        while c >= center - l:  #left
             print(a[r][c])
             c -= 1
         c += 1
         r -= 1
-        while r >= center - l:  # up
+        while r >= center - l:  #up
             print(a[r][c])
             r -= 1
         r += 1
@@ -48,4 +47,4 @@ def main(size):
 
 
 main(5)
-# One can change the size and matrix accordingly
+#One can change the size and matrix accordingly

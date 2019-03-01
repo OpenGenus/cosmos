@@ -2,19 +2,15 @@
 
 from functools import wraps
 
-
 def memo(f):
     """Memoizing decorator for dynamic programming."""
-
     @wraps(f)
     def func(*args):
         if args not in func.cache:
             func.cache[args] = f(*args)
         return func.cache[args]
-
     func.cache = {}
     return func
-
 
 @memo
 def factorial(num):
@@ -23,4 +19,4 @@ def factorial(num):
         raise ValueError("Negative numbers have no factorial.")
     elif num == 0:
         return 1
-    return num * factorial(num - 1)
+    return num * factorial(num-1)

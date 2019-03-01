@@ -1,10 +1,8 @@
 from math import sqrt
 
-
 def is_perfect_square(integer):
     sqrt_num = int(sqrt(integer))
     return sqrt_num * sqrt_num == integer
-
 
 def main():
     limit = 1001 * 1001
@@ -20,7 +18,6 @@ def main():
         i += increment_rate
 
     print(diagonal_number_sum)
-
 
 if __name__ == "__main__":
     main()

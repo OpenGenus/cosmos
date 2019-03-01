@@ -5,12 +5,12 @@
 # is the ciphertext. Let's say for eg. T is the Key and E is
 # the original Plaintext, then the intersection of T column
 # and E row is the ciphertext i.e. X. The plaintext and key-
-# length must be the same. Running Key Cipher is similar to
+# length must be the same. Running Key Cipher is similar to 
 # Vigenere Cipher. The difference lies in how the key is chosen;
-# the Vigenere cipher uses a short key that repeats, whereas the
-# running key cipher uses a long key such as an excerpt from
-# a book. This means the key does not repeat, making cryptanalysis
-# more difficult.
+# the Vigenere cipher uses a short key that repeats, whereas the 
+# running key cipher uses a long key such as an excerpt from 
+# a book. This means the key does not repeat, making cryptanalysis 
+# more difficult. 
 
 #     A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 #     ---------------------------------------------------
@@ -41,15 +41,15 @@
 # Y   Y Z A B C D E F G H I J K L M N O P Q R S T U V W X
 # Z   Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
 
-plaintext = "DEFENDTHEEASTWALLOFTHECASTLE"
-key = "HOWDOESTHEDUCKKNOWTHATSAIDVI"
-ciphertext = ""
+plaintext = 'DEFENDTHEEASTWALLOFTHECASTLE'
+key = 'HOWDOESTHEDUCKKNOWTHATSAIDVI'
+ciphertext = ''
 
-if __name__ == "__main__":
-    for index in range(len(plaintext)):
-        sum_key_plaintext = (ord(key[index]) - 64) + (ord(plaintext[index]) - 64)
-        if sum_key_plaintext > 27:
-            ciphertext += chr(sum_key_plaintext - 26 - 1 + 64)
-        else:
-            ciphertext += chr(sum_key_plaintext - 1 + 64)
-    print(ciphertext)
+if __name__ == '__main__':	
+	for index in range(len(plaintext)):
+		sum_key_plaintext = (ord(key[index]) - 64) + (ord(plaintext[index]) - 64)
+		if sum_key_plaintext > 27:
+			ciphertext += chr(sum_key_plaintext - 26 - 1 + 64)
+		else:
+			ciphertext += chr(sum_key_plaintext - 1 + 64)	
+	print(ciphertext)

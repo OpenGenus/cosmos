@@ -9,6 +9,5 @@ def factorial_iteration(num):
 
     return result
 
-
 n = int(input("Enter a number"))
 print("The factorial is ", factorial_iteration(n))

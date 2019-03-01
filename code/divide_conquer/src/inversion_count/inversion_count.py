@@ -1,9 +1,9 @@
-"""
+'''
 
 divide conquer | inversion count | Python
 part of Cosmos by OpenGenus Foundation
 
-"""
+'''
 
 
 def merge(left, right):
@@ -19,7 +19,7 @@ def merge(left, right):
         else:
             merged_arr.append(right[j])
             j += 1
-            inv_cnt += len(left) - i
+            inv_cnt += (len(left) - i)
 
     merged_arr += left[i:]
     merged_arr += right[j:]
@@ -28,7 +28,7 @@ def merge(left, right):
 
 
 def merge_sort(
-    arr
+        arr
 ):  # this function will return a tuple as (sorted_array, inversion_count)
     if len(arr) > 1:
         mid = len(arr) // 2
@@ -46,4 +46,5 @@ def merge_sort(
 arr = [1, 8, 3, 4, 9, 3]
 sorted_array, inversion_count = merge_sort(arr)
 
-print("Sorted array:", sorted_array, " and Inversion count = %s" % inversion_count)
+print("Sorted array:", sorted_array,
+      " and Inversion count = %s" % inversion_count)

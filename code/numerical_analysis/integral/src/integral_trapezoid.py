@@ -11,9 +11,9 @@ def integral_trapezoid(a, b, step, func):
     return res
 
 
-print("Enter interval: ")
-start = float(input("a: "))
-finish = float(input("b: "))
-move = float(input("Enter integration step: "))
-result = integral_trapezoid(start, finish, move, lambda x: x ** 2 + x)
-print("Result: ", result)
+print('Enter interval: ')
+start = float(input('a: '))
+finish = float(input('b: '))
+move = float(input('Enter integration step: '))
+result = integral_trapezoid(start, finish, move, lambda x: x**2 + x)
+print('Result: ', result)

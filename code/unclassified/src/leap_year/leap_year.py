@@ -19,7 +19,8 @@ print(leaps)
 print("List Comprehension way ---------------------------------------")
 
 leaps2 = [
-    y for y in range(year_1, year_2) if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
+    y for y in range(year_1, year_2)
+    if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
 ]
 
 print(leaps2)

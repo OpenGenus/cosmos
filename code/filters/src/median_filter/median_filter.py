@@ -8,9 +8,9 @@ def median_filter(data, filter_size):
     temp_arr = []
     index = filter_size // 2
     data_final = []
-    data_final = numpy.zeros((len(data), len(data[0])))
+    data_final = numpy.zeros((len(data),len(data[0])))
     for i in range(len(data)):
-        # Iterate over the Image Array
+    #Iterate over the Image Array
         for j in range(len(data[0])):
 
             for z in range(filter_size):
@@ -43,6 +43,5 @@ def main():
     img = Image.fromarray(removed_noise)
     img.show()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

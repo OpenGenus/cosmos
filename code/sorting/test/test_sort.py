@@ -1,11 +1,10 @@
-"""
+'''
 Part of Cosmos by OpenGenus Foundation
-"""
+'''
 
 
 import random
 import copy
-
 # import bead_sort # result error
 # import bead_sort_numpy # error
 # import bucket_sort # error

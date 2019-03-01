@@ -46,15 +46,9 @@ class PriorityQueue(object):
             parent_item = self.data[parent_index]
             current_item = self.data[index]
 
-            if (
-                parent_index == index
-                or not self.compareFn(current_item, parent_item) < 0
-            ):
+            if parent_index == index or not self.compareFn(current_item, parent_item) < 0:
                 break
-            self.data[index], self.data[parent_index] = (
-                self.data[parent_index],
-                self.data[index],
-            )
+            self.data[index], self.data[parent_index] = self.data[parent_index], self.data[index]
             index = parent_index
 
     def _down(self, index, n):
@@ -84,10 +78,10 @@ class PriorityQueue(object):
 
     def __str__(self):
         return "PriorityQueue: {}".format(self.data)
-        # return f'PriorityQueue: {self.data}'
+        #return f'PriorityQueue: {self.data}'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     pq = PriorityQueue([45, 6, 4, 3, 2, 72, 34, 12, 456, 29, 312])
     pq.push(1)
     pq.pop()

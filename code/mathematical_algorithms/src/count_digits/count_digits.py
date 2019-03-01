@@ -8,7 +8,6 @@ def count_digits(n):
         n //= 10
     return count
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     number = input("Give me a number")
     print(count_digits(number))

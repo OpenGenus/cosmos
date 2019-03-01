@@ -16,6 +16,6 @@ def pi_monte_carlo(point_count):
     return pi
 
 
-count = float(input("Enter point count: "))
+count = float(input('Enter point count: '))
 res = pi_monte_carlo(count)
-print("Pi = ", res)
+print('Pi = ', res)

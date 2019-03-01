@@ -22,8 +22,7 @@ create_stack(unsigned capacity)
 
 void 
 delete_stack(struct Stack * stack)
-{   
-    /* completely deletes stack */
+{
     free(stack->array);
     free(stack);
 }
@@ -31,14 +30,12 @@ delete_stack(struct Stack * stack)
 int 
 is_full(struct Stack* stack)
 {   
-    /* checks for overflow error */
     return (stack->top == stack->capacity - 1); 
 }
  
 int 
 is_empty(struct Stack* stack)
 {   
-    /* checks for underflow error */
     return (stack->top == -1);  
 }
  
@@ -48,10 +45,11 @@ push(struct Stack* stack, int item)
     assert(!is_full(stack));
     stack->array[++stack->top] = item;
 }
+ 
 
 int 
 pop(struct Stack* stack)
-{   
+{
     assert(!is_empty(stack));
     return (stack->array[stack->top--]);
 }

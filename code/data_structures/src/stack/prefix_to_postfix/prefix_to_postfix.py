@@ -5,13 +5,12 @@ operator = -10
 operand = -20
 empty = -50
 
-
 def typeof(s):
-    if s is "(" or s is ")":
+    if s is '(' or  s is ')':
         return operator
-    elif s is "+" or s is "-" or s is "*" or s is "%" or s is "/":
+    elif s is '+' or s is '-' or s is '*' or s is '%' or s is '/':
         return operator
-    elif s is " ":
+    elif s is ' ':
         return empty
     else:
         return operand
@@ -31,4 +30,4 @@ for i in prefix:
     elif type is empty:
         continue
 
-print("It's postfix notation is ", "".join(postfix))
+print("It's postfix notation is ", ''.join(postfix))

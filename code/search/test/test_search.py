@@ -1,6 +1,5 @@
 import sys
 import os
-
 sys.path.insert(0, os.path.realpath(__file__ + "/../../"))
 import bisect
 import random
@@ -20,7 +19,8 @@ search_funcs += [src.binary_search.binary_search.binary_search_interactive]
 search_funcs += [src.fibonacci_search.fibonacci_search.fibonacci_search]
 search_funcs += [src.ternary_search.ternary_search.ternary_search]
 search_funcs += [src.jump_search.jump_search.jump_search]
-search_funcs += [src.interpolation_search.interpolation_search.interpolation_search]
+search_funcs += \
+        [src.interpolation_search.interpolation_search.interpolation_search]
 search_funcs += [src.exponential_search.exponential_search.exponential_search]
 
 
@@ -33,7 +33,7 @@ ELEM_MODE = "ALLOW_DUPLICATE"
 
 
 def index(a, x):
-    "Locate the leftmost value exactly equal to x"
+    'Locate the leftmost value exactly equal to x'
     i = bisect.bisect_left(a, x)
     if i != len(a) and a[i] == x:
         return i

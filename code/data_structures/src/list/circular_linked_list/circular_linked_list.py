@@ -23,7 +23,7 @@ class CircularLinkedList:
         # If linked list is not None then set the next of
         # last node
         if self.head is not None:
-            while temp.next != self.head:
+            while (temp.next != self.head):
                 temp = temp.next
             temp.next = ptr1
 
@@ -36,10 +36,10 @@ class CircularLinkedList:
     def printList(self):
         temp = self.head
         if self.head is not None:
-            while True:
-                print("%d" % (temp.data), end=" ")
+            while (True):
+                print ("%d" % (temp.data), end=' ')
                 temp = temp.next
-                if temp == self.head:
+                if (temp == self.head):
                     break
 
 
@@ -54,5 +54,5 @@ cllist.push(56)
 cllist.push(2)
 cllist.push(11)
 
-print("Contents of circular Linked List")
+print ("Contents of circular Linked List")
 cllist.printList()

@@ -15,6 +15,19 @@ const provideRandomSeed = (function () {
   }
 })();
 
+function copyArray(src, dst) {
+  let index = -1;
+  const length = (src || []).length;
+
+  dst || (dst = new Array(length));
+
+  while (++index < length) {
+    dst[index] = src[index];
+  }
+
+  return dst;
+}
+
 /**
  * Creates an array of shuffled values.
  * 
@@ -33,7 +46,7 @@ module.exports = function shuffle(array) {
 
   let index = -1;
   const lastIndex = length - 1;
-  const result = Array.from(array);
+  const result = copyArray(array);
   while (++index < length) {
     const rand = index + Math.floor(provideRandomSeed() * (lastIndex - index + 1));
     const value = result[rand];

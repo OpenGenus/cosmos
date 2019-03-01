@@ -10,7 +10,7 @@ namespace password_strength_check
     {
         static bool chk_strength(string password)
         {
-            return (password.Length > 8 && password.Any(ch => !char.IsLetterOrDigit(ch)) && password.Any(char.IsDigit) && password.Any(char.IsUpper));
+            return (password.Length < 8 && !password.Any(ch => !char.IsLetterOrDigit(ch)) && !password.Any(char.IsDigit) && !password.Any(char.IsUpper));
         }
         static void Main(string[] args)
         {
@@ -20,8 +20,7 @@ namespace password_strength_check
             {
                 Console.WriteLine("Strong!!!");
             }
-            else
-            {
+            else {
                 Console.WriteLine("Weak :(");
             }
 

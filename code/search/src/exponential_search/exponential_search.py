@@ -1,6 +1,6 @@
-"""
+'''
 Part of Cosmos by OpenGenus Foundation
-"""
+'''
 
 
 def _binary_search(arr, element, left, right):

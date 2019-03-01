@@ -14,10 +14,10 @@ def dijkstra(graph, source):
 
     while len(Q) > 0:
         u = minimum_distance(dist, Q)
-        print("Currently considering", u, "with a distance of", dist[u])
+        print('Currently considering', u, 'with a distance of', dist[u])
         Q.remove(u)
 
-        if dist[u] == float("inf"):
+        if dist[u] == float('inf'):
             break
 
         n = get_neighbours(graph, u)

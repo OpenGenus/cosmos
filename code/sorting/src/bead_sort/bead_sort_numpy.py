@@ -3,10 +3,10 @@ import numpy as np
 
 
 def bead_sort(arr):
-    """
+    '''
     >>> bead_sort([5, 3, 1, 7, 4, 1, 1, 20])
     [1, 1, 1, 3, 4, 5, 7, 20]
-    """
+    '''
     # expand input array to table of beads
     beads = np.zeros((len(arr), max(arr)), int)
     for i, x in enumerate(arr):

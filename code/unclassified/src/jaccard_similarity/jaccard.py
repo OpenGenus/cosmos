@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 def jaccard_similarity(x, y):
 
     intersection_cardinality = len(set.intersection(*[set(x), set(y)]))

@@ -1,8 +1,8 @@
-"""
+'''
 Part of Cosmos by OpenGenus Foundation
 
 Program for InsertionSort sorting
-"""
+'''
 
 
 def insertion_sort(L):
@@ -19,7 +19,7 @@ def insertion_sort(L):
 
 if __name__ == "__main__":
 
-    # creating a random array of length 100
-    L = np.random.random_integers(100, size=(100,)).tolist()
+    #creating a random array of length 100
+    L = np.random.random_integers(100, size=(100, )).tolist()
     print("Given array : \n", L)
     print("Sorted array : \n", insertion_sort(L))

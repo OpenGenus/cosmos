@@ -14,9 +14,9 @@ def integral_monte_carlo(a, b, point_count, func):
     return res
 
 
-print("Enter interval: ")
-start = float(input("a: "))
-finish = float(input("b: "))
-count = float(input("Enter point count: "))
-result = integral_monte_carlo(start, finish, count, lambda x: x ** 2 + x)
-print("Result: ", result)
+print('Enter interval: ')
+start = float(input('a: '))
+finish = float(input('b: '))
+count = float(input('Enter point count: '))
+result = integral_monte_carlo(start, finish, count, lambda x: x**2 + x)
+print('Result: ', result)

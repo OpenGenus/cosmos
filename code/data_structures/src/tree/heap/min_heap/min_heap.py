@@ -26,11 +26,11 @@ def build_min_heap(a):
         heapify(a, i)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print("Enter the array of which you want to create a min heap")
     a = [int(x) for x in input().split()]
     build_min_heap(a)
     print("The min heap is -")
     for i in a:
-        print(i, end=" ")
-    print("")
+        print(i, end=' ')
+    print('')

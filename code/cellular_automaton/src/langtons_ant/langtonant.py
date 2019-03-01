@@ -1,7 +1,6 @@
 import turtle
 import numpy
 
-
 def update_maps(graph, turtle, color):
     graph[turtle_pos(turtle)] = color
     return None
@@ -61,7 +60,6 @@ def move():
     while True:
         pos = langton_move(ant, pos, maps, STEP)
         moves += 1
-        print("Movements:", moves)
-
+        print ("Movements:", moves)
 
 move()

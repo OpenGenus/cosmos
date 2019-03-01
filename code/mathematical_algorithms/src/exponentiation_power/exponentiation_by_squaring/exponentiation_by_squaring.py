@@ -1,8 +1,6 @@
 # Part of Cosmos by OpenGenus Foundation
 
 MOD = 1000000007
-
-
 def fast_power(base, power):
     """
     Returns the result of a^b i.e. a**b
@@ -23,7 +21,7 @@ def fast_power(base, power):
     return result
 
 
-base = int(input("Enter base :"))
+base = int(input("Enter base :"))    
 power = int(input("Enter power :"))
 
-print(fast_power(base, power))
+print(fast_power(base,power))    

@@ -1,8 +1,8 @@
 class Bag:
-    """
+    '''
   Create a collection to add items and iterate over it.
   There is no method to remove items.
-  """
+  '''
 
     # Initialize a bag as a list
     def __init__(self):
@@ -38,15 +38,15 @@ bag1 = Bag()
 
 print(len(bag1))
 
-bag1.add("test")
-bag1.add("shamps")
+bag1.add('test')
+bag1.add('shamps')
 
 print(len(bag1))
 
-print("bag1 is empty?", bag1.isEmpty())
+print('bag1 is empty?', bag1.isEmpty())
 
-print("test is in bag1", "test" in bag1)
-print("shampz is in bag1", "shampz" in bag1)
+print('test is in bag1', 'test' in bag1)
+print('shampz is in bag1', 'shampz' in bag1)
 
 for item in bag1:
     print(item)

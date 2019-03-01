@@ -3,7 +3,7 @@ def reversefactorial(factorial):
     n = 1
     m = 0
     notfound = True
-    while m < 100:
+    while m <100:
         m += 1
         n *= m
         if factorial == n:
@@ -12,7 +12,6 @@ def reversefactorial(factorial):
             break
         elif m == 100:
             print(str(factorial) + " is not a factorial product of any integer.")
-
 
 factorial = int(input("Reverse Factorial > "))
 reversefactorial(factorial)

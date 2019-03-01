@@ -9,6 +9,6 @@ def remove_dups(string):
     return res
 
 
-input_string = input("Enter string: ")
+input_string = input('Enter string: ')
 res_str = remove_dups(input_string)
-print("Resultant string: ", res_str)
+print('Resultant string: ', res_str)

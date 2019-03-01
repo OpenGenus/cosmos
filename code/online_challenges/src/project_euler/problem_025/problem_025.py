@@ -8,6 +8,5 @@ def main(size):
 
     print(index)
 
-
-if __name__ == "__main__":
-    main(10 ** 999)
+if __name__ == '__main__':
+    main(10**999)

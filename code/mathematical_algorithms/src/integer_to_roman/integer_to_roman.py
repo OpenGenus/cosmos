@@ -1,5 +1,5 @@
 romanNumerals = {
-    1000: "M",
+    1000: "M", 
     900: "CM",
     500: "D",
     400: "CD",
@@ -11,13 +11,13 @@ romanNumerals = {
     9: "IX",
     5: "V",
     4: "IV",
-    1: "I",
+    1: "I"
 }
 
 
 def integerToRoman(number):
     result = ""
-
+    
     for integer, romanNumber in romanNumerals.items():
         while number >= integer:
             result += romanNumber
@@ -25,7 +25,7 @@ def integerToRoman(number):
     return result
 
 
-num = int(input("Enter a number: "))
+num = int(input("Enter a number: "));
 
 print("\nYour number: " + str(num))
 print("Your number in Roman Numerals: " + integerToRoman(num))

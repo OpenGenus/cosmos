@@ -6,12 +6,11 @@ def main():
     for i in range(0, len(numbers) - 13):
         current_product = 1
         for j in range(i, i + 13):
-            current_product *= int(numbers[j : j + 1])
+            current_product *= int(numbers[j:j + 1])
         if current_product > largest_product:
             largest_product = current_product
 
     print(largest_product)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

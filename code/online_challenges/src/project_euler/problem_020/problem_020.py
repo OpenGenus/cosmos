@@ -1,7 +1,7 @@
 def main():
     factorial = 1
     for i in range(100):
-        factorial *= i + 1
+        factorial *= (i + 1)
     digit_sum = 0
 
     while factorial > 0:
@@ -10,6 +10,5 @@ def main():
 
     print(digit_sum)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

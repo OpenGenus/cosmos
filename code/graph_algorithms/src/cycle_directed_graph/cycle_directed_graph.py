@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-
 class Graph:
+
     def __init__(self, v):
         self.v = v
         self.adj = defaultdict(list)
@@ -16,7 +16,7 @@ class Graph:
         x = self.find_parent(u, set_map)
         y = self.find_parent(v, set_map)
         set_map[x] = y
-
+    
     def is_cyclic(self):
         set_map = [-1] * self.v
         visited = [False] * self.v
@@ -30,11 +30,13 @@ class Graph:
                     return True
                 self.union(x, y, set_map)
 
+            
         # print(set_map)
         return False
 
 
-if __name__ == "__main__":
+    
+if __name__ == '__main__':
     g = Graph(4)
     g.add_edge(0, 1)
     g.add_edge(1, 2)

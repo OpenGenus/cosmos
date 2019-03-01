@@ -1,6 +1,6 @@
-"""
+'''
 Part of Cosmos by OpenGenus Foundation
-"""
+'''
 
 # stack class
 class Stack:
@@ -46,27 +46,25 @@ def reverse(stack):
     return stack
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # init the stack
     inputStack = Stack()
 
-    print(
-        "Enter the item to push into the stack and press Enter (type 'rev' to reverse the stack)"
-    )
+    print("Enter the item to push into the stack and press Enter (type 'rev' to reverse the stack)")
     while True:
         # get input item
-        inputItem = input("input item: ")
+        inputItem = input('input item: ')
 
-        if inputItem == "rev" and inputStack.isEmpty():
+        if inputItem == 'rev' and inputStack.isEmpty():
             # if stack is empty, return message
-            print("The stack is empty")
-            print("========== +++++ ===========")
-        elif inputItem == "rev":
+            print('The stack is empty')
+            print('========== +++++ ===========')
+        elif inputItem == 'rev':
             # reverse the stack
             reverseStack = reverse(inputStack)
-            print("reversed stack: ", reverseStack.items)
+            print('reversed stack: ', reverseStack.items)
             break
         else:
             # push item into the stack
             inputStack.push(inputItem)
-            print("current stack:", inputStack.items)
+            print('current stack:', inputStack.items)

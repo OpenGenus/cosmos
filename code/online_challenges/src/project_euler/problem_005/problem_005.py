@@ -6,10 +6,8 @@ def gcd(n1, n2):
         n2 = remainder
     return n1
 
-
 def lcm(n1, n2):
     return (n1 * n2) / gcd(n1, n2)
-
 
 def main():
     num = 1
@@ -17,6 +15,5 @@ def main():
         num = lcm(num, i)
     print(num)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

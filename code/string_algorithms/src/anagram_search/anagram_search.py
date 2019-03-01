@@ -3,8 +3,9 @@
 import collections
 
 
+
 def removeWhitespace(string):
-    return "".join(string.split())
+    return ''.join(string.split())
 
 
 """
@@ -18,7 +19,6 @@ def removeWhitespace(string):
         same number of times.
 """
 
-
 def isAnagram(string1, string2):
     charCount1 = collections.Counter(removeWhitespace(string1.lower()))
     charCount2 = collections.Counter(removeWhitespace(string2.lower()))
@@ -27,10 +27,11 @@ def isAnagram(string1, string2):
     allChars = allChars.union(charCount2.keys())
 
     for c in allChars:
-        if charCount1[c] != charCount2[c]:
+        if (charCount1[c] != charCount2[c]):
             return False
 
     return True
+
 
 
 assert isAnagram("anagram", "not a gram") == False

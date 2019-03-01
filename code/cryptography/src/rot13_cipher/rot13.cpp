@@ -33,7 +33,6 @@ int main()
 {
     // Example
     std::cout << rot13("Hello, world!") << "\n";  // Outputs "Uryyb, jbeyq!"
-    std::cout << rot13("Uryyb, jbeyq!") << "\n";  // Output "Hello, world!"
 
     return 0;
 }

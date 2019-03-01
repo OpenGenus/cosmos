@@ -1,2 +1,0 @@
-object Main extends App{
-}
