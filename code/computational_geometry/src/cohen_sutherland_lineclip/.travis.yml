@@ -1,1 +1,11 @@
-language: C++
+language: cpp
+      script:
+        ./scripts/build_cpp.sh
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
