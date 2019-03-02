@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct Node
-{    /*Node in a linked linked list with integer data and pointer to next node.*/
+{	/*Node in a linked linked list with integer data 
+	*and pointer to next node.
+	*/
 	int data;
 	struct Node* next;
 }Node;
