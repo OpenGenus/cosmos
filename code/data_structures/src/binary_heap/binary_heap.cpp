@@ -39,23 +39,22 @@ void BinaryHeap::Insert(int element){
 // Delete Minimum Element 
 void BinaryHeap::DeleteMin(){
     
-    if (heap.size() == 0){
-        std::cout << "Heap is Empty"<< std::endl;
+    if (heap.empty()){
+        std::cout << "Heap is Empty\n";
         return;
     }
     heap[0] = heap.at(heap.size() - 1);
     heap.pop_back();
     heapifydown(0);
-    std::cout << "Element Deleted" << std::endl;
+    std::cout << "Element Deleted\n";
 }
  
 // Extract Minimum Element
 int BinaryHeap::ExtractMin(){
-    if (heap.size() == 0){
+    if (heap.empty())
         return -1;
-    }
-    else
-        return heap.front();
+
+    return heap.front();
 }
  
 // Display Heap
@@ -67,7 +66,7 @@ void BinaryHeap::DisplayHeap(){
         std::cout << *pos << " ";
         pos++;
     }
-    std::cout << endl;
+    std::cout << "\n";
 }
  
 // Return Left Child
@@ -131,15 +130,15 @@ int main(){
 
     int choice, element;
     BinaryHeap h;
-    while (1){
-        std::cout << "------------------"<< std::endl;
-        std::cout << "Operations on Heap"<< std::endl;
-        std::cout << "------------------"<< std::endl;
-        std::cout << "1.Insert Element"<< std::endl;
-        std::cout << "2.Delete Minimum Element"<< std::endl;
-        std::cout << "3.Extract Minimum Element"<< std::endl;
-        std::cout << "4.Print Heap"<< std::endl;
-        std::cout << "5.Exit"<< std::endl;
+    while (true){
+        std::cout << "------------------\n";
+        std::cout << "Operations on Heap\n";
+        std::cout << "------------------\n";
+        std::cout << "1.Insert Element\n";
+        std::cout << "2.Delete Minimum Element\n";
+        std::cout << "3.Extract Minimum Element\n";
+        std::cout << "4.Print Heap\n";
+        std::cout << "5.Exit\n";
 
         std::cout << "Enter your choice: ";
         std::cin >> choice;
@@ -156,19 +155,19 @@ int main(){
         case 3:
             std::cout << "Minimum Element: ";
             if (h.ExtractMin() == -1){
-                std::cout << "Heap is Empty" << std::endl;
+                std::cout << "Heap is Empty \n" ;
             }
             else
-                std::cout << "Minimum Element:  "<< h.ExtractMin() << std::endl;
+                std::cout << "Minimum Element:  "<< h.ExtractMin() << "\n";
             break;
         case 4:
             std::cout << "Displaying elements of Hwap:  ";
             h.DisplayHeap();
             break;
         case 5:
-            exit(1);
+            return 1;
         default:
-            std::cout << "Enter Correct Choice" << std::endl;
+            std::cout << "Enter Correct Choice \n";
         }
     }
     return 0;
