@@ -1,39 +1,46 @@
 #include <iostream>
-// Part of Cosmos by OpenGenus Foundation
 
 class CohenSutherLandAlgo
 {
     
 public:
-    CohenSutherLandAlgo():x1_(0.0),x2_(0.0),y1_(0.0),y2_(0.0) {}
-    void setCoordinates(double x1, double y1,double x2, double y2);
-    void setClippingRectangle(double x_max, double y_max,double x_min, double y_min);
+    CohenSutherLandAlgo() : x1_(0.0), x2_(0.0), y1_(0.0), y2_(0.0) { }
+
+    void setCoordinates(double x1, double y1, double x2, double y2);
+
+    void setClippingRectangle(double x_max, double y_max, double x_min, double y_min);
+
     int generateCode(double x, double y);
+
     void cohenSutherland();
-    
+
 private:
-    double x1_,y1_,x2_,y2_;
-    double xMax_,yMax_,xMin_,yMin_;
+    double x1_, y1_, x2_, y2_;
+    double xMax_, yMax_, xMin_, yMin_;
     const int Inside = 0;	// 0000
     const int Left   = 1;	// 0001
     const int Right  = 2;	// 0010
     const int Bottom = 4;	// 0100
     const int Top    = 8;	// 1000
+
 };
-void CohenSutherLandAlgo::setCoordinates(double x1, double y1,double x2, double y2)
+
+void CohenSutherLandAlgo::setCoordinates(double x1, double y1, double x2, double y2)
 {
     this->x1_ = x1;
     this->y1_ = y1;
     this->x2_ = x2;
     this->y2_ = y2;
 }
-void CohenSutherLandAlgo::setClippingRectangle(double x_max, double y_max,double x_min, double y_min)
+
+void CohenSutherLandAlgo::setClippingRectangle(double x_max, double y_max, double x_min, double y_min)
 {
     this->xMax_ = x_max;
     this->yMax_ = y_max;
     this->xMin_ = x_min;
     this->yMin_ = y_min;
 }
+
 int CohenSutherLandAlgo::generateCode(double x, double y)
 {
     int code = Inside;  // intially initializing as being inside
@@ -47,9 +54,10 @@ int CohenSutherLandAlgo::generateCode(double x, double y)
         code |= Top;
     return code;
 }
+
 void CohenSutherLandAlgo::cohenSutherland()
 {
-    int code1 = generateCode(x1_, y1_);       // Compute region codes for P1.
+    int code1 = generateCode(x1_, y1_);   // Compute region codes for P1.
     int code2 = generateCode(x2_, y2_);   // Compute region codes for P2.
     bool accept = false;  // Initialize line as outside the rectangular window.
     while (true)
@@ -62,8 +70,7 @@ void CohenSutherLandAlgo::cohenSutherland()
         }
         else if (code1 & code2)
         {
-            // If both endpoints are outside rectangle,in same region.
-            break;
+            break;  // If both endpoints are outside rectangle,in same region.
         }
         else
         {
@@ -104,8 +111,10 @@ void CohenSutherLandAlgo::cohenSutherland()
                 y = y1_ + (y2_ - y1_) * (xMin_ - x1_) / (x2_ - x1_);
                 x = xMin_;
             }
-            // Intersection point x,y is found.
-            // Replace point outside rectangle by intersection point.
+            /*
+             * Intersection point x,y is found.
+               Replace point outside rectangle by intersection point.
+            */
             if (codeOut == code1)
             {
                 x1_ = x;
@@ -128,19 +137,21 @@ void CohenSutherLandAlgo::cohenSutherland()
     else
         std::cout << "Line rejected" << std::endl;
 }
+
 int main() {
+
     CohenSutherLandAlgo c;
     double x1, y1, x2, y2, x_max, y_max, x_min, y_min;
 
     std::cout << "\nEnter Co-ordinates of P1(X1,Y1) of Line Segment : ";
-    std::cout << "\Enter X1 Co-ordinate : ";
+    std::cout << "\nEnter X1 Co-ordinate : ";
     std::cin >> x1;
-    std::cout << "\Enter Y1 Co-ordinate : ";
+    std::cout << "\nEnter Y1 Co-ordinate : ";
     std::cin >> y1;
     std::cout << "\nEnter Co-ordinates of P2(X2,Y2) of Line Segment : ";
-    std::cout << "\Enter X2 Co-ordinate : ";
+    std::cout << "\nEnter X2 Co-ordinate : ";
     std::cin >> x2;
-    std::cout << "\Enter Y2 Co-ordinate : ";
+    std::cout << "\nEnter Y2 Co-ordinate : ";
     std::cin >> y2;
     c.setCoordinates(x1, y1, x2, y2);
 
