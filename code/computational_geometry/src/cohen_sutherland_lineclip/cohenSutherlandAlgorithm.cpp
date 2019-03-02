@@ -2,6 +2,7 @@
 
 class CohenSutherLandAlgo
 {
+    
 public:
     CohenSutherLandAlgo():x1_(0.0),x2_(0.0),y1_(0.0),y2_(0.0) {}
     void setCoordinates(double x1, double y1,double x2, double y2);
