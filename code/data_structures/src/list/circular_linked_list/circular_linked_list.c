@@ -8,8 +8,8 @@ node *delete_at_begin(node *tail);
 node *delete_at_end(node *tail);
 
 struct Node{
-int Data;
-struct Node *next;
+    int Data;
+    struct Node *next;
 };
 /*Traversing circular linked list*/
 void
