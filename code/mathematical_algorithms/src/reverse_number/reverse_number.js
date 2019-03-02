@@ -1,5 +1,8 @@
 function reverse_number(value) {
-  let reversed = String(value).split('').reverse().join('');
+  let reversed = String(value)
+    .split("")
+    .reverse()
+    .join("");
   return Number(reversed);
 }
 

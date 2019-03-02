@@ -1,20 +1,25 @@
 // Q Learning Introduction: https://en.wikipedia.org/wiki/Q-learning
 // Algorithm: Q(s,a):=Q(s,a)+α[r+γ*maxQ(s′,a′)−Q(s,a)]
 
-const TERMINAL = 'terminal';
+const TERMINAL = "terminal";
 const TOTAL_EPISODE = 10;
 
 function State(stateName, actions) {
   this.name = stateName;
   // Actions of State
   this.actions = {};
-  actions.forEach((action) => {
+  actions.forEach(action => {
     this.actions[action] = 0;
   });
 }
 
 class QLearning {
-  constructor(actions, learningRate = 0.01, discountFactor = 0.9, eGreedy = 0.9) {
+  constructor(
+    actions,
+    learningRate = 0.01,
+    discountFactor = 0.9,
+    eGreedy = 0.9
+  ) {
     this.actions = actions;
     this.lr = learningRate;
     this.gamma = discountFactor;
@@ -32,17 +37,20 @@ class QLearning {
   }
 
   static bestAction(stateActions) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       let bestAction = null;
       let bestActionReward = null;
-      Object.keys(stateActions).forEach((actionName) => {
+      Object.keys(stateActions).forEach(actionName => {
         if (!bestActionReward) {
           bestActionReward = stateActions[actionName];
         }
         if (stateActions[actionName] > bestActionReward) {
           bestAction = actionName;
           bestActionReward = stateActions[actionName];
-        } else if (stateActions[actionName] === bestActionReward && (Math.random() > 0.5)) {
+        } else if (
+          stateActions[actionName] === bestActionReward &&
+          Math.random() > 0.5
+        ) {
           bestAction = actionName;
         } else {
           bestAction = bestAction || actionName;
@@ -69,7 +77,9 @@ class QLearning {
       console.log(`pickAction: ${nextAction}`);
     } else {
       // choose next action randomly
-      nextAction = this.actions[Math.floor(Math.random() * this.actions.length)];
+      nextAction = this.actions[
+        Math.floor(Math.random() * this.actions.length)
+      ];
       console.log(`randomAction: ${nextAction}`);
     }
     return nextAction;
@@ -81,13 +91,15 @@ class QLearning {
     const qPredict = this.states[stateName].actions[actionName];
 
     // γ*maxQ(s′,a′)
-    const maxQValue = this.gamma * Math.max(...Object.values(this.states[nextStateName].actions));
-    const qTarget = (stateName !== TERMINAL) ? reward + maxQValue : reward;
+    const maxQValue =
+      this.gamma *
+      Math.max(...Object.values(this.states[nextStateName].actions));
+    const qTarget = stateName !== TERMINAL ? reward + maxQValue : reward;
 
-    this.states[stateName].actions[actionName] += this.lr * (qTarget - qPredict);
+    this.states[stateName].actions[actionName] +=
+      this.lr * (qTarget - qPredict);
   }
 }
-
 
 //
 // SAMPLE Command Line Environment
@@ -95,53 +107,53 @@ class QLearning {
 
 class RoadEnv {
   constructor() {
-    this.totalActions = ['LEFT', 'RIGHT'];
-    this.resetStateName = '0';
+    this.totalActions = ["LEFT", "RIGHT"];
+    this.resetStateName = "0";
   }
 
   static render(stateName) {
-    return new Promise((resolve) => {
-      const road = ['-', '-', '-', '-', '-', '-'];
-      road[Number(stateName)] = '0';
-      console.log(`\n ${road.join('')}`);
+    return new Promise(resolve => {
+      const road = ["-", "-", "-", "-", "-", "-"];
+      road[Number(stateName)] = "0";
+      console.log(`\n ${road.join("")}`);
       resolve();
     });
   }
 
   static step(stateName, action) {
-    return (({
-      '0-LEFT': {
+    return {
+      "0-LEFT": {
         nextStateName: TERMINAL,
         reward: -1000,
-        done: true,
+        done: true
       },
-      '0-RIGHT': RoadEnv.normalTransition('1'),
-      '1-LEFT': RoadEnv.normalTransition('0'),
-      '1-RIGHT': RoadEnv.normalTransition('2'),
-      '2-LEFT': RoadEnv.normalTransition('1'),
-      '2-RIGHT': RoadEnv.normalTransition('3'),
-      '3-LEFT': RoadEnv.normalTransition('2'),
-      '3-RIGHT': RoadEnv.normalTransition('4'),
-      '4-LEFT': RoadEnv.normalTransition('3'),
-      '4-RIGHT': {
+      "0-RIGHT": RoadEnv.normalTransition("1"),
+      "1-LEFT": RoadEnv.normalTransition("0"),
+      "1-RIGHT": RoadEnv.normalTransition("2"),
+      "2-LEFT": RoadEnv.normalTransition("1"),
+      "2-RIGHT": RoadEnv.normalTransition("3"),
+      "3-LEFT": RoadEnv.normalTransition("2"),
+      "3-RIGHT": RoadEnv.normalTransition("4"),
+      "4-LEFT": RoadEnv.normalTransition("3"),
+      "4-RIGHT": {
         nextStateName: TERMINAL,
         reward: 100,
-        done: true,
-      },
-    })[`${stateName}-${action}`]);
+        done: true
+      }
+    }[`${stateName}-${action}`];
   }
 
   static normalTransition(stateName) {
     return {
       nextStateName: stateName,
       reward: 0,
-      done: false,
+      done: false
     };
   }
 }
 
 const update = (RL, stateName, totalSteps) => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(async () => {
       RoadEnv.render(stateName);
 

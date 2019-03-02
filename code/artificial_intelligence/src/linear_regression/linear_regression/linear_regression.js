@@ -15,12 +15,12 @@
 const math = require("mathjs");
 
 /**
-* Solves the normal equation and returns the optimum thetas for
-* the model hypothesis.
-* @param {mathjs.matrix} X - a matrix of m x n (rows x columns), where m is the number of records and n is the number of features. It is common practice to add a leading 1 to each row m, in order to account for the y-intercept in regression.
-* @param {mathjs.matrix} y - a vector of m x 1 (rows x columns), where m is the number of records. Contains the labeled values for each corresponding X row.
-* @returns {mathjs.matrix} A n x 1 matrix containing the optimal thetas.
-*/
+ * Solves the normal equation and returns the optimum thetas for
+ * the model hypothesis.
+ * @param {mathjs.matrix} X - a matrix of m x n (rows x columns), where m is the number of records and n is the number of features. It is common practice to add a leading 1 to each row m, in order to account for the y-intercept in regression.
+ * @param {mathjs.matrix} y - a vector of m x 1 (rows x columns), where m is the number of records. Contains the labeled values for each corresponding X row.
+ * @returns {mathjs.matrix} A n x 1 matrix containing the optimal thetas.
+ */
 const normalEqn = function normalEqn(X, y) {
   // computing the equation theta = (X^T * X)^-1 * X^T * y
   var thetas = math.multiply(math.transpose(X), X);
@@ -28,26 +28,24 @@ const normalEqn = function normalEqn(X, y) {
   thetas = math.multiply(thetas, y);
   // returning a vector containing thetas for hypothesis
   return thetas;
-}
+};
 
 /**
-* Trains and returns a function that serves as a model for predicting values y based on an input X
-* @param {mathjs.matrix} X - a matrix of m x n (rows x columns), where m is the number of records and n is the number of features. It is common practice to add a leading 1 to each row m, in order to account for the y-intercept in regression.
-* @param {mathjs.matrix} y - a vector of m x 1 (rows x columns), where m is the number of records. Contains the labeled values for each corresponding X row.
-* @returns {function} A function that accepts a matrix X, and returns predictions for each row.
-*/
+ * Trains and returns a function that serves as a model for predicting values y based on an input X
+ * @param {mathjs.matrix} X - a matrix of m x n (rows x columns), where m is the number of records and n is the number of features. It is common practice to add a leading 1 to each row m, in order to account for the y-intercept in regression.
+ * @param {mathjs.matrix} y - a vector of m x 1 (rows x columns), where m is the number of records. Contains the labeled values for each corresponding X row.
+ * @returns {function} A function that accepts a matrix X, and returns predictions for each row.
+ */
 const train = function train(X, y) {
   // getting optimal thetas using normal equation
   var thetas = normalEqn(X, y);
   // creating a model that accepts
-  const model = function (X) {
+  const model = function(X) {
     // create predictions by multiplying theta^T * X, creating a model that looks like (theta_1 * x_1) + (theta_2 * x_2) + (theta_3 * x_3) etc.
     return math.multiply(math.transpose(thetas), X);
-  }
+  };
   return model;
-}
-
-
+};
 
 /* TESTS */
 
