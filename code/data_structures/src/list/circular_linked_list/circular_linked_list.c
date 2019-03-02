@@ -1,178 +1,144 @@
-
 #include<stdio.h>
 #include<stdlib.h>
+typedef struct Node node;
+void display(node *tail);
+node *insert_at_end(node *tail);
+node *insert_at_front(node *tail);
+node *delete_at_begin(node *tail);
+node *delete_at_end(node *tail);
 
-void insert_at_end();
-void insert_at_front();
-void delete_end();
-void delete_front();
-void display();
-struct Node *root=NULL,*tail=NULL;
-struct Node
-{
-    int data;
-    struct Node *next;
+struct Node{
+int Data;
+struct Node *next;
 };
-int
-main(int argc, char *argv[])
-{
-    int choice;
-
-    while (1)
-    {
-        printf("Enter Choice:\n1.Insert at front\n2.Insert at End\n3.Display\n4.Delete from front\n5.Delete from end\n6.Exit\n");
-        scanf("%d",&choice);
-        switch (choice){
-        case 1:
-               insert_at_front();
-               break;
-        case 2:
-               insert_at_end();
-               break;
-
-        case 3:
-               display();
-               break;
-        case 4:
-               delete_front();
-               break;
-        case 5:
-               delete_end();
-               break;
-        case 6:
-               return (0);
-
-
-        }
-
-    }
-
-}
-/*Function for Inserting  node at the end in circular list*/
+/*Traversing circular linked list*/
 void
-insert_at_end()
+display(node *tail)
 {
-    int DATA;
-    struct Node *temp;
-    printf("Enter Data:");
-    scanf("%d",&DATA);
-    /*create a node*/
-    temp=(struct Node*)malloc(sizeof(struct Node));
-    temp->data=DATA;
-    temp->next=root;
-    /*Checking initial condition at insertion*/
-    if (root == NULL)
-    {
-        root=temp;
-        tail=temp;
-    }
-    else
-    {
-        tail->next=temp;
-        tail=temp;
-    }
-
-
-}
-/*Function for inserting at the front in circular linked list*/
-void
-insert_at_front()
-{
-    struct Node *temp;
-    temp=(struct Node*)malloc(sizeof(struct Node));
-    printf("Enter Data:");
-    scanf("%d",&temp->data);
-
-    if(root==NULL)
-    {
-        /*Initialize root pointer to the first node's address*/
-        tail=root=temp;
-        temp->next=temp;
-    }
-    else
-    {
-        temp->next=root;
-        root=temp;
-
-    }
-
-}
-/*Function for traversing list*/
-void
-display()
-{
-    struct Node *ptr;
-    if (root == NULL)
-        printf("List is empty\n");
-    else
-    {
+    node *root,*ptr;
+    if (tail == NULL)
+        printf("\nList is empty\n\n");
+    else{
+        root=tail->next;
         ptr=root;
-        while (ptr != tail)
-        {
-            printf("%d ",ptr->data);
+        while (ptr != tail) {
+            printf("%d ",ptr->Data);
             ptr=ptr->next;
         }
-        printf("%d\n",ptr->data);
-
+        printf("%d\n",ptr->Data);
     }
-
-
 }
-/*Function for deleting Node from front*/
-void
-delete_front()
+/*Inserting node at front of the list*/
+node
+*insert_at_front(node *tail)
+{       /*Creating new node*/
+        node *temp=(node*)malloc(sizeof(node));
+        printf("\nEnter Data:");
+        scanf("%d",&temp->Data);
+        /*Check initial condition for list ,it is empty or not*/
+        if (tail == NULL) {
+            tail=temp;
+            tail->next=temp;
+        }
+        else {
+            temp->next=tail->next;
+            tail->next=temp;
+        }
+        return (tail);
+}
+/*Inserting node at the end of list*/
+node
+*insert_at_end(node *tail)
 {
-
-    if (root==NULL)
-        printf("Sorry,List is already empty\n");
-    else
-    {
-        struct Node *temp;
-        if(root->next==root)
-        {
-            free(root);
-            root=NULL;
-        }
-        else
-        {
-            temp=root;
-            root=root->next;
-            tail->next=root;
-            free(temp);
-
-        }
-
+    node *temp=(node*)malloc(sizeof(node));
+    printf("\nEnter Data:");
+    scanf("%d",&temp->Data);
+    if (tail == NULL) {
+        tail=temp;
+        tail->next=temp;
     }
-
+    else {
+        node *root;
+        root=tail->next;
+        tail->next=temp;
+        temp->next=root;
+        tail=temp;
+    }
+    return (tail);
 }
-/*Function for deleting Node from end*/
-void
-delete_end()
+/*Deleting node at the front of list*/
+node
+*delete_at_begin(node *tail)
 {
-    if(root==NULL)
-        printf("Sorry,List is already empty\n");
-    else
-    {
-        struct Node *ptr;
-        if(root->next==root)
-        {
-            free(root);
-            root=NULL;
-
-        }
-        else
-        {
-            ptr=root;
-            while ( ptr->next != tail )
-            {
-                ptr=ptr->next;
-            }
-            ptr->next=root;
+    if (tail == NULL)
+        printf("\nList is Empty\n\n");
+    else {
+        if (tail->next == tail) {
             free(tail);
-            tail=ptr;
+            tail=NULL;
         }
+        else {
+             node *root,*ptr;
+             ptr=root=tail->next;
+             root=root->next;
+             tail->next=root;
+             free(ptr);
+        }
+    }
+    return (tail);
+}
+/*Deleting node at the end of list*/
+node
+*delete_at_end(node *tail)
+{
+    if (tail==NULL)
+        printf("\nList is empty\n\n");
+    else {
+        if (tail->next == tail) {
+            free(tail);
+            tail=NULL;
+        }
+        else {
+            node *root;
+            root=tail->next;
+            while (root->next != tail){
+                root=root->next;
+            }
+            root->next=tail->next;
+            free(tail);
+            tail=root;
+        }
+    }
+    return (tail);
+}
 
-
-
+int main(int argc, char *argv[])
+{   /*Declaring tail pointer to maintain last node address*/
+    node *tail=NULL;
+    int choice;
+    while(1)
+    {   /*We can also write print function outside of while loop */
+        printf("1.Insert at front\n2.Insert at end \n3.Display\n4.Delete from front\n5.Delete from End\n6.Exit\nEnter choice:");
+        scanf("%d",&choice);
+        switch(choice)
+         {
+            case 1:
+                    tail = insert_at_front(tail);
+                    break;
+            case 2:
+                   tail = insert_at_end(tail);
+                   break;
+            case 3:
+                    display(tail);
+                    break;
+            case 4:
+                    tail = delete_at_begin(tail);
+                    break;
+            case 5:
+                   tail = delete_at_end(tail);
+                   break;
+            case 6:
+                   return (0);
+         }
     }
 }
