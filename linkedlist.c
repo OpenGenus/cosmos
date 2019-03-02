@@ -33,7 +33,7 @@ insert_at_beginning(Node** head,int d)
 	(*head) = temp;
 }
 void 
-insert_after_given_node(Node* node, int node_data)		/*Inserts new node after the given node.*/
+insert_after_given_node(Node* node, int node_data)	/*Inserts new node after the given node.*/
 {
 	if (node == NULL) 
 		return;
