@@ -1,13 +1,16 @@
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
+
 class CohenSutherLandAlgo
 {
+    
 public:
     CohenSutherLandAlgo():x1_(0.0),x2_(0.0),y1_(0.0),y2_(0.0) {}
     void setCoordinates(double x1, double y1,double x2, double y2);
     void setClippingRectangle(double x_max, double y_max,double x_min, double y_min);
     int generateCode(double x, double y);
     void cohenSutherland();
+    
 private:
     double x1_,y1_,x2_,y2_;
     double xMax_,yMax_,xMin_,yMin_;
