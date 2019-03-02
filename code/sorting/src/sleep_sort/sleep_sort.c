@@ -9,19 +9,20 @@
 #include <windows.h>
 void routine(void *a)
 {
-  int n = *(int *)a;
-  Sleep(n);
-  printf("%d ", n);
+    int n = *(int *)a;
+    Sleep(n);
+    printf("%d ", n);
 }
 
-void sleepSort(int arr[], int n)
+void sleep_sort(int arr[], int n)
 {
-  int i;
-  HANDLE threads[n];
-  for (i = 0; i < n; i++)
-    threads[i] = (HANDLE)_beginthread(&routine, 0, &arr[i]);
-  WaitForMultipleObjects(n, threads, TRUE, INFINITE);
-  return;
+    HANDLE threads[n];
+
+    int i;
+    for (i = 0; i < n; ++i)
+        threads[i] = (HANDLE)_beginthread(&routine, 0, &arr[i]);
+
+    WaitForMultipleObjects(n, threads, TRUE, INFINITE);
 }
 
 /* LINUX SPECIFIC CODE*/
@@ -31,57 +32,59 @@ void sleepSort(int arr[], int n)
 #include <stdlib.h>
 #include <unistd.h>
 
-static void fdpipe(FILE** readFp, FILE** writeFp)
+static void fdpipe(FILE** read_fp, FILE** write_fp)
 {
-  int fds[2], err;
+    int fds[2];
 
-  err = pipe(fds);
-  assert(err == 0);
+    int err = pipe(fds);
+    assert(err == 0);
 
-  *readFp = fdopen(fds[0], "r");
-  *writeFp = fdopen(fds[1], "w");
+    *read_fp = fdopen(fds[0], "r");
+    *write_fp = fdopen(fds[1], "w");
 }
 
-void sleepSort(int* values, size_t cnt)
+void sleep_sort(int* values, size_t cnt)
 {
-  FILE *readFp, *writeFp;
-  size_t i;
-  int tmp;
+    FILE *read_fp, *write_fp;
 
-  fdpipe(&readFp, &writeFp);
+    fdpipe(&read_fp, &write_fp);
 
-  for (i = 0; i < cnt; i++) switch (fork()) {
-      case -1:
-        assert(0);
-        break;
-      case 0:
-        /* child process */
-        sleep(values[i]);
-        fprintf(writeFp, "%d\n", values[i]);
-        exit(0);
-        break;
-      default:
-        break;
+    size_t i;
+    for (i = 0; i < cnt; i++) {
+        switch (fork()) {
+            case -1:
+                assert(0);
+                break;
+            case 0:
+                /* child process */
+                sleep(values[i]);
+                fprintf(write_fp, "%d\n", values[i]);
+                exit(0);
+                break;
+            default:
+                break;
+        }
     }
-  fclose(writeFp);
+    fclose(write_fp);
 
-  for (i = 0; i < cnt; i++) {
-    tmp = fscanf(readFp, "%d\n", values + i);
-    assert(tmp == 1);
-  }
+    int tmp;
+    for (i = 0; i < cnt; i++) {
+        tmp = fscanf(read_fp, "%d\n", values + i);
+        assert(tmp == 1);
+    }
 }
 #endif
 
 int main()
 {
-  int i;
-  int arr[] = {2, 1, 4, 3};
-  int n = sizeof(arr) / sizeof(arr[0]);
+    int i;
+    int arr[] = {2, 1, 4, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-  sleepSort(arr, n);
+    sleep_sort(arr, n);
 
-  /* print our the sorted elements*/
-  for (i = 0; i < n; i++) printf("%d\n", arr[i]);
+    /* print out the sorted elements*/
+    for (i = 0; i < n; i++) printf("%d\n", arr[i]);
 
-  return 0;
+    return 0;
 }
