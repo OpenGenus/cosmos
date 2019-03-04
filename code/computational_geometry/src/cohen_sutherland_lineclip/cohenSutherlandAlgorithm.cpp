@@ -127,7 +127,7 @@ void CohenSutherLandAlgo::cohenSutherland()
                 y2_ = y;
                 code2 = generateCode(x2_, y2_);
             }
-        }
+        } 
     }
     if (accept)
     {
