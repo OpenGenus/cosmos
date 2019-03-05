@@ -61,9 +61,12 @@ from win10toast import ToastNotifier
 #speak=wicl.Dispatch("SAPI.SpVoice")
 speak = pyttsx3.init()
 
-#Function providing feature for maintaining good eye-sight.
-#Provides notification to look 20 feet away for 20 seconds every 20 minutes.
+
 def run():
+	"""Provides feature for maintaining good eye-sight.
+
+	Provides notification to look 20 feet away for 20 seconds every 20 minutes.
+	"""
 	toaster = ToastNotifier()
 	time_seconds = 60
 	while True:
@@ -81,6 +84,7 @@ def run():
 		speak.runAndWait()
 
 def events(frame,put):
+	"""Identifies the event to be performed."""
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ("play ", "stream ", "queue ")
 	launch_keywords = ["open ", "launch "]
@@ -851,16 +855,17 @@ def events(frame,put):
 	elif put.startswith('exit') or put.startswith('quit'):
 		sys.exit()
 
-#A stdout class to redirect output to tkinter window
-class StdRedirector(object):
 
+class StdRedirector(object):
+	"""A stdout class to redirect output to tkinter window."""
 	def __init__(self, text_window):
 		self.text_window = text_window
 
 	def write(self, output):
 		self.text_window.insert(tk.END, output)
-# Creating the graphical user interface
+
 class MyFrame(tk.Frame):
+	"""Creates the graphical user interface."""
 	def __init__(self,*args,**kwargs):
 
 		self.textBox = tk.Text(root,
@@ -894,6 +899,7 @@ class MyFrame(tk.Frame):
 		'''
 
 	def OnEnter(self,event):
+		"""Identifies the text and sends it for display to displayText."""
 			put=self.textBox.get("1.2","end-1c")
 			self.displayText(put)
 			self.textBox.insert('1.2',put)
@@ -903,6 +909,7 @@ class MyFrame(tk.Frame):
 			   self.displayText('Reenter')
 
 	def OnClicked(self):
+		"""Recognizes the audio and sends it for display to displayText."""
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			speak.say('Hey I am Listening ')
@@ -920,6 +927,7 @@ class MyFrame(tk.Frame):
 			self.displayText("Could not request results; {0}".format(e))
 
 	def displayText(self, text):
+		"""Displays the text in a output window."""
 		try :
 			if not self.output_window.winfo_viewable() :
 				self.output_window.update()
@@ -929,6 +937,7 @@ class MyFrame(tk.Frame):
 		print(text)
 
 	def createOutputWindow(self):
+		"""Creates a output window to display the text."""
 		self.output_window = tk.Toplevel()
 		output_text_window = tk.Text(self.output_window)
 		self.stddirec = StdRedirector(output_text_window)

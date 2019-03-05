@@ -43,6 +43,7 @@ headers = {'''user-agent':'Chrome/53.0.2785.143'''}
 
 
 def events(frame, put,link):
+	"""Identifies the event to be performed."""
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	youtube_keywords = ["play ", "stream ", "queue " , "youtube"]
 	launch_keywords = ["open "]
@@ -426,9 +427,9 @@ def events(frame, put,link):
 
 i=0
 
-#A stdout class to redirect output to tkinter window
-class StdRedirector(object):
 
+class StdRedirector(object):
+	"""A stdout class to redirect output to tkinter window."""
 	def __init__(self, text_window):
 		self.text_window = text_window
 
@@ -436,6 +437,7 @@ class StdRedirector(object):
 		self.text_window.insert(tk.END, output)
 
 class MyFrame(tk.Frame):
+	"""Creates the graphical user interface."""
 	def __init__(self,*args,**kwargs):
 
 		self.textBox = tk.Text(root,
@@ -470,6 +472,7 @@ class MyFrame(tk.Frame):
 		
 
 	def OnEnter(self,event):
+		"""Identifies the text and sends it for display to displayText."""
 			put=self.textBox.get("1.2","end-1c")
 			print(put)
 			self.textBox.delete('1.2',tk.END)
@@ -482,6 +485,7 @@ class MyFrame(tk.Frame):
 			   self.displayText('Reenter')
 
 	def OnClicked(self):
+		"""Recognizes the audio and sends it for display to displayText."""
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			system('say Hey I am Listening ')
@@ -505,6 +509,7 @@ class MyFrame(tk.Frame):
 	
 
 	def displayText(self, text):
+		"""Displays the text in a output window."""
 		try :
 			if not self.output_window.winfo_viewable() :
 				self.output_window.update()
@@ -514,6 +519,7 @@ class MyFrame(tk.Frame):
 		print(text)
 
 	def createOutputWindow(self):
+		"""Creates a output window to display the text."""
 		self.output_window = tk.Toplevel()
 		output_text_window = tk.Text(self.output_window)
 		self.stddirec = StdRedirector(output_text_window)
