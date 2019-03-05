@@ -1,0 +1,64 @@
+**General description:**
+A greedy algorithm, as the name suggests, always makes the choice that seems to be the best at that moment. This means that it makes a locally-optimal choice in the hope that this choice will lead to a globally-optimal solution.
+
+**How does it works?**
+ 
+ you have an objective function that needs to be optimized (either maximized or minimized) at a given point. A Greedy algorithm makes greedy choices at each step to ensure that the objective function is optimized. The Greedy algorithm has only one shot to compute the optimal solution so that it never goes back and reverses the decision..
+ 
+**example of greedy algorithm**
+Travelling salesman:finding optimal solution for problem.
+here it will find the minimum distance to be travelled by the travller.
+generally it will sort the given input in non-decreasing order/gven order and then perform operations.
+
+**Creation and working of greedy algorithm**
+1>Sort the array A in a non-decreasing order.
+2>Select each to-do item one-by-one.
+3>Add the time that it will take to complete that to-do item into currentTime.
+4>Add one to numberOfThings.
+
+5>Repeat this as long as the currentTime is less than or equal to T.
+
+Let A = {5, 3, 4, 2, 1} and T = 6
+
+After sorting, A = {1, 2, 3, 4, 5}
+
+After the 1st iteration:
+
+currentTime = 1
+numberOfThings = 1
+After the 2nd iteration:
+
+currentTime is 1 + 2 = 3
+numberOfThings = 2
+After the 3rd iteration:
+
+currentTime is 3 + 3 = 6
+numberOfThings = 3
+After the 4th iteration, currentTime is 6 + 4 = 10, which is greater than T. Therefore, the answer is 3.
+
+**Implementation**
+
+
+#include <iostream>
+#include <algorithm>
+
+ using namespace std;
+ const int MAX = 105;
+ int A[MAX];
+ int main()
+    {
+        int T, N, numberOfThings = 0, currentTime = 0;
+        cin >> N >> T;
+        for(int i = 0;i < N;++i)
+            cin >> A[i];
+        sort(A, A + N);
+        for(int i = 0;i < N;++i)
+        {
+            currentTime += A[i];
+            if(currentTime > T)
+                break;
+            numberOfThings++;
+        }
+        cout << numberOfThings << endl;
+        return 0;
+    }
