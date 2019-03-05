@@ -1,0 +1,22 @@
+step1:
+vector<int>v; (creates an empty vector of integers)//declaration of empty vector.
+
+step2:
+Size:
+int size=v.size();
+
+step3:
+Pushing an integer into a vector:
+
+v.push_back(x);(where x is an integer.The size increases by 1 after this.)
+
+step4:
+Popping the last element from the vector:
+
+v.pop_back(); (After this the size decreases by 1)
+
+step5:
+
+Sorting a vector:
+
+sort(v.begin(),v.end()); (Will sort all the elements in the vector)
