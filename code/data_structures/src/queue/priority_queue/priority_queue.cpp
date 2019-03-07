@@ -9,15 +9,15 @@
 struct node{
 	int priority;
 	int info;
-	struct node *link;
+	node *link;
 };
 
-class Priority_Queue{
+class PriorityQueue{
     private:
         node *front;
     public:
-        Priority_Queue(){
-            front = NULL;
+        PriorityQueue(){
+            front = nullptr;
         }
         // Insert into Priority Queue
         void add(int item, int priority){
@@ -25,13 +25,13 @@ class Priority_Queue{
             tmp = new node;
             tmp->info = item;
             tmp->priority = priority;
-            if (front == NULL || priority < front->priority){
+            if (front == nullptr || priority < front->priority){
                 tmp -> link = front;
                 front = tmp;
             }
             else{
                 q = front;
-                while (q->link != NULL && q->link -> priority <= priority)
+                while (q->link != nullptr && q->link -> priority <= priority)
                     q = q->link;
 
                 tmp->link = q->link;
@@ -42,7 +42,7 @@ class Priority_Queue{
         // Delete from Priority Queue
         void remove(){
             node *tmp;
-            if(front == NULL)
+            if(front == nullptr)
                 std::cout << "Queue Underflow\n";
             else{
                 tmp = front;
@@ -56,12 +56,12 @@ class Priority_Queue{
         void display(){
             node *ptr;
             ptr = front;
-            if (front == NULL)
+            if (front == nullptr)
                 std::cout << "Queue is empty\n";
             else{	
                 std::cout << "Queue is :\n";
                 std::cout << "Priority Item\n";
-                while(ptr != NULL){
+                while(ptr != nullptr){
                     std::cout << ptr->priority << "\t\t" << ptr->info << "\n";
                     ptr = ptr->link;
                 }
@@ -72,7 +72,7 @@ class Priority_Queue{
 int main(){
 
     int choice, item, priority;
-    Priority_Queue pq; 
+    PriorityQueue pq; 
 
     do{
         std::cout << "1.Insert\n";
