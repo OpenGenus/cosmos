@@ -6,21 +6,21 @@
 #include <cstdlib>
  
 // Node Declaration
-struct node{
+struct node {
 	int priority;
 	int info;
 	node *link;
 };
 
-class PriorityQueue{
+class PriorityQueue {
     private:
         node *front;
     public:
-        PriorityQueue(){
+        PriorityQueue() {
             front = nullptr;
         }
         // Insert into Priority Queue
-        void add(int item, int priority){
+        void add(int item, int priority) {
             node *tmp, *q;
             tmp = new node;
             tmp->info = item;
@@ -29,7 +29,7 @@ class PriorityQueue{
                 tmp -> link = front;
                 front = tmp;
             }
-            else{
+            else {
                 q = front;
                 while (q->link != nullptr && q->link -> priority <= priority)
                     q = q->link;
@@ -40,11 +40,11 @@ class PriorityQueue{
         }
         
         // Delete from Priority Queue
-        void remove(){
+        void remove() {
             node *tmp;
             if(front == nullptr)
                 std::cout << "Queue Underflow\n";
-            else{
+            else {
                 tmp = front;
                 std::cout << "Removed item is: " << tmp->info << "\n";
                 front = front->link;
@@ -53,7 +53,7 @@ class PriorityQueue{
         }
         
         // Print Priority Queue
-        void display(){
+        void display() {
             node *ptr;
             ptr = front;
             if (front == nullptr)
@@ -69,7 +69,7 @@ class PriorityQueue{
         }
 };
 
-int main(){
+int main() {
 
     int choice, item, priority;
     PriorityQueue pq; 
