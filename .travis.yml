@@ -54,8 +54,8 @@ matrix:
       env:
         - MATRIX_EVAL="CXX=g++-7"
 
-    # Lint Python 2 with flake8
-    - os: linux
+    - name: Lint with flake8 on Python 2.7
+      os: linux
       language: python
       python: 2.7
       before_install: pip install flake8
@@ -65,8 +65,8 @@ matrix:
         # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
         - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    # Lint Python 3 with flake8
-    - os: linux
+    - name: Lint with flake8 on Python 3.6
+      os: linux
       language: python
       python: 3.6
       before_install: pip install flake8
@@ -76,8 +76,8 @@ matrix:
         # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
         - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    # Autoformat Python code
-    - os: linux
+    - name: Autoformat Python code
+      os: linux
       language: python
       python: 3.6
       script:
