@@ -12,6 +12,7 @@ import numpy as np
 import cv2
 
 def scan_known_people(known_people_folder):
+	"""Scans the dataset containing images of known people."""
 	known_names = []
 	known_face_encodings = []
 
@@ -32,6 +33,7 @@ def scan_known_people(known_people_folder):
 	return known_names, known_face_encodings
 
 def test_image(known_names, known_face_encodings):
+	"""Compares the captured image to the images in the dataset."""
 	cam = cv2.VideoCapture(0)
 	ret, image_to_check = cam.read()
 
@@ -63,6 +65,7 @@ def test_image(known_names, known_face_encodings):
 		sys.exit()	
 	
 def image_files_in_folder(folder):
+	"""Return a list containing the path of the images in the folder."""
 	return [os.path.join(folder, f) for f in os.listdir(folder) if re.match(r'.*\.(jpg|jpeg|png)', f, flags=re.I)]
 
 def main():

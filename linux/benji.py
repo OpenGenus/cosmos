@@ -47,6 +47,7 @@ speak = pyttsx3.init()
 
 
 def events(frame, put):
+	"""Identifies the event to be performed."""
 	identity_keywords = ["who are you", "who r u", "what is your name"]
 	open_keywords = ["open "]
 	launcher_keywords = ["launch "]
@@ -320,9 +321,9 @@ def events(frame, put):
 		except:
 			speak.say("Sorry,couldn't print")
 
-#A customized thread class for tracking reminders
-class reminderThread(threading.Thread):
 
+class reminderThread(threading.Thread):
+	"""A customized thread class for tracking reminders."""
 	def __init__(self, frame):
 		threading.Thread.__init__(self)
 		self.event = threading.Event()
@@ -330,6 +331,7 @@ class reminderThread(threading.Thread):
 		self.frame = frame
 		
 	def run(self):
+		"""Displays the upcoming reminders."""
 		while not self.event.is_set() :
 			upcoming_reminders = list()
 			self.removePastReminders()
@@ -360,6 +362,7 @@ class reminderThread(threading.Thread):
 			time.sleep(1)
 
 	def removePastReminders(self):
+		"""Removes the past reminders."""
 		try :
 			file_hand = open(reminder_filename, 'r')
 			reminder_list = file_hand.readlines()
@@ -380,9 +383,9 @@ class reminderThread(threading.Thread):
 			self.frame.displayText("Error occured")
 i=0
 
-#A stdout class to redirect output to tkinter window
-class StdRedirector(object):
 
+class StdRedirector(object):
+	"""A stdout class to redirect output to tkinter window."""
 	def __init__(self, text_window):
 		self.text_window = text_window
 
@@ -390,8 +393,9 @@ class StdRedirector(object):
 		self.text_window.insert(tk.END, output)
 
 class MyFrame(tk.Frame):
+	"""Creates the graphical user interface."""
 	def __init__(self,*args,**kwargs):
-		#new Thread to track reminders
+		"""Creates a new thread to track reminders."""
 		global reminder_thread
 		reminder_thread = reminderThread(self)
 		tk.Frame.__init__(self,*args,**kwargs)
@@ -419,6 +423,7 @@ class MyFrame(tk.Frame):
 		reminder_thread.start()
 
 	def OnEnter(self,event):
+		"""Identifies the text and sends it for display to displayText."""
 			put=self.textBox.get("1.2","end-1c")
 			self.displayText(put)
 			self.textBox.insert('1.2',put)
@@ -428,6 +433,7 @@ class MyFrame(tk.Frame):
 				self.displayText('Reenter')
 
 	def OnClicked(self):
+		"""Recognizes the audio and sends it for display to displayText."""
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			speak.say('Hey I am Listening ')
@@ -446,11 +452,13 @@ class MyFrame(tk.Frame):
 			self.displayText("Could not request results; {0}".format(e))
 
 	def onClose(self, event):
+		"""Destroys the thread."""
 			global reminder_thread
 			reminder_thread.event.set()
 			#root.destroy()
 
 	def displayText(self, text):
+		"""Displays the text in a output window."""
 		try :
 			if not self.output_window.winfo_viewable() :
 				self.output_window.update()
@@ -460,6 +468,7 @@ class MyFrame(tk.Frame):
 		print(text)
 
 	def createOutputWindow(self):
+		"""Creates a output window to display the text."""
 		self.output_window = tk.Toplevel()
 		output_text_window = tk.Text(self.output_window)
 		self.stddirec = StdRedirector(output_text_window)
