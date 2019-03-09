@@ -206,6 +206,45 @@ void Linkedlist<T>::deletePos(int pos)
 }
 
 template <typename T>
+void Linkedlist<T>::deleteEnd()
+{
+    Node<T> *pNode1,*pNode2;
+
+    if (header == nullptr)
+        std::cerr << "linked list already empty!" << std::endl;
+    else
+    {
+        pNode1 = header;
+        pNode2=header; 
+        while(pNode->pNext!=nullptr) {
+           pNode2=pNode1;
+           pNode1=pNode1->pNext;
+        }
+        pNode2->pNext=nullptr;
+        delete pNode1;
+    }
+    return;
+}
+
+template <typename T>
+void Linkedlist<T>::deleteFront()
+{
+    Node<T> *pNode;
+
+    if (header == nullptr)
+        std::cerr << "linked list already empty!" << std::endl;
+    else
+    {
+        pNode = header;
+        header=pNode->pNext;
+        pNode->pNext=nullptr;
+        delete pNode;
+        length--;
+    }
+    return;
+}
+
+template <typename T>
 void Linkedlist<T>::modify(int pos, const T& date)
 {
     if (pos < 1 || pos > length)
