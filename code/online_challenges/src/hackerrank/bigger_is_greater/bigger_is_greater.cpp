@@ -10,10 +10,10 @@ int main()
     {
         std::string s;
         std::cin >> s;
-        bool ans = next_permutation(s.begin(), s.end());                       // do permutation and store it in string ans
-        if(ans == false)                                                        // if there is no permutation possible original and ans will be same
+        bool ans = next_permutation(s.begin(), s.end());        // do permutation and store it in string ans
+        if(ans == false)         // if there is no permutation possible original and ans will be same
             std::cout <<"no answer \n";
         else
-            std::cout << s << "\n";                                                  // else print ans
+            std::cout << s << "\n";        // else print ans
     }
 }
