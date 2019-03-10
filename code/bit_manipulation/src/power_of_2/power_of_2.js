@@ -6,9 +6,8 @@
 
 */
 
-function isPowerOf2(num){
-    if (typeof num === "number")
-        return   num && (num & (num - 1)) === 0;
+function isPowerOf2(num) {
+  if (typeof num === "number") return num && (num & (num - 1)) === 0;
 }
 
 console.log(isPowerOf2(64));
