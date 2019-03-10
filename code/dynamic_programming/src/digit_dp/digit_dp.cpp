@@ -34,27 +34,23 @@ long digit_dp(string num, long pos, long count, long f)
         return 0;
     }
 
-    if(dp[pos][count][f] != -1)
+    if (dp[pos][count][f] != -1)
         return dp[pos][count][f];
 
     long result = 0;
     long limit;
 
     if (f == 0)
-    {
         /* Digits we placed so far matches with the prefix of b
          * So if we place any digit > num[pos] in the current position, then
          * the number will become greater than b
-         */ 
+         */
         limit = num[pos] - '0';
-    }
     else
-    {
         /* The number has already become smaller than b.
          * We can place any digit now.
          */
         limit = 9;
-    }
 
     // Try to place all the valid digits such that the number doesn't exceed b
     for (long dgt = 0; dgt <= limit; dgt++)
