@@ -1,4 +1,7 @@
-def cypher(plaintext):
+# Part of Cosmos by OpenGenus Foundation
+
+
+def cipher(plaintext):
     """
     Function to encode/decode given string.
     """
@@ -12,4 +15,4 @@ def cypher(plaintext):
 if __name__ == "__main__":
     import sys
 
-    print cypher(sys.argv[1])
+    print cipher(sys.argv[1])
