@@ -5,10 +5,10 @@ let n = 2;
 
 while (primes.length < 10001) {
   // if this number is not divisible by any prime currently in the array
-  if (primes.reduce((isPrime, prime) => isPrime && (n % prime !== 0), true)) {
+  if (primes.reduce((isPrime, prime) => isPrime && n % prime !== 0, true)) {
     primes.push(n);
   }
-  
+
   n++;
 }
 
