@@ -1,11 +1,12 @@
-#Sum of left leaves in a binary tree
+# Sum of left leaves in a binary tree
 
-#Class for individual nodes
+# Class for individual nodes
 class Node(object):
     def __init__(self, val):
         self.data = val
         self.left = None
         self.right = None
+
 
 class BinaryTree(object):
     def __init__(self):
@@ -18,7 +19,7 @@ class BinaryTree(object):
             self.add(self.head, item)
 
     def add(self, node, val):
-        #Compare parent's value with new value
+        # Compare parent's value with new value
         if val < node.data:
             if node.left == None:
                 node.left = Node(val)
@@ -30,19 +31,21 @@ class BinaryTree(object):
             else:
                 self.add(node.right, val)
 
+
 def preorder(hash_map, level, head):
     if head != None:
         if level not in hash_map.keys():
             hash_map[level] = head.data
-        preorder(hash_map, level+1, head.left)
-        preorder(hash_map, level+1, head.right)
+        preorder(hash_map, level + 1, head.left)
+        preorder(hash_map, level + 1, head.right)
+
 
 if __name__ == "__main__":
     print("Enter number of nodes: ")
     num = int(input())
     root = BinaryTree()
     for _ in range(num):
-        print("Enter element #{}:".format(_+1))
+        print("Enter element #{}:".format(_ + 1))
         item = int(input())
         root.insert(item)
     left_elements = dict()
