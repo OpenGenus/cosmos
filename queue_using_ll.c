@@ -9,14 +9,14 @@ typedef struct Node
 
 typedef struct Queue
 {
-	struct Node *start, *end;
+	Node *start, *end;
 } Queue;
 
 /*Creates a linked list node.*/
 Node
 *create_node(int d)
 {
-	Node* temp = (Node*)malloc(sizeof(Node));
+	Node *temp = (Node*)malloc(sizeof(Node));
 	temp->data = d;
 	temp->next = NULL;
 	return (temp);
@@ -26,7 +26,7 @@ Node
 Queue
 *create_queue()
 {
-	Queue* new_queue = (Queue*)malloc(sizeof(Queue));
+	Queue *new_queue = (Queue*)malloc(sizeof(Queue));
 	new_queue->start = NULL;
 	new_queue->end = NULL;
 	return (new_queue);
@@ -36,9 +36,9 @@ Queue
 *to the start of the queue.
 */
 void
-enqueue(Queue* q,int x)	
+enqueue(Queue *q,int x)	
 {
-	Node* new_node = create_node(x);
+	Node *new_node = create_node(x);
 	if (q->end == NULL)
 	{
 		q->start = new_node;
@@ -51,11 +51,11 @@ enqueue(Queue* q,int x)
 
 /*Removes first node in the queue*/
 Node
-*dequeue(Queue* q)
+*dequeue(Queue *q)
 {
 	if (q->end == NULL)
 		return NULL;
-	Node* temp = q->start;
+	Node *temp = q->start;
 	q->start = q->start->next;
 	if (q->start == NULL)
 		q->end = NULL;
@@ -66,9 +66,9 @@ Node
 * Queue q.
 */
 void
-print_queue(Queue* q)	
+print_queue(Queue *q)	
 {
-	Node* temp = q->start;
+	Node *temp = q->start;
 	while (temp != NULL)
 	{
 		printf("%d ",temp->data);
@@ -80,14 +80,15 @@ print_queue(Queue* q)
 int
 main()
 {
-	Queue* q = create_queue();
+	Queue *q = create_queue();
 	enqueue(q,1);
 	enqueue(q,2);
 	enqueue(q,3);
 	enqueue(q,4);
 	print_queue(q);
-	Node* n=dequeue(q);
+	Node *n=dequeue(q);
 	print_queue(q);
+	free(q);
 	return (0);
 }
 
