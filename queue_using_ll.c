@@ -36,7 +36,7 @@ Queue
 *to the start of the queue.
 */
 void
-enqueue(Queue *q,int x)	
+enqueue(Queue *q, int x)	
 {
 	Node *new_node = create_node(x);
 	if (q->end == NULL)
@@ -81,10 +81,10 @@ int
 main()
 {
 	Queue *q = create_queue();
-	enqueue(q,1);
-	enqueue(q,2);
-	enqueue(q,3);
-	enqueue(q,4);
+	enqueue(q, 1);
+	enqueue(q, 2);
+	enqueue(q, 3);
+	enqueue(q, 4);
 	print_queue(q);
 	Node *n=dequeue(q);
 	print_queue(q);
