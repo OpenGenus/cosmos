@@ -302,3 +302,4 @@ class Adjacency(object):
         axes[1,2].set_title(title6)
 
         plt.show()
+        
