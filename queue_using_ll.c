@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 typedef struct Node
 {
 	int data;
@@ -11,8 +12,9 @@ typedef struct Queue
 	struct Node *start, *end;
 } Queue;
 
-Node*
-create_node(int d)	/*Creates a linked list node.*/
+/*Creates a linked list node.*/
+Node
+*create_node(int d)
 {
 	Node* temp = (Node*)malloc(sizeof(Node));
 	temp->data = d;
@@ -20,8 +22,9 @@ create_node(int d)	/*Creates a linked list node.*/
 	return (temp);
 }
 
-Queue*
-create_queue()	/*Creates an empty queue*/
+/*Creates an empty queue*/
+Queue
+*create_queue()
 {
 	Queue* new_queue = (Queue*)malloc(sizeof(Queue));
 	new_queue->start = NULL;
@@ -29,10 +32,11 @@ create_queue()	/*Creates an empty queue*/
 	return (new_queue);
 }
 
+/*Adds a new node to with value x
+*to the start of the queue.
+*/
 void
-enqueue(Queue* q,int x)	/*Adds a new node to with value x
-			*to the start of the queue.
-			*/
+enqueue(Queue* q,int x)	
 {
 	Node* new_node = create_node(x);
 	if (q->end == NULL)
@@ -45,8 +49,9 @@ enqueue(Queue* q,int x)	/*Adds a new node to with value x
 	q->end = new_node;
 }
 
-Node*
-dequeue(Queue* q)	/*Removes first node in the queue*/
+/*Removes first node in the queue*/
+Node
+*dequeue(Queue* q)
 {
 	if (q->end == NULL)
 		return NULL;
@@ -57,10 +62,11 @@ dequeue(Queue* q)	/*Removes first node in the queue*/
 	return (temp);
 }
 
+/*Prints values of nodes stored in 
+* Queue q.
+*/
 void
-print_queue(Queue* q)	/*Prints values of nodes stored in 
-			* Queue q.
-			*/
+print_queue(Queue* q)	
 {
 	Node* temp = q->start;
 	while (temp != NULL)
