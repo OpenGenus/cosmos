@@ -1,23 +1,21 @@
 #include<stdio.h>
-
 void TowerOfHanoi(int n, char from_rod, char to_rod, char aux_rod);
 int
 main()
 {
-    int n;
-    char source,destination,auxi;
-    printf("Enter no. of disk:");
-    scanf("%d",&n);
-    printf("Enter source rod name:");
-    scanf(" %c",&source);
-    printf("Enter Destination rod name:");
-    scanf(" %c",&destination);
-    printf("Enter Auxi. rod name:");
-    scanf(" %c",&auxi);
-    TowerOfHanoi(n,source ,destination,auxi);
+	int n;
+	char source,destination,auxi;
+	printf("Enter no. of disk:");
+	scanf("%d",&n);
+	printf("Enter source rod name:");
+	scanf(" %c",&source);
+	printf("Enter Destination rod name:");
+	scanf(" %c",&destination);
+	printf("Enter Auxi. rod name:");
+	scanf(" %c",&auxi);
+	TowerOfHanoi(n,source ,destination,auxi);
 	return 0;
 }
-
 void
 TowerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
 {
