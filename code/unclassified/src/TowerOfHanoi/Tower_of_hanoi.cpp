@@ -11,10 +11,12 @@
 //END Procedure
 //STOP
 #include<iostream>
+
 using namespace std;
+
 void TowerOfHanoi(int n, char from_rod, char to_rod, char aux_rod);
-int
-main()
+
+int main()
 {
     int n;
     char source,destination,auxi;
@@ -27,13 +29,13 @@ main()
     cout<<"Enter Auxi. rode name:";
     cin>>auxi;
     TowerOfHanoi(n,source ,destination,auxi);
-   return 0;
+    return 0;
 }
 
-void
-TowerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
+void TowerOfHanoi (int n, char from_rod, char to_rod, char aux_rod)
 {
-    if (n == 1) {
+    if (n == 1)
+       {
 	    cout<<"Move disk 1 from rod "<<from_rod<<" to rod " <<to_rod<<endl;
 	    return;
 	}
