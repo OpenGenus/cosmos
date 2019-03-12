@@ -8,11 +8,11 @@ main()
     char source,destination,auxi;
     printf("Enter no. of disk:");
     scanf("%d",&n);
-    printf("Enter source rode name:");
+    printf("Enter source rod name:");
     scanf(" %c",&source);
-    printf("Enter Destination rode name:");
+    printf("Enter Destination rod name:");
     scanf(" %c",&destination);
-    printf("Enter Auxi. rode name:");
+    printf("Enter Auxi. rod name:");
     scanf(" %c",&auxi);
     TowerOfHanoi(n,source ,destination,auxi);
 	return 0;
