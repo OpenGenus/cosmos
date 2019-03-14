@@ -52,7 +52,7 @@ You can install B.E.N.J.I. on your laptop by cloning this repository as of first
 Note:If a module is not found, then install each module by: pip install modulename<br>
 P.S. B.E.N.J.I. now works for Windows, Linux and Mac OS :tada:
 
-#### Mac installation Troubleshooting
+#### Mac Installation Troubleshooting
 
 ````
     creating build/temp.macosx-10.12-x86_64-3.6/src
@@ -78,6 +78,30 @@ ModuleNotFoundError: No module named 'PIL'
 ```
 Command to solve the above: ```pip3 install Pillow```
 
+```
+Traceback (most recent call last):
+  File "MacOS/benji.py", line 10, in <module>
+    import wikipedia
+ModuleNotFoundError: No module named 'wikipedia'
+```
+Command to solve the above: ```pip3 install wikipedia```
+
+```
+Traceback (most recent call last):
+  File "MacOS/benji.py", line 21, in <module>
+    import speech_recognition as sr
+ModuleNotFoundError: No module named 'speech_recognition'
+```
+Command to solve the above: ```pip3 install SpeechRecognition```
+
+```
+Traceback (most recent call last):
+  File "MacOS/benji.py", line 23, in <module>
+    import pyttsx3
+ModuleNotFoundError: No module named 'pyttsx3'
+```
+Command to solve the above: ```pip3 install pyttsx3```
+
 Change the pip version above according to what you have installed on your mac.
 
 ### B.E.N.J.I working in Linux
@@ -85,6 +109,9 @@ Change the pip version above according to what you have installed on your mac.
 
 ### B.E.N.J.I working on Windows
 ![Working on Windows](working-benji-windows.gif)
+
+### B.E.N.J.I working on Mac
+![Working on Windows](working-benji-mac.gif)
 
 ### Contributing
 
