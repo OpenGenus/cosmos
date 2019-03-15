@@ -6,7 +6,8 @@
 
 
 // push as much excess flow as possible from f to t
-void push(std::vector<std::vector<int> > * graph, std::vector<std::vector<int> > * flow, std::vector<std::vector<int> > * residual, std::vector<int> * excess, int f, int t)
+void push(std::vector<std::vector<int> > * graph, std::vector<std::vector<int> > * flow, 
+          std::vector<std::vector<int> > * residual, std::vector<int> * excess, int f, int t)
 {
 
     if((*excess)[f] <= 0)
@@ -56,7 +57,8 @@ void relabel(std::vector<std::vector<int> > * residual, std::vector<int> * heigh
 
 
 // expecting propper flow matrix, empty residual and no a ->b, b-> a capacities
-int max_flow_residual(std::vector<std::vector<int> > graph, std::vector<std::vector<int> > flow, std::vector<std::vector<int> > * residual, int s, int t)
+int max_flow_residual(std::vector<std::vector<int> > graph, std::vector<std::vector<int> > flow, 
+                      std::vector<std::vector<int> > * residual, int s, int t)
 {
 
     int num_nodes = graph.size();
@@ -133,8 +135,8 @@ int max_flow_residual(std::vector<std::vector<int> > graph, std::vector<std::vec
             if(i == nbr_lst.size())
             {
                 /*
-                 * all possible neighbors have been visited but there is still too much incoming flow
-                 * so the height of 'node' has to be increased
+                 * all possible neighbors have been visited but there is still too much incoming 
+                 * flow so the height of 'node' has to be increased
                  */
                 i=0;
                 relabel(residual,&height,node);
@@ -166,7 +168,8 @@ int max_flow_residual(std::vector<std::vector<int> > graph, std::vector<std::vec
     return res;
 }
 
-int max_flow(std::vector<std::vector<int> > graph, std::vector<std::vector<int> > flow, int s, int t)
+int max_flow(std::vector<std::vector<int> > graph, 
+             std::vector<std::vector<int> > flow, int s, int t)
 {
 
     int l = graph.size();
