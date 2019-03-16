@@ -55,7 +55,7 @@ int main()
 {
     DDALineDrawingAlgorithm d;
     d.getCoordinates();
-    int gd=DETECT, gm;
+    int gd = DETECT, gm;
     initgraph(&gd, &gm, NULL);
     d.ddaLineDrawing();
 }
