@@ -1,5 +1,4 @@
 #include <iostream>
-#include <graphics.h>
 
 class BresenhamCircle
 {
