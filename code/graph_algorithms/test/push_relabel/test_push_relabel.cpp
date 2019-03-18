@@ -10,7 +10,7 @@ std::vector<std::vector<int> > g_flow;
 void test(int res, int s, int t, bool empty)
 {
 	std::cout << "Test " << ++g_testCounter << ": ";
-	int k = (empty ? max_flow_empty(g_graph,s,t) : max_flow(g_graph,g_flow,s,t));
+	int k = (empty ? maxFlowEmpty(g_graph,s,t) : maxFlow(g_graph,g_flow,s,t));
 	if(k == res)
 		std::cout << "Success" << std::endl;
 	else
@@ -23,8 +23,6 @@ void test(int res, int s, int t, bool empty)
 
 int main()
 {
-
-
 	std::cout << "Testing the push-relabel algorithm" << std::endl;
 
 	g_graph.push_back(std::vector<int>{ 0, 1, 0 });
@@ -79,7 +77,6 @@ int main()
 	g_flow.push_back(std::vector<int>{ 0, 0, 0, 0, 0, 4});
 	g_flow.push_back(std::vector<int>{ 0, 4, 0, 0, 0, 0});
 	g_flow.push_back(std::vector<int>{ 0, 0, 0, 0, 0, 0});
-
 
 	test(14,0,5,false);
 	return 0;

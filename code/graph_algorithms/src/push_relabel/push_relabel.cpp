@@ -3,189 +3,158 @@
 #include <cmath>
 #include <limits>
 
-
-
 // push as much excess flow as possible from f to t
-void push(std::vector<std::vector<int> > * graph, std::vector<std::vector<int> > * flow, 
-          std::vector<std::vector<int> > * residual, std::vector<int> * excess, int f, int t)
+void push(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& flow, 
+          std::vector<std::vector<int> >& residual, std::vector<int>& excess, int f, int t)
 {
-
-    if((*excess)[f] <= 0)
+    if (excess[f] <= 0)
     {
-        std::cerr << "excess on node " << f << "is " << (*excess)[f] << std::endl;
+        std::cerr << "excess on node " << f << "is " << excess[f] << std::endl;
         return;
     }
     
     // calculate the maximum amount of flow that can be pushed
-    int tmp = std::min((*excess)[f], (*residual)[f][t]);
+    int tmp = std::min(excess[f], residual[f][t]);
 
-    (*excess)[f] -= tmp;
-    (*excess)[t] += tmp;
+    excess[f] -= tmp;
+    excess[t] += tmp;
 
-    (*residual)[f][t] -= tmp;
-    (*residual)[t][f] += tmp;
+    residual[f][t] -= tmp;
+    residual[t][f] += tmp;
 
     // if this holdes, the edge is a backwards edge, so t->f will be reduced
-    if((*graph)[f][t] == 0)
+    if (graph[f][t] == 0)
     {
-
-        (*flow)[t][f] -= tmp;
+        flow[t][f] -= tmp;
         return;
     }
 
-    (*flow)[f][t] += tmp;
+    flow[f][t] += tmp;
 }
 
 // reset the height of node "node", so excess flow can be pushed
-void relabel(std::vector<std::vector<int> > * residual, std::vector<int> * height, int node)
+void relabel(std::vector<std::vector<int> >& residual, std::vector<int>& height, int node)
 {
-
-
     int min = std::numeric_limits<int>::max();
 
-    for(int i = 0; i < residual->size(); i++)
+    for (int i = 0; i < residual.size(); i++)
     {
-        if((*residual)[node][i] > 0 && (*height)[i] < min)
-        {
-            min = (*height)[i];
-        }
+        if (residual[node][i] > 0 && height[i] < min)
+            min = height[i];
     }
 
-    height->at(node) = min + 1;
+    height[node] = min + 1;
 }
 
-
-
 // expecting propper flow matrix, empty residual and no a ->b, b-> a capacities
-int max_flow_residual(std::vector<std::vector<int> > graph, std::vector<std::vector<int> > flow, 
-                      std::vector<std::vector<int> > * residual, int s, int t)
+int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vector<int> > flow, 
+                      std::vector<std::vector<int> >& residual, int s, int t)
 {
-
-    int num_nodes = graph.size();
+    int numNodes = graph.size();
 
     // property check
-    if(graph.size() != graph[0].size() || graph.size() != flow.size())
-    {
+    if (graph.size() != graph[0].size() || graph.size() != flow.size())
         std::cerr << "Graph matrix/Flow Matrix has wrong format" << std::endl;
-    }
 
-
-    std::vector<int> excess(num_nodes,0);
+    std::vector<int> excess(numNodes, 0);
     excess[s] = std::numeric_limits<int>::max();
 
-
-
-
     // initialize the residual graph
-    for(int i = 0; i < num_nodes; i++)
+    for (int i = 0; i < numNodes; i++)
     {
-        for(int j = 0; j < num_nodes; j++)
+        for (int j = 0; j < numNodes; j++)
         {
             int tmp = flow[i][j];
-            if(tmp > 0)
-                (*residual)[j][i] = tmp;
+            if (tmp > 0)
+                residual[j][i] = tmp;
             
             int g = graph[i][j] - tmp;
-            if(g > 0)
-                (*residual)[i][j] = g;
-            
+            if (g > 0)
+                residual[i][j] = g;
         }
     }
 
-    std::queue<int> active_nodes;
+    std::queue<int> activeNodes;
 
     // push initial flow from source
-    for(int i = 0; i < num_nodes; i++)
+    for (int i = 0; i < numNodes; i++)
     {
-        if(graph[s][i] > 0 && graph[s][i] > flow[s][i])
+        if (graph[s][i] > 0 && graph[s][i] > flow[s][i])
         {
-            push(&graph, &flow, &(*residual), &excess, s, i);
-            active_nodes.push(i);
+            push(graph, flow, residual, excess, s, i);
+            activeNodes.push(i);
         }
     }
 
     // create initial height values
-    std::vector<int> height(num_nodes,0);
-    height[s] = num_nodes;
+    std::vector<int> height(numNodes, 0);
+    height[s] = numNodes;
     height[t] = 0;
 
-    while(!active_nodes.empty())
+    while (!activeNodes.empty())
     {
-
-
-        int node = active_nodes.front();
-
+        int node = activeNodes.front();
 
         // store all nodes that excess flow can be pushed to from 'node'
-        std::vector<int> nbr_lst;
-        for(int i = 0; i < num_nodes; i++)
+        std::vector<int> nbrList;
+        for (int i = 0; i < numNodes; i++)
         {
-
-            if((*residual)[node][i] > 0)
-                nbr_lst.push_back(i);
+            if (residual[node][i] > 0)
+                nbrList.push_back(i);
         }
 
         int i = 0;
 
-
         // apply push / relabel to 'node' until all excess flow is taken care of
-        while(excess[node] > 0)
+        while (excess[node] > 0)
         {
-
-            if(i == nbr_lst.size())
+            if (i == nbrList.size())
             {
                 /*
                  * all possible neighbors have been visited but there is still too much incoming 
                  * flow so the height of 'node' has to be increased
                  */
                 i=0;
-                relabel(residual,&height,node);
+                relabel(residual, height, node);
             }
             else
             {
-                int j = nbr_lst[i];
-                if((*residual)[node][j] > 0 && height[node] > height[j])
+                int j = nbrList[i];
+                if (residual[node][j] > 0 && height[node] > height[j])
                 {
-
-                    push(&graph,&flow,residual,&excess,node,j);
-                    if(excess[j] > 0 && j != s && j != t)
-                        active_nodes.push(j);
-
+                    push(graph, flow, residual, excess, node, j);
+                    if (excess[j] > 0 && j != s && j != t)
+                        activeNodes.push(j);
                 }
                 i++;
             }
         }
-
-        active_nodes.pop();
+        activeNodes.pop();
     }
-
 
     // extract the flow
     int res = 0;
-    for(int i = 0; i < num_nodes; i++)
-        res += std::max(0,flow[s][i]);
+    for (int i = 0; i < numNodes; i++)
+        res += std::max(0, flow[s][i]);
 
     return res;
 }
 
-int max_flow(std::vector<std::vector<int> > graph, 
+int maxFlow(std::vector<std::vector<int> > graph, 
              std::vector<std::vector<int> > flow, int s, int t)
 {
-
     int l = graph.size();
-    std::vector<std::vector<int> > empty_residual(l, std::vector<int>(l,0));
+    std::vector<std::vector<int> > emptyResidual(l, std::vector<int>(l, 0));
 
-    return max_flow_residual(graph, flow,  &empty_residual, s, t);
-
+    return maxFlowResidual(graph, flow, emptyResidual, s, t);
 }
 
 
-int max_flow_empty(std::vector<std::vector<int> > graph, int s, int t)
+int maxFlowEmpty(std::vector<std::vector<int> > graph, int s, int t)
 {
-
     // create empty flow matrix
     int l = graph.size();
-    std::vector<std::vector<int> > empty_flow(l, std::vector<int>(l,0));
+    std::vector<std::vector<int> > emptyFlow(l, std::vector<int>(l, 0));
 
-    return max_flow(graph, empty_flow, s, t);
+    return maxFlow(graph, emptyFlow, s, t);
 }
