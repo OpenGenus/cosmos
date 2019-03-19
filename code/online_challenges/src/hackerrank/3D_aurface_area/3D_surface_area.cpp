@@ -22,7 +22,7 @@ int main()
                     temp = (a[i][j] - 1) * 4 + 6;
                     int d = std::min(a[i][j - 1], a[i][j]);
                     temp = temp - (d * 2);
-                    sum = sum + temp;
+                    sum  += temp;
                 }
             }
         }
