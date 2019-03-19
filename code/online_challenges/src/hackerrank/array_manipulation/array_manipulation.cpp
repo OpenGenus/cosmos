@@ -13,7 +13,7 @@ int main()
     std::cin >> n >> m;
     std::vector<std::pair<int, int> > v;
 
-    for (int a0 = 0; a0 < m; ++a0) {
+    for (int i = 0; i < m; ++i) {
         std::cin >> a >> b >> k;
         v.push_back(std::make_pair(a, k));
         v.push_back(std::make_pair(b + 1, -1 * k));
