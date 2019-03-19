@@ -1,7 +1,5 @@
 #include <vector>
 #include <queue>
-#include <cmath>
-#include <limits>
 
 // push as much excess flow as possible from f to t
 void push(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& flow, 
@@ -9,7 +7,7 @@ void push(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& 
 {
     if (excess[f] <= 0)
     {
-        std::cerr << "excess on node " << f << "is " << excess[f] << std::endl;
+        std::cerr << "excess on node " << f << "is " << excess[f] << "\n";
         return;
     }
     
@@ -37,11 +35,9 @@ void relabel(std::vector<std::vector<int> > residual, std::vector<int>& height, 
 {
     int min = std::numeric_limits<int>::max();
 
-    for (int i = 0; i < residual.size(); i++)
-    {
+    for (int i = 0; i < residual.size(); ++i)
         if (residual[node][i] > 0 && height[i] < min)
             min = height[i];
-    }
 
     height[node] = min + 1;
 }
@@ -54,15 +50,15 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
 
     // property check
     if (graph.size() != graph[0].size() || graph.size() != flow.size())
-        std::cerr << "Graph matrix/Flow Matrix has wrong format" << std::endl;
+        std::cerr << "Graph matrix/Flow Matrix has wrong format\n";
 
     std::vector<int> excess(numNodes, 0);
     excess[s] = std::numeric_limits<int>::max();
 
     // initialize the residual graph
-    for (int i = 0; i < numNodes; i++)
+    for (int i = 0; i < numNodes; ++i)
     {
-        for (int j = 0; j < numNodes; j++)
+        for (int j = 0; j < numNodes; ++j)
         {
             int tmp = flow[i][j];
             if (tmp > 0)
@@ -77,7 +73,7 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
     std::queue<int> activeNodes;
 
     // push initial flow from source
-    for (int i = 0; i < numNodes; i++)
+    for (int i = 0; i < numNodes; ++i)
     {
         if (graph[s][i] > 0 && graph[s][i] > flow[s][i])
         {
@@ -97,7 +93,7 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
 
         // store all nodes that excess flow can be pushed to from 'node'
         std::vector<int> nbrList;
-        for (int i = 0; i < numNodes; i++)
+        for (int i = 0; i < numNodes; ++i)
         {
             if (residual[node][i] > 0)
                 nbrList.push_back(i);
@@ -126,7 +122,7 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
                     if (excess[j] > 0 && j != s && j != t)
                         activeNodes.push(j);
                 }
-                i++;
+                ++i;
             }
         }
         activeNodes.pop();
@@ -134,7 +130,7 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
 
     // extract the flow
     int res = 0;
-    for (int i = 0; i < numNodes; i++)
+    for (int i = 0; i < numNodes; ++i)
         res += std::max(0, flow[s][i]);
 
     return res;
