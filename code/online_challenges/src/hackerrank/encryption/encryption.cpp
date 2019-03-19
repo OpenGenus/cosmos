@@ -12,7 +12,6 @@ int main()
     c = ceil(sqrt(l));
 
     for (int i = 0; i < c; ++i) {
-
         for (int j = i; j < l; j = j + c)
             std::cout << s[j];
 
