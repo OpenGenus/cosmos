@@ -18,10 +18,10 @@ int main()
         std::cin >> a[i];
         b[i] = a[i];
     }
-    sort(b.begin(), b.end());
+    std::sort(b.begin(), b.end());
     for (int i = 0; i < n; ++i) {
         if (b[i] != a[i]) {
-            p++;
+            ++p;
             if (t == 0) {
                 s = i;
                 ++t;
@@ -32,7 +32,7 @@ int main()
     }
 
     if (p == 0) {
-        std::cout << "yes";
+        std::cout << "yes\n";
         return 0;
     }
     else if (p == 2) {
@@ -41,17 +41,16 @@ int main()
         std::cout << "swap " << s + 1 << " " << l + 1;
         return 0;
     }
-
-    {
+    
         for (int i = l; i > s;--i) {
             if (a[i] > a[i - 1]) {
-                std::cout << "no";
+                std::cout << "no\n";
                 return 0;
             }
         }
 
         std::cout << "yes \n";        
         std::cout << "reverse " << s + 1 << " " << l + 1;
-    }
+
     return 0;
 }
