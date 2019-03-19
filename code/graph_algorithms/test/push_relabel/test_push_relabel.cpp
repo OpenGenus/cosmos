@@ -5,8 +5,8 @@
 
 
 int g_testCounter = 0;
-std::vector<std::vector<int> > g_graph;
-std::vector<std::vector<int> > g_flow;
+std::vector<std::vector<int>> g_graph;
+std::vector<std::vector<int>> g_flow;
 
 int test(int s, int t, bool empty)
 {

@@ -2,8 +2,8 @@
 #include <queue>
 
 // push as much excess flow as possible from f to t
-void push(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& flow, 
-          std::vector<std::vector<int> >& residual, std::vector<int>& excess, int f, int t)
+void push(std::vector<std::vector<int>> graph, std::vector<std::vector<int>>& flow, 
+          std::vector<std::vector<int>>& residual, std::vector<int>& excess, int f, int t)
 {
     if (excess[f] <= 0)
     {
@@ -31,7 +31,7 @@ void push(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& 
 }
 
 // reset the height of node "node", so excess flow can be pushed
-void relabel(std::vector<std::vector<int> > residual, std::vector<int>& height, int node)
+void relabel(std::vector<std::vector<int>> residual, std::vector<int>& height, int node)
 {
     int min = std::numeric_limits<int>::max();
 
@@ -43,8 +43,8 @@ void relabel(std::vector<std::vector<int> > residual, std::vector<int>& height, 
 }
 
 // expecting propper flow matrix, empty residual and no a ->b, b-> a capacities
-int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vector<int> >& flow, 
-                      std::vector<std::vector<int> >& residual, int s, int t)
+int maxFlowResidual(std::vector<std::vector<int>> graph, std::vector<std::vector<int>>& flow, 
+                      std::vector<std::vector<int>>& residual, int s, int t)
 {
     int numNodes = graph.size();
 
@@ -136,21 +136,21 @@ int maxFlowResidual(std::vector<std::vector<int> > graph, std::vector<std::vecto
     return res;
 }
 
-int maxFlow(std::vector<std::vector<int> > graph, 
-             std::vector<std::vector<int> >& flow, int s, int t)
+int maxFlow(std::vector<std::vector<int>> graph, 
+             std::vector<std::vector<int>>& flow, int s, int t)
 {
     int l = graph.size();
-    std::vector<std::vector<int> > emptyResidual(l, std::vector<int>(l, 0));
+    std::vector<std::vector<int>> emptyResidual(l, std::vector<int>(l, 0));
 
     return maxFlowResidual(graph, flow, emptyResidual, s, t);
 }
 
 
-int maxFlowEmpty(std::vector<std::vector<int> > graph, int s, int t)
+int maxFlowEmpty(std::vector<std::vector<int>> graph, int s, int t)
 {
     // create empty flow matrix
     int l = graph.size();
-    std::vector<std::vector<int> > emptyFlow(l, std::vector<int>(l, 0));
+    std::vector<std::vector<int>> emptyFlow(l, std::vector<int>(l, 0));
 
     return maxFlow(graph, emptyFlow, s, t);
 }
