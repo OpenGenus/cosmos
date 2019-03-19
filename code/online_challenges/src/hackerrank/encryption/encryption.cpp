@@ -15,6 +15,6 @@ int main()
         for (int j = i; j < l; j = j + c)
             std::cout << s[j];
 
-        std::cout << " ";
+        std::cout << "\n";
     }
 }
