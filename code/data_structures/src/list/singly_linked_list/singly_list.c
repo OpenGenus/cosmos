@@ -83,3 +83,19 @@ int menu()
 					scanf("%d",&b);
 					insert_after_value(a,b);
 					break;
+      case 5:
+					delete_beg();
+					break;
+			case 6:
+					delete_end();
+					break;
+			case 7:
+					printf("Enter the location of node to delete: ");
+					scanf("%d",&a);
+					delete_node(a);
+					break;
+			case 8:
+					printf("Enter the value you want to delete: ");
+					scanf("%d",&a);
+					delete_value(a);
+					break;
