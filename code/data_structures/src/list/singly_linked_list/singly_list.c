@@ -120,3 +120,31 @@ int menu()
 					display();
 					usleep(5000000);
 					break;
+      case 13:
+					reverse();
+					break;
+			case 14:
+					sortlist();
+					break;
+			case 15:
+					printf("Enter the name of file to write to: ");
+					scanf("%s",filename);
+					writefile(filename);
+					break;
+			case 16:
+					listfile();
+					printf("Enter the name of file to read from: ");
+					scanf("%s",filename);
+					readfile(filename);
+					break;
+			case 17:
+					return n;
+					break;
+		}
+}
+
+void clear(void)
+{
+	printf("\033[2J");
+	printf("\033[%d;%dH",0,0);
+}
