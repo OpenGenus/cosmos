@@ -99,3 +99,25 @@ int menu()
 				scanf("%d",&a);
 				delete_value(a);
 				break;
+    case 9:
+					printf("Enter the location of node you want to replace: ");
+					scanf("%d",&b);
+					printf("Enter the new number: ");
+					scanf("%d",&a);
+					replace_node(a,b);
+					break;
+			case 10:
+					printf("Enter the value you want to replace: ");
+					scanf("%d",&a);
+					printf("Enter the new number: ");
+					scanf("%d",&b);
+					replace_value(b,a);
+					break;
+			case 11:
+					delete_dup_vals();
+					break;
+			case 12:
+					display();
+					usleep(5000000);
+					break;
+      
