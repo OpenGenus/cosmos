@@ -14,9 +14,9 @@ def greatest_digit(n):
 
 
 def greatest_digits_with_builtins(num):
-    print("Greatest digit is: {}".format(int(max([*str(num)]))))
+    return int(max([*str(num)]))
 
 
 user_number = int(input("enter number: "))
 print("greatest digit is :\n", int(greatest_digit(user_number)))
-greatest_digits_with_builtins(user_number)
+print("greatest digit is :\n", greatest_digits_with_builtins(user_number))
