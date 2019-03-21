@@ -1,12 +1,12 @@
 """
 Mean filter algorithm
 Part of Cosmos by OpenGenus Foundation
-Author: Matheus Guimaraes (@matheusguimr)
+Author: Matheus Guimaraes (@matheustguimaraes)
 """
 
 
-import cv2
-import numpy as np
+from cv2 import imread, imshow, cvtColor, COLOR_BGR2GRAY, waitKey
+from numpy import mean, float32
 
 
 def get_mean_filter(gray_image, mask_size=3):
@@ -18,22 +18,21 @@ def get_mean_filter(gray_image, mask_size=3):
             # Create a 3x3 convolution matrix
             kernel = gray_image[i - bord:i + bord + 1, j - bord:j + bord + 1]
             # Get the kernel mean
-            mean_filter[i, j] = int(np.mean(kernel, dtype=np.float32))
+            mean_filter[i, j] = int(mean(kernel, dtype=float32))
     return mean_filter
 
 
 if __name__ == '__main__':
     # Read image
-    img = cv2.imread('lena.jpg')
+    img = imread('lena.jpg')
     # Convert image for gray scale
-    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_img = cvtColor(img, COLOR_BGR2GRAY)
 
     # Pass images to function
     mean_img_3x3 = get_mean_filter(gray_img, 3)
     mean_img_5x5 = get_mean_filter(gray_img, 5)
 
     # Show the images
-    cv2.imshow('mask 3x3', mean_img_3x3)
-    cv2.imshow('mask 5x5', mean_img_5x5)
-    cv2.waitKey(0)
-
+    imshow('mask 3x3', mean_img_3x3)
+    imshow('mask 5x5', mean_img_5x5)
+    waitKey(0)
