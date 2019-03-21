@@ -32,33 +32,33 @@ void sortlist();
 void writefile(char *filename);
 void readfile();
 
-void insert_beg(int num)
+void
+insert_beg(int num)
 {
 	node = (list*)malloc(sizeof(list*));
 	node->info = num;
 
-	if(start == NULL)
+	if (start == NULL)
 	{
 		node->next = NULL;
 		start = node;
 	}
-	else
-	{
+	else {
 		node->next = start;
 		start = node;
 	}
 }
 
-void insert_end(int num)
+void
+insert_end(int num)
 {
 	node = (list*)malloc(sizeof(list*));
 	node->info = num;
 	node->next = NULL;
 
-	if(start == NULL)
+	if (start == NULL)
 		start = node;
-	else
-	{
+	else {
 		curr = start;
 		while(curr->next != NULL)
 			curr=curr->next;
@@ -67,10 +67,11 @@ void insert_end(int num)
 	}
 }
 
-void insert_at_loc(int num,int loc)
+void
+insert_at_loc(int num,int loc)
 {
 	int n = length();
-	if(loc > n || loc < 0)
+	if (loc > n || loc < 0)
 	{
 		printf("Location is invalid!! Try again\n");
 		return;
@@ -79,14 +80,13 @@ void insert_at_loc(int num,int loc)
 	node->info = num;
 	node->next = NULL;
 
-	if(start == NULL)
+	if (start == NULL)
 		start = node;
-	else
-	{
+	else {
 		curr = start;
 		int i = 1;
 
-		while(curr != NULL && i<loc)
+		while (curr != NULL && i<loc)
 		{
 			prev = curr;
 			curr = curr->next;
@@ -98,20 +98,20 @@ void insert_at_loc(int num,int loc)
 	}
 }
 
-void insert_after_value(int num,int val)
+void
+insert_after_value(int num,int val)
 {
 	node = (list*)malloc(sizeof(list*));
 	node->info = num;
 
-	if(start == NULL)
+	if (start == NULL)
 		start = node;
-	else
-	{
+	else {
 		curr = start;
 		while(curr != NULL && curr->info != val)
 			curr=curr->next;
 
-		if(curr == NULL)
+		if (curr == NULL)
 		{
 			printf("Value was not found!! Try again\n");
 			return;
@@ -121,9 +121,10 @@ void insert_after_value(int num,int val)
 	}
 }
 
-void delete_beg()
+void
+delete_beg()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
@@ -133,15 +134,16 @@ void delete_beg()
 	free(curr);
 }
 
-void delete_end()
+void
+delete_end()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
 	curr = start;
-	while(curr->next != NULL)
+	while (curr->next != NULL)
 	{
 		prev = curr;
 		curr = curr->next;
@@ -150,24 +152,25 @@ void delete_end()
 	free(curr);
 }
 
-void delete_node(int num)
+void
+delete_node(int num)
 {
 	int n = length();
 
-	if(num > n || num < 0)
+	if (num > n || num < 0)
 	{
 		printf("Location is invalid!! Try again\n");
 		return;
 	}
 
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
 	curr = start;
 	int i = 1;
-	while(curr != NULL && i < num)
+	while (curr != NULL && i < num)
 	{
 		prev = curr;
 		curr = curr->next;
@@ -177,27 +180,28 @@ void delete_node(int num)
 	free(curr);
 }
 
-void delete_value(int num)
+void
+delete_value(int num)
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
 	curr = start;
-	if(start->info == num)
+	if (start->info == num)
 	{
 		start = start->next;
 		free(curr);
 	}
 	curr = start;
-	while(curr != NULL && curr->info != num)
+	while (curr != NULL && curr->info != num)
 	{
 		prev = curr;
 		curr = curr->next;
 	}
 
-	if(curr == NULL)
+	if (curr == NULL)
 	{
 		printf("Value not found! Try again\n");
 		return;
@@ -206,17 +210,18 @@ void delete_value(int num)
 	free(curr);
 }
 
-void replace_node(int num, int loc)
+void
+replace_node(int num, int loc)
 {
 	int n = length();
 
-	if(loc > n || loc < 0)
+	if (loc > n || loc < 0)
 	{
 		printf("Location is invalid!! Try again\n");
 		return;
 	}
 
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
@@ -224,7 +229,7 @@ void replace_node(int num, int loc)
 	curr = start;
 	int i = 1;
 
-	while(curr != NULL && i < loc)
+	while (curr != NULL && i < loc)
 	{
 		curr = curr->next;
 		i++;
@@ -232,17 +237,18 @@ void replace_node(int num, int loc)
 	curr->info = num;
 }
 
-void replace_value(int num, int val)
+void
+replace_value(int num, int val)
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
 	curr = start;
-	while(curr != NULL && curr->info != val)
+	while (curr != NULL && curr->info != val)
 		curr = curr->next;
-	if(curr == NULL)
+	if (curr == NULL)
 	{
 		printf("Value not found! Try again\n");
 		return;
@@ -250,9 +256,10 @@ void replace_value(int num, int val)
 	curr->info = num;
 }
 
-void delete_dup_vals()
+void
+delete_dup_vals()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
@@ -260,9 +267,9 @@ void delete_dup_vals()
 	sortlist();
 	curr = start;
 
-	while(curr->next != NULL)
+	while (curr->next != NULL)
 	{
-		if(curr->info == curr->next->info)
+		if (curr->info == curr->next->info)
 		{
 			prev = curr->next->next;
 			free(curr->next);
@@ -273,38 +280,41 @@ void delete_dup_vals()
 	}
 }
 
-int length()
+int
+length()
 {
-	if(start == NULL)
-		return 0;
+	if (start == NULL)
+		return (0);
 	int i = 1;
 	curr = start;
-	while(curr != NULL)
+	while (curr != NULL)
 	{
 		curr = curr->next;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
-void display()
+void
+display()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
 	curr = start;
-	while(curr!=NULL)
+	while (curr!=NULL)
 	{
 		printf("%d\n",curr->info);
 		curr = curr->next;
 	}
 }
 
-void reverse()
+void
+reverse()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
@@ -312,7 +322,7 @@ void reverse()
 	curr = start;
 	prev = curr->next;
 	curr->next = NULL;
-	while(prev->next != NULL)
+	while (prev->next != NULL)
 	{
 		node = prev->next;
 		prev->next = curr;
@@ -323,18 +333,19 @@ void reverse()
 	start = prev;
 }
 
-void sortlist()
+void
+sortlist()
 {
-	if(start == NULL)
+	if (start == NULL)
 	{
 		printf("List is empty\n");
 		return;
 	}
-	for(curr=start;curr!= NULL;curr=curr->next)
+	for (curr=start; curr!= NULL; curr=curr->next)
 	{
-		for(prev=curr->next; prev!=NULL; prev=prev->next)
+		for (prev=curr->next; prev!=NULL; prev=prev->next)
 		{
-			if((curr->info > prev->info))
+			if ((curr->info > prev->info))
 			{
 				int temp = curr->info;
 				curr->info = prev->info;
@@ -344,7 +355,8 @@ void sortlist()
 	}
 }
 
-void writefile(char *filename)
+void
+writefile(char *filename)
 {
 	char path[MAX_LENGTH] = "./files/";
 	strcat(path,filename);
@@ -352,7 +364,7 @@ void writefile(char *filename)
 	FILE *fp;
 	fp = fopen(path,"w");
 	curr = start;
-	while(curr != NULL)
+	while (curr != NULL)
 	{
 		fprintf(fp,"%d\n",curr->info);
 		curr = curr->next;
@@ -360,7 +372,8 @@ void writefile(char *filename)
 	fclose(fp);
 }
 
-void readfile(char *filename)
+void
+readfile(char *filename)
 {
 	start = NULL;
 	char path[MAX_LENGTH] = "./files/";
@@ -369,7 +382,7 @@ void readfile(char *filename)
 	FILE *fp;
 	int num;
 	fp = fopen(path, "r");
-	while(!feof(fp))
+	while (!feof(fp))
 	{
 		fscanf(fp, "%i\n",&num);
 		insert_end(num);
@@ -378,11 +391,12 @@ void readfile(char *filename)
 	fclose(fp);
 }
 
-void listfile()
+void
+listfile()
 {
 	DIR *d = opendir("./files/");
 	struct dirent *dir;
-	if(d)
+	if (d)
 	{
 		printf("Current list of files\n");
 		while((dir = readdir(d)) != NULL)

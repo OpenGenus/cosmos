@@ -21,7 +21,8 @@ invoking functions. The link.h header file where all functions are implemented.
 	#include <unistd.h>
 #endif
 
-void msleep(int ms)
+void
+msleep(int ms)
 {
 #ifdef _WIN32
     Sleep(ms);
@@ -34,20 +35,19 @@ void print();
 void clear();
 int menu();
 
-int main()
+int
+main()
 {
 	int c;
-	printf("WELCOME TO THE LINKED LIST APPLICATION\n");
-	clear();
-	msleep(500);
-
+	
 	do
 	{
 		c = menu();
 	}while(c!=17);
 }
 
-void print()
+void
+print()
 {
 	printf("1. Insert at beginning\n");
 	printf("2. Insert at end\n");
@@ -68,7 +68,8 @@ void print()
 	printf("17. Quit\n");
 }
 
-int menu()
+int
+menu()
 {
 	clear();
 	msleep(500);		/* for delay effect 500ms */
@@ -106,23 +107,23 @@ int menu()
 				scanf("%d",&b);
 				insert_after_value(a,b);
 				break;
-    case 5:
-			delete_beg();
-			break;
-	case 6:
-			delete_end();
-			break;
-	case 7:
-			printf("Enter the location of node to delete: ");
-			scanf("%d",&a);
-			delete_node(a);
-			break;
-	case 8:
-			printf("Enter the value you want to delete: ");
-			scanf("%d",&a);
-			delete_value(a);
-			break;
-  case 9:
+	    case 5:
+				delete_beg();
+				break;
+		case 6:
+				delete_end();
+				break;
+		case 7:
+				printf("Enter the location of node to delete: ");
+				scanf("%d",&a);
+				delete_node(a);
+				break;
+		case 8:
+				printf("Enter the value you want to delete: ");
+				scanf("%d",&a);
+				delete_value(a);
+				break;
+	  	case 9:
 				printf("Enter the location of node you want to replace: ");
 				scanf("%d",&b);
 				printf("Enter the new number: ");
@@ -143,7 +144,7 @@ int menu()
 				display();
 				msleep(5000);
 				break;
-    case 13:
+	    case 13:
 				reverse();
 				break;
 		case 14:
@@ -161,11 +162,12 @@ int menu()
 				readfile(filename);
 				break;
 		case 17:
-				return n;
+				return (n);
 	}
 }
 
-void clear(void)
+void
+clear(void)
 {
 	system(CLEAR);		/* Cross-platform clear screen */
 }
