@@ -68,7 +68,7 @@ insert_end(int num)
 }
 
 void
-insert_at_loc(int num,int loc)
+insert_at_loc(int num, int loc)
 {
 	int n = length();
 	if (loc > n || loc < 0)
@@ -99,7 +99,7 @@ insert_at_loc(int num,int loc)
 }
 
 void
-insert_after_value(int num,int val)
+insert_after_value(int num, int val)
 {
 	node = (list*)malloc(sizeof(list*));
 	node->info = num;
