@@ -17,13 +17,11 @@ int main()
         for (int i = 0; i < n; ++i) {
             std::cin >> arr[i];
             if (arr[i] >= 0)
-
                 flag++;
         }
 
         if (flag == 0) {
-            sort(arr.begin(), arr.end());
-
+            std::sort(arr.begin(), arr.end());
             std::cout << arr[n - 1] << " " << arr[n - 1] << "\n";
             continue;
         }
@@ -32,7 +30,7 @@ int main()
 
         for (int i = 0; i < n; ++i) {
             if ((sum + arr[i]) > 0)
-                sum = sum + arr[i];
+                sum += arr[i];
             else
                 sum = 0;
             if (arr[i] >= 0)
