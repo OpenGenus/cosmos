@@ -39,7 +39,7 @@ int
 main()
 {
 	int c;
-	
+
 	do
 	{
 		c = menu();
@@ -76,36 +76,36 @@ menu()
 
 	print();
 
-	int n,a,b;
+	int n, a, b;
 	char *filename = malloc(MAX_LENGTH*sizeof(char));		/* For writing and reading linked list data from file */
 	printf("Select the operation you want to perform (17 to Quit): ");
-	scanf("%d",&n);
+	scanf("%d", &n);
 
 	switch(n)
 	{
 		case 1:
 				printf("Enter the number you want to insert: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				insert_beg(a);
 				break;
 		case 2:
 				printf("Enter the number you want to insert: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				insert_end(a);
 				break;
 		case 3:
 				printf("Enter the number you want to insert: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				printf("Enter the location in which you want to insert: ");
-				scanf("%d",&b);
-				insert_at_loc(a,b);
+				scanf("%d", &b);
+				insert_at_loc(a, b);
 				break;
 		case 4:
 				printf("Enter the number you want to insert: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				printf("Enter the value after which to insert: ");
-				scanf("%d",&b);
-				insert_after_value(a,b);
+				scanf("%d", &b);
+				insert_after_value(a, b);
 				break;
 	    case 5:
 				delete_beg();
@@ -115,27 +115,27 @@ menu()
 				break;
 		case 7:
 				printf("Enter the location of node to delete: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				delete_node(a);
 				break;
 		case 8:
 				printf("Enter the value you want to delete: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				delete_value(a);
 				break;
 	  	case 9:
 				printf("Enter the location of node you want to replace: ");
-				scanf("%d",&b);
+				scanf("%d", &b);
 				printf("Enter the new number: ");
-				scanf("%d",&a);
-				replace_node(a,b);
+				scanf("%d", &a);
+				replace_node(a, b);
 				break;
 		case 10:
 				printf("Enter the value you want to replace: ");
-				scanf("%d",&a);
+				scanf("%d", &a);
 				printf("Enter the new number: ");
-				scanf("%d",&b);
-				replace_value(b,a);
+				scanf("%d", &b);
+				replace_value(b, a);
 				break;
 		case 11:
 				delete_dup_vals();
@@ -152,13 +152,13 @@ menu()
 				break;
 		case 15:
 				printf("Enter the name of file to write to: ");
-				scanf("%s",filename);
+				scanf("%s", filename);
 				writefile(filename);
 				break;
 		case 16:
 				listfile();
 				printf("Enter the name of file to read from: ");
-				scanf("%s",filename);
+				scanf("%s", filename);
 				readfile(filename);
 				break;
 		case 17:

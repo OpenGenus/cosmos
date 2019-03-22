@@ -11,18 +11,18 @@ typedef struct list
 	struct list* next;
 }list;
 
-list *start=NULL,*node=NULL,*curr=NULL,*prev=NULL;
+list *start=NULL, *node=NULL, *curr=NULL, *prev=NULL;
 
 void insert_beg(int);
 void insert_end(int);
-void insert_at_loc(int,int);
-void insert_after_value(int,int);
+void insert_at_loc(int, int);
+void insert_after_value(int, int);
 void delete_beg();
 void delete_end();
 void delete_node(int);
 void delete_value(int);
-void replace_node(int,int);
-void replace_value(int,int);
+void replace_node(int, int);
+void replace_value(int, int);
 void delete_dup_vals();
 int length();
 void display();
@@ -60,7 +60,7 @@ insert_end(int num)
 		start = node;
 	else {
 		curr = start;
-		while(curr->next != NULL)
+		while (curr->next != NULL)
 			curr=curr->next;
 
 		curr->next=node;
@@ -306,7 +306,7 @@ display()
 	curr = start;
 	while (curr!=NULL)
 	{
-		printf("%d\n",curr->info);
+		printf("%d\n", curr->info);
 		curr = curr->next;
 	}
 }
@@ -359,14 +359,14 @@ void
 writefile(char *filename)
 {
 	char path[MAX_LENGTH] = "./files/";
-	strcat(path,filename);
+	strcat(path, filename);
 
 	FILE *fp;
-	fp = fopen(path,"w");
+	fp = fopen(path, "w");
 	curr = start;
 	while (curr != NULL)
 	{
-		fprintf(fp,"%d\n",curr->info);
+		fprintf(fp,"%d\n", curr->info);
 		curr = curr->next;
 	}
 	fclose(fp);
@@ -377,14 +377,14 @@ readfile(char *filename)
 {
 	start = NULL;
 	char path[MAX_LENGTH] = "./files/";
-	strcat(path,filename);
+	strcat(path, filename);
 
 	FILE *fp;
 	int num;
 	fp = fopen(path, "r");
 	while (!feof(fp))
 	{
-		fscanf(fp, "%i\n",&num);
+		fscanf(fp, "%i\n", &num);
 		insert_end(num);
 	}
 
@@ -403,7 +403,7 @@ listfile()
 		{
 			if(strcmp(dir->d_name, "..") == 0 || strcmp(dir->d_name,".") == 0)
 				continue;
-			printf("%s\n",dir->d_name);
+			printf("%s\n", dir->d_name);
 		}
 
 		closedir(d);
