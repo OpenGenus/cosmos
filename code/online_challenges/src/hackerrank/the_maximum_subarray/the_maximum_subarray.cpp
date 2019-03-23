@@ -17,7 +17,7 @@ int main()
         for (int i = 0; i < n; ++i) {
             std::cin >> arr[i];
             if (arr[i] >= 0)
-                flag++;
+                ++flag;
         }
 
         if (flag == 0) {
@@ -34,7 +34,7 @@ int main()
             else
                 sum = 0;
             if (arr[i] >= 0)
-                ans1 = ans1 + arr[i];
+                ans1 += arr[i];
 
             ans = std::max(ans, sum);
         }
