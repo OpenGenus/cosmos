@@ -20,7 +20,7 @@ int main()
     }
 
     long mx = 0, sum = 0;
-    sort(v.begin(), v.end());
+    std::sort(v.begin(), v.end());
 
     for (int i = 0; i < 2 * m; ++i) {
         sum += v[i].second;
