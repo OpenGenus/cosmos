@@ -41,7 +41,7 @@ int main()
         }
     }
     if( !flag )
-        std::cout << "Graph is bipartite";
+        std::cout << "Graph is bipartite" << "\n" ;
     else
-        std::cout << "Graph is not bipartite";
+        std::cout << "Graph is not bipartite" << "\n" ;
 }
