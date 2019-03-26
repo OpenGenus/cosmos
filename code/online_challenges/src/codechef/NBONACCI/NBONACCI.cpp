@@ -15,7 +15,7 @@ int main ()
 
 	int x = 0;
 	int xors[n] = {0};
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n; ++i)
 	{
 		x = x ^ a[i];
 		xors[i] = x;
@@ -29,7 +29,7 @@ int main ()
 		int idx = k % (n + 1);
 
 		if (idx > 0)
-			cout << xors[idx - 1]<<"\n";
+			cout << xors[idx - 1] << "\n";
 		else cout << "0\n";
 
 		q = q - 1;
