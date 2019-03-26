@@ -164,6 +164,7 @@ menu()
 		case 17:
 				return (n);
 	}
+	return (0);
 }
 
 void
