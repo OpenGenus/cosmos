@@ -1,7 +1,9 @@
 import random
 
-class Node():
+
+class Node:
     """ Simple node class for A* pathfinding """
+
     def __init__(self, parent=None, position=None):
         self.parent = parent
         self.position = position
@@ -12,6 +14,7 @@ class Node():
 
     def __eq__(self, other):
         self.position == other.position
+
 
 def make(n):
     maze = [[0 for i in range(n)] for j in range(n)]
@@ -44,7 +47,7 @@ def astar(maze, start, end):
         current_node = open_list[0]
         current_index = 0
 
-        for index,item in enumerate(open_list):
+        for index, item in enumerate(open_list):
             # lower f means better path
             if item.f < current_node.f:
                 current_node = item
@@ -66,13 +69,30 @@ def astar(maze, start, end):
         # Generate Children
 
         children = []
-        for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]: # Adjacent squares
+        for new_position in [
+            (0, -1),
+            (0, 1),
+            (-1, 0),
+            (1, 0),
+            (-1, -1),
+            (-1, 1),
+            (1, -1),
+            (1, 1),
+        ]:  # Adjacent squares
 
             # Getting node position
-            node_position = (current_node.position[0] + new_position[0], current_node.position[1] + new_position[1])
+            node_position = (
+                current_node.position[0] + new_position[0],
+                current_node.position[1] + new_position[1],
+            )
 
             # Checking if in-range or not :
-            if node_position[0] > (len(maze) - 1) or node_position[0] < 0 or node_position[1] > (len(maze[len(maze)-1]) -1) or node_position[1] < 0:
+            if (
+                node_position[0] > (len(maze) - 1)
+                or node_position[0] < 0
+                or node_position[1] > (len(maze[len(maze) - 1]) - 1)
+                or node_position[1] < 0
+            ):
                 continue
 
             # See if walkable or not
@@ -94,9 +114,11 @@ def astar(maze, start, end):
                     continue
 
             # If not? start making f,g and h values
-            child.g = current_node.g + 1   ## why not child.parent.g?
+            child.g = current_node.g + 1  ## why not child.parent.g?
             ## Eucledian heuristic without sqrt? Genius
-            child.h = ((child.position[0] - end_node.position[0]) ** 2) + ((child.position[1] - end_node.position[1]) ** 2)
+            child.h = ((child.position[0] - end_node.position[0]) ** 2) + (
+                (child.position[1] - end_node.position[1]) ** 2
+            )
             child.f = child.h + child.g
 
             # Child Already in Open List?
@@ -105,6 +127,7 @@ def astar(maze, start, end):
                     continue
             # Add the child in the open list
             open_list.append(child)
+
 
 def showPath(maze, path, n, start, end):
     dupMaze = maze
@@ -123,9 +146,10 @@ def showPath(maze, path, n, start, end):
 
     return dupMaze
 
+
 def main():
     print("Started!")
-    maze = make(random.randint(3,10))
+    maze = make(random.randint(3, 10))
 
     print(" You maze is")
     for i in maze:
@@ -148,5 +172,5 @@ def main():
     print("The Perfect Path will be {}".format(path))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
