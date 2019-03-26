@@ -107,7 +107,7 @@ menu()
 			scanf("%d", &b);
 			insert_after_value(a, b);
 			break;
-	    case 5:
+		case 5:
 			delete_beg();
 			break;
 		case 6:
