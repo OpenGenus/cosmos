@@ -77,7 +77,7 @@ menu()
 	print();
 
 	int n, a, b;
-	char *filename = malloc(MAX_LENGTH*sizeof(char));		/* For writing and reading linked list data from file */
+	char *filename = (char *) malloc(MAX_LENGTH*sizeof(char));		/* For writing and reading linked list data from file */
 	printf("Select the operation you want to perform (17 to Quit): ");
 	scanf("%d", &n);
 
