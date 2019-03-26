@@ -7,7 +7,7 @@
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 
-double fastInverseSqrt(double x)
+float fastInverseSqrt(float x)
 {
     float xhalf = 0.5f * x;
     int i = *(int*)&x;              // get bits for floating value
