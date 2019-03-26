@@ -84,85 +84,85 @@ menu()
 	switch(n)
 	{
 		case 1:
-				printf("Enter the number you want to insert: ");
-				scanf("%d", &a);
-				insert_beg(a);
-				break;
+			printf("Enter the number you want to insert: ");
+			scanf("%d", &a);
+			insert_beg(a);
+			break;
 		case 2:
-				printf("Enter the number you want to insert: ");
-				scanf("%d", &a);
-				insert_end(a);
-				break;
+			printf("Enter the number you want to insert: ");
+			scanf("%d", &a);
+			insert_end(a);
+			break;
 		case 3:
-				printf("Enter the number you want to insert: ");
-				scanf("%d", &a);
-				printf("Enter the location in which you want to insert: ");
-				scanf("%d", &b);
-				insert_at_loc(a, b);
-				break;
+			printf("Enter the number you want to insert: ");
+			scanf("%d", &a);
+			printf("Enter the location in which you want to insert: ");
+			scanf("%d", &b);
+			insert_at_loc(a, b);
+			break;
 		case 4:
-				printf("Enter the number you want to insert: ");
-				scanf("%d", &a);
-				printf("Enter the value after which to insert: ");
-				scanf("%d", &b);
-				insert_after_value(a, b);
-				break;
+			printf("Enter the number you want to insert: ");
+			scanf("%d", &a);
+			printf("Enter the value after which to insert: ");
+			scanf("%d", &b);
+			insert_after_value(a, b);
+			break;
 	    case 5:
-				delete_beg();
-				break;
+			delete_beg();
+			break;
 		case 6:
-				delete_end();
-				break;
+			delete_end();
+			break;
 		case 7:
-				printf("Enter the location of node to delete: ");
-				scanf("%d", &a);
-				delete_node(a);
-				break;
+			printf("Enter the location of node to delete: ");
+			scanf("%d", &a);
+			delete_node(a);
+			break;
 		case 8:
-				printf("Enter the value you want to delete: ");
-				scanf("%d", &a);
-				delete_value(a);
-				break;
+			printf("Enter the value you want to delete: ");
+			scanf("%d", &a);
+			delete_value(a);
+			break;
 	  	case 9:
-				printf("Enter the location of node you want to replace: ");
-				scanf("%d", &b);
-				printf("Enter the new number: ");
-				scanf("%d", &a);
-				replace_node(a, b);
-				break;
+			printf("Enter the location of node you want to replace: ");
+			scanf("%d", &b);
+			printf("Enter the new number: ");
+			scanf("%d", &a);
+			replace_node(a, b);
+			break;
 		case 10:
-				printf("Enter the value you want to replace: ");
-				scanf("%d", &a);
-				printf("Enter the new number: ");
-				scanf("%d", &b);
-				replace_value(b, a);
-				break;
+			printf("Enter the value you want to replace: ");
+			scanf("%d", &a);
+			printf("Enter the new number: ");
+			scanf("%d", &b);
+			replace_value(b, a);
+			break;
 		case 11:
-				delete_dup_vals();
-				break;
+			delete_dup_vals();
+			break;
 		case 12:
-				display();
-				msleep(5000);
-				break;
+			display();
+			msleep(5000);
+			break;
 	    case 13:
-				reverse();
-				break;
+			reverse();
+			break;
 		case 14:
-				sortlist();
-				break;
+			sortlist();
+			break;
 		case 15:
-				printf("Enter the name of file to write to: ");
-				scanf("%s", filename);
-				writefile(filename);
-				break;
+			printf("Enter the name of file to write to: ");
+			scanf("%s", filename);
+			writefile(filename);
+			break;
 		case 16:
-				listfile();
-				printf("Enter the name of file to read from: ");
-				scanf("%s", filename);
-				readfile(filename);
-				break;
+			listfile();
+			printf("Enter the name of file to read from: ");
+			scanf("%s", filename);
+			readfile(filename);
+			break;
 		case 17:
-				return (n);
+			return (n);
 	}
 	return (0);
 }
