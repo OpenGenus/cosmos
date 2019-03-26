@@ -1,8 +1,8 @@
 # Code inspiration taken from Wikipedia's Python Implementation
 import functools
 
-MISERE = 'misere'
-NORMAL = 'normal'
+MISERE = "misere"
+NORMAL = "normal"
 
 
 def nim(heaps, game_type):
@@ -16,19 +16,19 @@ def nim(heaps, game_type):
         return "You will lose :("
     """
 
-    print(game_type, heaps, end=' ')
+    print(game_type, heaps, end=" ")
 
     is_misere = game_type == MISERE
 
     endgame_reached = False
     count_non_0_1 = sum(1 for x in heaps if x > 1)
-    endgame_reached = (count_non_0_1 <= 1)
+    endgame_reached = count_non_0_1 <= 1
 
     # nim sum will give the correct end-game move for normal play but
     # misere requires the last move be forced onto the opponent
     if is_misere and endgame_reached:
         moves_left = sum(1 for x in heaps if x > 0)
-        is_odd = (moves_left % 2 == 1)
+        is_odd = moves_left % 2 == 1
         sizeof_max = max(heaps)
         index_of_max = heaps.index(sizeof_max)
 
@@ -52,4 +52,5 @@ def nim(heaps, game_type):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

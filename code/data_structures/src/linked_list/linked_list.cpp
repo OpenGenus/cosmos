@@ -25,7 +25,7 @@ public:
     bool isEmpty() const;
     void print() const;
     T getPos(int pos) const;
-    void insert(int pos,const T& data);
+    void insert(int pos, const T& data);
     void deletePos(int pos);
     void modify(int pos, const T& date);
     int find(const T& date);
@@ -38,7 +38,9 @@ private:
 };
 
 template <typename T>
-Linkedlist<T>::Linkedlist() : header(nullptr), length(0) {};
+Linkedlist<T>::Linkedlist() : header(nullptr), length(0)
+{
+};
 
 template <typename T>
 Linkedlist<T>::Linkedlist(const Linkedlist<T> &list) : header(nullptr), length(0)
@@ -55,14 +57,10 @@ template <typename T>
 Linkedlist<T>& Linkedlist<T>::operator= (const Linkedlist<T> &rhs)
 {
     if (this == &rhs)
-    {
         return *this;
-    }
     destroy();
     for (int i = 1; i <= rhs.size(); ++i)
-    {
         rearAdd(rhs.getPos(i));
-    }
     return *this;
 }
 
@@ -79,9 +77,7 @@ void Linkedlist<T>::headAdd(const T& date)
     pNode->date = date;
     pNode->pNext = nullptr;
     if (header == nullptr)
-    {
         header = pNode;
-    }
     else
     {
         pNode->pNext = header;
@@ -97,17 +93,13 @@ void Linkedlist<T>::rearAdd(const T& date)
     pNode->date = date;
     pNode->pNext = nullptr;
     if (header == nullptr)
-    {
         header = pNode;
-    }
     else
     {
         Node<T>* rear = header;
         while (rear->pNext != nullptr)
-        {
             rear = rear->pNext;
-        }
-        rear->pNext = pNode;        
+        rear->pNext = pNode;
     }
     length++;
 }
@@ -135,9 +127,7 @@ void Linkedlist<T>::print() const
         pTemp = pTemp->pNext;
         count++;
         if (count % 5 == 0)
-        {
             std::cout << std::endl;
-        }
     }
     std::cout << std::endl;
 }
@@ -146,17 +136,13 @@ template <typename T>
 T Linkedlist<T>::getPos(int pos) const
 {
     if (pos < 1 || pos > length)
-    {
         std::cerr << "get element position error!" << std::endl;
-    }
     else
     {
         int i = 1;
         Node<T> *pTemp = header;
         while (i++ < pos)
-        {
             pTemp = pTemp->pNext;
-        }
         return pTemp->date;
     }
 }
@@ -165,9 +151,7 @@ template <typename T>
 void Linkedlist<T>::insert(int pos, const T& date)
 {
     if (pos < 1 || pos > length)
-    {
         std::cerr << "insert element position error!" << std::endl;
-    }
     else
     {
         if (pos == 1)
@@ -182,9 +166,7 @@ void Linkedlist<T>::insert(int pos, const T& date)
             int i = 1;
             Node<T> *pTemp = header;
             while (++i < pos)
-            {
                 pTemp = pTemp->pNext;
-            }
             Node<T> *pInsert = new Node<T>;
             pInsert->date = date;
             pInsert->pNext = pTemp->pNext;
@@ -199,9 +181,7 @@ template <typename T>
 void Linkedlist<T>::deletePos(int pos)
 {
     if (pos < 0 || pos > length)
-    {
         std::cerr << "delete element position error!" << std::endl;
-    }
     else
     {
         Node<T> *deleteElement;
@@ -215,9 +195,7 @@ void Linkedlist<T>::deletePos(int pos)
             int i = 0;
             Node<T> *pTemp = header;
             while (++i < pos)
-            {
                 pTemp = pTemp->pNext;
-            }
             deleteElement = pTemp->pNext;
             pTemp->pNext = deleteElement->pNext;
         }
@@ -231,23 +209,17 @@ template <typename T>
 void Linkedlist<T>::modify(int pos, const T& date)
 {
     if (pos < 1 || pos > length)
-    {
         std::cerr << "modify element position error!" << std::endl;
-    }
     else
     {
         if (pos == 1)
-        {
             header->date = date;
-        }
         else
         {
             Node<T> *pTemp = header;
             int i = 1;
             while (i++ < pos)
-            {
                 pTemp = pTemp->pNext;
-            }
             pTemp->date = date;
         }
     }
@@ -279,7 +251,6 @@ void Linkedlist<T>::sort()
     if (length > 1)
     {
         for (int i = length; i > 0; --i)
-        {
             for (int j = 1; j < i; j++)
             {
                 T left = getPos(j);
@@ -290,7 +261,6 @@ void Linkedlist<T>::sort()
                     modify(j + 1, left);
                 }
             }
-        }
     }
     return;
 }
@@ -313,9 +283,7 @@ int main()
 {
     Linkedlist<int> link;
     for (int i = 10; i > 0; --i)
-    {
         link.rearAdd(i);
-    }
     link.print();
     std::cout << link.size() << std::endl;
     Linkedlist<int> link1(link);

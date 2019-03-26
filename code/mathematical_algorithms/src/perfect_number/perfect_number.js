@@ -1,23 +1,23 @@
-const readline = require('readline');
+const readline = require("readline");
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout
 });
 
-rl.question('Enter a Number: ', (number) => {
+rl.question("Enter a Number: ", number => {
   let hasPerfect = false;
 
   number = parseInt(number, 10);
   for (let i = 6; i < number; i++) {
     if (isPerfect(i)) {
-      console.log(i + ' is a perfect number.');
+      console.log(i + " is a perfect number.");
       hasPerfect = true;
     }
   }
 
   if (!hasPerfect) {
-    console.log('No perfect numbers found.');
+    console.log("No perfect numbers found.");
   }
 
   rl.close();

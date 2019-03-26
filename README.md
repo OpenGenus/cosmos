@@ -43,7 +43,7 @@ Each type has several hundreds of problems with solutions in several languages s
 
 # Maintainers
 
-This is a massive collaboration and to keep the quality intact and drive the vision in the proper direction, we have maintainers.
+This is a massive collaboration. Hence, to keep the quality intact and drive the vision in the proper direction, we have maintainers.
 
 > Maintainers are your friends forever. They are vastly different from moderators.
 

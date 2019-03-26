@@ -1,6 +1,6 @@
-'''
+"""
 Part of Cosmos by OpenGenus Foundation
-'''
+"""
 
 
 def fibonacci_search(arr, x):

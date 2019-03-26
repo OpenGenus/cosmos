@@ -15,4 +15,3 @@ def gnome_sort(arr, n):
             index = index - 1
 
     return arr
-
