@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <list>
+#include <stack>
+#include <string>
 
 using namespace std;
 
