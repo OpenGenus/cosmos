@@ -1,5 +1,5 @@
 # Problem Link:
-[CHDIGER](https://www.codechef.com/MARCH19B/problems/CHDIGER).
+[CHDIGER](https://www.codechef.com/MARCH19B/problems/CHDIGER)
 
 # Description
 Chef Leonardo has a decimal integer N and a non-zero decimal digit d. N does not contain the digit zero; specifically, N should always be treated as a decimal integer without leading zeroes.
