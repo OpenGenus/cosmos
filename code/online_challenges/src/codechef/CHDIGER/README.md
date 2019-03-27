@@ -8,12 +8,3 @@ Chef likes d and does not like any other digit, so he decided to change N. He ma
 
 Chef has already changed a lot of numbers and he got bored. Now, he wants to know the smallest possible value of N
 which can be obtained by performing the operation described above. Can you help him?
-
-# Input
-
-The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
-The first and only line of each test case contains two space-separated integers N and d.
-
-# Output
-
-For each test case, print a single line containing one integer - the minimum number Chef can obtain.
