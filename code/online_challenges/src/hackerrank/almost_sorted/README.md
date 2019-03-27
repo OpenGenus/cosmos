@@ -1,5 +1,7 @@
  ### Problem Link
-[The Grid Search](https://www.hackerrank.com/challenges/the-grid-search/problem)
+[Almost Sorted ](https://www.hackerrank.com/challenges/almost-sorted/problem?h_r=internal-search)
 
 ### Description
- Given a 2D array of digits or grid, find the occurrence of a given 2D pattern of digits
+ Determine whether the given array can be sorted by using given operation:
+ - Swap two elements
+ - Reverse one sub-segment
