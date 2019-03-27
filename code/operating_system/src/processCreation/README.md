@@ -66,7 +66,7 @@ int main(void)
 }
 ```
 
-#Terminal Output
+Terminal Output
 
 ![Output](Imgs/Process.png)
 
