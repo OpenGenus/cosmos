@@ -1,6 +1,7 @@
 // C++ program to implement Shortest Job first 
 
-#include<bits/stdc++.h> 
+#include <iostream>
+#include <algorithm>
 using namespace std; 
   
 struct Process 
