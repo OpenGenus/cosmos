@@ -55,7 +55,7 @@ class GameState(object):
 					ret += "  {}  |".format(self.board[y][x] or " ")
 			ret = ret[:-1] + "\n" + "-" * self.n * 6 + "\n"
 
-		
+
 		result = self.check_winner()
 		if result in ("X", "O"):
 			ret += "\nWinner: {}".format(result)
@@ -173,7 +173,7 @@ class GameState(object):
 
 
 			# forward diagonal
-			benefit = 0 
+			benefit = 0
 			for z in range(1, self.n):
 				if self.board[z][z] == None:
 					continue
@@ -201,22 +201,22 @@ class GameState(object):
 
 class GameDriver(object):
 	def __init__(self):
-		symbol = raw_input("Choose your symbol (X/O)\n")
+		symbol = input("Choose your symbol (X/O)\n")
 		while symbol != "X" and symbol != "O":
-			symbol = raw_input("Could not understand your answer. Please enter X or O.\n")
+			symbol = input("Could not understand your answer. Please enter X or O.\n")
 
 		self.player_symbol = symbol
 
-		n = raw_input("\nChoose the size of your board (enter a positive integer, this will be the height and width of your board\n")
+		n = input("\nChoose the size of your board (enter a positive integer, this will be the height and width of your board\n")
 		while not n.isdigit() or int(n) < 1:
-			n = raw_input("Please enter a positive integer\n")
+			n = input("Please enter a positive integer\n")
 		n = int(n)
 
-		first = raw_input("\nWould you like to start? (Y/N)\n")
+		first = input("\nWould you like to start? (Y/N)\n")
 		while first != "Y" and first != "N":
-			first = raw_input("Could not understand your answer. Please enter Y or N.\n")
+			first = input("Could not understand your answer. Please enter Y or N.\n")
 
-		print "\nThank you. To enter your moves, enter the index of your move on the board, with indices defined as follows:\n"
+		print("\nThank you. To enter your moves, enter the index of your move on the board, with indices defined as follows:\n")
 
 		col_width = n
 		indices_str = ""
@@ -230,10 +230,10 @@ class GameDriver(object):
 			indices_str += "-" * (col_width + 1) * n + "\n"
 		indices_str = indices_str[:-1 * (col_width + 1) * n - 1]
 
-		print indices_str
+		print(indices_str)
 
 
-		raw_input("\nPress Enter to continue!\n")
+		input("\nPress Enter to continue!\n")
 
 		if first == "Y":
 			self.game = GameState([[None for _ in range(n)] for _ in range(n)], self.player_symbol)
@@ -243,17 +243,17 @@ class GameDriver(object):
 		self.start()
 
 	def player_move(self):
-		move = raw_input("Enter the index of your move.\n")
+		move = input("Enter the index of your move.\n")
 		while True:
 			while not move.isdigit() or int(move) > self.game.n ** 2 or int(move) < 1:
-				move = raw_input("Please enter an integer greater than or equal to 1 and less than or equal to {}.\n".format(self.game.n ** 2))
+				move = input("Please enter an integer greater than or equal to 1 and less than or equal to {}.\n".format(self.game.n ** 2))
 
 			move = int(move) - 1 # easier to calculate x and y this way, since arrays representing game board are 0-indexed
-			y = move / self.game.n
+			y = int(move / self.game.n)
 			x = move % self.game.n
 
 			if self.game.board[y][x] != None:
-				print "There is already a piece in that location on the board."
+				print("There is already a piece in that location on the board.")
 				move = ""
 			else:
 				break
@@ -265,13 +265,13 @@ class GameDriver(object):
 		"""
 
 		delay = 0.5
-		print "Thinking..."
+		print("Thinking...")
 		time.sleep(delay)
-		print "."
+		print(".")
 		time.sleep(delay)
-		print "."
+		print(".")
 		time.sleep(delay)
-		print ".\n"
+		print(".\n")
 		time.sleep(delay)
 
 		# TODO: how deep to look? maybe base this on a difficulty parameter specified by user?
@@ -280,7 +280,7 @@ class GameDriver(object):
 
 
 	def minimax(self, board, level, comp_turn, alpha, beta):
-		winner = board.check_winner()   
+		winner = board.check_winner()
 		if winner == "draw":
 			return 0, None
 		elif winner == self.player_symbol:
@@ -320,11 +320,9 @@ class GameDriver(object):
 				self.player_move()
 			else:
 				self.computer_move()
-			print self.game
+			print(self.game)
 			if self.game.check_winner():
 				break
 
 if __name__ == "__main__":
 	GameDriver()
-
-    
