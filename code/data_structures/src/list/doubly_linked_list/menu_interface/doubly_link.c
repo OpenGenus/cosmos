@@ -1,10 +1,10 @@
 /* This project aims to demonstrate various operations on linked lists. It uses
 a clean command line interface and provides a baseline to make linked list
 applications in C. There are two files. The C file containing main() function and
-invoking functions. The link.h header file where all functions are implemented.
+invoking functions. The dlink.h header file where all functions are implemented.
 */
 
-#include "link.h"       /* custom header file to implement functions */
+#include "dlink.h"
 
 /* For clearing screen in Windows and UNIX-based OS */
 #ifdef _WIN32
@@ -30,19 +30,26 @@ msleep(int ms)
 #endif
 }
 
-void print();
-void clear();
 int menu();
+void print();
 
 int
 main()
 {
-	int c;
+	int n;
+	printf("WELCOME TO THE LINKED LIST APPLICATION\n");
+	clear();
+	usleep(500000);
 
 	do
 	{
-		c = menu();
-	}while(c!=17);
+		clear();
+		msleep(500);
+		print();
+		n = menu();
+
+	}while(n!=17);
+	clear();
 }
 
 void
@@ -52,34 +59,30 @@ print()
 	printf("2. Insert at end\n");
 	printf("3. Insert at a particular location\n");
 	printf("4. Insert after a particular value\n");
-	printf("5. Delete from beginning\n");
-	printf("6. Delete from end\n");
-	printf("7. Delete a particular node\n");
-	printf("8. Delete a particular value\n");
-	printf("9. Replace a value at a particular node\n");
-	printf("10. Replace a particular value in the list\n");
-	printf("11. Delete all duplicate values and sort\n");
-	printf("12. Display\n");
-	printf("13. Reverse\n");
-	printf("14. Sort(Ascending)\n");
+	printf("5. Delete a number from beginning of list\n");
+	printf("6. Delete a number from end of list\n");
+	printf("7. Delete a particular node in the list\n");
+	printf("8. Delete a particular value in the list\n");
+	printf("9. Replace a particular value with another in a list\n");
+	printf("10. Replace a particular node in the list\n");
+	printf("11. Sort the list in ascending order\n");
+	printf("12. Delete all duplicate values and sort\n");
+	printf("13. Display\n");
+	printf("14. Display in reverse\n");
 	printf("15. Write to File\n");
-	printf("16. Read from a file\n");
+	printf("16. Read from a File\n");
 	printf("17. Quit\n");
+
 }
 
 int
 menu()
 {
-	clear();
-	msleep(500);		/* for delay effect 500ms */
-
-	print();
-
 	int n, a, b;
-	char *filename = (char *) malloc(MAX_LENGTH*sizeof(char));		/* For writing and reading linked list data from file */
+	char *filename = (char *) malloc(MAX_LENGTH*sizeof(char));
+
 	printf("Select the operation you want to perform (17 to Quit): ");
 	scanf("%d", &n);
-
 	switch(n)
 	{
 		case 1:
@@ -95,7 +98,7 @@ menu()
 		case 3:
 			printf("Enter the number you want to insert: ");
 			scanf("%d", &a);
-			printf("Enter the location in which you want to insert: ");
+			printf("Enter the location in which to insert: ");
 			scanf("%d", &b);
 			insert_at_loc(a, b);
 			break;
@@ -122,32 +125,33 @@ menu()
 			scanf("%d", &a);
 			delete_value(a);
 			break;
-	  	case 9:
-			printf("Enter the location of node you want to replace: ");
-			scanf("%d", &b);
-			printf("Enter the new number: ");
-			scanf("%d", &a);
-			replace_node(a, b);
-			break;
-		case 10:
+		case 9:
 			printf("Enter the value you want to replace: ");
 			scanf("%d", &a);
+			printf("Enter the new value: ");
+			scanf("%d",&b);
+			replace_value(a, b);
+			break;
+		case 10:
+			printf("Enter the node location you want to replace: ");
+			scanf("%d", &a);
 			printf("Enter the new number: ");
 			scanf("%d", &b);
-			replace_value(b, a);
+			replace_node(a, b);
 			break;
 		case 11:
-			delete_dup_vals();
+			sortlist();
 			break;
 		case 12:
-			display();
-			msleep(5000);
+			delete_dup_vals();
 			break;
-	    case 13:
-			reverse();
+		case 13:
+			display();
+			usleep(5000);
 			break;
 		case 14:
-			sortlist();
+			display_reverse();
+			usleep(5000);
 			break;
 		case 15:
 			printf("Enter the name of file to write to: ");
@@ -161,13 +165,13 @@ menu()
 			readfile(filename);
 			break;
 		case 17:
-			return (n);
+			return n;
+			break;
 	}
-	return (0);
 }
 
 void
 clear(void)
 {
-	system(CLEAR);		/* Cross-platform clear screen */
+	system(CLEAR);
 }
