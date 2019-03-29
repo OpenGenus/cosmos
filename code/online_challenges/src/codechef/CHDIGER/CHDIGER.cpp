@@ -4,20 +4,18 @@
 #include <stack>
 #include <string>
 
-using namespace std;
-
 int main ()
 {
     int t;
-    cin >> t;
+    std::cin >> t;
     while (t--)
     {
-        string n;
+        std::string n;
         int d;
-        cin >> n >> d;
+        std::cin >> n >> d;
 
-        list<char>ans;
-        stack<char>st;
+        std::list<char>ans;
+        std::stack<char>st;
 
         for (int i = 0; i < n.size(); ++i)
         {
@@ -44,10 +42,10 @@ int main ()
 
         for (auto i : ans)
         {
-            cout << i;
+            std::cout << i;
         }
 
-        cout << "\n";
+        std::cout << "\n";
     }
 
     return 0;
