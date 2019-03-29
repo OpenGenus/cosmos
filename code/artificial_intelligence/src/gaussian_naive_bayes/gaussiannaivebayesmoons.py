@@ -1,5 +1,5 @@
-############################################################################ 
-############################################################################ 
+############################################################################
+############################################################################
 
 # Importing necessary packages
 import numpy as np
@@ -88,11 +88,11 @@ for key, group in grouped:
 
     group.plot(ax = ax, kind = 'scatter', x = 'x', y = 'y', label = key, color = colors[key])
 
-plt.savefig('graph.png') 
+plt.savefig('graph.png')
 
 
 gX = np.array(gX)
-print gX
+print(gX)
 
 ############################################################################
 
@@ -100,31 +100,31 @@ X = gX[:, :, -2]
 Y = gX[:, :, -1]
 classes = gX[:, :, -3]
 
-print "Classes"
+print("Classes")
 classes = np.hstack(classes)
-print classes
+print(classes)
 
-print "Xh"
+print("Xh")
 Xh = np.hstack(X)
-print Xh
+print(Xh)
 
-print "Yh"
+print("Yh")
 Yh = np.hstack(Y)
-print Yh
+print(Yh)
 
-print "XY"
+print("XY")
 XY = np.column_stack((Xh, Yh))
-print XY
+print(XY)
 
 ############################################################################
 # Calculating Covariance
-print "Covariance"
+print("Covariance")
 C = np.cov(Xh, Yh)
-print C
+print(C)
 
-print "Cinv"
+print("Cinv")
 Cinv = np.linalg.inv(C)
-print Cinv
+print(Cinv)
 
 ############################################################################
 ############################################################################
@@ -133,16 +133,16 @@ The Gaussain Bayes Classifier is:
 
 log (Likelihood Ratio ^) = W' * X + b
     where
-    
+
     W = (u1 - u2)' * Cinv * X
     b = 0.5 * ((u2' * Cinv * u2) - (u1' * Cinv * u1))
 
-   
-Now, if the Likelihood Ratio is: 
+
+Now, if the Likelihood Ratio is:
             Greater than 1? Class 0 Txt Book Class 1
             Lesser  than 1? Class 1 Txt Book Class 2
 
-Now, if the Logarithm of the Likelihood Ratio is: 
+Now, if the Logarithm of the Likelihood Ratio is:
             Greater than log(1) = 0? Class 0 Txt Book Class 1
             Lesser  than log(1) = 0? Class 1 Txt Book Class 2
 
@@ -157,24 +157,24 @@ u1 = u[0] # Mean of Class 1
 u2 = u[1] # Mean of Class 2
 
 
-u1 = u1[mask] 
+u1 = u1[mask]
 u2 = u2[mask]
 
 
-print "u1 - u2"
-print (u1 - u2).T.shape 
+print("u1 - u2")
+print((u1 - u2).T.shape)
 ############################################################################
 
 stage1W =  np.asmatrix(np.dot((u1 - u2).T, Cinv))
-print "stage1W"
-print stage1W.shape
+print("stage1W")
+print(stage1W.shape)
 
-print "W"
+print("W")
 W =  np.dot(stage1W, XY.T)
-print W
+print(W)
 
-print "Weight W: "
-print W.shape
+print("Weight W: ")
+print(W.shape)
 
 ############################################################################
 ############################################################################
@@ -184,50 +184,50 @@ u1 = np.asmatrix(u1)
 u2 = np.asmatrix(u2)
 
 
-print "Stage 1b"
+print("Stage 1b")
 stage11b = np.dot(u2, Cinv)
 stage1b = np.dot(stage11b, u2.T)
 stage1b = np.asscalar(np.array(stage1b))
 
-print "Stage 2b"
+print("Stage 2b")
 stage22b = np.dot(u1, Cinv)
 stage2b = np.dot(stage22b, u1.T)
 stage2b = np.asscalar(np.array(stage2b))
 
-b = 0.5 * (stage1b - stage2b) 
+b = 0.5 * (stage1b - stage2b)
 
-print "Bias b: "
-print b
+print("Bias b: ")
+print(b)
 
 ############################################################################
 ############################################################################
 # Calculating error rate
-print "xtest"
+print("xtest")
 xtest = XY[:, 0]
 xtest = np.asmatrix(xtest)
-print xtest.shape
+print(xtest.shape)
 
 
-ytest = np.multiply(W, xtest) 
+ytest = np.multiply(W, xtest)
 ytest = np.add(ytest, b)
-print ytest
+print(ytest)
 
 # ERROR CLASSIFICATION
-print "CLASSIFICATION"
+print("CLASSIFICATION")
 ytest[ytest > 0] = 1
 ytest[ytest < 1] = 2
-print ytest
+print(ytest)
 
-print classes
+print(classes)
 
 error = ytest - classes
 
 SQE = np.power(error, [2])
 ERR =  np.sum(SQE)
 
-print "CLASSIFICATION ERROR RATE:"
+print("CLASSIFICATION ERROR RATE:")
 MSE = (ERR / 2000) * 100
-print MSE
+print(MSE)
 
 
 ytest = np.subtract(ytest, [1])
@@ -236,4 +236,4 @@ ax.plot(xtest, ytest, marker = 'x', linewidth = 10 )
 plt.show()
 
 ############################################################################
-############################################################################ 
+############################################################################
