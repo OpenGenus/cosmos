@@ -1,7 +1,9 @@
 import random
 
-class Node():
+
+class Node:
     """ Simple node class for A* pathfinding """
+
     def __init__(self, parent=None, position=None):
         self.parent = parent
         self.position = position
@@ -13,16 +15,15 @@ class Node():
     def __eq__(self, other):
         self.position == other.position
 
+
 def make(n):
     maze = [[0 for i in range(n)] for j in range(n)]
-    
     for i in range(n):
         for j in range(n):
             x = random.random()
             if x > 0.7:
                 maze[i][j] = 1
 
-    
     return maze
 
 
@@ -46,13 +47,13 @@ def astar(maze, start, end):
         current_node = open_list[0]
         current_index = 0
 
-        for index,item in enumerate(open_list):
+        for index, item in enumerate(open_list):
             # lower f means better path
             if item.f < current_node.f:
                 current_node = item
                 current_index = index
-        
-        # Popping the current index off the open list and adding the node in closed list 
+
+        # Popping the current index off the open list and adding the node in closed list
         open_list.pop(current_index)
         closed_list.append(current_node)
 
@@ -66,15 +67,32 @@ def astar(maze, start, end):
             return path[::-1]
 
         # Generate Children
-        
+
         children = []
-        for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]: # Adjacent squares
+        for new_position in [
+            (0, -1),
+            (0, 1),
+            (-1, 0),
+            (1, 0),
+            (-1, -1),
+            (-1, 1),
+            (1, -1),
+            (1, 1),
+        ]:  # Adjacent squares
 
             # Getting node position
-            node_position = (current_node.position[0] + new_position[0], current_node.position[1] + new_position[1])
+            node_position = (
+                current_node.position[0] + new_position[0],
+                current_node.position[1] + new_position[1],
+            )
 
-            # Checking if in-range or not : 
-            if node_position[0] > (len(maze) - 1) or node_position[0] < 0 or node_position[1] > (len(maze[len(maze)-1]) -1) or node_position[1] < 0:
+            # Checking if in-range or not :
+            if (
+                node_position[0] > (len(maze) - 1)
+                or node_position[0] < 0
+                or node_position[1] > (len(maze[len(maze) - 1]) - 1)
+                or node_position[1] < 0
+            ):
                 continue
 
             # See if walkable or not
@@ -96,18 +114,20 @@ def astar(maze, start, end):
                     continue
 
             # If not? start making f,g and h values
-            child.g = current_node.g + 1   ## why not child.parent.g?
+            child.g = current_node.g + 1  ## why not child.parent.g?
             ## Eucledian heuristic without sqrt? Genius
-            child.h = ((child.position[0] - end_node.position[0]) ** 2) + ((child.position[1] - end_node.position[1]) ** 2) 
+            child.h = ((child.position[0] - end_node.position[0]) ** 2) + (
+                (child.position[1] - end_node.position[1]) ** 2
+            )
             child.f = child.h + child.g
 
             # Child Already in Open List?
             for open_node in open_list:
                 if child == open_node and child.g > open_node.g:
                     continue
-            
             # Add the child in the open list
             open_list.append(child)
+
 
 def showPath(maze, path, n, start, end):
     dupMaze = maze
@@ -126,31 +146,31 @@ def showPath(maze, path, n, start, end):
 
     return dupMaze
 
+
 def main():
     print("Started!")
-    maze = make(random.randint(3,10))
+    maze = make(random.randint(3, 10))
 
-    print " You maze is"
+    print(" You maze is")
     for i in maze:
         for j in i:
-            print j,
-        print
+            print(j)
+        print()
 
-    start = tuple(map(int, raw_input("Please Enter the starting Coordinates:    ").split()))
-    end = tuple(map(int, raw_input("Please Enter the ending Coordinates:    ").split()))
+    start = tuple(map(int, input("Please Enter the starting Coordinates: ").split()))
+    end = tuple(map(int, input("Please Enter the ending Coordinates: ").split()))
 
     path = astar(maze, start, end)
- 
+
     display = showPath(maze, path, len(maze[0]), start, end)
-    print "\n\n"   
+    print("\n\n")
     for i in display:
         for j in i:
-            print j,
-        print
+            print(j)
+        print()
 
-    print "The Perfect Path will be", path
+    print("The Perfect Path will be {}".format(path))
 
-    
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
