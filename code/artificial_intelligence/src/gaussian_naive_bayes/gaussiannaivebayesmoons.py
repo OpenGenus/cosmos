@@ -37,8 +37,8 @@ def make_moons(n_samples=100, shuffle=True, noise=None, random_state=None):
     y : array of shape [n_samples]
         The integer labels (0 or 1) for class membership of each sample.
     """
-    n_samples_out = n_samples // 2 # Floor division
-    n_samples_in = n_samples - n_samples_out # splitting it into two halves
+    n_samples_out = n_samples // 2  # Floor division
+    n_samples_in = n_samples - n_samples_out  # splitting it into two halves
 
     generator = check_random_state(random_state)
 
@@ -47,10 +47,12 @@ def make_moons(n_samples=100, shuffle=True, noise=None, random_state=None):
     inner_circ_x = 1 - np.cos(np.linspace(0, np.pi, n_samples_in))
     inner_circ_y = 1 - np.sin(np.linspace(0, np.pi, n_samples_in)) - 1
 
-    X = np.vstack((np.append(outer_circ_x, inner_circ_x),
-                   np.append(outer_circ_y, inner_circ_y))).T
-    y = np.hstack([np.zeros(n_samples_out, dtype=np.intp),
-                   np.ones(n_samples_in, dtype=np.intp)])
+    X = np.vstack(
+        (np.append(outer_circ_x, inner_circ_x), np.append(outer_circ_y, inner_circ_y))
+    ).T
+    y = np.hstack(
+        [np.zeros(n_samples_out, dtype=np.intp), np.ones(n_samples_in, dtype=np.intp)]
+    )
 
     if shuffle:
         X, y = util_shuffle(X, y, random_state=generator)
@@ -60,35 +62,36 @@ def make_moons(n_samples=100, shuffle=True, noise=None, random_state=None):
 
     return X, y
 
+
 ############################################################################
 # generating 2D classification dataset
 
-crts, Class = make_moons(n_samples = 2000, noise = 0.08, random_state= 0)
+crts, Class = make_moons(n_samples=2000, noise=0.08, random_state=0)
 
 Class = Class + 1
 
-df = DataFrame(dict(x=crts[:, 0], y = crts[:, 1], label = Class))
+df = DataFrame(dict(x=crts[:, 0], y=crts[:, 1], label=Class))
 
 
-colors = {1:'red', 2:'blue'}
+colors = {1: "red", 2: "blue"}
 fig, ax = plt.subplots()
 
 ############################################################################
 ############################################################################
 # Separating the co ordinates according to the classes CLASSES 1 followed by CLASSES 2
-grouped = df.groupby('label')
+grouped = df.groupby("label")
 
 
-u = [] # The MEAN
-gX = [] # Group
+u = []  # The MEAN
+gX = []  # Group
 
 for key, group in grouped:
     gX.append(group.values)
     u.append(group.mean().values)
 
-    group.plot(ax = ax, kind = 'scatter', x = 'x', y = 'y', label = key, color = colors[key])
+    group.plot(ax=ax, kind="scatter", x="x", y="y", label=key, color=colors[key])
 
-plt.savefig('graph.png')
+plt.savefig("graph.png")
 
 
 gX = np.array(gX)
@@ -128,7 +131,7 @@ print(Cinv)
 
 ############################################################################
 ############################################################################
-'''
+"""
 The Gaussain Bayes Classifier is:
 
 log (Likelihood Ratio ^) = W' * X + b
@@ -146,15 +149,15 @@ Now, if the Logarithm of the Likelihood Ratio is:
             Greater than log(1) = 0? Class 0 Txt Book Class 1
             Lesser  than log(1) = 0? Class 1 Txt Book Class 2
 
-'''
+"""
 ############################################################################
 ############################################################################
 # Finding W
 
 mask = [False, True, True]
 
-u1 = u[0] # Mean of Class 1
-u2 = u[1] # Mean of Class 2
+u1 = u[0]  # Mean of Class 1
+u2 = u[1]  # Mean of Class 2
 
 
 u1 = u1[mask]
@@ -165,12 +168,12 @@ print("u1 - u2")
 print((u1 - u2).T.shape)
 ############################################################################
 
-stage1W =  np.asmatrix(np.dot((u1 - u2).T, Cinv))
+stage1W = np.asmatrix(np.dot((u1 - u2).T, Cinv))
 print("stage1W")
 print(stage1W.shape)
 
 print("W")
-W =  np.dot(stage1W, XY.T)
+W = np.dot(stage1W, XY.T)
 print(W)
 
 print("Weight W: ")
@@ -223,7 +226,7 @@ print(classes)
 error = ytest - classes
 
 SQE = np.power(error, [2])
-ERR =  np.sum(SQE)
+ERR = np.sum(SQE)
 
 print("CLASSIFICATION ERROR RATE:")
 MSE = (ERR / 2000) * 100
@@ -231,7 +234,7 @@ print(MSE)
 
 
 ytest = np.subtract(ytest, [1])
-ax.plot(xtest, ytest, marker = 'x', linewidth = 10 )
+ax.plot(xtest, ytest, marker="x", linewidth=10)
 
 plt.show()
 
