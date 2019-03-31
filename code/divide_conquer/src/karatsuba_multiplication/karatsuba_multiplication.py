@@ -7,10 +7,10 @@ Created on Tue May 29 11:21:34 2018
 """
 
 
-print 'enter the first number'
-n1 = raw_input()
-print 'enter the second number'
-n2 = raw_input()
+print('enter the first number')
+n1 = input()
+print('enter the second number')
+n2 = input()
 
 def Correcting(string):
     p = len(string)
@@ -31,18 +31,17 @@ def Karatsuba(number_1, number_2):
     if len(number_1) == 1:
         return r1*r2
     else:
-        a = number_1[:l/2]
-        b = number_1[l/2:]
-        c = number_2[:l/2]
-        d = number_2[l/2:]
-        
+        a = number_1[:l//2]
+        b = number_1[l//2:]
+        c = number_2[:l//2]
+        d = number_2[l//2:]
+
         e = Karatsuba(a,c)
         f = Karatsuba(b,d)
         g = Karatsuba(b,c)
         h = Karatsuba(a,d)
-        
+
         return ((10**l)*e)+(g+h)*(10**(l/2))+f
 
 ans = Karatsuba(num1,num2)
-print ans    
-    
+print(ans)
