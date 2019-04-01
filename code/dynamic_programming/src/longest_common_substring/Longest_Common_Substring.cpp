@@ -1,7 +1,9 @@
 // Space Complexity: O(n)
 // Time Complexity: O(m*n) 
 
-#include<bits/stdc++.h>
+#include <string>
+#include <iostream>
+#include <vector> 
 using namespace std;
 
 string LongestCommonSubstring(string str1, string str2) 
