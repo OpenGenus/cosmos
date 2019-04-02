@@ -27,22 +27,16 @@ def main(n, smooth_factor, plot_enable):
 
     # seeds init
     mat[0, 0] = update_pixel(mat[0, 0], 0, magnitude)
-    mat[0, height - 1] = update_pixel(
-        mat[0, height - 1], 0, magnitude
-    )
+    mat[0, height - 1] = update_pixel(mat[0, height - 1], 0, magnitude)
     mat[height - 1, height - 1] = update_pixel(
         mat[height - 1, height - 1], 0, magnitude
     )
-    mat[0, height - 1] = update_pixel(
-        mat[0, height - 1], 0, magnitude
-    )
+    mat[0, height - 1] = update_pixel(mat[0, height - 1], 0, magnitude)
 
     while i > 1:
         id_ = i >> 1
         magnitude *= smooth_factor
-        for xIndex in range(
-            id_, height, i
-        ):  # Beginning of the Diamond Step
+        for xIndex in range(id_, height, i):  # Beginning of the Diamond Step
             for yIndex in range(id_, height, i):
                 mean = (
                     mat[xIndex - id_, yIndex - id_]
@@ -50,12 +44,8 @@ def main(n, smooth_factor, plot_enable):
                     + mat[xIndex + id_, yIndex + id_]
                     + mat[xIndex + id_, yIndex - id_]
                 ) / 4
-                mat[xIndex, yIndex] = update_pixel(
-                    mat[xIndex, yIndex], mean, magnitude
-                )
-        for xIndex in range(
-            0, height, id_
-        ):  # Beginning of the Square Step
+                mat[xIndex, yIndex] = update_pixel(mat[xIndex, yIndex], mean, magnitude)
+        for xIndex in range(0, height, id_):  # Beginning of the Square Step
             if xIndex % i == 0:
                 shift = id_
             else:
@@ -81,9 +71,7 @@ def main(n, smooth_factor, plot_enable):
                     n += 1
 
                 mean = sum_ / n
-                mat[xIndex, yIndex] = update_pixel(
-                    mat[xIndex, yIndex], mean, magnitude
-                )
+                mat[xIndex, yIndex] = update_pixel(mat[xIndex, yIndex], mean, magnitude)
         i = id_
 
     if plot_enable:
@@ -95,27 +83,21 @@ def main(n, smooth_factor, plot_enable):
 def check_smooth_factor(value):
     fvalue = float(value)
     if fvalue < 0 or fvalue > 1:
-        raise argparse.ArgumentTypeError(
-            "%s is an invalid smooth factor value" % value
-        )
+        raise argparse.ArgumentTypeError("%s is an invalid smooth factor value" % value)
     return fvalue
 
 
 def check_positive(value):
     ivalue = int(value)
     if ivalue <= 0:
-        raise argparse.ArgumentTypeError(
-            "%s is an invalid positive int value" % value
-        )
+        raise argparse.ArgumentTypeError("%s is an invalid positive int value" % value)
     return ivalue
 
 
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description="machine generated calculation"
-    )
+    parser = argparse.ArgumentParser(description="machine generated calculation")
     parser.add_argument(
         "-n",
         help="the size of the image will be 2**n + 1",
@@ -133,11 +115,7 @@ if __name__ == "__main__":
         type=check_smooth_factor,
     )
 
-    parser.add_argument(
-        "-p",
-        help="plot with matplotlib",
-        action="store_true",
-    )
+    parser.add_argument("-p", help="plot with matplotlib", action="store_true")
 
     args = parser.parse_args()
 

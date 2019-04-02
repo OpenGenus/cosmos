@@ -1,3 +1,5 @@
+from functools import reduce
+
 morseAlphabet = {
     "A": ".-",
     "B": "-...",
@@ -34,25 +36,26 @@ morseAlphabet = {
     "7": "--...",
     "8": "---..",
     "9": "----.",
-    "0": "-----"
+    "0": "-----",
 }
 
-inverseAlphabet = reduce(lambda a, b: dict(a.items() + b.items()),
-                         [{
-                             morseAlphabet[k]: k
-                         } for k in morseAlphabet.keys()], {})
+inverseAlphabet = reduce(
+    lambda a, b: dict(list(a.items()) + list(b.items())),
+    [{morseAlphabet[k]: k} for k in morseAlphabet.keys()],
+    {},
+)
 
 
 def encode(_text):
-    return ' '.join([morseAlphabet[_c.upper()] for _c in _text[:]])
+    return " ".join([morseAlphabet[_c.upper()] for _c in _text[:]])
 
 
 def decode(_text):
-    return ''.join([inverseAlphabet[_c] for _c in _text.split(' ')])
+    return "".join([inverseAlphabet[_c] for _c in _text.split(" ")])
 
 
 def test():
-    print decode(encode("TEST")) == "TEST"
+    print(decode(encode("TEST")) == "TEST")
 
 
 if __name__ == "__main__":
