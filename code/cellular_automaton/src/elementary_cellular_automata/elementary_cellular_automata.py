@@ -31,7 +31,7 @@ def main():
             current_row.append(alive)
 
     # Creates a known state with only one alive element
-    elif not random_start:
+    else:
         for i in range(0, width):
             current_row.append(0)
         current_row[int(width / 2)] = 1
