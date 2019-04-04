@@ -4,11 +4,10 @@
 #include <string>
 #include <iostream>
 #include <vector> 
-using namespace std;
 
-string LongestCommonSubstring(string str1, string str2) 
+std::string LongestCommonSubstring(std::string str1, std::string str2) 
 { 
-    string temp;
+    std::string temp;
     // longest string is str1 and the smallest string is str2
     if( str2.size() > str1.size() ) {
         temp = str1;
@@ -22,7 +21,7 @@ string LongestCommonSubstring(string str1, string str2)
     int maxlength = 0; //length of longest common Substring
     int end; //ending point of longest common Substring
     
-    vector< vector<int> > consqRow(2,vector<int> (n+1,0)); //store result of 2 consecutive rows
+    std::vector< std::vector<int> > consqRow(2,std::vector<int> (n+1,0)); //store result of 2 consecutive rows
     int curr = 0; //current row in the matrix  
 
     //maintaing the array for consequtive two rows
@@ -46,7 +45,7 @@ string LongestCommonSubstring(string str1, string str2)
         return "-1"; 
     } 
     else{
-        string s = "";
+        std::string s = "";
         // string is from end-maxlength+1 to end as maxlength is the length of
         // the common substring.
         for(int i=end-maxlength+1; i<=end; i++){
@@ -58,15 +57,15 @@ string LongestCommonSubstring(string str1, string str2)
 
 int main(){
 
-    string string1 = "cosmos"; 
-    string string2 = "OpenGenusmos";
-    string lcsStr = LongestCommonSubstring(string1, string2);
-    cout << "String1: " << string1 << "\nString2: " << string2 << "\n";
+    std::string string1 = "cosmos"; 
+    std::string string2 = "OpenGenusmos";
+    std::string lcsStr = LongestCommonSubstring(string1, string2);
+    std::cout << "String1: " << string1 << "\nString2: " << string2 << "\n";
     if(lcsStr == "-1"){
-        cout << "No common substring\n"; 
+        std::cout << "No common substring\n"; 
     }
     else{
-        cout << "Longest Common Substring: " << lcsStr << " (of length: " << lcsStr.size() << ")\n";
+        std::cout << "Longest Common Substring: " << lcsStr << " (of length: " << lcsStr.size() << ")\n";
     }
     return 0;
 }
