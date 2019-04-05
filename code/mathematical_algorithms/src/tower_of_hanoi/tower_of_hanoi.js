@@ -16,4 +16,4 @@ function towerOfHanoi(n, from_rod, to_rod, aux_rod) {
     return;
 }
 
-towerOfHanoi(3, "A", "C", "B")
+towerOfHanoi(3, "A", "C", "B");
