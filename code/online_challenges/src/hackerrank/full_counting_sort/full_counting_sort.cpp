@@ -8,7 +8,8 @@ int main() {
     
     std::__cxx11::string ar[n];
     
-    for(long int i = 0; i < n/2; ++i){
+    for (long int i = 0; i < n/2; ++i)
+    {
         int x;
         std::cin >> x;
         
@@ -19,7 +20,8 @@ int main() {
         
     }
 
-    for(long int i = n/2; i < n; ++i){
+    for (long int i = n/2; i < n; ++i)
+    {
         int x;
         std::cin >> x;
         
@@ -31,7 +33,7 @@ int main() {
     }
     
     
-    for(int i = 0; i < n; ++i)
+    for (int i = 0; i < n; ++i)
         std::cout << ar[i];
 
     return 0;
