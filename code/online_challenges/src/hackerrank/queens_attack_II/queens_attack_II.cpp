@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main() {
+int main() 
+{
   int n,k , rQ, cQ, rObj, cObj;
   
   std::cin >> n >> k >> rQ >> cQ;

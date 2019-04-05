@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main() {
+int main() 
+{
     int T, i;
     std::cin >> T;
     for (i = 1;i <= T; ++i) 

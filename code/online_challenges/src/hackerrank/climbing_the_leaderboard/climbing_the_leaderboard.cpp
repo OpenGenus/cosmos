@@ -1,7 +1,8 @@
 #include <iostream>
 #include <stack> 
 
-int main() {
+int main() 
+{
     unsigned long n, m, i, tmp;
     
     std::cin >> n;

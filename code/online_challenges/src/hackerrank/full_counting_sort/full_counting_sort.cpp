@@ -1,7 +1,8 @@
 #include <string>
 #include <iostream>
 
-int main() {
+int main() 
+{
     long int n;
     
     std::cin >> n;
