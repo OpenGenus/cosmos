@@ -223,7 +223,7 @@ int main(int argc, char* argv[])
                     std::cout << char(0xdb);
                 else 
                 {
-                    if (std::find( path.begin(), path.end(), point( x, y ) )!= path.end())
+                    if (std::find(path.begin(), path.end(), point(x, y))!= path.end())
                         std::cout << "x";
                     else 
                         std::cout << ".";
