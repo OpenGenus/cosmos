@@ -2,62 +2,82 @@
 #include <algorithm>
 #include <iostream>
  
-class point {
+class point 
+{
 public:
-    point(int a = 0, int b = 0) { 
+    point (int a = 0, int b = 0) 
+    { 
         x = a; y = b; 
     }
 
-    bool operator == (const point& o) { 
+    bool operator == (const point& o) 
+    { 
         return o.x == x && o.y == y; 
     }
 
-    point operator +(const point& o) { 
-        return point(o.x + x, o.y + y); 
+    point operator + (const point& o) 
+    { 
+        return point (o.x + x, o.y + y); 
     }
 
     int x, y;
 };
  
-class map {
+class map 
+{
 public:
-    map() {
-        char t[8][8] = {
+    map() 
+    {
+        char t[8][8] = 
+        {
             {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 1, 1, 1, 0}, {0, 0, 1, 0, 0, 0, 1, 0},
             {0, 0, 1, 0, 0, 0, 1, 0}, {0, 0, 1, 1, 1, 1, 1, 0},
             {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0}
         };
+
         w = h = 8;
-        for(int r = 0; r < h; r++)
-            for(int s = 0; s < w; s++)
+        for (int r = 0; r < h; ++r)
+            for(int s = 0; s < w; ++s)
                 m[s][r] = t[r][s];
     }
-    int operator() (int x, int y) { 
+
+    int operator() (int x, int y) 
+    { 
         return m[x][y]; 
     }
+
     char m[8][8];
     int w, h;
 };
  
-class node {
+class node 
+{
 public:
-    bool operator == (const node& o) { 
+    bool operator == (const node& o) 
+    { 
         return pos == o.pos; 
     }
-    bool operator == (const point& o) {
+
+    bool operator == (const point& o) 
+    {
         return pos == o; 
     }
-    bool operator < (const node& o) { 
+
+    bool operator < (const node& o) 
+    { 
         return dist + cost < o.dist + o.cost; 
     }
+
     point pos, parent;
     int dist, cost;
 };
  
-class aStar {
+class aStar 
+{
 public:
-    aStar() {
+    aStar() 
+    {
         neighbours[0] = point(-1, -1);
         neighbours[1] = point(1, -1);
         neighbours[2] = point(-1, 1);
@@ -68,32 +88,38 @@ public:
         neighbours[7] = point(1, 0);
     }
  
-    int calcDist(point& p){
+    int calcDist(point& p)
+    {
         // Adding a better heuristic
         int x = end.x - p.x, y = end.y - p.y;
         return(x * x + y * y);
     }
  
-    bool isValid(point& p) {
+    bool isValid(point& p) 
+    {
         return (p.x >-1 && p.y > -1 && p.x < m.w && p.y < m.h);
     }
  
-    bool existPoint(point& p, int cost) {
+    bool existPoint(point& p, int cost) 
+    {
         std::list<node>::iterator i;
         i = std::find(closed.begin(), closed.end(), p);
-        if(i != closed.end()) {
-            if((*i).cost + (*i).dist < cost)
+        if (i != closed.end()) 
+        {
+            if ((*i).cost + (*i).dist < cost)
                 return true;
-            else { 
+            else 
+            { 
                 closed.erase(i);
                 return false;
             }
         }
         i = std::find(open.begin(), open.end(), p);
-        if(i != open.end()) {
-            if((*i).cost + (*i).dist < cost) 
+        if (i != open.end()) {
+            if ((*i).cost + (*i).dist < cost) 
                 return true;
-            else { 
+            else 
+            { 
                 open.erase(i); 
                 return false; 
             }
@@ -101,21 +127,25 @@ public:
         return false;
     }
  
-    bool fillOpen(node& n) {
+    bool fillOpen(node& n) 
+    {
         int stepCost, nc, dist;
         point neighbour;
  
-        for(int x = 0; x < 8; x++) {
+        for (int x = 0; x < 8; ++x) 
+        {
             // One can make diagonals have different cost
             stepCost = x < 4 ? 1 : 1;
             neighbour = n.pos + neighbours[x];
-            if(neighbour == end)
+            if (neighbour == end)
             return true;
  
-            if(isValid(neighbour) && m(neighbour.x, neighbour.y) != 1) {
+            if (isValid(neighbour) && m(neighbour.x, neighbour.y) != 1) 
+            {
                 nc = stepCost + n.cost;
                 dist = calcDist(neighbour);
-                if(!existPoint(neighbour, nc + dist)) {
+                if (!existPoint(neighbour, nc + dist)) 
+                {
                     node m;
                     m.cost = nc; m.dist = dist;
                     m.pos = neighbour; 
@@ -127,7 +157,8 @@ public:
         return false;
     }
  
-    bool search(point& s, point& e, map& mp) {
+    bool search(point& s, point& e, map& mp) 
+    {
         node n; 
         end = e; 
         start = s; 
@@ -137,27 +168,31 @@ public:
         n.parent = 0; 
         n.dist = calcDist(s); 
         open.push_back(n);
-        while(!open.empty()) {
+        while (!open.empty()) 
+        {
             //open.sort();
             node n = open.front();
             open.pop_front();
             closed.push_back(n);
-            if(fillOpen(n)) 
+            if (fillOpen(n)) 
                 return true;
         }
         return false;
     }
  
-    int path(std::list<point>& path) {
+    int path(std::list<point>& path) 
+    {
         path.push_front(end);
         int cost = 1 + closed.back().cost; 
         path.push_front(closed.back().pos);
         point parent = closed.back().parent;
  
-        for(std::list<node>::reverse_iterator i = closed.rbegin(); i != closed.rend(); i++) {
-            if((*i).pos == parent && !((*i).pos == start)) {
-                path.push_front((*i).pos);
-                parent = (*i).parent;
+        for (std::list<node>::it i = closed.rbegin(); i != closed.rend(); ++i) 
+        {
+            if ((i->pos) == parent && !((i->pos) == start)) 
+            {
+                path.push_front(i->pos);
+                parent = (i->parent);
             }
         }
         path.push_front(start);
@@ -170,32 +205,38 @@ public:
     std::list<node> closed;
 };
  
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     map m;
     point s, e(7, 7);
     aStar as;
  
-    if( as.search(s, e, m)) {
+    if (as.search(s, e, m)) 
+    {
         std::list<point> path;
         int c = as.path(path);
-        for(int y = -1; y < 9; y++) {
-            for(int x = -1; x < 9; x++) {
-                if(x < 0 || y < 0 || x > 7 || y > 7 || m( x, y ) == 1)
+        for (int y = -1; y < 9; y++) 
+        {
+            for (int x = -1; x < 9; x++) 
+            {
+                if (x < 0 || y < 0 || x > 7 || y > 7 || m( x, y ) == 1)
                     std::cout << char(0xdb);
-                else {
-                    if(std::find( path.begin(), path.end(), point( x, y ) )!= path.end())
+                else 
+                {
+                    if (std::find( path.begin(), path.end(), point( x, y ) )!= path.end())
                         std::cout << "x";
-                    else std::cout << ".";
+                    else 
+                        std::cout << ".";
                 }
             }
-            std::cout << "\n";
+            std::cout<<"\n";
         }
  
         std::cout<<"\nPath cost"<<c<<": ";
-        for(std::list<point>::iterator i = path.begin(); i != path.end(); i++) {
+        for (std::list<point>::iterator i = path.begin(); i != path.end(); ++i) {
             std::cout<<"( "<<(*i).x<<", "<<(*i).y<<") ";
         }
     }
-    std::cout <<"\n\n";
+    std::cout<<"\n\n";
     return 0;
 }

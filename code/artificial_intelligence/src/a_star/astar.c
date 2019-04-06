@@ -52,7 +52,8 @@ struct route {
     double d;
 };
  
-int main() {
+int 
+main() {
     int i, j, k, l, b, found;
     int p_len = 0;
     int *path = NULL;
@@ -240,12 +241,13 @@ int main() {
     for (i = 0; i < s_len; ++i) {
         free(stops[i].n);
     }
+    
     free(stops);
     free(routes);
     free(path);
     free(open);
     free(closed);
  
-    return 0;
+    return (0);
 }
  
