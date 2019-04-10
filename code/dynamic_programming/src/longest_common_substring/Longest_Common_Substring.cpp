@@ -1,71 +1,79 @@
 // Space Complexity: O(n)
 // Time Complexity: O(m*n) 
 
-#include <string>
 #include <iostream>
 #include <vector> 
 
-std::string LongestCommonSubstring(std::string str1, std::string str2) 
+std::string LongestCommonSubstring(std::string string1, std::string string2) 
 { 
     std::string temp;
-    // longest string is str1 and the smallest string is str2
-    if( str2.size() > str1.size() ) {
-        temp = str1;
-        str1= str2;
-        str2 = temp;
+    // longest string is string1 and the smallest string is string2
+    if ( string2.size() > string1.size() ) 
+    {
+        temp = string1;
+        string1= string2;
+        string2 = temp;
     }
-    int m, n; 
-    m = str1.size();
-    n = str2.size();
 
-    int maxlength = 0; //length of longest common Substring
+    int m = string1.size();
+    int n = string2.size();
+    int maxLength = 0; //length of longest common Substring
     int end; //ending point of longest common Substring
-    
-    std::vector< std::vector<int> > consqRow(2,std::vector<int> (n+1,0)); //store result of 2 consecutive rows
-    int curr = 0; //current row in the matrix  
+    int curr = 0; //current row in the matrix 
 
+    std::vector< std::vector<int> > consecutiveRows(2, std::vector<int> (n+1,0)); //store result of 2 consecutive rows
+    
     //maintaing the array for consequtive two rows
-    for (int i = 1; i <= m; i++) { 
-        for (int j = 1; j <= n; j++) { 
-            if (str1[i - 1] == str2[j - 1]) { 
-                consqRow[curr][j] = consqRow[1 - curr][j - 1] + 1; 
-                if ( consqRow[curr][j] > maxlength ) { 
-                    maxlength = consqRow[curr][j]; 
+    for (int i = 1; i <= m; i++) 
+    { 
+        for (int j = 1; j <= n; j++) 
+        { 
+            if (string1[i - 1] == string2[j - 1]) 
+            { 
+                consecutiveRows[curr][j] = consecutiveRows[1 - curr][j - 1] + 1; 
+                if ( consecutiveRows[curr][j] > maxLength ) 
+                { 
+                    maxLength = consecutiveRows[curr][j]; 
                     end = i - 1; 
                 }
             } 
-            else { 
-                consqRow[curr][j] = 0; 
-            } 
+            else
+                consecutiveRows[curr][j] = 0; 
+            
         } 
         curr = 1 - curr; // changing the row alternatively
     } 
 
-    if (maxlength == 0) { 
+    if (maxLength == 0) 
         return "-1"; 
-    } 
-    else{
+    
+    else
+    {
         std::string s = "";
-        // string is from end-maxlength+1 to end as maxlength is the length of
+
+        // string is from end-maxLength+1 to end as maxLength is the length of
         // the common substring.
-        for(int i=end-maxlength+1; i<=end; i++){
-            s+=str1[i];
-        }
+        for(int i=end-maxLength+1; i<=end; i++)
+            s+=string1[i];
+    	
         return s; 
     }
 }
 
-int main(){
+int main()
+{
 
     std::string string1 = "cosmos"; 
     std::string string2 = "OpenGenusmos";
-    std::string lcsStr = LongestCommonSubstring(string1, string2);
     std::cout << "String1: " << string1 << "\nString2: " << string2 << "\n";
-    if(lcsStr == "-1"){
+
+    std::string lcsStr = LongestCommonSubstring(string1, string2);
+
+    if(lcsStr == "-1")
         std::cout << "No common substring\n"; 
-    }
-    else{
+    
+    else
         std::cout << "Longest Common Substring: " << lcsStr << " (of length: " << lcsStr.size() << ")\n";
-    }
+    
     return 0;
 }
