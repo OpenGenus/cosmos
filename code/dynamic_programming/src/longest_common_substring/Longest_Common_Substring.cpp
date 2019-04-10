@@ -17,13 +17,13 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
 
     int m = string1.size();
     int n = string2.size();
-    int maxLength = 0; //length of longest common Substring
-    int end; //ending point of longest common Substring
-    int curr = 0; //current row in the matrix 
+    int maxLength = 0; // length of longest common Substring
+    int end; // ending point of longest common Substring
+    int curr = 0; // current row in the matrix 
 
-    std::vector< std::vector<int> > consecutiveRows(2, std::vector<int> (n+1,0)); //store result of 2 consecutive rows
+    std::vector< std::vector<int> > consecutiveRows(2, std::vector<int> (n+1,0)); // store result of 2 consecutive rows
     
-    //maintaing the array for consequtive two rows
+    // maintaing the array for consequtive two rows
     for (int i = 1; i <= m; i++) 
     { 
         for (int j = 1; j <= n; j++) 
