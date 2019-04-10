@@ -46,7 +46,6 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
 
     if (maxLength == 0) 
         return "-1"; 
-    
     else
     {
         std::string s = "";
@@ -71,7 +70,6 @@ int main()
 
     if(lcsStr == "-1")
         std::cout << "No common substring\n"; 
-    
     else
         std::cout << "Longest Common Substring: " << lcsStr << " (of length: " << lcsStr.size() << ")\n";
     
