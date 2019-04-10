@@ -1,13 +1,11 @@
-# Space Complexity: O(n)
-# Time Complexity: O(m*n)
-
-
 def LongestCommonSubstring(string1, string2):
+
     # longest string is string1 and the smallest string is string2
     if len(string2) > len(string1):
         temp = string2
         string2 = string1
         string1 = temp
+
     m = len(string1)
     n = len(string2)
     consqRow = []
@@ -44,9 +42,12 @@ def LongestCommonSubstring(string1, string2):
 def main():
     string1 = "cosmos"
     string2 = "OpenGenusmos"
-    common = LongestCommonSubstring(string1, string2)
+
     print("String1:", string1)
     print("String2:", string2)
+
+    common = LongestCommonSubstring(string1, string2)
+
     if common == "-1":
         print("No common SubString")
     else:
