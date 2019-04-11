@@ -1,7 +1,5 @@
-
-function isPalindrome (str)
-{
-    return [...str].reverse().join("") == str;
+function isPalindrome(str) {
+  return [...str].reverse().join("") == str;
 }
 
 console.log(isPalindrome("lol"));
