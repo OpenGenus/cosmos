@@ -20,7 +20,8 @@ int main()
   {
     std::cin >> rObj >> cObj;
 
-    if (cQ == cObj) {
+    if (cQ == cObj) 
+    {
       if ((rObj > rQ) && (rObj - rQ - 1 < N))
         N = rObj - rQ - 1; //N
       else if ((rObj < rQ) && (rQ - rObj - 1 < S)) 
@@ -49,7 +50,7 @@ int main()
     }
   }
 
-  std::cout << N + S + E + W + NE + SE + NW + SW;
+  std::cout << N + S + E + W + NE + SE + NW + SW << "\n";
 
   return 0;
 }

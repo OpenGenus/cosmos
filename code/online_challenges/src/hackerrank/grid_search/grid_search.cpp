@@ -58,5 +58,8 @@ int main()
         else 
             std::cout << "NO" << "\n";
     }
+
+    std::cout << "\n";
+
     return 0;
 }

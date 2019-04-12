@@ -37,5 +37,7 @@ int main()
     for (int i = 0; i < n; ++i)
         std::cout << ar[i];
 
+    std::cout << "\n";
+
     return 0;
 }

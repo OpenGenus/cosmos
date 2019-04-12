@@ -23,5 +23,8 @@ int main()
             scores.pop();
         std::cout << (scores.size() + 1) << "\n";
     }
+
+    std::cout << "\n";
+
     return 0;
 }
