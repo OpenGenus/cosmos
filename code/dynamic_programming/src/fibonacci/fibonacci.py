@@ -1,15 +1,11 @@
 from sys import argv
 
-"""
-N'th fibonacci number using Dynamic Programming
-"""
-
 
 def fibonacci(n):
     """
-    Taking 1st two fibonacci numbers as 0 and 1
+    N'th fibonacci number using Dynamic Programming
     """
-    arr = [0, 1]
+    arr = [0, 1]  # 1st two numbers as 0 and 1
 
     while len(arr) < n + 1:
         arr.append(0)
