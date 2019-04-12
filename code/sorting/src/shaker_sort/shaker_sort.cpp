@@ -7,12 +7,14 @@
 #include <vector>
 #include <algorithm>
 
-void shaker_sort(std::vector<int> &v)
+using namespace std;
+
+void shaker_sort(vector<int> &v)
 {
     bool swap = false;
-    for (int i = 0; i < v.size() / 2; ++i)
+    for (unsigned i = 0; i < v.size() / 2; ++i)
     {
-        for (int j = i; j < v.size() - i - 1; ++j)
+        for (unsigned j = i; j < v.size() - i - 1; ++j)
             if (v[j] > v[j + 1])
             {
                 int tmp = v[j];
@@ -20,7 +22,7 @@ void shaker_sort(std::vector<int> &v)
                 v[j + 1] = tmp;
                 swap = true;
             }
-        for (int j = v.size() - 2 - i; j > i; --j)
+        for (unsigned j = v.size() - 2 - i; j > i; j--)
             if (v[j] < v[j - 1])
             {
                 int tmp = v[j];
@@ -29,33 +31,32 @@ void shaker_sort(std::vector<int> &v)
                 swap = true;
             }
         if (!swap)
-            break;                // The array is sorted when there are no elements have been swapped.
+            break;                // The array is sorted when
+        // there are no elements have been swapped.
     }
 }
 
 int main()
 {
     int size = 0;
-    std::cout << "Enter size of array: ";
-    std::cin >> size;
-    std::vector<int> source_array;
+    cout << "Enter size of array: ";
+    cin >> size;
+    vector<int> source_array;
 
     for (int i = 0; i < size; ++i)
         source_array.push_back(rand() % 100 + 1);
 
-    std::cout << "Source array is: ";
-
-    for (int i = 0; i < size; ++i)
-        std::cout << source_array[i] << " ";
-    std::cout << "\n";
+    cout << "Source array is: ";
+    for (int j : source_array)
+        cout << j << " ";
+    cout << endl;
 
     shaker_sort(source_array);
 
-    std::cout << "Sorted array is: ";
-
-    for (int i = 0; i < size; ++i)
-        std::cout << source_array[i] << " ";
-    std::cout << "\n";
+    cout << "Sorted array is: ";
+    for (int j : source_array)
+        cout << j << " ";
+    cout << endl;
 
     return 0;
 }
