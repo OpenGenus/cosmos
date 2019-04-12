@@ -75,9 +75,9 @@ class LinkedList {
 }
 
 // SLL Examples
-List.add('Luke');
-List.add('Leia');
-List.add('R2D2');
+List.add("Luke");
+List.add("Leia");
+List.add("R2D2");
 List.get(1);
 List.remove(2);
 
@@ -170,10 +170,10 @@ class DoublyLinkedList {
     return this.length;
   }
   print() {
-    let string = '';
+    let string = "";
     let current = this.head;
     while (current) {
-      string += current.data + ' ';
+      string += current.data + " ";
       current = current.next;
     }
     console.log(string.trim());
