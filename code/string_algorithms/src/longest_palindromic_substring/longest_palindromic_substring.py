@@ -12,3 +12,8 @@ def longest_pal_substr(s):
         s2 = expand_center(s, c, c + 1)
         ans = max(ans, s1, s2, key=len)
     return ans
+
+
+if __name__ == "__main__":
+    print(longest_pal_substr("belle"))
+    print(longest_pal_substr("racecar"))
