@@ -1,0 +1,289 @@
+ARTIFICIAL INTELLIGENCE                  c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Linear Regression                        .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+TSP                                      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         0      1      0      0      0      0      0      0      0      0      0      0      1      0      0      0      0      0  
+
+
+BACKTRACKING                             c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+algorithm x                              .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+knight tour                              .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+n queen                                  .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+number of ways in maze                   .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+partitions of number                     .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+partitions of set                        .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+permutations of string                   .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+rat in a maze                            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+subset sum                               x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+sudoku solve                             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         1     10      0      0      0      0      0      0      2      0      0      0      1      0      0      0      0      0  
+
+
+BIT MANIPULATION                         c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+bit division                             x      .      .      .      .      .      x      .      x      x      .      .      x      .      .      .      .      .  
+convert number binary                    .      x      .      .      .      .      .      .      x      x      .      .      .      .      .      .      .      .  
+count set bits                           x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+flip bits                                x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+hamming distance                         .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+lonely integer                           .      x      .      .      .      .      x      .      x      x      .      .      x      .      .      .      .      .  
+magic number                             .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+maximum xor value                        .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+subset generation                        .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+sum binary numbers                       x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+sum equals xor                           x      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+thrice unique number                     .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+twice unique number                      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         5     11      0      0      0      0      2      0      7      3      0      0      6      0      0      0      0      0  
+
+
+COMPUTATIONAL GEOMETRY                   c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+2d line intersection                     .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+area of polygon                          .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+area of triangle                         .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+axis aligned bounding box collision      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+distance between points                  .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+sutherland hodgeman clipping             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         0      6      0      0      0      0      0      0      3      0      0      0      1      0      0      0      0      0  
+
+
+CRYPTOGRAPHY                             c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+atbash cipher                            .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+caesar cipher                            .      x      .      .      .      .      x      .      x      x      .      .      x      .      .      .      .      .  
+morse cipher                             .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+vigenere cipher                          x      x      .      .      .      .      x      .      .      .      .      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         1      4      0      0      0      0      2      0      1      1      0      0      4      0      0      0      0      0  
+
+
+DATA STRUCTURES                          c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+AVL tree                                 .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+B Tree                                   .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+Binomial Heap                            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+Hash Table                               .      .      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+Heap                                     x      x      .      .      .      .      x      .      x      .      .      .      x      .      .      .      x      .  
+Leftist Tree                             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+Trie                                     x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+fenwick tree                             x      x      .      .      .      .      .      .      x      .      .      x      x      .      .      .      .      .  
+interval trees                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+segment tree                             .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+splay tree                               .      .      .      .      .      .      x      .      x      .      .      .      .      .      .      .      .      .  
+treap                                    .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+union find                               .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         3     11      0      0      0      0      2      0      7      0      0      1      4      0      0      0      1      0  
+
+
+DIVIDE CONQUER                           c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Quick Sort                               .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+closest pair of points                   .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+inversion count                          x      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+merge sort using divide and conquer      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+quick sort                               x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         2      5      0      0      0      0      0      0      1      0      0      0      1      0      0      0      0      0  
+
+
+DYNAMIC PROGRAMMING                      c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Array Median                             .      .      .      .      .      .      .      .      x      .      .      .      x      .      x      .      .      .  
+binomial coefficient                     x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+coin change                              .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+edit distance                            x      x      .      .      .      .      x      x      x      .      .      .      x      .      .      .      .      .  
+egg dropping puzzle                      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+knapsack                                 x      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+largest sum contiguous subarray          .      x      .      .      .      .      .      x      x      .      .      .      x      .      .      .      .      .  
+longest bitonic sequence                 .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+longest common subsequence               .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+longest increasing subsequence           x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+matrix chain multiplication              .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+min cost path                            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+minimum insertion palindrome             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+minimum insertions palindrome            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+palindrome partition                     .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+rod cutting                              .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+shortest common supersequence            .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+subset sum                               .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+tiling problem                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         4     18      0      0      0      0      1      2      7      0      0      0      7      0      1      0      0      0  
+
+
+GRAPH ALGORITHMS                         c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Bipartite check                          .      .      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+bellman ford algorithm                   .      x      .      .      .      .      .      .      x      .      x      .      x      .      .      .      .      .  
+biconnected components                   .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+bipartite checking                       .      x      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+breadth first search                     .      x      .      .      .      .      .      .      x      .      .      .      x      x      .      .      .      .  
+bridge tree                              .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+bridges in graph                         .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+count of ways n                          .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+cut vertices                             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+cycle directed graph                     .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+cycle undirected graph                   .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+depth first search                       .      x      .      .      .      .      x      .      x      .      .      .      x      x      .      .      .      .  
+dijkstra shortest path                   x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+floyd warshall algorithm                 x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+ford fulkerson maximum flow              .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+graph coloring                           .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+kruskal minimum spanning tree            x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+kuhn maximum matching                    .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+left view binary tree                    .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+longest path directed acyclic graph      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+postorder from inorder and preorder      .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+prim minimum spanning tree               x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+strongly connected components            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+topological sort                         .      x      .      .      .      .      .      x      .      .      .      .      x      .      .      .      .      .  
+transitive closure graph                 .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+travelling salesman mst                  .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         4     25      0      0      0      0      1      1      7      0      1      0     12      2      0      0      0      0  
+
+
+GREEDY ALGORITHMS                        c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+activity selection                       .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+dijkstra shortest path                   .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+egyptian fraction                        .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+fractional knapsack                      x      x      x      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+huffman coding                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+job sequencing                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+kruskal minimum spanning tree            .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+minimum coins                            .      x      .      .      .      .      .      .      x      x      .      .      x      .      .      .      .      .  
+prim minimum spanning tree               .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         1      8      1      0      0      0      0      0      3      1      0      0      4      0      0      0      0      0  
+
+
+MATHEMATICAL ALGORITHMS                  c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Check is square                          .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+EulerTotient                             x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+add polynomial                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+amicable numbers                         .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+armstrong numbers                        x      x      .      .      .      .      x      .      .      .      .      .      x      .      .      .      .      .  
+babylonian method                        x      x      .      .      .      .      .      .      x      x      .      .      x      .      .      .      .      .  
+binomial coefficient                     .      .      .      .      .      .      x      .      x      .      .      .      .      .      .      .      .      .  
+catalan number                           x      x      .      .      .      .      .      .      x      .      .      .      x      x      .      x      .      .  
+classic number problems                  .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+coprime numbers                          x      x      .      .      .      .      .      .      .      .      .      .      x      .      x      .      .      .  
+count digits                             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+count trailing zeroes                    x      x      .      .      .      .      .      .      x      .      .      .      x      .      .      x      .      .  
+delannoy number                          .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+exponentiation power                     x      .      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+factorial                                .      x      x      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+fermats little theorem                   .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+fibonacci number                         x      x      .      x      x      .      x      x      .      x      x      .      x      x      x      x      .      .  
+gcd and lcm                              .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+horner polynomial evaluation             .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+integer conversion                       .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+lucky number                             x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+magic square                             .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+modular inverse                          .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+newton raphson method                    x      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+next larger number                       .      x      .      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+pascal triangle                          .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+perfect number                           x      x      .      .      .      .      .      .      x      x      x      .      x      x      x      .      .      .  
+prime factors                            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+prime numbers of n                       .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+replace 0 with 5                         x      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+reverse number                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+russian peasant multiplication           .      x      .      .      .      .      x      .      .      .      .      .      x      .      .      .      .      .  
+segmented sieve of eratosthenes          .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+sieve of eratosthenes                    x      x      x      .      .      .      x      x      x      x      x      .      x      .      .      .      .      .  
+std                                      .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+sum of digits                            x      x      .      .      x      .      x      .      x      x      x      .      x      .      .      .      .      .  
+tower of hanoi                           x      x      .      .      .      .      x      .      x      x      .      .      x      .      x      .      .      .  
+tribonacci numbers                       .      x      .      .      .      .      x      .      x      .      .      .      x      .      x      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                        15     32      2      1      2      0      8      2     15      6      4      0     23      3      5      3      0      0  
+
+
+RANDOMIZED ALGORITHMS                    c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+kth smallest element algorithm           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+shuffle an array                         .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         0      2      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0  
+
+
+SEARCH                                   c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+binary search                            x      x      x      .      .      .      x      .      x      x      x      .      x      .      x      .      x      .  
+exponential search                       .      x      .      .      .      .      x      .      x      x      x      .      x      .      x      .      .      .  
+interpolation search                     x      x      .      .      .      .      .      .      x      .      x      .      x      .      .      .      .      .  
+jump search                              .      x      .      .      .      .      .      .      x      .      x      .      x      .      .      .      .      .  
+linear search                            x      x      x      .      .      .      x      x      x      x      x      .      x      x      x      .      .      .  
+ternary search                           x      x      .      .      .      .      x      .      x      x      x      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         4      6      2      0      0      0      4      1      6      4      6      0      6      1      3      0      1      0  
+
+
+SORTING                                  c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+Sleep Sort                               x      x      x      .      .      .      .      .      x      x      .      .      x      .      .      .      .      .  
+bead sort                                .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+bubble sort                              x      x      x      .      .      x      x      x      x      x      x      .      x      x      x      .      x      .  
+bucket sort                              x      x      x      .      .      .      x      x      x      x      x      .      x      .      .      .      .      .  
+circle sort                              .      .      x      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+comb sort                                .      x      .      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .  
+counting sort                            x      x      x      .      .      .      x      .      x      x      .      .      x      .      .      .      .      .  
+cycle sort                               .      x      .      .      .      .      x      .      x      x      .      .      x      .      .      .      .      .  
+heap sort                                .      x      x      .      .      .      x      .      x      x      .      .      x      x      x      .      .      .  
+insertion sort                           x      x      .      .      .      .      x      .      x      x      x      .      x      .      x      .      .      .  
+median sort                              .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+merge sort                               x      x      x      .      .      .      .      .      x      x      x      .      x      x      .      .      .      x  
+pigeonhole sort                          x      x      x      .      .      .      .      .      x      .      .      .      x      .      .      .      .      .  
+quick sort                               x      x      x      .      .      .      x      x      x      x      .      .      x      x      .      .      .      x  
+radix sort                               .      x      .      .      .      .      x      x      .      .      .      .      x      .      .      .      .      .  
+selection sort                           x      x      x      .      .      .      x      x      x      x      x      .      x      x      .      .      .      .  
+shell sort                               .      x      .      .      .      .      .      .      .      x      .      .      x      .      .      .      .      .  
+stooge sort                              .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+topological sort                         x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+tree sort                                x      x      .      .      .      .      .      .      .      x      .      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                        11     17     10      0      0      1      9      5     12     13      5      0     17      5      3      0      1      2  
+
+
+SQUARE ROOT DECOMPOSITION                c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+MO's Algorithm                           .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         0      1      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0  
+
+
+STRING ALGORITHMS                        c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+anagram search                           .      x      x      .      .      .      .      .      .      .      .      .      x      x      .      .      .      .  
+boyer moore algorithm                    x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+kmp algorithm                            .      x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+manachar algorithm                       .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+naive pattern search                     .      .      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+rabin karp algorithm                     x      .      .      .      .      .      .      .      x      .      .      .      .      .      .      .      .      .  
+z algorithm                              .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         2      4      1      0      0      0      0      0      1      0      0      0      4      1      0      0      0      0  
+
+
+UNCLASSIFIED                             c    cpp     cs    erl     ex    exs     go     hs   java     js    php     pl     py     rb     rs  scala  swift     ts  
+------------------------------------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+2sum                                     .      x      .      .      .      .      .      .      .      .      .      .      x      .      .      .      .      .  
+average                                  .      x      .      .      .      .      .      .      x      .      .      .      x      .      x      .      .      .  
+magic sqaure                             x      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .  
+spiral printing                          x      x      .      .      .      .      x      .      .      .      .      .      x      .      .      .      .      .  
+                                     ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ ------ 
+                                         2      3      0      0      0      0      1      0      1      0      0      0      3      0      1      0      0      0  
+
+
+==================================== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== ====== 
+                            TOTALS:     55    164     16      1      2      1     30     11     73     28     16      1     94     12     13      3      3      2  
