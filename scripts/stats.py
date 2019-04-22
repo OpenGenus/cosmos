@@ -11,7 +11,7 @@ paths = [
     Path(
         suffix=path.suffix.lstrip(".").lower(),
         group=path.parts[-3].replace("-", " ").replace("_", " "),
-        name=path.parts[-2].replace("-", " ").replace("_", " "),
+        name=path.parts[-1].replace("-", " ").replace("_", " "),
     )
     for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*")
     if path.suffix and path.suffix.lower() != ".md"
