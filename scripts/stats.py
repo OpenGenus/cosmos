@@ -5,16 +5,16 @@ import itertools
 import pathlib
 import argparse
 
-
 Path = collections.namedtuple("Entry", ("suffix", "group", "name"))
 paths = [
     Path(
         suffix=path.suffix.lstrip(".").lower(),
-        group=path.parts[-3].replace("-", " ").replace("_", " "),
-        name=path.parts[-1].replace("-", " ").replace("_", " "),
+        group=path.parts[1].replace("-", " ").replace("_", " "),
+        name=path.parts[-2].replace("-", " ").replace("_", " "),
     )
-    for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*")
-    if path.suffix and path.suffix.lower() != ".md"
+    for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*/*")
+    if path.suffix
+    and path.suffix.lower() not in [".md", ".png", ".csv", ".class", ".data", ".in"]
 ]
 suffixes = {path.suffix for path in paths}
 suffixes = sorted(suffixes - {"", "md"})
