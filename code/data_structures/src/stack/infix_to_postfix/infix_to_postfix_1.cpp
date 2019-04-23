@@ -119,9 +119,7 @@ void InfixToPostfix::convertInfixToPostfix()
         }
     }
 
-    std::cout << "\nPostfix expression      : ";
-    std::cout << infixToPostfixExp;
-
+    std::cout << "\nPostfix expression      : " << infixToPostfixExp;
 }
 
 int main()
