@@ -121,7 +121,7 @@ def generate_markdown():
             if suffix in alg_suffixes:
                 totals[suffix] += 1
                 group_stats[suffix] += 1
-                value = "x"
+                value = "✔️"
             else:
                 value = "."
             print(" {} | ".format(value), end="  ")
