@@ -11,9 +11,10 @@ paths = [
         suffix=path.suffix.lstrip(".").lower(),
         group=path.parts[1].replace("-", " ").replace("_", " "),
         name=path.parts[-2].replace("-", " ").replace("_", " "),
-    ) for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*/*")
-    if path.suffix and path.suffix.lower() not in
-    [".md", ".png", ".csv", ".class", ".data", ".in"]
+    )
+    for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*/*")
+    if path.suffix
+    and path.suffix.lower() not in [".md", ".png", ".csv", ".class", ".data", ".in"]
 ]
 suffixes = {path.suffix for path in paths}
 suffixes = sorted(suffixes - {"", "md", "png", "csv", "class", "data", "in"})
@@ -91,8 +92,7 @@ def generate_markdown():
             print("| |", end="")
             for suffix in suffixes:
                 print(
-                    " {} |".format(
-                        str(group_stats[suffix]).rjust(suffix_max_len)),
+                    " {} |".format(str(group_stats[suffix]).rjust(suffix_max_len)),
                     end="",
                 )
             print()
@@ -103,8 +103,7 @@ def generate_markdown():
             print_group_stats()
             print()
             print("# {}".format(group.upper().ljust(name_max_len)))
-            print(
-                "| {} | ".format(group.upper().ljust(name_max_len)), end="  ")
+            print("| {} | ".format(group.upper().ljust(name_max_len)), end="  ")
             for suffix in suffixes:
                 print("{} | ".format(suffix.rjust(suffix_max_len)), end="  ")
             print()
@@ -133,9 +132,7 @@ def generate_markdown():
     tot_str = "TOTALS"
     print("| {} |".format(tot_str), end="  ")
     for suffix in suffixes:
-        print(
-            " {} |".format(str(totals[suffix]).rjust(suffix_max_len)),
-            end="  ")
+        print(" {} |".format(str(totals[suffix]).rjust(suffix_max_len)), end="  ")
     print()
     print("| ", end="")
     print("-" * len(tot_str), end=" | ")
@@ -146,14 +143,12 @@ def generate_markdown():
 
 def main():
     parser = argparse.ArgumentParser(
-        description=
-        "Get statstics in txt or markdown. Make sure you are in root of cosmos repo before running"
+        description="Get statstics in txt or markdown. Make sure you are in root of cosmos repo before running"
     )
     parser.add_argument(
         "-f",
         "--format",
-        help=
-        'Ouput can be "txt" for text file and "md" for markdown or "all" for all formats',
+        help='Ouput can be "txt" for text file and "md" for markdown or "all" for all formats',
         default="all",
     )
     results = parser.parse_args()
