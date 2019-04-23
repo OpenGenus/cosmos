@@ -49,8 +49,5 @@ The opening curly brace indicates the beginning of the definition of the main fu
 
 The next line calls (diverts execution to) a function named printf, which in this case is supplied from a system library. In this call, the printf function is passed (provided with) a single argument, the address of the first character in the string literal "hello, world\n". The string literal is an unnamed array with elements of type char, set up automatically by the compiler with a final 0-valued character to mark the end of the array (printf needs to know this). The \n is an escape sequence that C translates to a newline character, which on output signifies the end of the current line. The return value of the printf function is of type int, but it is silently discarded since it is not used. (A more careful program might test the return value to determine whether or not the printf function succeeded.) The semicolon ; terminates the statement.
 
-<<<<<<< HEAD
 The closing curly brace indicates the end of the code for the main function. According to the C99 specification and newer, the main function, unlike any other function, will implicitly return a value of 0 upon reaching the } that terminates the function. (Formerly an explicit return 0; statement was required.) This is interpreted by the run-time system as an exit code indicating successful execution.
-=======
-The closing curly brace indicates the end of the code for the main function. According to the C99 specification and newer, the main function, unlike any other function, will implicitly return a value of 0 upon reaching the } that terminates the function. (Formerly an explicit return 0; statement was required.) This is interpreted by the run-time system as an exit code indicating successful execution.
->>>>>>> f0c65b46a196fc236ed08d7069968184b4923f54
+
