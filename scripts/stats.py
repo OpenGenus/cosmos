@@ -6,18 +6,37 @@ import pathlib
 import argparse
 
 Path = collections.namedtuple("Entry", ("suffix", "group", "name"))
+avoid_extensions = [
+    "",
+    ".md",
+    ".png",
+    ".csv",
+    ".class",
+    ".data",
+    ".in",
+    ".jpeg",
+    ".jpg",
+    ".out",
+    ".textclipping",
+    ".properties",
+    ".txt",
+    ".sbt",
+]
+avoid_dirs = ["project", "test", "img", "image", "images"]
 paths = [
     Path(
         suffix=path.suffix.lstrip(".").lower(),
         group=path.parts[1].replace("-", " ").replace("_", " "),
         name=path.parts[-2].replace("-", " ").replace("_", " "),
     )
-    for path in pathlib.Path(__file__).parents[1].glob("code/*/*/*/*")
+    for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*")
     if path.suffix
-    and path.suffix.lower() not in [".md", ".png", ".csv", ".class", ".data", ".in"]
+    and not any(elem in list(path.parts) for elem in avoid_dirs)
+    and path.suffix.lower() not in avoid_extensions
 ]
+
 suffixes = {path.suffix for path in paths}
-suffixes = sorted(suffixes - {"", "md", "png", "csv", "class", "data", "in"})
+suffixes = sorted(suffixes - set(avoid_extensions))
 
 name_max_len = max(max(len(path.group), len(path.name)) for path in paths)
 suffix_max_len = max(len(path.suffix) for path in paths)
@@ -102,7 +121,12 @@ def generate_markdown():
         if group != last_group:
             print_group_stats()
             print()
-            print("# {}".format(group.upper().ljust(name_max_len)))
+            category_dir = group.replace(" ", "_")
+            print(
+                "# [{}](https://github.com/OpenGenus/cosmos/tree/master/code/{})".format(
+                    group.upper(), category_dir
+                )
+            )
             print("| {} | ".format(group.upper().ljust(name_max_len)), end="  ")
             for suffix in suffixes:
                 print("{} | ".format(suffix.rjust(suffix_max_len)), end="  ")
