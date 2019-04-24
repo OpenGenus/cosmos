@@ -1,5 +1,7 @@
 // do-while loop
 //C program to print sum of first 5 natural numbers using do..while loop
+//do- while loop is a loop for performing repetetive tasks. In this loop the body of the loop is executed
+//atleast once, and then the test condition is checked. If it evaluates to true, the loop continues to run otherwise it is exited.
 
 #include <stdio.h>
 int main ()
