@@ -23,17 +23,22 @@ avoid_extensions = [
     ".sbt",
 ]
 avoid_dirs = ["project", "test", "img", "image", "images"]
-paths = [
-    Path(
-        suffix=path.suffix.lstrip(".").lower(),
-        group=path.parts[1].replace("-", " ").replace("_", " "),
-        name=path.parts[-2].replace("-", " ").replace("_", " "),
-    )
-    for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*")
-    if path.suffix
-    and not any(elem in list(path.parts) for elem in avoid_dirs)
-    and path.suffix.lower() not in avoid_extensions
-]
+paths = []
+original_paths = []
+for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*"):
+    if (
+        path.suffix
+        and not any(elem in list(path.parts) for elem in avoid_dirs)
+        and path.suffix.lower() not in avoid_extensions
+    ):
+        original_paths.append(path.parts)
+        paths.append(
+            Path(
+                suffix=path.suffix.lstrip(".").lower(),
+                group=path.parts[1].replace("-", " ").replace("_", " "),
+                name=path.parts[-2].replace("-", " ").replace("_", " "),
+            )
+        )
 
 suffixes = {path.suffix for path in paths}
 suffixes = sorted(suffixes - set(avoid_extensions))
@@ -139,7 +144,16 @@ def generate_markdown():
             last_group = group
             group_stats = collections.defaultdict(int)
 
-        print("| {} |".format(name), end="  ")
+        original_name = name.replace(" ", "_")
+        name_path = ""
+        for x in original_paths:
+            if x[-2] == original_name:
+                name_path = "https://github.com/OpenGenus/cosmos/tree/master/{}".format(
+                    "".join([y + "/" for pos, y in enumerate(x) if pos != len(x) - 1])
+                )
+                break
+
+        print("| [{}]({}) |".format(name, name_path), end="  ")
         alg_suffixes = {p.suffix for p in g}
         for suffix in suffixes:
             if suffix in alg_suffixes:
