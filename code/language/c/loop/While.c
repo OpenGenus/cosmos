@@ -1,0 +1,23 @@
+//While loop is another loop in C language.
+//It is an entry controlled loop i.e. a test condition is checked and only if it evaluates to true, is the body of the loop executed. 
+
+#include<stdio.h>
+ int main ()
+{
+   /* local variable Initialization */   int n = 1,times=5;
+
+   /* while loops execution */   while( n <= times )
+   {
+      printf("C while loops: %d\n", n);
+      n++;
+   }
+ 
+   return 0;
+}
+
+output:
+C while loops:1
+C while loops:2
+C while loops:3
+C while loops:4
+C while loops:5
