@@ -1,28 +1,42 @@
-from sys import argv
+/* Part of Cosmos by OpenGenus Foundation */
 
+#include <string>
+#include <sstream>
+#include <iostream>
 
-def fibonacci(n):
-    """
-    N'th fibonacci number using Dynamic Programming
-    """
-    arr = [0, 1]  # 1st two numbers as 0 and 1
+using namespace std;
 
-    while len(arr) < n + 1:
-        arr.append(0)
+int dynamic_programming(int num);
 
-    if n <= 1:
-        return n
-    else:
-        if arr[n - 1] == 0:
-            arr[n - 1] = fibonacci(n - 1)
-        if arr[n - 2] == 0:
-            arr[n - 2] = fibonacci(n - 2)
+int main(){
 
-    arr[n] = arr[n - 2] + arr[n - 1]
-    return arr[n]
+  int number;
 
+  cout << "Please enter an integer: ";
+  cin >> number;
 
-if __name__ == "__main__":
-    if len(argv) < 2:
-        print("Usage: python3 fibonacci.py <N>")
-    print(fibonacci(int(argv[1])))
+  int dyn_prog = dynamic_programming(number);
+
+  cout << "Fibonacci number is: " << dyn_prog << endl;
+
+  return 0;
+}
+
+int dynamic_programming(int num){
+
+  int fibarray[num+1];
+
+  //Fibonacci first two number are always 0 and 1
+  fibarray[0] = 0;
+  fibarray[1] = 1;
+
+  //Stores the values of the Fibnonacci numbers inside the array
+  for ( int i = 2; i <= num; i++){
+    fibarray[i] = fibarray[i-1] + fibarray[i-2];
+  }
+
+  //Get the number at the postion passed in
+  int fibnum = fibarray[num];
+
+  return fibnum;
+}
