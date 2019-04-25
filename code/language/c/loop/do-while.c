@@ -8,7 +8,7 @@ int main ()
 {
  int sum = 0, i = 1;  //initialization of counter variable i
  do{
-   sum = sum+i;
+   sum += i;
    i++;  //increment of counter variable
   }while(i <= 5);  //coondition of do while
 
@@ -16,5 +16,5 @@ int main ()
  return 0;
 }  //end of program
 
-output:
-sum of first 5 natural numbers = 15
+//output:
+//sum of first 5 natural numbers = 15
