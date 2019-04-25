@@ -9,7 +9,7 @@
      while( n <= times )//while loops execution
    {
       printf("C while loops: %d\n", n);
-      n++;
+      ++n;
    }
  
    return 0;
