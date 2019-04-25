@@ -13,16 +13,75 @@ These limitations are avoided by using dynamic memory allocation in which ```mem
 * calloc	allocates the specified number of bytes and initializes them to zero
 * free		releases the specified block of memory back to the system
 
-### Sample code
-
+### Sample code for malloc 
 ``` C
-int array[10];
-int * array = malloc(10 * sizeof(*array));
-int * array = malloc(10 * sizeof(*array));
-if (array == NULL) {
-  fprintf(stderr, "malloc failed\n");
-  return(-1);
-}
-free(array);
-```
+void foo(int n, int m) {
+    int i, *p;
+  
+    /* Allocate a block of n ints */
+    p = (int *) malloc(n * sizeof(int));
+    if (p == NULL) {
+        perror("malloc");
+        exit(0);
+    }
+  
+    /* Initialize allocated block */
+    for (i=0; i<n; i++) 
+        p[i] = i;
 
+  
+    /* Return p to the heap */
+    free(p); 
+}
+```
+### Sample code for realloc
+```C
+#include <stdio.h> 
+#include <stdlib.h> 
+int main() 
+{ 
+int arr[2], i; 
+int *ptr = arr; 
+int *ptr_new; 
+	
+arr[0] = 10; 
+arr[1] = 20;	 
+	
+// incorrect use of new_ptr: undefined behaviour 
+ptr_new = (int *)realloc(ptr, sizeof(int)*3); 
+*(ptr_new + 2) = 30; 
+	
+for(i = 0; i < 3; i++) 
+	printf("%d ", *(ptr_new + i)); 
+
+getchar(); 
+return 0; 
+} 
+```
+### Sample code for calloc
+``` C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+   int i, n;
+   int *a;
+
+   printf("Number of elements to be entered:");
+   scanf("%d",&n);
+
+   a = (int*)calloc(n, sizeof(int));
+   printf("Enter %d numbers:\n",n);
+   for( i=0 ; i < n ; i++ ) {
+      scanf("%d",&a[i]);
+   }
+
+   printf("The numbers entered are: ");
+   for( i=0 ; i < n ; i++ ) {
+      printf("%d ",a[i]);
+   }
+   free( a );
+   
+   return(0);
+}
+```
