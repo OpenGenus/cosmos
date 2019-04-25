@@ -15,9 +15,9 @@
    return 0;
 }
 
-output:
-C while loops:1
-C while loops:2
-C while loops:3
-C while loops:4
-C while loops:5
+//output:
+//C while loops:1
+//C while loops:2
+//C while loops:3
+//C while loops:4
+//C while loops:5
