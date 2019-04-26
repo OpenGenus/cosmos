@@ -107,9 +107,13 @@ if (condition)
 {
         Statement 1;
 }
-else
+else if
 {
         Statement 2;
+}
+else
+{
+        Statement 3;
 }
 Statement 3;
 ```
@@ -166,29 +170,29 @@ void  main()
     cin>>i;
     switch(i)
     {
-        case ‘V’:
-            cout<<”Voilet”<<endl;
+        case 'V':
+            cout<<"Voilet"<<endl;
             break;
-        case ‘I’:
-            cout<<”Indigo”<<endl;
+        case 'I':
+            cout<<"Indigo"<<endl;
             break;
-        case ‘B’:
-            cout<<”Blue”<<endl;
+        case 'B':
+            cout<<"Blue"<<endl;
             break;
-        case ‘G’:
-            cout<<”Green”<<endl;
+        case 'G':
+            cout<<"Green"<<endl;
             break;
-        case ‘Y’:
-            cout<<”Yellow”<<endl;
+        case 'Y':
+            cout<<"Yellow"<<endl;
             break;
-        case ‘O’:
-            cout<<”Orange”<<endl;
+        case 'O':
+            cout<<"Orange"<<endl;
             break;
-        case ‘R’:
-            cout<,”Red”<<endl;
+        case 'R':
+            cout<<"Red"<<endl;
             break;
         default:
-            cout<<”You have entered the wrong color”<<endl;
+            cout<<"You have entered the wrong color"<<endl;
     }
 }
 ```
