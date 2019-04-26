@@ -138,6 +138,7 @@ int main()
 ### switch statement
 
 The **switch-case** statement tests the value of an expression against a list of conditions. When a match is found, the statements associated with that condition are executed. In the case of a “switch…case” statement, the conditions are constants. Each constant is a “case” (in the body of the “switch….case” statement).
+**Note -** Comparing two strings is not the same as expected.
 
 The Syntax for using the “switch…case” statement is as follows:
 ```
