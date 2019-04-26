@@ -2,7 +2,7 @@
 
 using namespace std;    
 
-int
+int 
 main()
 {
     int students;
@@ -31,5 +31,5 @@ main()
         }   
     
      }
-    return (0);
+    return 0;
 }
