@@ -19,9 +19,6 @@ while (expression) statement
 The while-loop simply repeats statement while expression is true. If, after any execution of statement, expression is no longer true, the loop ends, and the program continues right after the loop. For example, let's have a look at a countdown using a while-loop:
 ``` C++
 // custom countdown using while
-#include <iostream>
-
-using namespace std;
 
 int main ()
 {
@@ -50,10 +47,6 @@ It behaves like a while-loop, except that condition is evaluated after the execu
 
 ``` C++
 // echo machine
-#include <iostream>
-#include <string>
-
-using namespace std;
 
 int main ()
 {
@@ -84,9 +77,6 @@ Like the while-loop, this loop repeats statement while condition is true. But, i
 
 ```C++
 // countdown using a for loop
-#include <iostream>
-
-using namespace std;
 
 int main ()
 {
