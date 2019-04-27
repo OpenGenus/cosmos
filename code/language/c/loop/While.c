@@ -4,9 +4,9 @@
 #include<stdio.h>
 
 int main() {
-  int n = 1, times = 5; //local variable initialization
+  int n = 1, times = 5; /*local variable initialization*/
 
-  while (n <= times) //while loops execution
+  while (n <= times) /*while loops execution?*/
   {
     printf("C while loops: %d\n", n);
     ++n;
