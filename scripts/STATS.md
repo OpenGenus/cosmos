@@ -1,4 +1,4 @@
-This is the progress list of [Cosmos](https://github.com/OpenGenus/cosmos/) | Updated on: 2019-04-26
+This is the progress list of [Cosmos](https://github.com/OpenGenus/cosmos/) | Updated on: 2019-04-27
 
 
 # [ARTIFICIAL INTELLIGENCE](https://github.com/OpenGenus/cosmos/tree/master/code/artificial_intelligence)
