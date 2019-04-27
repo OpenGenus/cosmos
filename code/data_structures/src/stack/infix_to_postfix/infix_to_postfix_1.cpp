@@ -5,28 +5,23 @@ class InfixToPostfix
 {
 
 public:
-    void getInfixExpression();
+
+    InfixToPostfix(const std::string &expression) : expression_(expression) { }
 
     int getPrecedenceOfOperators(char);
 
-    void convertInfixToPostfix();
+    std::string convertInfixToPostfix();
 
 private:
     std::string expression_;
 
 };
 
-void InfixToPostfix::getInfixExpression()
-{
-    std::cout << "\nEnter Infix Expression  : ";
-    std::cin >> expression_;
-}
-
 int InfixToPostfix::getPrecedenceOfOperators(char ch)
 {
-    if(ch=='+' || ch=='-')
+    if(ch == '+' || ch == '-')
         return 1;
-    if(ch=='*' || ch=='/')
+    if(ch == '*' || ch == '/')
         return 2;
     if(ch == '^')
         return 3;
@@ -34,39 +29,39 @@ int InfixToPostfix::getPrecedenceOfOperators(char ch)
         return 0;
 }
 
-void InfixToPostfix::convertInfixToPostfix()
+std::string InfixToPostfix::convertInfixToPostfix()
 {
     std::stack <char> stack1;
     std::string infixToPostfixExp = "";
-    int i=0;
-    while(expression_[i]!='\0')
+    int i = 0;
+    while(expression_[i] != '\0')
     {
         //if scanned character is open bracket push it on stack
-        if(expression_[i]=='(' || expression_[i]=='[' || expression_[i]=='{')
+        if(expression_[i] == '(' || expression_[i] == '[' || expression_[i] == '{')
             stack1.push(expression_[i]);
 
             //if scanned character is opened bracket pop all literals from stack till matching open bracket gets poped
-        else if(expression_[i]==')' || expression_[i]==']' || expression_[i]=='}')
+        else if(expression_[i] == ')' || expression_[i] == ']' || expression_[i] == '}')
         {
-            if(expression_[i]==')')
+            if(expression_[i] == ')')
             {
-                while(stack1.top()!='(')
+                while(stack1.top() != '(')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
                 }
             }
-            if(expression_[i]==']')
+            if(expression_[i] == ']')
             {
-                while(stack1.top()!='[')
+                while(stack1.top() != '[')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
                 }
             }
-            if(expression_[i]=='}')
+            if(expression_[i] == '}')
             {
-                while(stack1.top()!='{')
+                while(stack1.top() != '{')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
@@ -75,7 +70,7 @@ void InfixToPostfix::convertInfixToPostfix()
             stack1.pop();
         }
             //if scanned character is operator
-        else if(expression_[i]=='+' || expression_[i]=='-' || expression_[i]=='*' || expression_[i]=='/' || expression_[i]=='^')
+        else if(expression_[i] == '+' || expression_[i] == '-' || expression_[i] == '*' || expression_[i] == '/' || expression_[i] == '^')
         {
             //very first operator of expression is to be pushed on stack
             if(stack1.empty()) {
@@ -105,7 +100,6 @@ void InfixToPostfix::convertInfixToPostfix()
             //if literal is operand, put it on to final postfix expression
             infixToPostfixExp = infixToPostfixExp + expression_[i];
         }
-
         i++;
     }
 
@@ -119,12 +113,12 @@ void InfixToPostfix::convertInfixToPostfix()
         }
     }
 
-    std::cout << "\nPostfix expression      : " << infixToPostfixExp;
+    return infixToPostfixExp;
+
 }
 
 int main()
 {
-    InfixToPostfix p;
-    p.getInfixExpression();
-    p.convertInfixToPostfix();
+    InfixToPostfix p("a+b*c/d-q");
+    std::cout << "\nPostfix expression      : " << p.convertInfixToPostfix();
 }
