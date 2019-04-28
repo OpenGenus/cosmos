@@ -25,11 +25,11 @@ int main ()
   int n = 10;
 
   while (n>0) {
-    cout << n << ", ";
+    std::cout << n << ", ";
     --n;
   }
 
-  cout << "liftoff!\n";
+  std::cout << "liftoff!\n";
 }
 ```
 ### Output
@@ -46,15 +46,13 @@ do statement while (condition);
 It behaves like a while-loop, except that condition is evaluated after the execution of statement instead of before, guaranteeing at least one execution of statement, even if condition is never fulfilled. For example, the following example program echoes any text the user introduces until the user enters goodbye:
 
 ``` C++
-// echo machine
-
 int main ()
 {
   string str;
   do {
-    cout << "Enter text: ";
+    std::cout << "Enter text: ";
     getline (cin,str);
-    cout << "You entered: " << str << '\n';
+    std::cout << "You entered: " << str << '\n';
   } while (str != "goodbye");
 }
 ```
@@ -76,14 +74,12 @@ for (initialization; condition; increase) statement;
 Like the while-loop, this loop repeats statement while condition is true. But, in addition, the for loop provides specific locations to contain an initialization and an increase expression, executed before the loop begins the first time, and after each iteration, respectively. Therefore, it is especially useful to use counter variables as condition.
 
 ```C++
-// countdown using a for loop
-
 int main ()
 {
   for (int n=10; n>0; n--) {
-    cout << n << ", ";
+    std::cout << n << ", ";
   }
-  cout << "liftoff!\n";
+  std::cout << "liftoff!\n";
 }
 ```
 
@@ -126,10 +122,10 @@ int main()
     age = 70;
     if (age<=60)
     {
-        cout<<”Correct age”<<endl;
+        std::cout<<”Correct age”<<endl;
     }else
     {
-        cout<<”Incorrect age”<<endl;
+        std::cout<<”Incorrect age”<<endl;
     }
      
     return 0;
@@ -167,35 +163,33 @@ switch(expression)
 void  main()
 {
     char i;
-    cout<<”Enter a rainbow colour VIBGYOR”<<endl;
+    std::cout<<”Enter a rainbow colour VIBGYOR”<<endl;
     cin>>i;
     switch(i)
     {
         case 'V':
-            cout<<"Voilet"<<endl;
+            std::cout<<"Voilet"<<endl;
             break;
         case 'I':
-            cout<<"Indigo"<<endl;
+            std::cout<<"Indigo"<<endl;
             break;
         case 'B':
-            cout<<"Blue"<<endl;
+            std::cout<<"Blue"<<endl;
             break;
         case 'G':
-            cout<<"Green"<<endl;
+            std::cout<<"Green"<<endl;
             break;
         case 'Y':
-            cout<<"Yellow"<<endl;
+            std::cout<<"Yellow"<<endl;
             break;
         case 'O':
-            cout<<"Orange"<<endl;
+            std::cout<<"Orange"<<endl;
             break;
         case 'R':
-            cout<<"Red"<<endl;
+            std::cout<<"Red"<<endl;
             break;
         default:
-            cout<<"You have entered the wrong color"<<endl;
+            std::cout<<"You have entered the wrong color"<<endl;
     }
 }
 ```
-
-
