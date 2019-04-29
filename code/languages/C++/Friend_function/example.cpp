@@ -1,25 +1,29 @@
 #include <iostream>
  
-using namespace std;
- 
 class Box {
    double width;
    
+<<<<<<< HEAD
 public:
    friend void printWidth( Box box );
    void setWidth( double wid );
+=======
+   public:
+      friend void printWidth (Box box);
+      void setWidth (double wid);
+>>>>>>> 3393c0345e93e68f396213ec222397fb03240536
 };
 
 // Member function definition
-void Box::setWidth( double wid ) {
+void Box::setWidth (double wid) {
    width = wid;
 }
 
 // Note: printWidth() is not a member function of any class.
-void printWidth( Box box ) {
+void printWidth (Box box) {
    /* Because printWidth() is a friend of Box, it can
    directly access any member of this class */
-   cout << "Width of box : " << box.width <<endl;
+   std::cout << "Width of box : " << box.width <<endl;
 }
  
 // Main function for the program

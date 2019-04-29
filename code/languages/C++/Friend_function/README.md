@@ -36,7 +36,6 @@ return_type functionName(argument/s)
 ``` C++
 /* C++ program to demonstrate the working of friend function.*/
 #include <iostream>
-using namespace std;
 
 class Distance
 {
@@ -59,7 +58,7 @@ int addFive(Distance d)
 int main()
 {
     Distance D;
-    cout<<"Distance: "<< addFive(D);
+    std::cout<<"Distance: "<< addFive(D);
     return 0;
 }
 ```
