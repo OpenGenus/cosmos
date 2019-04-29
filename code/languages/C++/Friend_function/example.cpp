@@ -5,9 +5,9 @@ using namespace std;
 class Box {
    double width;
    
-   public:
-      friend void printWidth( Box box );
-      void setWidth( double wid );
+public:
+   friend void printWidth( Box box );
+   void setWidth( double wid );
 };
 
 // Member function definition
