@@ -75,8 +75,8 @@ std::string InfixToPostfix::convertInfixToPostfix()
             //very first operator of expression is to be pushed on stack
             if(stack1.empty()) {
                 stack1.push(expression_[i]);
-
-            } else{
+            }
+            else{
                 /*
                  * check the precedence order of instack(means the one on top of stack) and incoming operator,
                  * if instack operator has higher priority than incoming operator pop it out of stack&put it in
