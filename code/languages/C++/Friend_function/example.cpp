@@ -8,9 +8,9 @@ public:
    friend void printWidth( Box box );
    void setWidth( double wid );
 =======
- public:
-    friend void printWidth (Box box);
-    void setWidth (double wid);
+public:
+   friend void printWidth (Box box);
+   void setWidth (double wid);
 >>>>>>> 3393c0345e93e68f396213ec222397fb03240536
 };
 
