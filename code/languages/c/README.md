@@ -51,4 +51,4 @@ The next line calls (diverts execution to) a function named printf, which in thi
 
 The closing curly brace indicates the end of the code for the main function. According to the C99 specification and newer, the main function, unlike any other function, will implicitly return a value of 0 upon reaching the } that terminates the function. (Formerly an explicit return 0; statement was required.) This is interpreted by the run-time system as an exit code indicating successful execution.
 
-**Source - Wikipedia**
+**Source - Wikipedia, Programming in ANSI C- E Balagurusamy.**
