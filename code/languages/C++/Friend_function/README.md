@@ -34,7 +34,7 @@ return_type functionName(argument/s)
 ```
 ### Working of friend Function
 ``` C++
-/* C++ program to demonstrate the working of friend function.*/
+
 #include <iostream>
 
 class Distance
