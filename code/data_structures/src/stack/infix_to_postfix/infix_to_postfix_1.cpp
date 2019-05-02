@@ -34,7 +34,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
     std::stack <char> stack1;
     std::string infixToPostfixExp = "";
     int i = 0;
-    while(expression_[i] != '\0')
+    while( expression_[i] != '\0' )
     {
         //if scanned character is open bracket push it on stack
         if(expression_[i] == '(' || expression_[i] == '[' || expression_[i] == '{')
@@ -119,6 +119,9 @@ std::string InfixToPostfix::convertInfixToPostfix()
 
 int main()
 {
-    InfixToPostfix p("a+b*c/d-q");
-    std::cout << "\nPostfix expression      : " << p.convertInfixToPostfix();
+    std::string expr;
+    std::cout << "\nEnter the Infix Expression : ";
+    std::cin >> expr;
+    InfixToPostfix p(expr);
+    std::cout << "\nPostfix expression         : " << p.convertInfixToPostfix();
 }
