@@ -216,12 +216,15 @@ void Linkedlist<T>::deleteEnd()
     {
         pNode1 = header;
         pNode2=header; 
-        while(pNode->pNext!=nullptr) {
+        while (pNode->pNext!=nullptr) 
+        {
            pNode2=pNode1;
            pNode1=pNode1->pNext;
         }
         pNode2->pNext=nullptr;
         delete pNode1;
+        length--;
+        
     }
     return;
 }
