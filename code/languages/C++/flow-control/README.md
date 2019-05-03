@@ -90,7 +90,8 @@ int main ()
 ## Decision
 In this, we test a condition and based on whether the condition is true or false you execute a statement or set of statements. In C++ programming language, we can implement conditional branching using the following statements:
 
-* If….Else Statement
+* if-else Statement
+* if-else-if statement
 * switch…case statement
 
 ### if-else Statement
@@ -131,6 +132,61 @@ int main()
     return 0;
 }
 ```
+### if-else-if statement
+
+An if statement can be followed by an optional else if...else statement, which is very usefull to test various conditions using single if...else if statement.
+When using if , else if , else statements there are few points to keep in mind.
+
+* An if can have zero or one else's and it must come after any else if's.
+* An if can have zero to many else if's and they must come before the else.
+* Once an else if succeeds, none of he remaining else if's or else's will be tested.
+
+**Syntax**
+
+```C++
+if(boolean_expression 1) {
+   // Executes when the boolean expression 1 is true
+} else if( boolean_expression 2) {
+   // Executes when the boolean expression 2 is true
+} else if( boolean_expression 3) {
+   // Executes when the boolean expression 3 is true
+} else {
+   // executes when the none of the above condition is true.
+}
+```
+**Sample Program**
+```C++
+#include <iostream>
+
+int main () {
+   // local variable declaration:
+   int a = 100;
+ 
+   // check the boolean condition
+   if( a == 10 ) {
+      // if condition is true then print the following
+      std::cout << "Value of a is 10" << endl;
+   } else if( a == 20 ) {
+      // if else if condition is true
+      std::cout << "Value of a is 20" << endl;
+   } else if( a == 30 ) {
+      // if else if condition is true 
+      std::cout << "Value of a is 30" << endl;
+   } else {
+      // if none of the conditions is true
+      std::cout << "Value of a is not matching" << endl;
+   }
+   std::cout << "Exact value of a is : " << a << endl;
+ 
+   return 0;
+}
+```
+**Output**
+```
+Value of a is not matching
+Exact value of a is : 100
+```
+
 ### switch statement
 
 The **switch-case** statement tests the value of an expression against a list of conditions. When a match is found, the statements associated with that condition are executed. In the case of a “switch…case” statement, the conditions are constants. Each constant is a “case” (in the body of the “switch….case” statement).
