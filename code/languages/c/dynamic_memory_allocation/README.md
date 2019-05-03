@@ -13,6 +13,27 @@ These limitations are avoided by using dynamic memory allocation in which ```mem
 * calloc	allocates the specified number of bytes and initializes them to zero
 * free		releases the specified block of memory back to the system
 
+### Function Prototype
+* **malloc**
+Syntax
+ptr = (cast-type*) malloc(byte-size)
+For Example:
+ptr = (int*) malloc(100 * sizeof(int));
+* **calloc**
+Syntax:
+ptr = (cast-type*)calloc(n, element-size);
+For Example:
+ptr = (float*) calloc(25, sizeof(float));
+* **realloc**
+Syntax:
+ptr = realloc(ptr, newSize);
+where ptr is reallocated with new size 'newSize'.
+
+* **free**
+Syntax:
+free(ptr);
+
+
 ### Sample code for malloc 
 ``` C
 void foo(int n, int m) {
