@@ -8,9 +8,9 @@
 int main() {
   int sum = 0, i = 1; /*initialization of counter variable i*/
   do {
-    sum += i;
-    i+=1; /*increment of counter variable*/
-  } while (i <= 5); /*coondition of do while*/
+    Sum += i;
+    i += 1; /*increment of counter variable*/
+  } while (i <= 5); /*condition of do while*/
 
   printf("sum of first 5 natural numbers = %d", sum);
   return 0;
