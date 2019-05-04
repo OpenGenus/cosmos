@@ -34,7 +34,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
     std::stack <char> stack1;
     std::string infixToPostfixExp = "";
     int i = 0;
-    while( expression_[i] != '\0' )
+    while( expression_[i] != '\0')
     {
         //if scanned character is open bracket push it on stack
         if(expression_[i] == '(' || expression_[i] == '[' || expression_[i] == '{')
@@ -45,7 +45,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
         {
             if(expression_[i] == ')')
             {
-                while(stack1.top() != '(')
+                while( stack1.top() != '(')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
@@ -53,7 +53,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
             }
             if(expression_[i] == ']')
             {
-                while(stack1.top() != '[')
+                while( stack1.top() != '[')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
@@ -61,7 +61,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
             }
             if(expression_[i] == '}')
             {
-                while(stack1.top() != '{')
+                while( stack1.top() != '{')
                 {
                     infixToPostfixExp = infixToPostfixExp + stack1.top();
                     stack1.pop();
@@ -106,7 +106,7 @@ std::string InfixToPostfix::convertInfixToPostfix()
     //poping out all remainig operator literals & adding to final postfix expression
     if(!stack1.empty())
     {
-        while(!stack1.empty())
+        while( !stack1.empty())
         {
             infixToPostfixExp = infixToPostfixExp + stack1.top();
             stack1.pop();
