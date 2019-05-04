@@ -105,8 +105,6 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
             }
         }
     }
-
-
     /** 
       * This method is used to Set pixel for Line. 
       * @param x first coordinate 
@@ -126,7 +124,6 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
     */
     public void paint(Graphics g) {
         Dimension d = getSize();
-
         g.drawLine(0, 0, d.width, 0);
         g.drawLine(0, 0, 0, d.height);
         g.drawLine(d.width - 1, d.height - 1, d.width - 1, 0);
@@ -164,4 +161,3 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
 *                    Enter End Y: 300
 * Sample output - https://ibb.co/NxYdXqd
 */
-
