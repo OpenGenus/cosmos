@@ -3,9 +3,7 @@ from graphics import *
 
 import time
 
-
-def Bresenham_Line(xa, ya, xb, yb):
-
+def bresenham_line(xa, ya, xb, yb):
     dx = abs(xb - xa)
     dy = abs(yb - ya)
 
@@ -26,29 +24,25 @@ def Bresenham_Line(xa, ya, xb, yb):
     # initialization of the inital disision parameter
     p = 2 * dy - dx
 
-    Put_Pixle(win, x, y)         # Plot Pixels To Draw Line
+    Put_Pixel(win, x, y)  # Plot Pixels To Draw Line
 
     for k in range(2, dx):
         if p > 0:
-            y = y + 1 if y < yb else y - 1
-            p = p + 2 * (dy - dx)
+            y += 1 if y < yb else y - 1
+            p += 2 * (dy - dx)
         else:
-            p = p + 2 * dy
-        x = x + 1 if x < xb else x - 1
+            p += 2 * dy
+        x += 1 if x < xb else x - 1
 
-        time.sleep(0.01)          # delay for 0.01 secs
-        PutPixle(win, x, y)       # Plot Pixels To Draw Line
+        time.sleep(0.01)  # delay for 0.01 secs
+        Put_Pixel(win, x, y)  # Plot Pixels To Draw Line
 
-
-def Put_Pixle(win, x, y):
-
-    """ Plot A Pixle In The Windows At Point (x, y) """
+def Put_Pixel(win, x, y):
+    """Plot a pixel In the window at point (x, y)"""
     pt = Point(x, y)
     pt.draw(win)
 
-
 def main():
-
     # Taking coordinates from User
     xa = int(input("Enter Start X: "))
     ya = int(input("Enter Start Y: "))
@@ -56,17 +50,14 @@ def main():
     yb = int(input("Enter End Y: "))
 
     # Calling Out The function
-    Bresenham_Line(xa, ya, xb, yb)  
+    Bresenham_Line(xa, ya, xb, yb)
 
 # Driver Function
 if __name__ == "__main__":
-    main()  
-    
-
+    main()
 """ Input -     Enter Start X : 100
                 Enter Start Y : 100
                 Enter End X   : 300
                 Enter End Y   : 300
-
-    Sample output - https://ibb.co/4fzGM6W */
 """
+# Sample output - https://ibb.co/4fzGM6W
