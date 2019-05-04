@@ -1,19 +1,14 @@
 # Import graphics library
 from graphics import *
-
 import time
 
 def bresenham_line(xa, ya, xb, yb):
     dx = abs(xb - xa)
     dy = abs(yb - ya)
-
     slope = dy / float(dx)
-
     x, y = xa, ya
-
     # creating the window
     win = GraphWin('Bresenham Line', 600, 480)
-
     # checking the slope if slope > 1
     # then interchange the role of x and y
     if slope > 1:
@@ -25,7 +20,6 @@ def bresenham_line(xa, ya, xb, yb):
     p = 2 * dy - dx
 
     Put_Pixel(win, x, y)  # Plot Pixels To Draw Line
-
     for k in range(2, dx):
         if p > 0:
             y += 1 if y < yb else y - 1
@@ -61,4 +55,3 @@ if __name__ == "__main__":
                 Enter End Y   : 300
 """
 # Sample output - https://ibb.co/4fzGM6W
-
