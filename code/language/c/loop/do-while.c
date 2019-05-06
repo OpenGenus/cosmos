@@ -6,10 +6,10 @@
 #include <stdio.h>
 
 int main() {
-  int Sum = 0, i = 1; /*initialization of counter variable i*/
+  int sum = 0, i = 1; /*initialization of counter variable i*/
   do {
-    Sum += i;
-    i += 1; /*increment of counter variable*/
+    sum += i;
+    ++i; /*increment of counter variable*/
   } while (i <= 5); /*condition of do while*/
 
   printf("sum of first 5 natural numbers = %d", Sum);
