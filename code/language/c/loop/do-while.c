@@ -14,8 +14,8 @@ main()
     ++i; /*increment of counter variable*/
   } while (i <= 5); /*condition of do while*/
 
-  printf("sum of first 5 natural numbers = %d", Sum);
-  return 0;
+  printf("sum of first 5 natural numbers = %d", sum);
+  return (0);
 } /*end of program*/
 
 /*output:*/
