@@ -1,7 +1,7 @@
 /*A while loop in C programming repeatedly executes a target statement as long as a given condition is true.*/
 /*It is an entry controlled loop i.e. a test condition is checked and only if it evaluates to true, is the body of the loop executed.*/ 
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main() {
   int n = 1, times = 5; /*local variable initialization*/
