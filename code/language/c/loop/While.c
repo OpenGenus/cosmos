@@ -13,7 +13,7 @@ main()
     ++n;
   }
 
-  return 0;
+  return (0);
 }
 /*output:*/
 /*C while loops:1*/
