@@ -24,8 +24,8 @@ double AreaOfTriangle::calculateArea()
      */
     if (a_ < 0 || b_ < 0 || c_ < 0 || a_+b_ <= c_ || a_+c_ <= b_ || b_+c_ <= a_)
         return 0.0;
-    double s = (a_ + b_ + c_) / 2; //semi-perimeter of triangle
-    return sqrt(s * (s - a_) * (s - b_) * (s - c_));
+    double s = (a_ + b_ + c_) / 2;  //semi-perimeter of triangle
+    return sqrt(s * (s - a_) * (s - b_) * (s - c_));    //Heron's Formula
 }
 
 int main()
