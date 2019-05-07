@@ -38,7 +38,7 @@ int main()
     std::cout << "\nEnter the length of side-3 : ";
     std::cin >> tc;
     AreaOfTriangle a(ta, tb, tc);
-    if(a.calculateArea() == 0.0)
+    if( a.calculateArea() == 0.0)
         std::cout << "\nInvalid Triangle";
     else
         std::cout << "\nArea of Triangle : " << a.calculateArea() << " square units.";
