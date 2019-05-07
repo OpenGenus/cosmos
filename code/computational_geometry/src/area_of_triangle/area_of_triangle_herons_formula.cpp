@@ -3,7 +3,6 @@
 
 class AreaOfTriangle
 {
-
 public:
     AreaOfTriangle(double a, double b, double c) : a_(a), b_(b), c_(c) {}
 
