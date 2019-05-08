@@ -99,10 +99,20 @@ display(Node *root)
 
 int main(int argc, char **argv)
 {
-    vector<int> list{50, 25, 12, -1, 37, 30, -1, 40, -1, -1, -1, 75, 62, 60, -1, 70, -1, -1, 87, -1, -1, -1};
+    vector<int> list;
+    for (int i = 0; i < 30; i++) // 30 is the no of nodes including '-1'
+    {
+        int input;
+        cin >> input;
+        list.push_back(input);
+    }
     Node *root = construct(list);
     display(root);
     cout << "Remove Leaves" << endl;
     removeLeavesTheBestWay(root);
     display(root);
 }
+
+//Sample Input
+//50, 25, 12, -1, 37, 30, -1, 40, -1, -1, -1, 75, 62, 60, -1, 70, -1, -1, 87, -1, -1, -1
+
