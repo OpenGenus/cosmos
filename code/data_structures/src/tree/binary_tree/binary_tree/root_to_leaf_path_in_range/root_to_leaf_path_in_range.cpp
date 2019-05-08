@@ -63,7 +63,7 @@ void RootToLeafPathInRange(Node *root, int low, int high, vector<int> &path, int
     {
         return;
     }
-    
+
     if (root->left == NULL && root->right == NULL)
     {
         path.push_back(root->data);
@@ -92,19 +92,19 @@ display(Node *root)
         display(root->left);
         display(root->right);
     }
-    
+
     else if (root->left != NULL)
     {
         cout << root->left->data << "<-" << root->data << "." << endl;
         display(root->left);
     }
-    
+
     else if (root->right != NULL)
     {
         cout << "." << root->data << "->" << root->right->data << endl;
         display(root->right);
     }
-    
+
     else
     {
         cout << "." << root->data << "." << endl;
@@ -113,16 +113,27 @@ display(Node *root)
 
 int main(int argc, char **argv)
 {
-    vector<int> list{50, 25, 12, -1, 37, 30, -1, 40, -1, -1, -1, 75, 62, 60, -1, 70, -1, -1, 87, -1, -1, -1};
+    vector<int> list;
+
+    for (int i = 0; i < 30; i++) // 30 is the no of nodes including '-1'
+    {
+        int input;
+        cin >> input;
+        list.push_back(input);
+    }
+
     Node *root = construct(list);
     display(root);
-    
+
     cout << "Root to Leaf Paths in Range (low,high)" << endl;
     vector<int> path;
-    
+
     RootToLeafPathInRange(root, 100, 140, path, 120);
     for (int i = 0; i < path.size(); i++)
     {
         cout << path[i] << endl;
     }
 }
+
+//Sample Input
+//50, 25, 12, -1, 37, 30, -1, 40, -1, -1, -1, 75, 62, 60, -1, 70, -1, -1, 87, -1, -1, -1
