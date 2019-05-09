@@ -1,10 +1,5 @@
 <?php
 // Part of Cosmos by OpenGenus Foundation
-//this does not work as written.
-//selction sort involves finding the min of an array and to keep removing until you have a sorted array
-//so I will rewrite this
-//first create a function which traverses the array and does the pair by pair switch
-//then selection_sort will call that function the length of the array.  Assumes a O(n^2) runtime
 
 function find_min($arr){
 	//traverse array
