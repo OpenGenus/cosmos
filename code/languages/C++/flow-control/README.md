@@ -216,7 +216,7 @@ switch(expression)
 ```
 ### Sample
 ```C++
-void  main()
+int  main()
 {
     char i;
     std::cout<<”Enter a rainbow colour VIBGYOR”<<endl;
