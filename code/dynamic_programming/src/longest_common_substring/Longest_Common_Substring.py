@@ -16,14 +16,21 @@ def LongestCommonSubstring(string1, string2):
             temp.append(0)
         consqRow.append(temp)
 
-    curr, maxlength, end = 0, 0, 0  # length of longest common Substring in maxlength
+    curr, maxlength, end = (
+        0,
+        0,
+        0,
+    )  
+    # length of longest common Substring in maxlength
     # ending point of longest common Substring
 
     # maintaing the array for consequtive two rows
     for i in range(1, m + 1):
         for j in range(1, n + 1):
             if string1[i - 1] == string2[j - 1]:
-                consqRow[curr][j] = consqRow[1 - curr][j - 1] + 1
+                consqRow[curr][j] = (
+                    consqRow[1 - curr][j - 1] + 1
+                )
                 if consqRow[curr][j] > maxlength:
                     maxlength = consqRow[curr][j]
                     end = i - 1
@@ -51,7 +58,13 @@ def main():
     if common == "-1":
         print("No common SubString")
     else:
-        print("Longest Common Substring:", common, "( of length:", len(common), ")")
+        print(
+            "Longest Common Substring:",
+            common,
+            "( of length:",
+            len(common),
+            ")",
+        )
 
 
 if __name__ == "__main__":
