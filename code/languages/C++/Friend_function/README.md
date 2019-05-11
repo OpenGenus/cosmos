@@ -16,8 +16,8 @@ class class_name
 ```
 Now, you can define the `friend` function as a normal function to access the data of the class. No friend keyword is used in the definition.
 
-```
-class className
+```C++
+class ClassName
 {
     ... .. ...
     friend return_type functionName(argument/s);
@@ -67,7 +67,50 @@ int main()
 Distance: 5
 ```
 
-**EXPLANATION** Here, friend function `addFive()` is declared inside Distance class. So, the private data meter can be accessed from this function.
+**EXPLANATION** Here, friend function `int addFive()` is declared inside Distance class. So, the private data member can be accessed from this function.
+
+### Limitations of friend function
+In C++, friendship is not inherited. If a base class has a friend function, then the function doesn’t become a friend of the derived class(es).
+For example, following program prints error because show() which is a friend of base class A tries to access private data of derived class B.
+```C++
+#include <iostream> 
+
+
+class A 
+{ 
+protected: 
+	int x; 
+public: 
+	A() { x = 0;} 
+friend void show(); 
+}; 
+
+class B: public A 
+{ 
+public: 
+	B() : y (0) {} 
+private: 
+	int y; 
+
+}; 
+
+void show() 
+{ 
+B b; 
+std::cout << "The default value of A::x = " << b.x; 
+
+// Can't access private member declared in class 'B' 
+std::cout << "The default value of B::y = " << b.y; 
+} 
+
+int main() 
+{ 
+show(); 
+getchar(); 
+return 0; 
+} 
+```
+
 
 
 
