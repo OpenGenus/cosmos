@@ -83,9 +83,6 @@ The ```swap()``` member function exchanges all the data in one vector with all t
 
 
 The ```back()``` member function returns the value of the last element in the vector. We display this value with cout . ```The pop_back()``` member function removes the last element in the vector.
-```
-15
-```
 
 Thus each time through the loop there is a different last element. (It’s a little surprising that
 pop_back() does not simultaneously return the value of the last element and remove it from
