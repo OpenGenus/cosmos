@@ -29,7 +29,7 @@ string and list reversal mechanism works for tuples as well:
 
 ```python
 >>> t[::-1]
-('corge', 'quux', 'qux', 'baz', 'bar', 'foo')
+('corge', 'quux', 'aux', 'baz', 'bar', 'foo')
 ```
 
 ### Why use a tuple instead of a list?
