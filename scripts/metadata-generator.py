@@ -47,7 +47,6 @@ for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*"):
             )
         )
 
-# metadata = collections.defaultdict(str)
 metadata = dict()
 for each in paths:
     x = each[-1].replace(" ", "_").rstrip()
