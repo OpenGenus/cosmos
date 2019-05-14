@@ -1,3 +1,10 @@
 {
-  "location": "code/string_algorithms/src/remove_dups"
+  "location": "code/string_algorithms/src/remove_dups",
+  "files": [
+    "remove_dups.js",
+    "remove_dups.cpp",
+    "remove_dups.rs",
+    "remove_dumps.py",
+    "remove_dups.c"
+  ]
 }

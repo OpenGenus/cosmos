@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/optimal_binary_search_tree"
+  "location": "code/dynamic_programming/src/optimal_binary_search_tree",
+  "files": [
+    "optimal_bst.py"
+  ]
 }

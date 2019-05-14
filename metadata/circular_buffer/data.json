@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/queue/circular_buffer"
+  "location": "code/data_structures/src/queue/circular_buffer",
+  "files": [
+    "circular_buffer.py",
+    "circular_buffer.cpp"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/dbscan_clustering"
+  "location": "code/artificial_intelligence/src/dbscan_clustering",
+  "files": [
+    "readme.md",
+    "dbscan.py"
+  ]
 }

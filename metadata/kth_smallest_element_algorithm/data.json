@@ -1,3 +1,8 @@
 {
-  "location": "code/randomized_algorithms/src/kth_smallest_element_algorithm"
+  "location": "code/randomized_algorithms/src/kth_smallest_element_algorithm",
+  "files": [
+    "kth_smallest_element_algorithm.cpp",
+    "kth_smallest_element_algorithm.c",
+    "README.md"
+  ]
 }

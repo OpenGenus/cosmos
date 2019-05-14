@@ -1,3 +1,8 @@
 {
-  "location": "code/compression/src/lossless_compression/lempel_ziv_welch"
+  "location": "code/compression/src/lossless_compression/lempel_ziv_welch",
+  "files": [
+    "lzw.cpp",
+    "README.md",
+    "lzw.py"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/online_challenges/src/hackerrank/almost_sorted"
+  "location": "code/online_challenges/src/hackerrank/almost_sorted",
+  "files": [
+    "almost_sorted.cpp",
+    "README.md"
+  ]
 }

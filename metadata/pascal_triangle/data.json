@@ -1,3 +1,12 @@
 {
-  "location": "code/mathematical_algorithms/src/pascal_triangle"
+  "location": "code/mathematical_algorithms/src/pascal_triangle",
+  "files": [
+    "pascal_triangle.java",
+    "pascal_triangle.cpp",
+    "pascal_triangle.go",
+    "pascal_triangle.exs",
+    "pascal_triangle.c",
+    "README.md",
+    "pascal_triangle.py"
+  ]
 }

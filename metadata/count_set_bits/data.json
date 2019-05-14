@@ -1,3 +1,13 @@
 {
-  "location": "code/bit_manipulation/src/count_set_bits"
+  "location": "code/bit_manipulation/src/count_set_bits",
+  "files": [
+    "count_set_bits.cs",
+    "count_set_bits.c",
+    "count_set_bits.cpp",
+    "countsetbits.java",
+    "count_set_bits_lookup_table.cpp",
+    "countsetbits.js",
+    "count_set_bits.py",
+    "README.md"
+  ]
 }

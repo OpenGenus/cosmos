@@ -1,3 +1,8 @@
 {
-  "location": "code/mathematical_algorithms/src/delannoy_number"
+  "location": "code/mathematical_algorithms/src/delannoy_number",
+  "files": [
+    "delannoy_number.c",
+    "delannoy_number.cpp",
+    "README.md"
+  ]
 }

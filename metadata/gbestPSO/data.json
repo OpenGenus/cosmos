@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/particle_swarm_optimization/gbestPSO"
+  "location": "code/artificial_intelligence/src/particle_swarm_optimization/gbestPSO",
+  "files": [
+    "Gbest3D.py",
+    "Gbest2D.py"
+  ]
 }

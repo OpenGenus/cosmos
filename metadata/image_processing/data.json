@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/image_processing"
+  "location": "code/artificial_intelligence/src/image_processing",
+  "files": [
+    "install_opencv.sh",
+    "README.md"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/online_challenges/src/hackerrank/the_maximum_subarray"
+  "location": "code/online_challenges/src/hackerrank/the_maximum_subarray",
+  "files": [
+    "the_maximum_subarray.cpp",
+    "README.md"
+  ]
 }

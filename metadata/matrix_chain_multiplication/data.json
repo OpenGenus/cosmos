@@ -1,3 +1,10 @@
 {
-  "location": "code/dynamic_programming/src/matrix_chain_multiplication"
+  "location": "code/dynamic_programming/src/matrix_chain_multiplication",
+  "files": [
+    "matrix_chain_multiplication.c",
+    "matrix_chain_multiplication.cpp",
+    "matrixchainmultiplication.java",
+    "README.md",
+    "matrix_chain_multiplication.py"
+  ]
 }

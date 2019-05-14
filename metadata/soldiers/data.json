@@ -1,3 +1,9 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/adapter/soldiers"
+  "location": "code/design_pattern/src/OOP_patterns/adapter/soldiers",
+  "files": [
+    "general.java",
+    "soldier.java",
+    "order.java",
+    "adaptee.java"
+  ]
 }

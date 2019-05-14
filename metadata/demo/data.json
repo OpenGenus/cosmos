@@ -1,3 +1,6 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/proxy/demo"
+  "location": "code/design_pattern/src/OOP_patterns/proxy/demo",
+  "files": [
+    "demo.java"
+  ]
 }

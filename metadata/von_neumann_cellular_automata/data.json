@@ -1,3 +1,7 @@
 {
-  "location": "code/cellular_automaton/src/von_neumann_cellular_automata"
+  "location": "code/cellular_automaton/src/von_neumann_cellular_automata",
+  "files": [
+    "von_neumann_cellular_automata.c",
+    "README.md"
+  ]
 }

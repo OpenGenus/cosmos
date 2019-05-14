@@ -1,3 +1,8 @@
 {
-  "location": "code/divide_conquer/src/karatsuba_multiplication"
+  "location": "code/divide_conquer/src/karatsuba_multiplication",
+  "files": [
+    "multiply.java",
+    "karatsuba_multiplication.py",
+    "karatsubamultiply.cpp"
+  ]
 }

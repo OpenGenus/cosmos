@@ -1,3 +1,7 @@
 {
-  "location": "code/dynamic_programming/src/maximum_sum_sub_matrix"
+  "location": "code/dynamic_programming/src/maximum_sum_sub_matrix",
+  "files": [
+    "maximum_sum_sub_matrix.java",
+    "maximum_sum_sub_matrix.cpp"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/maximum_weight_independent_set_of_path_graph"
+  "location": "code/dynamic_programming/src/maximum_weight_independent_set_of_path_graph",
+  "files": [
+    "maximum_weight_independent_set_of_path_graph.cpp"
+  ]
 }

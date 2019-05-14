@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/list/circular_linked_list/operations"
+  "location": "code/data_structures/src/list/circular_linked_list/operations",
+  "files": [
+    "is_circular.py",
+    "has_loop.py"
+  ]
 }

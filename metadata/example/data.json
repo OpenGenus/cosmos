@@ -1,3 +1,8 @@
 {
-  "location": "code/cryptography/src/aes_128/aes_csharp/example"
+  "location": "code/cryptography/src/aes_128/aes_csharp/example",
+  "files": [
+    "streamcipherexception.cs",
+    "streamcipher.cs",
+    "README.md"
+  ]
 }

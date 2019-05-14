@@ -1,3 +1,10 @@
 {
-  "location": "code/mathematical_algorithms/src/lexicographic_string_rank"
+  "location": "code/mathematical_algorithms/src/lexicographic_string_rank",
+  "files": [
+    "lexicographic_string_rank.c",
+    "lexicographic_string_rank.cpp",
+    "lexicographic_string_rank.java",
+    "README.md",
+    "lexicographic_string_rank.py"
+  ]
 }

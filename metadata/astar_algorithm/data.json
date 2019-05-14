@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/astar_algorithm"
+  "location": "code/graph_algorithms/src/astar_algorithm",
+  "files": [
+    "astar.js"
+  ]
 }

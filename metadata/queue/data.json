@@ -1,3 +1,17 @@
 {
-  "location": "code/data_structures/src/queue/queue"
+  "location": "code/data_structures/src/queue/queue",
+  "files": [
+    "queue_vector.cpp",
+    "queue.exs",
+    "queue.cs",
+    "queue.c",
+    "queue.rb",
+    "queue.js",
+    "queue.java",
+    "queue.swift",
+    "queue.py",
+    "README.md",
+    "queue.go",
+    "queue.cpp"
+  ]
 }

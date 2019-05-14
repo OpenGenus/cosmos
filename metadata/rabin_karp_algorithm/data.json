@@ -1,3 +1,9 @@
 {
-  "location": "code/string_algorithms/src/rabin_karp_algorithm"
+  "location": "code/string_algorithms/src/rabin_karp_algorithm",
+  "files": [
+    "rabin_karp.c",
+    "rabinkarp.java",
+    "README.md",
+    "rabin_karp.py"
+  ]
 }

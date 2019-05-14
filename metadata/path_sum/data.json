@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/path_sum"
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/path_sum",
+  "files": [
+    "path_sum.hpp",
+    "path_sum.cpp"
+  ]
 }

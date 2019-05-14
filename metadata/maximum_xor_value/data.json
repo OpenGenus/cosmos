@@ -1,3 +1,7 @@
 {
-  "location": "code/bit_manipulation/src/maximum_xor_value"
+  "location": "code/bit_manipulation/src/maximum_xor_value",
+  "files": [
+    "max_xor_value.cpp",
+    "README.md"
+  ]
 }

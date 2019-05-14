@@ -1,3 +1,6 @@
 {
-  "location": "code/operating_system/src/concurrency/readers_writers"
+  "location": "code/operating_system/src/concurrency/readers_writers",
+  "files": [
+    "readers_writers.cpp"
+  ]
 }

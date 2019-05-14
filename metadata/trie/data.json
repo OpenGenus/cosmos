@@ -1,3 +1,16 @@
 {
-  "location": "code/data_structures/src/tree/tree/trie"
+  "location": "code/data_structures/src/tree/tree/trie",
+  "files": [
+    "trie.scala",
+    "trie.py",
+    "trie.cpp",
+    "trie.java",
+    "trie.rb",
+    "trie.c",
+    "trie.js",
+    "trie.cs",
+    "README.md",
+    "trie.swift",
+    "trie.go"
+  ]
 }

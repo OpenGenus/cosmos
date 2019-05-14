@@ -1,3 +1,10 @@
 {
-  "location": "code/data_structures/src/linked_list"
+  "location": "code/data_structures/src/linked_list",
+  "files": [
+    "linked_list.java",
+    "linked_list.cpp",
+    "linked_list.js",
+    "linked_list.c",
+    "linked_list.py"
+  ]
 }

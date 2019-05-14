@@ -1,3 +1,11 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/facade/daily/tasks/job"
+  "location": "code/design_pattern/src/OOP_patterns/facade/daily/tasks/job",
+  "files": [
+    "develop.java",
+    "leave.java",
+    "jobfacade.java",
+    "playfifa.java",
+    "eatatwork.java",
+    "watchyoutubevideos.java"
+  ]
 }

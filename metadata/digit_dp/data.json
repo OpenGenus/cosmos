@@ -1,3 +1,7 @@
 {
-  "location": "code/dynamic_programming/src/digit_dp"
+  "location": "code/dynamic_programming/src/digit_dp",
+  "files": [
+    "digit_dp.cpp",
+    "DigitDP.java"
+  ]
 }

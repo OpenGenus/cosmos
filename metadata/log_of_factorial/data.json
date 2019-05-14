@@ -1,3 +1,9 @@
 {
-  "location": "code/mathematical_algorithms/src/log_of_factorial"
+  "location": "code/mathematical_algorithms/src/log_of_factorial",
+  "files": [
+    "log_of_factorial.py",
+    "log_of_factorial.java",
+    "log_of_factorial.c",
+    "log_of_factorial.cpp"
+  ]
 }

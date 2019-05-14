@@ -1,3 +1,6 @@
 {
-  "location": "code/backtracking/src/crossword_puzzle"
+  "location": "code/backtracking/src/crossword_puzzle",
+  "files": [
+    "crosswordpuzzle.java"
+  ]
 }

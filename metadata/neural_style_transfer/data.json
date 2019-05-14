@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/neural_style_transfer"
+  "location": "code/artificial_intelligence/src/neural_style_transfer",
+  "files": [
+    "neural_style_transfer.ipynb"
+  ]
 }

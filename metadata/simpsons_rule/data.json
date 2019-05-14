@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/simpsons_rule"
+  "location": "code/mathematical_algorithms/src/simpsons_rule",
+  "files": [
+    "simpsons_rule.py"
+  ]
 }

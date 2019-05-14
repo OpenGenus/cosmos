@@ -1,3 +1,10 @@
 {
-  "location": "code/design_pattern/src/iterator_pattern"
+  "location": "code/design_pattern/src/iterator_pattern",
+  "files": [
+    "iterator.java",
+    "main.java",
+    "student.java",
+    "class.java",
+    "classiterator.java"
+  ]
 }

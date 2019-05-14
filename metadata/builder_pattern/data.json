@@ -1,3 +1,6 @@
 {
-  "location": "code/design_pattern/src/builder_pattern"
+  "location": "code/design_pattern/src/builder_pattern",
+  "files": [
+    "builder.cs"
+  ]
 }

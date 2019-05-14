@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/autoenncoder"
+  "location": "code/artificial_intelligence/src/autoenncoder",
+  "files": [
+    "autoencoder.ipynb"
+  ]
 }

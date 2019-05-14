@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/image_processing/prewittfilter"
+  "location": "code/artificial_intelligence/src/image_processing/prewittfilter",
+  "files": [
+    "prewitt.cpp"
+  ]
 }

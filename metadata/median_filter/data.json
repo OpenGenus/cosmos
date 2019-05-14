@@ -1,3 +1,6 @@
 {
-  "location": "code/filters/src/median_filter"
+  "location": "code/filters/src/median_filter",
+  "files": [
+    "median_filter.py"
+  ]
 }

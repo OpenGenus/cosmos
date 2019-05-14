@@ -1,3 +1,16 @@
 {
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/tree"
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/tree",
+  "files": [
+    "tree.cpp",
+    "tree.py",
+    "tree.java",
+    "tree.rb",
+    "tree.c",
+    "tree.go",
+    "tree2.java",
+    "tree2.swift",
+    "README.md",
+    "tree.js",
+    "tree.swift"
+  ]
 }

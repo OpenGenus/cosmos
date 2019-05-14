@@ -1,3 +1,7 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/observer_java/observer/network"
+  "location": "code/design_pattern/src/OOP_patterns/observer_java/observer/network",
+  "files": [
+    "fan.java",
+    "artist.java"
+  ]
 }

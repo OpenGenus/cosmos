@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/isodata_clustering"
+  "location": "code/artificial_intelligence/src/isodata_clustering",
+  "files": [
+    "readme.md",
+    "isodata.py"
+  ]
 }

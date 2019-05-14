@@ -1,3 +1,7 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns"
+  "location": "code/design_pattern/src/OOP_patterns",
+  "files": [
+    "__init__.py",
+    "README.md"
+  ]
 }

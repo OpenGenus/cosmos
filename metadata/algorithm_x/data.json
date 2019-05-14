@@ -1,3 +1,7 @@
 {
-  "location": "code/backtracking/src/algorithm_x"
+  "location": "code/backtracking/src/algorithm_x",
+  "files": [
+    "algo_x.cpp",
+    "README.md"
+  ]
 }

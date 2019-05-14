@@ -1,3 +1,7 @@
 {
-  "location": "code/online_challenges/src/hackerrank/bigger_is_greater"
+  "location": "code/online_challenges/src/hackerrank/bigger_is_greater",
+  "files": [
+    "bigger_is_greater.cpp",
+    "README.md"
+  ]
 }

@@ -1,3 +1,12 @@
 {
-  "location": "code/greedy_algorithms/src/fractional_knapsack"
+  "location": "code/greedy_algorithms/src/fractional_knapsack",
+  "files": [
+    "fractional_knapsack.java",
+    "fractional_knapsack.cpp",
+    "fractional_knapsack.c",
+    "fractional_knapsack.cs",
+    "fractional_knapsack.py",
+    "README.md",
+    "fractional_knapsack.go"
+  ]
 }

@@ -1,3 +1,8 @@
 {
-  "location": "code/computational_geometry/src/sutherland_hodgeman_clipping"
+  "location": "code/computational_geometry/src/sutherland_hodgeman_clipping",
+  "files": [
+    "sutherland.cpp",
+    "README.md",
+    "sutherland.c"
+  ]
 }

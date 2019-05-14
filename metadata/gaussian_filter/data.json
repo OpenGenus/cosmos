@@ -1,3 +1,6 @@
 {
-  "location": "code/filters/src/gaussian_filter"
+  "location": "code/filters/src/gaussian_filter",
+  "files": [
+    "gaussian_filter.py"
+  ]
 }

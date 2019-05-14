@@ -1,3 +1,10 @@
 {
-  "location": "code/operating_system/src/scheduling/first_come_first_serve"
+  "location": "code/operating_system/src/scheduling/first_come_first_serve",
+  "files": [
+    "fcfs.cs",
+    "fcfs.cpp",
+    "fcfs.rs",
+    "fcfs.py",
+    "fcfs.java"
+  ]
 }

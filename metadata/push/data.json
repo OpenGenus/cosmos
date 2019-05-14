@@ -1,3 +1,6 @@
 {
-  "location": "code/data_structures/src/list/singly_linked_list/operations/push"
+  "location": "code/data_structures/src/list/singly_linked_list/operations/push",
+  "files": [
+    "push.cpp"
+  ]
 }

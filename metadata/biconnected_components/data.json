@@ -1,3 +1,9 @@
 {
-  "location": "code/graph_algorithms/src/biconnected_components"
+  "location": "code/graph_algorithms/src/biconnected_components",
+  "files": [
+    "biconnected_components.cpp",
+    "biconnected_components.java",
+    "biconnected_components.py",
+    "README.md"
+  ]
 }

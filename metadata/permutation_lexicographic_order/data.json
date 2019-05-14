@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/permutation_lexicographic_order"
+  "location": "code/mathematical_algorithms/src/permutation_lexicographic_order",
+  "files": [
+    "README.md",
+    "permutation_lexicographic_order.cpp"
+  ]
 }

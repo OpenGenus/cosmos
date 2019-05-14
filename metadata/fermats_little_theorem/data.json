@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/fermats_little_theorem"
+  "location": "code/mathematical_algorithms/src/fermats_little_theorem",
+  "files": [
+    "fermats_little_theorem.cpp",
+    "fermats_little_theorem.py"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/square_root_decomposition/src/mos_algorithm"
+  "location": "code/square_root_decomposition/src/mos_algorithm",
+  "files": [
+    "mos_algorithm.cpp"
+  ]
 }

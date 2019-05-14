@@ -1,3 +1,11 @@
 {
-  "location": "code/mathematical_algorithms/src/binomial_coefficient"
+  "location": "code/mathematical_algorithms/src/binomial_coefficient",
+  "files": [
+    "binomial_coefficient.c",
+    "binomial_coefficient.go",
+    "binomial_coefficient.cpp",
+    "binomial_coefficient.java",
+    "binomial_coefficient.py",
+    "README.md"
+  ]
 }

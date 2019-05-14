@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/tridiagonal_matrix"
+  "location": "code/mathematical_algorithms/src/tridiagonal_matrix",
+  "files": [
+    "tridiagonal_matrix.java",
+    "README.md"
+  ]
 }

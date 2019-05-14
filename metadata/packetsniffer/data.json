@@ -1,3 +1,7 @@
 {
-  "location": "code/networking/src/packetsniffer"
+  "location": "code/networking/src/packetsniffer",
+  "files": [
+    "packetsniffer.py",
+    "README.md"
+  ]
 }

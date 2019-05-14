@@ -1,3 +1,8 @@
 {
-  "location": "code/mathematical_algorithms/src/gaussian_elimination/scala/src/main/scala/gaussian/elimination"
+  "location": "code/mathematical_algorithms/src/gaussian_elimination/scala/src/main/scala/gaussian/elimination",
+  "files": [
+    "gaussianelimination.scala",
+    "matrixtype.scala",
+    "solution.scala"
+  ]
 }

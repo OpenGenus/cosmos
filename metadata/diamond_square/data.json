@@ -1,3 +1,7 @@
 {
-  "location": "code/computer_graphics/src/diamond_square"
+  "location": "code/computer_graphics/src/diamond_square",
+  "files": [
+    "diamond_square.py",
+    "diamondsquare.java"
+  ]
 }

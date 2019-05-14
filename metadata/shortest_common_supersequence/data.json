@@ -1,3 +1,9 @@
 {
-  "location": "code/dynamic_programming/src/shortest_common_supersequence"
+  "location": "code/dynamic_programming/src/shortest_common_supersequence",
+  "files": [
+    "scs.java",
+    "README.md",
+    "shortest_common_supersequence.cpp",
+    "shortest_common_supersequence.py"
+  ]
 }

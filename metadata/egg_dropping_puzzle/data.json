@@ -1,3 +1,11 @@
 {
-  "location": "code/dynamic_programming/src/egg_dropping_puzzle"
+  "location": "code/dynamic_programming/src/egg_dropping_puzzle",
+  "files": [
+    "egg_dropping_puzzle.cpp",
+    "eggdroppingpuzzle.java",
+    "egg_dropping_puzzle.py",
+    "egg_dropping_puzzle.hs",
+    "README.md",
+    "egg_dropping_puzzle.c"
+  ]
 }

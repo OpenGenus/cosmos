@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/list/singly_linked_list/operations/print_reverse"
+  "location": "code/data_structures/src/list/singly_linked_list/operations/print_reverse",
+  "files": [
+    "print_reverse.py",
+    "print_reverse.scala"
+  ]
 }

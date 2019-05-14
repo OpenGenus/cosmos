@@ -1,3 +1,8 @@
 {
-  "location": "code/operating_system/src/concurrency/monitors/monitors_system_v"
+  "location": "code/operating_system/src/concurrency/monitors/monitors_system_v",
+  "files": [
+    "monitors.c",
+    "monitors.h",
+    "main.c"
+  ]
 }

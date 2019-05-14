@@ -1,3 +1,9 @@
 {
-  "location": "code/data_structures/src/list/circular_linked_list"
+  "location": "code/data_structures/src/list/circular_linked_list",
+  "files": [
+    "circularlinkedlist.java",
+    "circular_linked_list.c",
+    "circular_linked_list.py",
+    "circular_linked_list.cpp"
+  ]
 }

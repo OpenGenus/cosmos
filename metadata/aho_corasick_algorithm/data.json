@@ -1,3 +1,9 @@
 {
-  "location": "code/string_algorithms/src/aho_corasick_algorithm"
+  "location": "code/string_algorithms/src/aho_corasick_algorithm",
+  "files": [
+    "aho_corasick_algorithm2.cpp",
+    "README.md",
+    "aho_corasick_algorithm.cpp",
+    "aho_corasick_algorithm.java"
+  ]
 }

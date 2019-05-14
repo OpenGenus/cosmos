@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/q_learning"
+  "location": "code/artificial_intelligence/src/q_learning",
+  "files": [
+    "qlearning.js",
+    "README.md"
+  ]
 }

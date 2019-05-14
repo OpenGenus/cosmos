@@ -1,3 +1,7 @@
 {
-  "location": "code/unclassified/src/split_list"
+  "location": "code/unclassified/src/split_list",
+  "files": [
+    "split_array.js",
+    "split_list.py"
+  ]
 }

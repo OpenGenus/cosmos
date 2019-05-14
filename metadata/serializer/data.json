@@ -1,3 +1,6 @@
 {
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/serializer"
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/serializer",
+  "files": [
+    "serializer.cpp"
+  ]
 }

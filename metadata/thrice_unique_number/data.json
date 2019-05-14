@@ -1,3 +1,10 @@
 {
-  "location": "code/bit_manipulation/src/thrice_unique_number"
+  "location": "code/bit_manipulation/src/thrice_unique_number",
+  "files": [
+    "uniquenumber.py",
+    "thrice_unique_number.js",
+    "thriceuniquenumber.java",
+    "threeunique.cpp",
+    "README.md"
+  ]
 }

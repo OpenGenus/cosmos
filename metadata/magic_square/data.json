@@ -1,3 +1,9 @@
 {
-  "location": "code/unclassified/src/magic_square"
+  "location": "code/unclassified/src/magic_square",
+  "files": [
+    "magic_square.php",
+    "magic_square.c",
+    "magic_square.swift",
+    "magic_square.py"
+  ]
 }

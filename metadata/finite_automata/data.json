@@ -1,3 +1,8 @@
 {
-  "location": "code/string_algorithms/src/finite_automata"
+  "location": "code/string_algorithms/src/finite_automata",
+  "files": [
+    "searchstringusingdfa.rs",
+    "searchstringusingdfa.java",
+    "README.md"
+  ]
 }

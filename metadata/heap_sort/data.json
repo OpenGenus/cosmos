@@ -1,3 +1,19 @@
 {
-  "location": "code/sorting/src/heap_sort"
+  "location": "code/sorting/src/heap_sort",
+  "files": [
+    "heap_sort.py",
+    "heap_sort.m",
+    "heap_sort.swift",
+    "heap_sort.js",
+    "heap_sort.cpp",
+    "heapsort.go",
+    "heap_sort.java",
+    "README.md",
+    "heap_sort.rs",
+    "heap_sort.sc",
+    "heap_sort.rb",
+    "heap_sort.go",
+    "heap_sort.cs",
+    "heap_sort.c"
+  ]
 }

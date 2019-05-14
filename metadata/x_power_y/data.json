@@ -1,3 +1,6 @@
 {
-  "location": "code/divide_conquer/src/x_power_y"
+  "location": "code/divide_conquer/src/x_power_y",
+  "files": [
+    "x_power_y.c"
+  ]
 }

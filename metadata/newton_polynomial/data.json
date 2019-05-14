@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/newton_polynomial"
+  "location": "code/mathematical_algorithms/src/newton_polynomial",
+  "files": [
+    "newton_polynomial.java",
+    "README.md"
+  ]
 }

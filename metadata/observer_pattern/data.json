@@ -1,3 +1,9 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/observer_pattern"
+  "location": "code/design_pattern/src/OOP_patterns/observer_pattern",
+  "files": [
+    "observer_pattern.rs",
+    "observer_pattern.py",
+    "observer_pattern.cpp",
+    "__init__.py"
+  ]
 }

@@ -1,3 +1,13 @@
 {
-  "location": "code/search/src/interpolation_search"
+  "location": "code/search/src/interpolation_search",
+  "files": [
+    "interpolation_search.go",
+    "interpolation_search.php",
+    "interpolation_search.cpp",
+    "interpolation_search.js",
+    "interpolation_search.c",
+    "interpolation_search.java",
+    "interpolation_search.py",
+    "README.md"
+  ]
 }

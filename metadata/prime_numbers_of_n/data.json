@@ -1,3 +1,10 @@
 {
-  "location": "code/mathematical_algorithms/src/prime_numbers_of_n"
+  "location": "code/mathematical_algorithms/src/prime_numbers_of_n",
+  "files": [
+    "prime_numbers_of_n.cpp",
+    "prime_numbers_of_n.c",
+    "prime_numbers_of_n.js",
+    "prime_numbers_of_n.py",
+    "README.md"
+  ]
 }

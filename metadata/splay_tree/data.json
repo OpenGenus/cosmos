@@ -1,3 +1,11 @@
 {
-  "location": "code/data_structures/src/tree/multiway_tree/splay_tree"
+  "location": "code/data_structures/src/tree/multiway_tree/splay_tree",
+  "files": [
+    "readme.md",
+    "splay_tree.go",
+    "splay_tree.kt",
+    "splay_tree.cpp",
+    "splay_tree.scala",
+    "splay_tree.java"
+  ]
 }

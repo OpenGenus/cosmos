@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/longest_common_substring"
+  "location": "code/dynamic_programming/src/longest_common_substring",
+  "files": [
+    "longest_common_substring.cpp"
+  ]
 }

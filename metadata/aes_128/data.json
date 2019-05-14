@@ -1,3 +1,7 @@
 {
-  "location": "code/cryptography/src/aes_128"
+  "location": "code/cryptography/src/aes_128",
+  "files": [
+    "aes_128.py",
+    "aes_128.cpp"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/stack/abstract_stack"
+  "location": "code/data_structures/src/stack/abstract_stack",
+  "files": [
+    "istack.h",
+    "README.md"
+  ]
 }

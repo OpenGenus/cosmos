@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/minimum_insertion_palindrome"
+  "location": "code/dynamic_programming/src/minimum_insertion_palindrome",
+  "files": [
+    "minimum_insertions_palindrome_using_lcs.cpp"
+  ]
 }

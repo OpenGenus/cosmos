@@ -1,3 +1,7 @@
 {
-  "location": "code/operating_system/src/deadlocks/bankers_algorithm"
+  "location": "code/operating_system/src/deadlocks/bankers_algorithm",
+  "files": [
+    "banker_safety.cpp",
+    "README.md"
+  ]
 }

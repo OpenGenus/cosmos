@@ -1,3 +1,11 @@
 {
-  "location": "code/dynamic_programming/src/longest_bitonic_sequence"
+  "location": "code/dynamic_programming/src/longest_bitonic_sequence",
+  "files": [
+    "longest_bitonic_sequence.py",
+    "longest_bitonic_sequence.c",
+    "longest_bitonic_sequence.js",
+    "longestbitonicseq.cpp",
+    "README.md",
+    "longestbitonicsequence.java"
+  ]
 }

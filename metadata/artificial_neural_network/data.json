@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/artificial_neural_network"
+  "location": "code/artificial_intelligence/src/artificial_neural_network",
+  "files": [
+    "dataset.csv",
+    "ann.py"
+  ]
 }

@@ -1,3 +1,8 @@
 {
-  "location": "code/backtracking/src/partitions_of_set"
+  "location": "code/backtracking/src/partitions_of_set",
+  "files": [
+    "set_partitions.cpp",
+    "set_partitions.go",
+    "README.md"
+  ]
 }

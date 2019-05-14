@@ -1,3 +1,7 @@
 {
-  "location": "code/greedy_algorithms/src/k_centers"
+  "location": "code/greedy_algorithms/src/k_centers",
+  "files": [
+    "k_centers.py",
+    "README.md"
+  ]
 }

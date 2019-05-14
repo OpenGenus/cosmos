@@ -1,3 +1,16 @@
 {
-  "location": "code/sorting/src/bead_sort"
+  "location": "code/sorting/src/bead_sort",
+  "files": [
+    "bead_sort_numpy.py",
+    "bead_sort.cpp",
+    "bead_sort.swift",
+    "bead_sort.js",
+    "bead_sort.m",
+    "bead_sort.php",
+    "bead_sort.java",
+    "README.md",
+    "bead_sort.cs",
+    "bead_sort.py",
+    "bead_sort.c"
+  ]
 }

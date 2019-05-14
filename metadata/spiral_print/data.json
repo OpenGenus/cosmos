@@ -1,3 +1,10 @@
 {
-  "location": "code/unclassified/src/spiral_print"
+  "location": "code/unclassified/src/spiral_print",
+  "files": [
+    "spiral_print.c",
+    "spiral_print.py",
+    "spiral_print.go",
+    "README.md",
+    "spiral_print.cpp"
+  ]
 }

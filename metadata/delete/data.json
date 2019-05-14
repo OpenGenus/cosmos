@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/list/singly_linked_list/operations/delete"
+  "location": "code/data_structures/src/list/singly_linked_list/operations/delete",
+  "files": [
+    "delete_node_with_key.java",
+    "delete_nth_node.c"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/minimax"
+  "location": "code/artificial_intelligence/src/minimax",
+  "files": [
+    "README.md",
+    "minimax.py"
+  ]
 }

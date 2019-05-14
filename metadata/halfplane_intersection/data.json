@@ -1,3 +1,6 @@
 {
-  "location": "code/computational_geometry/src/halfplane_intersection"
+  "location": "code/computational_geometry/src/halfplane_intersection",
+  "files": [
+    "halfplane_intersection.cpp"
+  ]
 }

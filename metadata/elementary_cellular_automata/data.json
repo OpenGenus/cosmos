@@ -1,3 +1,7 @@
 {
-  "location": "code/cellular_automaton/src/elementary_cellular_automata"
+  "location": "code/cellular_automaton/src/elementary_cellular_automata",
+  "files": [
+    "elementarycellularautomaton.java",
+    "README.md"
+  ]
 }

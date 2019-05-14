@@ -1,3 +1,11 @@
 {
-  "location": "code/cryptography/src/aes_128/aes_csharp"
+  "location": "code/cryptography/src/aes_128/aes_csharp",
+  "files": [
+    "aesdecipher.cs",
+    "aescipher.cs",
+    "helpers.cs",
+    "README.md",
+    "aeskeygen.cs",
+    "aesconsts.cs"
+  ]
 }

@@ -1,3 +1,16 @@
 {
-  "location": "code/cryptography/src/vigenere_cipher"
+  "location": "code/cryptography/src/vigenere_cipher",
+  "files": [
+    "vigenere_cipher.rb",
+    "vigenere_cipher.cpp",
+    "vigenere_cipher.hs",
+    "vigenere_cipher.jl",
+    "vigenere_cipher.go",
+    "vigenere_cipher.py",
+    "vigenere_cipher.js",
+    "vigenere_cipher.c",
+    "README.md",
+    "vigenere_cipher.php",
+    "vigenere_cipher.java"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/tokenizer"
+  "location": "code/unclassified/src/tokenizer",
+  "files": [
+    "tokenizer.cpp"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/image_processing/erode_dilate"
+  "location": "code/artificial_intelligence/src/image_processing/erode_dilate",
+  "files": [
+    "main.cpp"
+  ]
 }

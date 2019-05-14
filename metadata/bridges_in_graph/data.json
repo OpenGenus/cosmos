@@ -1,3 +1,7 @@
 {
-  "location": "code/graph_algorithms/src/bridges_in_graph"
+  "location": "code/graph_algorithms/src/bridges_in_graph",
+  "files": [
+    "README.md",
+    "bridges.cpp"
+  ]
 }

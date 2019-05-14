@@ -1,3 +1,12 @@
 {
-  "location": "code/computational_geometry/src/area_of_triangle"
+  "location": "code/computational_geometry/src/area_of_triangle",
+  "files": [
+    "area_of_triangle.go",
+    "area_of_triangle.cpp",
+    "areaoftriangle.java",
+    "area_of_triangle.rs",
+    "area_of_triangle.js",
+    "area_of_triangle.py",
+    "area_of_triangle.c"
+  ]
 }

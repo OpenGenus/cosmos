@@ -1,3 +1,9 @@
 {
-  "location": "code/artificial_intelligence/src/k_means"
+  "location": "code/artificial_intelligence/src/k_means",
+  "files": [
+    "k_means.swift",
+    "k_means.cpp",
+    "k_means.py",
+    "README.md"
+  ]
 }

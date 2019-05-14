@@ -1,3 +1,8 @@
 {
-  "location": "code/graph_algorithms/src/eulerian_path"
+  "location": "code/graph_algorithms/src/eulerian_path",
+  "files": [
+    "eulerian.py",
+    "eulerian.java",
+    "README.md"
+  ]
 }

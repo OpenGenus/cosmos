@@ -1,3 +1,7 @@
 {
-  "location": "code/online_challenges/src/codechef/CHDIGER"
+  "location": "code/online_challenges/src/codechef/CHDIGER",
+  "files": [
+    "CHDIGER.cpp",
+    "README.md"
+  ]
 }

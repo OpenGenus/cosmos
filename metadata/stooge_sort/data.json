@@ -1,3 +1,11 @@
 {
-  "location": "code/sorting/src/stooge_sort"
+  "location": "code/sorting/src/stooge_sort",
+  "files": [
+    "stooge_sort.java",
+    "stooge_sort.js",
+    "stooge_sort.go",
+    "stooge_sort.c",
+    "stooge_sort.py",
+    "README.md"
+  ]
 }

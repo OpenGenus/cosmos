@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/list/doubly_linked_list/c"
+  "location": "code/data_structures/src/list/doubly_linked_list/c",
+  "files": [
+    "doubly_linked_list.h",
+    "doubly_linked_list.c"
+  ]
 }

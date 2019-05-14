@@ -1,3 +1,14 @@
 {
-  "location": "code/mathematical_algorithms/src/smallest_digit_in_number"
+  "location": "code/mathematical_algorithms/src/smallest_digit_in_number",
+  "files": [
+    "smallest_digit_in_number.rb",
+    "smallest_digit_in_number.java",
+    "smallest_digit_in_number.cpp",
+    "smallest_digit_in_number.py",
+    "smallest_digit_in_number.php",
+    "smallest_digit_in_number.cs",
+    "smallest_digit_in_number.hs",
+    "smallest_digit_in_number.js",
+    "smallest_digit_in_number.c"
+  ]
 }

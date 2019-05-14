@@ -1,3 +1,7 @@
 {
-  "location": "code/computational_geometry/src/bresenham_circle"
+  "location": "code/computational_geometry/src/bresenham_circle",
+  "files": [
+    "bresenham_circle.cpp",
+    "graphics.h"
+  ]
 }

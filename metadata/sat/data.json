@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/sat"
+  "location": "code/artificial_intelligence/src/sat",
+  "files": [
+    "togasat.cpp"
+  ]
 }

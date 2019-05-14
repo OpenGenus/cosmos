@@ -1,3 +1,8 @@
 {
-  "location": "code/online_challenges/src/project_euler/problem_102"
+  "location": "code/online_challenges/src/project_euler/problem_102",
+  "files": [
+    "triangles.txt",
+    "README.md",
+    "problem_102.cpp"
+  ]
 }

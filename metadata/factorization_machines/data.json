@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/factorization_machines"
+  "location": "code/artificial_intelligence/src/factorization_machines",
+  "files": [
+    "matrix_factorization.py",
+    "README.md"
+  ]
 }

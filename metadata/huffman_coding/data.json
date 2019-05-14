@@ -1,3 +1,9 @@
 {
-  "location": "code/greedy_algorithms/src/huffman_coding"
+  "location": "code/greedy_algorithms/src/huffman_coding",
+  "files": [
+    "huffman_coding.cpp",
+    "huffman_coding.c",
+    "README.md",
+    "huffman_coding.py"
+  ]
 }

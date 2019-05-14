@@ -1,3 +1,13 @@
 {
-  "location": "code/greedy_algorithms/src/minimum_coins"
+  "location": "code/greedy_algorithms/src/minimum_coins",
+  "files": [
+    "minimum_coins.js",
+    "minimum_coins.py",
+    "minimum_coins.c",
+    "minimum_coins.cpp",
+    "minimumcoins.java",
+    "minimum_coins.go",
+    "minimumcoins.hs",
+    "README.md"
+  ]
 }

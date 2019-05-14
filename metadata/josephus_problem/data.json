@@ -1,3 +1,10 @@
 {
-  "location": "code/unclassified/src/josephus_problem"
+  "location": "code/unclassified/src/josephus_problem",
+  "files": [
+    "josephus.go",
+    "josephus.c",
+    "josephus.py",
+    "README.md",
+    "josephus.cpp"
+  ]
 }

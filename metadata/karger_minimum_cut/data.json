@@ -1,3 +1,7 @@
 {
-  "location": "code/graph_algorithms/src/karger_minimum_cut"
+  "location": "code/graph_algorithms/src/karger_minimum_cut",
+  "files": [
+    "README.md",
+    "karger.java"
+  ]
 }

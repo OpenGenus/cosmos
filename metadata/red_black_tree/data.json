@@ -1,3 +1,12 @@
 {
-  "location": "code/data_structures/src/tree/multiway_tree/red_black_tree"
+  "location": "code/data_structures/src/tree/multiway_tree/red_black_tree",
+  "files": [
+    "red_black_tree.java",
+    "red_black_tree.c",
+    "red_black_tree.scala",
+    "red_black_tree.test.cpp",
+    "red_black_tree.rb",
+    "red_black_tree.cpp",
+    "red_black_tree.h"
+  ]
 }

@@ -1,3 +1,8 @@
 {
-  "location": "code/backtracking/src/powerset"
+  "location": "code/backtracking/src/powerset",
+  "files": [
+    "powerset.java",
+    "power_set.c",
+    "powerset.go"
+  ]
 }

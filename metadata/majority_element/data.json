@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/majority_element"
+  "location": "code/unclassified/src/majority_element",
+  "files": [
+    "majority_element.cpp"
+  ]
 }

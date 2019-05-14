@@ -1,3 +1,7 @@
 {
-  "location": "code/operating_system/src/concurrency/peterson_algorithm_for_mutual_exclusion/peterson_algorithm_in_c"
+  "location": "code/operating_system/src/concurrency/peterson_algorithm_for_mutual_exclusion/peterson_algorithm_in_c",
+  "files": [
+    "peterson_algo_mutual_exclusion_in_c.c",
+    "mythreads.h"
+  ]
 }

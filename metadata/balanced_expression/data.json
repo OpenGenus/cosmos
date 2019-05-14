@@ -1,3 +1,8 @@
 {
-  "location": "code/data_structures/src/stack/balanced_expression"
+  "location": "code/data_structures/src/stack/balanced_expression",
+  "files": [
+    "balanced_expression.cpp",
+    "balanced_expression.java",
+    "balanced_expression.c"
+  ]
 }

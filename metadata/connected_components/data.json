@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/connected_components"
+  "location": "code/graph_algorithms/src/connected_components",
+  "files": [
+    "connected_components.c"
+  ]
 }

@@ -1,3 +1,11 @@
 {
-  "location": "code/online_challenges/src/project_euler/problem_003"
+  "location": "code/online_challenges/src/project_euler/problem_003",
+  "files": [
+    "problem_003.cpp",
+    "problem_003.py",
+    "problem_003.js",
+    "problem_003.java",
+    "README.md",
+    "problem_003.c"
+  ]
 }

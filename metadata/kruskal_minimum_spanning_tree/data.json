@@ -1,3 +1,10 @@
 {
-  "location": "code/greedy_algorithms/src/kruskal_minimum_spanning_tree"
+  "location": "code/greedy_algorithms/src/kruskal_minimum_spanning_tree",
+  "files": [
+    "kruskal.py",
+    "kruskal.c",
+    "kruskal_using_adjacency_matrix.c",
+    "kruskal.cpp",
+    "README.md"
+  ]
 }

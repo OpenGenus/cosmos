@@ -1,3 +1,9 @@
 {
-  "location": "code/data_structures/src/queue/double_ended_queue"
+  "location": "code/data_structures/src/queue/double_ended_queue",
+  "files": [
+    "deque_queue_library_function.cpp",
+    "deque.cpp",
+    "deque.c",
+    "deque.py"
+  ]
 }

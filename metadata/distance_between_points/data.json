@@ -1,3 +1,13 @@
 {
-  "location": "code/computational_geometry/src/distance_between_points"
+  "location": "code/computational_geometry/src/distance_between_points",
+  "files": [
+    "distance_between_points.py",
+    "distance_between_points.js",
+    "distance_between_points.cpp",
+    "distance_between_points.go",
+    "README.md",
+    "distancebetweenpoints.java",
+    "distance_between_points.rs",
+    "distance_between_points.c"
+  ]
 }

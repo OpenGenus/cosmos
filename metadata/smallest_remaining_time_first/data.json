@@ -1,3 +1,6 @@
 {
-  "location": "code/operating_system/src/scheduling/smallest_remaining_time_first"
+  "location": "code/operating_system/src/scheduling/smallest_remaining_time_first",
+  "files": [
+    "srtf.c"
+  ]
 }

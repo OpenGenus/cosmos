@@ -1,3 +1,14 @@
 {
-  "location": "code/randomized_algorithms/src/shuffle_an_array"
+  "location": "code/randomized_algorithms/src/shuffle_an_array",
+  "files": [
+    "shuffle_an_array.rs",
+    "shuffle_library.rb",
+    "shuffle_an_array.rb",
+    "shuffle_an_array.java",
+    "shuffle_an_array.php",
+    "README.md",
+    "shuffle_an_array.js",
+    "shuffle_an_array.cpp",
+    "shuffle_an_array.py"
+  ]
 }

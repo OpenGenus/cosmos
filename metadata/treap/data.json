@@ -1,3 +1,10 @@
 {
-  "location": "code/data_structures/src/tree/binary_tree/treap"
+  "location": "code/data_structures/src/tree/binary_tree/treap",
+  "files": [
+    "treap.cpp",
+    "treap.java",
+    "treap.swift",
+    "treap.scala",
+    "persistent_treap.kt"
+  ]
 }

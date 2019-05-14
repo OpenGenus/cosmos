@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/perceptron"
+  "location": "code/artificial_intelligence/src/perceptron",
+  "files": [
+    "perceptron.py"
+  ]
 }

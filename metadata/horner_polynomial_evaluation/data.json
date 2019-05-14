@@ -1,3 +1,8 @@
 {
-  "location": "code/mathematical_algorithms/src/horner_polynomial_evaluation"
+  "location": "code/mathematical_algorithms/src/horner_polynomial_evaluation",
+  "files": [
+    "horner_polynomial_evaluation.cpp",
+    "horner_polynomial_evaluation.java",
+    "README.md"
+  ]
 }

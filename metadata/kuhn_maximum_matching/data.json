@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/kuhn_maximum_matching"
+  "location": "code/graph_algorithms/src/kuhn_maximum_matching",
+  "files": [
+    "kuhn_maximum_matching.cpp"
+  ]
 }

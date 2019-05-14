@@ -1,3 +1,8 @@
 {
-  "location": "code/graph_algorithms/src/data_structures/adjacency_matrix_c"
+  "location": "code/graph_algorithms/src/data_structures/adjacency_matrix_c",
+  "files": [
+    "mgraph_struct.c",
+    "main.c",
+    "mgraph_struct.h"
+  ]
 }

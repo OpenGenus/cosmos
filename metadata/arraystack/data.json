@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/stack/abstract_stack/cpp/arraystack"
+  "location": "code/data_structures/src/stack/abstract_stack/cpp/arraystack",
+  "files": [
+    "arraystacktester.cpp",
+    "arraystack.h"
+  ]
 }

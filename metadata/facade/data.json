@@ -1,3 +1,7 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/facade"
+  "location": "code/design_pattern/src/OOP_patterns/facade",
+  "files": [
+    "facade",
+    "main.java"
+  ]
 }

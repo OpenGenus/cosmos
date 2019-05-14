@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/lucas_theorem"
+  "location": "code/mathematical_algorithms/src/lucas_theorem",
+  "files": [
+    "lucas_theorem.cpp"
+  ]
 }

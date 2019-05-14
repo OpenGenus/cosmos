@@ -1,3 +1,13 @@
 {
-  "location": "code/graph_algorithms/src/depth_first_search"
+  "location": "code/graph_algorithms/src/depth_first_search",
+  "files": [
+    "dfs.cpp",
+    "dfs.kt",
+    "dfs.rb",
+    "dfs.java",
+    "dfs.go",
+    "depth_first_search.py",
+    "README.md",
+    "dfs.c"
+  ]
 }

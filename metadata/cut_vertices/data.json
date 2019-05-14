@@ -1,3 +1,7 @@
 {
-  "location": "code/graph_algorithms/src/cut_vertices"
+  "location": "code/graph_algorithms/src/cut_vertices",
+  "files": [
+    "cut_vertices.cpp",
+    "README.md"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/bron_kerbosch_algorithm"
+  "location": "code/graph_algorithms/src/bron_kerbosch_algorithm",
+  "files": [
+    "bron_kerbosch.java"
+  ]
 }

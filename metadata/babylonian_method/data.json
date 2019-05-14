@@ -1,3 +1,12 @@
 {
-  "location": "code/mathematical_algorithms/src/babylonian_method"
+  "location": "code/mathematical_algorithms/src/babylonian_method",
+  "files": [
+    "babylonian_method.c",
+    "babylonian_method.go",
+    "babylonian_method.py",
+    "babylonian_method.cpp",
+    "babylonian_method.js",
+    "README.md",
+    "babylonian_method.java"
+  ]
 }

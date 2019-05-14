@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/matrix_transformation"
+  "location": "code/graph_algorithms/src/matrix_transformation",
+  "files": [
+    "matrix_transformation.swift"
+  ]
 }

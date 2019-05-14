@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/unique_number"
+  "location": "code/unclassified/src/unique_number",
+  "files": [
+    "unique_number.java"
+  ]
 }

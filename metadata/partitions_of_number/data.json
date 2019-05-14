@@ -1,3 +1,9 @@
 {
-  "location": "code/backtracking/src/partitions_of_number"
+  "location": "code/backtracking/src/partitions_of_number",
+  "files": [
+    "partitions_of_number.rs",
+    "partitions_of_number.go",
+    "README.md",
+    "partitions_of_number.cpp"
+  ]
 }

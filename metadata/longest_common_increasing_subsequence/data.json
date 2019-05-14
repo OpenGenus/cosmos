@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/longest_common_increasing_subsequence"
+  "location": "code/dynamic_programming/src/longest_common_increasing_subsequence",
+  "files": [
+    "longest_common_increasing_subsequence.cpp"
+  ]
 }

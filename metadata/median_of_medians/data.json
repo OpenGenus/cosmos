@@ -1,3 +1,8 @@
 {
-  "location": "code/selection_algorithms/src/median_of_medians"
+  "location": "code/selection_algorithms/src/median_of_medians",
+  "files": [
+    "median_of_medians.py",
+    "median_of_medians.hs",
+    "median_of_medians.c"
+  ]
 }

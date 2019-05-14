@@ -1,3 +1,6 @@
 {
-  "location": "code/randomized_algorithms/src/random_from_stream"
+  "location": "code/randomized_algorithms/src/random_from_stream",
+  "files": [
+    "random_number_selection_from_a_stream.cpp"
+  ]
 }

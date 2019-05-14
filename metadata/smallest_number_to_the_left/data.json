@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/smallest_number_to_the_left"
+  "location": "code/unclassified/src/smallest_number_to_the_left",
+  "files": [
+    "smallest.cpp"
+  ]
 }

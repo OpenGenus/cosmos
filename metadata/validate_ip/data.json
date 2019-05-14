@@ -1,3 +1,7 @@
 {
-  "location": "code/networking/src/validate_ip/validate_ip"
+  "location": "code/networking/src/validate_ip/validate_ip",
+  "files": [
+    "validate_ipv6.c",
+    "validate_ipv4.c"
+  ]
 }

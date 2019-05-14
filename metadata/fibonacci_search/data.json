@@ -1,3 +1,10 @@
 {
-  "location": "code/search/src/fibonacci_search"
+  "location": "code/search/src/fibonacci_search",
+  "files": [
+    "fibonacci_search.js",
+    "fibonacci_search.py",
+    "fibonacci_search.c",
+    "fibonacci_search.swift",
+    "fibonacci_search.cpp"
+  ]
 }

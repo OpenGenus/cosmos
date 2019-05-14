@@ -1,3 +1,7 @@
 {
-  "location": "code/artificial_intelligence/src/k_nearest_neighbours"
+  "location": "code/artificial_intelligence/src/k_nearest_neighbours",
+  "files": [
+    "k_nearest_neighbours.py",
+    "iris.data"
+  ]
 }

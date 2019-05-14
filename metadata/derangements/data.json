@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/derangements"
+  "location": "code/mathematical_algorithms/src/derangements",
+  "files": [
+    "derangements.c"
+  ]
 }

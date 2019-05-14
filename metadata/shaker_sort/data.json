@@ -1,3 +1,17 @@
 {
-  "location": "code/sorting/src/shaker_sort"
+  "location": "code/sorting/src/shaker_sort",
+  "files": [
+    "shaker_sort.m",
+    "shaker_sort.cs",
+    "shaker_sort.js",
+    "shaker_sort.cpp",
+    "shaker_sort.java",
+    "shaker_sort.c",
+    "shaker_sort.py",
+    "shaker_sort.swift",
+    "shaker_sort.go",
+    "shaker_sort.rs",
+    "shaker_sort.php",
+    "README.md"
+  ]
 }

@@ -1,3 +1,10 @@
 {
-  "location": "code/data_structures/src/list/singly_linked_list/operations/unclassified"
+  "location": "code/data_structures/src/list/singly_linked_list/operations/unclassified",
+  "files": [
+    "linkedlist.java",
+    "linkedlisteg.java",
+    "union_intersection_in_list.c",
+    "linked_list_operations.cpp",
+    "union_intersection_in_list.textclipping"
+  ]
 }

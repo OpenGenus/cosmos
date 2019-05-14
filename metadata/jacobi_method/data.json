@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/jacobi_method"
+  "location": "code/mathematical_algorithms/src/jacobi_method",
+  "files": [
+    "jacobi_method.java",
+    "README.md"
+  ]
 }

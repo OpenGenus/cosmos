@@ -1,3 +1,7 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/observer_java/observer"
+  "location": "code/design_pattern/src/OOP_patterns/observer_java/observer",
+  "files": [
+    "observer.java",
+    "subject.java"
+  ]
 }

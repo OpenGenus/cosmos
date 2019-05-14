@@ -1,3 +1,9 @@
 {
-  "location": "code/unclassified/src/jaccard_similarity"
+  "location": "code/unclassified/src/jaccard_similarity",
+  "files": [
+    "jaccard.java",
+    "README.md",
+    "jaccard.c",
+    "jaccard.py"
+  ]
 }

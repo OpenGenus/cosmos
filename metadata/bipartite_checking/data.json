@@ -1,3 +1,10 @@
 {
-  "location": "code/graph_algorithms/src/bipartite_checking"
+  "location": "code/graph_algorithms/src/bipartite_checking",
+  "files": [
+    "bipartite.cpp",
+    "bipartite_bfs.java",
+    "bipartite_checking.cpp",
+    "bipartite_graph_checked_adjacency_list.java",
+    "README.md"
+  ]
 }

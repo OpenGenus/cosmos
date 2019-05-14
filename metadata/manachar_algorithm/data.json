@@ -1,3 +1,7 @@
 {
-  "location": "code/string_algorithms/src/manachar_algorithm"
+  "location": "code/string_algorithms/src/manachar_algorithm",
+  "files": [
+    "manachar_longest_palindromic_subs.py",
+    "manachar_longest_palindromic_subs.cpp"
+  ]
 }

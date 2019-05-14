@@ -1,3 +1,6 @@
 {
-  "location": "code/cryptography/src/autokey_cipher"
+  "location": "code/cryptography/src/autokey_cipher",
+  "files": [
+    "autokey.py"
+  ]
 }

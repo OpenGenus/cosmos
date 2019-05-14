@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/fast_fourier_transform"
+  "location": "code/mathematical_algorithms/src/fast_fourier_transform",
+  "files": [
+    "fast_fourier_transform.c",
+    "fast_fourier_transform.java"
+  ]
 }

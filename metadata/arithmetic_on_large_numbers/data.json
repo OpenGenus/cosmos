@@ -1,3 +1,9 @@
 {
-  "location": "code/string_algorithms/src/arithmetic_on_large_numbers"
+  "location": "code/string_algorithms/src/arithmetic_on_large_numbers",
+  "files": [
+    "string_factorial.cpp",
+    "string_multiplication.cpp",
+    "string_subtract.cpp",
+    "string_addition.cpp"
+  ]
 }

@@ -1,3 +1,8 @@
 {
-  "location": "code/design_pattern/src/OOP_patterns/adapter"
+  "location": "code/design_pattern/src/OOP_patterns/adapter",
+  "files": [
+    "civilian.java",
+    "adaptor.java",
+    "movement.java"
+  ]
 }

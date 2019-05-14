@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/optimized_fibonacci"
+  "location": "code/unclassified/src/optimized_fibonacci",
+  "files": [
+    "optimized_fibonacci.cpp"
+  ]
 }

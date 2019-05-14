@@ -1,3 +1,7 @@
 {
-  "location": "code/mathematical_algorithms/src/multiply_polynomial"
+  "location": "code/mathematical_algorithms/src/multiply_polynomial",
+  "files": [
+    "multiply_polynomial.cpp",
+    "README.md"
+  ]
 }

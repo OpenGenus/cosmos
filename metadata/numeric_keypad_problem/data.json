@@ -1,3 +1,6 @@
 {
-  "location": "code/dynamic_programming/src/numeric_keypad_problem"
+  "location": "code/dynamic_programming/src/numeric_keypad_problem",
+  "files": [
+    "numeric_keypad_problem.cpp"
+  ]
 }

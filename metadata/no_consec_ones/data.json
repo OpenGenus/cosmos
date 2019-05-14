@@ -1,3 +1,8 @@
 {
-  "location": "code/dynamic_programming/src/no_consec_ones"
+  "location": "code/dynamic_programming/src/no_consec_ones",
+  "files": [
+    "no_consec_ones.py",
+    "no_consec_1.cpp",
+    "README.md"
+  ]
 }

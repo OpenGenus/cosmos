@@ -1,3 +1,14 @@
 {
-  "location": "code/sorting/src/comb_sort"
+  "location": "code/sorting/src/comb_sort",
+  "files": [
+    "comb_sort.go",
+    "comb_sort.js",
+    "comb_sort.c",
+    "comb_sort.swift",
+    "comb_sort.m",
+    "comb_sort.java",
+    "README.md",
+    "comb_sort.cpp",
+    "comb_sort.py"
+  ]
 }

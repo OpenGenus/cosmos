@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/hill_climbing"
+  "location": "code/mathematical_algorithms/src/hill_climbing",
+  "files": [
+    "hill_climbing.java"
+  ]
 }

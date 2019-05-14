@@ -1,3 +1,8 @@
 {
-  "location": "code/unclassified/src/lapindrom_checker"
+  "location": "code/unclassified/src/lapindrom_checker",
+  "files": [
+    "lapindrome_checker.py",
+    "lapindrome_checker.cpp",
+    "README.md"
+  ]
 }

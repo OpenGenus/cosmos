@@ -1,3 +1,6 @@
 {
-  "location": "code/operating_system/src/scheduling/multi_level_feedback_queue_scheduling"
+  "location": "code/operating_system/src/scheduling/multi_level_feedback_queue_scheduling",
+  "files": [
+    "mlfq.ts"
+  ]
 }

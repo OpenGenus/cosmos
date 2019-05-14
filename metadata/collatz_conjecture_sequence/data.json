@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/collatz_conjecture_sequence"
+  "location": "code/mathematical_algorithms/src/collatz_conjecture_sequence",
+  "files": [
+    "collatz_conjecture_sequence.c"
+  ]
 }

@@ -1,3 +1,7 @@
 {
-  "location": "code/computational_geometry/src/bresenham_line"
+  "location": "code/computational_geometry/src/bresenham_line",
+  "files": [
+    "bresenham_line.py",
+    "bresenham_line.cpp"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/pythagorean_triplet"
+  "location": "code/mathematical_algorithms/src/pythagorean_triplet",
+  "files": [
+    "pythagorean_triplet.cpp"
+  ]
 }

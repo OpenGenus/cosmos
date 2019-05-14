@@ -1,3 +1,9 @@
 {
-  "location": "code/string_algorithms/src/z_algorithm"
+  "location": "code/string_algorithms/src/z_algorithm",
+  "files": [
+    "z_algorithm_z_array.cpp",
+    "z_algorithm.py",
+    "z_algorithm.cpp",
+    "README.md"
+  ]
 }

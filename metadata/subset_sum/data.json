@@ -1,3 +1,12 @@
 {
-  "location": "code/backtracking/src/subset_sum"
+  "location": "code/backtracking/src/subset_sum",
+  "files": [
+    "subsetsum.java",
+    "subset_sum.cpp",
+    "subset_sum_duplicates.py",
+    "subsetsum.py",
+    "subset_sum.c",
+    "subset_sum.go",
+    "README.md"
+  ]
 }

@@ -1,3 +1,6 @@
 {
-  "location": "code/unclassified/src/minimum_subarray_size_with_degree"
+  "location": "code/unclassified/src/minimum_subarray_size_with_degree",
+  "files": [
+    "minsubarraysizewithdegree.cpp"
+  ]
 }

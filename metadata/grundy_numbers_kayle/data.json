@@ -1,3 +1,6 @@
 {
-  "location": "code/game_theory/src/grundy_numbers_kayle"
+  "location": "code/game_theory/src/grundy_numbers_kayle",
+  "files": [
+    "grundy_numbers_kayle.py"
+  ]
 }

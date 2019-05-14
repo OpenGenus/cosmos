@@ -1,3 +1,6 @@
 {
-  "location": "code/greedy_algorithms/src/hillclimber"
+  "location": "code/greedy_algorithms/src/hillclimber",
+  "files": [
+    "hillclimber.java"
+  ]
 }

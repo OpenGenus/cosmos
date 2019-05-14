@@ -1,3 +1,6 @@
 {
-  "location": "code/computational_geometry/src/2d_separating_axis_test"
+  "location": "code/computational_geometry/src/2d_separating_axis_test",
+  "files": [
+    "sat.cpp"
+  ]
 }

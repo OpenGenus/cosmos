@@ -1,3 +1,6 @@
 {
-  "location": "code/graph_algorithms/src/bridge_tree"
+  "location": "code/graph_algorithms/src/bridge_tree",
+  "files": [
+    "bridge_tree.cpp"
+  ]
 }

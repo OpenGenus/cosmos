@@ -1,3 +1,6 @@
 {
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/traversal/inorder/right_threaded"
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/traversal/inorder/right_threaded",
+  "files": [
+    "right_threaded.cpp"
+  ]
 }

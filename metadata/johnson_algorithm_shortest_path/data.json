@@ -1,3 +1,7 @@
 {
-  "location": "code/graph_algorithms/src/johnson_algorithm_shortest_path"
+  "location": "code/graph_algorithms/src/johnson_algorithm_shortest_path",
+  "files": [
+    "README.md",
+    "johnsons_algo.py"
+  ]
 }

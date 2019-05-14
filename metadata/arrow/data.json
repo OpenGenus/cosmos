@@ -1,3 +1,6 @@
 {
-  "location": "code/design_pattern/src/functional_patterns/functional_patterns/scala/src/main/scala/arrows/arrow"
+  "location": "code/design_pattern/src/functional_patterns/functional_patterns/scala/src/main/scala/arrows/arrow",
+  "files": [
+    "arrow.scala"
+  ]
 }

@@ -1,3 +1,10 @@
 {
-  "location": "code/graph_algorithms/src/ford_fulkerson_maximum_flow"
+  "location": "code/graph_algorithms/src/ford_fulkerson_maximum_flow",
+  "files": [
+    "ford_fulkerson.cpp",
+    "ford_fulkerson_using_bfs.cpp",
+    "fordfulkersonusingbfs.java",
+    "README.md",
+    "ford_fulkerson_using_bfs.py"
+  ]
 }

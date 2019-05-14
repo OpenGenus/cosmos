@@ -1,3 +1,6 @@
 {
-  "location": "code/data_structures/src/tree/multiway_tree/van_emde_boas_tree"
+  "location": "code/data_structures/src/tree/multiway_tree/van_emde_boas_tree",
+  "files": [
+    "van_emde_boas.cpp"
+  ]
 }

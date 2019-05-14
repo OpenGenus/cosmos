@@ -1,3 +1,7 @@
 {
-  "location": "code/data_structures/src/stack/prefix_to_postfix"
+  "location": "code/data_structures/src/stack/prefix_to_postfix",
+  "files": [
+    "prefix_to_postfix.py",
+    "README.md"
+  ]
 }

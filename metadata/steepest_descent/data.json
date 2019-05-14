@@ -1,3 +1,6 @@
 {
-  "location": "code/mathematical_algorithms/src/steepest_descent"
+  "location": "code/mathematical_algorithms/src/steepest_descent",
+  "files": [
+    "steepest_descent.cpp"
+  ]
 }

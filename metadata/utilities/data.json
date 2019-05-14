@@ -1,3 +1,7 @@
 {
-  "location": "code/unclassified/src/utilities"
+  "location": "code/unclassified/src/utilities",
+  "files": [
+    "convert2mp3.sh",
+    "download_link.sh"
+  ]
 }

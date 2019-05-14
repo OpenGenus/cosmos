@@ -1,3 +1,7 @@
 {
-  "location": "code/string_algorithms/src/naive_pattern_search"
+  "location": "code/string_algorithms/src/naive_pattern_search",
+  "files": [
+    "naive_pattern_search.py",
+    "README.md"
+  ]
 }

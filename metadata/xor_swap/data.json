@@ -1,3 +1,10 @@
 {
-  "location": "code/bit_manipulation/src/xor_swap"
+  "location": "code/bit_manipulation/src/xor_swap",
+  "files": [
+    "xor_swap.c",
+    "xor_swap.py",
+    "xor_swap.cpp",
+    "xorswap.go",
+    "README.md"
+  ]
 }

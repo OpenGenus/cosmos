@@ -1,3 +1,9 @@
 {
-  "location": "code/mathematical_algorithms/src/exponentiation_power/exponentiation_by_squaring"
+  "location": "code/mathematical_algorithms/src/exponentiation_power/exponentiation_by_squaring",
+  "files": [
+    "exponentiation_by_squaring.py",
+    "exponentiation_by_squaring.go",
+    "exponentiation_by_squaring.cpp",
+    "exponentiation_by_squaring.c"
+  ]
 }

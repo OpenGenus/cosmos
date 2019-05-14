@@ -1,3 +1,7 @@
 {
-  "location": "code/online_challenges/src/codechef/NBONACCI"
+  "location": "code/online_challenges/src/codechef/NBONACCI",
+  "files": [
+    "README.md",
+    "NBONACCI.cpp"
+  ]
 }

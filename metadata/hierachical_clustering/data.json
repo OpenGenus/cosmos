@@ -1,3 +1,6 @@
 {
-  "location": "code/artificial_intelligence/src/hierachical_clustering/hierachical_clustering"
+  "location": "code/artificial_intelligence/src/hierachical_clustering/hierachical_clustering",
+  "files": [
+    "hierarchical_clustering.ipynb"
+  ]
 }
