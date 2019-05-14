@@ -2,6 +2,16 @@ import json
 import pathlib
 import collections
 
+
+def first_layer_files(directory):
+    p = pathlib.Path(directory)
+    files = []
+    for file in p.iterdir():
+        if file.is_file():
+            files.append(str(file).split("/")[-1])
+    return files
+
+
 Path = collections.namedtuple("Entry", ("suffix", "group", "name"))
 avoid_extensions = [
     "",
@@ -37,7 +47,8 @@ for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*"):
             )
         )
 
-metadata = collections.defaultdict(str)
+# metadata = collections.defaultdict(str)
+metadata = dict()
 for each in paths:
     x = each[-1].replace(" ", "_").rstrip()
     metadata_path = "metadata/{}".format(x)
@@ -45,5 +56,6 @@ for each in paths:
     filename = pathlib.Path("{}/data.json".format(metadata_path))
     filename.touch(exist_ok=True)
     metadata["location"] = original_paths[x] + "/" + x
+    metadata["files"] = first_layer_files(metadata["location"])
     json_dump = json.dumps(metadata, indent=2)
     filename.write_text(json_dump)
