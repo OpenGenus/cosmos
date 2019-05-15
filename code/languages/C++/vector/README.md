@@ -15,21 +15,23 @@ happens, the vector’s size is automatically increased to hold the new item.
 
 int main()
 {
-vector<int> v;          //create a vector of ints
-//put values at end of array
-v.push_back(10);
-v.push_back(11);
-v.push_back(12);
-v.push_back(13);
-//replace with new values 
-v[0] = 20;
-v[3] = 23; 
+  vector<int> v;          //create a vector of ints
+  //put values at end of array
+  v.push_back(10);
+  v.push_back(11);
+  v.push_back(12);
+  v.push_back(13);
+  //replace with new values 
+  v[0] = 20;
+  v[3] = 23; 
 
-for(int j=0; j<v.size(); j++)   //display vector contents
-
-std::cout << v[j] << ‘ ‘;        //20 11 12 23
-std::cout << endl;
-return 0;
+  for(int j=0; j<v.size(); j++)     //display vector contents
+  {
+  std::cout << v[j] << ‘ ‘;        //20 11 12 23
+  std::cout << endl;
+  return 0;
+  }
+  
 }
 ```
 
@@ -51,32 +53,33 @@ container.
 Another member function, ```max_size()``` , returns the maximum size to which a container can be expanded. This number depends on the type of data being stored in the container (the bigger the elements, the fewer of them you can store), the type of container, and the operating system. For example, on our system max_size() returns ```1,073,741,823``` for a vector type int .
 
 
-## Member Functions swap() , empty() , back() , and pop_back()
+## Member Functions swap() , empty() , back() , pop_back()
 ```C++
 #include <iostream>
 #include <vector>
 
 int main()
 {
-//an array of doubles
-double arr[] = { 1.1, 2.2, 3.3, 4.4 };
-vector<double> v1(arr, arr+4); //initialize vector to array
-vector<double> v2(4);   //empty vector of size 4
+  //an array of doubles
+  double arr[] = { 1.1, 2.2, 3.3, 4.4 };
+  vector<double> v1(arr, arr+4); //initialize vector to array
+  vector<double> v2(4);   //empty vector of size 4
 
-v1.swap(v2);       //swap contents of v1 and v2
+  v1.swap(v2);       //swap contents of v1 and v2
 
-while( !v2.empty() )
-{                                   //until vector is empty,
-
-std::cout << v2.back() << ‘ ‘;  //display the last element
-v2.pop_back();                  //remove the last element
-}
-std::cout << endl;              //output: 4.4 3.3 2.2 1.1
-return 0;
+  while( !v2.empty() )
+  {                                   //until vector is empty,
+  std::cout << v2.back() << ‘ ‘;  //display the last element
+  v2.pop_back();                  //remove the last element
+  }
+  std::cout << endl;              //output: 4.4 3.3 2.2 1.1
+  return 0;
 } 
 ```
+
 We’ve used two new vector constructors in this program. The first initializes the vector v1 with the values of a normal C++ array passed to it as an argument. The arguments to this constructor are pointers to the start of the array and to the element one past the end. The second constructor sets v2 to an initial size of 4, but does not supply any initial values. Both vectors hold type ```double```. 
-The ```swap()``` member function exchanges all the data in one vector with all the data in another, keeping the elements in the same order. In this program there is only garbage data in v2 , so it’s swapped with the data in v1 . We display v2 to show that it now contains the data that was inv1 . The output is
+The ```swap()``` member function exchanges all the data in one vector with all the data in another, keeping the elements in the same order. In this program there is only garbage data in v2 , so it’s swapped with the data in v1 . We display v2 to show that it now contains the data that was inv1. The output is
+
 ```
 4.4 3.3 2.2 1.1
 ```
@@ -93,3 +96,55 @@ Some member functions, such as swap() , also exist as algorithms. When this is t
 member function version is usually provided because it’s more efficient for that particular con-
 tainer than the algorithm version. Sometimes you can use the algorithm as well. For example,
 you can use it to swap elements in two different kinds of containers.
+
+### Iterators in vector
+
+* begin(): begin() function is used to return an iterator pointing to the first element of the vector container. begin() function returns a bidirectional iterator to the first element of the container.
+
+**Example** 
+```C++
+#include <iostream> 
+#include <vector> 
+
+int main() 
+{ 
+    // declaration of vector container 
+    vector<int> myvector{ 1, 2, 3, 4, 5 }; 
+  
+    // using begin() to print vector 
+    for (auto it = myvector.begin(); 
+         it != myvector.end(); ++it) 
+        std::cout << ' ' << *it; 
+    return 0; 
+}
+```
+**Output**
+``` 
+1 2 3 4 5
+```
+
+* end(): end() function is used to return an iterator pointing to next to last element of the vector container. end() function returns a bidirectional iterator.
+
+**Example**
+```C++
+
+#include <iostream> 
+#include <vector> 
+
+int main() 
+{ 
+	// declaration of vector container 
+	vector<int> myvector{ 1, 2, 3, 4, 5 }; 
+
+	// using end() to print vector 
+	for (auto it = myvector.begin(); 
+		it != myvector.end(); ++it) 
+		std::cout << ' ' << *it; 
+	return 0; 
+}
+```
+**Output**
+```
+1 2 3 4 5
+```
+
