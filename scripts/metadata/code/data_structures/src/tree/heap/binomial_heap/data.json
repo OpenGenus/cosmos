@@ -1,0 +1,11 @@
+{
+  "location": "code/data_structures/src/tree/heap/binomial_heap",
+  "files": [
+    "binomial_heap.scala",
+    "binomial_heap.cpp",
+    "binomial_heap.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

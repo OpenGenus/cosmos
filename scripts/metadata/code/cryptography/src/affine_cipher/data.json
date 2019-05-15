@@ -1,0 +1,14 @@
+{
+  "location": "code/cryptography/src/affine_cipher",
+  "files": [
+    "affine.java",
+    "affine.py",
+    "affine.cpp",
+    "affinekotlin.kt",
+    "affine.htm",
+    "affine_cipher.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

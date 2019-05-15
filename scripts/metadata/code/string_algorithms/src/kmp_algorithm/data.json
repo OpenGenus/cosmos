@@ -1,0 +1,11 @@
+{
+  "location": "code/string_algorithms/src/kmp_algorithm",
+  "files": [
+    "kmp.py",
+    "README.md",
+    "kmp_algorithm.cpp"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/avl_tree",
+  "files": [
+    "avl_tree.cpp",
+    "avl_tree.swift",
+    "avl_tree.java",
+    "avl_tree.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

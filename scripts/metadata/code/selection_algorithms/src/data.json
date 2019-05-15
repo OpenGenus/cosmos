@@ -1,0 +1,16 @@
+{
+  "location": "code/selection_algorithms/src",
+  "files": [
+    "quick_select.java",
+    "quickselect.cpp",
+    "quickselect_stl.cpp",
+    "quick_select.swift",
+    "quickselect.go",
+    "README.md",
+    "quick_select.kt",
+    "quickselect.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

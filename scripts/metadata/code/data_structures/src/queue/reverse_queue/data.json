@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/queue/reverse_queue",
+  "files": [
+    "reverse_queue.go",
+    "reverse_queue.swift",
+    "reverse_queue.java",
+    "reverse_queue.cpp",
+    "reverse_queue.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

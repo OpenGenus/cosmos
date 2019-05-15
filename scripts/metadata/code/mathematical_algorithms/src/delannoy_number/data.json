@@ -1,0 +1,11 @@
+{
+  "location": "code/mathematical_algorithms/src/delannoy_number",
+  "files": [
+    "delannoy_number.c",
+    "delannoy_number.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

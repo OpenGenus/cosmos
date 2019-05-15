@@ -1,0 +1,14 @@
+{
+  "location": "code/dynamic_programming/src/boolean_parenthesization",
+  "files": [
+    "boolean_parenthesization.py",
+    "boolean_parenthesization.c",
+    "boolean_parenthesization.swift",
+    "boolean_parenthesization.cpp",
+    "README.md",
+    "boolean_parenthesization.java"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

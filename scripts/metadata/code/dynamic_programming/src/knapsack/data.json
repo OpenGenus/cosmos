@@ -1,0 +1,15 @@
+{
+  "location": "code/dynamic_programming/src/knapsack",
+  "files": [
+    "knapsack.go",
+    "knapsack.js",
+    "knapsack.c",
+    "knapsack.java",
+    "knapsack.cpp",
+    "README.md",
+    "knapsack.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

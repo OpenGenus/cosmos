@@ -1,0 +1,10 @@
+{
+  "location": "code/operating_system/src/deadlocks/bankers_algorithm",
+  "files": [
+    "banker_safety.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

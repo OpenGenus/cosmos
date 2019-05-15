@@ -1,0 +1,18 @@
+{
+  "location": "code/cryptography/src/rot13_cipher",
+  "files": [
+    "rot13.sh",
+    "rot13.rb",
+    "rot13.py",
+    "rot13.js",
+    "rotn.java",
+    "rotn.js",
+    "rot13.cpp",
+    "README.md",
+    "rotn.cpp",
+    "rotn.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

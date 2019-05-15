@@ -1,0 +1,11 @@
+{
+  "location": "code/artificial_intelligence/src/support_vector_machine",
+  "files": [
+    "svm.py",
+    "svm.c",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

@@ -1,0 +1,11 @@
+{
+  "location": "code/graph_algorithms/src/data_structures",
+  "files": [
+    "adjacency_matrix.cpp",
+    "adjacency_list.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

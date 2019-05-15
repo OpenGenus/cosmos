@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/tree/space_partitioning_tree/kd_tree",
+  "files": [
+    "kd_tree.cpp",
+    "kd_tree.java"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

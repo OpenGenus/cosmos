@@ -1,0 +1,16 @@
+{
+  "location": "code/graph_algorithms/src/depth_first_search",
+  "files": [
+    "dfs.cpp",
+    "dfs.kt",
+    "dfs.rb",
+    "dfs.java",
+    "dfs.go",
+    "depth_first_search.py",
+    "README.md",
+    "dfs.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

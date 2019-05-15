@@ -1,0 +1,12 @@
+{
+  "location": "code/cryptography/src/atbash_cipher",
+  "files": [
+    "atbash_cipher.java",
+    "atbash_cipher.py",
+    "atbash_cipher.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

@@ -1,0 +1,16 @@
+{
+  "location": "code/computational_geometry/src/quickhull",
+  "files": [
+    "test_data_soln.txt",
+    "quickhull_alternative.cpp",
+    "test_data.csv",
+    "quickhull.cpp",
+    "quickhull.java",
+    "test_data_soln.png",
+    "README.md",
+    "quickhull.hs"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

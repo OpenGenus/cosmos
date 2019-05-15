@@ -1,0 +1,13 @@
+{
+  "location": "code/mathematical_algorithms/src/shuffle_array",
+  "files": [
+    "shuffle_array.rb",
+    "shuffle_array.c",
+    "shuffle_array.cpp",
+    "shuffle_array.js",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

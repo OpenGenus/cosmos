@@ -1,0 +1,12 @@
+{
+  "location": "code/dynamic_programming/src/shortest_common_supersequence",
+  "files": [
+    "scs.java",
+    "README.md",
+    "shortest_common_supersequence.cpp",
+    "shortest_common_supersequence.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

@@ -1,0 +1,12 @@
+{
+  "location": "code/graph_algorithms/src/transitive_closure_graph",
+  "files": [
+    "transitive_closure_graph.py",
+    "transitive_closure_graph_floyd_warshall.cpp",
+    "transitive_closure.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

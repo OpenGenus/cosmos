@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/list/circular_linked_list/operations",
+  "files": [
+    "is_circular.py",
+    "has_loop.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

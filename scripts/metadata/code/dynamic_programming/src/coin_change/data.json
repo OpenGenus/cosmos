@@ -1,0 +1,15 @@
+{
+  "location": "code/dynamic_programming/src/coin_change",
+  "files": [
+    "coinchange.c",
+    "coin_change.py",
+    "mincoinchange.cpp",
+    "coin_change.java",
+    "README.md",
+    "coinchange.go",
+    "coinchange.cpp"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

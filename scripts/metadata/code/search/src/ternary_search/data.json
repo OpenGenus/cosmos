@@ -1,0 +1,18 @@
+{
+  "location": "code/search/src/ternary_search",
+  "files": [
+    "ternary_search.cpp",
+    "ternary_search.php",
+    "ternary_search.py",
+    "ternary_search.js",
+    "ternary_search.java",
+    "ternary_search.rs",
+    "ternary_search.kt",
+    "README.md",
+    "ternary_search.c",
+    "ternary_search.go"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

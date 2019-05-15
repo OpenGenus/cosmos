@@ -1,0 +1,11 @@
+{
+  "location": "code/cryptography/src/aes_128/aes_csharp/example",
+  "files": [
+    "streamcipherexception.cs",
+    "streamcipher.cs",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

@@ -1,0 +1,13 @@
+{
+  "location": "code/search/src/fibonacci_search",
+  "files": [
+    "fibonacci_search.js",
+    "fibonacci_search.py",
+    "fibonacci_search.c",
+    "fibonacci_search.swift",
+    "fibonacci_search.cpp"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/stack/postfix_evaluation",
+  "files": [
+    "postfix_evaluation.sh",
+    "README.md",
+    "postfix_evaluation.c",
+    "postfix_evaluation.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

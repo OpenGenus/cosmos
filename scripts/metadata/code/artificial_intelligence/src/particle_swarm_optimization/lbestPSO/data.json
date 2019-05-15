@@ -1,0 +1,10 @@
+{
+  "location": "code/artificial_intelligence/src/particle_swarm_optimization/lbestPSO",
+  "files": [
+    "Lbest2D.py",
+    "LBest3D.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

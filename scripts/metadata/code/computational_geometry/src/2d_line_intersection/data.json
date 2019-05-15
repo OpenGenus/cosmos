@@ -1,0 +1,17 @@
+{
+  "location": "code/computational_geometry/src/2d_line_intersection",
+  "files": [
+    "line.java",
+    "line.cpp",
+    "line.js",
+    "line.c",
+    "line2dintersection.hs",
+    "line.rb",
+    "line.cs",
+    "README.md",
+    "line.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

@@ -1,0 +1,12 @@
+{
+  "location": "code/bit_manipulation/src/addition_using_bits",
+  "files": [
+    "addition_using_bits.cpp",
+    "bitwise_addition.js",
+    "bitwise_addition.cs",
+    "addition_using_bits.py"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

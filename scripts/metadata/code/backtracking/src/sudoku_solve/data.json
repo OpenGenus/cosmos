@@ -1,0 +1,13 @@
+{
+  "location": "code/backtracking/src/sudoku_solve",
+  "files": [
+    "sudoku.rs",
+    "README.md",
+    "sudoku_solve.py",
+    "sudokusolve.cpp",
+    "sudokusolve.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

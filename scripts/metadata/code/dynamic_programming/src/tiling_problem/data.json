@@ -1,0 +1,12 @@
+{
+  "location": "code/dynamic_programming/src/tiling_problem",
+  "files": [
+    "tiling.py",
+    "tiling.c",
+    "tiling.cpp",
+    "README.md"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:32"
+}

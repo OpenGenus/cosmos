@@ -1,0 +1,10 @@
+{
+  "location": "code/operating_system/src/scheduling/round_robin_scheduling",
+  "files": [
+    "round_robin_scheduling.cpp",
+    "round_robin_scheduling.java"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}

@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/tree/heap/max_heap",
+  "files": [
+    "max_heap.java",
+    "max_heap.py",
+    "max_heap.cpp",
+    "max_heap.go",
+    "max_heap.c"
+  ],
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "updated": "09:02:33"
+}
