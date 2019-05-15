@@ -1,9 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/convolutional_neural_network",
-  "files": [
-    "cnn_adversarial_examples.ipynb",
-    "cnn.ipynb",
-    "train.csv",
-    "test.csv"
-  ]
-}

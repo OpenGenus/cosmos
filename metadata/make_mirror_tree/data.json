@@ -1,9 +1,0 @@
-{
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/make_mirror_tree",
-  "files": [
-    "make_mirror_tree.c",
-    "make_mirror_tree.cpp",
-    "README.md",
-    "make_mirror_tree.py"
-  ]
-}

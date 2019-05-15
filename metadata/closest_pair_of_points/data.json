@@ -1,7 +1,0 @@
-{
-  "location": "code/divide_conquer/src/closest_pair_of_points",
-  "files": [
-    "closest_pair.cpp",
-    "closest_pair.py"
-  ]
-}

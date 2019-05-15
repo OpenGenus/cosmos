@@ -1,7 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/longest_path_directed_acyclic_graph",
-  "files": [
-    "README.md",
-    "longest_path_directed_acyclic_graph.cpp"
-  ]
-}

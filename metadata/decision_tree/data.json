@@ -1,8 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/decision_tree",
-  "files": [
-    "decision_trees_information_gain.py",
-    "decision_tree.py",
-    "data_banknote_authentication.csv"
-  ]
-}

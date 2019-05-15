@@ -1,9 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/square_free_number",
-  "files": [
-    "square_free_number.c",
-    "squarefreenumber.java",
-    "square_free_number.cpp",
-    "square_free_number.py"
-  ]
-}

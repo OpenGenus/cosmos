@@ -1,9 +1,0 @@
-{
-  "location": "code/design_pattern/src/OOP_patterns/facade/daily/tasks/gym",
-  "files": [
-    "deadlift.java",
-    "squat.java",
-    "gymfacade.java",
-    "benchpress.java"
-  ]
-}

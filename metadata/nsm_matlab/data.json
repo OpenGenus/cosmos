@@ -1,8 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/nearest_sequence_memory/nsm_matlab",
-  "files": [
-    "main.m",
-    "simulator.m",
-    "nsm_agent.m"
-  ]
-}

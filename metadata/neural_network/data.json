@@ -1,7 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/neural_network",
-  "files": [
-    "neuralnetwork.py",
-    "keras_nn.py"
-  ]
-}

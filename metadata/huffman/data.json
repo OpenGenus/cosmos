@@ -1,7 +1,0 @@
-{
-  "location": "code/compression/src/lossless_compression/huffman",
-  "files": [
-    "huffman.cpp",
-    "README.md"
-  ]
-}

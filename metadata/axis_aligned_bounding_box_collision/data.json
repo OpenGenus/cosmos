@@ -1,7 +1,0 @@
-{
-  "location": "code/computational_geometry/src/axis_aligned_bounding_box_collision",
-  "files": [
-    "axis_aligned_bounding_box_collision.go",
-    "axis_aligned_bounding_box_collision.cpp"
-  ]
-}

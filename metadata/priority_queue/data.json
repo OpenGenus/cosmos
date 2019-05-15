@@ -1,8 +1,0 @@
-{
-  "location": "code/data_structures/src/tree/heap/priority_queue",
-  "files": [
-    "priority_queue.js",
-    "priority_queue.py",
-    "README.md"
-  ]
-}

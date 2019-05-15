@@ -1,9 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/add_polynomials",
-  "files": [
-    "add_polynomials.c",
-    "add_polynomials.cpp",
-    "add_polynomials.go",
-    "README.md"
-  ]
-}

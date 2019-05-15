@@ -1,9 +1,0 @@
-{
-  "location": "code/dynamic_programming/src/tiling_problem",
-  "files": [
-    "tiling.py",
-    "tiling.c",
-    "tiling.cpp",
-    "README.md"
-  ]
-}

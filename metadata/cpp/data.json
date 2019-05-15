@@ -1,7 +1,0 @@
-{
-  "location": "code/data_structures/src/stack/abstract_stack/cpp",
-  "files": [
-    "istack.h",
-    "arraystack.java"
-  ]
-}

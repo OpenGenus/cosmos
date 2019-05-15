@@ -1,8 +1,0 @@
-{
-  "location": "code/data_structures/src/tree/space_partitioning_tree/interval_tree",
-  "files": [
-    "interval_tree.java",
-    "interval_tree.cpp",
-    "README.md"
-  ]
-}

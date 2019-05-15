@@ -1,7 +1,0 @@
-{
-  "location": "code/operating_system/src/processCreation",
-  "files": [
-    "Processes.c",
-    "README.md"
-  ]
-}

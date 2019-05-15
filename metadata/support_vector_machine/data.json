@@ -1,8 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/support_vector_machine",
-  "files": [
-    "svm.py",
-    "svm.c",
-    "README.md"
-  ]
-}

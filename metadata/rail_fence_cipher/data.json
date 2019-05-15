@@ -1,8 +1,0 @@
-{
-  "location": "code/cryptography/src/rail_fence_cipher",
-  "files": [
-    "rail_fence.rb",
-    "rail_fence.py",
-    "rail_fence.cpp"
-  ]
-}

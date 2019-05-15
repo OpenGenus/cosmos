@@ -1,6 +1,0 @@
-{
-  "location": "code/operating_system/src/concurrency/producer_consumer",
-  "files": [
-    "producer_consumer.cpp"
-  ]
-}

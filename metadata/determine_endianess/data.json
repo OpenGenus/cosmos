@@ -1,6 +1,0 @@
-{
-  "location": "code/networking/src/determine_endianess",
-  "files": [
-    "determine_endianess.c"
-  ]
-}

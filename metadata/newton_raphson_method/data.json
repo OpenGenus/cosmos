@@ -1,9 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/newton_raphson_method",
-  "files": [
-    "newton_raphson.php",
-    "newton_raphson.c",
-    "README.md",
-    "newton_raphson.cpp"
-  ]
-}

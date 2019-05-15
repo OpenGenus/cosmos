@@ -1,8 +1,0 @@
-{
-  "location": "code/design_pattern/src/OOP_patterns/builder/builder",
-  "files": [
-    "personbuilder.java",
-    "person.java",
-    "nationality.java"
-  ]
-}

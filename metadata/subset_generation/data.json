@@ -1,9 +1,0 @@
-{
-  "location": "code/bit_manipulation/src/subset_generation",
-  "files": [
-    "subsetgeneratorusingbit.cpp",
-    "subset_mask_generator.cpp",
-    "README.md",
-    "subsetsum.cpp"
-  ]
-}

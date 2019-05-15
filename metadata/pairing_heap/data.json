@@ -1,8 +1,0 @@
-{
-  "location": "code/data_structures/src/tree/heap/pairing_heap",
-  "files": [
-    "pairing_heap.fs",
-    "pairing_heap.sml",
-    "README.md"
-  ]
-}

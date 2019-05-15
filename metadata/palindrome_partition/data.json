@@ -1,8 +1,0 @@
-{
-  "location": "code/dynamic_programming/src/palindrome_partition",
-  "files": [
-    "palindrome_partition.js",
-    "README.md",
-    "palindrome_partition.cpp"
-  ]
-}

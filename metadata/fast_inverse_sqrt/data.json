@@ -1,7 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/fast_inverse_sqrt",
-  "files": [
-    "fast_inverse_sqrt.py",
-    "fast_inverse_sqrt.cpp"
-  ]
-}

@@ -1,6 +1,0 @@
-{
-  "location": "code/theory_of_computation/src/nondeterministic_finite_atomaton",
-  "files": [
-    "nfa.py"
-  ]
-}

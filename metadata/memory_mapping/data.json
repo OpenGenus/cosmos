@@ -1,6 +1,0 @@
-{
-  "location": "code/operating_system/src/memory_management/memory_mapping",
-  "files": [
-    "mapping.c"
-  ]
-}

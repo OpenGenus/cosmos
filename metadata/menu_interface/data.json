@@ -1,7 +1,0 @@
-{
-  "location": "code/data_structures/src/list/singly_linked_list/menu_interface",
-  "files": [
-    "link.h",
-    "singly_list.c"
-  ]
-}

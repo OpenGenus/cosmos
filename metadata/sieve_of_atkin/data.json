@@ -1,9 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/sieve_of_atkin",
-  "files": [
-    "sieve_of_atkin.c",
-    "sieve_of_atkin.cpp",
-    "sieve_of_atkin.java",
-    "sieve_of_atkin.py"
-  ]
-}

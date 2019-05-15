@@ -1,7 +1,0 @@
-{
-  "location": "code/divide_conquer/src/strassen_matrix_multiplication",
-  "files": [
-    "main.cpp",
-    "strassen.py"
-  ]
-}

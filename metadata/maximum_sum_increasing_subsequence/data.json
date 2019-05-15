@@ -1,7 +1,0 @@
-{
-  "location": "code/dynamic_programming/src/maximum_sum_increasing_subsequence",
-  "files": [
-    "maximum_sum_increasing_subsequence.c",
-    "README.md"
-  ]
-}

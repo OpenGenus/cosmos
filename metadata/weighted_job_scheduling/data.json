@@ -1,7 +1,0 @@
-{
-  "location": "code/dynamic_programming/src/weighted_job_scheduling",
-  "files": [
-    "README.md",
-    "weighted_job_scheduling.cpp"
-  ]
-}

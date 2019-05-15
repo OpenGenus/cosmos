@@ -1,9 +1,0 @@
-{
-  "location": "code/computational_geometry/src/area_of_polygon",
-  "files": [
-    "area_of_polygon.c",
-    "area_of_polygon.cpp",
-    "area_of_polygon.py",
-    "areaofpolygon.java"
-  ]
-}

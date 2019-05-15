@@ -1,7 +1,0 @@
-{
-  "location": "code/randomized_algorithms/src/randomized_quick_sort",
-  "files": [
-    "randomized_quicksort.cpp",
-    "randomized_quicksort.c"
-  ]
-}

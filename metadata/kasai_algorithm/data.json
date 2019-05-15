@@ -1,7 +1,0 @@
-{
-  "location": "code/string_algorithms/src/kasai_algorithm",
-  "files": [
-    "kasai_algorithm.cpp",
-    "README.md"
-  ]
-}

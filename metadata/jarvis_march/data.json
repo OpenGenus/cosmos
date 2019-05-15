@@ -1,9 +1,0 @@
-{
-  "location": "code/computational_geometry/src/jarvis_march",
-  "files": [
-    "jarvis_march.cpp",
-    "jarvis_march_alternative.cpp",
-    "jarvis_march.py",
-    "README.md"
-  ]
-}

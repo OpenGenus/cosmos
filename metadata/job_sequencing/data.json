@@ -1,8 +1,0 @@
-{
-  "location": "code/greedy_algorithms/src/job_sequencing",
-  "files": [
-    "job_sequencing.cpp",
-    "job_sequencing.py",
-    "README.md"
-  ]
-}

@@ -1,6 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/dinic_maximum_flow",
-  "files": [
-    "dinic_maximum_flow.cpp"
-  ]
-}

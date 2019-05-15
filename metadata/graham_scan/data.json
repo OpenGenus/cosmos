@@ -1,8 +1,0 @@
-{
-  "location": "code/computational_geometry/src/graham_scan",
-  "files": [
-    "grahamscan.java",
-    "graham_scan_alternative.cpp",
-    "graham_scan.cpp"
-  ]
-}

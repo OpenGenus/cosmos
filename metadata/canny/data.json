@@ -1,8 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/image_processing/canny",
-  "files": [
-    "canny.h",
-    "main.cpp",
-    "canny.cpp"
-  ]
-}

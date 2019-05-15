@@ -1,6 +1,0 @@
-{
-  "location": "code/cryptography/src/columnar_transposition_cipher",
-  "files": [
-    "columnar_transposition.cpp"
-  ]
-}

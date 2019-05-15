@@ -1,9 +1,0 @@
-{
-  "location": "code/data_structures/src/stack/sort_stack",
-  "files": [
-    "README.md",
-    "sort_stack.c",
-    "sort_stack.py",
-    "sort_stack.cpp"
-  ]
-}

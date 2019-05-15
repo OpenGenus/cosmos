@@ -1,7 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/maximum_bipartite_matching",
-  "files": [
-    "max_bipartite_matching.py",
-    "README.md"
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/traversal/preorder/right_view",
-  "files": [
-    "right_view.py",
-    "right_view2.cpp",
-    "right_view.cpp",
-    "README.md"
-  ]
-}

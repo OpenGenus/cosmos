@@ -1,7 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/fractals",
-  "files": [
-    "simple_julia.cpp",
-    "julia_miim.cpp"
-  ]
-}

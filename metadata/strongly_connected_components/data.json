@@ -1,8 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/strongly_connected_components",
-  "files": [
-    "strongly_connected_components.cpp",
-    "strongly_connected_components.py",
-    "README.md"
-  ]
-}

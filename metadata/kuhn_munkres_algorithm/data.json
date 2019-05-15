@@ -1,6 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/kuhn_munkres_algorithm",
-  "files": [
-    "kuhn_munkres_algorithm.cpp"
-  ]
-}

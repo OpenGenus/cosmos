@@ -1,7 +1,0 @@
-{
-  "location": "code/computational_geometry/src/sphere_tetrahedron_intersection",
-  "files": [
-    "luvector.hpp",
-    "sphere_tetrahedron_intersection.cpp"
-  ]
-}

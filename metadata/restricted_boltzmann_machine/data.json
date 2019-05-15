@@ -1,9 +1,0 @@
-{
-  "location": "code/artificial_intelligence/src/restricted_boltzmann_machine",
-  "files": [
-    "train.csv",
-    "test.csv",
-    "README.md",
-    "rbm.ipynb"
-  ]
-}

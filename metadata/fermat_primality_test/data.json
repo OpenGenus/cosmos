@@ -1,7 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/primality_tests/fermat_primality_test",
-  "files": [
-    "fermat_primality_test.py",
-    "fermat_primality_test.c"
-  ]
-}

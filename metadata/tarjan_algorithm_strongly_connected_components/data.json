@@ -1,7 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/tarjan_algorithm_strongly_connected_components",
-  "files": [
-    "README.md",
-    "tarjan_algorithm.c"
-  ]
-}

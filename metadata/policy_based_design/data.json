@@ -1,7 +1,0 @@
-{
-  "location": "code/design_pattern/src/policy_based_design",
-  "files": [
-    "readme.md",
-    "policy_design.cpp"
-  ]
-}

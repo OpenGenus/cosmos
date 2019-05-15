@@ -1,7 +1,0 @@
-{
-  "location": "code/online_challenges/src/rosalind/complement_dna_strand",
-  "files": [
-    "complement_dna.rs",
-    "complement_dna_strand.exs"
-  ]
-}

@@ -1,7 +1,0 @@
-{
-  "location": "code/graph_algorithms/src/hamiltonian_cycle",
-  "files": [
-    "hamiltonian_cycle.py",
-    "README.md"
-  ]
-}

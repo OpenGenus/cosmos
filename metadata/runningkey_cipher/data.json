@@ -1,7 +1,0 @@
-{
-  "location": "code/cryptography/src/runningkey_cipher",
-  "files": [
-    "runningkey.py",
-    "README.md"
-  ]
-}

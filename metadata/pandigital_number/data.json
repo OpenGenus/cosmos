@@ -1,8 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/pandigital_number",
-  "files": [
-    "pandigital_number.rb",
-    "pandigital_number.c",
-    "README.md"
-  ]
-}

@@ -1,7 +1,0 @@
-{
-  "location": "code/mathematical_algorithms/src/gaussian_elimination",
-  "files": [
-    "gaussian_elimination.java",
-    "gaussian_elimination.cpp"
-  ]
-}

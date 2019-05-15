@@ -1,9 +1,0 @@
-{
-  "location": "code/cryptography/src/atbash_cipher",
-  "files": [
-    "atbash_cipher.java",
-    "atbash_cipher.py",
-    "atbash_cipher.cpp",
-    "README.md"
-  ]
-}

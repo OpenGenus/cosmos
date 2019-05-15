@@ -1,7 +1,0 @@
-{
-  "location": "code/operating_system/src/concurrency/dining_philosophers",
-  "files": [
-    "dining_philosophers.c",
-    "README.md"
-  ]
-}
