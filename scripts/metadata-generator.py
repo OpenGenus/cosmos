@@ -1,6 +1,7 @@
 import json
 import pathlib
 import collections
+from datetime import datetime
 
 
 def first_layer_files(directory):
@@ -50,11 +51,14 @@ for path in pathlib.Path(__file__).parents[1].glob("code/**/**/*"):
 metadata = dict()
 for each in paths:
     x = each[-1].replace(" ", "_").rstrip()
-    metadata_path = "metadata/{}".format(x)
+    metadata["location"] = original_paths[x] + "/" + x
+    metadata_path = "scripts/metadata/{}".format(metadata["location"])
     pathlib.Path(metadata_path).mkdir(parents=True, exist_ok=True)
     filename = pathlib.Path("{}/data.json".format(metadata_path))
     filename.touch(exist_ok=True)
-    metadata["location"] = original_paths[x] + "/" + x
     metadata["files"] = first_layer_files(metadata["location"])
+    metadata["opengenus_discuss"] = ""
+    metadata["opengenus_iq"] = ""
+    metadata["updated"] = datetime.today().strftime("%H:%M:%S")
     json_dump = json.dumps(metadata, indent=2)
     filename.write_text(json_dump)
