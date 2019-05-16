@@ -1,6 +1,9 @@
 // Including Library
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <ctype.h>
+#include <string.h>
+#include <stack>
+
 
 /** Function to check if given character is
     an operator or not. **/
@@ -10,12 +13,12 @@ bool isOperator(char c) {
 
 /** Function to find priority of given
     operator.**/
-int getPriority(char C) {
-    if (C == '-' || C == '+')
+int getPriority(char c) {
+    if (c == '-' || c == '+')
         return 1;
-    else if (C == '*' || C == '/')
+    else if (c == '*' || c == '/')
         return 2;
-    else if (C == '^')
+    else if (c == '^')
         return 3;
     return 0;
 }
