@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/graph_algorithms/src/strongly_connected_components",
   "files": [
     "strongly_connected_components.cpp",
     "strongly_connected_components.py",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

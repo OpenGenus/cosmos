@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/cellular_automaton/src/genetic_algorithm",
   "files": [
     "genetic.cpp",
@@ -8,7 +10,5 @@
     "genetic_algorithm2.py",
     "genetic_algorithm.js"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

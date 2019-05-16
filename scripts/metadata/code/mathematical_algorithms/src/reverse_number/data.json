@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/reverse_number",
   "files": [
     "reverse_number.java",
@@ -15,7 +17,5 @@
     "reverse_number.js",
     "reverse_number_recursion.java"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/bit_manipulation/src/sum_equals_xor",
   "files": [
     "sum_equals_xor.py",
@@ -6,7 +8,5 @@
     "sum_equals_xor.cpp",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

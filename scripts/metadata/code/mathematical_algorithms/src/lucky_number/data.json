@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/lucky_number",
   "files": [
     "lucky_number.java",
     "README.md",
     "lucky_number.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

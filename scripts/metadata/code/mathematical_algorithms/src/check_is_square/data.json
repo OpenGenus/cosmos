@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/check_is_square",
   "files": [
     "check_is_square.cs",
@@ -14,7 +16,5 @@
     "check_is_square.js",
     "check_is_square.go"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

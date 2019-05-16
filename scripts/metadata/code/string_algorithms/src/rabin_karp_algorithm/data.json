@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/string_algorithms/src/rabin_karp_algorithm",
   "files": [
     "rabin_karp.c",
@@ -6,7 +8,5 @@
     "README.md",
     "rabin_karp.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

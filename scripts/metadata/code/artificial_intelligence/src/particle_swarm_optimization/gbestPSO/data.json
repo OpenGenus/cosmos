@@ -1,10 +1,10 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/artificial_intelligence/src/particle_swarm_optimization/gbestPSO",
   "files": [
     "Gbest3D.py",
     "Gbest2D.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

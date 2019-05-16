@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/log_of_factorial",
   "files": [
     "log_of_factorial.py",
@@ -6,7 +8,5 @@
     "log_of_factorial.c",
     "log_of_factorial.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

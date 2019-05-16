@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/artificial_intelligence/src/decision_tree",
   "files": [
     "decision_trees_information_gain.py",
     "decision_tree.py",
     "data_banknote_authentication.csv"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

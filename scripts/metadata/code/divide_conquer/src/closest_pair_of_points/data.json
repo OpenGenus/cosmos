@@ -1,10 +1,10 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/divide_conquer/src/closest_pair_of_points",
   "files": [
     "closest_pair.cpp",
     "closest_pair.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

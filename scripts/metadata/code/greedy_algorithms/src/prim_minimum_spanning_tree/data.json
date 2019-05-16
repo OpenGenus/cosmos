@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/greedy_algorithms/src/prim_minimum_spanning_tree",
   "files": [
     "prim_minimum_spanning_tree.cpp",
@@ -7,7 +9,5 @@
     "prim_minimum_spanning_tree.py",
     "prim_minimum_spanning_tree.hs"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

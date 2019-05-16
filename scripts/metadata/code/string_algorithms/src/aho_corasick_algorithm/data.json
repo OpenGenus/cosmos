@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/string_algorithms/src/aho_corasick_algorithm",
   "files": [
     "aho_corasick_algorithm2.cpp",
@@ -6,7 +8,5 @@
     "aho_corasick_algorithm.cpp",
     "aho_corasick_algorithm.java"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

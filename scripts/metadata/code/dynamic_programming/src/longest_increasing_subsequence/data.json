@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/longest_increasing_subsequence",
   "files": [
     "longest_increasing_subsequence.js",
@@ -10,7 +12,5 @@
     "longest_increasing_subsequence.java",
     "longest_increasing_subsequence.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

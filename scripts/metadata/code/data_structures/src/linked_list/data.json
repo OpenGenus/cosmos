@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/linked_list",
   "files": [
     "linked_list.java",
@@ -7,7 +9,5 @@
     "linked_list.c",
     "linked_list.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

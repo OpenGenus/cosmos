@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/tree/binary_tree/binary_tree/path_sum/sum_left",
   "files": [
     "README.md",
     "sum_left.c",
     "left_sum.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

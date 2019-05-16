@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/graph_algorithms/src/adjacency_lists_graph_representation/adjacency_lists_in_c",
   "files": [
     "lgraph_stack.h",
@@ -8,7 +10,5 @@
     "lgraph_stack.c",
     "README.MD"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

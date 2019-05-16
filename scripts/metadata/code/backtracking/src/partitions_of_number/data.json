@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/backtracking/src/partitions_of_number",
   "files": [
     "partitions_of_number.rs",
@@ -6,7 +8,5 @@
     "README.md",
     "partitions_of_number.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

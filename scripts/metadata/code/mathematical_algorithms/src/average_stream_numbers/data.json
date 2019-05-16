@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/average_stream_numbers",
   "files": [
     "average_stream_numbers.go",
@@ -7,7 +9,5 @@
     "average_stream_numbers.py",
     "average_stream_numbers.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

@@ -1,0 +1,10 @@
+{
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "location": "code/utility/test/palindrome/palindrome_check",
+  "files": [
+    "test_palindrome_check.cpp",
+    "README.md"
+  ],
+  "updated": "16-05-2019 23:26:52"
+}

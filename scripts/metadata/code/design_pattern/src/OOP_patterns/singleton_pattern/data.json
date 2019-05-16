@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/design_pattern/src/OOP_patterns/singleton_pattern",
   "files": [
     "singleton_pattern.java",
@@ -6,7 +8,5 @@
     "singleton_pattern.cpp",
     "singleton_pattern.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

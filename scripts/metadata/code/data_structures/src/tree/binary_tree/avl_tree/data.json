@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/tree/binary_tree/avl_tree",
   "files": [
     "avl_tree.cpp",
@@ -6,7 +8,5 @@
     "avl_tree.java",
     "avl_tree.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

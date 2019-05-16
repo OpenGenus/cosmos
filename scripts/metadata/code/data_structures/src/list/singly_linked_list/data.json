@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/list/singly_linked_list",
   "files": [
     "singly_linked_list_with_classes.cpp",
@@ -14,7 +16,5 @@
     "singly_linked_list.cs",
     "singly_linked_list.java"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

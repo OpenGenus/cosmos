@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/longest_palindromic_sequence",
   "files": [
     "longest_palindromic_sequence.js",
@@ -7,7 +9,5 @@
     "README.md",
     "longest_palindromic_sequence.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/no_consec_ones",
   "files": [
     "no_consec_ones.py",
     "no_consec_1.cpp",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

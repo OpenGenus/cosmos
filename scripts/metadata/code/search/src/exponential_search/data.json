@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/search/src/exponential_search",
   "files": [
     "exponential_search2.cpp",
@@ -13,7 +15,5 @@
     "exponential_search.go",
     "exponential_search.rb"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

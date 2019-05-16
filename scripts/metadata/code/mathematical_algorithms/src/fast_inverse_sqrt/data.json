@@ -1,10 +1,10 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/fast_inverse_sqrt",
   "files": [
     "fast_inverse_sqrt.py",
     "fast_inverse_sqrt.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

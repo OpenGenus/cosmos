@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/count_trailing_zeroes",
   "files": [
     "count_trailing_zeroes_factorial.cpp",
@@ -8,7 +10,5 @@
     "count_trailing_zeroes.scala",
     "count_trailing_zeroes_factorial.js"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

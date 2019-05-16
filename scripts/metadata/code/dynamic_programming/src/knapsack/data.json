@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/knapsack",
   "files": [
     "knapsack.go",
@@ -9,7 +11,5 @@
     "README.md",
     "knapsack.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

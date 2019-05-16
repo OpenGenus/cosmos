@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/divide_conquer/src/merge_sort_using_divide_and_conquer",
   "files": [
     "merge_sort_using_divide_and_conquer.cpp",
@@ -6,7 +8,5 @@
     "inversions.c",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/search/src/binary_search",
   "files": [
     "binary_search.rs",
@@ -21,7 +23,5 @@
     "binary_search_2.cpp",
     "binary_search.kt"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

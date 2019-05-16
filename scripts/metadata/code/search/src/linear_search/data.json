@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/search/src/linear_search",
   "files": [
     "linear_search.cpp",
@@ -22,7 +24,5 @@
     "linear_search.cs",
     "sentinellinearsearch.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

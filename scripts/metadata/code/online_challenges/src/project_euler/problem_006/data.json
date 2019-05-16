@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/online_challenges/src/project_euler/problem_006",
   "files": [
     "problem_006.cpp",
@@ -6,7 +8,5 @@
     "README.md",
     "problem_006.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

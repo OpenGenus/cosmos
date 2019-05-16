@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/egg_dropping_puzzle",
   "files": [
     "egg_dropping_puzzle.cpp",
@@ -8,7 +10,5 @@
     "README.md",
     "egg_dropping_puzzle.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

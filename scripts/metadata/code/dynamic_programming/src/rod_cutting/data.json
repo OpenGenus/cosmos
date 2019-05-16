@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/rod_cutting",
   "files": [
     "rod_cutting.hs",
@@ -8,7 +10,5 @@
     "rod_cutting.go",
     "rod_cutting.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

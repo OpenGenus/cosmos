@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/horner_polynomial_evaluation",
   "files": [
     "horner_polynomial_evaluation.cpp",
     "horner_polynomial_evaluation.java",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

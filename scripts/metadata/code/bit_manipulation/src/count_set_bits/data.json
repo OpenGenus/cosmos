@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/bit_manipulation/src/count_set_bits",
   "files": [
     "count_set_bits.cs",
@@ -10,7 +12,5 @@
     "count_set_bits.py",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

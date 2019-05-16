@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/dynamic_programming/src/matrix_chain_multiplication",
   "files": [
     "matrix_chain_multiplication.c",
@@ -7,7 +9,5 @@
     "README.md",
     "matrix_chain_multiplication.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

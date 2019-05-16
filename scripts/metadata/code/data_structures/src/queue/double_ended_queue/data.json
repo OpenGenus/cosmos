@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/queue/double_ended_queue",
   "files": [
     "deque_queue_library_function.cpp",
@@ -6,7 +8,5 @@
     "deque.c",
     "deque.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

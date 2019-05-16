@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/bit_manipulation/src/convert_number_binary",
   "files": [
     "convert_number_binary.cpp",
@@ -11,7 +13,5 @@
     "convert_number_binary.hs",
     "README.md"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

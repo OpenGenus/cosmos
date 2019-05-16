@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/sorting/src/shell_sort",
   "files": [
     "shell_sort.py",
@@ -13,7 +15,5 @@
     "README.md",
     "shell_sort.m"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

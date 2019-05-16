@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/computational_geometry/src/distance_between_points",
   "files": [
     "distance_between_points.py",
@@ -10,7 +12,5 @@
     "distance_between_points.rs",
     "distance_between_points.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

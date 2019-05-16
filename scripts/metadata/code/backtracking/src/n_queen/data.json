@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/backtracking/src/n_queen",
   "files": [
     "nqueen.go",
@@ -13,7 +15,5 @@
     "n_queen.c",
     "nqueen_bit.go"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

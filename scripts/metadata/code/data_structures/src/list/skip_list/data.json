@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/list/skip_list",
   "files": [
     "skip_list.cpp",
@@ -9,7 +11,5 @@
     "skiplist.rb",
     "skip_list.java"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

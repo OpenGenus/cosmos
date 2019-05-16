@@ -1,9 +1,9 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/theory_of_computation/src/nondeterministic_finite_atomaton",
   "files": [
     "nfa.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

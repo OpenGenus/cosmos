@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/bit_manipulation/src/hamming_distance",
   "files": [
     "hamming_distance.java",
@@ -9,7 +11,5 @@
     "hamming_distance2.py",
     "hamming_distance.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

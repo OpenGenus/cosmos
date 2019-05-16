@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/sorting/src/bogo_sort",
   "files": [
     "bogo_sort.java",
@@ -14,7 +16,5 @@
     "bogo_sort.rb",
     "bogo_sort.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

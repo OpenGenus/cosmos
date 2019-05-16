@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/string_algorithms/src/password_strength_checker",
   "files": [
     "pw_checker.js",
@@ -8,7 +10,5 @@
     "README.md",
     "pw_checker.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

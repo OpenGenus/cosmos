@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/randomized_algorithms/src/shuffle_an_array",
   "files": [
     "shuffle_an_array.rs",
@@ -11,7 +13,5 @@
     "shuffle_an_array.cpp",
     "shuffle_an_array.py"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

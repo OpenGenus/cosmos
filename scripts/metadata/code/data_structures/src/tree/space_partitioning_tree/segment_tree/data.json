@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/data_structures/src/tree/space_partitioning_tree/segment_tree",
   "files": [
     "lazy_segment_tree.java",
@@ -18,7 +20,5 @@
     "segment_tree_kth_statistics_on_segment.cpp",
     "segment_tree_sum.go"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

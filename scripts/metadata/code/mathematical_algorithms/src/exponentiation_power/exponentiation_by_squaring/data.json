@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/exponentiation_power/exponentiation_by_squaring",
   "files": [
     "exponentiation_by_squaring.py",
@@ -6,7 +8,5 @@
     "exponentiation_by_squaring.cpp",
     "exponentiation_by_squaring.c"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:52"
 }

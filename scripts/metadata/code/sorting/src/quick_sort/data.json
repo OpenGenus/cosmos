@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/sorting/src/quick_sort",
   "files": [
     "quick_sort_median_of_medians.c",
@@ -26,7 +28,5 @@
     "quick_sort.sh",
     "quick_sort.rs"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

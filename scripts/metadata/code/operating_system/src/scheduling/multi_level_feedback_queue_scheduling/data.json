@@ -1,9 +1,9 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/operating_system/src/scheduling/multi_level_feedback_queue_scheduling",
   "files": [
     "mlfq.ts"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }

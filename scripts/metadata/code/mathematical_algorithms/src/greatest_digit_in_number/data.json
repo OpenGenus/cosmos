@@ -1,4 +1,6 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/mathematical_algorithms/src/greatest_digit_in_number",
   "files": [
     "greatest_digit_in_number.cpp",
@@ -11,7 +13,5 @@
     "greatest_digit_in_number.py",
     "greatest_digit_in_number.cs"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:32"
+  "updated": "16-05-2019 23:26:53"
 }

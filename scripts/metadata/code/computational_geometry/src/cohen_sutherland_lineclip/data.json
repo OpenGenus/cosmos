@@ -1,11 +1,11 @@
 {
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
   "location": "code/computational_geometry/src/cohen_sutherland_lineclip",
   "files": [
     "lineclip.c",
     "README.md",
     "cohenSutherlandAlgorithm.cpp"
   ],
-  "opengenus_discuss": "",
-  "opengenus_iq": "",
-  "updated": "09:02:33"
+  "updated": "16-05-2019 23:26:53"
 }
