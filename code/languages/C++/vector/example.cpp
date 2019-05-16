@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 
-int main() {
+int main() 
+{
 
    // create a vector to store int
    vector<int> vec; 
