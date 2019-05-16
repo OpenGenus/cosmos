@@ -15,22 +15,23 @@ happens, the vector’s size is automatically increased to hold the new item.
 
 int main()
 {
-  vector<int> v;          //create a vector of ints
-  //put values at end of array
-  v.push_back(10);
-  v.push_back(11);
-  v.push_back(12);
-  v.push_back(13);
-  //replace with new values 
-  v[0] = 20;
-  v[3] = 23; 
+  	vector<int> v;          //create a vector of ints
+  	//put values at end of array
+  	v.push_back(10);
+  	v.push_back(11);
+  	v.push_back(12);
+  	v.push_back(13);
+  	//replace with new values 
+  	v[0] = 20;
+  	v[3] = 23; 
 
-  for(int j=0; j<v.size(); j++)     //display vector contents
-  {
-  std::cout << v[j] << ‘ ‘;        //20 11 12 23
-  std::cout << endl;
-  return 0;
-  }
+  	for(int j=0; j<v.size(); j++)     //display vector contents
+  	{
+    		std::cout << v[j] <<' ';        //20 11 12 23
+    		std::cout << endl;
+  	}
+
+   	return 0;
   
 }
 ```
@@ -61,19 +62,19 @@ Another member function, ```max_size()``` , returns the maximum size to which a 
 int main()
 {
   //an array of doubles
-  double arr[] = { 1.1, 2.2, 3.3, 4.4 };
-  vector<double> v1(arr, arr+4); //initialize vector to array
-  vector<double> v2(4);   //empty vector of size 4
+ 	double arr[] = { 1.1, 2.2, 3.3, 4.4 };
+  	vector<double> v1(arr, arr+4); //initialize vector to array
+  	vector<double> v2(4);   //empty vector of size 4
 
-  v1.swap(v2);       //swap contents of v1 and v2
+  	v1.swap(v2);       //swap contents of v1 and v2
 
-  while( !v2.empty() )
-  {                                   //until vector is empty,
-  std::cout << v2.back() << ‘ ‘;  //display the last element
-  v2.pop_back();                  //remove the last element
-  }
-  std::cout << endl;              //output: 4.4 3.3 2.2 1.1
-  return 0;
+  	while( !v2.empty() )
+  	{                                      //until vector is empty,
+  		std::cout << v2.back() << ‘ ‘;   //display the last element
+  		v2.pop_back();                   //remove the last element
+	}
+  	std::cout << endl;                     //output: 4.4 3.3 2.2 1.1
+ 	return 0;
 } 
 ```
 
