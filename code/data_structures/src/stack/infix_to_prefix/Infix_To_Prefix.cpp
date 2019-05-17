@@ -7,13 +7,15 @@
 
 /** Function to check if given character is
     an operator or not. **/
-bool isOperator(char c) {
+bool isOperator(char c)
+{
     return (!isalpha(c) && !isdigit(c));
 }
 
 /** Function to find priority of given
     operator.**/
-int getPriority(char c) {
+int getPriority(char c)
+{
     if (c == '-' || c == '+')
         return 1;
     else if (c == '*' || c == '/')
@@ -25,19 +27,21 @@ int getPriority(char c) {
 
 /** Function that converts infix
     expression to prefix expression. **/
-string infixToPrefix(string infix) {
+string infixToPrefix(string infix)
+{
     // stack for operators.
     stack<char> operators;
     // stack for operands.
     stack<string> operands;
 
-    for (int i = 0; i < infix.length(); i++) {
+    for (int i = 0; i < infix.length(); i++)
+    {
         /** If current character is an
         opening bracket, then
         push into the operators stack. **/
-        if (infix[i] == '(') {
+        if (infix[i] == '(')
             operators.push(infix[i]);
-        }
+
 
         /** If current character is a
             closing bracket, then pop from
@@ -45,8 +49,10 @@ string infixToPrefix(string infix) {
             in operands stack until
             matching opening bracket is
             not found. **/
-        else if (infix[i] == ')') {
-            while (!operators.empty() && operators.top() != '(') {
+        else if (infix[i] == ')')
+        {
+            while (!operators.empty() && operators.top() != '(')
+            {
                 // operand 1
                 string op1 = operands.top();
                 operands.pop();
@@ -70,9 +76,9 @@ string infixToPrefix(string infix) {
         /** If current character is an
             operand then push it into
             operands stack. **/
-        else if (!isOperator(infix[i])) {
+        else if (!isOperator(infix[i]))
             operands.push(string(1, infix[i]));
-        }
+
 
         /** If current character is an
             operator, then push it into
@@ -80,7 +86,8 @@ string infixToPrefix(string infix) {
             high priority operators from
             operators stack and pushing
             result in operands stack. **/
-        else {
+        else
+        {
             while (!operators.empty() && getPriority(infix[i]) <= getPriority(operators.top())) {
                 string op1 = operands.top();
                 operands.pop();
@@ -99,7 +106,8 @@ string infixToPrefix(string infix) {
         until it is empty and add result
         of each pop operation in
         operands stack. **/
-    while (!operators.empty()) {
+    while (!operators.empty())
+    {
         string op1 = operands.top();
         operands.pop();
 
