@@ -11,12 +11,16 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
 
  private static final long serialVersionUID = 1L;
  int width, height;
- int xa = 0, ya = 0, xb = 0, yb = 0, pixelsize = 2;
+ int xa = 0;
+ int ya = 0;
+ int xb = 0;
+ int yb = 0;
+ int pixelsize = 2;
 
 
  /**
-  * This method does initialization 
-  * @param no parameters used . 
+  * This method does initialization
+  * @param no parameters used .
   */
 
  public void init() {
@@ -26,12 +30,12 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
   this.addMouseMotionListener(this);
  }
 
- /** 
-  * This method is used to Draw Line. 
-  * @param xa first coordinate 
-  * @param ya first Coordinate 
-  * @param xb Second Coordinate 
-  * @param yb Second Coordinate 
+ /**
+  * This method is used to Draw Line.
+  * @param xa first coordinate
+  * @param ya first Coordinate
+  * @param xb Second Coordinate
+  * @param yb Second Coordinate
   * @return will not return anything .
   */
  public void bresenhamLineDraw(int xa, int ya, int xb, int yb) {
@@ -54,7 +58,7 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
   // line and x axis angle is less then 45 degrees, so x is guiding
   // auxiliary variables
   int x = xa, y = ya, sum = xb - xa, Dx = 2 * (xb - xa), Dy = Math.abs(2 * (yb - ya));
-  int prirastokDy = ((yb - ya) > 0) ? 1 : -1;
+  int delta_Dy = ((yb - ya) > 0) ? 1 : -1;
 
   // draw line
   for (int i = 0; i <= xb - xa; i++) {
@@ -62,26 +66,26 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
    x++;
    sum -= Dy;
    if (sum < 0) {
-    y = y + prirastokDy;
+    y += delta_Dy;
     sum += Dx;
    }
   }
  }
 
- /** 
-  * This method is used to Draw Steeper Line. 
-  * @param xc first coordinate 
-  * @param yc first Coordinate 
-  * @param xd Second Coordinate 
-  * @param yd Second Coordinate 
+ /**
+  * This method is used to Draw Steeper Line.
+  * @param xc first coordinate
+  * @param yc first Coordinate
+  * @param xd Second Coordinate
+  * @param yd Second Coordinate
   * @return will not return anything .
   */
 
  public void bresteepLine(int xc, int yc, int xd, int yd) {
 
-  /** if point xc, yc is on the right side 
-      of point xd yd, 
-      change them 
+  /** if point xc, yc is on the right side
+      of point xd yd,
+      change them
   **/
   if ((xc - xd) > 0) {
    bresteepLine(xd, yd, xc, yc);
@@ -89,23 +93,23 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
   }
 
   int x = xc, y = yc, sum = xd - xc, Dx = 2 * (xd - xc), Dy = Math.abs(2 * (yd - yc));
-  int prirastokDy = ((yd - yc) > 0) ? 1 : -1;
+  int delta_Dy = ((yd - yc) > 0) ? 1 : -1;
 
   for (int i = 0; i <= xd - xc; i++) {
    setPix(y, x);
    x++;
    sum -= Dy;
    if (sum < 0) {
-    y   += prirastokDy;
+    y   += delta_Dy;
     sum += Dx;
    }
   }
  }
 
- /** 
-  * This method is used to Set pixel for Line. 
-  * @param x first coordinate 
-  * @param y first Coordinate 
+ /**
+  * This method is used to Set pixel for Line.
+  * @param x first coordinate
+  * @param y first Coordinate
   * @return will not return anything .
   */
  public void setPix(int x, int y) {
@@ -114,9 +118,9 @@ public class bresenhamLine extends java.applet.Applet implements MouseListener, 
   g.fillRect(pixelsize * x, pixelsize * y, pixelsize, pixelsize);
  }
 
- /** 
-  * This method is used to paint the line on screen. 
-  * @param g of graphics library  
+ /**
+  * This method is used to paint the line on screen.
+  * @param g of graphics library
   * @return will not return anything .
   */
  public void paint(Graphics g) {
