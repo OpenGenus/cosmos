@@ -1,5 +1,7 @@
-def LongestCommonSubstring(string1, string2):
-
+def LongestCommonSubstring(
+    string1, 
+    string2
+):
     # longest string is string1 and the smallest string is string2
     if len(string2) > len(string1):
         temp = string2
@@ -16,11 +18,7 @@ def LongestCommonSubstring(string1, string2):
             temp.append(0)
         consqRow.append(temp)
 
-    curr, maxlength, end = (
-        0,
-        0,
-        0,
-    )  
+    curr, maxlength, end = (0, 0, 0)
     # length of longest common Substring in maxlength
     # ending point of longest common Substring
 
