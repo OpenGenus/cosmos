@@ -3,28 +3,30 @@
 
 int main() 
 {
-    unsigned long n, m, i, tmp;
-    
-    std::cin >> n;
+    unsigned long scr, tmp;
+    std::cin >> scr;
     
     std::stack<unsigned long> scores;
     
-    for (i = 0; i < n; ++i) {
+    for (int i = 0; i < scr; ++i) 
+    {
         std::cin >> tmp;
-        if (scores.empty() || scores.top() != tmp) 
+        if (scores.empty() || scores.top() != tmp)
             scores.push(tmp);
     }
-    
-    std::cin >> m;
 
-    for (i = 0; i < m; ++i) {
+    unsigned long scor;
+    
+    std::cin >> scor;
+
+    for (int i = 0; i < scor; ++i) 
+    {
         std::cin >> tmp;
         while (!scores.empty() && tmp >= scores.top()) 
             scores.pop();
         std::cout << (scores.size() + 1) << "\n";
     }
 
-    std::cout << "\n";
-
     return 0;
+
 }

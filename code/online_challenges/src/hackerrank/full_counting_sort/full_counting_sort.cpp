@@ -7,18 +7,17 @@ int main()
     
     std::cin >> n;
     
-    std::__cxx11::string ar[n];
+    std::string ar[n];
     
     for (long int i = 0; i < n/2; ++i)
     {
         int x;
         std::cin >> x;
         
-        std::__cxx11::string s;
+        std::string s;
         std::cin >> s;
         
-        ar[x] = ar[x] + "-" + " ";
-        
+        ar[x] = ar[x] + "-" + " ";  
     }
 
     for (long int i = n/2; i < n; ++i)
@@ -26,11 +25,10 @@ int main()
         int x;
         std::cin >> x;
         
-        std::__cxx11::string s;
+        std::string s;
         std::cin >> s;
 
-        ar[x] = ar[x] + s + " ";
-        
+        ar[x] = ar[x] + s + " ";  
     }
     
     
@@ -40,4 +38,5 @@ int main()
     std::cout << "\n";
 
     return 0;
+
 }
