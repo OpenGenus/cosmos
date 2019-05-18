@@ -1,7 +1,7 @@
 {
+  "location": "code/greedy_algorithms/src/fractional_knapsack",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/greedy_algorithms/src/fractional_knapsack",
   "files": [
     "fractional_knapsack.java",
     "fractional_knapsack.cpp",
@@ -11,5 +11,5 @@
     "README.md",
     "fractional_knapsack.go"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

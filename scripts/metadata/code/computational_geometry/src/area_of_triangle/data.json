@@ -1,7 +1,7 @@
 {
+  "location": "code/computational_geometry/src/area_of_triangle",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/computational_geometry/src/area_of_triangle",
   "files": [
     "area_of_triangle.go",
     "area_of_triangle.cpp",
@@ -11,5 +11,5 @@
     "area_of_triangle.py",
     "area_of_triangle.c"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

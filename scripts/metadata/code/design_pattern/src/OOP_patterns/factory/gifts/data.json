@@ -1,7 +1,7 @@
 {
+  "location": "code/design_pattern/src/OOP_patterns/factory/gifts",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/design_pattern/src/OOP_patterns/factory/gifts",
   "files": [
     "car.java",
     "toy.java",
@@ -9,5 +9,5 @@
     "booze.java",
     "nothing.java"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

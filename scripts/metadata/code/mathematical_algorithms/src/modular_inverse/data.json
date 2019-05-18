@@ -1,12 +1,12 @@
 {
+  "location": "code/mathematical_algorithms/src/modular_inverse",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/modular_inverse",
   "files": [
     "modular_inverse.rb",
     "modular_inverse.cpp",
     "modular_inverse.py",
     "modular_inverse.java"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

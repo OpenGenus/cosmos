@@ -1,7 +1,7 @@
 {
+  "location": "code/dynamic_programming/src/boolean_parenthesization",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/dynamic_programming/src/boolean_parenthesization",
   "files": [
     "boolean_parenthesization.py",
     "boolean_parenthesization.c",
@@ -10,5 +10,5 @@
     "README.md",
     "boolean_parenthesization.java"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:05"
 }

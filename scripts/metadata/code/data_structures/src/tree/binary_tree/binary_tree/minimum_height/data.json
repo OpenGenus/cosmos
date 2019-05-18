@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/minimum_height",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/tree/binary_tree/binary_tree/minimum_height",
   "files": [
     "minimum_height.c",
     "minimum_height.cpp",
@@ -9,5 +9,5 @@
     "minimum_height.java",
     "minimum_height.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,9 +1,9 @@
 {
+  "location": "code/square_root_decomposition/src/mos_algorithm",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/square_root_decomposition/src/mos_algorithm",
   "files": [
     "mos_algorithm.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:05"
 }

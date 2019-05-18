@@ -1,9 +1,9 @@
 {
+  "location": "code/graph_algorithms/src/bron_kerbosch_algorithm",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/graph_algorithms/src/bron_kerbosch_algorithm",
   "files": [
     "bron_kerbosch.java"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

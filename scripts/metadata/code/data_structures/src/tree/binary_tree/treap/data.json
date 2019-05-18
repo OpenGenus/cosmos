@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/tree/binary_tree/treap",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/tree/binary_tree/treap",
   "files": [
     "treap.cpp",
     "treap.java",
@@ -9,5 +9,5 @@
     "treap.scala",
     "persistent_treap.kt"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/euler_totient",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/euler_totient",
   "files": [
     "euler_totient_sieve.py",
     "euler_totient.c",
@@ -11,5 +11,5 @@
     "euler_totient.cpp",
     "README.md"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

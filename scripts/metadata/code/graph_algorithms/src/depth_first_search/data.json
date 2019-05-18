@@ -1,7 +1,7 @@
 {
+  "location": "code/graph_algorithms/src/depth_first_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/graph_algorithms/src/depth_first_search",
   "files": [
     "dfs.cpp",
     "dfs.kt",
@@ -12,5 +12,5 @@
     "README.md",
     "dfs.c"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

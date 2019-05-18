@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/russian_peasant_multiplication",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/russian_peasant_multiplication",
   "files": [
     "russian_peasant_multiplication.py",
     "russian_peasant_multiplication.cpp",
@@ -13,5 +13,5 @@
     "russian_peasant_multiplication.c",
     "russian_peasant_multiplication.go"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

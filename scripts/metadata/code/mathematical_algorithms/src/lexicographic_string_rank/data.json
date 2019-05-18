@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/lexicographic_string_rank",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/lexicographic_string_rank",
   "files": [
     "lexicographic_string_rank.c",
     "lexicographic_string_rank.cpp",
@@ -9,5 +9,5 @@
     "README.md",
     "lexicographic_string_rank.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/exponentiation_power",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/exponentiation_power",
   "files": [
     "exponentiation_power.c",
     "modulo_exponentation_power.cpp",
@@ -9,5 +9,5 @@
     "README.md",
     "exponentiation_power.java"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

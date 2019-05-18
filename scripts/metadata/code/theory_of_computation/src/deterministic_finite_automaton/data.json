@@ -1,9 +1,9 @@
 {
+  "location": "code/theory_of_computation/src/deterministic_finite_automaton",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/theory_of_computation/src/deterministic_finite_automaton",
   "files": [
     "dfa.py"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/stack/reverse_stack",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/stack/reverse_stack",
   "files": [
     "reverse_stack.swift",
     "reverse_stack.cs",
@@ -12,5 +12,5 @@
     "README.md",
     "reverse_stack.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

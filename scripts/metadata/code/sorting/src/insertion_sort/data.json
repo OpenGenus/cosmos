@@ -1,7 +1,7 @@
 {
+  "location": "code/sorting/src/insertion_sort",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/sorting/src/insertion_sort",
   "files": [
     "insertion_sort_extension.swift",
     "insertion_sort.hs",
@@ -23,5 +23,5 @@
     "insertion_sort.js",
     "insertion_sort.re"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

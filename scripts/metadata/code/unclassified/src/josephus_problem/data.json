@@ -1,7 +1,7 @@
 {
+  "location": "code/unclassified/src/josephus_problem",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/unclassified/src/josephus_problem",
   "files": [
     "josephus.go",
     "josephus.c",
@@ -9,5 +9,5 @@
     "README.md",
     "josephus.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/queue/reverse_queue",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/queue/reverse_queue",
   "files": [
     "reverse_queue.go",
     "reverse_queue.swift",
@@ -9,5 +9,5 @@
     "reverse_queue.cpp",
     "reverse_queue.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

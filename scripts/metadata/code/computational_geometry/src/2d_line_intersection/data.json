@@ -1,7 +1,7 @@
 {
+  "location": "code/computational_geometry/src/2d_line_intersection",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/computational_geometry/src/2d_line_intersection",
   "files": [
     "line.java",
     "line.cpp",
@@ -13,5 +13,5 @@
     "README.md",
     "line.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/smallest_digit_in_number",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/smallest_digit_in_number",
   "files": [
     "smallest_digit_in_number.rb",
     "smallest_digit_in_number.java",
@@ -13,5 +13,5 @@
     "smallest_digit_in_number.js",
     "smallest_digit_in_number.c"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

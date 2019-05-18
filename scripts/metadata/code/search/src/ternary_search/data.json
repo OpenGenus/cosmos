@@ -1,7 +1,7 @@
 {
+  "location": "code/search/src/ternary_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/search/src/ternary_search",
   "files": [
     "ternary_search.cpp",
     "ternary_search.php",
@@ -14,5 +14,5 @@
     "ternary_search.c",
     "ternary_search.go"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

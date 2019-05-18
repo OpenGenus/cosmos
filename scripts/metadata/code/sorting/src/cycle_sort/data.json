@@ -1,7 +1,7 @@
 {
+  "location": "code/sorting/src/cycle_sort",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/sorting/src/cycle_sort",
   "files": [
     "cycle_sort.py",
     "cycle_sort.go",
@@ -14,5 +14,5 @@
     "cycle_sort.cs",
     "cycle_sort.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:07"
 }

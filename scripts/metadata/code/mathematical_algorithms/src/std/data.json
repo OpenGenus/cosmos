@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/std",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/std",
   "files": [
     "std.c",
     "std.js",
@@ -9,5 +9,5 @@
     "std.go",
     "std.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

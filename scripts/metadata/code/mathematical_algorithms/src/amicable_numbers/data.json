@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/amicable_numbers",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/amicable_numbers",
   "files": [
     "amicable_numbers.go",
     "amicable_numbers.rb",
@@ -13,5 +13,5 @@
     "amicable_numbers.c",
     "amicable_numbers.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

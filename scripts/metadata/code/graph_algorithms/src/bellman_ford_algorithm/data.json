@@ -1,7 +1,7 @@
 {
+  "location": "code/graph_algorithms/src/bellman_ford_algorithm",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/graph_algorithms/src/bellman_ford_algorithm",
   "files": [
     "bellman_ford.cpp",
     "bellman_ford.c",
@@ -12,5 +12,5 @@
     "README.md",
     "bellman_ford_edge_list.java"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

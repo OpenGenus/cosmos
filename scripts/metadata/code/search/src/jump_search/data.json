@@ -1,7 +1,7 @@
 {
+  "location": "code/search/src/jump_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/search/src/jump_search",
   "files": [
     "jump_search.php",
     "jump_search.js",
@@ -14,5 +14,5 @@
     "jump_search.c",
     "jump_search.swift"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

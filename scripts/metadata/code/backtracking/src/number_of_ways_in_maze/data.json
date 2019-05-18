@@ -1,7 +1,7 @@
 {
+  "location": "code/backtracking/src/number_of_ways_in_maze",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/backtracking/src/number_of_ways_in_maze",
   "files": [
     "no_of_ways_in_maze.java",
     "noofwaysinmaze.c",
@@ -10,5 +10,5 @@
     "README.md",
     "no_of_ways_in_maze.go"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

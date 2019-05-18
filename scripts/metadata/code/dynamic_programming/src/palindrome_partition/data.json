@@ -1,11 +1,11 @@
 {
+  "location": "code/dynamic_programming/src/palindrome_partition",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/dynamic_programming/src/palindrome_partition",
   "files": [
     "palindrome_partition.js",
     "README.md",
     "palindrome_partition.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

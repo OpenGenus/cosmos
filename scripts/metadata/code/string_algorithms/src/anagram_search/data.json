@@ -1,7 +1,7 @@
 {
+  "location": "code/string_algorithms/src/anagram_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/string_algorithms/src/anagram_search",
   "files": [
     "anagram_search.swift",
     "anagram.scala",
@@ -15,5 +15,5 @@
     "README.md",
     "anagram_search.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

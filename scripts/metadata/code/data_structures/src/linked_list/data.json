@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/linked_list",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/linked_list",
   "files": [
     "linked_list.java",
     "linked_list.cpp",
@@ -9,5 +9,5 @@
     "linked_list.c",
     "linked_list.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

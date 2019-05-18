@@ -1,9 +1,9 @@
 {
+  "location": "code/game_theory/src/game_of_nim_win_loss_prediction",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/game_theory/src/game_of_nim_win_loss_prediction",
   "files": [
     "win_loss_prediction.py"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

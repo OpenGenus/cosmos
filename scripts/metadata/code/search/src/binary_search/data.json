@@ -1,7 +1,7 @@
 {
+  "location": "code/search/src/binary_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/search/src/binary_search",
   "files": [
     "binary_search.rs",
     "binary_search.scala",
@@ -23,5 +23,5 @@
     "binary_search_2.cpp",
     "binary_search.kt"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

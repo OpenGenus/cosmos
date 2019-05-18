@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/perfect_number",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/perfect_number",
   "files": [
     "perfect_number.rb",
     "perfect_number.hs",
@@ -16,5 +16,5 @@
     "README.md",
     "perfect_number_list.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

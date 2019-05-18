@@ -1,9 +1,9 @@
 {
+  "location": "code/artificial_intelligence/src/image_processing/prewittfilter",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/artificial_intelligence/src/image_processing/prewittfilter",
   "files": [
     "prewitt.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

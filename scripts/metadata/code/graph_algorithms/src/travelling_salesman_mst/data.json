@@ -1,12 +1,12 @@
 {
+  "location": "code/graph_algorithms/src/travelling_salesman_mst",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/graph_algorithms/src/travelling_salesman_mst",
   "files": [
     "travelling_salesman.cpp",
     "travelling_salesman.py",
     "travelling_salesman_dp.c",
     "README.md"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

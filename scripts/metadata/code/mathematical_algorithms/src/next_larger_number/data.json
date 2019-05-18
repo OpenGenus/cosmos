@@ -1,12 +1,12 @@
 {
+  "location": "code/mathematical_algorithms/src/next_larger_number",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/next_larger_number",
   "files": [
     "next_larger_number.cpp",
     "next_larger_number.php",
     "next_larger_number.py",
     "next_larger_number.java"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

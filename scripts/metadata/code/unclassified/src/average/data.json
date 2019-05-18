@@ -1,7 +1,7 @@
 {
+  "location": "code/unclassified/src/average",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/unclassified/src/average",
   "files": [
     "readme.md",
     "average.rb",
@@ -22,5 +22,5 @@
     "average.scala",
     "average.class"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

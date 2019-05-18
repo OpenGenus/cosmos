@@ -1,7 +1,7 @@
 {
+  "location": "code/search/src/interpolation_search",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/search/src/interpolation_search",
   "files": [
     "interpolation_search.go",
     "interpolation_search.php",
@@ -12,5 +12,5 @@
     "interpolation_search.py",
     "README.md"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/automorphic_numbers",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/automorphic_numbers",
   "files": [
     "automorphic_numbers.java",
     "automorphic_numbers.swift",
@@ -16,5 +16,5 @@
     "automorphic_numbers.cpp",
     "README.md"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

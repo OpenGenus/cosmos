@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/armstrong_numbers",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/armstrong_numbers",
   "files": [
     "armstrong_numbers.cpp",
     "armstrong_numbers.c",
@@ -14,5 +14,5 @@
     "armstrong_numbers.go",
     "armstrong_numbers.js"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

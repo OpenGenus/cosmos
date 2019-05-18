@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/coprime_numbers",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/coprime_numbers",
   "files": [
     "coprime_numbers.js",
     "coprime_numbers.cs",
@@ -13,5 +13,5 @@
     "coprime_numbers.c",
     "coprime_numbers.rs"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

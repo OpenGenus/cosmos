@@ -1,9 +1,9 @@
 {
+  "location": "code/graph_algorithms/src/hamiltonian_path",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/graph_algorithms/src/hamiltonian_path",
   "files": [
     "hamiltonian_path.cpp"
   ],
-  "updated": "16-05-2019 23:26:52"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/2sum",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/2sum",
   "files": [
     "2sum.cpp",
     "2sum.rb",
@@ -12,5 +12,5 @@
     "2sum.js",
     "2sum.go"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

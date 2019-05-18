@@ -1,7 +1,7 @@
 {
+  "location": "code/unclassified/src/spiral_print",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/unclassified/src/spiral_print",
   "files": [
     "spiral_print.c",
     "spiral_print.py",
@@ -9,5 +9,5 @@
     "README.md",
     "spiral_print.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

@@ -1,0 +1,15 @@
+{
+  "location": "code/data_structures/src/tree/multiway_tree/red_black_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "red_black_tree.java",
+    "red_black_tree.c",
+    "red_black_tree.scala",
+    "red_black_tree.test.cpp",
+    "red_black_tree.rb",
+    "red_black_tree.cpp",
+    "red_black_tree.h"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

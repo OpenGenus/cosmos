@@ -1,7 +1,7 @@
 {
+  "location": "code/bit_manipulation/src/magic_number",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/bit_manipulation/src/magic_number",
   "files": [
     "magic_number.java",
     "magic_number.py",
@@ -9,5 +9,5 @@
     "magic_number.c",
     "nth_magic_number.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

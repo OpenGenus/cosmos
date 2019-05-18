@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/babylonian_method",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/babylonian_method",
   "files": [
     "babylonian_method.c",
     "babylonian_method.go",
@@ -11,5 +11,5 @@
     "README.md",
     "babylonian_method.java"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

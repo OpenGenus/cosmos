@@ -1,7 +1,7 @@
 {
+  "location": "code/sorting/src/bead_sort",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/sorting/src/bead_sort",
   "files": [
     "bead_sort_numpy.py",
     "bead_sort.cpp",
@@ -15,5 +15,5 @@
     "bead_sort.py",
     "bead_sort.c"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

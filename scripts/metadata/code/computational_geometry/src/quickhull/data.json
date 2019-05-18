@@ -1,7 +1,7 @@
 {
+  "location": "code/computational_geometry/src/quickhull",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/computational_geometry/src/quickhull",
   "files": [
     "test_data_soln.txt",
     "quickhull_alternative.cpp",
@@ -12,5 +12,5 @@
     "README.md",
     "quickhull.hs"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

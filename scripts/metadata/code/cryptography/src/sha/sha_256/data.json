@@ -1,9 +1,9 @@
 {
+  "location": "code/cryptography/src/sha/sha_256",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/cryptography/src/sha/sha_256",
   "files": [
     "sha_256.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

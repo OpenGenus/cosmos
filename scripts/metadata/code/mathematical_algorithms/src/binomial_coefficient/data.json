@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/binomial_coefficient",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/binomial_coefficient",
   "files": [
     "binomial_coefficient.c",
     "binomial_coefficient.go",
@@ -10,5 +10,5 @@
     "binomial_coefficient.py",
     "README.md"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

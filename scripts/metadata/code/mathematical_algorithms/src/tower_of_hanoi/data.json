@@ -1,7 +1,7 @@
 {
+  "location": "code/mathematical_algorithms/src/tower_of_hanoi",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/mathematical_algorithms/src/tower_of_hanoi",
   "files": [
     "tower_of_hanoi_binary_solution.c",
     "tower_of_hanoi.hs",
@@ -17,5 +17,5 @@
     "tower_of_hanoi.c",
     "tower_of_hanoi.rs"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

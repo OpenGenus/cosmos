@@ -1,12 +1,12 @@
 {
+  "location": "code/unclassified/src/magic_square",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/unclassified/src/magic_square",
   "files": [
     "magic_square.php",
     "magic_square.c",
     "magic_square.swift",
     "magic_square.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

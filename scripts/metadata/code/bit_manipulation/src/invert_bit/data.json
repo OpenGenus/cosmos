@@ -1,12 +1,12 @@
 {
+  "location": "code/bit_manipulation/src/invert_bit",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/bit_manipulation/src/invert_bit",
   "files": [
     "invert_bit.c",
     "invert_bit.cpp",
     "invert_bit.js",
     "invert_bit.py"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

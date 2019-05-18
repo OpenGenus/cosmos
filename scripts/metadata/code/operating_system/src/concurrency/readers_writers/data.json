@@ -1,9 +1,9 @@
 {
+  "location": "code/operating_system/src/concurrency/readers_writers",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/operating_system/src/concurrency/readers_writers",
   "files": [
     "readers_writers.cpp"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }

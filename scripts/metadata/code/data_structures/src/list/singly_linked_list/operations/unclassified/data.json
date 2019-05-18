@@ -1,7 +1,7 @@
 {
+  "location": "code/data_structures/src/list/singly_linked_list/operations/unclassified",
   "opengenus_discuss": "",
   "opengenus_iq": "",
-  "location": "code/data_structures/src/list/singly_linked_list/operations/unclassified",
   "files": [
     "linkedlist.java",
     "linkedlisteg.java",
@@ -9,5 +9,5 @@
     "linked_list_operations.cpp",
     "union_intersection_in_list.textclipping"
   ],
-  "updated": "16-05-2019 23:26:53"
+  "updated": "18-05-2019 08:11:06"
 }
