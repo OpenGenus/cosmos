@@ -1,7 +1,7 @@
 // Header files included
-#include<iostream.h>
-#include<conio.h>
-#include<graphics.h>
+#include <iostream.h>
+#include <conio.h>
+#include <graphics.h>
 
 void main()
 {
@@ -10,7 +10,10 @@ void main()
         xmax, xmin, ymax & ymin are window's lower and upper corner coordinates
         xx1, yy1, xx2 & yy2 are the new coordinates of clipped line
      **/
-    int x1, y1, x2, y2, xmax, xmin, ymax, ymin, xx1, yy1, xx2, yy2, dx, dy, i;
+    int x1, y1, x2, y2;
+    int xmax, xmin, ymax, ymin;
+    int xx1, yy1, xx2, yy2;
+    int dx, dy, i;
     int p[4], q[4];
     float t1, t2, t[4];
 
