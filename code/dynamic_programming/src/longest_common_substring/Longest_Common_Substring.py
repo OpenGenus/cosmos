@@ -37,7 +37,7 @@ def LongestCommonSubstring(
         curr = 1 - curr  # changing the row alternatively
 
     if maxlength == 0:
-        return "-1"
+        return ""
     else:
         # string is from end-maxlength+1 to end as maxlength is the length of
         # the common substring.
@@ -45,15 +45,15 @@ def LongestCommonSubstring(
 
 
 def main():
-    string1 = "cosmos"
-    string2 = "OpenGenusmos"
+    string1 = input()
+    string2 = input()
 
     print("String1:", string1)
     print("String2:", string2)
 
     common = LongestCommonSubstring(string1, string2)
 
-    if common == "-1":
+    if common == "":
         print("No common SubString")
     else:
         print(

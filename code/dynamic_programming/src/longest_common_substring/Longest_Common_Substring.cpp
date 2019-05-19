@@ -11,7 +11,7 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
     if ( string2.size() > string1.size() ) 
     {
         temp = string1;
-        string1= string2;
+        string1 = string2;
         string2 = temp;
     }
 
@@ -21,7 +21,7 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
     int end; // ending point of longest common Substring
     int curr = 0; // current row in the matrix 
 
-    std::vector< std::vector<int> > consecutiveRows(2, std::vector<int> (n+1,0)); // store result of 2 consecutive rows
+    std::vector< std::vector<int> > consecutiveRows(2, std::vector<int> (n + 1, 0)); // store result of 2 consecutive rows
     
     // maintaing the array for consequtive two rows
     for (int i = 1; i <= m; i++) 
@@ -45,15 +45,15 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
     } 
 
     if (maxLength == 0) 
-        return "-1"; 
+        return ""; 
     else
     {
         std::string s = "";
 
         // string is from end-maxLength+1 to end as maxLength is the length of
         // the common substring.
-        for(int i=end-maxLength+1; i<=end; i++)
-            s+=string1[i];
+        for (int i = end - maxLength + 1; i <= end; i++)
+            s += string1[i];
     	
         return s; 
     }
@@ -62,13 +62,15 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
 int main()
 {
 
-    std::string string1 = "cosmos"; 
-    std::string string2 = "OpenGenusmos";
+    std::string string1;
+    std::string string2;
+    std::cin >> string1;
+    std::cin >> string2;
     std::cout << "String1: " << string1 << "\nString2: " << string2 << "\n";
 
     std::string lcsStr = LongestCommonSubstring(string1, string2);
 
-    if(lcsStr == "-1")
+    if(lcsStr == "")
         std::cout << "No common substring\n"; 
     else
         std::cout << "Longest Common Substring: " << lcsStr << " (of length: " << lcsStr.size() << ")\n";

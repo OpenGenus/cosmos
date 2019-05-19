@@ -1,12 +1,13 @@
 // Space Complexity: O(n)
 // Time Complexity: O(m*n) 
-  
+import java.util.*;
+
 public class Longest_Common_Substring { 
   
     static String LongestCommonSubstring(String str1, String str2) { 
         String temp;
         // longest string is str1 and the smallest string is str2
-        if(str2.length() > str1.length()){
+        if (str2.length() > str1.length()){
             temp = str1;
             str1 = str2;
             str2 = temp;
@@ -16,7 +17,7 @@ public class Longest_Common_Substring {
         int maxlength = 0; //length of longest common Substring 
         int end = 0; //ending point of longest common Substring
 
-        int consqRow[][] = new int[2][n+1]; //store result of 2 consecutive rows
+        int consqRow[][] = new int[2][n + 1]; //store result of 2 consecutive rows
         int curr = 0; //current row in the matrix 
 
         //maintaing the array for consequtive two rows
@@ -37,26 +38,28 @@ public class Longest_Common_Substring {
         } 
 
         if (maxlength == 0) { 
-            return "-1"; 
+            return ""; 
         } 
         else {
             String s = "";
             // string is from end-maxlength+1 to end as maxlength is the length of
             // the common substring.
-            for(int i=end-maxlength+1; i<=end; i++){
-                s+= str1.charAt(i);
+            for (int i = end - maxlength + 1; i <= end; i++) {
+                s += str1.charAt(i);
             }
             return s; 
         }
     } 
 
     public static void main(String args[]) { 
-        String string1 = "cosmos"; 
-        String string2 = "OpenGenusmos"; 
+
+        Scanner sc = new Scanner(System.in);
+        String string1 = sc.nextLine(); 
+        String string2 = sc.nextLine(); 
         // function call  
         String temp = LongestCommonSubstring(string1, string2);
         System.out.println("String1: " + string1 + "\nString2: " + string2 );
-        if(temp == "-1"){
+        if(temp == ""){
             System.out.println("No common Substring");
         }
         else
