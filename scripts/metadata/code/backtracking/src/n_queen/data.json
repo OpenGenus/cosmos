@@ -1,0 +1,19 @@
+{
+  "location": "code/backtracking/src/n_queen",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "nqueen.go",
+    "nqueen_bitimp.cpp",
+    "nqueen.hs",
+    "nqueen.py",
+    "nqueen_backtracking.rs",
+    "nqueen_backtracking.cpp",
+    "README.md",
+    "nqueen_bitset.cpp",
+    "nqueen.java",
+    "n_queen.c",
+    "nqueen_bit.go"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

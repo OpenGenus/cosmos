@@ -1,0 +1,28 @@
+{
+  "location": "code/string_algorithms/src/palindrome_checker",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "palindrome.purs",
+    "palindrome.cr",
+    "palindrome.clj",
+    "palindrome.cs",
+    "palindrome.java",
+    "palindrome.hs",
+    "palindrome.rs",
+    "palindrome.py",
+    "palindrome.c",
+    "palindrome.ex",
+    "palindrome.erl",
+    "palindrome.cpp",
+    "palindrome.lua",
+    "palindrome.sh",
+    "palindrome.rb",
+    "palindrome.kt",
+    "palindrome.php",
+    "palindrome.swift",
+    "palindrome.go",
+    "palindrome.js"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

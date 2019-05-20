@@ -1,0 +1,12 @@
+{
+  "location": "code/bit_manipulation/src/subset_generation",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "subsetgeneratorusingbit.cpp",
+    "subset_mask_generator.cpp",
+    "README.md",
+    "subsetsum.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

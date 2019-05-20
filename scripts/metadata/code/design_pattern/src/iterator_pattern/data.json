@@ -1,0 +1,13 @@
+{
+  "location": "code/design_pattern/src/iterator_pattern",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "iterator.java",
+    "main.java",
+    "student.java",
+    "class.java",
+    "classiterator.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

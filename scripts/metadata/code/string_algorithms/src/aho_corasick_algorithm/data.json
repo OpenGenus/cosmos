@@ -1,0 +1,12 @@
+{
+  "location": "code/string_algorithms/src/aho_corasick_algorithm",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "aho_corasick_algorithm2.cpp",
+    "README.md",
+    "aho_corasick_algorithm.cpp",
+    "aho_corasick_algorithm.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

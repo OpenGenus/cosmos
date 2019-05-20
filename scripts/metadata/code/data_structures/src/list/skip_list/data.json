@@ -1,0 +1,15 @@
+{
+  "location": "code/data_structures/src/list/skip_list",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "skip_list.cpp",
+    "skip_list.swift",
+    "skip_list.scala",
+    "README.md",
+    "skip_list.c",
+    "skiplist.rb",
+    "skip_list.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}
