@@ -42,7 +42,7 @@ void floodFill (int x, int y, int old, int newcol)
     }
 }
 
-void main()
+void main ()
 {
     int gd = DETECT, gm;
     int left, top, right, bottom;
