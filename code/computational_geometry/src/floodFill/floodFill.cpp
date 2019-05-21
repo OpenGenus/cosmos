@@ -6,12 +6,12 @@ void floodFill (int x, int y, int old, int newcol)
     int current;
 
     // To get color pixel
-    current = getpixel(x, y);
+    current = getpixel (x, y);
 
     // check current pixel is old_color or not
-    if(current == old)
+    if (current == old)
     {
-        delay(5);
+        delay (5);
 
 	    // put new pixel with new color
 	    putpixel (x, y, newcol);
@@ -42,7 +42,7 @@ void floodFill (int x, int y, int old, int newcol)
     }
 }
 
-void main()
+void main ()
 {
     int gd = DETECT, gm;
     int left, top, right, bottom;
