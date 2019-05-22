@@ -5,7 +5,7 @@ Computer desktop operating systems used nowadays include Windows, OS X and Linux
 ## Note:
 When we use pthread.h library in our program, program doesn't execute using simple (normal) compile command. After including pthread.h header file, program doesn't compile and return error(s).
 
-To compile C program with pthread.h library, you have to put -lpthread just after the compile command gcc thread.c, this command will tell to the compiler to execute program with pthread.h library.
+To compile C program with pthread.h library, you have to put -pthread just after the compile command gcc thread.c, this command will tell to the compiler to execute program with pthread.h library.
 
 
 ![Compiling code with pthread library](Imgs/RunningPthread.png)
