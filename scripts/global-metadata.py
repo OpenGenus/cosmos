@@ -20,7 +20,7 @@ avoid_extensions = [
 ]
 avoid_dirs = ["project", "test", "img", "image", "images"]
 
-global_metadata = collections.defaultdict(list)
+global_metadata = collections.defaultdict(dict)
 original_paths = collections.defaultdict(str)
 for path in pathlib.Path(__file__).parents[1].glob(
         "scripts/metadata/code/**/**/*"):
@@ -34,7 +34,7 @@ for algo in original_paths:
                                                      algo))
     with open(filename) as fh:
         existing_data = json.load(fh)
-    global_metadata[original_paths[algo]].append({algo: existing_data})
+    global_metadata[original_paths[algo].split('/')[-2]][algo] = existing_data
 
 filename = pathlib.Path("scripts/global_metadata.json")
 json_dump = json.dumps(global_metadata, indent=2)
