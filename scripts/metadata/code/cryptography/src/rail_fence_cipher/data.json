@@ -1,0 +1,11 @@
+{
+  "location": "code/cryptography/src/rail_fence_cipher",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "rail_fence.rb",
+    "rail_fence.py",
+    "rail_fence.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

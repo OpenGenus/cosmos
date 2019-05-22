@@ -1,0 +1,12 @@
+{
+  "location": "code/design_pattern/src/OOP_patterns/observer_pattern",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "observer_pattern.rs",
+    "observer_pattern.py",
+    "observer_pattern.cpp",
+    "__init__.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

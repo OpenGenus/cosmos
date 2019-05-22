@@ -1,0 +1,14 @@
+{
+  "location": "code/string_algorithms/src/password_strength_checker",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "pw_checker.js",
+    "pw_checker.cpp",
+    "pw_checker.java",
+    "pw_checker.cs",
+    "README.md",
+    "pw_checker.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

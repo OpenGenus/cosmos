@@ -1,0 +1,10 @@
+{
+  "location": "code/networking/src/validate_ip/validate_ip",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "validate_ipv6.c",
+    "validate_ipv4.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

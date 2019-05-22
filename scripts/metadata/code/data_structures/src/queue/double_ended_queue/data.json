@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/queue/double_ended_queue",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "deque_queue_library_function.cpp",
+    "deque.cpp",
+    "deque.c",
+    "deque.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

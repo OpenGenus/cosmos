@@ -1,0 +1,13 @@
+{
+  "location": "code/design_pattern/src/OOP_patterns/factory/gifts",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "car.java",
+    "toy.java",
+    "gift.java",
+    "booze.java",
+    "nothing.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}
