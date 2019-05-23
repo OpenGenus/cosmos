@@ -1,0 +1,18 @@
+{
+  "location": "code/mathematical_algorithms/src/catalan_number",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "catalan_number.js",
+    "catalan_number2.py",
+    "catalan_number.py",
+    "catalan_number_dynamic.cpp",
+    "catalan_number.scala",
+    "catalan_number.c",
+    "catalan_number.java",
+    "catalan_number.rb",
+    "README.md",
+    "catalan_number_recursive.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

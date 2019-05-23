@@ -1,0 +1,21 @@
+{
+  "location": "code/cryptography/src/morse_cipher",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "morse_code_generator.bf",
+    "morse_code.sh",
+    "morse_code_translator.cpp",
+    "morse_code_translator.lua",
+    "morse_code_translator.php",
+    "morse_code_translator.ts",
+    "morse_code_generator.c",
+    "morse_code_translator.js",
+    "README.md",
+    "morse_code_translator.py",
+    "morse_code_generator.cpp",
+    "morsecode.java",
+    "morse_code_generator.rb"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

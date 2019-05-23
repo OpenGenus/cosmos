@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/list/singly_linked_list/operations/delete",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "delete_node_with_key.java",
+    "delete_nth_node.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

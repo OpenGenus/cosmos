@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/list/singly_linked_list/operations/reverse",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "reverse.c",
+    "reverse.cpp",
+    "reverse_iteration.cpp",
+    "reverse_recursion2.cpp",
+    "reverse_recursion.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

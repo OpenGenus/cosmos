@@ -1,0 +1,14 @@
+{
+  "location": "code/dynamic_programming/src/longest_common_subsequence",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "longest_common_subsequence.py",
+    "longestcommonsubsequence.go",
+    "longestcommonsubsequencerec.java",
+    "README.md",
+    "longest_common_subsequence.cpp",
+    "longestcommonsubsequence.java"
+  ],
+  "updated": "18-05-2019 08:11:05"
+}
