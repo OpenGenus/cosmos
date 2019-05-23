@@ -31,7 +31,7 @@ std::string infixToPrefix(std::string infix)
     // stack for operators.
     std::stack<char> operators;
     // stack for operands.
-    std::stack<string> operands;
+    std::stack<std::string> operands;
 
     for (int i = 0; i < infix.length(); i++)
     {
@@ -76,7 +76,7 @@ std::string infixToPrefix(std::string infix)
             operand then push it into
             operands stack. **/
         else if (!isOperator(infix[i]))
-            operands.push(string(1, infix[i]));
+            operands.push(std::string(1, infix[i]));
 
 
         /** If current character is an
