@@ -1,5 +1,5 @@
 # python3
-# Python Program for union-find algorithm to detect cycle in a undirected graph
+# Python Program for union-find algorithm to detect cycle in an undirected graph
 
 import sys
 from collections import defaultdict
@@ -76,17 +76,18 @@ class Graph:
                 union(parent, rank, x, y)
 
 
-input_data = sys.stdin.read()
-data = list(map(int, input_data.split()))
-_vertices, edges = data[0:2]
-data = data[2:]
-g = Graph(_vertices)
-for i in range(edges):
-    _u, _v = data[0:2]
+if __name__ == "__main__":
+    input_data = sys.stdin.read()
+    data = list(map(int, input_data.split()))
+    _vertices, edges = data[0:2]
     data = data[2:]
-    g.add_edge(_u, _v)
+    g = Graph(_vertices)
+    for i in range(edges):
+        _u, _v = data[0:2]
+        data = data[2:]
+        g.add_edge(_u, _v)
 
-if g.is_cyclic():
-    print("Graph contains cycle")
-else:
-    print("Graph does not contain cycle")
+    if g.is_cyclic():
+        print("Graph contains cycle")
+    else:
+        print("Graph does not contain cycle")
