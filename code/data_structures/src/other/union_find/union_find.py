@@ -6,9 +6,9 @@ from collections import defaultdict
 
 
 # this function initializes all single element sets
-def makeset(n):
-    parent = [None] * n
-    rank = [None] * n
+def make_set(n):
+    parent = [0] * n
+    rank = [0] * n
     for i in range(n):
         parent[i] = i
         rank[i] = 0
@@ -16,34 +16,34 @@ def makeset(n):
 
 
 # A function to find the ID of an element i
-def find(parent, i):
-    if parent[i] != i:
+def find(parent, _i):
+    if parent[_i] != _i:
         # path compression
-        parent[i] = find(parent, parent[i])
-    return parent[i]
+        parent[_i] = find(parent, parent[_i])
+    return parent[_i]
 
 
 # A function to do union of two subsets by rank
 def union(parent, rank, x, y):
-    xRoot = find(parent, x)
-    yRoot = find(parent, y)
+    x_root = find(parent, x)
+    y_root = find(parent, y)
 
     # if both element in same sets
-    if xRoot == yRoot:
+    if x_root == y_root:
         return
 
     # both elements not in the same sets, merge them
     # if rank of elements are different
-    if rank[xRoot] < rank[yRoot]:
-        # merge xRoot into yRoot
-        parent[xRoot] = yRoot
+    if rank[x_root] < rank[y_root]:
+        # merge x_root into y_root
+        parent[x_root] = y_root
     else:
-        # merge yRoot into xRoot
-        parent[yRoot] = xRoot
+        # merge y_root into x_root
+        parent[y_root] = x_root
 
         # if both elements have equal rank
-    if rank[xRoot] == rank[yRoot]:
-        rank[xRoot] += 1
+    if rank[x_root] == rank[y_root]:
+        rank[x_root] += 1
 
 
 # This class represents a undirected graph using adjacency list representation
@@ -53,40 +53,40 @@ class Graph:
         self.graph = defaultdict(list)  # default dictionary to store graph
 
     # function to add an edge to graph
-    def addEdge(self, u, v):
+    def add_edge(self, u, v):
         self.graph[u].append(v)
 
     # The main function to check whether a given graph
     # contains cycle or not
-    def isCyclic(self):
+    def is_cyclic(self):
 
         # Allocate memory for creating V subsets and
         # Initialize all subsets as single element sets
-        parent, rank = makeset(self.V)
+        parent, rank = make_set(self.V)
 
         # Iterate through all edges of graph, find subset of both
         # vertices of every edge, if both subsets are same, then
         # there is cycle in graph.
-        for i in self.graph:
-            for j in self.graph[i]:
-                x = find(parent, i)
+        for _i in self.graph:
+            for j in self.graph[_i]:
+                x = find(parent, _i)
                 y = find(parent, j)
                 if x == y:
                     return True
                 union(parent, rank, x, y)
 
 
-input = sys.stdin.read()
-data = list(map(int, input.split()))
-vertices, edges = data[0:2]
+input_data = sys.stdin.read()
+data = list(map(int, input_data.split()))
+_vertices, edges = data[0:2]
 data = data[2:]
-g = Graph(vertices)
+g = Graph(_vertices)
 for i in range(edges):
-    u, v = data[0:2]
+    _u, _v = data[0:2]
     data = data[2:]
-    g.addEdge(u, v)
+    g.add_edge(_u, _v)
 
-if g.isCyclic():
+if g.is_cyclic():
     print("Graph contains cycle")
 else:
     print("Graph does not contain cycle")
