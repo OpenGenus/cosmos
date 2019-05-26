@@ -4,7 +4,6 @@
 #include <string.h>
 #include <stack>
 
-
 /** Function to check if given character is
     an operator or not. **/
 bool isOperator(char c)
@@ -27,12 +26,12 @@ int getPriority(char c)
 
 /** Function that converts infix
     expression to prefix expression. **/
-string infixToPrefix(string infix)
+std::string infixToPrefix(std::string infix)
 {
     // stack for operators.
-    stack<char> operators;
+    std::stack<char> operators;
     // stack for operands.
-    stack<string> operands;
+    std::stack<std::string> operands;
 
     for (int i = 0; i < infix.length(); i++)
     {
@@ -54,10 +53,10 @@ string infixToPrefix(string infix)
             while (!operators.empty() && operators.top() != '(')
             {
                 // operand 1
-                string op1 = operands.top();
+                std::string op1 = operands.top();
                 operands.pop();
                 // operand 2
-                string op2 = operands.top();
+                std::string op2 = operands.top();
                 operands.pop();
                 // operator
                 char op = operators.top();
@@ -65,7 +64,7 @@ string infixToPrefix(string infix)
                 /** Add operands and operator
                    in form operator +
                    operand1 + operand2. **/
-                string tmp = op + op2 + op1;
+                std::string tmp = op + op2 + op1;
                 operands.push(tmp);
             }
 
@@ -77,7 +76,7 @@ string infixToPrefix(string infix)
             operand then push it into
             operands stack. **/
         else if (!isOperator(infix[i]))
-            operands.push(string(1, infix[i]));
+            operands.push(std::string(1, infix[i]));
 
 
         /** If current character is an
@@ -89,13 +88,13 @@ string infixToPrefix(string infix)
         else
         {
             while (!operators.empty() && getPriority(infix[i]) <= getPriority(operators.top())) {
-                string op1 = operands.top();
+                std::string op1 = operands.top();
                 operands.pop();
-                string op2 = operands.top();
+                std::string op2 = operands.top();
                 operands.pop();
                 char op = operators.top();
                 operators.pop();
-                string tmp = op + op2 + op1;
+                std::string tmp = op + op2 + op1;
                 operands.push(tmp);
             }
             operators.push(infix[i]);
@@ -108,16 +107,16 @@ string infixToPrefix(string infix)
         operands stack. **/
     while (!operators.empty())
     {
-        string op1 = operands.top();
+        std::string op1 = operands.top();
         operands.pop();
 
-        string op2 = operands.top();
+        std::string op2 = operands.top();
         operands.pop();
 
         char op = operators.top();
         operators.pop();
 
-        string tmp = op + op2 + op1;
+        std::string tmp = op + op2 + op1;
         operands.push(tmp);
     }
 
@@ -129,9 +128,9 @@ string infixToPrefix(string infix)
 // Driver code
 int main()
 {
-    string s;
-    cin >> s;
-    cout << infixToPrefix(s);
+    std::string s;
+    std::cin >> s;
+    std::cout << infixToPrefix(s);
     return 0;
 }
 
