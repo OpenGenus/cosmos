@@ -61,9 +61,9 @@ int main()
     initgraph(&gd, &gm, "C:\\TC\\BGI");
 
     int a,b,c1,c2;
-    cout << "Enter a" << endl;
+    cout << "Enter value of major axis" << endl;
     cin >> a;
-    cout << "Enter b" << endl;
+    cout << "Enter value of minor axis" << endl;
     cin >> b;
 
     c1 = 300;
