@@ -8,8 +8,8 @@ using namespace std;
 
 void putPixel(int x, int y)
 {
-    putpixel((x+300), (240-y), 15);
-    putpixel((x+300), (240+y), 15);
+    putpixel((x + 300), (240 - y), 15);
+    putpixel((x + 300), (240 + y), 15);
 }
 
 void para(int cx, int cy, double a)
