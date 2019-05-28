@@ -22,4 +22,25 @@ The system calls for establishing a connection are somewhat different for the cl
     5. Send and receive data 
 
 
+
+### Running the server side program
+
+```sh
+$ gcc server.c -o server
+$ ./server 8080
+```
+
+### Running the client side program
+
+```sh
+$ gcc client.c -o client
+$ ./client 127.0.0.1 8080
+```
+
+
 [Click here for more and detailed information about Socket Programming](http://www.cs.rpi.edu/~moorthy/Courses/os98/Pgms/socket.html)
+
+
+
+
+
