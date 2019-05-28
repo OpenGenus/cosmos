@@ -1,7 +1,5 @@
 #include <iostream>
 #include <graphics.h>
-#include <conio.h>
-#include <dos.h>
 #include <math.h>
 
 using namespace std;
@@ -14,13 +12,13 @@ void putPixel(int x, int y)
 
 void para(int cx, int cy, double a)
 {
+    // Centre has been shifted to (300, 240)
     setcolor(BLUE);
     line(300, 0, 300, 479);
     setcolor(RED);
     line(0, 240, 639, 240);
 
-    // initial coorodinates
-    double x = 0, y = 0;  
+    double x = 0, y = 0;
     double d1;
     d1 = 2 * a - 1;
 
@@ -29,7 +27,7 @@ void para(int cx, int cy, double a)
 
     while (y <= (2 * a * 1.0))
     {
-        if (d1 < 0) 
+        if (d1 < 0)
 	{
             d1 += (4 * a) - 3 - (2 * y);
             x++;
@@ -74,7 +72,8 @@ int main()
     initgraph(&gd, &gm, "");
 
     double a;
-    cout << "Enter a :";
+    // a is the distance from focus to the vertex of the parabola
+    cout << "Enter the distance from focus to the vertex of the parabola:" << endl;
     cin >> a;
     para(0, 0, a);
 
