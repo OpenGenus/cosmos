@@ -1,5 +1,5 @@
 ## Friend Function
-
+## [Article explaining friend function in C++ at OpenGenus IQ](https://iq.opengenus.org/friend-function-cpp/)
 A friend function of a class is defined outside the scope of that class but it has the right to access all private and protected members of the class. Even though the prototypes for friend functions appear in the class definition, friends are not member functions.
 A friend can be a function, function template, or member function, or a class or class template, in which case the entire class and all of its members are friends.
 
