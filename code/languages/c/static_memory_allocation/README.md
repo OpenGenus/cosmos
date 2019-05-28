@@ -1,3 +1,5 @@
+## [Article explaining Tuple in Python at OpenGenus IQ](https://iq.opengenus.org/static-memory-allocation-c/)
+
 ## Static Memory Allocatiom
 It is allocated at compile time, and the lifetime of a variable in static memory is the lifetime of the program.
 
