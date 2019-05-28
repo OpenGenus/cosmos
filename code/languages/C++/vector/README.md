@@ -1,4 +1,5 @@
 # Vector 
+## [Article explaining vector in C++ at OpenGenus IQ](https://iq.opengenus.org/vector-cpp/)
 We can think of **vectors** as smart arrays. They manage storage allocation for us, expanding
 and contracting the size of the vector as we insert or erase data. We can use vectors much like
 arrays, accessing elements with the [] operator. Such random access is very fast with vectors.
