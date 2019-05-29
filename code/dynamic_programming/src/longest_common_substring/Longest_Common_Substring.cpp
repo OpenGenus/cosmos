@@ -39,7 +39,6 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
             } 
             else
                 consecutiveRows[curr][j] = 0; 
-            
         } 
         curr = 1 - curr; // changing the row alternatively
     } 
@@ -49,7 +48,6 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
     else
     {
         std::string s = "";
-
         // string is from end-maxLength+1 to end as maxLength is the length of
         // the common substring.
         for (int i = end - maxLength + 1; i <= end; i++)
@@ -61,7 +59,6 @@ std::string LongestCommonSubstring(std::string string1, std::string string2)
 
 int main()
 {
-
     std::string string1;
     std::string string2;
     std::cin >> string1;
