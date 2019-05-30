@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 
-int main() 
+int
+main() 
 {
   int sum = 0, i = 1; /*initialization of counter variable i*/
   do {
