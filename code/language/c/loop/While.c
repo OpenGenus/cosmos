@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 
-int main()
+int
+main()
 {
   int n = 1, times = 5; /*local variable initialization*/
   while (n <= times) /*while loops execution*/
