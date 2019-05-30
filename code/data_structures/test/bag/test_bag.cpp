@@ -2,7 +2,10 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <iostream>
 
+using std::cout;
+using std::endl;
 using std::string;
 using std::vector;
 
@@ -22,19 +25,11 @@ public:
 	string remove();
 };
 
-/******************************************************************************
- * 								Bag::Bag()
- * This is the constructor for Bag. It initializes the size variable.
- ******************************************************************************/
 Bag::Bag()
 {
 	bagSize = 0;
 }
 
-/******************************************************************************
- * 								Bag::add
- * This function adds an item to the bag.
- ******************************************************************************/
 void Bag::add(string item)
 {
 	//Store item in last element of vector
@@ -43,11 +38,6 @@ void Bag::add(string item)
 	bagSize++;
 }
 
-/******************************************************************************
- * 								Bag::isEmpty
- * This function returns true if the bag is empty and returns false if the 
- * bag is not empty
- ******************************************************************************/
 bool Bag::isEmpty(){
 	//True
 	if(bagSize == 0){
@@ -59,19 +49,10 @@ bool Bag::isEmpty(){
 	}
 }
 
-/******************************************************************************
- * 								Bag::size
- * This function returns the current number of items in the bag
- ******************************************************************************/
 int Bag::sizeOfBag(){
 	return bagSize;
 }
 
-/******************************************************************************
- * 								Bag::remove
- * This function removes a random item from the bag and returns which item was
- * removed from the bag
- ******************************************************************************/
 string Bag::remove(){
 	//Get random item
 	int randIndx = rand() % bagSize;
@@ -82,14 +63,6 @@ string Bag::remove(){
 	//Return removed item
 	return removed;
 }
-/******************************************************************************
- * 								Main
- * Testing Bag data structure
- ******************************************************************************/
-#include <iostream>
-
-using std::cout;
-using std::endl;
 
 int main()
 {
