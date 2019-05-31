@@ -3,7 +3,8 @@
 #include <conio.h>
 #include <graphics.h>
 
-void main()
+void
+main()
 {
     int gd = DETECT, gm;
     /** x1, x2, y1 & y2 are line coordinates
@@ -55,13 +56,11 @@ void main()
     for (i=0; i < 4; i++)
     {
 
-        if (p[i] != 0)
-        {
+        if (p[i] != 0) {
             t[i] = (float) q[i] / p[i];
         }
 
-        else
-        {
+        else {
             if (p[i] == 0 && q[i] < 0)
                 printf ("line completely outside the window");
 
@@ -83,8 +82,7 @@ void main()
     else
         t2 = t[3];
 
-    if (t1 < t2)
-    {
+    if (t1 < t2) {
         xx1 = x1 + t1 * dx;
         xx2 = x1 + t2 * dx;
         yy1 = y1 + t1 * dy;
