@@ -1,4 +1,4 @@
-// Header files included
+/* Header files included */
 #include <stdio.h>
 #include <conio.h>
 #include <graphics.h>
@@ -19,17 +19,17 @@ main()
     float t1, t2, t[4];
 
     initgraph (& gd, & gm, "C:\\TC\\BGI");
-    // Enter the coordinates for window
+    /* Enter the coordinates for window*/
     printf ("Enter the lower co-ordinates of window");
     scanf ("%d", &xmin, &ymin);
     printf ("Enter the upper co-ordinates of window");
     scanf ("%d", &xmax, &ymax);
 
-    // Graphics function to draw rectangle/clipping window
+    /* Graphics function to draw rectangle/clipping window */
     setcolor (RED);
     rectangle (xmin, ymin, xmax, ymax);
 
-    // Enter the coordinates of line
+    /* Enter the coordinates of line */
     printf ("Enter x1:");
     scanf("%d", &x1);
     printf("Enter y1:");
@@ -39,7 +39,7 @@ main()
     printf("Enter y2:");
     scanf("%d", &y2);
 
-    // Graphics Function to draw line
+    /* Graphics Function to draw line */
     line (x1, y1, x2, y2);
 
     dx = x2 - x1;
@@ -88,7 +88,7 @@ main()
         yy1 = y1 + t1 * dy;
         yy2 = y1 + t2 * dy;
 
-        // Draw the clipped line
+        /* Draw the clipped line */
         printf ("line after clipping:");
         setcolor (WHITE);
         line (xx1, yy1, xx2, yy2);
@@ -102,4 +102,4 @@ main()
 }
 
 
-//Sample output --> https://ibb.co/Y0cRztj
+/* Sample output --> https://ibb.co/Y0cRztj */
