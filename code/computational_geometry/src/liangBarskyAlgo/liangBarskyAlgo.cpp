@@ -6,10 +6,11 @@
 int main()
 {
     int gd = DETECT, gm;
-    /** x1, x2, y1 & y2 are line coordinates
-        xmax, xmin, ymax & ymin are window's lower and upper corner coordinates
-        xx1, yy1, xx2 & yy2 are the new coordinates of clipped line
-     **/
+    /* 
+     * x1, x2, y1 & y2 are line coordinates
+     * xmax, xmin, ymax & ymin are window's lower and upper corner coordinates
+     * xx1, yy1, xx2 & yy2 are the new coordinates of clipped line
+     */
     int x1, y1, x2, y2;
     int xmax, xmin, ymax, ymin;
     int xx1, yy1, xx2, yy2;
@@ -99,6 +100,3 @@ int main()
     getch();
     return (0);
 }
-
-
-//Sample output --> https://ibb.co/Y0cRztj
