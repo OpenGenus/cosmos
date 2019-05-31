@@ -7,7 +7,8 @@ int
 main()
 {
     int gd = DETECT, gm;
-    /* x1, x2, y1 & y2 are line coordinates
+    /* 
+     * x1, x2, y1 & y2 are line coordinates
      * xmax, xmin, ymax & ymin are window's lower and upper corner coordinates
      * xx1, yy1, xx2 & yy2 are the new coordinates of clipped line
      */
