@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <graphics.h>
 
-void main()
+int main()
 {
     int gd = DETECT, gm;
     /** x1, x2, y1 & y2 are line coordinates
@@ -97,6 +97,7 @@ void main()
         cout << "line lies out of the window";
 
     getch();
+    return (0);
 }
 
 
