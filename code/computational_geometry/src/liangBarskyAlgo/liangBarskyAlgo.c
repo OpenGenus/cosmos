@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <graphics.h>
 
-void
+int
 main()
 {
     int gd = DETECT, gm;
@@ -98,6 +98,7 @@ main()
         printf ("line lies out of the window");
 
     getch();
+    return (0);
 }
 
 
