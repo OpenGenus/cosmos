@@ -61,7 +61,9 @@ int main()
 {
     std::string string1;
     std::string string2;
+    std::cout << "Enter String1: ";
     std::cin >> string1;
+    std::cout << "Enter String2: ";
     std::cin >> string2;
     std::cout << "String1: " << string1 << "\nString2: " << string2 << "\n";
 
