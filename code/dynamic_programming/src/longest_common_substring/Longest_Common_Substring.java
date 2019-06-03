@@ -54,7 +54,9 @@ public class Longest_Common_Substring {
     public static void main(String args[]) { 
 
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter String1: ");
         String string1 = sc.nextLine(); 
+        System.out.print("Enter String2: ");
         String string2 = sc.nextLine(); 
         // function call  
         String temp = LongestCommonSubstring(string1, string2);
