@@ -45,9 +45,11 @@ def LongestCommonSubstring(
 
 
 def main():
+    print("Enter String1: ")
     string1 = input()
+    print("Enter String2: ")
     string2 = input()
-
+    
     print("String1:", string1)
     print("String2:", string2)
 
@@ -63,7 +65,6 @@ def main():
             len(common),
             ")",
         )
-
 
 if __name__ == "__main__":
     main()
