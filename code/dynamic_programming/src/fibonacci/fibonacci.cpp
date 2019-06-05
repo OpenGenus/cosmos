@@ -1,42 +1,47 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-#include <string>
+#include <stdlib.h>
 #include <sstream>
 #include <iostream>
+#include <vector>
 
-using namespace std;
+int get_fib(int num);
 
-int dynamic_programming(int num);
+int main()
+{
+    using namespace std;
+  
+    int number;
 
-int main(){
+    cout << "Enter the value of n: ";
+    cin >> number;
+  
+    if(number > 46 || number < 0)
+    {
+        cout << "Must enter an integer between 0 and 46\n";
+        exit(0);
+    }
+    
+    int n_fib = get_fib(number);
 
-  int number;
+    cout << "Fibonacci number is: " << n_fib << endl;
 
-  cout << "Please enter an integer: ";
-  cin >> number;
-
-  int dyn_prog = dynamic_programming(number);
-
-  cout << "Fibonacci number is: " << dyn_prog << endl;
-
-  return 0;
+    return 0;
 }
 
-int dynamic_programming(int num){
+int get_fib(int num)
+{
+    using namespace std;
+    
+    vector<int> fibnum(num+1);
 
-  int fibarray[num+1];
+    //Fibonacci first two number are always 0 and 1
+    fibnum[0] = 0;
+    fibnum[1] = 1;
 
-  //Fibonacci first two number are always 0 and 1
-  fibarray[0] = 0;
-  fibarray[1] = 1;
-
-  //Stores the values of the Fibnonacci numbers inside the array
-  for ( int i = 2; i <= num; i++){
-    fibarray[i] = fibarray[i-1] + fibarray[i-2];
-  }
-
-  //Get the number at the postion passed in
-  int fibnum = fibarray[num];
-
-  return fibnum;
+    //Stores the values of the Fibnonacci numbers inside the vector
+    for (int i = 2; i <= num; i++)
+        fibnum[i] = fibnum[i-1] + fibnum[i-2];
+    
+    return fibnum[num];
 }
