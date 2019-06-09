@@ -17,6 +17,11 @@ Then, knapsack [ W ] gives the maximum value that can fitted in the knapsack of 
 - Thus, the structure of the optimal solution is defined recursively as :
 - knapsack [ j ] = max ( knapsack [ j – 1 ] , { knapsack [ j – w [ i ] ] + v [ i ] for i = 0…n-1 } )
 
+# Refrences
+This Solution has been referred from 
+- www.geeksforgeeks.org
+- csegeek.com
+
 ---
 
 <p align="center">
