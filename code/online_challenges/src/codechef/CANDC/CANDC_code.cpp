@@ -1,30 +1,29 @@
-#include<iostream>
-using namespace std;
-#define PI 3.1415926535897932384626
-#define ll long long int
-#define N 10000007
-#define m 1000000007
-ll s[N];
+#include <iostream>
 
-int main()
+long long int a[10000001];
+
+int main() {
+a[1]=1;
+for(long long int i=2;i<=10000001;i++)
 {
-	#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output2.txt", "w", stdout);
-    #endif
-
-    ios_base::sync_with_stdio(false);
-	ll i,T,a;
-    cin>>T;
-    s[0]=s[1]=s[2]=1;
-    for(i=3;i<N;i+=2) {
-        s[i]=(s[i-1]*i)%m;
-        s[i+1]=s[i];
+    if(i%2!=0)
+    {
+        a[i]=((i%1000000007)*(a[i-1]%1000000007))%1000000007;
     }
-    while(T--) {
-        cin>>a;
-        cout<<s[a]<<"\n";
+    else
+    {
+        a[i]=a[i-1];
     }
-    return 0;
 }
-   
+
+long long int t;
+    std::cin>>t;
+    while(t--)
+        {
+	    long long int n;
+            std::cin>>n;
+            std::cout<<a[n]<<std::endl;
+        }
+return 0;
+}
+

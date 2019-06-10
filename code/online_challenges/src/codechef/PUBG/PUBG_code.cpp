@@ -1,9 +1,8 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include <iostream>
-using namespace std;
 
 int main() {
-	ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    std::cin.tie(NULL);
     int dp[100005][3];
     int a[3]={1,2,4};
     for (int  i= 0; i < 3; i++) 
@@ -19,17 +18,14 @@ int main() {
         } 
     } 
     int t;
-    cin>>t;
+    std::cin>>t;
     while(t--)
     {
         int p,d;
-        cin>>p>>d;
+        std::cin>>p>>d;
         int n=p-d;
-        cout<<dp[n][2]<<endl;
+        std::cout<<dp[n][2]<<std::endl;
     }
-    
-    
-    
-	return 0;
+    return 0;
 }
 

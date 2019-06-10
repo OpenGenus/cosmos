@@ -1,13 +1,12 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include<iostream>
-
-using namespace std;
 
 int main(void){
     unsigned int x = 1,y;
-    cout<<x<<"\n";
-    cin>>y;
+    std::cout<<x<<"\n";
+    std::cin>>y;
     if(y == 2)
-    cout<<3;
+    std::cout<<3;
     else if( y == 3)
-    cout<<2;
+    std::cout<<2;
 }

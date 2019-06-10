@@ -1,15 +1,14 @@
+/* Part of Cosmos by OpenGenus Foundation */
 #include<iostream>
-
-using namespace std;
 
 int main(void){
     unsigned int n,r,a;
-    cin>>n>>r;
+    std::cin>>n>>r;
     for(int i=0;i<n;i++){
-        cin>>a;
+        std::cin>>a;
         if(a<r)
-            cout<<"Bad boi"<<"\n";
+            std::cout<<"Bad boi"<<"\n";
         else
-            cout<<"Good boi"<<"\n";
+            std::cout<<"Good boi"<<"\n";
     }
 }
