@@ -31,7 +31,7 @@ Von Neumann builds your automaton model to be able to deconstruct cells back to 
 
  - If a confluent state receives an input from a special transmission state that confluent state will be reduced to U.
  - If an ordinary transmission state receives an input from a special transmission state that ordinary transmission state will be reduced to U.
- - if a special transmission state receives an input from an ordinary transmission state that special transmission state will be reduced to U.
+ - If a special transmission state receives an input from an ordinary transmission state that special transmission state will be reduced to U.
 
 ---
 
