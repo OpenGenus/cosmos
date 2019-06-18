@@ -9,7 +9,7 @@ Jonh Von Neumann worked for years on a simple model for a logical cellular autom
 
 To maintain simplicity, Von Neumann limited the automaton to only 29 states, which is the minimum needed to build a self-replicating machine. These states can be divided into four groups:
 
- - The **blank state** or unexcitable state (**U**) is the basic and initial state, when it is excited it will become one of the transmission states or a confluent state. If another state has been deconstructed, that cell returns to the blank state.
+ - The **blank state** or unexcitable state (**U**) is the basic and initial state; when it is excited it will become one of the transmission states or a confluent state. If another state has been deconstructed, that cell returns to the blank state.
 
  - The **transmission state** behaves like a conductor wire, where pulses and signals can move from one place another. They are sub-divided into ordinary transmission (represented by simple arrows in the four directions: → ↓ ← ↑) and special transmission (represented by double arrows). This separation is justified because of the deconstruction mechanism which will be discussed later. Each one of the directions has two states, the unexcited and excited one. All in all, we have 16 transmission states which transport binary pulses to the cell that it is pointing for. They can receive these signals from other transmission states or from a confluent state.
 
