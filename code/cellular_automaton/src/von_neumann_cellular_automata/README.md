@@ -29,7 +29,7 @@ The construction mechanism starts when a blank state (**U**) is excited by a tra
 
 Von Neumann builds your automaton model to be able to deconstruct cells back to the blank state (**U**). Some additional rules determinate the situations where a cell will be destroyed.
 
- - if a confluent state receives an input from a special transmission state that confluent state will be reduced to U.
+ - If a confluent state receives an input from a special transmission state that confluent state will be reduced to U.
  - if an ordinary transmission state receive an input from a special transmission state that ordinary transmission state will be reduced to U.
  - if a special transmission state receives an input from an ordinary transmission state that special transmission state will be reduced to U.
 
