@@ -4,14 +4,14 @@
 #include <iostream>
 
 template < typename T > // T must have operator< defined
-class minQueue
+class MinQueue
 {
 private:
-    using minStack = std::stack< std::pair < T , T > >; // second coordinate: smallest element from current to bottom
-    minStack in, out;
+    using MinStack = std::stack< std::pair < T , T > >; // second coordinate: smallest element from current to bottom
+    MinStack in, out;
 
 public:
-    minQueue() { }
+    MinQueue() { }
 
     void push(T x);
     T pop();
@@ -20,7 +20,7 @@ public:
 };
 
 template< typename T >
-void minQueue<T>::push(T x)
+void MinQueue<T>::push(T x)
 {
     if (in.empty())
         in.emplace(x, x);
@@ -33,7 +33,7 @@ void minQueue<T>::push(T x)
 }
 
 template< typename T >
-T minQueue<T>::pop(){
+T MinQueue<T>::pop(){
     if (out.empty())
     {
         while (!in.empty())
@@ -58,14 +58,14 @@ T minQueue<T>::pop(){
         assert(false);
     }
 
-    T x = out.top().first;
+    T ret = out.top().first;
     out.pop();
 
-    return x;
+    return ret;
 }
 
 template< typename T >
-T minQueue<T>::getMin()
+T MinQueue<T>::getMin()
 {
 
     if (in.empty() and out.empty())
@@ -83,7 +83,7 @@ T minQueue<T>::getMin()
 }
 
 int main(){
-    minQueue< char > MQ;
+    MinQueue< char > MQ;
 
     MQ.push('a');
     MQ.push('x');
