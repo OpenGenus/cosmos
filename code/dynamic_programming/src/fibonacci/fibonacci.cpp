@@ -5,12 +5,12 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int get_fib(int num);
 
 int main()
-{
-    using namespace std;
-  
+{  
     int number;
 
     cout << "Enter the value of n: ";
@@ -30,9 +30,7 @@ int main()
 }
 
 int get_fib(int num)
-{
-    using namespace std;
-    
+{    
     vector<int> fibnum(num+1);
 
     //Fibonacci first two number are always 0 and 1
