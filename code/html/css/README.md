@@ -50,3 +50,5 @@ The link is provided in the HTML `head` tag.
 [* CSS Borders](border/)
 
 [* CSS Margins](Margin/)
+
+[* CSS Padding](Padding/)
