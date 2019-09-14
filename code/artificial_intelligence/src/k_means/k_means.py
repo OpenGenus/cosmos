@@ -4,7 +4,7 @@ from random import random
 sets = [random() for i in range(10)]
 data = [random() for i in range(1000)]
 
-parameter = 0.01  # This parameter change the mean changing speed must be Min: 0 Max: 1
+parameter = 0.05  # This parameter change the mean changing speed must be Min: 0 Max: 1
 
 for x in data:  # O(data count)
     nearest_k = 0
