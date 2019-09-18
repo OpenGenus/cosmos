@@ -1,0 +1,20 @@
+{
+  "location": "code/mathematical_algorithms/src/sieve_of_eratosthenes",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "sieve_of_eratosthenes.py",
+    "sieve_of_eratosthenes_compact.cpp",
+    "sieve_of_eratosthenes.java",
+    "sieve_of_eratosthenes_linear.cpp",
+    "sieve_of_eratosthenes.php",
+    "sieve_of_eratosthenes.hs",
+    "sieve_of_eratosthenes.go",
+    "sieve_of_eratosthenes.cs",
+    "sieve_of_eratosthenes.c",
+    "README.md",
+    "sieve_of_eratosthenes.js",
+    "sieve_of_eratosthenes.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

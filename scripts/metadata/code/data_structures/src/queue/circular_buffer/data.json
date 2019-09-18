@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/queue/circular_buffer",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "circular_buffer.py",
+    "circular_buffer.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

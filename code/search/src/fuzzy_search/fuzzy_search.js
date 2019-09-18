@@ -6,10 +6,9 @@
 // console.log(fs('A', 'ACC'))
 //
 
+"use strict";
 
-'use strict';
-
-function fuzzySearch (needle, haystack) {
+function fuzzySearch(needle, haystack) {
   var haystack_length = haystack.length;
   var needle_length = needle.length;
   if (needle_length > haystack_length) {

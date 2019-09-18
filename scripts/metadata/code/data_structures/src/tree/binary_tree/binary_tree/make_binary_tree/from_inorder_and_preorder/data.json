@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/make_binary_tree/from_inorder_and_preorder",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "make_tree_from_inorder_and_preorder.cpp",
+    "make_tree_from_inorder_and_preorder.java",
+    "README.md",
+    "make_tree_from_inorder_and_preorder.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,0 +1,12 @@
+{
+  "location": "code/design_pattern/src/OOP_patterns/facade/daily/tasks/gym",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "deadlift.java",
+    "squat.java",
+    "gymfacade.java",
+    "benchpress.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}
