@@ -1,22 +1,20 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
-
-// Part of Cosmos by OpenGenus Foundation
 int main()
 {
-    int initialNumber;
-    int number;
-    cout << "Enter a three digit number: ";
-    cin >> initialNumber;
-    number = initialNumber;
-    
-    int lastDigitCubed = pow(number%10, 3);
-    number /= 10;
-    int middleDigitCubed = pow(number%10, 3);
-    number /= 10;
-    int firstDigitCubed = pow(number%10, 3);
-    
-    bool isArmstrongNumber = (firstDigitCubed+ middleDigitCubed+ lastDigitCubed) == initialNumber;
-    cout << initialNumber << " is " << (isArmstrongNumber ? "" : "not ") << "an Armstrong number." << endl;
+  int origNum, num, rem, sum = 0;
+  cout << "Enter a positive  integer: ";
+  cin >> origNum;
+  num = origNum;
+  while(num != 0)
+  {
+      rem = num % 10;
+      sum += rem * rem * rem;
+      num /= 10;
+  }
+  if(sum == origNum)
+    cout << origNum << " is an Armstrong number.";
+  else
+    cout << origNum << " is not an Armstrong number.";
+  return 0;
 }
