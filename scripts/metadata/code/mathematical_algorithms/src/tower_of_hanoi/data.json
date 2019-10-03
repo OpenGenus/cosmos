@@ -1,0 +1,21 @@
+{
+  "location": "code/mathematical_algorithms/src/tower_of_hanoi",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "tower_of_hanoi_binary_solution.c",
+    "tower_of_hanoi.hs",
+    "tower_of_hanoi.ml",
+    "tower_of_hanoi.py",
+    "tower_of_hanoi.js",
+    "tower_of_hanoi.go",
+    "tower_of_hanoi.java",
+    "tower_of_hanoi.scala",
+    "tower_of_hanoi.cpp",
+    "tower_of_hanoi_iterative.c",
+    "README.md",
+    "tower_of_hanoi.c",
+    "tower_of_hanoi.rs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

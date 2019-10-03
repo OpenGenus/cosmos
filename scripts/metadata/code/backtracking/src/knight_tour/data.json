@@ -1,0 +1,16 @@
+{
+  "location": "code/backtracking/src/knight_tour",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "knight_tour.java",
+    "knight_tour.rs",
+    "knight_tour_withoutbt.c",
+    "knight_tour.cpp",
+    "knight_tour.go",
+    "knight_tour.c",
+    "knight_tour.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

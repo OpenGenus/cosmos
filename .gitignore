@@ -1,0 +1,3 @@
+**/*.vscode
+**/*.netrwhist
+.DS_Store

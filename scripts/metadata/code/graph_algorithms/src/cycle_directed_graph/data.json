@@ -1,0 +1,13 @@
+{
+  "location": "code/graph_algorithms/src/cycle_directed_graph",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "cycle_directed_detection.c",
+    "cycle_directed_graph.c",
+    "cycle_directed_graph.cpp",
+    "cycle_directed_graph.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

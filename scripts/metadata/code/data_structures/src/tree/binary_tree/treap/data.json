@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/treap",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "treap.cpp",
+    "treap.java",
+    "treap.swift",
+    "treap.scala",
+    "persistent_treap.kt"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

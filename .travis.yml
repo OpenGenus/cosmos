@@ -1,0 +1,83 @@
+matrix:
+  include:
+    #C with clang
+    - os: linux
+      language: c
+      before_script:
+        - wget https://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz
+        - tar -xvf libgraph-1.0.2.tar.gz
+        - pushd libgraph-1.0.2  && ./configure --prefix=/usr && make && sudo make install && popd
+      script:
+        make c
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+            - libsdl1.2-dev
+            - libsdl-image1.2 libsdl-image1.2-dev guile-1.8 guile-1.8-dev libsdl1.2debian libart-2.0-dev libaudiofile-dev libesd0-dev libdirectfb-dev libdirectfb-extra libfreetype6-dev libxext-dev x11proto-xext-dev libfreetype6 libaa1 libaa1-dev libslang2-dev libasound2 libasound2-dev
+      env:
+        - MATRIX_EVAL="CC=clang-5.0"
+
+    #C with gcc
+    - os: linux
+      language: c
+      before_script:
+        - wget https://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz
+        - tar -xvf libgraph-1.0.2.tar.gz
+        - pushd libgraph-1.0.2  && ./configure --prefix=/usr && make && sudo make install && popd
+      script:
+        make c
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-7
+            - libsdl1.2-dev
+            - libsdl-image1.2 libsdl-image1.2-dev guile-1.8 guile-1.8-dev libsdl1.2debian libart-2.0-dev libaudiofile-dev libesd0-dev libdirectfb-dev libdirectfb-extra libfreetype6-dev libxext-dev x11proto-xext-dev libfreetype6 libaa1 libaa1-dev libslang2-dev libasound2 libasound2-dev
+      env:
+        - MATRIX_EVAL="CC=gcc-7"
+
+    #C++ with g++
+    - os: linux
+      language: cpp
+      script:
+        ./scripts/build_cpp.sh
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CXX=g++-7"
+
+    # Verify file name
+    - os: linux
+      language: python
+      python:
+        - "3.6"
+      script:
+        - pip install namanager
+        - namanager -s third_party/namanager_settings.json --required
+
+    # Check formatting of Python code
+    - os: linux
+      language: python
+      python: 3.6
+      script:
+        - pip install black
+        - ./scripts/python_code_style_checker.sh
+
+    # Check formatting of Javascript code
+    - os: linux
+      language: node_js
+      node_js: node
+      script:
+        - npm install -g prettier
+        - ./scripts/javascript_code_style_checker.sh
+
+before_install:
+   - eval "${MATRIX_EVAL}"

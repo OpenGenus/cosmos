@@ -1,0 +1,11 @@
+{
+  "location": "code/compression/src/lossless_compression/lempel_ziv_welch",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "lzw.cpp",
+    "README.md",
+    "lzw.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

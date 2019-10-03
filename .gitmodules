@@ -1,0 +1,7 @@
+[submodule "third_party/uncrustify"]
+	path = third_party/uncrustify
+	url = https://github.com/uncrustify/uncrustify.git
+	branch = uncrustify-0.66.1
+[submodule "third_party/namanager"]
+	path = third_party/namanager
+	url = https://github.com/iattempt/namanager.git

@@ -1,0 +1,14 @@
+{
+  "location": "code/dynamic_programming/src/longest_bitonic_sequence",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "longest_bitonic_sequence.py",
+    "longest_bitonic_sequence.c",
+    "longest_bitonic_sequence.js",
+    "longestbitonicseq.cpp",
+    "README.md",
+    "longestbitonicsequence.java"
+  ],
+  "updated": "18-05-2019 08:11:05"
+}
