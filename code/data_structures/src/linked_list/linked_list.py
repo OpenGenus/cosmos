@@ -1,59 +1,48 @@
-# simple prpgrame for single linked list in python
+# OOPs prpgrame for single linked list in python
 
-
-Head = None  # head node, initialize Null or none
-Tail = None  # tail node, initialize Null or none
-
-# object class
-
-
-class A:
-    def __init__(self):
-        self.data = 0
+#Linked list node class
+class Node:
+    def __init__(self,data):
+        self.data = data
         self.next = None
 
 
-# function for creating node
 
 
-def create_node():
-    t = A()
-    return t
+# Linkedlist class 
+class Linkedlist:
 
+#Method for initializing a linked list	
+	def __init__(self):
+		self.head=None
+#Method to traverse through a linked list
+	def traverse(self):
+		temp=self.head
+		while(temp):
+			print(str(temp.data),end='->')
+			temp=temp.next
+		print("NULL")
 
-# function for inserting node
-
-
-def insert_node():
-    global Head, Tail
-    temp = create_node()
-    print("Enter your value", end="\n")
-    a = input()
-    temp.data = a
-    if Head == None:
-        Head = temp
-        Tail = temp
-    else:
-        Tail.next = temp
-        Tail = temp
-
-
-# function for traversing linked list
-
-
-def traverse(Head):
-    t = Head
-    while t.next != None:
-        print(t.data, end="\n")
-        t = t.next
-    print(t.data, end="\n")
-
+# Method for inserting node
+	def insert_node(self,data=0):
+		new_node=Node(data)
+		if(self.head==None):
+			self.head=new_node
+		else:
+			temp=self.head
+			while(temp.next!=None):
+				temp=temp.next
+			temp.next=new_node
 
 # main function
+"""
+Example:
+list_1=Linkedlist()	
+list_1.insert_node()
+list_1.insert_node(1)
+list_1.insert_node(2)
+list_1.insert_node(3)
+list_1.traverse()
+"""
+#Output: 0->1->2->3->NULL
 
-insert_node()
-insert_node()
-insert_node()
-insert_node()
-
-traverse(Head)  # passing head node for tarversing
