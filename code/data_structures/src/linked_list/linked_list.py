@@ -39,10 +39,11 @@ class Linkedlist:
 Example:
 list_1=Linkedlist()	
 list_1.insert_node()
+list_1.inert_node()
 list_1.insert_node(1)
 list_1.insert_node(2)
 list_1.insert_node(3)
 list_1.traverse()
 """
-#Output: 0->1->2->3->NULL
+#Output: 0->0->1->2->3->NULL
 
