@@ -36,13 +36,11 @@ def decompress(compressed):
     for ch in compressed:
         if ch in dictionary:
             entry = dictionary[ch]
-        elif ch == dict_size:
-            entry = ch + ch[0]
         else:
             raise ValueError("Bad Compression for %s" % ch)
         result += entry
 
-        dictionary[dict_size] = buffer = entry[0]
+        dictionary[dict_size] = buffer + entry[0]
         dict_size += 1
 
         buffer = entry
@@ -55,6 +53,13 @@ if __name__ == "__main__":
     # Test 1
     test_case_1 = "Hello World!!"
     compressed = compress(test_case_1)
+    print(compressed)
+    decompressed = decompress(compressed)
+    print(decompressed)
+
+    # Test 2
+    test_case_2 = "ToBeOrNotToBeABanana"
+    compressed = compress(test_case_2)
     print(compressed)
     decompressed = decompress(compressed)
     print(decompressed)
