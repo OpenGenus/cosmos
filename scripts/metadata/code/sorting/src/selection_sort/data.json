@@ -1,0 +1,26 @@
+{
+  "location": "code/sorting/src/selection_sort",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "selection_sort.vb",
+    "selection_sort.kt",
+    "selection_sort.cpp",
+    "selection_sort.py",
+    "selection_sort.php",
+    "selection_sort.go",
+    "selection_sort.m",
+    "selection_sort_extension.swift",
+    "selection_sort.c",
+    "README.md",
+    "selection_sort.sh",
+    "selection_sort.swift",
+    "selection_sort.hs",
+    "selection_sort.js",
+    "selection_sort.rs",
+    "selection_sort.cs",
+    "selection_sort.rb",
+    "selection_sort.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

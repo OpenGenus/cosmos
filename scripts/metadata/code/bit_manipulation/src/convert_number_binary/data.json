@@ -1,0 +1,17 @@
+{
+  "location": "code/bit_manipulation/src/convert_number_binary",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "convert_number_binary.cpp",
+    "convert_number_binary.c",
+    "inttobinary.py",
+    "binary_to_int.py",
+    "convert_number_binary.js",
+    "convert_number_binary.php",
+    "convertnumberbinary.java",
+    "convert_number_binary.hs",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

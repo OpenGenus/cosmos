@@ -1,0 +1,12 @@
+{
+  "location": "code/graph_algorithms/src/graph_coloring",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "graph_coloring.cpp",
+    "README.md",
+    "graph_color_greedy.py",
+    "graph_coloring.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

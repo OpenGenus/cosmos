@@ -1,0 +1,16 @@
+{
+  "location": "code/search/src/interpolation_search",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "interpolation_search.go",
+    "interpolation_search.php",
+    "interpolation_search.cpp",
+    "interpolation_search.js",
+    "interpolation_search.c",
+    "interpolation_search.java",
+    "interpolation_search.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

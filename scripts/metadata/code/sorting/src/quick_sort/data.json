@@ -1,0 +1,32 @@
+{
+  "location": "code/sorting/src/quick_sort",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "quick_sort_median_of_medians.c",
+    "quick_sort.py",
+    "quick_sort.swift",
+    "quick_sort.elm",
+    "quick_sort_extension.swift",
+    "quick_sort.java",
+    "quick_sort.m",
+    "quick_sort.hs",
+    "quick_sort.c",
+    "quick_sort.cs",
+    "quick_sort.cpp",
+    "quick_sort.go",
+    "quick_sort.ts",
+    "quick_sort.js",
+    "quick_sort.ml",
+    "quick_sort.scala",
+    "dutch_national_flag.cpp",
+    "quick_sort.lua",
+    "quick_sort.rb",
+    "README.md",
+    "quick_sort_in_place.scala",
+    "quick_sort_three_way.cpp",
+    "quick_sort.sh",
+    "quick_sort.rs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

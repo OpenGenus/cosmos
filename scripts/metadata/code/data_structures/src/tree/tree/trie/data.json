@@ -1,0 +1,19 @@
+{
+  "location": "code/data_structures/src/tree/tree/trie",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "trie.scala",
+    "trie.py",
+    "trie.cpp",
+    "trie.java",
+    "trie.rb",
+    "trie.c",
+    "trie.js",
+    "trie.cs",
+    "README.md",
+    "trie.swift",
+    "trie.go"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

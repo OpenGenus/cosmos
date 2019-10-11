@@ -1,0 +1,13 @@
+{
+  "location": "code/greedy_algorithms/src/dijkstra_shortest_path",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "dijkstra_shortest_path.java",
+    "dijkstra_shortest_path.c",
+    "dijkstra_shortest_path.py",
+    "README.md",
+    "dijkstra_shortest_path.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

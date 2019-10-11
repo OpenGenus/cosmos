@@ -1,165 +1,171 @@
-
 class DFA(object):
-	"""Class for Deterministic Finite Atomata"""
-	def __init__(self, transitions, start, accepting):
-		
-		self.start = start
-		self.accepting = accepting
+    """Class for Deterministic Finite Atomata"""
 
-		self.transitions = transitions
+    def __init__(self, transitions, start, accepting):
 
-	def accepts(self, word, _warn=True):
+        self.start = start
+        self.accepting = accepting
 
-		curr_state = self.start
+        self.transitions = transitions
 
-		for char in word:
-			try:
-				curr_state = self.transitions[curr_state][char]
-			except KeyError:
-				if _warn:
-					print("WARNING: Missing entry in transition assumed leading to dead state")
-				return False
+    def accepts(self, word):
 
-		return curr_state in self.accepting
+        curr_state = self.start
 
-	def minimize(self):
+        for char in word:
+            try:
+                curr_state = self.transitions[curr_state][char]
+            except KeyError:
+                print(
+                    "WARNING: Missing entry in transition assumed leading to dead state"
+                )
+                return False
 
-		actions = set()
+        return curr_state in self.accepting
 
-		for state, state_transitions in self.transitions.items():
-			actions.update(state_transitions.keys())
+    def minimize(self):
 
-		reachable_states = set()
-		new_states_reached = set([self.start])
+        actions = set()
 
-		while new_states_reached:
+        for state, state_transitions in self.transitions.items():
+            actions.update(state_transitions.keys())
 
-			reachable_states.update(new_states_reached)
-			newer_states_reached = set()
-			
-			while new_states_reached:
-				
-				state = new_states_reached.pop()
-				
-				try:
-					for next_state in self.transitions[state].values():
-						if next_state not in reachable_states:
-							newer_states_reached.add(next_state)
-				
-				except KeyError:
-					pass
+        reachable_states = set()
+        new_states_reached = set([self.start])
 
-			new_states_reached = newer_states_reached
+        while new_states_reached:
 
-		try:
-			for state in reachable_states:
-				for action in actions:
-						next_state = self.transitions[state][action]
-		except KeyError:
-			reachable_states.add(None)
+            reachable_states.update(new_states_reached)
+            newer_states_reached = set()
 
-		partitions = [set(), set()]
-		partition_number = {}
+            while new_states_reached:
 
-		for state in reachable_states.intersection(self.accepting):
-			partitions[0].add(state)
-			partition_number[state] = 0
+                state = new_states_reached.pop()
 
-		for state in reachable_states.difference(self.accepting):
-			partitions[1].add(state)
-			partition_number[state] = 1
+                try:
+                    for next_state in self.transitions[state].values():
+                        if next_state not in reachable_states:
+                            newer_states_reached.add(next_state)
 
-		n_since_change = 0
+                except KeyError:
+                    pass
 
-		while n_since_change <= len(partitions):
+            new_states_reached = newer_states_reached
 
-			i = 0
+        try:
+            for state in reachable_states:
+                for action in actions:
+                    next_state = self.transitions[state][action]
+        except KeyError:
+            reachable_states.add(None)
 
-			while i < len(partitions):
-			
-				for action in actions:
-					
-					next_state_partition_numbers = {partition_number[self.transitions[state].get(action)] for state in partitions[i]}
-					
-					if len(next_state_partition_numbers) > 1:
-						
-						n_since_change = 0
-						new_partition_numbers = {}
-						new_partition_numbers[next_state_partition_numbers.pop()] = i
+        partitions = [set(), set()]
+        partition_number = {}
 
-						for number in next_state_partition_numbers:
-							new_partition_numbers[number] = len(partitions)
-							partitions.append(set())
+        for state in reachable_states.intersection(self.accepting):
+            partitions[0].add(state)
+            partition_number[state] = 0
 
-						partition_copy = set(partitions[i])
-						partition_number_copy = partition_number.copy()
-						partitions[i] = set()
+        for state in reachable_states.difference(self.accepting):
+            partitions[1].add(state)
+            partition_number[state] = 1
 
+        n_since_change = 0
 
-						for state in partition_copy:
-							number = partition_number_copy[self.transitions[state].get(action)]
-							partition_number[state] = new_partition_numbers[number]
-							partitions[new_partition_numbers[number]].add(state)
+        while n_since_change < len(partitions):
 
-				n_since_change += 1
-				i += 1
+            i = 0
 
-		new_states = range(1, len(partitions)+1)
-		new_transitions = dict([(state, {}) for state in new_states])
-		new_accepting = []
+            while i < len(partitions):
 
-		for state in new_states:
-			old_state = next(iter(partitions[state-1]))
-			if old_state in self.accepting:
-				new_accepting.append(state)
-			for action in actions:
-				new_transitions[state][action] = partition_number[self.transitions[old_state].get(action)] + 1
+                for action in actions:
 
-		new_start = partition_number[self.start] + 1
+                    next_state_partition_numbers = {
+                        partition_number[self.transitions[state].get(action)]
+                        for state in partitions[i]
+                    }
 
-		new_dfa = DFA(
-				transitions=new_transitions,
-				start=new_start,
-				accepting=new_accepting
-			)
+                    if len(next_state_partition_numbers) > 1:
 
-		return new_dfa
+                        n_since_change = 0
+                        new_partition_numbers = {}
+                        new_partition_numbers[next_state_partition_numbers.pop()] = i
+
+                        for number in next_state_partition_numbers:
+                            new_partition_numbers[number] = len(partitions)
+                            partitions.append(set())
+
+                        partition_copy = set(partitions[i])
+                        partitions[i] = set()
+
+                        for state in partition_copy:
+                            number = partition_number[
+                                self.transitions[state].get(action)
+                            ]
+                            partition_number[state] = new_partition_numbers[number]
+                            partitions[number].add(state)
+                    else:
+                        n_since_change += 1
+
+                i += 1
+
+        new_states = range(1, len(partitions) + 1)
+        new_transitions = dict([(state, {}) for state in new_states])
+        new_accepting = []
+
+        for state in new_states:
+            old_state = next(iter(partitions[state - 1]))
+            if old_state in self.accepting:
+                new_accepting.append(state)
+            for action in actions:
+                new_transitions[state][action] = (
+                    partition_number[self.transitions[old_state].get(action)] + 1
+                )
+
+        new_start = partition_number[self.start] + 1
+
+        new_dfa = DFA(
+            transitions=new_transitions, start=new_start, accepting=new_accepting
+        )
+
+        return new_dfa
 
 
 def main():
 
-	print("Automata for strings of even length")
-	dfa = DFA(
-			transitions={
-				1: {'a': 2, 'b': 2},
-				2: {'a': 3, 'b': 3},
-				3: {'a': 4, 'b': 4},
-				4: {'a': 1, 'b': 1},
-				5: {'a': 2, 'b': 3},
-			},
-			start=4,
-			accepting=[2, 4]
-		)
+    print("Automata for strings of even length")
+    dfa = DFA(
+        transitions={
+            1: {"a": 2, "b": 2},
+            2: {"a": 3, "b": 3},
+            3: {"a": 4, "b": 4},
+            4: {"a": 1, "b": 1},
+            5: {"a": 2, "b": 3},
+        },
+        start=4,
+        accepting=[2, 4],
+    )
 
-	words = ["", "a", "aa", "aaa", "abab"]
+    words = ["", "a", "aa", "aaa", "abab"]
 
-	print()
-	print("Tests for DFA:-")
+    print()
+    print("Tests for DFA:-")
 
-	for word in words:
-		print("'{}' accepted? {}".format(word, dfa.accepts(word, _warn=False)))
+    for word in words:
+        print("'{}' accepted? {}".format(word, dfa.accepts(word)))
 
-	minimized_dfa = dfa.minimize()
+    minimized_dfa = dfa.minimize()
 
-	print()
-	print("Tests for minimized DFA:-")
+    print()
+    print("Tests for minimized DFA:-")
 
-	for word in words:
-		print("'{}' accepted? {}".format(word, minimized_dfa.accepts(word, _warn=False)))
+    for word in words:
+        print("'{}' accepted? {}".format(word, minimized_dfa.accepts(word)))
 
-	print()
-	print("Number of states in DFA: ", len(dfa.transitions))
-	print("Number of states in minimized DFA: ", len(minimized_dfa.transitions))
+    print()
+    print("Number of states in DFA: ", len(dfa.transitions))
+    print("Number of states in minimized DFA: ", len(minimized_dfa.transitions))
 
-if __name__=='__main__':
-	main()
+
+if __name__ == "__main__":
+    main()
