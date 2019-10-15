@@ -58,6 +58,16 @@ if (a == 9) {
 for (;;)
 ```
 
+```
+while () {
+```
+
+```
+do {
+	// do_something()
+} while ()
+```
+
 Each case in a switch statement should not be indented but the code for each should be. Any case falthroughs should be commented.
 
 ```C
