@@ -18,15 +18,6 @@ Download the Java version for your operating system from the [Java website](http
 
 `rm *.tar.gz`
 
----
-
-<p align="center">
-	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
-</p>
-
----
-
-
 ### How to run sample Java Code in Linux
 1. Compile the java code by javac
 ```
@@ -36,3 +27,11 @@ javac filename.java
 ```
 java filename
 ```
+
+---
+
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---
