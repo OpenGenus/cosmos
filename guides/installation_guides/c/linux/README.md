@@ -1,6 +1,6 @@
 # Install C in Linux
 
-
+This is the basic guide to install GCC and run C program in Linux
 
 ### Install GCC
 
