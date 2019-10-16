@@ -40,7 +40,7 @@ Following is the high-level structure of cosmos:
 * [String algorithms](/code/string_algorithms)
 * [Unclassified](/code/unclassified) 👻
 
-Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
+Each type has several hundred problems with solutions in languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
 # Maintainers
 
