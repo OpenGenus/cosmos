@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+
 int main()
 {
    for (int j=0; j<=8; j++)
@@ -15,7 +16,7 @@ int main()
 	* loop iteration where j ==4  because in that case
 	* this statement would be skipped.
 	*/
-       printf("%d ", j);
+       std::cout << j;
    }
    return 0;
 }
