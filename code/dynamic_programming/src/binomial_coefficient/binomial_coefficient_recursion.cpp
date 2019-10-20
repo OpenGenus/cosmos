@@ -3,6 +3,7 @@ class BinomialCoefficient
 {
 public:
     BinomialCoefficient(unsigned int n, unsigned int k) : n(n), k(k) { }
+
     unsigned int recursiveBinomialCoefficientMethod(int n, int k);
 private:
     unsigned int n, k;
@@ -11,6 +12,7 @@ unsigned int BinomialCoefficient :: recursiveBinomialCoefficientMethod(int n, in
 {
     if(k == n or k == 0)
         return 1;
+
     return (recursiveBinomialCoefficientMethod(n - 1, k - 1) + recursiveBinomialCoefficientMethod(n - 1, k));
 }
 int main()
