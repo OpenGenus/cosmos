@@ -15,7 +15,7 @@ func shuffle(arr []int) []int {
   return arr
 }
 
-func bogoSort (array []int) []int {
+func bogoSort(array []int) []int {
   for {
     if sort.IntsAreSorted(array) {
       return array
