@@ -4,7 +4,7 @@
 
 
 # Part of Cosmos by OpenGenus Foundation
-class Stack(object):
+class Stack:
     # Quasi-Constructor
     def __init__(self):
         # Object data members
