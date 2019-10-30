@@ -23,10 +23,12 @@ class Stack(object):
     def peek(self):
         assert len(self.stack_arr) > 0, "The stack is empty!"
         return self.stack_arr[-1]
-    
+
     # When the client requests is_empty returns if the stack is empty
     def is_empty(self):
-        return ("The stack is empty!", "The stack is not empty!")[len(self.stack_arr) > 0]
+        return ("The stack is empty!", "The stack is not empty!")[
+            len(self.stack_arr) > 0
+        ]
 
 
 def main():
