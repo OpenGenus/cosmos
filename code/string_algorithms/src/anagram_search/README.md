@@ -1,10 +1,10 @@
-## Analgram Search 
-An anagram of a string is another string that contains same characters, only the order of characters can be different. For example, “abcd” and “dabc” are anagram of each other.
+## Anagram Search 
+An anagram of a string is another string that contains same characters, only the order of characters can be different. For example, “abcd” and “dabc” are an anagram of each other.
 
 ![download](https://user-images.githubusercontent.com/29759141/45692328-21a91980-bb78-11e8-90f8-c484de6fc894.png)
 
 
-### There are two methods used to implement the above algortithms - 
+### There are two methods used to implement the above algorithms - 
 
 ### Method 1 (Use Sorting)   ( used in C program )
 - Sort both strings
@@ -21,8 +21,8 @@ This method assumes that the set of possible characters in both strings is small
 - Time Complexity - O(n)
 
 ### Method 3 (Prime Array Method)   ( used in Ruby program )
-- This method takes an array of first 26 prime numbers .Each number representing a-z characters accordingly. 
-- The product of numbers corresponding to each alphabet in counted for both of the string.
-- If product is equal then the strings are analgrams.
+- This method takes an array of first 26 prime numbers. Each number representing a-z characters accordingly. 
+- The product of numbers corresponding to each alphabet is counted for both of the string.
+- If product is equal then the strings are anagrams.
 
 - Time Complexity - O(n)
