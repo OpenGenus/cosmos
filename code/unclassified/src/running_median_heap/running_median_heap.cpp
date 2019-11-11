@@ -24,34 +24,9 @@
 */
 
 #include <iostream>
-
-using namespace std;
-
-// Heap capacity
-#define MAX_HEAP_SIZE (128)
-#define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
+#include <functional>
 
 // Utility functions
-
-// exchange a and b
-void exch(int &a, int &b)
-{
-    int aux = a;
-    a = b;
-    b = aux;
-}
-
-// greaterCompare and smaller are used as comparators
-bool greaterCompare(int a, int b)
-{
-    return a > b;
-}
-
-bool smaller(int a, int b)
-{
-    return a < b;
-}
-
 float average(int a, int b)
 {
     return (a + b) / 2.0;
@@ -71,210 +46,87 @@ int signum(int a, int b)
     return a < b ? -1 : 1;
 }
 
-/*
-* Heap implementation
-* The functionality is embedded into Heap abstract class to avoid 
-* code duplication
-*/
-class Heap
-{
+class Heap 
+{ 
+    float A[1024]; // array of elements in heap with capacity of 1024 elements.
+    int heapSize_; // Current number of elements in min heap
+    std::function<bool(float, float)> comp;  //comparator function for min/max heap
 
-public:
-    // Initializes heap array and comparator require in heapification
-    Heap(int *b, bool (*c)(int, int)) : A(b), comp(c)
-    { 
-        heapSize = -1;
-    }
-
-    // Frees up dynamic memory
-    virtual ~Heap()
-    {
-        if (A)
-            delete[] A;
-    }
-
-    // We need only these four interfaces of Heap ADT
-    virtual bool Insert(int key) = 0;
-    virtual int  GetTop() = 0;
-    virtual int  ExtractTop() = 0;
-    virtual int  GetCount() = 0;
-
-protected:
-
-    // We are also using location 0 of array
-    int left(int idx)
-    {
-        return 2 * idx + 1;
-    }
-
-    int right(int idx)
-    {
-        return 2 * (idx + 1);
-    }
-
-    int parent(int idx)
-    {
-        if (idx <= 0)
-            return -1;
-
-        return (idx - 1)/2;
-    }
-
-    // Heap array
-    int *A;
-    // Comparator
-    bool (*comp)(int, int);
-    // Heap size
-    int heapSize;
-
-    // Returns top element of heap data structure
-    int top(void)
-    {
-        int max = -1;
-
-        if (heapSize >= 0)
-            max = A[0];
-
-        return max;
-    }
-
-    // Returns number of elements in heap
-    int count()
-    {
-        return heapSize + 1; 
-    }
-
-   /* 
-    * Heapification
-    * Note that, for the current median tracing problem we need to
-    * heapify only towards root, always
-    */
-
-    void heapify(int idx)
-    {
-        int prt = parent(idx);
-
-        /*
-        * comp - differentiate MaxHeap and MinHeap
-        * percolates up
-        */
-        if (prt >= 0 && comp(A[idx], A[prt]) )
-        {
-            exch(A[idx], A[prt]);
-            heapify(prt);
-        }
-    }
-
-    // Deletes root of heap
-    int deleteTop()
-    {
-        int del = -1;
-
-        if (heapSize > -1)
-        {
-            del = A[0];
-
-            exch(A[0], A[heapSize]);
-            heapSize--;
-            heapify(parent(heapSize+1));
-        }
-
-        return del;
-    }
-
-    // Helper to insert key into Heap
-    bool insertHelper(int key)
-    {
-        bool ret = false;
-
-        if (heapSize < MAX_HEAP_SIZE)
-        {
-            ret = true;
-            heapSize++;
-            A[heapSize] = key;
-            heapify(heapSize);
-        }
-
-        return ret;
-    }
-};
-
-// Specilization of Heap to define MaxHeap
-class MaxHeap : public Heap
-{
-private:
-
-public:
-    MaxHeap() : Heap(new int[MAX_HEAP_SIZE], &greaterCompare) {}
-
-    ~MaxHeap() {}
-
-    // Wrapper to return root of Max Heap
-    int GetTop()
-    {
-        return top();
-    }
-
-    // Wrapper to delete and return root of Max Heap
-    int ExtractTop()
-    {
-        return deleteTop();
-    }
+public: 
+    // Constructor 
+    Heap(std::function<bool(float, float)> c) : comp(c){heapSize_ = 0;} 
  
-    // Wrapper to return # elements of Max Heap
-    int  GetCount()
-    {
-        return count();
-    }
+    // Returns number of elements in heap
+    int getCount() {return heapSize_;}
+  
+    // to heapify a subtree with the root at given index 
+    void heapify(int idx) 
+    { 
+        int l = left(idx); 
+        int r = right(idx); 
+        int smallest = idx; 
+        if (l < heapSize_ && comp(A[l], A[idx])) 
+            smallest = l; 
+        if (r < heapSize_ && comp(A[r], A[smallest])) 
+            smallest = r; 
+        if (smallest != idx) 
+        { 
+            std::swap(A[idx], A[smallest]); 
+            heapify(smallest); 
+        } 
+    } 
 
-    // Wrapper to insert into Max Heap
-    bool Insert(int key)
-    {
-        return insertHelper(key);
-    }
-};
+    int parent(int idx) {return (idx-1)/2;} 
 
-// Specilization of Heap to define MinHeap
-class MinHeap : public Heap
-{
-private:
+    // to get index of left child of node at index i 
+    int left(int idx) {return (2*idx+ 1);} 
 
-public:
+    // to get index of right child of node at index i 
+    int right(int idx) {return (2*idx + 2);} 
 
-    MinHeap() : Heap(new int[MAX_HEAP_SIZE], &smaller) {}
+    // to extract the root which is the min/max element 
+    float extractTop() 
+    {  
+        if (heapSize_ == 1) 
+        { 
+            heapSize_--; 
+            return A[0]; 
+        } 
 
-    ~MinHeap() {}
+        // Store the return value, and remove it from heap 
+        float root = A[0]; 
+        A[0] = A[heapSize_-1]; 
+        heapSize_--; 
+        heapify(0); 
+      
+        return root; 
+    } 
 
-    // Wrapper to return root of Min Heap
-    int GetTop()
-    {
-        return top();
-    }
+    // Returns the element (key at root) from heap 
+    float getTop() {return A[0];} 
+  
+    // Inserts a new element 
+    void insert(int currElement) 
+    { 
+        // First insert the new key at the end 
+        heapSize_++; 
+        int idx = heapSize_ - 1; 
+        A[idx] = currElement; 
 
-    // Wrapper to delete and return root of Min Heap
-    int ExtractTop()
-    {
-        return deleteTop();
-    }
-
-    // Wrapper to return # elements of Min Heap
-    int  GetCount()
-    {
-        return count();
-    }
-
-    // Wrapper to insert into Min Heap
-    bool Insert(int key)
-    {
-        return insertHelper(key);
-    }
-};
+        // Fix the heap property if it is violated 
+        while (idx != 0 && comp(A[idx], A[parent(idx)])) 
+        { 
+           std::swap(A[idx], A[parent(idx)]); 
+           idx = parent(idx); 
+        } 
+    } 
+}; 
 
 // Function implementing algorithm to find median so far.
-float getMedian(int currElement, float &median, Heap &left, Heap &right)
+float getMedian(float currElement, float &median, Heap &left, Heap &right) 
 {
     // Are heaps balanced? If yes, sig will be 0
-    int sig = signum(left.GetCount(), right.GetCount());
+    int sig = signum(left.getCount(), right.getCount()); 
     switch(sig)
     {
     case 1: // There are more elements in left (max) heap
@@ -282,19 +134,19 @@ float getMedian(int currElement, float &median, Heap &left, Heap &right)
         if (currElement < median) // current element fits in left (max) heap
         {
             // Remore top element from left heap and insert into right heap
-            right.Insert(left.ExtractTop());
+            right.insert(left.extractTop());
 
             // current element fits in left (max) heap
-            left.Insert(currElement);
+            left.insert(currElement);
         }
         else
         {
             // current element fits in right (min) heap
-            right.Insert(currElement);
+            right.insert(currElement);
         }
 
         // Both heaps are balanced
-        median = average(left.GetTop(), right.GetTop());
+        median = average(left.getTop(), right.getTop());
 
         break;
 
@@ -302,14 +154,14 @@ float getMedian(int currElement, float &median, Heap &left, Heap &right)
 
         if (currElement < median) // current element fits in left (max) heap
         {
-            left.Insert(currElement);
-            median = left.GetTop();
+            left.insert(currElement);
+            median = left.getTop();
         }
         else
         {
             // current element fits in right (min) heap
-            right.Insert(currElement);
-            median = right.GetTop();
+            right.insert(currElement);
+            median = right.getTop();
         }
 
         break;
@@ -317,18 +169,16 @@ float getMedian(int currElement, float &median, Heap &left, Heap &right)
     case -1: // There are more elements in right (min) heap
 
         if (currElement < median) // current element fits in left (max) heap
-            left.Insert(currElement);
+            left.insert(currElement);
         else
         {
             // Remove top element from right heap and insert into left heap
-            left.Insert(right.ExtractTop());
-
-            // current element fits in right (min) heap
-            right.Insert(currElement);
+            left.insert(right.extractTop());
+            right.insert(currElement);
         }
 
         // Both heaps are balanced
-        median = average(left.GetTop(), right.GetTop());
+        median = average(left.getTop(), right.getTop());
 
         break;
     }
@@ -340,19 +190,16 @@ float getMedian(int currElement, float &median, Heap &left, Heap &right)
 void printMedian(int A[], int size)
 {
     float median = 0; // effective median
-    Heap *left  = new MaxHeap();
-    Heap *right = new MinHeap();
+    //Max Heap
+    Heap left = Heap([](float a, float b) -> bool{ return a > b;}); 
+    //Min Heap
+    Heap right = Heap([](float a, float b) -> bool{ return a < b;});
 
     for(int i = 0; i < size; i++)
     {
-        median = getMedian(A[i], median, *left, *right);
-
-        cout << median << endl;
+        median = getMedian(A[i], median, left, right);
+        std::cout << median << std::endl;
     }
-
-    // C++ more flexible, ensure no leaks
-    delete left;
-    delete right;
 }
 
 // Driver code
@@ -360,7 +207,7 @@ int main()
 {
 
     int A[] = {5, 2, 1, 3, 2, 8, 7, 9, 2, 6, 2, 4};
-    int size = ARRAY_SIZE(A);
+    int size = sizeof(A)/sizeof(A[0]);
 
     // In lieu of A, we can also use data read from a stream
     printMedian(A, size);
