@@ -10,7 +10,7 @@
 
 [4. Looping structures](Looping)
 
-[5. Looping structures](make_and_makefile)
+[5. Make and Makefile](make_and_makefile)
 
 Shell Scripting comprises of two terms:
 
