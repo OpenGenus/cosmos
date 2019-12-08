@@ -34,7 +34,7 @@ class MinQueue {
         return temp;
     }
 
-    T & top(){
+    const T & top(){
         return q.front();
     }
 
