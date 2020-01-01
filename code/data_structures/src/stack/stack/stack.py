@@ -14,6 +14,11 @@ class Stack(object):
     def push(self, data):
         self.stack_arr.append(data)
 
+    def is_empty(self):
+        if len(self.stack_arr) > 0:
+            return False
+        return True
+
     # When the client requests a pop just run the pop function on the array
     def pop(self):
         assert len(self.stack_arr) > 0, "The stack is empty!"
