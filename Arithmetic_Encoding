@@ -1,0 +1,73 @@
+import random
+from decimal import *
+
+class Char_Bound:
+    def __init__(self, char, prob=Decimal, lower=Decimal, upper=Decimal):
+        self.char = char
+        self.upper = upper
+        self.lower = lower
+        self.prob = prob
+    def get_lower(self):
+        return self.lower
+    def get_upper(self):
+        return self.upper
+    def get_char(self):
+        return self.char
+    def get_prob(self):
+        return self.prob
+
+
+def spacing(P,upper=Decimal, lower=Decimal):
+    spaces = []
+    d = Decimal(upper - lower)
+    for key in P:
+        dP = Decimal(d) *Decimal(P[key])
+        sp = Char_Bound(key, P[key], lower, Decimal(lower)+dP)
+        spaces.append(sp)
+        lower = sp.get_upper()
+    return spaces
+
+
+def Arithmetic_Encode(P, text, upper=1.0, lower=0.0):
+    iterations = len(text)
+    for c in text:
+        spaces = spacing(P, upper, lower)
+        for i in spaces:
+            if c==i.get_char():
+                upper = Decimal(round(i.get_upper(), iterations))
+                lower = Decimal(round(i.get_lower(), iterations))
+                saved = i
+    number = Decimal(round((saved.get_lower()+saved.get_upper())/2, iterations))
+    return number,iterations
+
+
+def Decode(P, number=Decimal, iterations=int):
+    init_spaces= spacing(P,1.0,0.0)
+    decoded_text = ''
+    while iterations:
+        for i in init_spaces:
+            if (number<i.get_upper() and number>i.get_lower()):
+                decoded_text += i.get_char()
+                upper = i.get_upper()
+                lower = i.get_lower()
+                break
+        init_spaces = spacing(P, Decimal(upper),Decimal(lower))
+        iterations -=1
+    return decoded_text
+
+
+def test_case(text, Dist):
+    getcontext().prec = len(text)
+    number, iterations = Arithmetic_Encode(Dist, text)
+    print("Number after compression is : ", number)
+    print("Number of iterations: ", iterations)
+    decoded = Decode(Dist, number, iterations)
+    print("Input before is:", text)
+    print("After decoding :", decoded)
+
+
+#ENTER YOUR TEXT AND A LETTER DISTRIBUTION
+#TO GET ITS ARITHMETIC ENCODING
+P = {'a': 0.1, 'b' : 0.4, 'c' : 0.2, 'd':0.3}
+text = "abbcdbbddc"
+test_case(text, P)
