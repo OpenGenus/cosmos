@@ -104,7 +104,7 @@ bool solveSudoku(int mat[][9], int i, int j)
     return false;
 }
 
-void initlookupvalues(int mat[][N]) {
+void initLookupTables(int mat[][N]) {
     for(int i = 0; i < 9; i++) {
         safeRow[i] = 0;
         safeCol[i] = 0;
@@ -142,7 +142,7 @@ int main()
      {0, 0, 0, 4, 1, 9, 0, 0, 5},
      {0, 0, 0, 0, 8, 0, 0, 7, 9}};
     printMat(mat);
-    initlookupvalues(mat);
+    initLookupTables(mat);
     cout << "Solution " << endl;
     solveSudoku(mat, 0, 0);
     return 0;
