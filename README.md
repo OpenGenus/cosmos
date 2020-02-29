@@ -1,8 +1,6 @@
 # Cosmos
 
-[![License](http://img.shields.io/:License-GNU-blue.svg?style=flat-square)](https://github.com/OpenGenus/cosmos/blob/master/LICENSE) 
-[![Badges](http://img.shields.io/:Stars-11,757-ff6799.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger)
-[![Badges](http://img.shields.io/:Forks-2.9k-green.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger)
+![GitHub forks](https://img.shields.io/github/forks/OpenGenus/cosmos?style=social) ![GitHub stars](https://img.shields.io/github/stars/OpenGenus/cosmos?style=social)
 
 > [Join our discussion now](https://discourse.opengenus.org/) 
 
