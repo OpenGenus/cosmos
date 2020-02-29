@@ -9,6 +9,6 @@ The constant sum in every row, column and diagonal is called the magic constant 
 
 ## Complexity
 
-O(n^2) as every position is visited once and there are n^2 elements.
+Time Complexity: O(n^2) as every position is visited once and there are n^2 elements.
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
