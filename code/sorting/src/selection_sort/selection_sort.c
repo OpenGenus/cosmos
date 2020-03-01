@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 int main()
 {
@@ -21,7 +20,7 @@ int main()
             a[j] = temp;
             }
     }}
-    printf("\n The Sorted array is : ");
+    printf("\n The Sorted array is");
     for (i = 0; i < n; i++)
     {
         printf("%d ",a[i]);
