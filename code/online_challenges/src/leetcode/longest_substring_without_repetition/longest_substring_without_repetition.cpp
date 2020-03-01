@@ -28,9 +28,9 @@ public:
         for (int i = 0, j = 0; j < n; j++)
         {
 			// Update i if s[j] has been seen before
-            if (char_to_index.find(s[j]) != char_to_index.end()){
+            if (char_to_index.find(s[j]) != char_to_index.end())
                 i = max(i, char_to_index[s[j]] + 1);
-            }
+
             // Length of window = j - i + 1
             best_len = max(j - i + 1, best_len);
             char_to_index[s[j]] = j;
