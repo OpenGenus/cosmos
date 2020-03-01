@@ -23,6 +23,5 @@ public class Solution {
     }
     jump += zero/2;
     System.out.print(jump);
-
-    }
+}
 }
