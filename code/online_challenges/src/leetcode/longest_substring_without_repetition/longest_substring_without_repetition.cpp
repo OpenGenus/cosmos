@@ -1,5 +1,5 @@
 /* 
- * Author: Kaustubh Maske Patil
+ * 
  * Problem: https://leetcode.com/problems/longest-substring-without-repeating-characters/
  * Solution Description: 
  * 	Sliding Window Approach:
@@ -11,7 +11,7 @@
  *  between	the current best and the length of the window (i - j + 1), and
  *  update our solution accordingly.
  * Time Complexity: O(N)
- * Space Complexity: 
+ * 
  */ 
 
 #include <bits/stdc++.h>
