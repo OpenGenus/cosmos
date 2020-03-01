@@ -20,6 +20,7 @@ class BalancedExpression {
 				}
 				if (input.charAt(i) == ')' || input.charAt(i) == '}'|| input.charAt(i) == ']') {
 					if (stack.empty()) {
+					// No prior matching opening bracket/braces or square bracket found.
 						return false;
 					}
 					char top_char = (char) stack.pop();
