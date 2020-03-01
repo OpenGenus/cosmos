@@ -5,7 +5,7 @@ int main()
     int n,i,j,temp,a[1000];
     printf("\n Enter the number of Elements: ");
     scanf("%d",&n);
-    printf("\n Enter the Elements of array: ");
+    printf("\n Enter the Elements of array");
     for (i = 0; i < n; i++)
     {
         scanf("%d",&a[i]);
