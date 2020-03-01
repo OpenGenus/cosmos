@@ -1,15 +1,21 @@
 /* 
  * 
  * Problem: https://leetcode.com/problems/longest-substring-without-repeating-characters/
- * Solution Description: 
- * 	Sliding Window Approach:
- * 	We take two pointers i (left pointer) and j (right pointer). Then we 
- *  widen our window on the right side at each step (by incrementing j).
- * 	Whenever s[j] has been previously visited, we move the left pointer over
- *  to the just right of the last visited index of (s[j]), so that all 
- *  characters in the window from i to j are unique again. We do a comparison
- *  between	the current best and the length of the window (i - j + 1), and
- *  update our solution accordingly.
+ * 
+ * Solution Description:
+ * 	"Sliding Window Approach"
+ *  
+ * 	1. We take two pointers i (left pointer) and j (right pointer).
+ * 	2. We widen our window on the right side at each step (by incrementing j).
+ * 	3. Whenever s[j] has been previously visited, we move the left pointer over
+ *     to the just right of the last visited index of (s[j]). This makes all
+ *     characters in the window from i to j unique again.
+ *  4. We do a comparison between the current best and the length of the
+ *     window (i - j + 1), and update our solution accordingly.
+ * 	5. When j crosses the size of the string, we stop and we will end up with
+ * 	   the length of the longset substring without repetition of characters
+ * 	   as our solution.
+ * 
  * Time Complexity: O(N)
  * 
  */ 
