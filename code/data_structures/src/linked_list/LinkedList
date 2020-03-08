@@ -1,0 +1,63 @@
+//Using the direct LinkedList class in java with its methods .
+import java.util.*
+
+class Data{
+int data;
+ public Data(int data){
+  this.data=data;
+   }
+}
+public classLinkedlist{
+
+  public static void main(String[],args){
+  int n=0;
+  int d;
+  int pos;
+  Scanner sc= new Scanner(System.in);
+  
+  LinkedList<Data> list=new LinkedList<Data>();
+ Syste.out.println("enter your choice\n");
+ while(n=6){
+ System.out.println("1.Insert\n");
+ System.out.println("2.Intert At the position\n");
+ System.out.println("3.remove\n");
+ System.out.println("4.remove at the position\n");
+ System.out.println("5.Traversing list \n");
+ System.out.println("6.exit\n");
+ n=sc.nextInt();
+ 
+ Swtich(n){
+ case 1: System.out.pintln("enter the data\n");
+         d= sc.nextInt();
+         Data d1=new Data(d);
+         list.add(d1);
+         break;
+ case 2:System.out.println("enter the position and the data\n");
+         d=sc.nextInt();
+         pos=sc.nextInt();
+         list.add(pos,d);
+         break;
+ case 3: System.out.println("Enter the data to remove\n");
+         d=sc.nextInt();
+         list.remove(d);
+         break;
+ case 4: System.out.println("Enter the position of the datsa to remove \n");
+         pos=sc.nextInt();
+         list.remove(pos);
+         break;
+ case 5: Iterator<Data> itr=list.iterator();  
+        while(itr.hasNext()){  
+       System.out.println(itr.nextInt());  
+           }
+           break;
+ case 6: return 0;
+         break;
+         
+ 
+ }
+//end of while loop 
+ }
+  
+  return 0;
+  }
+}
