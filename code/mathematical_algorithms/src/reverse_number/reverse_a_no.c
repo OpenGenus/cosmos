@@ -10,7 +10,7 @@ a=n%10;
 rev=(rev*10)+a;
 n=n/10;
 }
-printf("\nReverse number is  %d",rev);
+printf("\n Reverse number is  %d",rev);
 return 0;
 }
 
