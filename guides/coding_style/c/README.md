@@ -3,7 +3,8 @@
 
 ## C Code style
 
-C is a general-purpose, procedural computer programming language originally developed between 1969 and 1973.
+C is a general-purpose middle language programming language developed by Dennis Ritchie in AT and T labs in 1972, procedural computer programming language which means people write their code as a series of step-by-step instructions. C language was basically developed to do system programming for the operating system UNIX.
+C language is case sensetive language.
 
 # C Programming Style Guide
 
@@ -18,7 +19,7 @@ This code style is known as Kernel Normal Form (KNF).
 
 ## Braces
 
-All braces should go on the same line as whatever the braces are delimiting, with the only exception being functions. For if/else statements, braces should only be used as required.
+All braces should go on the same line as whatever the braces are delimiting, with the only exception being functions. For if/else statements, braces should only be used as required. For only one statement after if or else no braces are required but for more than one statement braces are compulsary. If there is a semicolon(;) after if or else statement it is treated as NULL statement.
 
 ```C
 int
@@ -37,6 +38,7 @@ main(int argc, char *argv[])
 ## Indentation
 
 Indentation is done with a single tab character (Hard Tab). For code split across multiple lines a helper indent of 4 spaces is used.
+At time of printing escape sequence of (\t) can be used for providing indent of 4 spaces.
 
 ```C
 int
@@ -44,21 +46,24 @@ some_really_long_function(int a, int b, int c, int d,
     int e, int f)
 {
 	do_something();
+	printf ("\t did domething");
 ```
 
 ## Conditionals
 
-If, else, for, while, and switch statements should be followed by a space.
+if, else, for, while, and switch statements should be followed by a space.
 
 ```C
 if (a == 9) {
-```
+```}
 
 ```C
-for (;;)
+for (;;){
 ```
 
 Each case in a switch statement should not be indented but the code for each should be. Any case falthroughs should be commented.
+There should not be any duplicate cases. Default case can be used anywhere within the switch statement block.
+Switch statement cannot have any floating point numbers. Variable expressions are not allowed in case labels although macros are allowed.
 
 ```C
 switch (ch) {
