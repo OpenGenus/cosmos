@@ -1,4 +1,7 @@
-/*  To find the longest palindromic substring in JavaScript
+/*  
+      Path of Cosmos by OpenGenus
+      
+      To find the longest palindromic substring in JavaScript
 
       Example : Input String : "agbdcdbty" the palindromic substring is "bdcdb"
 */
