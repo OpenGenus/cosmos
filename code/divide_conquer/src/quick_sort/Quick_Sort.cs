@@ -1,3 +1,4 @@
+// Part of Cosmos (OpenGenus)
 using System;
 public class Quick_Sort
 {
