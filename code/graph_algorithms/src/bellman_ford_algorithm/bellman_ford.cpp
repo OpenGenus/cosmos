@@ -9,6 +9,7 @@
 
 int nodes, edges;
 // Path of Cosmos by OpenGenus Foundation
+// function to calculate path from source to given destination
 void path_finding(int source, std::unordered_map<int, int> parent_map)
 {
     using namespace std;
@@ -24,6 +25,7 @@ void path_finding(int source, std::unordered_map<int, int> parent_map)
     cout << "Path\n";
     cout << str << endl;
 }
+// A utility function used to print the solution
 void print_distance(std::vector<int> distance)
 {
     using namespace std;
@@ -31,6 +33,9 @@ void print_distance(std::vector<int> distance)
     for (size_t i = 0; i < distance.size(); ++i)
         cout << i << "\t\t" << distance[i] << endl;
 }
+// The main function that finds the minimum distance from the source to all other
+// vertices using Bellmann Ford Algorithm. 
+// It also detects negative weight cycle
 void BellmanFord(std::vector<std::pair<int, std::pair<int, int>>> graph, int source,
                  std::unordered_map<int, int> &parent_map)
 {
@@ -60,10 +65,10 @@ void BellmanFord(std::vector<std::pair<int, std::pair<int, int>>> graph, int sou
         if (distance[source] != INT_MAX && distance[source] + weight < distance[destination])
         {
             cout << "Graph contains negative weight cycle\n";
-            exit(0);
+            exit(0); // If negative cycle found then terminate the program
         }
     }
-    print_distance(distance);
+    print_distance(distance); 
 }
 int main()
 {
