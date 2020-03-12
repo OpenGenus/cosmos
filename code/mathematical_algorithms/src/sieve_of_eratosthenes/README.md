@@ -1,4 +1,7 @@
 # Sieve of Eratosthenes
+
+Learn at [**OpenGenus IQ**](https://iq.opengenus.org/the-sieve-of-eratosthenes/)
+
 Sieve of Eratosthenes is used to find prime numbers up to some predefined integer n. For sure, we can just test all the numbers in range from 2 to n for primality using some approach, but it is quite inefficient. Sieve of Eratosthenes is a simple algorithm to find prime numbers. Though, there are better algorithms exist today, sieve of Eratosthenes is a great example of the sieve approach.
 
 <b>Algorithm</b>
@@ -45,4 +48,4 @@ Strong proof is omitted, but you can easily prove it on your own. Modified algor
 <li>check all numbers in range √n .. n. All found unmarked numbers are primes, add them to list.</li>
 </ul>
 
-
+Collaborative effort by [OpenGenus](https://github.com/opengenus)	
