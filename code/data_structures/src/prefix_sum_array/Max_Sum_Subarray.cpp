@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus
 //Max Sum Subarray in O(n)
 #include <bits/stdc++.h>
 using namespace std;
