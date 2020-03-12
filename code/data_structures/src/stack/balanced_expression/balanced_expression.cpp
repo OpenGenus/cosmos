@@ -1,3 +1,6 @@
+// Stack | Balance paraenthesis | C++
+// Part of Cosmos by OpenGenus Foundation
+
 #include <iostream>
 #include <stack>
 
@@ -9,10 +12,10 @@ bool checkBalanced(string s)
     for (const char: s)
     {
         if (s[i] == '{' || s[i] == '[' || s[i] == '(')
-            st.push(s[i]);
+            st.push(s[i]); //if opening brackets encounter, push into stack
         else
         {
-            char temp = st.top();
+            char temp = st.top();//if closing encounter, check for its opening bracket
             if (s[i] == '}' && temp == '{')
                 st.pop();
             else if (s[i] == ']' && temp == '[')

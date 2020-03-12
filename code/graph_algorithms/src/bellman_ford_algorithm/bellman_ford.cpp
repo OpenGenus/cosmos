@@ -25,7 +25,7 @@ void path_finding(int source, std::unordered_map<int, int> parent_map)
     cout << "Path\n";
     cout << str << endl;
 }
-// A utility function used to print solution
+// A utility function used to print the solution
 void print_distance(std::vector<int> distance)
 {
     using namespace std;
@@ -68,7 +68,7 @@ void BellmanFord(std::vector<std::pair<int, std::pair<int, int>>> graph, int sou
             exit(0);  // If negative cycle found then terminate the program
         }
     }
-    print_distance(distance);
+    print_distance(distance); 
 }
 int main()
 {
