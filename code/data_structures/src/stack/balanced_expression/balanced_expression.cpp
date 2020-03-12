@@ -1,4 +1,5 @@
-/* To check if string has balanced brackets */
+// Stack | Balance paraenthesis | C++
+// Part of Cosmos by OpenGenus Foundation
 
 #include <iostream>
 #include <stack>
@@ -13,7 +14,7 @@ bool checkBalanced(string s)
     {
         //adding opening brackets to stack
         if (s[i] == '{' || s[i] == '[' || s[i] == '(')
-            st.push(s[i]);
+            st.push(s[i]); //if opening brackets encounter, push into stack
         else
         {
             // checking for each closing bracket, if there is an opening bracket in stack
