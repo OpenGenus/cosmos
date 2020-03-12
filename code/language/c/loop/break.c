@@ -1,3 +1,7 @@
+// Defining a pre-processor directive
+/* This ('#') symbol at the beginning of a statement in a C program indicates that it is a pre-processor directive. 
+*/
+
 #include <stdio.h>
 int main()
 {
@@ -7,6 +11,8 @@ int main()
         printf("value of variable num is: %d\n", num);
         if (num==2)
         {
+		/* Break statement stops the execution of the program 			when num = 2. Hence, the program exits the while loop 			even when the condition (in while statement) is true.
+		*/
             break;
         }
         num++;
