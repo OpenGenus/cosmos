@@ -1,5 +1,6 @@
 
 <?php 
+// Part of Cosmos by OpenGenus
 // PHP program to print a fraction  
 // in Egyptian Form using Greedy 
 // Algorithm 
