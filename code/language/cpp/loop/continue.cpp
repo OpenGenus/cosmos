@@ -7,13 +7,13 @@ int main()
       if (j==5)
       {
 	    /* The continue statement is encountered when
-	     * the value of j is equal to 4.
+	     * the value of j is equal to 5.
 	     */
 	    continue;
        }
 
        /* This print statement would not execute for the
-	* loop iteration where j ==4  because in that case
+	* loop iteration where j ==5  because in that case
 	* this statement would be skipped.
 	*/
        std::cout << j;
