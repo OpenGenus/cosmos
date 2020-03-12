@@ -12,7 +12,8 @@ int main()
         if (num==2)
         {
 		/* 
-		Break statement stops the execution of the program when num = 2. Hence, the program exits the while loop 			even when the condition (in while statement) is true.
+		Break statement stops the execution of the program when num = 2. 
+		Hence, the program exits the while loop even when the condition (in while statement) is true.
 		*/
             break;
         }
