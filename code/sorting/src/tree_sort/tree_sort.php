@@ -1,4 +1,5 @@
 <?php
+// Part of Cosmos by OpenGenus
 
 namespace SF;
 
