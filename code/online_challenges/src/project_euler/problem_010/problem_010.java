@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus
 public class Solution {
 
     static boolean checkp(int x)
