@@ -21,8 +21,8 @@ This code style is known as Kernel Normal Form (KNF).
 All braces should go on the same line as whatever the braces are delimiting, with the only exception being functions. For if/else statements, braces should only be used as required.
 
 ```C
-
-int main(int argc, char *argv[])
+int
+main(int argc, char *argv[])
 {
 	if (!some_function()) {
 		puts("Something happened!");
@@ -94,8 +94,8 @@ default:
 Functions should have the type on a seperate line proceeding the rest of the function definition.
 
 ```C
-
-int main(int argc, char *argv[])
+int
+main(int argc, char *argv[])
 {
 Block of Code
 " " "
