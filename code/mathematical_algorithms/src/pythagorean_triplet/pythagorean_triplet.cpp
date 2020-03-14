@@ -28,7 +28,7 @@ void pythagoreanTriplets(int limit)
             printf("%d %d %d\n", a, b, c); 
         } 
         m++; 
-    } 
+    }
 } 
   
 // Driver Code 
