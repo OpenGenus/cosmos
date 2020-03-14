@@ -46,7 +46,7 @@ some_really_long_function(int a, int b, int c, int d,
     int e, int f)
 {
 	do_something();
-	printf ("\t did domething");
+
 ```
 
 ## Conditionals
@@ -55,7 +55,7 @@ if, else, for, while, and switch statements should be followed by a space.
 
 ```C
 if (a == 9) {
-```}
+```
 
 ```C
 for (;;){
@@ -78,7 +78,7 @@ case 'c'
 	break;
 default:
 	def_thing();
-}
+
 ```
 
 ## Functions
