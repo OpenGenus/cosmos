@@ -1,41 +1,50 @@
-//Program to find whether a string is a pallindrome or not
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-import java.util.Scanner;
-public class pallindrome_string {
-	
-	// Reverse a given string
-	public static String pallindrome(String str) {
-		String str1  = "";
-		for (int i = str.length()-1; i>=0;i --) {
-			str1 = str1 + str.charAt(i);
-		}
-		return str1;
-	}
-
-	public static void main(String[] args) {
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
 		Scanner s = new Scanner(System.in);
-		System.out.println("Enter a string");
-		String str = s.nextLine();
-		String strrev = pallindrome(str);
-		
-		// Comparing 2 strings to find if input string is pallindrome or not
-		if(str.equals(strrev)) {
-			System.out.println("String entered is palindrome!");
+		int t = s.nextInt();
+		while (t-->0){
+		    int n = s.nextInt();
+		    int k = s.nextInt();
+		    int[] arr = new int[n];
+		    for (int i = 0; i< n; i++){
+		       arr[i] = s.nextInt();
+		    }
+		    int bag = 0;
+		    for (int i = 0; i< n; i++){
+		        if (arr[i] %k == 0){
+		            continue;
+		        }
+		        else{
+		            int step = arr[i]%k;
+		            if (k-step <= bag){
+		                bag -= (k-step);
+		            }
+		            else{
+		                bag += step;
+		            }
+		        }
+		    }
+		    System.out.println(bag);
 		}
-		else {
-			System.out.println("String entered is not a palindrome!");
-		}
+	
 	}
 }
 
 /*
-Test cases
- 
-Enter a string
-hello
-String entered is not a palindrome!
+TEST CASE
+2
+5 7
+1 14 4 41 1
+3 9
+1 10 19
 
-Enter a string
-metem
-String entered is palindrome!
+OUTPUT
+5
+3
 */
