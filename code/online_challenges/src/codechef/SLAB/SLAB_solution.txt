@@ -1,0 +1,64 @@
+Let’s calculate the tax the person has to pay, based on their income.
+
+The income is less than or equal to Rs. 250,000250,000:
+The person doesn’t have to pay any tax. Thus, their tax is Rs. 00
+
+The income is greater than Rs. 250,000250,000, but less than or equal to Rs. 500,000500,000:
+Their tax will be 55% of the income above 250,000250,000,
+\therefore∴ tax == 55% of (N-250,000N−250,000)
+
+The income is greater than Rs. 500,000500,000, but less than or equal to Rs. 750,000750,000:
+Their tax will be 1010% of the income above 500,000500,000 ++ tax for the slab 250,001250,001 to 500,000500,000
+\therefore∴ tax ==
+1010% of (N-500,000N−500,000) ++
+55% of (500,000-250,000500,000−250,000)
+
+The income is greater than Rs. 750,000750,000, but less than or equal to Rs. 1,000,0001,000,000:
+Their tax will be 1515% of the income above 750,000750,000 ++ taxes for previous slabs
+\therefore∴ tax ==
+1515% of (N-750,000N−750,000) ++
+1010% of (750,000-500,000750,000−500,000)++
+55% of (500,000-250,000500,000−250,000)
+
+The income is greater than Rs. 1,000,0001,000,000, but less than or equal to Rs. 1,250,0001,250,000:
+Their tax will be 2020% of the income above 1,000,0001,000,000 ++ taxes for previous slabs
+\therefore∴ tax ==
+2020% of (N-1,000,000N−1,000,000) ++
+1515% of (1,000,000-750,0001,000,000−750,000) ++
+1010% of (750,000-500,000750,000−500,000)++
+55% of (500,000-250,000500,000−250,000)
+
+The income is greater than Rs. 1,250,0001,250,000, but less than or equal to Rs. 1,500,0001,500,000:
+Their tax will be 2525% of the income above 1,250,0001,250,000 ++ taxes for previous slabs
+\therefore∴ tax ==
+2525% of (N-1,250,000N−1,250,000) ++
+2020% of (1,250,000-1,000,0001,250,000−1,000,000) ++
+1515% of (1,000,000-750,0001,000,000−750,000) ++
+1010% of (750,000-500,000750,000−500,000)++
+55% of (500,000-250,000500,000−250,000)
+
+The income is greater than Rs. 1,500,0001,500,000:
+Their tax will be 3030% of the income above 1,500,0001,500,000 ++ taxes for previous slabs
+\therefore∴ tax ==
+3030% of (N-1,500,000N−1,500,000) ++
+2525% of (1,500,000-1,250,0001,500,000−1,250,000) ++
+2020% of (1,250,000-1,000,0001,250,000−1,000,000) ++
+1515% of (1,000,000-750,0001,000,000−750,000) ++
+1010% of (750,000-500,000750,000−500,000)++
+55% of (500,000-250,000500,000−250,000)
+
+Using a simple if-else ladder 13, we can easily identify the income bracket a person belongs to, and calculate their total tax, as explained above.
+
+To calculate xx % of yy, we can simply perform y*\frac{x}{100}y∗ 
+100
+x
+​	
+ .
+
+After calculating their total tax, we can subtract it from the person’s total income, to obtain their net income. As NN is a multiple of 100100, using integer data types, instead of floating-point data types, works too.
+
+Thus, to solve the problem,
+
+1. Identify the income bracket using if-else ladder 13,
+2. Obtain the total tax by calculating the tax for this bracket, and adding it with the taxes for lower brackets,
+3. Net income = Total income - Total Tax

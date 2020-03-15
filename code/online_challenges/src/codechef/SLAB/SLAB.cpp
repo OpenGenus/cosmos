@@ -1,60 +1,76 @@
-// Part of Cosmos by OpenGenus
-#include <iostream>
-
+#include <bits/stdc++.h>
+#include <vector>
+#include <set>
+#include <map>
+#include <string> 
+#include <cstdio>
+#include <cstdlib>
+#include <climits>
+#include <utility>
+#include <algorithm>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <iomanip> 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp> 
+ 
 using namespace std;
+using namespace __gnu_pbds;
+#define f(i,a,b) for(i=a;i<b;i++)
+#define rep(i,n) f(i,0,n)
+#define fd(i,a,b) for(i=a;i>=b;i--)
+#define pb push_back
+#define mp make_pair
+#define vi vector< int >
+#define vl vector< ll >
+#define ss second
+#define ff first
+#define ll long long
+#define pii pair< int,int >
+#define pll pair< ll,ll >
+#define sz(a) a.size()
+#define inf (1000*1000*1000+5)
+#define all(a) a.begin(),a.end()
+#define tri pair<int,pii>
+#define vii vector<pii>
+#define vll vector<pll>
+#define viii vector<tri>
+#define mod (1000*1000*1000+7)
+#define pqueue priority_queue< int >
+#define pdqueue priority_queue< int,vi ,greater< int > >
+#define int ll
+ 
+typedef tree<
+int,
+null_type,
+less<int>,
+rb_tree_tag,
+tree_order_statistics_node_update>
+ordered_set;
 
-int main ()
-{
-    int t;
-    cin >> t;
-    while (t --)
-    {
-    	
-        long long int total, net, tax;
-        cin >> total;
-        
-	if (total <= 250000)
-        {
-            net = total;
-        }
-        
-	else if ((250000 < total) && (total <= 500000))
-        {
-            tax = 0.05 * (total - 250000);
-            net = total - tax;
-        }
-        
-	else if ((500000 < total) && (total <= 750000))
-        {
-            tax = 0.05 * ( 500000- 250000) + 0.10 * (total - 500000);
-            net = total - tax;
-        }
-        
-	else if ((750000 < total) && (total <= 1000000))
-        {
-            tax = 0.05 * (500000 - 250000) + 0.10 * (750000 - 500000) + 0.15 * (total - 750000);
-            net = total - tax;
-        }
-        
-        else if ((1000000 < total) && (total <= 1250000))
-        {
-            tax = 0.05 * (500000 - 250000) + 0.10 * (750000 - 500000) + 0.15 * (1000000 - 750000) + 0.20 * (total - 1000000);
-            net = total - tax;
-        }
-        
-        else if ((1250000 < total) && (total <= 1500000))
-        {
-            tax = 0.05 *(500000 - 250000) + 0.10 * (750000 - 500000) + 0.15 * (1000000 - 750000) + 0.20 * (1250000 - 1000000) + 0.25 * (total - 1250000);
-            net = total - tax;
-        }
-        
-        else if (total > 1500000)
-        {
-            tax = 0.05 * (500000 - 250000) + 0.10 * (750000 - 500000) + 0.15 * (1000000 - 750000) + 0.20 * (1250000 - 1000000) + 0.25 * (1500000 - 1250000) + 0.30 * (total - 1500000);
-            net = total - tax;
-        }
-        
-        cout << net << endl;
-    }
-    return 0;
-}
+ 
+main(){
+	std::ios::sync_with_stdio(false); cin.tie(NULL);
+	int t,i;
+	cin>>t;
+	vector<pair<int,int> > vec;
+	for(i=0;i<6;i++){
+		vec.push_back({i*250000,(i+1)*250000});
+	}
+	vec.push_back({i*250000,inf});
+	while(t--){
+		int n,ans,diff;
+		cin>>n;
+		ans=n;
+		for(i=0;i<vec.size();i++){
+			diff=min(vec[i].second,n)-vec[i].first;
+			ans-=diff*i*5/100;
+			if(n<=vec[i].second){
+				break;
+			}
+		}
+		cout<<ans<<endl;
+	}
+	return 0;
+} 
