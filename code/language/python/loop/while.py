@@ -1,4 +1,11 @@
 #!/usr/bin/python
+'''
+General Structure:
+
+while(<condition>):
+   //code
+
+'''
 
 count = 0
 while (count < 10):
