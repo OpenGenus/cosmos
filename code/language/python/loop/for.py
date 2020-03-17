@@ -1,5 +1,12 @@
 #for loop in python
 
+'''
+General Structure:
+for <variable> in <list/string>:
+  //code
+
+'''
+
 ## Simple for loop in string
 for x in "cosmos":
   print(x)
