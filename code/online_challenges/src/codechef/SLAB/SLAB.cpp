@@ -1,76 +1,43 @@
 #include <bits/stdc++.h>
-#include <vector>
-#include <set>
-#include <map>
-#include <string> 
-#include <cstdio>
-#include <cstdlib>
-#include <climits>
-#include <utility>
-#include <algorithm>
-#include <cmath>
-#include <queue>
-#include <stack>
-#include <iomanip> 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp> 
- 
 using namespace std;
-using namespace __gnu_pbds;
-#define f(i,a,b) for(i=a;i<b;i++)
-#define rep(i,n) f(i,0,n)
-#define fd(i,a,b) for(i=a;i>=b;i--)
-#define pb push_back
-#define mp make_pair
-#define vi vector< int >
-#define vl vector< ll >
-#define ss second
 #define ff first
+#define ss second
+#define MP make_pair
+#define PB push_back
 #define ll long long
-#define pii pair< int,int >
-#define pll pair< ll,ll >
-#define sz(a) a.size()
-#define inf (1000*1000*1000+5)
-#define all(a) a.begin(),a.end()
-#define tri pair<int,pii>
-#define vii vector<pii>
-#define vll vector<pll>
-#define viii vector<tri>
-#define mod (1000*1000*1000+7)
-#define pqueue priority_queue< int >
-#define pdqueue priority_queue< int,vi ,greater< int > >
-#define int ll
+// #define int long long
+#define f(i,x,n) for(int i=x;i<n;i++)
+#define ld long double
+const int mod=1000000007;
+// const int INF=1e18;
  
-typedef tree<
-int,
-null_type,
-less<int>,
-rb_tree_tag,
-tree_order_statistics_node_update>
-ordered_set;
-
  
-main(){
-	std::ios::sync_with_stdio(false); cin.tie(NULL);
-	int t,i;
+int32_t main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	// freopen("input.txt","r",stdin);
+	// freopen("output.txt","w",stdout);
+	int t;
 	cin>>t;
-	vector<pair<int,int> > vec;
-	for(i=0;i<6;i++){
-		vec.push_back({i*250000,(i+1)*250000});
-	}
-	vec.push_back({i*250000,inf});
-	while(t--){
-		int n,ans,diff;
+	while(t--)
+	{
+		int n,tax=0;
 		cin>>n;
-		ans=n;
-		for(i=0;i<vec.size();i++){
-			diff=min(vec[i].second,n)-vec[i].first;
-			ans-=diff*i*5/100;
-			if(n<=vec[i].second){
-				break;
-			}
-		}
-		cout<<ans<<endl;
+		if(n>250000)
+			tax += ( (min(500000,n)-250000)*5 )/100;
+		if(n>500000)
+			tax += ( (min(750000,n)-500000)*10 )/100;
+		if(n>750000)
+			tax += ( (min(1000000,n)-750000)*15 )/100;
+		if(n>1000000)
+			tax += ( (min(1250000,n)-1000000)*20 )/100;
+		if(n>1250000)
+			tax += ( (min(1500000,n)-1250000)*25 )/100;
+		if(n>1500000)
+			tax += ( (n-1500000)*30 )/100;
+		cout<<n-tax<<'\n';
 	}
+	
 	return 0;
 } 
