@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct point {
+struct point 
+{
     float w, x, y, z; // w, x, y and z are the values of the dataset
     float distance; // distance will store the distance of dataset point from the unknown test point
     int op; // op will store the class of the point
 };
 
-int main() {
+int main() 
+{
     int i, j, n, k;
     struct point p;
     struct point temp;
@@ -18,13 +20,15 @@ int main() {
     cout << "w\tx\ty\tz\top\n";
 
     // Taking dataset
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         cin >> arr[i].w >> arr[i].x >> arr[i].y >> arr[i].z >> arr[i].op;
     }
 
     cout << "\nw\tx\ty\tz\top\n";
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) 
+    {
         cout << fixed << setprecision(2) << arr[i].w << '\t' << arr[i].x << '\t' << arr[i].y << '\t' << arr[i].z << '\t' << arr[i].op << '\n';
     }
 
@@ -32,14 +36,18 @@ int main() {
     cin >> p.w >> p.x >> p.y >> p.z;
 
     // Measuring the Euclidean distance
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) 
+    {
         arr[i].distance = sqrt(((arr[i].w - p.w) * (arr[i].w - p.w)) + ((arr[i].x - p.x) * (arr[i].x - p.x)) + ((arr[i].y - p.y) * (arr[i].y - p.y)) + ((arr[i].z - p.z) * (arr[i].z - p.z)));
     }
 
     // Sorting the training data with respect to distance
-    for (i = 1; i < n; i++) {
-        for (j = 0; j < n - i; j++) {
-            if (arr[j].distance > arr[j + 1].distance) {
+    for (i = 1; i < n; i++)
+    {
+        for (j = 0; j < n - i; j++) 
+        {
+            if (arr[j].distance > arr[j + 1].distance)
+            {
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -48,7 +56,8 @@ int main() {
     }
 
     cout << "\nw\tx\ty\tz\top\tdistance\n";
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         cout << fixed << setprecision(2) << arr[i].w << '\t' << arr[i].x << '\t' << arr[i].y << '\t' << arr[i].z << '\t' << arr[i].op << '\t' << arr[i].distance << '\n';
     }
 
@@ -60,13 +69,16 @@ int main() {
     int index = 0, maxfreq = 0;
 
     // Creating frequency array of the class of k nearest neighbors
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         freq[arr[i].op]++;
     }
 
     // Finding the most frequent occurring class
-    for (int i = 0; i < 1000; i++) {
-        if(freq[i] > maxfreq) {
+    for (int i = 0; i < 1000; i++) 
+    {
+        if(freq[i] > maxfreq) 
+        {
             maxfreq = freq[i];
             index = i;
         }
