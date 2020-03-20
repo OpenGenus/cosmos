@@ -3,7 +3,7 @@
 #Python program for selection sort
 def selection_sort(array): 
     
-    #Traversing one by one through the elements in array(list)
+    #Traversing one by one through the elements in array
     for i in range(len(array) - 1):
         
         #Finding the minimum element in the unsorted array 
