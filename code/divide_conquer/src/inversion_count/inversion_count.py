@@ -28,7 +28,7 @@ def merge(left, right):
 
 
 def merge_sort(
-    arr
+    arr,
 ):  # this function will return a tuple as (sorted_array, inversion_count)
     if len(arr) > 1:
         mid = len(arr) // 2
