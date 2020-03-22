@@ -6,7 +6,7 @@ int main()
 {
     int t1, t2, k, t, n = 1;
     int arr[100], arr1[100];
-    int i, j, temp, max, count, maxdigits = 0, c = 0,i1,j1;
+    int i, j, temp, max, count, maxdigits = 0, c = 0, i1, j1;
     printf("Enter size of array :");
     scanf("%d", & count);
     printf("Enter elements into array :");
@@ -58,10 +58,10 @@ int main()
         {
             t1 = arr[i] / n;
             for (j = i + 1; t1 == (arr[j] / n); ++j);
-			j1=j;	//Storing the end position to perform arrangement in the array
-			i1=i;   //Storing the Start position to perform arrangement in the array
-			
-			//Arranging the array
+            j1 = j; //Storing the end position to perform arrangement in the array
+            i1 = i; //Storing the Start position to perform arrangement in the array
+
+            //Arranging the array
             for (i1 = i; i1 < j1 - 1; ++i1) 
             {
                 for (j = i1 + 1; j < j1; ++j) 
