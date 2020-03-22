@@ -35,7 +35,7 @@ int main()
     bubbleSort(v, n); // calling the sort function
 
     std::cout << "Sorted Elements:" << '\n'; // showing output of the sorted vector
-    for (int element:v)
+    for (int element : v)
         std::cout << element << " ";
     std::cout << '\n';
     return 0;
