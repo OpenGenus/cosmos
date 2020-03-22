@@ -18,7 +18,7 @@ int maxSubarraySum(const std::vector<int>& arr)
         currMax += element;
         if (maxSumSoFar < currMax)
             maxSumSoFar = currMax;
-        if (currMax < 0) // if the current maximum sum becomes less than 0 then we make it 0
+        if (currMax < 0) // if the current maximum sum becomes less than 0 then we make it 0 to represent an empty subarray
             currMax = 0;
     }
     return maxSumSoFar;
