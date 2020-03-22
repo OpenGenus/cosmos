@@ -8,7 +8,7 @@ int main(void)
     {
         scanf("%d", & n);
         long long int a[100];
-	long long int pj = 0;
+        long long int pj = 0;
         for (i = 0; i < n; ++i) 
         {
             scanf("%lld", & a[i]);
