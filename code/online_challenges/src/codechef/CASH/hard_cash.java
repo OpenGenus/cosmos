@@ -1,34 +1,36 @@
 import java.util.Scanner;
-class hardcash{
-    public static void main (String[] args) throws java.lang.Exception
-    {
-        Scanner s = new Scanner(System.in);
-	int t = s.nextInt();
-	while (t-->0){
-	    int n = s.nextInt();
-	    int k = s.nextInt();
-	    int[] arr = new int[n];
-	    for (int i = 0; i< n; i++){
-	        arr[i] = s.nextInt();
-	    }
-	    int bag = 0;
-            for (int i = 0; i< n; i++){
-	        if (arr[i] %k == 0){
-		    continue;
-		}
-		else{
-		    int step = arr[i]%k;
-		    if (k-step <= bag){
-		        bag -= (k-step);
-		    }
-		    else{
-			bag += step;
-		    }
-		}
-	    }  
-	    System.out.println(bag);
-        }
+class Hardcash {
+ public static void main(String[] args) {
+  Scanner s = new Scanner(System.in);
+  int t = s.nextInt();
+
+  while (t--> 0) {
+
+   int n = s.nextInt();
+   int k = s.nextInt();
+   int[] arr = new int[n];
+
+   //input
+   for (int i = 0; i < n; i++) {
+    arr[i] = s.nextInt();
+   }
+
+   int bag = 0;
+   for (int i = 0; i < n; i++) {
+    if (arr[i] % k == 0) {
+     continue;
+    } else {
+     int step = arr[i] % k;
+     if (k - step <= bag) {
+      bag -= (k - step);
+     } else {
+      bag += step;
+     }
     }
+   }
+   System.out.println(bag);
+  }
+ }
 }
 
 /*
