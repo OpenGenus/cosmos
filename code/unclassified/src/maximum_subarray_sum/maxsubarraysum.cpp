@@ -9,7 +9,7 @@
 #include <vector>
 #include <climits>
 
-int maxSubarraySum(std::vector<int> arr)
+int maxSubarraySum(const std::vector<int>& arr)
 {
     int maxSumSoFar = INT_MIN;
     int currMax = 0;
