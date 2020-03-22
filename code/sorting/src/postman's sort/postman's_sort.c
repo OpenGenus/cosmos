@@ -4,10 +4,10 @@
 
 int main() 
 {
-    int t1, t2, k, t, n = 1;
     int arr[100], arr1[100];
-    int i, j, temp, max, count, maxdigits = 0, c = 0, i1, j1;
+    int i, j, c = 0, n = 1, maxdigits = 0;
     printf("Enter size of array :");
+    int count;
     scanf("%d", & count);
     printf("Enter elements into array :");
     for (i = 0; i < count; ++i) 
@@ -20,23 +20,23 @@ int main()
     //Finding the longest digits in the array and no of elements in that digit
     for (i = 0; i < count; ++i) 
     {
-        t = arr[i]; /*first element in t */
+        int t = arr[i]; /*first element in t */
         while (t > 0) 
         {
             c++; //Counting the no of elements of a digit
-            t = t / 10;
+            t /= 10;
         }
         if (maxdigits < c)
             maxdigits = c; //Storing the length of longest digit
         c = 0;
     }
     while (--maxdigits)
-        n = n * 10;
+        n *= 10;
 
     for (i = 0; i < count; ++i) 
     {
-        max = arr[i] / n; //Dividing by a particular base
-        t = i;
+        int max = arr[i] / n; //Dividing by a particular base
+        int t = i;
         for (j = i + 1; j < count; ++j) 
         {
             if (max > (arr[j] / n)) 
@@ -45,7 +45,7 @@ int main()
                 t = j;
             }
         }
-        temp = arr1[t];
+        int temp = arr1[t];
         arr1[t] = arr1[i];
         arr1[i] = temp;
         temp = arr[t];
@@ -56,10 +56,10 @@ int main()
     {
         for (i = 0; i < count;) 
         {
-            t1 = arr[i] / n;
+            int t1 = arr[i] / n;
             for (j = i + 1; t1 == (arr[j] / n); ++j);
-            j1 = j; //Storing the end position to perform arrangement in the array
-            i1 = i; //Storing the Start position to perform arrangement in the array
+            int j1 = j; //Storing the end position to perform arrangement in the array
+            int i1 = i; //Storing the Start position to perform arrangement in the array
 
             //Arranging the array
             for (i1 = i; i1 < j1 - 1; ++i1) 
@@ -68,7 +68,7 @@ int main()
                 {
                     if (arr1[i1] > arr1[j]) 
                     {
-                        temp = arr1[i1];
+                        int temp = arr1[i1];
                         arr1[i1] = arr1[j];
                         arr1[j] = temp;
                         temp = (arr[i1] % 10);
@@ -79,7 +79,7 @@ int main()
             }
             i = j;
         }
-        n = n / 10;
+        n /= 10;
     }
     // Printing the arranged array
     printf("\nSorted Array (Postman sort) :");
