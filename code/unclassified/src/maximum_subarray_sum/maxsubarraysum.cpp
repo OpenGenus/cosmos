@@ -26,16 +26,16 @@ int maxSubarraySum(std::vector<int> arr)
 
 int main()
 {
-    std::vector<int> v;
     int n;
     std::cin >> n;
+    std::vector<int> v(n);
     for (int i = 0; i < n; ++i)
     {
         int x;
         std::cin >> x;
         v.push_back(x);
     }
-    int answer = maxSubarraySum(v, n);
+    int answer = maxSubarraySum(v);
     std::cout << "Maximum subarray sum is " << answer << '\n';
     return 0;
 }
