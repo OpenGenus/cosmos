@@ -33,7 +33,7 @@ int main()
     {
         int x;
         std::cin >> x;
-        v.push_back(x);
+        v[i] = x;
     }
     int answer = maxSubarraySum(v);
     std::cout << "Maximum subarray sum is " << answer << '\n';
