@@ -1,11 +1,8 @@
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 class Brkbks {
-
     public static void main(String[] args) {
-
         Scanner s = new Scanner(System.in);
         int t = s.nextInt();
   	
@@ -27,10 +24,10 @@ class Brkbks {
             while (sum < strength) {
                 sum += arrLL.get(0);
      		if (sum <= strength) {
-      		    arrLL.remove(0);
+                    arrLL.remove(0);
      		}
      		if (arrLL.size() == 0) {
-      		    break;
+                    break;
      		}
     	    }
 
