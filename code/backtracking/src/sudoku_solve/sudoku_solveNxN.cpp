@@ -7,18 +7,18 @@ const int n = 9;
 int grid[n][n];
 
 void input_grid() {
-    int i, j;
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
+    //int i, j;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             cin >> grid[i][j];
         }
     }
 }
 
 void print_grid() {
-    int i, j;
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
+    //int i, j;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             cout << grid[i][j] << " ";
         }
         cout << '\n';
@@ -26,8 +26,7 @@ void print_grid() {
 }
 
 bool can_be_placed(int row, int col, int num) {
-    int ii, jj;
-    ii = 0, jj = col;
+   int ii = 0, jj = col;
     // row check
     while (ii < n) {
         if (grid[ii][jj] == num) {
