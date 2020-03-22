@@ -2,13 +2,13 @@ const readline = require("readline");
 
 const ioInterface = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-ioInterface.question("Enter a three digit integer: ", answer => {
+ioInterface.question("Enter a three digit integer: ", (answer) => {
   var armstrong = answer
     .split("")
-    .map(num => parseInt(num) ** 3)
+    .map((num) => parseInt(num) ** 3)
     .reduce((elem, sum) => elem + sum);
   console.log(
     `${answer} is ${

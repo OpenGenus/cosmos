@@ -5,7 +5,7 @@
  */
 function lonelyInt(arr) {
   var lonely = 0;
-  arr.forEach(number => {
+  arr.forEach((number) => {
     lonely ^= number;
   });
   return lonely;

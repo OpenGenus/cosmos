@@ -2,10 +2,10 @@ const readline = require("readline");
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-rl.question("Enter the number: ", num => {
+rl.question("Enter the number: ", (num) => {
   console.log(`Number of trailing zeroes in ${num}! : ` + trailingZeroes(num));
   rl.close();
 });

@@ -4,7 +4,7 @@
 //Using map function
 function getAverage(numbers) {
   var sum = 0;
-  numbers.map(function(number) {
+  numbers.map(function (number) {
     sum += number;
   });
   return sum / numbers.length;

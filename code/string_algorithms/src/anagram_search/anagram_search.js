@@ -8,7 +8,7 @@
 // Compare both hash tables to see if one contains any letters not contained in the other table.
 // Check to ensure every unique character is used in both strings the same number of times.
 
-var removeWhiteSpace = str => {
+var removeWhiteSpace = (str) => {
   var splitStr = str.split("");
   var letters = [];
   for (var i = 0; i < splitStr.length; i++) {
@@ -20,7 +20,7 @@ var removeWhiteSpace = str => {
   return strNoSpaces;
 };
 
-var charCountTable = str => {
+var charCountTable = (str) => {
   var letters = str.split("");
   var counts = letters.reduce((instances, a) => {
     if (a in instances) {

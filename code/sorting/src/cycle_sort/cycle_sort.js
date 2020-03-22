@@ -7,7 +7,7 @@
  * Part of Cosmos by OpenGenus Foundation
  */
 
-const cycleSort = array => {
+const cycleSort = (array) => {
   // last record will already be in place
   for (let start = 0; start < array.length - 1; start++) {
     let record = array[start];

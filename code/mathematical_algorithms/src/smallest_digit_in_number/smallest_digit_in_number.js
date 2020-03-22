@@ -1,4 +1,4 @@
-const smallest_digit_in_number = input => {
+const smallest_digit_in_number = (input) => {
   if (typeof input !== "number") {
     console.error("Please enter a number.");
     return;

@@ -13,7 +13,7 @@ function minimumCoins(value, denominations) {
   return result;
 }
 
-Array.prototype.equals = function(other) {
+Array.prototype.equals = function (other) {
   if (!other || !(other instanceof Array)) {
     return false;
   }
@@ -42,11 +42,11 @@ function test() {
     {
       value: 191,
       denoms: [100, 50, 25, 10, 5, 1],
-      result: [100, 50, 25, 10, 5, 1]
-    }
+      result: [100, 50, 25, 10, 5, 1],
+    },
   ];
 
-  scenarios.forEach(function(scenario) {
+  scenarios.forEach(function (scenario) {
     var actual = minimumCoins(scenario.value, scenario.denoms);
     if (!scenario.result.equals(actual)) {
       console.error(

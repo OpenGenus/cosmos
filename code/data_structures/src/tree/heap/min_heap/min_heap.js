@@ -32,7 +32,7 @@ function Comparator(compareFn) {
  * as the first argument is less than, equal to, or greater than the second
  * @see comparatorFunction
  */
-Comparator.prototype.compare = function(a, b) {
+Comparator.prototype.compare = function (a, b) {
   if (a === b) return 0;
   return a < b ? -1 : 1;
 };
@@ -67,7 +67,7 @@ Comparator.prototype.compare = function(a, b) {
  * @returns {boolean} True if the first element is equal to
  * the second one, false otherwise
  */
-Comparator.prototype.equal = function(a, b) {
+Comparator.prototype.equal = function (a, b) {
   return this.compare(a, b) === 0;
 };
 
@@ -78,7 +78,7 @@ Comparator.prototype.equal = function(a, b) {
  * @returns {boolean} True if the first element is less than
  * the second one, false otherwise
  */
-Comparator.prototype.lessThan = function(a, b) {
+Comparator.prototype.lessThan = function (a, b) {
   return this.compare(a, b) < 0;
 };
 
@@ -89,7 +89,7 @@ Comparator.prototype.lessThan = function(a, b) {
  * @returns {boolean} True if the first element is less than or equal
  * the second one, false otherwise
  */
-Comparator.prototype.lessThanOrEqual = function(a, b) {
+Comparator.prototype.lessThanOrEqual = function (a, b) {
   return this.compare(a, b) < 0 || this.equal(a, b);
 };
 
@@ -100,7 +100,7 @@ Comparator.prototype.lessThanOrEqual = function(a, b) {
  * @returns {boolean} True if the first element is greater than
  * the second one, false otherwise
  */
-Comparator.prototype.greaterThan = function(a, b) {
+Comparator.prototype.greaterThan = function (a, b) {
   return this.compare(a, b) > 0;
 };
 
@@ -111,7 +111,7 @@ Comparator.prototype.greaterThan = function(a, b) {
  * @returns {boolean} True if the first element is greater than or equal
  * the second one, false otherwise
  */
-Comparator.prototype.greaterThanOrEqual = function(a, b) {
+Comparator.prototype.greaterThanOrEqual = function (a, b) {
   return this.compare(a, b) > 0 || this.equal(a, b);
 };
 
@@ -125,9 +125,9 @@ Comparator.prototype.greaterThanOrEqual = function(a, b) {
  * Comparator.invert();
  * Comparator.greaterThan(1, 2);
  */
-Comparator.prototype.invert = function() {
+Comparator.prototype.invert = function () {
   this._originalCompare = this.compare;
-  this.compare = function(a, b) {
+  this.compare = function (a, b) {
     return this._originalCompare(b, a);
   }.bind(this);
 };
@@ -153,9 +153,9 @@ function MinBinaryHeap(comparator_fn) {
   this._length = 0;
 
   Object.defineProperty(this, "length", {
-    get: function() {
+    get: function () {
       return this._length;
-    }
+    },
   });
 }
 
@@ -164,7 +164,7 @@ function MinBinaryHeap(comparator_fn) {
  * @param {any} old_element - The element to be replaced
  * @param {any} new_element - The new element
  */
-MinBinaryHeap.prototype.changeElement = function(old_element, new_element) {
+MinBinaryHeap.prototype.changeElement = function (old_element, new_element) {
   for (var i = 1; i <= this._length; i += 1) {
     if (this.comparator.equal(old_element, this._elements[i])) {
       this._elements[i] = new_element;
@@ -178,7 +178,7 @@ MinBinaryHeap.prototype.changeElement = function(old_element, new_element) {
 /**
  * Removes all the elements in the heap
  */
-MinBinaryHeap.prototype.clear = function() {
+MinBinaryHeap.prototype.clear = function () {
   this._elements.length = 0;
   this._elements[0] = null;
   this._length = 0;
@@ -198,7 +198,7 @@ MinBinaryHeap.prototype.clear = function() {
  * @param {iterateCallback} fn - The function the be executed on each element
  * @param {object} [this_arg] - The object to use as this when calling the fn function
  */
-MinBinaryHeap.prototype.every = function(fn, this_arg) {
+MinBinaryHeap.prototype.every = function (fn, this_arg) {
   var ordered_array = this.toArray();
   var index = 0;
 
@@ -216,7 +216,7 @@ MinBinaryHeap.prototype.every = function(fn, this_arg) {
  * @param {iterateCallback} fn - The function the be executed on each element
  * @param {object} [this_arg] - The object to use as this when calling the fn function
  */
-MinBinaryHeap.prototype.forEach = function(fn, this_arg) {
+MinBinaryHeap.prototype.forEach = function (fn, this_arg) {
   var ordered_array = this.toArray();
   var index = 0;
 
@@ -230,7 +230,7 @@ MinBinaryHeap.prototype.forEach = function(fn, this_arg) {
  * Transforms an array into a binary heap
  * @param {array} array - The array to transform
  */
-MinBinaryHeap.prototype.heapify = function(array) {
+MinBinaryHeap.prototype.heapify = function (array) {
   this._length = array.length;
   this._elements = array;
   this._elements.unshift(null);
@@ -243,7 +243,7 @@ MinBinaryHeap.prototype.heapify = function(array) {
  * Inserts the element to the heap
  * @param {any} element - The element to be inserted
  */
-MinBinaryHeap.prototype.insert = function(element) {
+MinBinaryHeap.prototype.insert = function (element) {
   this._elements.push(element);
   this._shiftUp();
   this._length += 1;
@@ -253,7 +253,7 @@ MinBinaryHeap.prototype.insert = function(element) {
  * Returns if the heap is empty
  * @returns If the heap is empty
  */
-MinBinaryHeap.prototype.isEmpty = function() {
+MinBinaryHeap.prototype.isEmpty = function () {
   return !this._length;
 };
 
@@ -261,7 +261,7 @@ MinBinaryHeap.prototype.isEmpty = function() {
  * Returns the first element without removing it
  * @returns The first element without removing it
  */
-MinBinaryHeap.prototype.peek = function() {
+MinBinaryHeap.prototype.peek = function () {
   return this._elements[1];
 };
 
@@ -270,7 +270,7 @@ MinBinaryHeap.prototype.peek = function() {
  * This method is equivalent to insert
  * @see insert
  */
-MinBinaryHeap.prototype.push = function(element) {
+MinBinaryHeap.prototype.push = function (element) {
   this.insert(element);
 };
 
@@ -278,7 +278,7 @@ MinBinaryHeap.prototype.push = function(element) {
  * Returns the first element while removing it
  * @returns {any} The first element while removing it, undefined if the heap is empty
  */
-MinBinaryHeap.prototype.pop = function() {
+MinBinaryHeap.prototype.pop = function () {
   var removed_element = this._elements[1];
 
   if (this._length === 1) {
@@ -298,7 +298,7 @@ MinBinaryHeap.prototype.pop = function() {
  * Shifts the index to a correct position below
  * @param {number} index - The index to shift down
  */
-MinBinaryHeap.prototype._shiftDown = function(index) {
+MinBinaryHeap.prototype._shiftDown = function (index) {
   if (index === undefined) index = 1;
 
   var parent_index = index;
@@ -349,7 +349,7 @@ MinBinaryHeap.prototype._shiftDown = function(index) {
  * Shifts the index to a correct position above
  * @param {number} index - The index to shift up
  */
-MinBinaryHeap.prototype._shiftUp = function(index) {
+MinBinaryHeap.prototype._shiftUp = function (index) {
   if (index === undefined) index = this._elements.length - 1;
 
   var child_index = index;
@@ -372,7 +372,7 @@ MinBinaryHeap.prototype._shiftUp = function(index) {
  * Returns the size of the heap
  * @returns {number} The size of the heap
  */
-MinBinaryHeap.prototype.size = function() {
+MinBinaryHeap.prototype.size = function () {
   return this._length;
 };
 
@@ -382,7 +382,7 @@ MinBinaryHeap.prototype.size = function() {
  * @param {number} a - The index of the first element
  * @param {number} b - The index of the second element
  */
-MinBinaryHeap.prototype._swap = function(a, b) {
+MinBinaryHeap.prototype._swap = function (a, b) {
   var aux = this._elements[a];
   this._elements[a] = this._elements[b];
   this._elements[b] = aux;
@@ -394,7 +394,7 @@ MinBinaryHeap.prototype._swap = function(a, b) {
  * contain references to the same objects
  * @returns {array} The converted heap in an ordered array format
  */
-MinBinaryHeap.prototype.toArray = function() {
+MinBinaryHeap.prototype.toArray = function () {
   var array = [];
   var min_binary_heap = new MinBinaryHeap(this.comparator.compare);
   min_binary_heap._elements = this._elements.slice();
@@ -417,7 +417,7 @@ function MaxBinaryHeap(comparator) {
   this.comparator.invert();
 }
 
-MaxBinaryHeap.prototype.toArray = function() {
+MaxBinaryHeap.prototype.toArray = function () {
   var array = [];
   var max_binary_heap = new MaxBinaryHeap();
   max_binary_heap._elements = this._elements.slice();
@@ -447,5 +447,5 @@ inherit(MinBinaryHeap, MaxBinaryHeap);
 module.exports = {
   MinBinaryHeap: MinBinaryHeap,
   MaxBinaryHeap: MaxBinaryHeap,
-  Comparator: Comparator
+  Comparator: Comparator,
 };

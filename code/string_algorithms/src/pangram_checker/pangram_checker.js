@@ -2,8 +2,8 @@
 /* Checker */
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 
-const checkPangram = str =>
-  alphabet.every(char => str.toLowerCase().includes(char));
+const checkPangram = (str) =>
+  alphabet.every((char) => str.toLowerCase().includes(char));
 
 /* Test */
 checkPangram("Totally not a panagram"); // should return false

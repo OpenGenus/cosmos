@@ -20,7 +20,7 @@ function Node(val) {
 }
 
 // Search the tree for a value
-Node.prototype.search = function(val) {
+Node.prototype.search = function (val) {
   if (this.value == val) {
     return this;
   } else if (val < this.value && this.left != null) {
@@ -32,7 +32,7 @@ Node.prototype.search = function(val) {
 };
 
 // Visit a node
-Node.prototype.visit = function() {
+Node.prototype.visit = function () {
   // Recursively go left
   if (this.left != null) {
     this.left.visit();
@@ -46,7 +46,7 @@ Node.prototype.visit = function() {
 };
 
 // Add a node
-Node.prototype.addNode = function(n) {
+Node.prototype.addNode = function (n) {
   if (n.value < this.value) {
     if (this.left == null) {
       this.left = n;
@@ -68,12 +68,12 @@ function Tree() {
 }
 
 // Inorder traversal
-Tree.prototype.traverse = function() {
+Tree.prototype.traverse = function () {
   this.root.visit();
 };
 
 // Start by searching the root
-Tree.prototype.search = function(val) {
+Tree.prototype.search = function (val) {
   var found = this.root.search(val);
   if (found === null) {
     console.log(val + " not found");
@@ -83,7 +83,7 @@ Tree.prototype.search = function(val) {
 };
 
 // Add a new value to the tree
-Tree.prototype.addValue = function(val) {
+Tree.prototype.addValue = function (val) {
   var n = new Node(val);
   if (this.root == null) {
     this.root = n;

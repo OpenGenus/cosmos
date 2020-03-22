@@ -24,16 +24,16 @@ const countMaxSuffix = (longest, shortest, accumulator) => {
  */
 const findBiggestSuffix = (first, second) => {
   if (first.length <= 0 || second.length <= 0) {
-    return 'No Suffix';
+    return "No Suffix";
   }
 
   const [shortest, longest] = [first, second].sort();
   const charsMatched = countMaxSuffix(longest, shortest, 0);
 
-  return charsMatched == 0 ? 'No Suffix' : longest.slice(-charsMatched);
+  return charsMatched == 0 ? "No Suffix" : longest.slice(-charsMatched);
 };
 
 // Tests
-console.log(findBiggestSuffix('abcdef', 'def')); // def
-console.log(findBiggestSuffix('abc', 'abc')); // abc
-console.log(findBiggestSuffix('abcdef', 'abc')); // 'No Suffix'
+console.log(findBiggestSuffix("abcdef", "def")); // def
+console.log(findBiggestSuffix("abc", "abc")); // abc
+console.log(findBiggestSuffix("abcdef", "abc")); // 'No Suffix'

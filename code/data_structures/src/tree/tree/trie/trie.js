@@ -43,7 +43,7 @@ class Trie {
   }
   print() {
     let words = [];
-    const search = function(node, string) {
+    const search = function (node, string) {
       if (node.keys.size !== 0) {
         for (let letter of node.keys.keys()) {
           search(node.keys.get(letter), string.concat(letter));

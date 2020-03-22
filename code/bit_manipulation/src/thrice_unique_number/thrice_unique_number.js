@@ -25,7 +25,7 @@ let numbers = [
   8,
   9,
   9,
-  9
+  9,
 ];
 let counter = {};
 

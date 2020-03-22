@@ -42,9 +42,9 @@ let ips = [
   ".1.2.3.4",
   "1,2,3,4",
   "1.2.333.4",
-  "1.299.3.4"
+  "1.299.3.4",
 ];
-ips.forEach(function(s) {
+ips.forEach(function (s) {
   if (verify_ipv4(s)) {
     console.log("valid: " + s);
   } else {

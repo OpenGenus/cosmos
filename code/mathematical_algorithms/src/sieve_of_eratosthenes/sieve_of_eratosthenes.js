@@ -27,7 +27,7 @@ class SieveOfEratosthenes {
    * @return {array} an array of all prime numbers from 2 to max.
    */
   start() {
-    this._storage = this._storage.filter(num => {
+    this._storage = this._storage.filter((num) => {
       return this._isPrime(num);
     });
 
@@ -208,7 +208,7 @@ const primeNums = [
   977,
   983,
   991,
-  997
+  997,
 ];
 
 // Test cases:
@@ -219,7 +219,7 @@ testNums.forEach((max, idx) => {
   const sieve = new SieveOfEratosthenes(max);
   const allPrimes = sieve.start();
 
-  const diff = allPrimes.filter(num => {
+  const diff = allPrimes.filter((num) => {
     return primeNums.indexOf(num) === -1;
   });
 

@@ -27,7 +27,7 @@ function bucketSort(array, bucketSize) {
     bucketSize = bucketSize || 5;
 
   // Setting min and max values
-  array.forEach(function(currentVal) {
+  array.forEach(function (currentVal) {
     if (currentVal < minValue) {
       minValue = currentVal;
     } else if (currentVal > maxValue) {
@@ -44,7 +44,7 @@ function bucketSort(array, bucketSize) {
   }
 
   // Pushing values to buckets
-  array.forEach(function(currentVal) {
+  array.forEach(function (currentVal) {
     allBuckets[Math.floor((currentVal - minValue) / bucketSize)].push(
       currentVal
     );
@@ -53,9 +53,9 @@ function bucketSort(array, bucketSize) {
   // Sorting buckets
   array.length = 0;
 
-  allBuckets.forEach(function(bucket) {
+  allBuckets.forEach(function (bucket) {
     insertionSort(bucket);
-    bucket.forEach(function(element) {
+    bucket.forEach(function (element) {
       array.push(element);
     });
   });

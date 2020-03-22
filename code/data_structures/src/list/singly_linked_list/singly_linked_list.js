@@ -17,23 +17,23 @@ function LinkedList() {
   var head = null;
 
   //Creating Node with element's value
-  var Node = function(element) {
+  var Node = function (element) {
     this.element = element;
     this.next = null;
   };
 
   //Returns length
-  this.size = function() {
+  this.size = function () {
     return length;
   };
 
   //Returns the head
-  this.head = function() {
+  this.head = function () {
     return head;
   };
 
   //Creates a node and adds it to linklist
-  this.add = function(element) {
+  this.add = function (element) {
     var node = new Node(element);
     //Check if its the first element
     if (head === null) {
@@ -54,7 +54,7 @@ function LinkedList() {
   };
 
   //Removes the node with the value as param
-  this.remove = function(element) {
+  this.remove = function (element) {
     var currentNode = head;
     var previousNode;
 
@@ -77,12 +77,12 @@ function LinkedList() {
   };
 
   //Return if the list is empty
-  this.isEmpty = function() {
+  this.isEmpty = function () {
     return length === 0;
   };
 
   //Returns the index of the element passed as param otherwise -1
-  this.indexOf = function(element) {
+  this.indexOf = function (element) {
     var currentNode = head;
     var index = -1;
 
@@ -100,7 +100,7 @@ function LinkedList() {
   };
 
   //Returns the element at an index
-  this.elementAt = function(index) {
+  this.elementAt = function (index) {
     var currentNode = head;
     var count = 0;
     while (count < index) {
@@ -111,7 +111,7 @@ function LinkedList() {
   };
 
   //Adds the element at specified index
-  this.addAt = function(index, element) {
+  this.addAt = function (index, element) {
     index--;
     var node = new Node(element);
 
@@ -145,7 +145,7 @@ function LinkedList() {
   };
 
   //Removes the node at specified index
-  this.removeAt = function(index) {
+  this.removeAt = function (index) {
     index--;
     var currentNode = head;
     var previousNode;
@@ -174,7 +174,7 @@ function LinkedList() {
   };
 
   //Function to view the LinkedList
-  this.view = function() {
+  this.view = function () {
     var currentNode = head;
     var count = 0;
     while (count < length) {

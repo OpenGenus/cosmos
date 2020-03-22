@@ -53,16 +53,16 @@ const MORSE_CODES = {
   "/": "-..-.",
   "-": "-....-",
   "(": "-.--.",
-  ")": "-.--.-"
+  ")": "-.--.-",
 };
 
 // Array of values from above
-const CODE_VALS = Object.keys(MORSE_CODES).map(key => MORSE_CODES[key]);
+const CODE_VALS = Object.keys(MORSE_CODES).map((key) => MORSE_CODES[key]);
 
 // Function to encrypt the string according to the morse code chart
 function encrypt(message) {
   var cipher = "";
-  message.split("").forEach(letter => {
+  message.split("").forEach((letter) => {
     if (letter !== " ") {
       // looks up the dictionary and adds the correspponding morse code
       // along with a space to separate morse codes for different characters
@@ -82,7 +82,7 @@ function decrypt(message) {
   var decipher = "";
   var citext = "";
   var i = 0; // counter to keep track of space
-  message.split("").forEach(letter => {
+  message.split("").forEach((letter) => {
     // checks for space
     if (letter !== " ") {
       i = 0;

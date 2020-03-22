@@ -67,9 +67,7 @@ function main() {
 
   console.log("Test using line equation");
   console.log(
-    `Lines intersect at x:${intersection_point["x"]}, y:${
-      intersection_point["y"]
-    }`
+    `Lines intersect at x:${intersection_point["x"]}, y:${intersection_point["y"]}`
   );
   console.log("Test using points");
 
@@ -80,9 +78,7 @@ function main() {
     { x: 1, y: 6 }
   );
   console.log(
-    `Lines intersect at x:${intersection_point["x"]}, y:${
-      intersection_point["y"]
-    }`
+    `Lines intersect at x:${intersection_point["x"]}, y:${intersection_point["y"]}`
   );
 }
 

@@ -10,10 +10,10 @@ const readline = require("readline");
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-rl.question("Enter a Number: ", num => {
+rl.question("Enter a Number: ", (num) => {
   if (automorphic(num)) console.log(`${num} is an automorphic number.`);
   else console.log(`${num} is not an automorphic number.`);
   rl.close();

@@ -4,10 +4,10 @@
 // [lodash/shuffle.js](https://github.com/lodash/lodash/blob/master/shuffle.js).
 // This use `crypto` module if possible to provide stronger pseudo randomness.
 
-const provideRandomSeed = (function() {
+const provideRandomSeed = (function () {
   if (require && require.resolve && require.resolve("crypto")) {
     const crypto = require("crypto");
-    return function() {
+    return function () {
       return crypto.randomBytes(1)[0] / 255;
     };
   } else {

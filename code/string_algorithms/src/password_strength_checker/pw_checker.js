@@ -14,7 +14,7 @@ function scorePassword(pass) {
     digits: /\d/.test(pass),
     lower: /[a-z]/.test(pass),
     upper: /[A-Z]/.test(pass),
-    nonWords: /\W/.test(pass)
+    nonWords: /\W/.test(pass),
   };
 
   variationCount = 0;

@@ -29,9 +29,16 @@ function divide(dividend, divisor) {
 }
 
 function test() {
-  var testCases = [[9, 4], [-10, 3], [103, -10], [-9, -4], [0, -3], [2, 0]];
+  var testCases = [
+    [9, 4],
+    [-10, 3],
+    [103, -10],
+    [-9, -4],
+    [0, -3],
+    [2, 0],
+  ];
 
-  testCases.forEach(test =>
+  testCases.forEach((test) =>
     console.log(`${test[0]} / ${test[1]} = ${divide(test[0], test[1])}`)
   );
 }

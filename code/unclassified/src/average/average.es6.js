@@ -2,7 +2,7 @@
 // Find of average of numbers in an array
 // Contributed by: Michele Riva (micheleriva)
 
-export const average = numbers => {
+export const average = (numbers) => {
   const sum = numbers.reduce((a, b) => a + b, 0);
   return sum / numbers.length;
 };

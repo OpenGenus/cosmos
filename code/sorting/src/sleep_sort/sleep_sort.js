@@ -10,7 +10,7 @@
 function sleepNumber(number) {
   // The timeout is (n^2) so that close numbers are no longer close.
   // Example: 1 is really close to 2, but 1^2 isn't close to 2^2.
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(number);
   }, number * number);
 }
