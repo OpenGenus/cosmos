@@ -2,21 +2,22 @@
 
 int main(void) 
 {
-    int t, n, x, cr, k, j;
+    int t, n, x, i, j;
     scanf("%d", & t);
     while (t--) 
     {
         scanf("%d", & n);
-        long long int a[100], pj = 0;
-        for (k = 0; k < n; k++) 
+        long long int a[100];
+		long long int pj = 0;
+        for (i = 0; i < n; ++i) 
         {
-            scanf("%lld", & a[k]);
+            scanf("%lld", & a[i]);
         }
         scanf("%d", & x);
-        cr = a[x - 1];
-        for (k = 0; k < n - 1; k++) 
+        int cr = a[x - 1];
+        for (i = 0; i < n - 1; ++i) 
         {
-            for (j = 0; j < n - 1; j++) 
+            for (j = 0; j < n - 1; ++j) 
             {
                 if (a[j] > a[j + 1]) 
                 {
@@ -26,11 +27,11 @@ int main(void)
                 }
             }
         }
-        for (k = 0; k < n; k++) 
+        for (i = 0; i < n; ++i) 
         {
-            if (a[k] == cr) 
+            if (a[i] == cr) 
             {
-                printf("%d\n", k + 1);
+                printf("%d\n", i + 1);
             }
         }
 
