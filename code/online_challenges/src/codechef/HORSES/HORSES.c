@@ -4,20 +4,22 @@
 
 int main(void) 
 {
-    int t, i, j, k, n;
+    int t, i, j, n;
     scanf("%d", & t);
-    for (i = 1; i <= t; i++) 
+    for (i = 1; i <= t; ++i) 
     {
         scanf("%d", & n);
         int s[n];
-        for (j = 0; j < n; j++)
+        for (j = 0; j < n; ++j)
             scanf("%d", & s[j]);
         int min = abs(s[0] - s[1]);
-        for (k = 0; k < n; k++) {
-            for (j = k + 1; j < n; j++) 
+        for (j = 0; j < n; ++j) 
+        {
+        	int k;
+            for (k = j + 1; k < n; ++k) 
             {
-                if (abs(s[k] - s[j]) < min)
-                    min = abs(s[k] - s[j]);
+                if (abs(s[j] - s[k]) < min)
+                    min = abs(s[j] - s[k]);
             }
         }
         printf("%d\n", min);
