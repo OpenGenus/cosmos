@@ -5,7 +5,7 @@
 int main() 
 {
     int arr[100], arr1[100];
-    int i, j, c = 0, n = 1, maxdigits = 0;
+    int i, j, maxdigits = 0;
     printf("Enter size of array :");
     int count;
     scanf("%d", & count);
@@ -20,16 +20,17 @@ int main()
     //Finding the longest digits in the array and no of elements in that digit
     for (i = 0; i < count; ++i) 
     {
+        int numdigits = 0;
         int t = arr[i]; /*first element in t */
         while (t > 0) 
         {
-            c++; //Counting the no of elements of a digit
+            numdigits++; //Counting the no of elements of a digit
             t /= 10;
         }
-        if (maxdigits < c)
-            maxdigits = c; //Storing the length of longest digit
-        c = 0;
+        if (maxdigits < numdigits)
+            maxdigits = numdigits; //Storing the length of longest digit
     }
+    int n = 1;
     while (--maxdigits)
         n *= 10;
 
