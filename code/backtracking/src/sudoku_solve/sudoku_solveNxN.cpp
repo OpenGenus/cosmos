@@ -1,6 +1,7 @@
 #include<iostream>
 
-using namespace std;
+using std ::cout;
+using std ::cin;
 
 const int n = 9;
 
