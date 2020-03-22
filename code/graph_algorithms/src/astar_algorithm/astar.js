@@ -16,7 +16,7 @@ astar.search(G, start_point, target_point, {});
 
 
 */
-(function(definition) {
+(function (definition) {
   /* global module, define */
   if (typeof module === "object" && typeof module.exports === "object") {
     module.exports = definition();
@@ -27,7 +27,7 @@ astar.search(G, start_point, target_point, {});
     window.astar = exports.astar;
     window.Graph = exports.Graph;
   }
-})(function() {
+})(function () {
   function pathTo(node) {
     var curr = node;
     var path = [];
@@ -39,7 +39,7 @@ astar.search(G, start_point, target_point, {});
   }
 
   function getHeap() {
-    return new BinaryHeap(function(node) {
+    return new BinaryHeap(function (node) {
       return node.f;
     });
   }
@@ -56,7 +56,7 @@ astar.search(G, start_point, target_point, {});
   * @param {Function} [options.heuristic] Heuristic function (see
   *          astar.heuristics).
   */
-    search: function(graph, start, end, options) {
+    search: function (graph, start, end, options) {
       graph.cleanDirty();
       options = options || {};
       var heuristic = options.heuristic || astar.heuristics.manhattan;
@@ -136,27 +136,27 @@ astar.search(G, start_point, target_point, {});
       return [];
     },
     heuristics: {
-      manhattan: function(pos0, pos1) {
+      manhattan: function (pos0, pos1) {
         var d1 = Math.abs(pos1.x - pos0.x);
         var d2 = Math.abs(pos1.y - pos0.y);
         return d1 + d2;
       },
-      diagonal: function(pos0, pos1) {
+      diagonal: function (pos0, pos1) {
         var D = 1;
         var D2 = Math.sqrt(2);
         var d1 = Math.abs(pos1.x - pos0.x);
         var d2 = Math.abs(pos1.y - pos0.y);
         return D * (d1 + d2) + (D2 - 2 * D) * Math.min(d1, d2);
-      }
+      },
     },
-    cleanNode: function(node) {
+    cleanNode: function (node) {
       node.f = 0;
       node.g = 0;
       node.h = 0;
       node.visited = false;
       node.closed = false;
       node.parent = null;
-    }
+    },
   };
 
   /**
@@ -182,25 +182,25 @@ astar.search(G, start_point, target_point, {});
     this.init();
   }
 
-  Graph.prototype.init = function() {
+  Graph.prototype.init = function () {
     this.dirtyNodes = [];
     for (var i = 0; i < this.nodes.length; i++) {
       astar.cleanNode(this.nodes[i]);
     }
   };
 
-  Graph.prototype.cleanDirty = function() {
+  Graph.prototype.cleanDirty = function () {
     for (var i = 0; i < this.dirtyNodes.length; i++) {
       astar.cleanNode(this.dirtyNodes[i]);
     }
     this.dirtyNodes = [];
   };
 
-  Graph.prototype.markDirty = function(node) {
+  Graph.prototype.markDirty = function (node) {
     this.dirtyNodes.push(node);
   };
 
-  Graph.prototype.neighbors = function(node) {
+  Graph.prototype.neighbors = function (node) {
     var ret = [];
     var x = node.x;
     var y = node.y;
@@ -251,7 +251,7 @@ astar.search(G, start_point, target_point, {});
     return ret;
   };
 
-  Graph.prototype.toString = function() {
+  Graph.prototype.toString = function () {
     var graphString = [];
     var nodes = this.grid;
     for (var x = 0; x < nodes.length; x++) {
@@ -271,11 +271,11 @@ astar.search(G, start_point, target_point, {});
     this.weight = weight;
   }
 
-  GridNode.prototype.toString = function() {
+  GridNode.prototype.toString = function () {
     return "[" + this.x + " " + this.y + "]";
   };
 
-  GridNode.prototype.getCost = function(fromNeighbor) {
+  GridNode.prototype.getCost = function (fromNeighbor) {
     // Take diagonal weight into consideration.
     if (fromNeighbor && fromNeighbor.x != this.x && fromNeighbor.y != this.y) {
       return this.weight * 1.41421;
@@ -283,7 +283,7 @@ astar.search(G, start_point, target_point, {});
     return this.weight;
   };
 
-  GridNode.prototype.isWall = function() {
+  GridNode.prototype.isWall = function () {
     return this.weight === 0;
   };
 
@@ -293,14 +293,14 @@ astar.search(G, start_point, target_point, {});
   }
 
   BinaryHeap.prototype = {
-    push: function(element) {
+    push: function (element) {
       // Add the new element to the end of the array.
       this.content.push(element);
 
       // Allow it to sink down.
       this.sinkDown(this.content.length - 1);
     },
-    pop: function() {
+    pop: function () {
       // Store the first element so we can return it later.
       var result = this.content[0];
       // Get the element at the end of the array.
@@ -313,7 +313,7 @@ astar.search(G, start_point, target_point, {});
       }
       return result;
     },
-    remove: function(node) {
+    remove: function (node) {
       var i = this.content.indexOf(node);
 
       // When it is found, the process seen in 'pop' is repeated
@@ -330,13 +330,13 @@ astar.search(G, start_point, target_point, {});
         }
       }
     },
-    size: function() {
+    size: function () {
       return this.content.length;
     },
-    rescoreElement: function(node) {
+    rescoreElement: function (node) {
       this.sinkDown(this.content.indexOf(node));
     },
-    sinkDown: function(n) {
+    sinkDown: function (n) {
       // Fetch the element that has to be sunk.
       var element = this.content[n];
 
@@ -358,7 +358,7 @@ astar.search(G, start_point, target_point, {});
         }
       }
     },
-    bubbleUp: function(n) {
+    bubbleUp: function (n) {
       // Look up the target element and its score.
       var length = this.content.length;
       var element = this.content[n];
@@ -403,11 +403,11 @@ astar.search(G, start_point, target_point, {});
           break;
         }
       }
-    }
+    },
   };
 
   return {
     astar: astar,
-    Graph: Graph
+    Graph: Graph,
   };
 });

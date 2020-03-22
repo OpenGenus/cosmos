@@ -9,19 +9,19 @@ function range(x) {
 
 function determinePrev(arr, idx) {
   return arr
-    .filter(function(x) {
+    .filter(function (x) {
       return x.length > idx;
     })
-    .map(function() {
+    .map(function () {
       return 1;
     })
-    .reduce(function(p1, p2) {
+    .reduce(function (p1, p2) {
       return p1 + p2;
     }, 0);
 }
 
 function beadsort(arr) {
-  var ref = arr.map(function(x) {
+  var ref = arr.map(function (x) {
     return range(x);
   });
   var inter = [];

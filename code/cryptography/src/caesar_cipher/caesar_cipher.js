@@ -15,7 +15,7 @@ function caesar_cipher(text, shift) {
 
   return text
     .split("")
-    .map(cv => {
+    .map((cv) => {
       let loc = Ref.indexOf(cv);
       return loc !== -1
         ? Ref.charAt(

@@ -28,7 +28,7 @@ function longest_palindrome(str) {
 [
   ["bbabcbcab", 7], // 7: babcbab | bacbcab
   ["abbaab", 4], // 4: abba | baab
-  ["opengenus", 3] // 3: ene | ege | ngn | nen
-].forEach(test => {
+  ["opengenus", 3], // 3: ene | ege | ngn | nen
+].forEach((test) => {
   console.assert(longest_palindrome(test[0]) == test[1]);
 });

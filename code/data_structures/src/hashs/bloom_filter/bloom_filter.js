@@ -14,7 +14,7 @@
  * Addition into bloom filter: Time Complexity : O(k) where k = number of hash functions
  * Checking membership: Time Complexity : O(k) where k = number of hash functions
  */
-(function(bfilter) {
+(function (bfilter) {
   /**
    * Makes a new bloom filter. Uses FNV Hash as the hash function. This implementation uses only
    * FNV Hash functions for now.
@@ -63,7 +63,7 @@
    * 32 bit FNV_prime = 224 + 28 + 0x93 = 16777619
    * @param {Buffer} toBeHashed The element to be hashed, Node.js buffer
    */
-  bfilter.fnvHash1a = function(toBeHashed) {
+  bfilter.fnvHash1a = function (toBeHashed) {
     const OFFSET_BASIS_32 = 2166136261;
     const FNV_PRIME = 16777619;
     let hash = OFFSET_BASIS_32; // 32 bit offset basis
@@ -84,7 +84,7 @@
    * 32 bit FNV_prime = 224 + 28 + 0x93 = 16777619
    * @param {Buffer} toBeHashed The element to be hashed, Node.js buffer
    */
-  bfilter.fnvHash = function(toBeHashed) {
+  bfilter.fnvHash = function (toBeHashed) {
     const OFFSET_BASIS_32 = 2166136261;
     const FNV_PRIME = 16777619;
     let hash = OFFSET_BASIS_32; // 32 bit offset basis
@@ -105,7 +105,7 @@
    * @param {string} element The element is converted bits and then hashed k times before getting added
    * to the bit vector.
    */
-  bfilter.BloomFilter.prototype.add = function(element) {
+  bfilter.BloomFilter.prototype.add = function (element) {
     // console.log(JSON.stringify(this));
     if (typeof element !== "string") {
       element = String(element);
@@ -126,7 +126,7 @@
    * T:: O(k) operation
    * @param {string} element The element that needs to get its membership verified
    */
-  bfilter.BloomFilter.prototype.check = function(element) {
+  bfilter.BloomFilter.prototype.check = function (element) {
     if (typeof element !== "string") {
       element = String(element);
     }
@@ -145,12 +145,12 @@
           this.hashFunctions.length,
           this.nbrElementsInserted
         ),
-        isMember: prob
+        isMember: prob,
       };
     } else {
       return {
         probability: 1,
-        isMember: prob
+        isMember: prob,
       };
     }
   };

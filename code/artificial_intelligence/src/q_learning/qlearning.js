@@ -8,7 +8,7 @@ function State(stateName, actions) {
   this.name = stateName;
   // Actions of State
   this.actions = {};
-  actions.forEach(action => {
+  actions.forEach((action) => {
     this.actions[action] = 0;
   });
 }
@@ -37,10 +37,10 @@ class QLearning {
   }
 
   static bestAction(stateActions) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       let bestAction = null;
       let bestActionReward = null;
-      Object.keys(stateActions).forEach(actionName => {
+      Object.keys(stateActions).forEach((actionName) => {
         if (!bestActionReward) {
           bestActionReward = stateActions[actionName];
         }
@@ -112,7 +112,7 @@ class RoadEnv {
   }
 
   static render(stateName) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const road = ["-", "-", "-", "-", "-", "-"];
       road[Number(stateName)] = "0";
       console.log(`\n ${road.join("")}`);
@@ -125,7 +125,7 @@ class RoadEnv {
       "0-LEFT": {
         nextStateName: TERMINAL,
         reward: -1000,
-        done: true
+        done: true,
       },
       "0-RIGHT": RoadEnv.normalTransition("1"),
       "1-LEFT": RoadEnv.normalTransition("0"),
@@ -138,8 +138,8 @@ class RoadEnv {
       "4-RIGHT": {
         nextStateName: TERMINAL,
         reward: 100,
-        done: true
-      }
+        done: true,
+      },
     }[`${stateName}-${action}`];
   }
 
@@ -147,13 +147,13 @@ class RoadEnv {
     return {
       nextStateName: stateName,
       reward: 0,
-      done: false
+      done: false,
     };
   }
 }
 
 const update = (RL, stateName, totalSteps) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(async () => {
       RoadEnv.render(stateName);
 

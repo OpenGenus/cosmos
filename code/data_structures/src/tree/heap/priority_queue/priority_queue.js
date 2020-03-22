@@ -1,6 +1,6 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-Array.prototype.swap = function(x, y) {
+Array.prototype.swap = function (x, y) {
   let b = this[x];
   this[x] = this[y];
   this[y] = b;

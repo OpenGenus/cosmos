@@ -25,12 +25,12 @@ function baconianEncrypt(plainText) {
     w: "BABAA",
     x: "BABAB",
     y: "BABBA",
-    z: "BABBB"
+    z: "BABBB",
   };
 
   let cipherText = "";
   [...plainText].forEach(
-    char => (cipherText += baconianCodes[char.toLowerCase()])
+    (char) => (cipherText += baconianCodes[char.toLowerCase()])
   );
 
   return cipherText;

@@ -10,7 +10,7 @@ function Queue() {
     console.log(store);
   };
 
-  this.enqueue = element => {
+  this.enqueue = (element) => {
     store.push(element);
   };
 

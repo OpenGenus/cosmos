@@ -2,7 +2,7 @@ function Bag() {
   let bag = [];
   this.size = () => bag.length;
 
-  this.add = item => bag.push(item);
+  this.add = (item) => bag.push(item);
 
   this.isEmpty = () => bag.length === 0;
 }

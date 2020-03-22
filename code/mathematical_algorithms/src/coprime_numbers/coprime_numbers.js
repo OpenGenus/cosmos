@@ -2,7 +2,7 @@ const Readline = require("readline");
 
 const rl = Readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 function gcd(a, b) {
@@ -26,8 +26,8 @@ function coPrime(a, b) {
 
 rl.question(
   "Enter two values to find for relative prime or co prime: ",
-  numbers => {
-    let [a, b] = numbers.split(" ").filter(function(e) {
+  (numbers) => {
+    let [a, b] = numbers.split(" ").filter(function (e) {
       return parseInt(e, 10);
     });
 

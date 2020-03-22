@@ -1,4 +1,4 @@
-let isPerfectSquare = num => Math.sqrt(num) === Math.floor(Math.sqrt(num));
+let isPerfectSquare = (num) => Math.sqrt(num) === Math.floor(Math.sqrt(num));
 
 console.log(isPerfectSquare(0)); // should output true
 console.log(isPerfectSquare(1)); // should output true

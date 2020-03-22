@@ -7,7 +7,7 @@
 // Github: @IgorAntun
 
 /* Checker */
-const checkPalindrome = str => [...str].reverse().join("") === str;
+const checkPalindrome = (str) => [...str].reverse().join("") === str;
 
 /* Tests */
 checkPalindrome("malayalam"); // should return true

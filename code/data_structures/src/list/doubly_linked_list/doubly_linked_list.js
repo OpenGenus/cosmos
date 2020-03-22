@@ -37,9 +37,9 @@ function LinkedList() {
   this._length = 0;
 
   Object.defineProperty(this, "length", {
-    get: function() {
+    get: function () {
       return this._length;
-    }
+    },
   });
 }
 
@@ -49,7 +49,7 @@ function LinkedList() {
  * @param {any} element - The element to be added
  * @param {number} index - The index where the element must be inserted
  */
-LinkedList.prototype.add = function(element, index) {
+LinkedList.prototype.add = function (element, index) {
   if (index > this._length || index < 0) {
     throw new Error("Index out of bounds");
   } else {
@@ -120,7 +120,7 @@ LinkedList.prototype.add = function(element, index) {
  * Inserts the element at the begining of the list
  * @param {any} element - The element to be added
  */
-LinkedList.prototype.addFirst = function(element) {
+LinkedList.prototype.addFirst = function (element) {
   this.add(element, 0);
 };
 
@@ -128,14 +128,14 @@ LinkedList.prototype.addFirst = function(element) {
  * Inserts the element at the end of the list
  * @param {any} element - The element to be added
  */
-LinkedList.prototype.addLast = function(element) {
+LinkedList.prototype.addLast = function (element) {
   this.add(element);
 };
 
 /**
  * Removes all the elements of the list
  */
-LinkedList.prototype.clear = function() {
+LinkedList.prototype.clear = function () {
   while (this._length) {
     this.pop();
   }
@@ -146,10 +146,10 @@ LinkedList.prototype.clear = function() {
  * @param {any} element - The element to be checked
  * @returns {boolean} True if the list contains the element
  */
-LinkedList.prototype.contains = function(element) {
+LinkedList.prototype.contains = function (element) {
   var found_element = false;
 
-  this.every(function(elem, index) {
+  this.every(function (elem, index) {
     if (elem === element) {
       found_element = true;
       return false;
@@ -174,7 +174,7 @@ LinkedList.prototype.contains = function(element) {
  * @param {iterateCallback} fn - The function the be executed on each element
  * @param {object} [this_arg] - The object to use as this when calling the fn function
  */
-LinkedList.prototype.every = function(fn, this_arg) {
+LinkedList.prototype.every = function (fn, this_arg) {
   var current_node = this._front;
   var index = 0;
 
@@ -192,7 +192,7 @@ LinkedList.prototype.every = function(fn, this_arg) {
  * @param {iterateCallback} fn - The function the be executed on each element
  * @param {object} [this_arg] - The object to use as this when calling the fn function
  */
-LinkedList.prototype.forEach = function(fn, this_arg) {
+LinkedList.prototype.forEach = function (fn, this_arg) {
   var current_node = this._front;
   var index = 0;
 
@@ -208,7 +208,7 @@ LinkedList.prototype.forEach = function(fn, this_arg) {
  * @param {number} index - The index of the element to be returned
  * @returns {any} The element at the specified index, if any. Returns undefined otherwise
  */
-LinkedList.prototype.get = function(index) {
+LinkedList.prototype.get = function (index) {
   if (index < 0 || index >= this._length) {
     return undefined;
   }
@@ -228,7 +228,7 @@ LinkedList.prototype.get = function(index) {
  * Returns the first element in the list
  * @returns {any} The first element in the list
  */
-LinkedList.prototype.getFirst = function() {
+LinkedList.prototype.getFirst = function () {
   return this.get(0);
 };
 
@@ -236,7 +236,7 @@ LinkedList.prototype.getFirst = function() {
  * Returns the last element in the list
  * @returns {any} The last element in the list
  */
-LinkedList.prototype.getLast = function() {
+LinkedList.prototype.getLast = function () {
   if (this._back != null) {
     return this._back.value;
   }
@@ -247,7 +247,7 @@ LinkedList.prototype.getLast = function() {
  * @param {any} element - The element to search
  * @returns {number} The index of the element in the list, or -1 if not found
  */
-LinkedList.prototype.indexOf = function(element) {
+LinkedList.prototype.indexOf = function (element) {
   var node = this._front;
 
   for (var i = 0; i < this._length; i += 1) {
@@ -265,7 +265,7 @@ LinkedList.prototype.indexOf = function(element) {
  * Returns if the list is empty
  * @returns {boolean} If the list if empty
  */
-LinkedList.prototype.isEmpty = function() {
+LinkedList.prototype.isEmpty = function () {
   return this._length === 0;
 };
 
@@ -274,7 +274,7 @@ LinkedList.prototype.isEmpty = function() {
  * @param {any} element - The element to search
  * @returns {number} The last index of the element in the list, -1 if not found
  */
-LinkedList.prototype.lastIndexOf = function(element) {
+LinkedList.prototype.lastIndexOf = function (element) {
   var current_node = this._back;
   var index = this._length - 1;
 
@@ -295,7 +295,7 @@ LinkedList.prototype.lastIndexOf = function(element) {
  * @see getFirst
  * @returns {any} The first element
  */
-LinkedList.prototype.peek = function() {
+LinkedList.prototype.peek = function () {
   return this.get(0);
 };
 
@@ -305,7 +305,7 @@ LinkedList.prototype.peek = function() {
  * @see removeFirst
  * @returns {any} The removed element
  */
-LinkedList.prototype.pop = function() {
+LinkedList.prototype.pop = function () {
   return this.removeFirst();
 };
 
@@ -314,7 +314,7 @@ LinkedList.prototype.pop = function() {
  * This method is equivalent to addFirst
  * @see addFirst
  */
-LinkedList.prototype.push = function(element) {
+LinkedList.prototype.push = function (element) {
   this.addFirst(element);
 };
 
@@ -324,7 +324,7 @@ LinkedList.prototype.push = function(element) {
  * @param {number} index - The index of the element to be removed
  * @returns {any} The removed element
  */
-LinkedList.prototype.remove = function(index) {
+LinkedList.prototype.remove = function (index) {
   if (index > this._length - 1 || index < 0 || this._length === 0) {
     throw new Error("Index out of bounds");
   } else {
@@ -374,7 +374,7 @@ LinkedList.prototype.remove = function(index) {
  * Removes and retrieves the first element of the list
  * @returns {any} The removed element
  */
-LinkedList.prototype.removeFirst = function() {
+LinkedList.prototype.removeFirst = function () {
   if (this._length > 0) {
     return this.remove(0);
   }
@@ -384,7 +384,7 @@ LinkedList.prototype.removeFirst = function() {
  * Removes and retrieves the first occurrence of the element in the list
  * @returns {any} The removed element
  */
-LinkedList.prototype.removeFirstOccurrence = function(element) {
+LinkedList.prototype.removeFirstOccurrence = function (element) {
   var node = this._front;
   var index = 0;
 
@@ -403,7 +403,7 @@ LinkedList.prototype.removeFirstOccurrence = function(element) {
  * Removes and retrieves the last element of the list
  * @returns {any} The removed element
  */
-LinkedList.prototype.removeLast = function() {
+LinkedList.prototype.removeLast = function () {
   if (this._length > 0) {
     return this.remove(this._length - 1);
   }
@@ -413,7 +413,7 @@ LinkedList.prototype.removeLast = function() {
  * Removes and retrieves the last occurrence of the element in the list
  * @returns {any} The removed element
  */
-LinkedList.prototype.removeLastOccurrence = function(element) {
+LinkedList.prototype.removeLastOccurrence = function (element) {
   var node = this._back;
   var index = this._length - 1;
 
@@ -432,7 +432,7 @@ LinkedList.prototype.removeLastOccurrence = function(element) {
  * Removes the node from the list
  * @returns {any} The removed node
  */
-LinkedList.prototype.removeNode = function(node) {
+LinkedList.prototype.removeNode = function (node) {
   if (node === this._front) {
     if (this._length > 1) {
       this._front.next.prev = null;
@@ -463,7 +463,7 @@ LinkedList.prototype.removeNode = function(node) {
  * @param {number} index - The index where the element must be replaced
  * @returns {any} The element previously at the specified position
  */
-LinkedList.prototype.set = function(element, index) {
+LinkedList.prototype.set = function (element, index) {
   if (index > this._length - 1 || index < 0 || this._length === 0) {
     throw new Error("Index out of bounds");
   } else {
@@ -485,7 +485,7 @@ LinkedList.prototype.set = function(element, index) {
  * Returns the size of the list
  * @returns {number} The size of the list
  */
-LinkedList.prototype.size = function() {
+LinkedList.prototype.size = function () {
   return this._length;
 };
 
@@ -493,10 +493,10 @@ LinkedList.prototype.size = function() {
  * Converts the list to an array
  * @returns {array} The converted list in an array format
  */
-LinkedList.prototype.toArray = function() {
+LinkedList.prototype.toArray = function () {
   var array = new Array(this._length);
 
-  this.forEach(function(element, index) {
+  this.forEach(function (element, index) {
     array[index] = element;
   });
 

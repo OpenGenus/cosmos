@@ -11,7 +11,7 @@ class Graph {
     this.V = noOfVertices;
     this.graph = Array(noOfVertices)
       .fill([])
-      .map(a => a.slice());
+      .map((a) => a.slice());
     this.topSortOrder = [];
   }
 

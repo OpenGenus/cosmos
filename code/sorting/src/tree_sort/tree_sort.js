@@ -1,5 +1,5 @@
 // Part of Cosmos by OpenGenus Foundation
-var BinarySearchTree = function(value) {
+var BinarySearchTree = function (value) {
   var instance = Object.create(BinarySearchTree.prototype);
 
   instance.value = value;
@@ -11,7 +11,7 @@ var BinarySearchTree = function(value) {
   return instance;
 };
 
-BinarySearchTree.prototype.insert = function(value) {
+BinarySearchTree.prototype.insert = function (value) {
   // accepts a value and places in the tree in the correct position.
   var node = BinarySearchTree(value);
 
@@ -30,7 +30,7 @@ BinarySearchTree.prototype.insert = function(value) {
   recurse(this);
 };
 
-BinarySearchTree.prototype.contains = function(value) {
+BinarySearchTree.prototype.contains = function (value) {
   var doesContain = false;
   //accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
   function recurse(bst) {
@@ -47,7 +47,7 @@ BinarySearchTree.prototype.contains = function(value) {
   return doesContain;
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(callback) {
+BinarySearchTree.prototype.depthFirstLog = function (callback) {
   //accepts a callback and executes it on every value contained in the tree.
   function recurse(bst) {
     callback.call(bst, bst.value);

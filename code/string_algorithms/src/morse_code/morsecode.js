@@ -37,7 +37,7 @@ const TO_MORSE_MAP = {
   "7": "--...",
   "8": "---..",
   "9": "----.",
-  "0": "-----"
+  "0": "-----",
 };
 
 const FROM_MORSE_MAP = Object.keys(TO_MORSE_MAP).reduce(
@@ -45,13 +45,13 @@ const FROM_MORSE_MAP = Object.keys(TO_MORSE_MAP).reduce(
   {}
 );
 
-const fromChar = char => TO_MORSE_MAP[char];
+const fromChar = (char) => TO_MORSE_MAP[char];
 
-const toChar = seq => FROM_MORSE_MAP[seq];
+const toChar = (seq) => FROM_MORSE_MAP[seq];
 
-const encode = input => input.split("").map(fromChar);
+const encode = (input) => input.split("").map(fromChar);
 
-const decode = input => input.map(toChar).join("");
+const decode = (input) => input.map(toChar).join("");
 
 // Tests
 const assert = require("assert");

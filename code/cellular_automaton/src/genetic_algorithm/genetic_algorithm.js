@@ -1,14 +1,14 @@
-var Gene = function(code) {
+var Gene = function (code) {
   if (code) this.code = code;
   this.cost = 9999;
 };
 Gene.prototype.code = "";
-Gene.prototype.random = function(length) {
+Gene.prototype.random = function (length) {
   while (length--) {
     this.code += String.fromCharCode(Math.floor(Math.random() * 255));
   }
 };
-Gene.prototype.mutate = function(chance) {
+Gene.prototype.mutate = function (chance) {
   if (Math.random() > chance) return;
 
   var index = Math.floor(Math.random() * this.code.length);
@@ -22,7 +22,7 @@ Gene.prototype.mutate = function(chance) {
 
   this.code = newString;
 };
-Gene.prototype.mate = function(gene) {
+Gene.prototype.mate = function (gene) {
   var pivot = Math.round(this.code.length / 2) - 1;
 
   var child1 = this.code.substr(0, pivot) + gene.code.substr(pivot);
@@ -30,7 +30,7 @@ Gene.prototype.mate = function(gene) {
 
   return [new Gene(child1), new Gene(child2)];
 };
-Gene.prototype.calcCost = function(compareTo) {
+Gene.prototype.calcCost = function (compareTo) {
   var total = 0;
   for (var i = 0; i < this.code.length; i++) {
     total +=
@@ -39,7 +39,7 @@ Gene.prototype.calcCost = function(compareTo) {
   }
   this.cost = total;
 };
-var Population = function(goal, size) {
+var Population = function (goal, size) {
   this.members = [];
   this.goal = goal;
   this.generationNumber = 0;
@@ -49,7 +49,7 @@ var Population = function(goal, size) {
     this.members.push(gene);
   }
 };
-Population.prototype.display = function() {
+Population.prototype.display = function () {
   document.body.innerHTML = "";
   document.body.innerHTML +=
     "<h2>Generation: " + this.generationNumber + "</h2>";
@@ -60,12 +60,12 @@ Population.prototype.display = function() {
   }
   document.body.innerHTML += "</ul>";
 };
-Population.prototype.sort = function() {
-  this.members.sort(function(a, b) {
+Population.prototype.sort = function () {
+  this.members.sort(function (a, b) {
     return a.cost - b.cost;
   });
 };
-Population.prototype.generation = function() {
+Population.prototype.generation = function () {
   for (var i = 0; i < this.members.length; i++) {
     this.members[i].calcCost(this.goal);
   }
@@ -86,7 +86,7 @@ Population.prototype.generation = function() {
   }
   this.generationNumber++;
   var scope = this;
-  setTimeout(function() {
+  setTimeout(function () {
     scope.generation();
   }, 20);
 };

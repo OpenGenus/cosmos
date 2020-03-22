@@ -1,13 +1,13 @@
 /* Checker */
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 
-const countUnused = str =>
+const countUnused = (str) =>
   alphabet.reduce(
     (unused, char) => unused + !str.toLowerCase().includes(char),
     0
   );
 
-const checkLipogram = str => {
+const checkLipogram = (str) => {
   let unused = countUnused(str);
 
   return unused >= 2
