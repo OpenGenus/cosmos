@@ -1,4 +1,4 @@
-counting_sort = (input) ->
+countingSort = (input) ->
     output = Array(input.length).fill(0)
     max = output[0]
     min = output[0]
@@ -27,7 +27,7 @@ counting_sort = (input) ->
 
 input = [1, 5, 2, 7, 3, 4, 4, 1, 5]
 
-input = counting_sort input
+input = countingSort input
 
 console.log "Sorted array : " + input
 
