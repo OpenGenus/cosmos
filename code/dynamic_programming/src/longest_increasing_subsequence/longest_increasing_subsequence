@@ -6,8 +6,8 @@ def lis(arr)
 
   n.times do |i|
     i.times do |j|
-      if arr[j]<arr[i]
-        lis[i]=[lis[i], lis[j]+1].max
+      if arr[j] < arr[i]
+        lis[i]=[lis[i], lis[j] + 1].max
         ans=[ans, lis[i]].max
       end
     end
