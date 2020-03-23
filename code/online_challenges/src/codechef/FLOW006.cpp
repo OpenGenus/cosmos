@@ -13,7 +13,7 @@ int main()
 	     sum = sum + n % 10;
 	    n = n/10;
 	    }
-	    cout<<sum<<endl;
+	    cout<<sum<<'\n';
 	    t--;
 	}
 	return 0;
