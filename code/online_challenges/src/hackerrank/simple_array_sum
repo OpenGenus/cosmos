@@ -1,7 +1,8 @@
 int simpleArraySum(int ar_count, int* ar) {
      int sum=0;
-     for (int i = 0; i < ar_count; i++) {
-       sum = sum + ar[i];
+     for (int i = 0; i < ar_count; ++i)
+     {
+     sum = sum + ar[i];
      }
      return sum;
 
