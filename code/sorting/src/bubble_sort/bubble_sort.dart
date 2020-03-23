@@ -32,7 +32,7 @@ class BubbleSort
     {
         for (var i = 0; i < a.length; i++) 
         {
-            bool swaped = false;
+            bool swapped = false;
             for (var j = i + 1; j < a.length; j++) 
             {
                 if (a[i] > a[j]) 
@@ -40,10 +40,10 @@ class BubbleSort
                     var tmp = a[i];
                     a[i] = a[j];
                     a[j] = tmp;
-                    swaped = true;
+                    swapped = true;
                 }
             }
-            if (!swaped) break;
+            if (!swapped) break;
         }
     }
 }
