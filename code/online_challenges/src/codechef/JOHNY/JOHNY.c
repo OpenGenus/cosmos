@@ -2,10 +2,12 @@
 
 int main(void) 
 {
-    int t, n, x, i, j;
+    int t;
     scanf("%d", & t);
     while (t--) 
     {
+        int i, j;
+        int n;
         scanf("%d", & n);
         long long int a[100];
         long long int pj = 0;
@@ -13,6 +15,7 @@ int main(void)
         {
             scanf("%lld", & a[i]);
         }
+        int x;
         scanf("%d", & x);
         int cr = a[x - 1];
         for (i = 0; i < n - 1; ++i) 
