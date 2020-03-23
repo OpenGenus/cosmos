@@ -1,4 +1,4 @@
-Insertion_Sort = (array) ->
+insertion_Sort = (array) ->
     for i in [0...array.length]
         temp = array[i]
         j = i - 1
@@ -10,11 +10,10 @@ Insertion_Sort = (array) ->
         array[j + 1] = temp
     array
 
-array = [2, 4, 3, 1, 6, 8, 4]
+array = [8, 4, 3, 1, 6, 2, 5]
 
-console.log Insertion_Sort(array)
-
+console.log insertion_Sort(array)
 
 ### Output
-[ 1, 2, 3, 4, 4, 6, 8 ]
+[ 1, 2, 3, 4, 5, 6, 8 ]
 ###
