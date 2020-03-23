@@ -1,11 +1,12 @@
 #include <algorithm>
 #include <iostream>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
-void display_unique(int arr[], int n) {
-  sort(arr, arr + n);
-  for (int i = 0; i < n; ++i) {
+void display_unique(std::vector<int> arr, int n) {
+  sort(arr.begin(), arr.end());
+  for (int i = 0; i < n; i++) {
     while (i < n - 1 && arr[i] == arr[i + 1])
       i++;
     cout << arr[i] << " ";
@@ -13,13 +14,15 @@ void display_unique(int arr[], int n) {
 }
 
 int main() {
-  int n;
+  int n, val;
   cout << "Enter the size of array : \n";
   cin >> n;
-  int arr[n];
+  std::vector<int> arr;
   cout << "Enter the values for the array : \n";
-  for (int i = 0; i < n; ++i)
-    cin >> arr[i];
+  for (int i = 0; i < n; i++) {
+    cin >> val;
+    arr.push_back(val);
+  }
   cout << "The unique elements are : \n";
   display_unique(arr, n);
 
@@ -34,4 +37,3 @@ Enter the values for the array :
 The unique elements are :
 12 15 16 34
 */
-
