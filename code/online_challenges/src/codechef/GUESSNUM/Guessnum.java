@@ -50,8 +50,9 @@ public class Guessnum {
             System.out.println();
         }
     }
- /*
- TEST CASE
+}
+/*
+TEST CASE
 INPUT
 3
 3 35
@@ -65,5 +66,5 @@ OUTPUT
 
 3
 13 15 16
- */
+*/
 
