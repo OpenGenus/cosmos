@@ -35,9 +35,10 @@ int maxLengthNonPalinSubstring(string str)
         return 0; 
   
     // If string is palindrome, we can make 
-    // it non-palindrome by removing any 
-    // corner character 
-    if (isPalindrome(str)) 
+    // it non-palindrome by removing any
+    
+    
+        if (isPalindrome(str)) 
         return n-1; 
   
     // Complete string is not a palindrome. 
