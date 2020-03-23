@@ -3,10 +3,12 @@ using namespace std;
 int main()
  {
 	int t,n;
+	//Input number of testcases-->t
 	cin>>t;
 	while(t>0)
 	{
 	    cin>>n;
+		//Initialise sum with 0
 	     int sum=0;
 	    while(n!=0)
 	    {
