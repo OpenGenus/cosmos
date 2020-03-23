@@ -6,13 +6,13 @@ changing the order of the remaining elements.*/
 // Function that computes the longest commmon subsequence between two arrays of numbers
 // Input: First Array, Second Array, Size of First Array, Size of Second Array
 // Output: Longest Common Subsequnce
-int LongestCommonSubsequence(int arr1[], int arr2[], int size1, int size2) {
+int longestCommonSubsequence(int arr1[], int arr2[], int size1, int size2) {
     
     // Declaring a 2-D array LCS where LCS[i][j] denotes the longest common subsequence of 
     // the two arrays until the ith element of the first array and the jth element of the second array
     int LCS[size1 + 1][size2 + 1];
-    for (int i = 0; i <= size1; i++) {
-        for (int j= 0; j <= size2; j++) {
+    for (int i = 0; i <= size1; ++i) {
+        for (int j= 0; j <= size2; ++j) {
             
             // Scenario 1: putting a 0 if either of the index is 0
             if (i == 0 || j == 0) {
@@ -44,14 +44,14 @@ int main()
 
     int arr1[size1], arr2[size2];
 
-    for (int i = 0; i < size1; i++) {
+    for (int i = 0; i < size1; ++i) {
         scanf("%d", &arr1[i]);
     }
-    for (int j = 0; j < size2; j++) {
+    for (int j = 0; j < size2; ++j) {
         scanf("%d", &arr2[j]);
     }
 
-    int l = LongestCommonSubsequence(arr1, arr2, size1, size2);
+    int l = longestCommonSubsequence(arr1, arr2, size1, size2);
     printf("Length of Longest Common Subsequence is: %d\n", l);
     return 0; 
 }
