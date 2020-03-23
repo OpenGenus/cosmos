@@ -1,4 +1,4 @@
-const Longest_Common_Subsequence = (arr1, arr2) => {
+const longestCommonSubsequence = (arr1, arr2) => {
 
     let LCS_def = Array.from({ length: arr1.length + 1 },
         () => Array.from({ length: arr2.length + 1 },
@@ -35,7 +35,7 @@ const Longest_Common_Subsequence = (arr1, arr2) => {
 
 const inputSet1 = [10, 15, 20, 25, 30, 35, 40];
 const inputSet2 = [10, 12, 23, 25, 28, 30, 32, 40];
-const result = Longest_Common_Subsequence(inputSet1, inputSet2);
+const result = longestCommonSubsequence(inputSet1, inputSet2);
 
 // The length of longest subsequence is: 4
 console.log(result);
