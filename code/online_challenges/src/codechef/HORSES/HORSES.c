@@ -3,10 +3,11 @@
 
 int main(void) 
 {
-    int t, i, j, n;
+    int t, i, j;
     scanf("%d", & t);
     for (i = 1; i <= t; ++i) 
     {
+        int n;
         scanf("%d", & n);
         int s[n];
         for (j = 0; j < n; ++j)
