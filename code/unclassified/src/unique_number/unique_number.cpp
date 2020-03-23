@@ -2,28 +2,27 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
-using namespace std;
 
 void display_unique(std::vector<int> arr, int n) {
   sort(arr.begin(), arr.end());
   for (int i = 0; i < n; i++) {
     while (i < n - 1 && arr[i] == arr[i + 1])
       i++;
-    cout << arr[i] << " ";
+    std::cout << arr[i] << " ";
   }
 }
 
 int main() {
   int n, val;
-  cout << "Enter the size of array : \n";
-  cin >> n;
+  std::cout << "Enter the size of array : \n";
+  std::cin >> n;
   std::vector<int> arr;
   cout << "Enter the values for the array : \n";
   for (int i = 0; i < n; i++) {
-    cin >> val;
+    std::cin >> val;
     arr.push_back(val);
   }
-  cout << "The unique elements are : \n";
+  std::cout << "The unique elements are : \n";
   display_unique(arr, n);
 
   return 0;
