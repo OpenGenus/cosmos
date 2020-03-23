@@ -1,46 +1,60 @@
-# Python program for implementation of Cocktail Sort 
-# Cocktail sort traverses via both the directions alternatively
-# It works similar to bubble sort. But takes less iterations/pass.
-
-def cocktailSort(a):
-    n = len(a)
-    # swapped flag is set to True to enter the while loop
-    swapped = True
-    # starting index of the list
-    start = 0
-    # last index in the list
-    end = n - 1
-    while swapped == True:
-
-        # reset the swapped flag on entering the loop,
-        # because it might be true from a previous
-        # iteration.
-        swapped = False
-
-        # loop from left to right same as the bubble
-        # sort
-        for i in range(start, end):
-            if a[i] > a[i + 1]:
-                a[i], a[i + 1] = a[i + 1], a[i]
-                swapped = True
-        # if nothing moved, then array is sorted.
-        if swapped == False:
+# cocsort is the function used to sort array
+# it is just like bubble sort with less complexity comparatively
+def cocsort(l):
+    # first indicates the first index of the array
+    first = 0
+    # k is the variable that counts the length of the array
+    k = len(l)
+    # last indicates the last index element of the array
+    last = k - 1
+    # t variable is used to denote if array is sorted after the sorting process.
+    # it is initialised 1 to check if array is sorted after every iteration
+    t = 1
+    # temp is used as third variable to exchange the values
+    temp = 0
+    while t != 0:
+        # t is set to 0 when loop conditions comes true
+        # both forward and backward sort runs simultaneously
+        t = 0
+        # this for loop will do the forward sort
+        # the greatest element after each pass will be at the last index
+        for i in range(first, last, 1):
+            if l[i] < l[i + 1]:
+                continue
+            else:
+                temp = l[i]
+                l[i] = l[i + 1]
+                l[i + 1] = temp
+                t = 1
+        # t is initialised to 1 to chech if the loop was sorted or not in the forward sort
+        # if value of t was not changed the control will jump off the loop
+        # else the control will move to the backward sort
+        if t == 0:
             break
-        # otherwise, reset the swapped flag so that it
-        # can be used in the next stage
-        swapped = False
+        else:
+            t = 0
+            # value of last is decreased everytime that shows the greatest element is found after forward sort
+            last = last - 1
+        # the next loop will do the backward sort in the array
+        for i in range(last, first - 1, -1):
+            if l[i] < l[i + 1]:
+                continue
+            else:
+                temp = l[i]
+                l[i] = l[i + 1]
+                l[i + 1] = temp
+                # t is set to 1 to show array has completed one backward sort pass.
+                t = 1
+        # value of first variable is increased everytime as smallest element is found after backward sort
+        first = first + 1
+    # when both the sorting is done the array is returned
+    return l
 
-        # move the end point back by one, because
-        # item at the end is in its rightful spot
-        end = end - 1
 
-        # from right to left, doing the same
-        # comparison as in the previous stage
-        for i in range(end - 1, start - 1, -1):
-            if a[i] > a[i + 1]:
-                a[i], a[i + 1] = a[i + 1], a[i]
-                swapped = True
-        # increase the starting point, because
-        # the last stage would have moved the next
-        # smallest number to its rightful spot.
-        start = start + 1
+# sample array is taken
+a = [23, 1, 5, 32, 122, 76, 45]
+c = cocsort(a)
+print("New Array: ")
+for i in a:
+    print(i, end=" ")
+# output-> New Array: 1 5 23 32 45 76 122
