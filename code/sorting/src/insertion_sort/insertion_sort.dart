@@ -20,7 +20,7 @@ class InsertionSort
         }
     }
 
-    void readArray(int n ,List<int> a) 
+    void readArray(int n, List<int> a) 
     {
         for (int i = 0; i < n; i++) 
         {
