@@ -46,7 +46,7 @@ int findMax(int arr[], int n)
 /*
    The main function that sorts given array using flip operations
 */
-int pancakeSort(int *arr, int n) 
+void pancakeSort(int *arr, int n) 
 { 
 	/*
       Start from the complete array and one by one reduce current size by one 
@@ -110,7 +110,8 @@ int main()
      
      
      ___OUTPUT___
-     
+    
+     Sorted Array     
      6 7 10 11 12 20 23
          
      }
