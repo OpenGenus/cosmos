@@ -39,7 +39,7 @@ return mi;
 /*
    The main function that sorts given array using flip operations 
 */
-int pancakeSort(int *arr, int n) 
+void pancakeSort(int *arr, int n) 
 { 
 	/*
 	   Start from the complete array and one by one reduce current size by one
