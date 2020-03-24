@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 
 void display_unique(std::vector<int> arr, int n) {
     sort(arr.begin(), arr.end());
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         while (i < n - 1 && arr[i] == arr[i + 1])
             i++;
         std::cout << arr[i] << " ";
@@ -18,7 +18,7 @@ int main() {
     std::cin >> n;
     std::vector<int> arr;
     cout << "Enter the values for the array : \n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> val;
         arr.push_back(val);
     }
