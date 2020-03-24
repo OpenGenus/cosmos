@@ -1,17 +1,12 @@
 <?php
-function is_Power($x)
+function isPowerOf2($x)
 {
-
-
- if (($x & ($x - 1)) != 0)
-		return "$x is not power of 2";
- else
-    {
-		return "$x is power of 2";
-    }
-
+     if (($x & ($x - 1)) != 0)
+    		return "$x is not power of 2";
+     else
+        {
+    		return "$x is power of 2";
+        }
 }
-
-print_r(is_Power(32)."\n");
-print_r(is_Power(31)."\n");
-?>
+print_r(isPowerOf2(32)."\n");
+print_r(isPowerOf2(31)."\n");
