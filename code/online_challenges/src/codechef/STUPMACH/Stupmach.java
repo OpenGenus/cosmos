@@ -8,14 +8,14 @@ public class Stupmach {
         while (t-- >0){
             int n = s.nextInt();
             int arr[] = new int[n];
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++){
                 arr[i] = s.nextInt();
             }
 
             long maxtokens = 0;
             int min = arr[0];
-            for (int i = 0;i < n; i++) {
-                if (min <= arr[i]){
+            for (int i = 0;i < n; i++){
+                if (min <= arr[i]) {
                     maxtokens += min;
                 }
                 else {
