@@ -1,6 +1,6 @@
-# cocsort is the function used to sort array
+# cocktailsort is the function used to sort array
 # it is just like bubble sort with less complexity comparatively
-def cocsort(l):
+def cocktailsort(l):
     # first indicates the first index of the array
     first = 0
     # k is the variable that counts the length of the array
@@ -34,7 +34,7 @@ def cocsort(l):
         else:
             t = 0
             # value of last is decreased everytime that shows the greatest element is found after forward sort
-            last = last - 1
+            last -= 1
         # the next loop will do the backward sort in the array
         for i in range(last, first - 1, -1):
             if l[i] < l[i + 1]:
@@ -46,14 +46,14 @@ def cocsort(l):
                 # t is set to 1 to show array has completed one backward sort pass.
                 t = 1
         # value of first variable is increased everytime as smallest element is found after backward sort
-        first = first + 1
+        first += 1
     # when both the sorting is done the array is returned
     return l
 
 
 # sample array is taken
 a = [23, 1, 5, 32, 122, 76, 45]
-c = cocsort(a)
+c = cocktailsort(a)
 print("New Array: ")
 for i in a:
     print(i, end=" ")
