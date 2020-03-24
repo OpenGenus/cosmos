@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Part of Cosmos by OpenGenus Foundation
-void insertion(int*, int);
+void insertionsort(int*, int);
 
 int main()
 {
@@ -12,11 +12,10 @@ int main()
 	{
 		scanf("%d", &arr[i]);
 	}
-	insertion(arr, n);
+	insertionsort(arr, n);
 	return 0;
 }
-/* Function to sort an array using insertion sort*/
-void insertion(int arr[], int n)
+void insertionsort(int arr[], int n)
 {
 	int key;
 	int j;
@@ -34,7 +33,6 @@ void insertion(int arr[], int n)
 		}
 		arr[j+1] = key;
 	}
-	// Loop to print an array of size n  
 	for(int i=0;i<n;i++)
 	{
 		printf("%d\t", arr[i]);
