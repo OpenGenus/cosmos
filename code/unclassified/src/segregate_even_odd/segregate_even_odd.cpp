@@ -20,7 +20,7 @@ void even_odd(std::vector<int> a, int n) {
     }
 
     std::cout << "After segregation : \n";
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < a.size(); ++i)
         std::cout << a[i] << " ";
 }
 
@@ -30,10 +30,10 @@ int main() {
     std::cin >> n;
     std::vector<int> a(n);
     std::cout << "Enter the values of the elements :  ";
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         int val;
         std::cin >> val;
-        a.push_back(val);
+        a[i] = val;
     }
     even_odd(a, n);
     return 0;
