@@ -1,45 +1,41 @@
-#include<stdio.h>
-#include<conio.h>
-float f(float x)
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+float func(float x)
 {
-    return(1/(1+x));
+    return log(x);
 }
-void main()
+
+float simpsons_(float ll, float ul, int n)
 {
-    int i,n;
-    float x0,xn,h,y[20],so,se,ans,x[20];
-    printf("\n Enter values of x0,xn,h: ");
-    scanf("%f%f%f",&x0,&xn,&h);
-    n=(xn-x0)/h;
-    if(n%2==1)
-    {
-        n=n+1;
+    float h = (ul - ll) / n;
+
+    float x[10], fx[10];
+
+    for (int i = 0; i <= n; ++i) {
+        x[i] = ll + i * h;
+        fx[i] = func(x[i]);
     }
-    h=(xn-x0)/n;
-    printf("\n Refined value of n and h are:%d %f\n",n,h);
-    printf("\n Y values: \n");
-    for(i=0; i<=n; i++)
-    {
-        x[i]=x0+i*h;
-        y[i]=f(x[i]);
-        printf("\n %f\n",y[i]);
-    }
-    so=0;
-    se=0;
-    for(i=1; i<n; i++)
-    {
-        if(i%2==1)
-        {
-            so=so+y[i];
-        }
+
+    float res = 0;
+    for (int i = 0; i <= n; ++i) {
+        if (i == 0 || i == n)
+            res += fx[i];
+        else if (i % 2 != 0)
+            res += 4 * fx[i];
         else
-        {
-            se=se+y[i];
-        }
- 
+            res += 2 * fx[i];
     }
-    ans=h/3*(y[0]+y[n]+4*so+2*se);
-    printf("\n Final integration is %f",ans);
- 
-    getch();
+    res = res * (h / 3);
+    return res;
+}
+
+int main()
+{
+    float lower_limit = 4;
+    float upper_limit = 5.2;
+    int n = 6;
+    cout << simpsons(lower_limit, upper_limit, n);
+    return 0;
 }
