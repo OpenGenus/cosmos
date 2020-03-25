@@ -1,5 +1,5 @@
 # Problem Link:
-[MARCHA1](https://www.codechef.com/problems/CONFLIP/)
+[MARCHA1](https://www.codechef.com/problems/MARCHA1/)
 
 # Description
 In the mysterious country of Byteland, everything is quite different from what you'd normally expect. In most places, if you were approached by two mobsters in a dark alley, they would probably tell you to give them all the money that you have. If you refused, or didn't have any - they might even beat you up.
