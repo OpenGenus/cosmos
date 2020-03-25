@@ -44,7 +44,7 @@ int bitDivision(int numerator, int denominator)
 int main() 
 {
     int numerator, denominator;
-    // numerator -> represents divident
+    // numerator -> represents dividend
     // denominator -> represents divisor
 
     cout << "Enter numerator and denominator : ";
