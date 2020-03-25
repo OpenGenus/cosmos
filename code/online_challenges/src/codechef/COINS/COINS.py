@@ -1,4 +1,3 @@
-
 a = {};
 
 def dollar(n):

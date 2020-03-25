@@ -1,5 +1,5 @@
 # Problem Link:
-[COINS](https://www.codechef.com/problems/COINS)
+[COINS] (https://www.codechef.com/problems/COINS)
 
 # Description
 In Byteland they have a very strange monetary system.
