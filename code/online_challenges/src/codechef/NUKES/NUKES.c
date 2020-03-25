@@ -8,7 +8,6 @@ int main(void)
     int l = max + 1;
     while (i < k) 
     {
-
         printf("%d ", n % l);
         n = n / l;
         ++i;
