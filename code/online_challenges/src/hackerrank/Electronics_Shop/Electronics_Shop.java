@@ -8,7 +8,7 @@ import java.util.regex.*;
 public class Solution {
           
          /*
-          * Complete the getMoneySpent function below.
+          * getMoneySpent function to get the total money spent
           */
           
 	static int getMoneySpent(int[] keyboards, int[] drives, int b) {
