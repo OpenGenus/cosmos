@@ -22,11 +22,7 @@ int main(void)
             {
                 c++;
                 top = arr[i];
-            } else 
-            {
-
             }
-
         }
         printf("%d\n", c);
     }
