@@ -5,4 +5,4 @@ for x in range(t):
     k = int(input())
     a = p[k - 1]
     p.sort()
-    print(p.index(a)+1)
+    print(p.index(a) + 1)
