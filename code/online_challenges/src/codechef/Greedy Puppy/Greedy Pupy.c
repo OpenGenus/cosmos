@@ -6,14 +6,15 @@ int main(void)
     scanf("%d", & t);
     while (t--) 
     {
-        int n, l, k, c, max = 0, i;
+        int n, k;
         scanf("%d%d", & n, & k);
-        for (int i = 2; i <= k; i++) 
+        int i, max = 0, c;
+        for (i = 2; i <= k; i++) 
         {
             c = n % i;
             if (c >= max) 
             {
-                max =a c;
+                max = c;
             }
         }
         printf("%d\n", max);
