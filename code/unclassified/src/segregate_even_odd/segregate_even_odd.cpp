@@ -26,9 +26,9 @@ void even_odd(std::vector<int> a, int n) {
 
 int main() {
     int n, val;
-    std::vector<int> a;
     std::cout << "Enter the number of elements in array :  ";
     std::cin >> n;
+    std::vector<int> a(n);
     std::cout << "Enter the values of the elements :  ";
     for (int i = 0; i < n; ++i) {
         std::cin >> val;
