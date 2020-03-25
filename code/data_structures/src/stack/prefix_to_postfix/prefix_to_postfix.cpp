@@ -4,8 +4,8 @@
 using namespace std; 
 
 // funtion to check if character is operator or not 
-bool isOperator(char c) { 
-switch (c) { 
+bool isOperator(char ch) { 
+switch (ch) { 
 case '+': 
 case '-': 
 case '/': 
