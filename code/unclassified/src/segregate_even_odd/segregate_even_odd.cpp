@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <vector>
 
-void even_odd(std::vector<int> a, int n) {
+void even_odd(std::vector<int> a) {
     int i = 0;
-    int j = n - 1;
+    int j = a.size() - 1;
     while (i < j) {
         while (a[i] % 2 == 0 && i < j)
             i++;
@@ -35,7 +35,7 @@ int main() {
         std::cin >> val;
         a[i] = val;
     }
-    even_odd(a, n);
+    even_odd(a);
     return 0;
 }
 
