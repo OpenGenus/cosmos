@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include <unordered_map>
 using namespace std ;
 #define lli long long int
 unordered_map<lli,lli> mpp;
@@ -21,8 +22,7 @@ lli check(lli n)
 int main()
 {
 
- 	lli  n;
- 	while(cin>>n)
+   for(lli n;cin>>n;)
  	{
 		lli d;
     d=check(n);
