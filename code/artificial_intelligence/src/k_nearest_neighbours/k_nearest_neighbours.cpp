@@ -1,32 +1,31 @@
 // Part of Cosmos by OpenGenus
-#include <iostream>
+#include <cmath>
 #include <iomanip>
-#include <math.h>
-#include<vector>
+#include <iostream>
+#include <vector>
 
-struct Point
-{
+struct Point {
     float w, x, y, z; // w, x, y and z are the values of the dataset
-    float distance; // distance will store the distance of dataset point from the unknown test point
-    int op; // op will store the class of the point
+    float distance;   // distance will store the distance of dataset point from
+                      // the unknown test point
+    int op;           // op will store the class of the point
 };
 
-int main()
-{
+int main() {
     int n, k;
     Point p;
     std::cout << "Number of data points: ";
     std::cin >> n;
-    std::vector <Point> vec;
+    std::vector<Point> vec;
     std::cout << "\nEnter the dataset values: \n";
     std::cout << "w\tx\ty\tz\top\n";
 
     // Taking dataset
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; ++i) {
         float wCoordinate, xCoordinate, yCoordinate, zCoordinate;
         int opCoordinate;
-        std::cin >> wCoordinate >> xCoordinate >> yCoordinate >> zCoordinate >> opCoordinate;
+        std::cin >> wCoordinate >> xCoordinate >> yCoordinate >> zCoordinate >>
+            opCoordinate;
         vec.push_back(Point());
         vec[i].w = wCoordinate;
         vec[i].x = xCoordinate;
@@ -37,27 +36,25 @@ int main()
 
     std::cout << "\nw\tx\ty\tz\top\n";
 
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << std::fixed << std::setprecision(2) << vec[i].w << '\t' << vec[i].x << '\t' << vec[i].y << '\t' << vec[i].z << '\t' << vec[i].op << '\n';
+    for (int i = 0; i < n; ++i) {
+        std::cout << std::fixed << std::setprecision(2) << vec[i].w << '\t'
+                  << vec[i].x << '\t' << vec[i].y << '\t' << vec[i].z << '\t'
+                  << vec[i].op << '\n';
     }
 
-    std::cout << "\nEnter the feature values of the unknown point: \nw\tx\ty\tz\n";
+    std::cout
+        << "\nEnter the feature values of the unknown point: \nw\tx\ty\tz\n";
     std::cin >> p.w >> p.x >> p.y >> p.z;
 
-    float euclideanDistance (Point p, Point v);
-    for (int i = 0; i < n; i++)
-    {
+    float euclideanDistance(Point p, Point v);
+    for (int i = 0; i < n; ++i) {
         vec[i].distance = euclideanDistance(p, vec[i]);
     }
 
     // Sorting the training data with respect to distance
-    for (int i = 1; i < n; i++)
-    {
-        for (int j = 0; j < n - i; j++)
-        {
-            if (vec[j].distance > vec[j + 1].distance)
-            {
+    for (int i = 1; i < n; ++i) {
+        for (int j = 0; j < n - i; ++j) {
+            if (vec[j].distance > vec[j + 1].distance) {
                 Point temp;
                 temp = vec[j];
                 vec[j] = vec[j + 1];
@@ -67,9 +64,10 @@ int main()
     }
 
     std::cout << "\nw\tx\ty\tz\top\tdistance\n";
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << std::fixed << std::setprecision(2) << vec[i].w << '\t' << vec[i].x << '\t' << vec[i].y << '\t' << vec[i].z << '\t' << vec[i].op << '\t' << vec[i].distance << '\n';
+    for (int i = 0; i < n; ++i) {
+        std::cout << std::fixed << std::setprecision(2) << vec[i].w << '\t'
+                  << vec[i].x << '\t' << vec[i].y << '\t' << vec[i].z << '\t'
+                  << vec[i].op << '\t' << vec[i].distance << '\n';
     }
 
     // Taking the K nearest neighbors
@@ -80,16 +78,13 @@ int main()
     int index = 0, maxfreq = 0;
 
     // Creating frequency array of the class of k nearest neighbors
-    for (int i = 0; i < k; i++)
-    {
+    for (int i = 0; i < k; ++i) {
         freq[vec[i].op]++;
     }
 
     // Finding the most frequent occurring class
-    for (int i = 0; i < 1000; i++)
-    {
-        if(freq[i] > maxfreq)
-        {
+    for (int i = 0; i < 1000; ++i) {
+        if (freq[i] > maxfreq) {
             maxfreq = freq[i];
             index = i;
         }
@@ -100,9 +95,10 @@ int main()
 }
 
 // Measuring the Euclidean distance
-float euclideanDistance (Point p, Point v) {
+float euclideanDistance(Point p, Point v) {
     float result;
-    result = sqrt(((v.w - p.w) * (v.w - p.w)) + ((v.x - p.x) * (v.x - p.x)) + ((v.y - p.y) * (v.y - p.y)) + ((v.z - p.z) * (v.z - p.z)));
+    result = sqrt(((v.w - p.w) * (v.w - p.w)) + ((v.x - p.x) * (v.x - p.x)) +
+                  ((v.y - p.y) * (v.y - p.y)) + ((v.z - p.z) * (v.z - p.z)));
     return result;
 }
 
