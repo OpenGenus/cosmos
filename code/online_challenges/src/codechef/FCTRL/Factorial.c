@@ -1,21 +1,22 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
 main() 
 {
-    long t, n, s = 1, sum = 0, k;
+    long t;
     scanf("%ld", & t);
     while (t--) 
     {
+        long n;
         scanf("%ld", & n);
+        long s = 1, sum = 0;
         while (1) 
         {
             s = s * 5;
             if (s > n)
                 break;
-            else 
-            {
+            else {
+                long k;
                 k = n / s;
                 sum = sum + k;
             }
