@@ -1,7 +1,6 @@
 #include <iostream.h>
 #include <math.h>
 
-
 float create(int x)
 {
     return log(x);
@@ -9,13 +8,12 @@ float create(int x)
 
 int simpson(int x1, int x2)
 {
-  
-    float h = (x2 - x1)/6;
+
+    float h = (x2 - x1) / 6;
 
     int x[10];
     float y[10];
-    for (int i = 0; i <= n; ++i) 
-    {
+    for (int i = 0; i <= n; ++i) {
         x[i] = x1 + i * h;
         y[i] = create(x[i]);
     }
@@ -35,10 +33,9 @@ int simpson(int x1, int x2)
 
 int main()
 {
-    cout<<"Enter the lower limit";
-    cin>>x1;
-   cout<<"Enter the upper limit";
-    cin>>x2;
-    cout << simpson(x1,x2);
- 
+    cout << "Enter the lower limit";
+    cin >> x1;
+    cout << "Enter the upper limit";
+    cin >> x2;
+    cout << simpson(x1, x2);
 }
