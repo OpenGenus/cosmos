@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 
-int sum_numbers_string(std::string s) {
+int sumNumbersString(std::string s) {
     int sum = 0;
     std::string str = "";
     for (int i = 0; i < s.length(); i++) {
@@ -25,7 +25,7 @@ int main() {
     std::cout << "Enter the string :  ";
     std::cin >> s;
     std::cout << "The sum of numbers present in the string :  "
-              << sum_numbers_string(s);
+              << sumNumbersString(s);
     return 0;
 }
 
