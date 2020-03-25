@@ -9,7 +9,7 @@ import java.util.*;
 
 class ClearBitsFromMsb
 { 
-    static int clear_bits_from_msb(int n, int i)
+    static int clearBitsFromMsb(int n, int i)
     {
         int mask = (1 << i) - 1;
         return n & mask;
@@ -23,7 +23,7 @@ class ClearBitsFromMsb
         int n = sc.nextInt(); 
         int i = sc.nextInt();
 
-        n = clear_bits_from_msb(n, i);
+        n = clearBitsFromMsb(n, i);
         System.out.println("\nResult : " + n); 
     } 
 } 

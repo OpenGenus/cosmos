@@ -5,7 +5,7 @@ MSB -> Most Significant Bit
 LSB -> Most Significant Bit 
 '''
 
-def clear_bits_from_msb(n, i):
+def clearBitsFromMsb(n, i):
 	mask = (1 << i) - 1
 	return n & mask    
 
@@ -13,7 +13,7 @@ if __name__=="__main__":
 	print("Enter n and i : ")
 	n, i = map(int, input().split())
 
-	n = clear_bits_from_msb(n, i)
+	n = clearBitsFromMsb(n, i)
 	print("Result : " + str(n))
 
 '''
