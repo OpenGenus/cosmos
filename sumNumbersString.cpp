@@ -4,14 +4,14 @@
 #include <cstdlib>
 #include <iostream>
 
-int sum_numbers_string(string s) {
+int sum_numbers_string(std::string s) {
     int sum = 0;
-    string str = "";
+    std::string str = "";
     for (int i = 0; i < s.length(); i++) {
         if (isdigit(s[i])) {
             str += s[i];
             if (!isdigit(s[i + 1])) {
-                int n = stoi(str);
+                int n = std::stoi(str);
                 sum += n;
                 str = "";
             }
@@ -21,7 +21,7 @@ int sum_numbers_string(string s) {
 }
 
 int main() {
-    string s;
+    std::string s;
     std::cout << "Enter the string :  ";
     std::cin >> s;
     std::cout << "The sum of numbers present in the string :  "
