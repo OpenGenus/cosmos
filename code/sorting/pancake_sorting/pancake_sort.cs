@@ -3,7 +3,7 @@
 */
 using System; 
 
-class pancake { 
+class GFG { 
 
     // Print the sorted Array
 
@@ -11,7 +11,7 @@ class pancake {
 	{ 
 	    	Console.Write("Sorted Array\n"); 
 	    
-		for (int i = 0; i < n; i++) 
+		for (int i = 0; i < n; ++i) 
 			Console.Write(a[i] + " "); 
 			
 		Console.Write(""); 
@@ -19,7 +19,7 @@ class pancake {
 
  // Reversing the array from 0 to index
 	
-	static void flip(int[] a, int index) 
+	static void flip_arr(int[] a, int index) 
 	{ 
 		int temp, begin = 0; 
 		while (begin < index) 
@@ -27,8 +27,9 @@ class pancake {
 			temp = a[begin]; 
 			a[begin] = a[index]; 
 			a[index] = temp; 
-			begin++; 
-			index--; 
+			
+			++begin; 
+			--index; 
 		} 
 	} 
 
@@ -50,26 +51,18 @@ class pancake {
 	{ 
 		
 		 
-		for (int cur_size = n; cur_size > 1; 
-								--cur_size) 
+		for (int cur_size = n; cur_size > 1; --cur_size) 
 		{ 
-			
 			int max_i = find_index(a, cur_size); 
 
-		 
 			if (max_i != cur_size - 1) 
 			{ 
-				
-				flip(a, max_i); 
+				flip_arr(a, max_i); 
 
-				flip(a, cur_size - 1); 
+				flip_arr(a, cur_size - 1); 
 			} 
-		} 
-		
-		
+		}
 	} 
-
-
 
 	public static int Main () 
 	{ 
