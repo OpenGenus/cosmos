@@ -1,4 +1,4 @@
-// Reversing a string in Python
+# Reversing a string in Python
 
 CODE:
 s = input("Enter a string: ")
