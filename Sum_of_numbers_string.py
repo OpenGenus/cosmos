@@ -7,7 +7,7 @@ a = ""
 Sum = 0
 for i in st: 
     if (i.isdigit()): 
-        a = a + i
+        a += i
     else: 
         Sum = Sum + int(a) 
         a = "0"
@@ -18,5 +18,4 @@ Enter a string: 567hdon2
 
 // OUTPUT:
 569
-
 
