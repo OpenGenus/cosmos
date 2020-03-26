@@ -4,7 +4,8 @@
 
 void flush_stdin()
 {
-    while (fgetc(stdin) != '\n');
+    while (fgetc(stdin) != '\n')
+        ;
 }
 
 void autokeycipher(char **text, char key, int encrypt)
@@ -13,7 +14,7 @@ void autokeycipher(char **text, char key, int encrypt)
 
     textsize = strlen((*text));
 
-    for (int i = 0; i < textsize; i++)
+    for (int i = 0; i < textsize; ++i)
     {
         if (isalpha((*text)[i]))
         {
@@ -24,7 +25,7 @@ void autokeycipher(char **text, char key, int encrypt)
     int nextkey, keyvalue, result;
     nextkey = toupper(key) - 'A';
 
-    for (int i = 0; i < textsize; i++)
+    for (int i = 0; i < textsize; ++i)
     {
         if (isalpha((*text)[i]))
         {

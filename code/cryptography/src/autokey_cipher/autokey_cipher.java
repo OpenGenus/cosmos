@@ -10,7 +10,7 @@ public class autokey
 		char keytextarray[] = plaintext.toLowerCase().toCharArray();
 		int temp = keycount % 26;
 
-		for(int i = 0; i < plaintext.length(); i++)
+		for(int i = 0; i < plaintext.length(); ++i)
 		{
 			int a = hashmap1.get(plaintext.charAt(i));
 			if(i == 0)
@@ -29,7 +29,7 @@ public class autokey
 	public static String encryption(String plaintext, String keytext, HashMap<Character, Integer> hashmap1, HashMap<Integer, Character> hashmap2)
 	{
 		char plaintextarray[] = plaintext.toLowerCase().toCharArray();
-		for(int i = 0; i < plaintext.length(); i++)
+		for(int i = 0; i < plaintext.length(); ++i)
 		{
 			int a = hashmap1.get(plaintext.charAt(i));
 			int b = hashmap1.get(keytext.charAt(i));
@@ -42,7 +42,7 @@ public class autokey
 	public static String decryption(String encrypted, String keytext, HashMap<Character, Integer> hashmap1, HashMap<Integer, Character> hashmap2)
 	{
 		char encryptedarray[] = encrypted.toLowerCase().toCharArray();
-		for(int i = 0; i < encrypted.length(); i++)
+		for(int i = 0; i < encrypted.length(); ++i)
 		{
 			int a = hashmap1.get(encrypted.charAt(i));
 			int b = hashmap1.get(keytext.charAt(i));
@@ -71,7 +71,7 @@ public class autokey
 		HashMap<Integer, Character> hashmap2 = new HashMap<Integer, Character>();
 		BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(System.in));
 
-		for(int i = 0; i < 26; i++)
+		for(int i = 0; i < 26; ++i)
 		{
 			hashmap1.put((char)(i + 97), i);
 			hashmap2.put(i,(char)(i + 97));

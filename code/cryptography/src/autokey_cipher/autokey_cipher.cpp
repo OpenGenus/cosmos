@@ -1,9 +1,8 @@
 #include <iostream>
-#include <string.h>
 
 std::string autokeycipher(std::string text, char key, int encrypt)
 {
-    for (int i = 0; i < text.length(); i++)
+    for (int i = 0; i < text.length(); ++i)
     {
         if (isalpha(text[i]))
         {
@@ -14,7 +13,7 @@ std::string autokeycipher(std::string text, char key, int encrypt)
     int nextkey, keyvalue, result;
     nextkey = toupper(key) - 'A';
 
-    for (int i = 0; i < text.length(); i++)
+    for (int i = 0; i < text.length(); ++i)
     {
         if (isalpha(text[i]))
         {
@@ -65,6 +64,7 @@ int main(int argc, char **argv)
 Sample Input:
 Enter the Single Key word: L //In A-Z, L will be at 11 index.
 Enter the Plain Text: hello
+
 Sample Output:
 The Plain Text is: hello
 The Text after Encryption(Cipher text) is: slpwz
