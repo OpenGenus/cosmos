@@ -20,67 +20,67 @@ ll findPivot(ll arr[], ll low, ll high) {
         }
     }
 
-if (arr[low] < arr[0]) {
-return low;
-} else {
-// pivot element does not exist
-return -1;
-}
+    if (arr[low] < arr[0]) {
+        return low;
+    } else {
+        // pivot element does not exist
+        return -1;
+    }
 }
 
 ll findAns(ll arr[], ll k, ll low, ll high) {
 
-while (low < high) {
-// find mid element
-ll mid = low + (high - low) / 2;
+    while (low < high) {
+        // find mid element
+        ll mid = low + (high - low) / 2;
 
-if (arr[mid] == k) {
-return mid;
-}
+        if (arr[mid] == k) {
+            return mid;
+        }
 
-if (arr[mid] >= k) {
-high = mid;
-} else {
-low = mid + 1;
-}
-}
+        if (arr[mid] >= k) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
 
-if (arr[low] == k) {
-return low;
-} else {
-// element does not exist in array
-return -1;
-}
+    if (arr[low] == k) {
+        return low;
+    } else {
+        // element does not exist in array
+        return -1;
+    }
 }
 
 int main() {
-ll test, n, k, pivot;
-std::cin >> test; // no. of test cases
+    ll test, n, k, pivot;
+    std::cin >> test; // no. of test cases
 
-while (test--) {
-std::cin >> n; // size of array
-ll arr[n];
-for (ll i = 0; i < n; i++) {
-std::cin >> arr[i];
-}
-std::cin >> k; // element to be searched
+    while (test--) {
+        std::cin >> n; // size of array
+        ll arr[n];
+        for (ll i = 0; i < n; i++) {
+            std::cin >> arr[i];
+        }
+        std::cin >> k; // element to be searched
 
-pivot = findPivot(arr, 0, n - 1); // find pivot element
+        pivot = findPivot(arr, 0, n - 1); // find pivot element
 
-if (pivot == -1) {
-// if pivot element does not exist, elements are
-// in ascending order in whole array
-std::cout << findAns(arr, k, 0, n - 1) << "\n";
-} else {
-if (k >= arr[0]) {
-std::cout << findAns(arr, k, 0, pivot - 1) << "\n";
-} else {
-std::cout << findAns(arr, k, pivot, n - 1) << "\n";
-}
-}
-}
+        if (pivot == -1) {
+            // if pivot element does not exist, elements are
+            // whole array is in ascending order
+            std::cout << findAns(arr, k, 0, n - 1) << "\n";
+        } else {
+            if (k >= arr[0]) {
+                std::cout << findAns(arr, k, 0, pivot - 1) << "\n";
+            } else {
+                std::cout << findAns(arr, k, pivot, n - 1) << "\n";
+            }
+        }
+    }
 
-return 0;
+    return 0;
 }
 
 /*
