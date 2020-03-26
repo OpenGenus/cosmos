@@ -1,8 +1,7 @@
 #include <iostream>
 #include <unordered_map>
-using namespace std;
 #define lli long long int
-unordered_map<lli, lli> mpp;
+std::unordered_map<lli, lli> mpp;
 lli check(lli n)
 {
 
@@ -14,18 +13,18 @@ lli check(lli n)
         return mpp[n];
     else {
         mpp[n] = check(n / 2) + check(n / 3) + check(n / 4);
-        mpp[n] = max(n, mpp[n]);
+        mpp[n] = std::max(n, mpp[n]);
         return mpp[n];
     }
 }
 int main()
 {
 
-    for (lli n; cin >> n;) {
+    for (lli n; std::cin >> n;) {
         lli d;
         d = check(n);
 
-        cout << max(n, d) << "\n";
+        std::cout<< std::max(n, d) << "\n";
     }
     return 0;
 }
