@@ -1,33 +1,33 @@
 //Priority scheduling: each process is assigned a priority. Process with highest priority is to be executed first and so on.
 //Non-preemptive algorithms: once a process enters the running state, it cannot be preempted until it completes its allotted time,
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-struct process
+typedef struct process
 {
     int pname, pr, at, bt;
-    int ct, wt, rt, tat, flag; //flag=0 means unfinished process flag=1 process is finished
-};
-typedef struct process process;
+    int ct, wt, rt, tat, flag; //flag=0 means unfinished process 
+}process;
 
-int t = 0, n;
-process pro[20];
-float act, awt, atat, art;
 
-int next_process(void);
 
-int main(void)
-{
+int next_process(process pro[], int n, int t);
+
+int main()
+{   
+    int t = 0, n;
+    process pro[20];
+    float act = 0, awt = 0, atat = 0, art = 0;
     int ntemp, i;
     printf("Enter no. of process : ");
     scanf("%d", &n);
-    for(i = 0; i < n; i++) //input process details
+    for(i = 0; i < n; ++i) //input process details
     {
         printf("Enter Process Name : ");
         scanf("%d", &pro[i].pname);
         printf("Enter priority : ");
-        scanf("%d", &pro[i].pr);
+        scanf("%d", &pro[i].pr); 
         printf("Enter arrival time : ");
         scanf("%d", &pro[i].at);
         printf("Enter burst time : ");
@@ -39,16 +39,16 @@ int main(void)
     printf("---------Gantt Chart--------\n\n");
     while(ntemp > 0)
     {
-        i = next_process();
+        i = next_process(pro, n, t);
         if(i > -1)
-	    {
+        {
             printf("%d| %d |%d \t", t, pro[i].pname, t + pro[i].bt);
             pro[i].rt = t; //setting response time
             t += pro[i].bt;//updating time
             pro[i].ct = t; //getting completion time
-            pro[i].flag = 1;
+            pro[i].flag = 1; //flag=1 process is finished
             ntemp--;
-    	}
+        }
         else
         {
             t++;
@@ -57,7 +57,7 @@ int main(void)
 
     printf("\n\n----------Table--------\n\n");
     printf("Pname\tPriority\tAT\tBT\tCT\tWT\tTAT\tRT\n");
-    for(i = 0; i < n; i++)
+    for(i = 0; i < n; ++i)
     {
         printf("%d\t%d\t\t%d\t%d\t", pro[i].pname, pro[i].pr, pro[i].at, pro[i].bt);
         pro[i].wt = pro[i].ct-pro[i].at - pro[i].bt;
@@ -76,21 +76,23 @@ int main(void)
 
     return 0;
 }
-int next_process()
+
+int next_process(process pro[], int n, int t)
 {
     int i, nprocess = -1;
-    for(i = 0; i < n; i++)
+    for(i = 0; i < n; ++i)
     {
         if(pro[i].at <= t && pro[i].flag == 0)
         break;
     }
+
     if(i == n)
     {
         return nprocess;
     }
+    
     nprocess = i;
-
-    for(; i < n; i++)
+    for(; i < n; ++i)
     {
         if(pro[i].at <= t && pro[i].flag == 0 && pro[i].pr < pro[nprocess].pr)
         nprocess = i;
@@ -98,4 +100,3 @@ int next_process()
 
     return nprocess;
 }
-  
