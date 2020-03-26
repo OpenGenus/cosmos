@@ -6,7 +6,7 @@ m = list(s)
 m.append(" ")
 l = []
 for i in range(len(m)):
-    if(m[i]!=" " ):
+    if m[i]!=" " :
         s1 += m[i]
     else:
         l.append(s1)
