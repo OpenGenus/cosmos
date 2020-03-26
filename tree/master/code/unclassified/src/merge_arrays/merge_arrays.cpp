@@ -4,18 +4,18 @@
 
 void merge(std::vector<int> arr, std::vector<int> arr1, std::vector<int> arr2) {
     int k = 0;
-    for (int i = 0; i < arr1.size(); ++i) {
-        arr[k] = arr1[i];
+    for (int val : arr1) {
+        arr[k] = val;
         k++;
     }
-    for (int i = 0; i < arr2.size(); ++i) {
-        arr[k] = arr2[i];
+    for (int val : arr2) {
+        arr[k] = val;
         k++;
     }
 
     std::cout << "Merged array : \n";
-    for (int i = 0; i < arr.size(); ++i)
-        std::cout << arr[i] << "\t";
+    for (int val : arr)
+        std::cout << val << "\t";
 }
 
 int main() {
