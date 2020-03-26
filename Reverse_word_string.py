@@ -1,6 +1,5 @@
 # Reversing a string in Python
 
-CODE:
 s = input("Enter a string: ")
 s1 = ""
 m = list(s)
