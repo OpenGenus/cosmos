@@ -68,7 +68,7 @@ public class Solution {
 
 		/*
 		 * The maximum amount of money she can spend on a keyboard and USB
-		 * drive, or -1 if she can't purchase both items
+		 * drive, or -1 if she can't purchase both items.
 		 */
 
 		int moneySpent = getMoneySpent(keyboards, drives, b);
