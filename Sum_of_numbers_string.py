@@ -9,7 +9,7 @@ for i in st:
     if (i.isdigit()): 
         a += i
     else: 
-        Sum = Sum + int(a) 
+        Sum += int(a) 
         a = "0"
 print(Sum + int(a))
 
@@ -18,4 +18,3 @@ Enter a string: 567hdon2
 
 // OUTPUT:
 569
-
