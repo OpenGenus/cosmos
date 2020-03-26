@@ -37,6 +37,5 @@ int recbub(int arr[],int n)
                           {
                               cout<<ar[j]<<" ";
                           }
-                          return 0;
-                      }
+                          return 0; }
         
