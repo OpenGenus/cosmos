@@ -12,7 +12,7 @@ void solve(long long int rowMask, long long int ld, long long int rd)
   while (safe) 
   {
     long long int p = safe & (-safe);
-    safe = safe - p;
+    safe -= p;
     solve(rowMask | p, (ld | p) << 1, (rd | p) >> 1);
   }
 }
