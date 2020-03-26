@@ -2,38 +2,37 @@
 
 int main(void) {
 	
-	int T, N, k;
-	long long int ans=1;
+   	int t, n, k;
+	long long int ans = 1;
 	
-	scanf("%d",&T);
+	scanf("%d", &t);
 	
-	while(T>0)
+	while(t > 0)
 	{
-	    T--;
+	    t--;
 	    ans = 1;
 	    
-	    scanf("%d",&N);
-	    scanf("%d",&k);
+	    scanf("%d", &n);
+	    scanf("%d", &k);
 	    
-	    if(N==k)
-	    printf("%lld\n",ans);
+	    if(n == k)
+	        printf("%lld\n", ans);
 	    else
 	    {
-	        N=N-1; 
-	        k=k-1;
-	        ans=1;
+	        n = n - 1; 
+	        k = k - 1;
+	        ans = 1;
 	        
-	        if(k>N/2)
-            k = N-k;
+	        if(k > n/2)
+                k = n - k;
             
-	        for(int i=0; i<k; i++)
+	        for(int i = 0; i < k; i++)
 	        {
-	            ans = ans*(N-i);
-	            ans = ans/(i+1);
+	            ans *= n - i;
+	            ans /= i + 1;
 	        }
 	        printf("%lld\n", ans);
 	    }
 	}
 	return 0;
 }
-

@@ -1,24 +1,21 @@
-T = int(raw_input());
+t = int(input())
 
-while(T>0):
-    T -= 1;
-    ans=1;
-    
-    N, k = map(int, raw_input().split());
-    
-    if(N==k):
-        print(ans);
+while t > 0:
+    t -= 1
+    ans = 1
+
+    n, k = list(map(int, input().split()))
+
+    if n == k:
+        print(ans)
     else:
-        N = N-1;
-        k = k-1;
-        
-        if(k>N/2):
-            k = N-k;
-         
-        ans=1;    
+        n = n - 1
+        k = k - 1
+
+        if k > n / 2:
+            k = n - k
+        ans = 1
         for i in range(k):
-            ans = ans*(N-i);
-            ans = ans/(i+1);
-        
-        print(ans);    
-        
+            ans *= n - i
+            ans /= i + 1
+        print(int(ans))
