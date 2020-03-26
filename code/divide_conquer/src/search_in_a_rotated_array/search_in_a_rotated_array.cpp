@@ -14,9 +14,9 @@ while (low < high) {
 ll mid = low + (high - low) / 2;
 
 if (arr[mid] < arr[0]) {
-	high = mid;
+high = mid;
 } else {
-	low = mid + 1;
+low = mid + 1;
 }
 }
 
@@ -35,13 +35,13 @@ while (low < high) {
 ll mid = low + (high - low) / 2;
 
 if (arr[mid] == k) {
-	return mid;
+return mid;
 }
 
 if (arr[mid] >= k) {
-	high = mid;
+high = mid;
 } else {
-	low = mid + 1;
+low = mid + 1;
 }
 }
 
@@ -61,22 +61,22 @@ while (test--) {
 std::cin >> n; // size of array
 ll arr[n];
 for (ll i = 0; i < n; i++) {
-	std::cin >> arr[i];
+std::cin >> arr[i];
 }
 std::cin >> k; // element to be searched
 
 pivot = findPivot(arr, 0, n - 1); // find pivot element
 
 if (pivot == -1) {
-	// if pivot element does not exist, elements are
-	// in ascending order in whole array
-	std::cout << findAns(arr, k, 0, n - 1) << "\n";
+// if pivot element does not exist, elements are
+// in ascending order in whole array
+std::cout << findAns(arr, k, 0, n - 1) << "\n";
 } else {
-	if (k >= arr[0]) {
-		std::cout << findAns(arr, k, 0, pivot - 1) << "\n";
-	} else {
-		std::cout << findAns(arr, k, pivot, n - 1) << "\n";
-	}
+if (k >= arr[0]) {
+std::cout << findAns(arr, k, 0, pivot - 1) << "\n";
+} else {
+std::cout << findAns(arr, k, pivot, n - 1) << "\n";
+}
 }
 }
 
