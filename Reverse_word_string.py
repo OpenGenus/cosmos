@@ -7,7 +7,7 @@ m.append(" ")
 l = []
 for i in range(len(m)):
     if(m[i]!=" " ):
-        s1 = s1 + m[i]
+        s1 += m[i]
     else:
         l.append(s1)
         s1=""
