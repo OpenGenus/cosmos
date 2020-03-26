@@ -4,7 +4,6 @@
 std::unordered_map<lli, lli> mpp;
 lli check(lli n)
 {
-
     if (n == 0) {
         mpp[0] = 0;
         return 0;
