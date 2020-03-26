@@ -1,7 +1,6 @@
 a = {}
 
 def dollar(n):
-
     if n <= 11:
         a[n] = n
         return a[n]
@@ -19,4 +18,3 @@ while True:
         print(n)
     else:
         print(dollar(n))
-
