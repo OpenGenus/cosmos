@@ -9,16 +9,16 @@ the given element K in the array A.
 #define ll long long int
 
 ll findPivot(ll arr[], ll low, ll high) {
-while (low < high) {
-// find mid element
-ll mid = low + (high - low) / 2;
+    while (low < high) {
+        // find mid element
+        ll mid = low + (high - low) / 2;
 
-if (arr[mid] < arr[0]) {
-high = mid;
-} else {
-low = mid + 1;
-}
-}
+        if (arr[mid] < arr[0]) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
 
 if (arr[low] < arr[0]) {
 return low;
