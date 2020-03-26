@@ -14,8 +14,8 @@ for i in range(len(m)):
         s1=""
 print("The Reversed String: ", *l[::-1])
 
-// INPUT
-Enter a string: Code is Life
-
-// OUTPUT:
-The Reversed String: Life is Code
+# INPUT
+# Enter a string: Code is Life
+#
+# OUTPUT:
+# The Reversed String: Life is Code
