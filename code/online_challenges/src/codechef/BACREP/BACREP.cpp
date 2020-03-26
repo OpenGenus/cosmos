@@ -1,5 +1,7 @@
-#include<bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
+
 #define ll long long
 #define dd double
 #define endl "\n"
@@ -19,9 +21,12 @@ vector <int> atd[N];
 ll maxdepth=1;
 ll par[N]={0};
 
-ll po(ll k ,ll n,ll ans,ll temp,ll ans1){
+ll po(ll k ,ll n,ll ans,ll temp,ll ans1)
+{
     if(n==0)return ans;
-    while(temp<=n){
+    
+    while(temp<=n)
+    {
         ans*=ans1;ans%=mod;ans1=ans1*ans1;ans1%=mod;n=n-temp;temp*=2;
     }
     return po(k,n,ans,1,k)%mod;
@@ -52,19 +57,28 @@ void bfs(int root)
         }
     }
 }
-ll min(ll a,ll b){if(a>b)return b;else return a;}
-ll max(ll a,ll b){if(a>b)return a;else return b;}
-int main() {
+ll min(ll a,ll b)
+{
+    if(a>b)return b;else return a;
+}
+ll max(ll a,ll b)
+{
+    if(a>b)return a;else return b;
+}
+int main() 
+{
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
     ll t;
     //cin>>t;
     t=1;
-    while(t--){
+    while(t--)
+    {
         ll n,q;
         
     cin>>n>>q;
-    fo(i,n-1){
+    fo(i,n-1)
+    {
         ll a,b;
         cin>>a>>b;
         adj[a].pb(b);
@@ -105,7 +119,7 @@ int main() {
             store[a]+=b;
         }
     }
-    }
+   }
 
     return 0;
 }
