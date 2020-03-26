@@ -35,5 +35,5 @@ int main()
     cin >> x1;
     cout << "Enter the upper limit";
     cin >> x2;
-    cout << simpson(x1, x2)<<"\n";
+    cout << simpson(x1, x2)<< "\n";
 }
