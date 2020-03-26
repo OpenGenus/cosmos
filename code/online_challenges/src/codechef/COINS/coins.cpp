@@ -1,34 +1,31 @@
-#include<iostream>
+#include <iostream>
 #include <unordered_map>
-using namespace std ;
+using namespace std;
 #define lli long long int
-unordered_map<lli,lli> mpp;
+unordered_map<lli, lli> mpp;
 lli check(lli n)
 {
 
-  if(n==0)
-    {  mpp[0]=0;
-      return 0;
+    if (n == 0) {
+        mpp[0] = 0;
+        return 0;
     }
-  if(mpp[n]!=0)
-      return mpp[n];
-  else
-      {
-        mpp[n]=check(n/2)+check(n/3)+check(n/4);
-        mpp[n]=max(n,mpp[n]);
+    if (mpp[n] != 0)
         return mpp[n];
-      }
+    else {
+        mpp[n] = check(n / 2) + check(n / 3) + check(n / 4);
+        mpp[n] = max(n, mpp[n]);
+        return mpp[n];
+    }
 }
 int main()
 {
 
-   for(lli n;cin>>n;)
- 	{
-		lli d;
-    d=check(n);
+    for (lli n; cin >> n;) {
+        lli d;
+        d = check(n);
 
-    cout<<max(n,d)<<"\n";
- 	}
-  return 0;
-
+        cout << max(n, d) << "\n";
+    }
+    return 0;
 }
