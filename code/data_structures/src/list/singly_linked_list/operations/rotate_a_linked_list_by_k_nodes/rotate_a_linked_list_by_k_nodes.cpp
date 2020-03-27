@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 
 class node {
-public:
+	public:
 	int data;
 	node *next;
 
