@@ -12,7 +12,7 @@ int main()
         long s = 1, sum = 0;
         while (1) 
         {
-            s = s * 5;
+            s *= 5;
             if (s > n)
                 break;
             else {
