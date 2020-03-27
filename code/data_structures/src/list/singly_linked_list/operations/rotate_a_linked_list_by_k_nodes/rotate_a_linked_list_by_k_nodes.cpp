@@ -1,49 +1,47 @@
-// C++ program to rotate a linked list counter clock wise by k nodes
+// C++ program to rotate a linked list counter clock wise by k Nodes
 // where k can be greater than length of linked list
 
-#include <bits/stdc++.h>
+#include <iostream>
 
-class node {
+class Node {
 public:
     int data;
-    node *next;
+    Node *next;
 
-    node(int data) {
-        this->data = data;
-        next = NULL;
+    Node(int d): next(NULL),data(d) {
     }
 };
 
-node *insert() {
+Node *insert() {
     // no. of values to insert
-    std::cout << "Enter no. of nodes you want to insert in linked list: " << "\n";
+    std::cout << "Enter no. of Nodes you want to insert in linked list: \n";
     int n;
     std::cin >> n;
-    node *head = NULL;
-    node *temp = head;
+    Node *head = NULL;
+    Node *temp = head;
 
-    std::cout << "Enter " << n << " values of linked list : " << "\n";
-    for (int i = 0; i < n; i++) {
+    std::cout << "Enter " << n << " values of linked list : \n";
+    for (int i = 0; i < n; ++i) {
         int value;
         std::cin >> value;
         if (i == 0) {
             // insert at head
-            head = new node(value);
+            head = new Node(value);
             temp = head;
             continue;
         } else {
-            temp->next = new node(value);
+            temp->next = new Node(value);
             temp = temp->next;
         }
     }
     return head;
 }
 
-node *rotate(node *head, int k) {
+Node *rotate(Node *head, int k) {
     // first check whether k is small or greater than length of linked list
     // so first find length of linked list
     int len = 0;
-    node *temp = head;
+    Node *temp = head;
     while (temp != NULL) {
         temp = temp->next;
         len++;
@@ -52,7 +50,7 @@ node *rotate(node *head, int k) {
 
     // update k according to length of linked list
     // because k can be greater than length of linked list
-    k = k % len;
+    k %= len;
 
     if (k == 0) {
         // since when k is multiple of len its mod becomes zero
@@ -71,7 +69,7 @@ node *rotate(node *head, int k) {
         count++;
     }
 
-    node *newHead = temp->next;
+    Node *newHead = temp->next;
     temp->next = NULL;
     temp = newHead;
 
@@ -82,31 +80,31 @@ node *rotate(node *head, int k) {
     return newHead;
 }
 
-void printList(node *head) {
-    node *temp = head;
+void printList(Node *head) {
+    Node *temp = head;
     while (temp != NULL) {
         std::cout << temp->data << " --> ";
         temp = temp->next;
     }
-    std::cout << "NULL" << "\n";
+    std::cout << "NULL \n";
     return;
 }
 
 int main() {
-    node *head = insert();
+    Node *head = insert();
     printList(head);
-    std::cout << "Enter value of k: " << "\n";
+    std::cout << "Enter value of k: \n";
     int k;
     std::cin >> k;
     head = rotate(head, k);
-    std::cout << "After rotation : " << "\n";
+    std::cout << "After rotation : \n";
     printList(head);
     return 0;
 }
 
 // Input and Output :
 /*
-Enter no. of nodes you want to insert in linked list:
+Enter no. of Nodes you want to insert in linked list:
 9
 Enter 9 values of linked list :
 1 2 3 4 5 6 7 8 9
