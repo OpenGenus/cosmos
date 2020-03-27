@@ -4,23 +4,23 @@
 #include <bits/stdc++.h>
 
 class node {
-	public:
-	int data;
-	node *next;
+public:
+    int data;
+    node *next;
 
-	node(int data) {
+    node(int data) {
 	this->data = data;
 	next = NULL;
 	}
 };
 
 node *insert() {
-// no. of values to insert
-std::cout << "Enter no. of nodes you want to insert in linked list: " << "\n";
-int n;
-std::cin >> n;
-node *head = NULL;
-node *temp = head;
+    // no. of values to insert
+    std::cout << "Enter no. of nodes you want to insert in linked list: " << "\n";
+    int n;
+    std::cin >> n;
+    node *head = NULL;
+    node *temp = head;
 
 std::cout << "Enter " << n << " values of linked list : " << "\n";
 for (int i = 0; i < n; i++) {
