@@ -4,14 +4,14 @@
 #include <bits/stdc++.h>
 
 class node {
-public:
-int data;
-node *next;
+	public:
+	int data;
+	node *next;
 
-node(int data) {
-this->data = data;
-next = NULL;
-}
+	node(int data) {
+	this->data = data;
+	next = NULL;
+	}
 };
 
 node *insert() {
