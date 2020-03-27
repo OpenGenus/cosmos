@@ -15,7 +15,8 @@ int main()
             s *= 5;
             if (s > n)
                 break;
-            else {
+            else 
+            {
                 long k = n / s;
                 sum += k;
             }
