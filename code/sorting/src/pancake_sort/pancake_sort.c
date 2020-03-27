@@ -2,11 +2,11 @@
     Pancake Sorting Algorithm
 */
 
-    #include<stdio.h>
+#include<stdio.h>
 
 // Print the sorted array
 
-    void print_ans(int a[] , int n)
+void print_ans(int a[] , int n)
 {
     printf("Sorted Array\n");
     
@@ -18,7 +18,7 @@
 
   // finding the index of largest number in the given array size
 
-    int find_index(int a[] , int size)
+int find_index(int a[] , int size)
 {
     int max=0;
     
@@ -34,7 +34,7 @@
 
   // Reversing the array from 0 to index
 
-    void flip_arr(int* a ,int index)
+void flip_arr(int* a ,int index)
 {
     int begin=0;
     
@@ -49,7 +49,7 @@
     }
 }
 
-    void pancake_sort(int a[] ,int n)
+void pancake_sort(int a[] ,int n)
 {
     int max_i;
     
@@ -66,7 +66,7 @@
     }    
 }
 
-    int main()
+int main()
 {
     int n;
     
