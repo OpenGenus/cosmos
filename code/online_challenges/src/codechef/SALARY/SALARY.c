@@ -25,9 +25,9 @@ int main()
         {
             count += (A[j] - min);
         }
-        T[i] = count;
-
+        T[i] = count
     }
+
     for (i = 0; i < t; ++i) 
     {
         printf("%d\n", T[i]);
