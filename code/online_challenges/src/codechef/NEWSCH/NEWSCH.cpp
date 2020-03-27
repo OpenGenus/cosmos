@@ -2,12 +2,12 @@
 
 using namespace std;
 
-int tt,n,m,old,it,i,j,k,x[222],y[222],u[222];
-bool g[222][222],q;
-char r[222];
-
 int main() 
 {
+  
+  int tt,n,m,old,it,i,j,k,x[222],y[222],u[222];
+  bool g[222][222],q;
+  char r[222];
   scanf("%d",&tt);
   while (tt--) 
   {
@@ -24,14 +24,19 @@ int main()
     for (it=1; it<=n; )
     {
       old=it;
-      for (i=1; i<=n; i++) if (u[i]==0) 
+      for (i=1; i<=n; i++)
+        if (u[i]==0) 
       {
         q=true;
-        for (j=1; j<=n && q; j++) if (g[i][j]) for (k=1; k<j; k++) if (g[i][k]) 
+        for (j=1; j<=n && q; j++)
+          if (g[i][j])
+            for (k=1; k<j; k++) if (g[i][k]) 
         {
-          if (!g[j][k]) { q=false; break; 
+          if (!g[j][k])
+          {
+            q=false; break; 
+          }
         }
-      }
         if (q)
         {
           u[i]=it++;
@@ -41,9 +46,12 @@ int main()
       }
       if (old==it) break;
     }
-    if (it<=n) { puts("No solution"); continue;
-   }
-    for (i=0; i<m; i++) r[i]=(u[x[i]]<u[y[i]])?'^':'v';
+    if (it<=n)
+    {
+      puts("No solution"); continue;
+    }
+    for (i=0; i<m; i++)
+      r[i]=(u[x[i]]<u[y[i]])?'^':'v';
     puts(r);
   }
   return 0;
