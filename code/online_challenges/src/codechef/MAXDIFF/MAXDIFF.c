@@ -27,15 +27,15 @@ int main()
         if (n - k > k) 
         {
             for (i = 0; i < k; ++i)
-                sn = sn + a[i];
+                sn += a[i];
             for (i = k; i < n; ++i)
-                ch = ch + a[i];
+                ch += a[i];
         } else 
         {
             for (i = 0; i < n - k; ++i)
-                sn = sn + a[i];
+                sn += a[i];
             for (i = n - k; i < n; ++i)
-                ch = ch + a[i];
+                ch += a[i];
         }
         printf("%d\n", ch - sn);
     }
