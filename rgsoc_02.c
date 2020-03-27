@@ -1,3 +1,4 @@
+/*MAXDIFF problem On CodeChef */
 #include <stdio.h>
 
 int main(void) 
