@@ -5,13 +5,13 @@
 #include <iostream>
 #include <vector>
 
-void reverseWords(std::string s) {
+std::vector<std::string> reverseWords(std::string s) {
     std::string temp;
     int c = 1;
     s.resize(s.length());
     temp.resize(s.length());
-    for (int i = 0; i < s.length(); ++i) {
-        if (isspace(s[i]))
+    for (char ch : s) {
+        if (isspace(ch))
             c++;
     }
     std::vector<std::string> str(c);
@@ -27,17 +27,18 @@ void reverseWords(std::string s) {
             k = 0;
         }
     }
-    std::cout << "After Reversal of Words in String : \n";
     std::reverse(str.begin(), str.end());
-    for (std::string s : str)
-        std::cout << s << " ";
+    return str;
 }
 
 int main() {
     std::string s;
     std::cout << "Enter the sentence :  ";
     getline(std::cin, s);
-    reverseWords(s);
+    std::cout << "After Reversal of Words in String : \n";
+    std::vector<std::string> str = reverseWords(s);
+    for (std::string s : str)
+        std::cout << s << " ";
     return 0;
 }
 
