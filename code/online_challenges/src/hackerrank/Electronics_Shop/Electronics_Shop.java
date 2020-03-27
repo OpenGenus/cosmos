@@ -1,83 +1,81 @@
 // Part of Cosmos by OpenGenus
 import java.io.*;
-import java.math.*;
-import java.text.*;
 import java.util.*;
-import java.util.regex.*;
+
 
 public class Solution {
-          
-         /*
-          * getMoneySpent function to get the total money spent
-          */
-          
-	static int getMoneySpent(int[] keyboards, int[] drives, int b) {
-		HashMap<Integer, Boolean> ans = new HashMap<>();
-		for (int i = 0; i < keyboards.length; i++) {
-			for (int j = 0; j < drives.length; j++) {
-				if (keyboards[i] + drives[j] <= b) {
-					ans.put((keyboards[i] + drives[j]), true);
-				}
-			}
-		}
-		int max = -1;
-		if (!ans.isEmpty()) {
-			for (Integer val : ans.keySet()) {
-				if (val > max) {
-					max = val;
-				}
-			}
 
-		}
-		return max;
-	}
+    /*
+     * getMoneySpent function to get the total money spent
+     */
 
-	private static final Scanner scanner = new Scanner(System.in);
+    static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+        HashMap<Integer, Boolean> ans = new HashMap<>();
+        for (int i = 0; i < keyboards.length; i++) {
+            for (int j = 0; j < drives.length; j++) {
+                if (keyboards[i] + drives[j] <= b) {
+                    ans.put((keyboards[i] + drives[j]), true);
+                }
+            }
+        }
+        int max = -1;
+        if (!ans.isEmpty()) {
+            for (Integer val : ans.keySet()) {
+                if (val > max) {
+                    max = val;
+                }
+            }
 
-	public static void main(String[] args) throws IOException {
-		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        }
+        return max;
+    }
 
-		String[] bnm = scanner.nextLine().split(" ");
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+    private static final Scanner scanner = new Scanner(System.in);
 
-		int b = Integer.parseInt(bnm[0]);
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-		int n = Integer.parseInt(bnm[1]);
+        String[] bnm = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
 
-		int m = Integer.parseInt(bnm[2]);
+        int b = Integer.parseInt(bnm[0]);
 
-		int[] keyboards = new int[n];
+        int n = Integer.parseInt(bnm[1]);
 
-		String[] keyboardsItems = scanner.nextLine().split(" ");
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+        int m = Integer.parseInt(bnm[2]);
 
-		for (int keyboardsItr = 0; keyboardsItr < n; keyboardsItr++) {
-			int keyboardsItem = Integer.parseInt(keyboardsItems[keyboardsItr]);
-			keyboards[keyboardsItr] = keyboardsItem;
-		}
+        int[] keyboards = new int[n];
 
-		int[] drives = new int[m];
+        String[] keyboardsItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
 
-		String[] drivesItems = scanner.nextLine().split(" ");
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
+        for (int keyboardsItr = 0; keyboardsItr < n; keyboardsItr++) {
+            int keyboardsItem = Integer.parseInt(keyboardsItems[keyboardsItr]);
+            keyboards[keyboardsItr] = keyboardsItem;
+        }
 
-		for (int drivesItr = 0; drivesItr < m; drivesItr++) {
-			int drivesItem = Integer.parseInt(drivesItems[drivesItr]);
-			drives[drivesItr] = drivesItem;
-		}
+        int[] drives = new int[m];
 
-		/*
-		 * The maximum amount of money she can spend on a keyboard and USB
-		 * drive, or -1 if she can't purchase both items.
-		 */
+        String[] drivesItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])*");
 
-		int moneySpent = getMoneySpent(keyboards, drives, b);
+        for (int drivesItr = 0; drivesItr < m; drivesItr++) {
+            int drivesItem = Integer.parseInt(drivesItems[drivesItr]);
+            drives[drivesItr] = drivesItem;
+        }
 
-		bufferedWriter.write(String.valueOf(moneySpent));
-		bufferedWriter.newLine();
+        /*
+         * The maximum amount of money she can spend on a keyboard and USB
+         * drive, or -1 if she can't purchase both items.
+         */
 
-		bufferedWriter.close();
+        int moneySpent = getMoneySpent(keyboards, drives, b);
 
-		scanner.close();
-	}
+        bufferedWriter.write(String.valueOf(moneySpent));
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
 }
