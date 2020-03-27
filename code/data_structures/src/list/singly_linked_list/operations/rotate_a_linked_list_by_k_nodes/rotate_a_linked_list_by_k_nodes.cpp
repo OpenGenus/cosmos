@@ -8,19 +8,19 @@ public:
 int data;
 node *next;
 
- node(int data) {
- this->data = data;
-  next = NULL;
- }
+node(int data) {
+this->data = data;
+next = NULL;
+}
 };
 
 node *insert() {
-    // no. of values to insert
-    std::cout << "Enter no. of nodes you want to insert in linked list: " << "\n";
-    int n;
-    std::cin >> n;
-    node *head = NULL;
-    node *temp = head;
+// no. of values to insert
+std::cout << "Enter no. of nodes you want to insert in linked list: " << "\n";
+int n;
+std::cin >> n;
+node *head = NULL;
+node *temp = head;
 
 std::cout << "Enter " << n << " values of linked list : " << "\n";
 for (int i = 0; i < n; i++) {
@@ -42,9 +42,9 @@ return head;
 node *rotate(node *head, int k) {
 // first check whether k is small or greater than length of linked list
 // so first find length of linked list
-	int len = 0;
+int len = 0;
 node *temp = head;
-	while (temp != NULL) {
+while (temp != NULL) {
 temp = temp->next;
 len++;
 }
@@ -66,7 +66,7 @@ return head;
 
 int count = 1;
 temp = head;
-	while (count < k and temp != NULL) {
+while (count < k and temp != NULL) {
 temp = temp->next;
 count++;
 }
