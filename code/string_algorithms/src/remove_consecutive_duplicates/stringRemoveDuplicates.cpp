@@ -4,7 +4,7 @@ std::string stringRemoveDuplicates(std::string s)
 {
     std::string s1;
     s1 += s[0];
-    for (int i = 1; i < s.length(); i++) {
+    for (int i = 1; i < s.length(); ++i) {
         if (s[i] != s[i - 1])
             s1 += s[i];
     }
@@ -13,8 +13,8 @@ std::string stringRemoveDuplicates(std::string s)
 }
 int main()
 {
-    std::string s, s1;
+    std::string s;
     std::cin >> s;
-    s1 = stringRemoveDuplicates(s);
+    std::string s1 = stringRemoveDuplicates(s);
     std::cout << s1 << "\n";
 }
