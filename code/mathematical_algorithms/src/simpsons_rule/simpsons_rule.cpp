@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include <cmath>
 
 float create(int x)
