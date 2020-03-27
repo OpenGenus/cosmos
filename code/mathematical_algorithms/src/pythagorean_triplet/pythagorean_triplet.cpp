@@ -1,33 +1,68 @@
-// A Pythagorean triplet is a set of three natural numbers, a<b<c, for which a^2 + b^2 = c^2
-// Given N, Check if there exists any Pythagorean triplet for which a+b+c=N
-//Find maximum possible value of abc among all such Pythagorean triplets, If there is no such Pythagorean triplet print  -1.
+package main
 
-#include <iostream>
+import (
+	"fmt"
+	"math"
+)
 
-using namespace std;
-#define opt std::ios_base::sync_with_stdio(false)
-typedef long long int ll;
+// Part of Cosmos by OpenGenus Foundation
+// Lists all possible armstrong numbers from 0 to 999
+func listAM() {
+	count := 0
 
-int main()
-{
-    opt;
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        double n;
-        ll m = 0;
-        cin >> n;
-        double a;
-        for (a = 1; a < n / 2; a++)    // keeping a and n constant and using given two equations, we will get the value of b and c in terms of n and a
-        {                     // from expression of b, we can see that a should be less than n/2
-            double b, c;
-            b = ((n * n) - 2 * a * n) / (2 * (n - a));          //solving the given 2 equations, we will get this expression of b
-            c = ((n - a) * (n - a) + (a * a)) / (2 * (n - a));    //solving the given 2 equations, we will get this expression of c
-            int p = int(b), q = int(c);
-            if (b == p && c == q && ((a * a + b * b) == (c * c)) )
-                m = max(m, ll(ll(a) * p * q));
-        }
-        (m != 0) ? cout << m << endl : cout << -1 << endl;
-    }
+	for a := 0; a < 10; a++ {
+		for b := 0; b < 10; b++ {
+			for c := 0; c < 10; c++ {package main
+
+				import (
+					"fmt"
+				)
+			   
+				func main() {
+			   
+					var rightMost, num int
+					var cubicSum int = 0
+					var tempNum int = 0
+			   
+					fmt.Print("Enter a 3 digits number : ")
+					fmt.Scanf("%d", &num)
+			   
+					tempNum = num
+			   
+					// get the right most digit
+					for {
+						rightMost = tempNum % 10
+						cubicSum += rightMost * rightMost * rightMost
+			   
+						// update the input digit minus the processed rightMost
+						tempNum /= 10
+			   
+						if tempNum == 0 {
+							// break the for loop
+							break
+						}
+					}
+			   
+					if num == cubicSum {
+						fmt.Println(num, "is an Armstrong number!")
+					} else {
+						fmt.Println(num, "is NOT an Armstrong number!")
+					}
+				}
+				abc := (a * 100) + (b * 10) + (c)
+				if abc == (cube(a) + cube(b) + cube(c)) {
+					count++
+					fmt.Printf("%d: %d\n", count, abc)
+				}
+			}
+		}
+	}
+}
+
+func cube(n int) int {
+	return int(math.Pow(float64(n), 3.0))
+}
+
+func main() {
+	listAM()
 }
