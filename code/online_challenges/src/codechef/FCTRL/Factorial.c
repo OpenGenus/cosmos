@@ -18,7 +18,7 @@ int main()
             else {
                 long k;
                 k = n / s;
-                sum = sum + k;
+                sum += k;
             }
         }
         printf("%ld\n", sum);
