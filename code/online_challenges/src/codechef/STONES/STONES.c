@@ -8,14 +8,17 @@ int main(void)
     while (t--) 
     {
         char s[100], r[100];
-        int count = 0, i, j;
+        int count = 0;
         scanf("%s", s);
         scanf("%s", r);
-        for (j = 0; j < strlen(r); ++j) 
+        int l = strlen(r);
+        int i;
+        for (i = 0; < l; ++i) 
         {
-            for (i = 0; i < strlen(s); ++i) 
+            int j;
+            for (j = 0; j < l; ++j) 
             {
-                if (s[i] == r[j]) 
+                if (s[j] == r[i]) 
                 {
                     ++count;
                     break;
