@@ -16,8 +16,7 @@ int main()
             if (s > n)
                 break;
             else {
-                long k;
-                k = n / s;
+                long k = n / s;
                 sum += k;
             }
         }
