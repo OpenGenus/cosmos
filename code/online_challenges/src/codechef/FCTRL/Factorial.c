@@ -22,7 +22,5 @@ int main()
             }
         }
         printf("%ld\n", sum);
-        sum = 0;
-        s = 1;
     }
 }
