@@ -8,7 +8,7 @@ public:
     int data;
     Node *next;
 
-    Node(int d): next(NULL),data(d) {
+    Node(int d): next(nullptr),data(d) {
     }
 };
 
@@ -17,7 +17,7 @@ Node *insert() {
     std::cout << "Enter no. of Nodes you want to insert in linked list: \n";
     int n;
     std::cin >> n;
-    Node *head = NULL;
+    Node *head = nullptr;
     Node *temp = head;
 
     std::cout << "Enter " << n << " values of linked list : \n";
@@ -42,7 +42,7 @@ Node *rotate(Node *head, int k) {
     // so first find length of linked list
     int len = 0;
     Node *temp = head;
-    while (temp != NULL) {
+    while (temp != nullptr) {
         temp = temp->next;
         len++;
     }
@@ -64,16 +64,16 @@ Node *rotate(Node *head, int k) {
 
     int count = 1;
     temp = head;
-    while (count < k and temp != NULL) {
+    while (count < k and temp != nullptr) {
         temp = temp->next;
         count++;
     }
 
     Node *newHead = temp->next;
-    temp->next = NULL;
+    temp->next = nullptr;
     temp = newHead;
 
-    while (temp->next != NULL) {
+    while (temp->next != nullptr) {
         temp = temp->next;
     }
     temp->next = head;
@@ -82,11 +82,11 @@ Node *rotate(Node *head, int k) {
 
 void printList(Node *head) {
     Node *temp = head;
-    while (temp != NULL) {
+    while (temp != nullptr) {
         std::cout << temp->data << " --> ";
         temp = temp->next;
     }
-    std::cout << "NULL \n";
+    std::cout << "nullptr \n";
     return;
 }
 
@@ -108,9 +108,9 @@ Enter no. of Nodes you want to insert in linked list:
 9
 Enter 9 values of linked list :
 1 2 3 4 5 6 7 8 9
-1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 8 --> 9 --> NULL
+1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7 --> 8 --> 9 --> nullptr
 Enter value of k:
 3
 After rotation :
-4 --> 5 --> 6 --> 7 --> 8 --> 9 --> 1 --> 2 --> 3 --> NULL
+4 --> 5 --> 6 --> 7 --> 8 --> 9 --> 1 --> 2 --> 3 --> nullptr
 */
