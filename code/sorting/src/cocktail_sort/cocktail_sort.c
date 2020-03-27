@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <conio.h>
+#include "stdio.h"
+#include "conio.h"
 
 /* CocktailSort function is the function used to sort the array using cocktail algorithm. */
 /* Cocktailsort is similar to the bubble sort but the complexity is less comparatively. */
@@ -10,8 +10,10 @@ void CocktailSort(int l[], int n)
      * last is used to represent the last index of the array
      * p is the variable used to check if the array contains sorted elements after sorting process
      */
-    int first = 0, k, last, temp = 0, p=1;
-    last = n-1;
+    int first = 0;
+    int last = n-1;
+    int temp = 0;
+    int p = 1;
     while (p!=0) {
         /* while loop checks the status of the array */
         p = 0;
@@ -32,7 +34,7 @@ void CocktailSort(int l[], int n)
         else {
         /* value of last is decreased by 1 as largest element need not to be sorted */
             p = 0;
-            last= last-1;
+            last-=1;
         }
         for (int i = last; i >= first; --i) { 
         /* for loop is used to do backward sort on the array */
@@ -45,9 +47,9 @@ void CocktailSort(int l[], int n)
             } 
         }
         /* the smallest element is placed at the front of the array, so the value of first variable is increased by 1 */
-        first = first+1;
+        first+=1;
     }
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; ++i) 
     /* for loop is used to display the sorted array elements */
         printf("%d ", l[i]); 
     printf("\n");
