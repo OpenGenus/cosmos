@@ -8,7 +8,7 @@ for i in range(n):
         if ar[j] > ar[j + 1]:
             ar[j], ar[j + 1] = ar[j + 1], ar[j]
             swapped = True
-    if swapped == False:
+    if not swapped:
         break
 print("The Final Array: ", *ar)
 
