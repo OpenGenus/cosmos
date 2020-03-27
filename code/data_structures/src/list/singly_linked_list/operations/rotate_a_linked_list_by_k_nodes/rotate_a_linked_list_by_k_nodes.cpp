@@ -4,13 +4,13 @@
 #include <bits/stdc++.h>
 
 class node {
-	public:
-	int data;
-	node *next;
+public:
+int data;
+node *next;
 
-	node(int data) {
-	this->data = data;
-	next = NULL;
+node(int data) {
+this->data = data;
+next = NULL;
 }
 };
 
@@ -42,9 +42,9 @@ return head;
 node *rotate(node *head, int k) {
 // first check whether k is small or greater than length of linked list
 // so first find length of linked list
-int len = 0;
+	int len = 0;
 node *temp = head;
-while (temp != NULL) {
+	while (temp != NULL) {
 temp = temp->next;
 len++;
 }
@@ -66,7 +66,7 @@ return head;
 
 int count = 1;
 temp = head;
-while (count < k and temp != NULL) {
+	while (count < k and temp != NULL) {
 temp = temp->next;
 count++;
 }
