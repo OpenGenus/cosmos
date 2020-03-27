@@ -1,13 +1,12 @@
 /*
     Pancake Sorting Algorithm
 */
-
-    #include<iostream>
-    #include<vector>
+#include<iostream>
+#include<vector>
 
 // Print the sorted array
 
-    void print_ans(std::vector<int> v , int n)
+void print_ans(std::vector<int> v , int n)
 {
     std::cout<<"Sorted Array\n";
     
@@ -19,7 +18,7 @@
 
 // finding the index of largest number in the given array size
 
-    int find_index(std::vector<int> v , int size)
+int find_index(std::vector<int> v , int size)
 {
     int max=0;
     
@@ -35,7 +34,7 @@
 
 // Reversing the array from 0 to index
 
-    void flip_arr(std::vector<int> v , int index)
+void flip_arr(std::vector<int> v , int index)
 {
     int begin=0;
     
@@ -50,7 +49,7 @@
     }
 }
 
-    void pancake_sort(std::vector<int> v , int n)
+void pancake_sort(std::vector<int> v , int n)
 {
     int max_i;
     
@@ -67,7 +66,7 @@
      }
 }
 
-    int main()
+int main()
 {
     int n;
     
