@@ -10,7 +10,7 @@ LCS -> Longest Common Subsequence
 
 int max(int a, int b) 
 {
-    return (a > b)? a : b; 
+    return (a > b) ? a : b; 
 }
 
 int lcs(char *x, char *y, int x_len, int y_len) 
