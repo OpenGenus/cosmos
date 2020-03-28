@@ -27,7 +27,7 @@ def bubble_sort(alist):
             #if the current element is greater than the next element, pop it out of the list 
             if alist[i] > alist[i + 1]:
                 a = alist.pop(i + 1)
-                #insert the popped element to its right position in the list
+                # insert the popped element to its right position in the list
                 alist.insert(i, a)
                 num_swaps += 1
         # if the list is sorted, no more swaps are carried out
