@@ -10,13 +10,13 @@ const int N = 100001;
 int parent[N], sz[N];
 
 // gives superparent of the component
-int get_parent(int x) {
+int Get_Parent(int x) {
     if (x == parent[x]) {
         return x;
     }
     else {
         // path compression
-        return parent[x] = get_parent(parent[x]);
+        return parent[x] = Get_Parent(parent[x]);
     }
 }
 
