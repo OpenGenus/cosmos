@@ -30,7 +30,7 @@ def bubble_sort(alist):
                 #insert the popped element to its right position in the list
                 alist.insert(i, a)
                 num_swaps += 1
-        #if the list is sorted, no more swaps are carried out
+        # if the list is sorted, no more swaps are carried out
         if num_swaps == 0:
             is_sorted = True
     return alist
