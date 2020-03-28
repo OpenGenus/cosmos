@@ -17,7 +17,7 @@ def bubble_sort(arr):
 
 # Less elegant solution, but easier to follow along:
 def bubble_sort(alist):
-    #flag to keep track of whether the list is sorted or not, initially it is set as false
+    # flag to keep track of whether the list is sorted or not, initially it is set as false
     is_sorted = False
     # keep comparing till the list is sorted
     while not is_sorted:
