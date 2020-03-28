@@ -3,20 +3,22 @@
 
 int main()
 {
-    int t, a[100], n;
-    float median;
+    int t, a[100];
     scanf("%d", &t);
-    for (int i = 0; i < t; i++)
+
+    for (int i = 0; i < t; ++i)
     {
+        int n;
         scanf("%d", &n);
         int a[n], temp;
-        for (int i = 0; i < n; i++) //input
+        for (int i = 0; i < n; ++i) //input
         {
             scanf("%d", &a[i]);
         }
-        for (int i = 0; i < n; i++) //sorting
+
+        for (int i = 0; i < n; ++i) //sorting
         {
-            for (int j = i + 1; j < n; j++)
+            for (int j = i + 1; j < n; ++j)
             {
                 if (a[i] > a[j])
                 {
@@ -26,6 +28,8 @@ int main()
                 }
             }
         }
+
+        float median;
         if (n % 2 != 0)
         {
             median = floor(a[(n) / 2]);
@@ -36,6 +40,6 @@ int main()
         }
         printf("%f\n", floor(median));
     }
-    //code
+
     return 0;
 }
