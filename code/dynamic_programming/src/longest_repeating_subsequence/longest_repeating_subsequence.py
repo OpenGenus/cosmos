@@ -14,4 +14,3 @@ def longestRepeatingSubsequence(str):
 if __name__=='__main__': 
     str = "aabb"
     print("Length of LRS : ", longestRepeatingSubsequence(str)) 
-    
