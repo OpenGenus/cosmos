@@ -6,83 +6,83 @@
 
 // Print the sorted array
 
-void print_ans(std::vector<int> v , int n)
+    void print_ans ( std::vector<int>& v , int n)
 {
-    std::cout<<"Sorted Array\n";
+        std::cout<<"Sorted Array\n";
     
-    for(int i=0 ; i < n ; ++i)
-   {
-        std::cout<<v[i]<<" ";  
-   }
+        for( int i=0 ; i < n ; ++i)
+       {
+            std::cout<< v[i] <<" ";  
+       }
 }
 
 // finding the index of largest number in the given array size
 
-int find_index(std::vector<int> v , int size)
+    int find_index ( std::vector<int>& v , int size)
 {
-    int max=0;
+        int max = 0;
     
-    for(int i=1 ; i < size ; ++i)
-    {
-        if( v[i] > v[max])
-        {
-            max=i;
-        }
-    }
-    return max;   
+        for(int i = 1 ; i < size ; ++i)
+     {
+            if( v[i] > v[max] )
+          {
+                max = i;
+          }
+     }
+        return max;   
 }
 
 // Reversing the array from 0 to index
 
-void flip_arr(std::vector<int> v , int index)
+    void flip_arr ( std::vector<int> v , int index )
 {
-    int begin=0;
+        int begin = 0 ;
     
-    while( begin < index)
-    {
-        int temp=v[begin];
-        v[begin]=v[index];
-        v[index]=temp;
+        while (begin < index)
+      {
+            int temp = v[begin];
+            v[begin] = v[index];
+            v[index] = temp;
        
-        ++begin;
-        --index;
-    }
+            ++begin;
+            --index;
+       }
 }
 
-void pancake_sort(std::vector<int> v , int n)
+    void pancake_sort( std::vector<int> v , int n)
 {
-    int max_i;
+        int max_i;
     
-    for(int cur_size=n ; cur_size>1 ; --cur_size )
+        for(int cur_size = n ; cur_size>1 ; --cur_size )
     {
-        int max_i=find_index(v,cur_size);
+            max_i = find_index(v,cur_size);
     
-        if(max_i!=cur_size-1)
-        {  
-            flip_arr(v,max_i);
+            if(max_i != cur_size-1)
+           {  
+                flip_arr(v,max_i);
         
-            flip_arr(v,cur_size-1);
-         }
+                flip_arr(v,cur_size-1);
+            }
      }
 }
 
-int main()
+    int main()
 {
-    int n;
+        int n;
     
-    std::cin>>n;
+        std::cin>>n;
     
-    std::vector<int> vect;
+        std::vector<int> vect;
     
-    for(int i=0;i<n;++i)
-    {
-        std::cin>>vect[i];
-    }
-    pancake_sort(vect,n);
+        for(int i = 0 ; i < n ; ++i)
+       {
+            std::cin>>vect[i];
+       }
+        pancake_sort(vect,n);
     
-    print_ans(vect,n);
+        print_ans(vect,n);
     
-    return 0;
+        return 0;
 }
 
 /*
