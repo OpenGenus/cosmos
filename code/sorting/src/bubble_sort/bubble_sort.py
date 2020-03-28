@@ -10,7 +10,7 @@ def bubble_sort(arr):
     """
      for i in range(len(arr)):
         for j in range(i + 1, len(arr)):
-            #If current(ith) element is greater than the next((i+1)th) element swap them
+            # If current(ith) element is greater than the next((i+1)th) element swap them
             if arr[i] > arr[j]:
                 arr[i], arr[j] = arr[j], arr[i]
 
