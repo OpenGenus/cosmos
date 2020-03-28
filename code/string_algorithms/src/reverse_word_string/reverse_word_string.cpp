@@ -8,7 +8,6 @@
 std::vector<std::string> reverseWords(std::string s) {
     std::string temp;
     int c = 1;
-    s.resize(s.length());
     temp.resize(s.length());
     for (char ch : s) {
         if (isspace(ch))
@@ -17,10 +16,14 @@ std::vector<std::string> reverseWords(std::string s) {
     std::vector<std::string> str(c);
     int k = 0, ind = 0;
     for (int i = 0; i < s.length(); ++i) {
-        temp[k] = (s[i]);
-        k++;
+        if (!isspace(s[i])) {
+            temp[k] = (s[i]);
+            k++;
+        }
+
         if ((isspace(s[i])) || i == s.length() - 1) {
             str[ind] = temp;
+            // std::cout<<"temp is :"<<temp;
             temp.clear();
             temp.resize(s.length());
             ind++;
@@ -47,3 +50,5 @@ Enter the sentence :  I still know what you did last summer
 After Reversal of Words in String :
 summer last  did  you  what  know  still  I
 */
+// summer last did you what know still I
+// summer last did you what know still I
