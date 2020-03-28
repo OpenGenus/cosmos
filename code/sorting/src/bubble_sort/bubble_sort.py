@@ -19,7 +19,7 @@ def bubble_sort(arr):
 def bubble_sort(alist):
     #flag to keep track of whether the list is sorted or not, initially it is set as false
     is_sorted = False
-    #keep comparing till the list is sorted
+    # keep comparing till the list is sorted
     while is_sorted == False:
         num_swaps = 0
         #iterate through all the elements in the list
