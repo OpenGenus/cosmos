@@ -49,4 +49,4 @@ int32_t main()
         unite(x, y);
     }
 }
-//madeby aryan
+//made by aryan
