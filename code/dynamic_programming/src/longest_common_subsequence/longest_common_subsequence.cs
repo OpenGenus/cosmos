@@ -2,8 +2,10 @@ using System;
 
 class LongestCommonSubsequence
 { 
-    static int lcs(char[] x, char[] y, int x_len, int y_len) 
+    static int longestCommonSubsequence(char[] x, char[] y) 
     { 
+        int x_len = x.Length; 
+        int y_len = y.Length;
         int [,]dp = new int[x_len + 1, y_len + 1]; 
 
         for (int i = 0; i <= x_len; i++) 
@@ -24,7 +26,7 @@ class LongestCommonSubsequence
 
     static int max(int a, int b) 
     { 
-        return (a > b)? a : b; 
+        return (a > b) ? a : b; 
     } 
 
     public static void Main() 
@@ -33,10 +35,8 @@ class LongestCommonSubsequence
         String s2 = "GXTXAYB"; 
 
         char[] a = s1.ToCharArray(); 
-        char[] b = s2.ToCharArray(); 
-        int a_len = a.Length; 
-        int b_len = b.Length; 
+        char[] b = s2.ToCharArray();  
 
-        Console.Write("Length of LCS : " + lcs(a, b, a_len, b_len)); 
+        Console.Write("Length of LCS : " + longestCommonSubsequence(a, b)); 
     } 
 } 

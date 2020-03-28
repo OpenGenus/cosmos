@@ -1,6 +1,5 @@
 <?php 
-
-    function lcs($x , $y) 
+    function longestCommonSubsequence($x , $y) 
     { 
         $x_len = strlen($x); 
         $y_len = strlen($y) ; 
@@ -25,6 +24,5 @@
     $b = "GXTXAYB";
 
     echo "Length of LCS : "; 
-    echo lcs($a, $b); 
-
+    echo longestCommonSubsequence($a, $b); 
 ?> 
