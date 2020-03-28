@@ -32,7 +32,7 @@ void unite(int x, int y) {
 }
 
 void init() {
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         parent[i] = i;
         sz[i] = 1;
     }
