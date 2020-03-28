@@ -3,10 +3,7 @@
 using namespace std;
 
 #define int long long int
-#define ld long double
-#define F first
-#define S second
-#define pb push_back
+
 
 const int N = 100001;
 
