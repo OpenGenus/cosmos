@@ -37,4 +37,3 @@ int main()
 		cout << (ans ? "Duplicate" : "Not Duplicates") << '\n';
 	}
 }
-made by aryan
