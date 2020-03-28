@@ -58,13 +58,15 @@ void cocktailsort(int l[], int n)
     printf("\n");
 }
 
-void main() 
+int main() 
 {   /* l represents the unsorted array */
     int l[] = { 5, 1, 4, 2, 8, 0, 2 }; 
     /* n variable is used to count the length of array */
     int n = sizeof(l) / sizeof(l[0]);
     /* cocktailsort function is called in order with parameters l and length of array n */
     cocktailsort(l,n); 
+
+    return 0;
 } 
 
 /* output-> 0 1 2 2 4 5 8 */
