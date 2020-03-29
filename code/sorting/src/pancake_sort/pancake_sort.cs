@@ -7,7 +7,7 @@ class Program
 { 
     // Print the sorted Array
     
-    static void print_ans(int[] a, int n) 
+    static void print_ans (int[] a, int n) 
     { 
         Console.Write("Sorted Array\n"); 
 	    
@@ -19,13 +19,13 @@ class Program
 
  // Reversing the array from 0 to index
 	
-    static void flip_arr(int[] a, int index) 
+    static void flip_arr (int[] a, int index) 
     { 
-        int temp, begin = 0; 
+        int begin = 0; 
 		
 	    while (begin < index) 
 	   { 
-		    temp = a[begin]; 
+		    int temp = a[begin]; 
 		    a[begin] = a[index]; 
 		    a[index] = temp; 
 		
@@ -36,12 +36,12 @@ class Program
 
 	//  finding the largest number in given array size
 	
-    static int find_index(int[] a, int n) 
+    static int find_index (int[] a, int n) 
    { 
-        int  max=0; 
+        int  max = 0; 
 		
 	    for (int i = 0; i < n; ++i) 
-		    if (a[i] > a[max]) 
+		    if ( a[i] > a[max] ) 
 			    max = i; 
 				
 	    return max; 
@@ -54,15 +54,15 @@ class Program
         int max_i;
 		 
         for (int cur_size = n; cur_size > 1; --cur_size) 
-	   { 
+	   {
             max_i = find_index(a, cur_size); 
 
 		    if (max_i != cur_size - 1) 
-		    { 
+		   { 
                 flip_arr(a, max_i); 
 
             	flip_arr(a, cur_size - 1); 
-		    } 
+		   } 
 	   }
     } 
 
