@@ -1,68 +1,28 @@
-package main
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main ()
+{
+  int a=1, b=1, c;
+  int i, j, k;
+  double d, e;
 
-import (
-	"fmt"
-	"math"
-)
-
-// Part of Cosmos by OpenGenus Foundation
-// Lists all possible armstrong numbers from 0 to 999
-func listAM() {
-	count := 0
-
-	for a := 0; a < 10; a++ {
-		for b := 0; b < 10; b++ {
-			for c := 0; c < 10; c++ {package main
-
-				import (
-					"fmt"
-				)
-			   
-				func main() {
-			   
-					var rightMost, num int
-					var cubicSum int = 0
-					var tempNum int = 0
-			   
-					fmt.Print("Enter a 3 digits number : ")
-					fmt.Scanf("%d", &num)
-			   
-					tempNum = num
-			   
-					// get the right most digit
-					for {
-						rightMost = tempNum % 10
-						cubicSum += rightMost * rightMost * rightMost
-			   
-						// update the input digit minus the processed rightMost
-						tempNum /= 10
-			   
-						if tempNum == 0 {
-							// break the for loop
-							break
-						}
-					}
-			   
-					if num == cubicSum {
-						fmt.Println(num, "is an Armstrong number!")
-					} else {
-						fmt.Println(num, "is NOT an Armstrong number!")
-					}
-				}
-				abc := (a * 100) + (b * 10) + (c)
-				if abc == (cube(a) + cube(b) + cube(c)) {
-					count++
-					fmt.Printf("%d: %d\n", count, abc)
-				}
-			}
-		}
+  for (i=1; i<=500; i++)
+  {
+     a += 1;
+     for (j=1; j<=500; j++)
+     {
+        b += 1;
+     for (k=1; k<=500; k++)
+     {
+        e = ((a*a) + (b*b));
+        d = sqrt(e);
+        c = int(d);
+        if ((c == d) && (c <=500))
+           cout << "a = " << a << "\t\t b = " << b << "\t\t c = " << c << endl;
 	}
-}
+     }
+  }
 
-func cube(n int) int {
-	return int(math.Pow(float64(n), 3.0))
-}
-
-func main() {
-	listAM()
+  return 0;
 }
