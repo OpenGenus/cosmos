@@ -11,10 +11,10 @@ class Program
     { 
         Console.Write("Sorted Array\n"); 
 	    
-	    for (int i = 0; i < n; ++i) 
-		    Console.Write(a[i] + " "); 
+	for (int i = 0; i < n; ++i) 
+	    Console.Write(a[i] + " "); 
 			
-	    Console.Write(""); 
+	 Console.Write(""); 
     } 
 
  // Reversing the array from 0 to index
@@ -23,15 +23,15 @@ class Program
     { 
         int begin = 0; 
 		
-	    while (begin < index) 
-	   { 
-		    int temp = a[begin]; 
-		    a[begin] = a[index]; 
-		    a[index] = temp; 
+	while (begin < index) 
+	{ 
+	    int temp = a[begin]; 
+	    a[begin] = a[index]; 
+	    a[index] = temp; 
 		
-		    ++begin; 
-		    --index; 
-	   } 
+	    ++begin; 
+	    --index; 
+	} 
     } 
 
 	//  finding the largest number in given array size
@@ -40,11 +40,11 @@ class Program
    { 
         int  max = 0; 
 		
-	    for (int i = 0; i < n; ++i) 
-		    if ( a[i] > a[max] ) 
-			    max = i; 
+        for (int i = 0; i < n; ++i) 
+	    if ( a[i] > a[max] ) 
+		    max = i; 
 				
-	    return max; 
+	return max; 
    } 
 
 	 
@@ -54,29 +54,29 @@ class Program
         int max_i;
 		 
         for (int cur_size = n; cur_size > 1; --cur_size) 
-	   {
+       {
             max_i = find_index(a, cur_size); 
 
-		    if (max_i != cur_size - 1) 
-		   { 
+	    if (max_i != cur_size - 1) 
+	   { 
                 flip_arr(a, max_i); 
 
             	flip_arr(a, cur_size - 1); 
-		   } 
-	   }
+	   } 
+        }
     } 
 
     public static int Main () 
    { 
         int []arr = {5, 9, 4, 8, 1, 6}; 
 		
-	    int n = arr.Length; 
+	int n = arr.Length; 
 
-	    pancake_sort(arr, n); 
+	pancake_sort(arr, n); 
 		
-	    print_ans(arr, n); 
+	print_ans(arr, n); 
 		
-	    return 0;
+	return 0;
    } 
 } 
 /*
