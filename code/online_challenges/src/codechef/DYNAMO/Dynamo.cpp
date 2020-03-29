@@ -27,3 +27,19 @@ int main() {
     return 0;
 }
 
+/*
+EXAMPLE
+
+You             Grader
+                1
+                2
+                10
+50
+                10
+12
+                10
+8
+                1
+
+*/
+
