@@ -1,174 +1,169 @@
 #include <iostream>
 #include <math.h>
-using namespace std;
 
-#define textLen 3 //Change the length of Plain Text here
-#define ASCII_difference 31
+#define textlen 3 //Change the length of Plain Text here
+#define ascii_difference 31
 
-double Encrypted[textLen][1], Decrypted[textLen][1], key[textLen][textLen], cipherKey[textLen][textLen], message[textLen][1], ar[textLen][textLen];
+double encrypted[textlen][1], decrypted[textlen][1], key[textlen][textlen], cipherkey[textlen][textlen], message[textlen][1], ar[textlen][textlen];
 
-void Encryption();
-void Decryption();
-void getData();
-void FindingInverse();
+void encryption();
+void decryption();
+void getdata();
+void findinginverse();
 
 int main()
 {
-	getData();
-	Encryption();
-	Decryption();
+	getdata();
+	encryption();
+	decryption();
 }
 
-int charConversion(char input_char)
+int charconversion(char input_char)
 {
-	return (input_char & ASCII_difference);
+	return (input_char & ascii_difference);
 }
 
-void Encryption()
+void encryption()
 {
-	int i, j, k;
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < 1; j++)
+		for (int j = 0; j < 1; ++j)
 		{
-			for (k = 0; k < textLen; k++)
+			for (int k = 0; k < textlen; ++k)
 			{
-				Encrypted[i][j] = Encrypted[i][j] + key[i][k] * message[k][j];
+				encrypted[i][j] = encrypted[i][j] + key[i][k] * message[k][j];
 			}
 		}
 	}
-	cout << "\nEncrypted Text is: ";
-	for (i = 0; i < textLen; i++)
+	std::cout << "\nEncrypted Text is: ";
+	for (int i = 0; i < textlen; ++i)
 	{
-		cout << (char)(fmod(Encrypted[i][0], 26) + 97);
+		std::cout << (char)(fmod(encrypted[i][0], 26) + 97);
 	}
 }
 
-void Decryption()
+void decryption()
 {
-	int i, j, k;
-
-	FindingInverse();
-	for (i = 0; i < textLen; i++)
+	findinginverse();
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < 1; j++)
+		for (int j = 0; j < 1; ++j)
 		{
-			for (k = 0; k < textLen; k++)
+			for (int k = 0; k < textlen; ++k)
 			{
-				Decrypted[i][j] = Decrypted[i][j] + cipherKey[i][k] * Encrypted[k][j];
+				decrypted[i][j] = decrypted[i][j] + cipherkey[i][k] * encrypted[k][j];
 			}
 		}
 	}
 
-	cout << "\nDecrypted Text is: ";
-	for (i = 0; i < textLen; i++)
+	std::cout << "\nDecrypted Text is: ";
+	for (int i = 0; i < textlen; ++i)
 	{
-		cout << (char)(fmod(Decrypted[i][0], 26) + 97);
+		std::cout << (char)(fmod(decrypted[i][0], 26) + 97);
 	}
 
-	cout << "\n";
+	std::cout << "\n";
 }
 
-void getData()
+void getdata()
 {
-	int i, j;
-	char msg[textLen];
+	char msg[textlen];
 
-	cout << "Enter the Key in Text(It should be inversible):\n";
-	char text[textLen][textLen];
-	for (int i = 0; i < textLen; i++)
+	std::cout << "Enter the Key in Text(It should be inversible):\n";
+	char text[textlen][textlen];
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
-			cin >> text[i][j];
+			std::cin >> text[i][j];
 		}
 	}
 
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			if ((text[i][j] >= 65 && text[i][j] <= 90) || (text[i][j] >= 97 && text[i][j] <= 122))
 			{
-				key[i][j] = charConversion(text[i][j]) - 1;
+				key[i][j] = charconversion(text[i][j]) - 1;
 			}
 			ar[i][j] = key[i][j];
 		}
 	}
 
-	cout << endl
-		 << "Equivalent Matrix: " << endl;
-	for (i = 0; i < textLen; i++)
+	std::cout << std::endl
+			  << "Equivalent Matrix: " << std::endl;
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
-			cout << ar[i][j] << " ";
+			std::cout << ar[i][j] << " ";
 		}
-		cout << endl;
+		std::cout << std::endl;
 	}
 
-	cout << endl
-		 << endl;
+	std::cout << std::endl
+			  << std::endl;
 
-	cout << "\nEnter the Plain Text that you want to Encrypt: ";
-	cin >> msg;
+	std::cout << "\nEnter the Plain Text that you want to Encrypt: ";
+	std::cin >> msg;
 
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
 		message[i][0] = msg[i] - 97;
 	}
 }
 
 //Finding Inverse Matrix for Decryption
-void findingInverse()
+void findinginverse()
 {
-	int i, j, k;
 	double p, q;
 
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			if (i == j)
-				cipherKey[i][j] = 1;
+				cipherkey[i][j] = 1;
 			else
-				cipherKey[i][j] = 0;
+				cipherkey[i][j] = 0;
 		}
 	}
 
-	for (k = 0; k < textLen; k++)
+	for (int k = 0; k < textlen; ++k)
 	{
-		for (i = 0; i < textLen; i++)
+		for (int i = 0; i < textlen; ++i)
 		{
 			p = ar[i][k];
 			q = ar[k][k];
 
-			for (j = 0; j < textLen; j++)
+			for (int j = 0; j < textlen; ++j)
 			{
 				if (i != k)
 				{
 					ar[i][j] = ar[i][j] * q - p * ar[k][j];
-					cipherKey[i][j] = cipherKey[i][j] * q - p * cipherKey[k][j];
+					cipherkey[i][j] = cipherkey[i][j] * q - p * cipherkey[k][j];
 				}
 			}
 		}
 	}
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
-			cipherKey[i][j] = cipherKey[i][j] / ar[i][i];
+			cipherkey[i][j] = cipherkey[i][j] / ar[i][i];
 		}
 	}
 
+	//This is to print Inverse Matrix.
 	/*
 	cout << "\n\nInverse Matrix is:\n";
-	for (i = 0; i < textLen; i++)
+	for (i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++) {
-			cout << cipherKey[i][j] << " ";
+		for (j = 0; j < textlen; ++j) {
+			std::cout << cipherkey[i][j] << " ";
 		}
-		cout << "\n";
+		std::cout << "\n";
 	}
 	*/
 }

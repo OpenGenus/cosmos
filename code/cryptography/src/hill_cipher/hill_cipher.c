@@ -1,104 +1,100 @@
 #include <stdio.h>
 #include <math.h>
-#define textLen 3 // Plain text length
-#define ASCII_difference 31
+#define textlen 3 // Plain text length
+#define ascii_difference 31
 
-double encrypted[textLen][1], decrypted[textLen][1], key[textLen][textLen], cipherKey[textLen][textLen], message[textLen][1], ar[textLen][textLen];
+double encrypted[textlen][1], decrypted[textlen][1], key[textlen][textlen], cipherkey[textlen][textlen], message[textlen][1], ar[textlen][textlen];
 
-void Encryption();
-void Decryption();
-void getData();
-void findInverseMat();
+void encryption();
+void decryption();
+void getdata();
+void findinversematrix();
 
 void main()
 {
-	getData();
-	Encryption();
-	Decryption();
+	getdata();
+	encryption();
+	decryption();
 }
 
-void Encryption()
+void encryption()
 {
-	int i, j, k;
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < 1; j++)
+		for (int j = 0; j < 1; ++j)
 		{
-			for (k = 0; k < textLen; k++)
+			for (int k = 0; k < textlen; ++k)
 			{
 				encrypted[i][j] = encrypted[i][j] + key[i][k] * message[k][j];
 			}
 		}
 	}
 	printf("\nEncrypted Text is: ");
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
 		printf("%c", (char)(fmod(encrypted[i][0], 26) + 97));
 	}
 }
 
-void Decryption()
+void decryption()
 {
-	int i, j, k;
-
-	findInverseMat();
-	for (i = 0; i < textLen; i++)
+	findinversematrix();
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < 1; j++)
+		for (int j = 0; j < 1; ++j)
 		{
-			for (k = 0; k < textLen; k++)
+			for (int k = 0; k < textlen; ++k)
 			{
-				decrypted[i][j] = decrypted[i][j] + cipherKey[i][k] * encrypted[k][j];
+				decrypted[i][j] = decrypted[i][j] + cipherkey[i][k] * encrypted[k][j];
 			}
 		}
 	}
 
 	printf("\nDecrypted Text is: ");
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
 		printf("%c", (char)(fmod(decrypted[i][0], 26) + 97));
 	}
 	printf("\n");
 }
 
-int charConvert(char input_char)
+int charconvert(char input_char)
 {
-	return (input_char & ASCII_difference);
+	return (input_char & ascii_difference);
 }
 
-void getData()
+void getdata()
 {
-	int i, j;
-	char msg[textLen], text[textLen][textLen];
+	char msg[textlen], text[textlen][textlen];
 
 	//Here, Inversible means, it should be multiplicative inverse of the plain text.
-	//If plain text is of 3 letters, then key should be 3*3(textLen*textLen).
+	//If plain text is of 3 letters, then key should be 3*3(textlen*textlen).
 	printf("Enter the Key in Text(It should be inversible): \n");
-	for (int i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			scanf("%c", &text[i][j]);
 		}
 	}
 
 	//Converting Key text to ASCII values
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			if ((text[i][j] >= 65 && text[i][j] <= 90) || (text[i][j] >= 97 && text[i][j] <= 122))
 			{
-				key[i][j] = charConvert(text[i][j]) - 1;
+				key[i][j] = charconvert(text[i][j]) - 1;
 			}
 			ar[i][j] = key[i][j];
 		}
 	}
 
 	printf("\nEquivalent Matrix: \n");
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			printf("%.0f ", ar[i][j]);
 		}
@@ -108,57 +104,56 @@ void getData()
 	//Plain Text
 	printf("\nEnter the Plain Text that you want to Encrypt: ");
 	scanf("%s", msg);
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
 		message[i][0] = msg[i] - 97;
 	}
 }
 
 //Finding Inverse Matrix for Decryption
-void findInverseMat()
+void findinversematrix()
 {
-	int i, j, k;
 	float p, q;
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
 			if (i == j)
-				cipherKey[i][j] = 1;
+				cipherkey[i][j] = 1;
 			else
-				cipherKey[i][j] = 0;
+				cipherkey[i][j] = 0;
 		}
 	}
-	for (k = 0; k < textLen; k++)
+	for (int k = 0; k < textlen; ++k)
 	{
-		for (i = 0; i < textLen; i++)
+		for (int i = 0; i < textlen; ++i)
 		{
 			p = ar[i][k];
 			q = ar[k][k];
-			for (j = 0; j < textLen; j++)
+			for (int j = 0; j < textlen; ++j)
 			{
 				if (i != k)
 				{
 					ar[i][j] = ar[i][j] * q - p * ar[k][j];
-					cipherKey[i][j] = cipherKey[i][j] * q - p * cipherKey[k][j];
+					cipherkey[i][j] = cipherkey[i][j] * q - p * cipherkey[k][j];
 				}
 			}
 		}
 	}
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; ++i)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; ++j)
 		{
-			cipherKey[i][j] = cipherKey[i][j] / ar[i][i];
+			cipherkey[i][j] = cipherkey[i][j] / ar[i][i];
 		}
 	}
 	/*
 	printf("\n\nInverse Matrix is:\n");
-	for (i = 0; i < textLen; i++)
+	for (int i = 0; i < textlen; i++)
 	{
-		for (j = 0; j < textLen; j++)
+		for (int j = 0; j < textlen; j++)
 		{
-			printf("%d ", cipherKey[i][j]);
+			printf("%d ", cipherkey[i][j]);
 		}
 		printf("\n");
 	}
