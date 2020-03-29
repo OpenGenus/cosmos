@@ -1,7 +1,7 @@
 #include <iostream>
 /* cocktail sort is similar to the bubble sort but with less complexity
  * comparatively */
-void cocktailsort(int a[], int len) {
+int *cocktailsort(int a[], int len) {
     /* first variable represent the starting index of the array */
     int first = 0;
     /* temp variable is used to exchange values */
@@ -48,11 +48,8 @@ void cocktailsort(int a[], int len) {
          * value of first variable is increased by 1 */
         first++;
     }
-    for (int i = 0; i < len; ++i) {
-        /* this for loop display the sorted array elements */
-        std::cout << a[i] << " ";
-    }
-    std::cout << "\n";
+    /* the pointer to the sorted array is passed */
+    return a;
 }
 
 int main() {
@@ -62,7 +59,12 @@ int main() {
     int len = sizeof(a) / sizeof(a[0]);
     /* cocktailsort function is called with parameters array a and length
      * of array len */
-    cocktailsort(a, len);
+    int *ptr = cocktailsort(a, len);
+    for (int i = 0; i < len; ++i) {
+        /* this for loop display the sorted array elements */
+        std::cout << ptr[i] << " ";
+    }
+    std::cout << "\n";
     return 0;
 }
 
