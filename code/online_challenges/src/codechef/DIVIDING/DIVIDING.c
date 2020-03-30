@@ -13,7 +13,7 @@ int main(void)
         s = s + a[i];
     }
     for (i = 1; i <= n; ++i)
-        s = s - i;
+        s -= i;
     if (s == 0)
         printf("YES\n");
     else
