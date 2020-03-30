@@ -1,5 +1,4 @@
 /*
-
 A positive integer is called a palindrome if its representation in the decimal system is the same when read from left to right and from right to left. For a given positive integer K of not more than 1000000 digits, write the value of the smallest palindrome larger than K to output. Numbers are always displayed without leading zeros.
 
 Input
@@ -16,33 +15,26 @@ Input:
 Output:
 818
 2222
-
 */
-
-
 
 import java.util.*;
 
 class Test {
     public static void main(String arg[]) throws java.lang.Exception {
         Scanner s = new Scanner(System.in);
-        
         int t, n, i;
         t = s.nextInt();
-        s.nextLine();
-        for(; t>0; t--)
+        String str = s.nextLine();
+        while(t-->0)
         {
-            String str = s.nextLine().trim();
+            str = s.nextLine().trim();
             char a[] = str.toCharArray();
-            
             int b[] = new int[a.length];
             for(i=0; i<a.length; i++)
             {
                 b[i] = (int)a[i]-48;
-                //System.out.println(b[i]);
             }
             int ans[] = palindrom(b);
-            
             for(i=0; i<ans.length; i++)
             {
                 System.out.print(ans[i]+"");
@@ -55,7 +47,6 @@ class Test {
     {
         int i, j, n;
         n = a.length;
-        
         if(n%2==0)
         {
             j=n/2;
@@ -66,7 +57,6 @@ class Test {
             j=(n/2)+1;
             i=(n/2)-1;
         }
-        
         while(i>=0 && j<n && a[i]==a[j])
         {
             i--;
@@ -112,7 +102,6 @@ class Test {
                 i--;
                 j++;
             }
-            
             if(c!=0)
             {
                 int a1[] = new int[n+1];
@@ -144,7 +133,6 @@ class Test {
                     j1=(n/2);
                     i1=(n/2);
                 }
-                
                 while(i1>=i && j1<=j && c!=0)
                 {
                     if(i1!=j1)
@@ -169,12 +157,12 @@ class Test {
                     i1--;
                     j1++;
                 }
-                
             }
             while(i>=0 && j<n)
             {
                 a[j]=a[i];
-                i--; j++;
+                i--;
+                j++;
             }
         }
         return a;
