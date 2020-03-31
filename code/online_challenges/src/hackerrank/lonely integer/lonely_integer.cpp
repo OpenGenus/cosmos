@@ -9,7 +9,7 @@ int lonelyinteger(vector<int> a)
 {
     int unique = 0;
     int n = a.size();
-    for(int i = 0;i < n;i++)
+    for(int i = 0;i < n;++i)
     {
         unique ^= a[i];
     }
