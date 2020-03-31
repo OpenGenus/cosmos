@@ -1,6 +1,6 @@
 #include <iostream>
-#include <math.h>
-#include <stdlib.h>
+#include <cmath>
+#include <cstdlib>
 #define ll long long
 
 /*
@@ -10,7 +10,6 @@
     Private Key: n, decryptionkey (or prime1, prime2, totifun)
 */
 
-ll prime1, prime2, n, totifun, decryptionkey, encryptionkey, text[100], ciphertext[100];
 std::string plaintext;
 
 int isprime(ll n)
@@ -35,7 +34,6 @@ void deter()
 		if (!isprime(i))
 			continue;
 		ll res = 1;
-
 		while (1)
 		{
 			res += totifun;
@@ -66,21 +64,23 @@ int main(int argc, char **argv)
 {
 	freopen("rsa_input.in", "r", stdin); //You can give your custom inputs by commenting this line.
 
-	std::cout << "Enter First Prime Number: ";
+	ll prime1, prime2, n, totifun, decryptionkey, encryptionkey, text[100], ciphertext[100];
+	std::cout
+		<< "Enter First Prime Number: ";
 	std::cin >> prime1;
 	if (!isprime(prime1))
 	{
-		std::cout << std::endl
+		std::cout << "\n"
 				  << "Entered number is not prime.";
 		exit(0);
 	}
 
-	std::cout << std::endl;
-	std::cout << "Enter First Prime Number: ";
+	std::cout << "\n"
+			  << "Enter First Prime Number: ";
 	std::cin >> prime2;
 	if (!isprime(prime2))
 	{
-		std::cout << std::endl
+		std::cout << "\n"
 				  << "Entered number is not prime.";
 		exit(0);
 	}
@@ -89,8 +89,8 @@ int main(int argc, char **argv)
 	totifun = (prime1 - 1) * (prime2 - 1);
 	deter();
 
-	std::cout << std::endl;
-	std::cout << "Enter The Secret Message: ";
+	std::cout << "\n"
+			  << "Enter The Secret Message: ";
 	std::cin >> plaintext;
 
 	for (int i = 0; plaintext[i] != '\0'; ++i)
@@ -100,15 +100,13 @@ int main(int argc, char **argv)
 		ciphertext[i + 1] = -1;
 	}
 
-	std::cout << std::endl
-			  << std::endl;
-	std::cout << "Encrypted Message is: ";
+	std::cout << "\n\n"
+			  << "Encrypted Message is: ";
 	for (int i = 0; ciphertext[i] != -1; ++i)
 	{
 		std::cout << ciphertext[i] << " ";
 	}
-	std::cout << std::endl
-			  << std::endl;
+	std::cout << "\n\n";
 
 	ll ans;
 	std::cout << "Decrypted Message is: ";
