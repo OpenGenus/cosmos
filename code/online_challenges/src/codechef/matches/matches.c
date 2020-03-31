@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-
-
 void printarr(int arr[],int n)
 {
-    for(int i = 0;i < n;i++)
+    for(int i = 0;i < n;++i)
     {
         printf("%d ",arr[i]);
     }
@@ -35,11 +32,9 @@ int main()
             c[x++] = temp;
             sum = sum/10;
         }
-        //printarr(c,x);
-        for(int i = 0;i < x;i++)
+        for(int i = 0;i < x;++i)
         {
             sum_matches += matcharr[c[i]];
-            //printf("%d ",sum_matches);
         }
         printf("%d\n",sum_matches);
     }
