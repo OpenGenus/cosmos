@@ -31,7 +31,7 @@ int main()
 
     vector<int> a(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         int a_item = stoi(a_temp[i]);
 
         a[i] = a_item;
