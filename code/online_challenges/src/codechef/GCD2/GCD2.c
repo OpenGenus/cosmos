@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-int gcd(int a, int b) 
+int gcd(int a, int b)
 {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    return b == 0 ? a : gcd(b, a % b);
 }
+
 int main() 
 {
     int t;
@@ -22,7 +20,7 @@ int main()
             printf("%s\n", arr);
         else {
             int i, m = 0;
-            for (i = 0; i < strlen(arr); i++) 
+            for (i = 0; i < strlen(arr); ++i) 
             {
                 m = (m * 10 + arr[i] - '0') % a;
             }
