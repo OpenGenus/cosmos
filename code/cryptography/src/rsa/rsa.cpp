@@ -10,8 +10,6 @@
     Private Key: n, decryptionkey (or prime1, prime2, totifun)
 */
 
-std::string plaintext;
-
 int isprime(ll n)
 {
 	if (n == 1)
@@ -89,6 +87,7 @@ int main(int argc, char **argv)
 	totifun = (prime1 - 1) * (prime2 - 1);
 	deter();
 
+	std::string plaintext;
 	std::cout << "\n"
 			  << "Enter The Secret Message: ";
 	std::cin >> plaintext;
