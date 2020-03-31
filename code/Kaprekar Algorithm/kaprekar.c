@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
     using namespace std;
     // Returns true if n is a Kaprekar number, else false
-    bool is_kaprekar(int n)
+    bool iskaprekar(int n)
     {
         if (n == 1)
             return true;
