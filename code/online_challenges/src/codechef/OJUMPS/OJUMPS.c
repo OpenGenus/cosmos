@@ -4,7 +4,7 @@ int main()
 {
     long long int a;
     scanf("%lld", & a);
-    int b = a % 6;
+    long long int b = a % 6;
     if (b == 0)
         printf("yes\n");
     else if (b == 1)
