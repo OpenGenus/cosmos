@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 ```
 
 *argc stands for arguments count(ARGument count)
-*argv stands for arguments values(ARGument vector)
+*argv stands for arguments values(ARGument values)
 *argv[0] is the name of the program 
 
 
