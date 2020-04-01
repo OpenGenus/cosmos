@@ -44,8 +44,7 @@ main(int argc, char *argv[])
 ## Indentation
 
 Indentation is done with a single tab character (Hard Tab). For code split across multiple lines a helper indent of 4 spaces is used.
-In C Indentation is not must .It happens on default by the compiler.
-But if you are on python then Indentation is must.
+
 
 ```C
 int
@@ -57,7 +56,6 @@ some_really_long_function(int a, int b, int c, int d,
 
 ## Conditionals
 
-If statement, else statement, for loop, while loop, and switch statements should be followed by a space.
 Inside these conditional statements if expresssion value is positive or negative then it evaluates to true but if it is true then it evaluates to false
 
 ```C
@@ -70,8 +68,7 @@ for (;;)
 
 Each case in a switch statement should not be indented but the code for each should be. Any case fallthroughs should be commented.
 Every case should be terminated with a break statement.
-Default statement is not compulsory to be used.
-Inside switch case statement continue can't be used.Continue statement is used inside loops only.
+Continue statement is used inside loops only.
 
 ```C
 switch (ch) {
@@ -97,17 +94,13 @@ Functions should have the type on a seperate line proceeding the rest of the fun
 int
 main(int argc, char *argv[])
 {
-Block of Code
-" " "
-" " "
+//Block of Code
+//" " "
+//" " "
 }
 ```
 
-Return statements should have the value wrapped in parenthesis.There are basically 4 types of jump statements:-
-*return
-*goto
-*continue
-*break
+Return statements should have the value wrapped in parenthesis.
 
 ```C
 return (0);
@@ -115,11 +108,11 @@ return (0);
 
 ## Comments
 
-Always use C style comments (`/* */`) and C++ style comments (`//`). A sample is shown below.
+Always use C style comments (`/* */`) and not C++ style comments (`//`). A sample is shown below.
 
 ```C
 
-/* One line comment */ or  //For one line comment
+/* One line comment */ 
 
 /*
  * Multiline comment. Fill it out like it were
