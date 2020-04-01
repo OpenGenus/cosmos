@@ -1,7 +1,6 @@
 //Brian Kernighan’s Algorithm. This programme uses O(logn) to count set bits.
 
 #include <iostream> 
-using namespace std; 
  
 int countSetBits(int n) 
 { 
@@ -20,9 +19,9 @@ int countSetBits(int n)
 int main() 
 { 
 	int n;
-	cout << "Enter a positive integer : ";
-	cin >> n;
-	cout << countSetBits(n); 
+	std::cout << "Enter a positive integer : ";
+	std::cin >> n;
+	std::cout << countSetBits(n); 
 
 	return 0; 
-} 
+}
