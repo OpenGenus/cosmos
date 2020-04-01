@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-using namespace std;
 /*
  *
  * Part of Cosmos by OpenGenus Foundation
@@ -18,9 +17,6 @@ using namespace std;
  *						we will return value, If it is present in the dp[0..n][0..m] 
  *
  */
-int n, m;
-#create the dp table for storing the data
-int dp[1000][1000];
 
 int getCount (int i, int j, int n, int m, int dp[1000][1000])
 {
@@ -38,19 +34,19 @@ int getCount (int i, int j, int n, int m, int dp[1000][1000])
 
 int main ()
 {
-
-  cout << "Enter maze size" << endl;
-  cout << "Enter row" << endl;
-  cin >> n;
-  cout << "Enter column" << endl;
-  cin >> m;
-  for (int i = 0; i <= n; i++)
-    {
-      for (int j = 0; j <= m; j++)
-	{
-	  dp[i][j] = -1;
-	}
+	int n, m;
+	#create the dp table for storing the data
+	int dp[1000][1000];
+  	std::cout << "Enter maze size" << endl;
+  	std::cout << "Enter row" << endl;
+  	std::cin >> n;
+  	std::cout << "Enter column" << endl;
+  	std::cin >> m;
+  	for (int i = 0; i <= n; i++){
+    	for (int j = 0; j <= m; j++){
+			dp[i][j] = -1;
+		}
     }
-  int ways = getCount (0, 0, n, m, dp);
-  cout << "Number of ways to destination: " << ways;
+  	int ways = getCount (0, 0, n, m, dp);
+  	std::cout << "Number of ways to destination: " << ways;
 }
