@@ -2,16 +2,15 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-bool istrue(vector<int> a,vector<int> c) {
-    pair<int, int> pairt[3];
+bool istrue(std::vector<int> a, std::vector<int> c) {
+    std::pair<int, int> pairt[3];
     bool x = true;
     int i;
     for (i = 0; i < 3; ++i) {
         pairt[i].first = a[i];
         pairt[i].second = c[i];
     }
-    sort(pairt, pairt + 3);
+    std::sort(pairt, pairt + 3);
     for (i = 0; i < 2; ++i) {
         if (pairt[i].first == pairt[i + 1].first) {
             if (pairt[i].second != pairt[i + 1].second) {
@@ -34,21 +33,21 @@ bool istrue(vector<int> a,vector<int> c) {
 }
 int main() {
     int t;
-    cin >> t;
+    std::cin >> t;
     while (t--) {
-        vector<int> a(3), c(3);
+        std::vector<int> a(3), c(3);
         int i;
         for (i = 0; i < 3; ++i) {
-            cin >> a[i];
+            std::cin >> a[i];
         }
         for (i = 0; i < 3; ++i) {
-            cin >> c[i];
+            std::cin >> c[i];
         }
         bool x = istrue(a, c);
         if (x) {
-            cout << "FAIR" << endl;
+            std::cout << "FAIR" << std::endl;
         } else {
-            cout << "NOT FAIR" << endl;
+            std::cout << "NOT FAIR" << std::endl;
         }
     }
 }

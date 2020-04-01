@@ -1,26 +1,25 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <vector>
 
-using namespace std;
 int main() {
     int t;
-    cin >> t;
+    std::cin >> t;
     while (t--) {
         int n, i, sum = 0;
-        cin >> n;
-        vector<int> a(n), b(n);
+        std::cin >> n;
+        std::vector<int> a(n), b(n);
         for (i = 0; i < n; ++i) {
-            cin >> a[i];
+            std::cin >> a[i];
         }
         for (i = 0; i < n; ++i) {
-            cin >> b[i];
+            std::cin >> b[i];
         }
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
+        std::sort(a.begin(), a.end());
+        std::sort(b.begin(), b.end());
         for (i = 0; i < n; ++i) {
-            sum += min(a[i], b[i]);
+            sum += std::min(a[i], b[i]);
         }
-        cout << sum << "\n";
+        std::cout << sum << "\n";
     }
 }
