@@ -56,8 +56,6 @@ some_really_long_function(int a, int b, int c, int d,
 
 ## Conditionals
 
-Inside these conditional statements if expresssion value is positive or negative then it evaluates to true but if it is true then it evaluates to false
-
 ```C
 if (a == 9) {
 ```
@@ -68,7 +66,6 @@ for (;;)
 
 Each case in a switch statement should not be indented but the code for each should be. Any case fallthroughs should be commented.
 Every case should be terminated with a break statement.
-Continue statement is used inside loops only.
 
 ```C
 switch (ch) {
