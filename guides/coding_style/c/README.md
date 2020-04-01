@@ -31,7 +31,7 @@ main(int argc, char *argv[])
 	else
 	{
 		some_other_thing();
-              }
+        }
 	return (0);
 }
 ```
