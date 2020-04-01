@@ -24,4 +24,3 @@ $a = "AGGTAB";
 $b = "GXTXAYB";
 
 echo "Length of LCS : ", longestCommonSubsequence($a, $b); 
-?> 
