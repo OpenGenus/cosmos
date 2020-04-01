@@ -9,10 +9,10 @@ int main() {
 	{
 	    x=y=0;
 	    cin>>n;
-	    for(i=1;i<=n;i++)
+	    for(i=1;i<=n;++i)
 	     cin>>s[i];
 	     s[0]='Z';
-	     for(i=1;i<=n;i++)
+	     for(i=1;i<=n;++i)
 	     {
 	         if(s[i]=='L')
 	         {
