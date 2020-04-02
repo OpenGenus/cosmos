@@ -2,16 +2,16 @@
 
 using namespace std;
 
-#define ll long long
-#define dd double
-#define endl "\n"
-#define pb push_back
-#define all(v) v.begin(),v.end()
-#define mp make_pair
-#define fi first
-#define se second
-#define fo(i,n) for(int i=0;i<n;i++)
-#define fo1(i,n) for(int i=1;i<=n;i++)
+// #define ll long long
+// #define dd double
+// #define endl "\n"
+// #define pb push_back
+// #define all(v) v.begin(),v.end()
+// #define mp make_pair
+// #define fi first
+// #define se second
+// #define fo(i,n) for(int i=0;i<n;i++)
+// #define fo1(i,n) for(int i=1;i<=n;i++)
 ll mod=1000000007;
 const ll  N=500050;
 bool vis[N];
