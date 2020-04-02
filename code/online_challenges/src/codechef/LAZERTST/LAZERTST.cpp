@@ -21,7 +21,7 @@ void solve()
         {
             cout<<m-1<<' ';
         }
-        cout<<endl;
+        cout<<"\n";
         int h;
         cin>>h;
         if(h==-1)
@@ -34,7 +34,7 @@ void solve()
         ll gm = 0;
         for (int i = 0; i < q; i++)
         {
-            cout<<1<<' '<<qs[i].first<<' '<<qs[i].second<<' '<<(m*i)/10<<endl;
+            cout<<1<<' '<<qs[i].first<<' '<<qs[i].second<<' '<<(m*i)/10<<"\n";
             ll h;
             cin>>h;
             if(h==-1)
@@ -48,7 +48,7 @@ void solve()
         {
             cout<<gm<<' ';
         }
-        cout<<endl;
+        cout<<"\n";
         int h;
         cin>>h;
         if(h==-1)
