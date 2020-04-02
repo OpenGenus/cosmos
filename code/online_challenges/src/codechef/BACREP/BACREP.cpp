@@ -2,16 +2,6 @@
 
 using namespace std;
 
-// #define ll long long
-// #define dd double
-// #define endl "\n"
-// #define pb push_back
-// #define all(v) v.begin(),v.end()
-// #define mp make_pair
-// #define fi first
-// #define se second
-// #define fo(i,n) for(int i=0;i<n;i++)
-// #define fo1(i,n) for(int i=1;i<=n;i++)
 ll mod=1000000007;
 const ll  N=500050;
 bool vis[N];
@@ -27,7 +17,12 @@ ll po(ll k ,ll n,ll ans,ll temp,ll ans1)
     
     while(temp<=n)
     {
-        ans*=ans1;ans%=mod;ans1=ans1*ans1;ans1%=mod;n=n-temp;temp*=2;
+        ans*=ans1;
+        ans%=mod;
+        ans1=ans1*ans1;
+        ans1%=mod;
+        n=n-temp;
+        temp*=2;
     }
     return po(k,n,ans,1,k)%mod;
     //eg. po(2,78,1,1,2);
