@@ -2,16 +2,15 @@
 
 int main(void) {
 	
-   	int t, n, k;
-	long long int ans = 1;
-	
+   	int t;
 	scanf("%d", &t);
 	
 	while(t > 0)
 	{
 	    t--;
-	    ans = 1;
-	    
+		int n, k;
+		long long int ans = 1;
+		
 	    scanf("%d", &n);
 	    scanf("%d", &k);
 	    
@@ -19,14 +18,14 @@ int main(void) {
 	        printf("%lld\n", ans);
 	    else
 	    {
-	        n = n - 1; 
-	        k = k - 1;
+	        n--; 
+	        k--;
 	        ans = 1;
 	        
 	        if(k > n/2)
                 k = n - k;
             
-	        for(int i = 0; i < k; i++)
+	        for(int i = 0; i < k; ++i)
 	        {
 	            ans *= n - i;
 	            ans /= i + 1;
