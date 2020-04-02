@@ -1,0 +1,83 @@
+package receiver_vrc;
+
+import java.io.*;
+import java.util.*;
+
+/**
+ *
+ * @author Hardev Khandhar
+ */
+public class Receiver_VRC {
+
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+
+        // Location Of Output File
+        String fname = "F:\\Parity\\Sender_VRC\\Output_VRC.txt";
+
+        String S;
+        char parity;
+        System.out.print("Enter your choice : \n[1] Even Parity OR [2] Odd Parity: ");
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        BufferedReader br = new BufferedReader(new FileReader(fname));
+
+        while ((S = br.readLine()) != null) {
+            int count = 0;
+            System.out.println("\nMessage Received:: " + S);
+            parity = S.charAt(0);
+
+            // Even Algorithm 
+            if (a == 1) {
+                for (int i = 0; i < S.length(); i++) {
+                    if (S.charAt(i) == '1') {
+                        count++;
+                    }
+                }
+
+                if (count % 2 == 0) {
+                    System.out.println("No Errors Detected. Message Recieved Sucessfully.");
+                    System.out.print("\nOriginal Message:: ");
+                    for (int i = 1; i < S.length(); i++) {
+                        System.out.print("" + S.charAt(i));
+                    }
+                    System.out.println("\n");
+                } else {
+                    System.out.println("Error in Message Detected!!");
+                }
+            } else if (a == 2) {
+                for (int i = 0; i < S.length(); i++) {
+                    if (S.charAt(i) == '1') {
+                        count++;
+                    }
+                }
+                System.out.println(count);
+                if (count % 2 != 0) {
+                    System.out.println("No Errors Detected. Message Recieved Sucessfully.");
+                    System.out.print("\nOriginal Message:: ");
+                    for (int i = 1; i < S.length(); i++) {
+                        System.out.print("" + S.charAt(i));
+                    }
+                    System.out.println("\n");
+                } else {
+                    System.out.println("Error in Message Detected!!");
+                }
+            } else {
+                System.out.println("Invalid Input...");
+            }
+        }
+
+    }
+
+}
+
+/**
+
+Enter your choice : 
+[1] Even Parity OR [2] Odd Parity: 1
+
+Message Received:: 01101101001
+No Errors Detected. Message Recieved Sucessfully.
+
+Original Message:: 1101101001
+
+*/
