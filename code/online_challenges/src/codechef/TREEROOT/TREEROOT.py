@@ -7,7 +7,7 @@ while t > 0:
     n = int(input())
 
     for i in range(n):
-        id, cid = list(map(int, input().split()))
+        id, cid = map(int, input().split())
 
         ans += id - cid
     print(ans)
