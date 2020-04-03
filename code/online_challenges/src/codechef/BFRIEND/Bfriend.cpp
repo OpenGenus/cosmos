@@ -14,8 +14,7 @@ ll solve() {
     if (n == 1) {
         auto it = ss.begin();
         ans1 = abs((*it) - a) + c + abs((*it) - b);
-        std::cout << ans1 << "\n";
-        return;
+        return ans1;
     }
     auto it = ss.begin();
     if (b > (*it)) {
