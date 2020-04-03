@@ -1,4 +1,5 @@
 OPENING = '('
+
 def is_balanced(parentheses):
     stack = []
     for paren in parentheses:
@@ -13,8 +14,7 @@ def is_balanced(parentheses):
 
 
 s = '((()))'
-if(is_balanced(s)):
+if is_balanced(s):
     print("string is balanced")
 else:
     print("string is unbalanced")
-  
