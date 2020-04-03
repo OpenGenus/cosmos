@@ -30,7 +30,7 @@ std::vector<int> plusOne(std::vector<int> &A) {
         }
     }
     // cout<<" C is : " <<c<<"\n";
-    for (int i = A.size() - 1; i >= 0; i--) {
+    for (int i = A.size() - 1; i >= 0; --i) {
         if (A[i] < 9) {
             A[i]++;
             if (A1[0] == 0 && A.size() > 1)
@@ -51,11 +51,11 @@ int main() {
     std::cin >> n;
     std::vector<int> A(n);
     std::cout << "Enter the elements of the array :\n";
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
         std::cin >> A[i];
     std::cout << "Sum is : ";
     std::vector<int> result = plusOne(A);
-    for (int i = 0; i < result.size(); i++)
+    for (int i = 0; i < result.size(); ++i)
         std::cout << result[i] << " ";
     return 0;
 }
