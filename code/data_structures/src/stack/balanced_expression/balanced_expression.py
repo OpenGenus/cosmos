@@ -1,18 +1,20 @@
-def check(expression): 
-      
-    open_tup = tuple('({[') 
-    close_tup = tuple(')}]') 
-    map = dict(zip(open_tup, close_tup)) 
-    queue = [] 
+OPENING = '('
+def is_balanced(parentheses):
+    stack = []
+    for paren in parentheses:
+        if paren == OPENING:
+            stack.append(paren)
+        else:
+            try:
+                stack.pop()
+            except IndexError:  # too many closing parens
+                return False
+    return len(stack) == 0  # false if too many opening parens
+
+
+s = '((()))'
+if(is_balanced(s)):
+    print("string is balanced")
+else:
+    print("string is unbalanced")
   
-    for i in expression: 
-        if i in open_tup: 
-            queue.append(map[i]) 
-        elif i in close_tup: 
-            if not queue or i != queue.pop(): 
-                return "Unbalanced"
-    return "Balanced"
-  
-# Driver code 
-string = "{[]{()}}"
-print(string, "-", check(string)) 
