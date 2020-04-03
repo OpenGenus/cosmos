@@ -2,12 +2,12 @@
 #include <set>
 typedef long long int ll;
 
-void solve() {
-    ll n, i, a, b, c, ans1, ans2;
+ll solve() {
     std::set<ll> ss;
-    ll x;
+    ll n, a, b, c, ans1, ans2;
     std::cin >> n >> a >> b >> c;
-    for (i = 0; i < n; ++i) {
+    for (ll i = 0; i < n; ++i) {
+        ll x;
         std::cin >> x;
         ss.insert(x);
     }
@@ -29,13 +29,13 @@ void solve() {
     ans1 = abs((*it) - a) + c + abs((*it) - b);
     ++it;
     ans2 = abs((*it) - a) + c + abs((*it) - b);
-    std::cout << std::min(ans1, ans2) << "\n";
-    return;
+    return std::min(ans1, ans2);
 }
 int main() {
     int t;
     std::cin >> t;
     while (t--) {
-        solve();
+        std::cout << solve() << std::endl;
     }
 }
+
