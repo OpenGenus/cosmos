@@ -31,3 +31,15 @@ pprint(b)
 
 print "x:"
 pprint(sol)
+
+'''
+Output
+A:
+array([[ 2.,  1.],
+       [ 5.,  7.]])
+b:
+array([ 11.,  13.])
+x:
+array([ 7.11110202, -3.22220342])
+
+'''
