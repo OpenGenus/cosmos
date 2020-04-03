@@ -1,13 +1,12 @@
 #include <iostream>
-#include <bits/stdc++.h>
-using namespace std;
+#include <vector>
 
 
 
 int main()
 {
     int n;
-    cin >> n;
+    std :: cin >> n;
     int arr[n];
     int sockarr[101] = {};
     for(int i = 0;i < n;++i) cin >> arr[i];
@@ -21,11 +20,6 @@ int main()
     {
         pairs += sockarr[i]/2;
     }
-    /*
-    for(int i = 0;i < 101;++i)
-    {
-        cout << sockarr[i] << endl;
-    }*/
-    cout << pairs << endl;
+    std :: cout << pairs << endl;
     return 0;
 }
