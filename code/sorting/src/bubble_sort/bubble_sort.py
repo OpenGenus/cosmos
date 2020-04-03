@@ -8,11 +8,11 @@ def bubble_sort(arr):
     >>> arr
     [1, 2, 3, 5, 9]
     """
-     for i in range(len(arr)):
-        for j in range(i + 1, len(arr)):
-            # If current(ith) element is greater than the next((i+1)th) element swap them
-            if arr[i] > arr[j]:
-                arr[i], arr[j] = arr[j], arr[i]
+    for i in range(len(arr)):
+       for j in range(i + 1, len(arr)):
+           # If current(ith) element is greater than the next((i+1)th) element swap them
+           if arr[i] > arr[j]:
+              arr[i], arr[j] = arr[j], arr[i]
 
 
 # Less elegant solution, but easier to follow along:
