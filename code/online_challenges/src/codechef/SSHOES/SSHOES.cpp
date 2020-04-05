@@ -10,7 +10,7 @@ int main()
     while(t--)
     {
         unsigned long int N,K,arr[26]={0},temp;
-        int count1=0;
+        int count=0;
         char str[1000000];
         cin>>N>>K;
         cin>>str;
@@ -23,14 +23,14 @@ int main()
         for(int i=0;i<26;++i)
         {
             if(arr[i]%2!=0)
-                ++count1;
+                ++count;
             else if(arr[i]%2==0)
             {
                 if(arr[i]/2>K)
-                    ++count1;
+                    ++count;
             }
         }
-        if(count1>0)
+        if(count>0)
             cout<<"NO\n";
         else
             cout<<"YES\n";
