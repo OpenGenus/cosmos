@@ -7,15 +7,14 @@ int main()
     cin>>t;
     while(t--)
     {
-        int x,y;
-	x=y=0;
+        int x=0,y=0;
 	int n;
 	cin>>n;
 	char s[1000];
 	for(int i=1;i<=n;++i)
 	    cin>>s[i];
         s[0]='Z';
-        for(i=1;i<=n;++i)
+        for(int i=1;i<=n;++i)
         {
             if(s[i]=='L')
 	    {
@@ -43,7 +42,7 @@ int main()
 	    }
 	}    
         cout<<x<<" "<<y<<"\n";
-	     
+	    
     }
 	
     return 0;
