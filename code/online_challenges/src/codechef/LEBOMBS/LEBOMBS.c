@@ -16,7 +16,7 @@ int main(void)
         for (i = 0; i < n; ++i) 
         {
             if (s[i] == '0' && s[i + 1] != '1' && s[i - 1] != '1')
-                k = k + 1;
+                k += 1;
         }
         printf("%d\n", k);
     }
