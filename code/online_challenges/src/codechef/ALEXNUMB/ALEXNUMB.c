@@ -6,7 +6,7 @@ int main(void)
     scanf("%lld", & t);
     for (i = 0; i < t; ++i) 
     {
-    	long long int n;
+        long long int n;
         scanf("%lld", & n);
         long long int a;
         long long int j;
