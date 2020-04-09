@@ -4,8 +4,10 @@
 using namespace std;
 
 // funtion to check if character is operator or not
-bool isOperator(char x) {
-  switch (x) {
+bool IsOperator(char x)
+{
+  switch (x)
+  {
   case '+':
   case '-':
   case '/':
@@ -15,8 +17,9 @@ bool isOperator(char x) {
   return false;
 }
 
-// Convert prefix to Postfix expression
-string preToPost(string pre_exp) {
+// Function to convert prefix expression to Postfix expression
+string preToPost(string pre_exp)
+{
 
   stack<string> s;
 
@@ -24,10 +27,12 @@ string preToPost(string pre_exp) {
   int length = pre_exp.size();
 
   // reading from right to left
-  for (int i = length - 1; i >= 0; i--) {
+  for (int i = length - 1; i >= 0; i--)
+  {
 
     // check if symbol is operator
-    if (isOperator(pre_exp[i])) {
+    if (IsOperator(pre_exp[i]))
+     {
 
       // pop two operands from stack
       string op1 = s.top(); s.pop();
@@ -41,7 +46,8 @@ string preToPost(string pre_exp) {
     }
 
     // if symbol is an operand
-    else {
+    else
+    {
 
       // push the operand to the stack
       s.push(string(1, pre_exp[i]));
@@ -52,9 +58,12 @@ string preToPost(string pre_exp) {
   return s.top();
 }
 
-// Driver Code
-int main() {
-  string pre_exp = "*-A/BC-/AKL";
-  cout << "Postfix : " << preToPost(pre_exp);
+// Main function
+int main()
+{
+  string pre_exp;
+  cout<<"Enter a prefix expression:";
+  getline(cin,pre_exp);
+  cout << "Postfix expression: " << preToPost(pre_exp);
   return 0;
-} 
+}
