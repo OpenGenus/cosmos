@@ -10,8 +10,9 @@ unsigned lfsr_state;
 
 unsigned primitive_polynomial = 4194311;
 
-unsigned evaluate_polynomial()
-{
+unsigned 
+evaluate_polynomial()
+{   /* Evaluates polynomial at state to get either 0 or 1*/
     unsigned result = 0;
     result = lfsr_state & primitive_polynomial;
     result = (result >> 16 & 0xFFFF) ^ (result & 0xFFFF);
@@ -22,13 +23,15 @@ unsigned evaluate_polynomial()
     return result;
 }
 
-void set_seed(unsigned seed)
-{
+void 
+set_seed(unsigned seed)
+{   /* Sets seed of PRNG */
     lfsr_state = seed;
 }
 
-char get_pseudorandom_byte()
-{
+char 
+get_pseudorandom_byte()
+{   /* Generates and outputs 8 bits from PRNG */
     for (int i = 0; i < 8; ++i)
     {
         unsigned new_bit = evaluate_polynomial();
@@ -38,8 +41,9 @@ char get_pseudorandom_byte()
 }
 
 
-void encrypt_decrypt(unsigned seed)
-{
+void 
+encrypt_decrypt(unsigned seed)
+{   /* XORs key with message. Note that (y ^ x) ^ x = y */
     set_seed(seed);
     for (unsigned i = 0; i < strlen(m); ++i)
     {
@@ -47,7 +51,8 @@ void encrypt_decrypt(unsigned seed)
     }
 }
 
-int main()
+int 
+main()
 {
     printf("-----------------------------\n");
     printf("Introduce a string to be encrypted\n");
