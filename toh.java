@@ -12,7 +12,8 @@ public static void toh1(int n,String s,String h,String d){
 
 
 public static void main(String[] args){
-// for no. of disks 3
-toh1(3,"source","helper","destination");
+    Scanner scn=new Scanner(System.in);
+    int n=scn.nextInt();
+toh1(n,"source","helper","destination");
 }
 }
