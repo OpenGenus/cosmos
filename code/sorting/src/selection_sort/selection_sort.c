@@ -1,8 +1,8 @@
 /* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 
-int
-main()
+/* Selection Sort Implementation in C */
+int main()
 {
     int n, i, j, min, temp;
 
@@ -13,8 +13,10 @@ main()
     for (i = 0; i < n; i++)
         scanf("%d",&a[i]);
 
+    // One by one move boundary of unsorted subarray
     for (i = 0; i < n - 1; i++)
     {
+        // Find the minimum element in unsorted array
         min = i;
         for (j = i + 1; j < n; j++)
         {
@@ -23,12 +25,15 @@ main()
         }
         if (min != i)
         {
+
+            // Swap the found minimum element with the first element
             temp = a[i];
             a[i] = a[min];
             a[min] = temp;
         }
     }
 
+    // Print the sorted array
     printf("\n The Sorted array is : ");
     for (i = 0; i < n; i++)
         printf("%d ", a[i]);
