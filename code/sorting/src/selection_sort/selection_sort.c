@@ -1,4 +1,3 @@
- 
 /* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 
