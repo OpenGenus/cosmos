@@ -7083,6 +7083,17 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:07"
+    },
+  "languages": {
+    "2D_array_python": {
+      "location": "code/languages/python/2D-array-Numpy",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "2D-array-numpy.py",
+        "README.md"
+      ],
+      "updated": "19-04-2020 11:20:30"
     }
   }
 }
