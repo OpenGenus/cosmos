@@ -15,7 +15,7 @@ int countDigits(unsigned long n)
 	// intializing a variable count to 0
 	// for counting the number of digits
 	int count = 0;
-  // divide the number continuously by 10
+        // divide the number continuously by 10
 	// while incrementing count until the number
 	// becomes equal to zero
 	while(n != 0)
