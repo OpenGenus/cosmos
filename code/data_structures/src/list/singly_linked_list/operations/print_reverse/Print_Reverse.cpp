@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 class Node
 {
 public:
@@ -18,6 +18,7 @@ void insert_end()
     cout << "ENTER ITEM:" << endl;
     cin >> item;
     temp->data = item;
+    
     if (start == NULL)
     {
         start = temp;
@@ -26,9 +27,8 @@ void insert_end()
     else
     {
         while (p->next != NULL)
-        {
             p = p->next;
-        }
+        
         p->next = temp;
         temp->next = NULL;
     }
@@ -38,6 +38,7 @@ void display()
     struct Node *p = start;
     cout << " YOUR REVERSED LINKED LIST LOOKS LIKE :" << endl;
     cout << "|_START";
+    
     while (p != NULL)
     {
         cout << " |_" << p->data << "_|_|->";
@@ -47,15 +48,16 @@ void display()
 }
 void reverse()
 {
-    Node* pre=NULL,*post=NULL,*current=start;
-    while(current!=NULL)
+    Node* pre = NULL, *post = NULL, *current = start;
+    
+    while (current != NULL)
     {
-        post=current->next;
-        current->next=pre;
-        pre=current;
-        current=post;
+        post = current->next;
+        current->next = pre;
+        pre = current;
+        current = post;
     }
-    start=pre;
+    start = pre;
     display();
 }
 int main()
@@ -63,8 +65,8 @@ int main()
     int choice;
     cout << "PUSH ELEMENTS ONE BY ONE  INTO THE LINKED LIST:" << endl;
     int count = 0;
-
     int will;
+    
     while (will)
     {
         insert_end();
@@ -72,6 +74,5 @@ int main()
         cin >> will;
     }
     reverse();
-
     return 0;
 }
