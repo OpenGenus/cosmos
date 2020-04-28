@@ -7083,6 +7083,16 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:07"
+    },
+    "bootstrap-table": {
+      "location": "code/html/bootstrap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/bootstrap-tables",
+      "files": [
+        "tables.html",
+        "Readme.MD"
+      ],
+      "updated": "28-04-2020 19:15:46"
     }
   }
 }
