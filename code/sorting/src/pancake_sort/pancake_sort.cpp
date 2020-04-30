@@ -24,12 +24,12 @@
         int max = 0;
     
         for(int i = 1 ; i < size ; ++i)
-     {
+       {
             if( v[i] > v[max] )
-          {
+           {
                 max = i;
-          }
-     }
+           }
+       }
         return max;   
    }
 
@@ -40,7 +40,7 @@
         int begin = 0 ;
     
         while (begin < index)
-      {
+       {
             int temp = v[begin];
             v[begin] = v[index];
             v[index] = temp;
@@ -55,7 +55,7 @@
         int max_i;
     
         for(int cur_size = n ; cur_size>1 ; --cur_size )
-    {
+       {
             max_i = find_index(v,cur_size);
     
             if(max_i != cur_size-1)
@@ -63,8 +63,8 @@
                 flip_arr(v,max_i);
         
                 flip_arr(v,cur_size-1);
-            }
-     }
+           }
+       }
    }
 
     int main()
