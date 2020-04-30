@@ -8,19 +8,19 @@
 // Print the sorted array
 
     void print_ans ( std::vector<int>& v , int n)
-{
+   {
         std::cout<<"Sorted Array\n";
     
         for( int i=0 ; i < n ; ++i)
        {
             std::cout<< v[i] <<" ";  
        }
-}
+   }
 
 // finding the index of largest number in the given array size
 
     int find_index ( std::vector<int>& v , int size)
-{
+   {
         int max = 0;
     
         for(int i = 1 ; i < size ; ++i)
@@ -31,12 +31,12 @@
           }
      }
         return max;   
-}
+   }
 
 // Reversing the array from 0 to index
 
     void flip_arr ( std::vector<int> v , int index )
-{
+   {
         int begin = 0 ;
     
         while (begin < index)
@@ -48,10 +48,10 @@
             ++begin;
             --index;
        }
-}
+   }
 
     void pancake_sort( std::vector<int> v , int n)
-{
+   {
         int max_i;
     
         for(int cur_size = n ; cur_size>1 ; --cur_size )
@@ -65,10 +65,10 @@
                 flip_arr(v,cur_size-1);
             }
      }
-}
+   }
 
     int main()
-{
+   {
         int n;
     
         std::cin>>n;
@@ -84,7 +84,7 @@
         print_ans(vect,n);
     
         return 0;
-}
+   }
 
 /*
     __INPUT__
