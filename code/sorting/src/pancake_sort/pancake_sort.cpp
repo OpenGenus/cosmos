@@ -1,8 +1,9 @@
 /*
     Pancake Sorting Algorithm
 */
-#include <iostream>
-#include <vector>
+
+    #include <iostream>
+    #include <vector>
 
 // Print the sorted array
 
