@@ -30,6 +30,6 @@ public class BubbleSort {
 		int array[] = { 4, 2, 3, 1 };
 		bubbleSort(array);
 		System.out.println("Sorted array: ");
-		System.out.println(Arrays.toString(array));
+		System.out.println(Arrays.toString(array)); // sorted array is printed
 	}
 }
