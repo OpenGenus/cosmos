@@ -3988,6 +3988,15 @@
         "sieve_of_eratosthenes.cpp"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "minimum_operations_elements_equal": {
+      "location": "code/mathematical_algorithms/src/minimum_operations_elements_equal/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/make-elements-equal/",
+      "files": [
+        "EqualizeEveryone.java"
+      ],
+      "updated": "29-04-2020 19:25:00"
     }
   },
   "main": {
