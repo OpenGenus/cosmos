@@ -3997,6 +3997,15 @@
         "EqualizeEveryone.java"
       ],
       "updated": "29-04-2020 19:25:00"
+    },
+    "maximum_perimeter_triangle": {
+      "location": "code/mathematical_algorithms/src/maximum_perimeter_triangle/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/maximum-perimeter-of-triangle/",
+      "files": [
+        "PerimeterTriangle.java"
+      ],
+      "updated": "29-04-2020 19:43:00"
     }
   },
   "main": {
