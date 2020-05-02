@@ -30,6 +30,19 @@
       "updated": "18-05-2019 08:11:05"
     }
   },
+  "algorithm_applications":{
+    "binary_search":{
+      "distributing_candies":{
+        "location": "code/algorithm_applications/src/binary_search/distributing_candies/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/distribute-candies/",
+      "files": [
+        "CandyDistribution.java"
+      ],
+      "updated": "02-05-2020 19:40:00"
+      }
+    }
+  },
   "dynamic_programming": {
     "edit_distance": {
       "location": "code/dynamic_programming/src/edit_distance",
