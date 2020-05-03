@@ -1,5 +1,5 @@
 # Insertion Sort
-Insertion sort iterates through an array, taking one input element at each iteration, and grows a sorted output. With each iteration, insertion sorts removes the element at the current index, finds the removed elements position in the sorted output list, and inserts it there. This is repeated until no elements remain.
+Insertion sort iterates through an array by taking one input element at each iteration, and grows a sorted output. With each iteration, insertion sort removes the element from the current index and finds its correct position in the sorted output list, and inserts it there. This is repeated until no elements remain.
 
 ## Explanation
 ![Wiki image](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
