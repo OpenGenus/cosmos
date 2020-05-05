@@ -1,5 +1,5 @@
 # Insertion Sort
-Insertion sort iterates through an array, taking one input element at each iteration, and grows a sorted output. With each iteration, insertion sorts removes the element at the current index, finds the removed elements position in the sorted output list, and inserts it there. This is repeated until no elements remain.
+Insertion sort iterates through an array by taking one input element at each iteration, and grows a sorted output. With each iteration, insertion sorts removes the element at the current index, finds its correct position in the sorted output list, and inserts it there. This is repeated until no elements remain. It is highly recommended to use Insertion sort when either the list is small or is nearly sorted.
 
 ## Explanation
 ![Wiki image](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
@@ -23,6 +23,9 @@ Insertion sort iterates through an array, taking one input element at each itera
 **Space Complexity:**
 - Average: **O(n)**
 
+<p align="center">
+	Refer to <a href="https://iq.opengenus.org/insertion-sort-analysis/">Insertion Sort Analysis</a> for more explanation. 
+</p>
 ---
 <p align="center">
 	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
