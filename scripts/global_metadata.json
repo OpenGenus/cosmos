@@ -6937,7 +6937,7 @@
     "insertion_sort": {
       "location": "code/sorting/src/insertion_sort",
       "opengenus_discuss": "",
-      "opengenus_iq": "",
+      "opengenus_iq": "https://iq.opengenus.org/insertion-sort-analysis/",
       "files": [
         "insertion_sort_extension.swift",
         "insertion_sort.hs",
@@ -6959,7 +6959,7 @@
         "insertion_sort.js",
         "insertion_sort.re"
       ],
-      "updated": "18-05-2019 08:11:06"
+      "updated": "06-05-2020 4:24:00" 
     },
     "bubble_sort": {
       "location": "code/sorting/src/bubble_sort",
