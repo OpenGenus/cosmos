@@ -13,6 +13,17 @@ void push(struct node*& head_ref, int data) {
     node_ptr->next = head_ref;
     head_ref = node_ptr;
 }
+void deleteList(node*& head_ref) {  
+    node* current = head_ref;  
+    node* next;  
+    while (current !=nullptr) {  
+        next = current->next;  
+        free(current);  
+        current = next;  
+    }  
+     head_ref = nullptr;  
+}  
+
  
 /* Function to reverse the nodes in a linked list. */
 void reverse(struct node*& head_ref) {
@@ -51,5 +62,6 @@ int main() {
     cout << endl;
     cout << "List after reversing"<<endl;
     printnodes(head);
+    deleteList(head); 
     return 0;
 }
