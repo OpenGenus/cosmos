@@ -4,6 +4,8 @@ The goal of the algorithm is check for existence of an element in the given arra
 
 [Read more about Linear search in detail at OpenGenus](https://iq.opengenus.org/linear-search-algorithm/)
 
+[Try these insightful questions on Linear Search at OpenGenus](https://iq.opengenus.org/linear-search-questions/)
+
 # How it works
 Linear search goes through each element of the given array until either the element to be searched is found or we have reached the end of the array. 
 
