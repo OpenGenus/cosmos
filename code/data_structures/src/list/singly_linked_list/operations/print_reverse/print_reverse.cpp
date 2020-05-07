@@ -41,7 +41,7 @@ void reverse(struct node*& head_ref) {
 
 /* Function to print the nodes in a linked list. */
 void printnodes(struct node *head) {
-    while(head != NULL) {
+    while(head != nullptr) {
         cout<<head->data<<" ";
         head = head->next;
     }
