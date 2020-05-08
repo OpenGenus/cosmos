@@ -18,7 +18,7 @@ void deleteList(node*& head_ref) {
     node* next;  
     while (current !=nullptr) {  
         next = current->next;  
-        free(current);  
+        delete current;  
         current = next;  
     }  
      head_ref = nullptr;  
