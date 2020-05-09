@@ -37,7 +37,7 @@ void bubbleSort(int a[], int n)
 	}
 }
 
-
+//printing sorted array
 void print(int a[], int size)
 {
 	int i;
@@ -49,15 +49,15 @@ void print(int a[], int size)
 
 
 int main()
-{   
+{
 	int n, i;
-	printf("What is the size of the array?\n");
+	printf("What is the size of the array?\n");//taking size of array as input from user
 	scanf("%d",&n);
 	int a[n];
-	printf("Enter elements of the array one by one\n");
+	printf("Enter elements of the array one by one\n");//storing elements in array
 	for(i = 0; i < n; i++){
 		scanf("\n%d",&a[i]);
-	}    
+	}
 	bubbleSort(a, n);
 	printf("Sorted array: ");
 	print(a, n);
