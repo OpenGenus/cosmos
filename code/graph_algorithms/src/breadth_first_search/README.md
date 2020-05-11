@@ -6,21 +6,25 @@ In this algorithm, we search for a target node among the neighbouring nodes at a
 Thus, it is also called as level order traversal algorithm.
 
 It is similar to the BFS algorithm for a tree. However, it is possible to have cycles in a graph.
-Hence, we have to keep track of the visited nodes.
+Hence, we have to keep track of the visited nodes. We use a boolean visited for this purpose.
 
 ## Explanation
-![A graph](https://github.com/Priya-Raut/cosmos/tree/master/code/graph_algorithms/src/breadth_first_search/graph_bfs.jpg)
 
-> Image credits: (Tutorialspoint.com)
+					 S ----------- level 0
+         / | \
+				/  |  \
+			 /   |   \
+			A		 B    C ------ level 1
+			|    |    |
+		  |    |    |
+			D    E    F ------ level 2
+			 \   |   /
+			  \  |  /
+				 \ | /
+				   G ----------- level 3
 
 Applying BFS algorithm for above graph will give us following output:
 S A B C D E F G
-
-Take a look at this video for better understanding:
-https://www.youtube.com/watch?v=0u78hx-66Xk
-
-Read various articles about BFS algorithm here:
-https://www.geeksforgeeks.org/tag/bfs/
 
 ## Complexity
 Time complexity: O(V+E)
