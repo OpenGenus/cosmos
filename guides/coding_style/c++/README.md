@@ -184,7 +184,7 @@ Remove spaces:
 
 - In whitespace-only line.
 
-- After opening brace/parenthese, and before closing brace/parenthes.
+- After opening brace/parenthesis, and before closing brace/parenthesis.
 
 - Between empty braces, and parentheses.
 
