@@ -1902,6 +1902,16 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+	"delete_array_in_C":{
+	"location": "code/data_structures/src/array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+	  "files": [
+	  "delete_array.c",
+	  "README.md",
+	  ],
+	  "updated": "16-05-2020 18:29:06"
+	},
     "aes_csharp": {
       "location": "code/cryptography/src/aes_128/aes_csharp",
       "opengenus_discuss": "",
@@ -7136,5 +7146,7 @@
       ],
       "updated": "28-04-2020 19:15:46"
     }
-  }
+	
+  },
+  
 }
