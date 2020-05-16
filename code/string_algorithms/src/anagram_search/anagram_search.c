@@ -2,50 +2,54 @@
 #include <string.h>
 
 int
+get_map(char* a, char* map)
+{
+	int map_size = 0;
+	
+	for(int i = 0; i<26; i++)
+		map[i] = 0;
+
+	for(int i = 0; a[i]!='\n'; i++) 
+	{
+		char ch = (char)tolower(a[i]);
+		if((ch!=' ')&&(ch!='\t')){
+			map[ch-'a']++;
+			map_size ++;
+		}
+	}
+
+	return map_size;
+}
+
+int
 main(void)
 {
-	char string1[1000], string2[1000], temp;
+	char string1[1000], string2[1000], map1[26], map2[26];
 	int length_string1, length_string2;
 
-	scanf("%s", string1);
-	scanf("%s", string2);
+	fgets(string1, 1000, stdin);
+	fgets(string2, 1000, stdin);
 
-	length_string1 = strlen(string1);
-	length_string2 = strlen(string2);
+	length_string1 = get_map(string1, map1);
+	length_string2 = get_map(string2, map2);
 
 
-	/* If both strings are of different length, then they are not anagrams */
+	/* If both strings have a different number of characters, then they are not anagrams */
 
 	if (length_string1 != length_string2) {
 		printf("%s and %s are not anagrams! \n", string1, string2);
 		return (0);
 	}
 
-	/* lets sort both strings first */
+	/* Compare the character maps for both the strings */
 
-	for (int i = 0; i < length_string1-1; i++)
-		for (int j = i+1; j < length_string1; j++) {
-			if (string1[i] > string1[j]) {
-				temp  = string1[i];
-				string1[i] = string1[j];
-				string1[j] = temp;
-			}
-			if (string2[i] > string2[j]) {
-				temp = string2[i];
-				string2[i] = string2[j];
-				string2[j] = temp;
-			}
-		}
-
-	/* Compare both strings character by character */
-
-	for (int i = 0; i<length_string1; i++)
-		if (string1[i] != string2[i]) {
-			puts("Strings are not anagrams!");
+	for (int i = 0; i<26; i++)
+		if (map1[i] != map2[i]) {
+			puts("The strings are not anagrams!");
 			return (0);
 		}
 
-	puts("Strings are anagrams!");
+	puts("The strings are anagrams!");
 
 	return (0);
 }
