@@ -5,7 +5,6 @@
 
 /* Part of Cosmos by OpenGenus Foundation */
 
-
 void bestFirstSearch(int start,                                             // the node that we are currently at
                      int goal,                                              // the node that we are looking for
                      std::map<int, std::set<std::pair<int, int>>>& adjList, // the adjacency list for each node (cost, nodeNumber)
@@ -20,24 +19,27 @@ void bestFirstSearch(int start,                                             // t
     visited[start] = true;
 
     // Repeat the algorithm until there are no more nodes left to process
-    while (!Q.empty()){
+    while (!Q.empty())
+    {
         // Take the node width the minimum cost in the queue and then pop it off the queue
         int current = Q.top().second;
         Q.pop();
 
-        std::cout<<current<<" ";
+        std::cout << current << " ";
 
         // If this is the node that we are looking for, exit
-        if (current == goal){
+        if (current == goal)
+        {
             return;
         }
 
         // Iterate over the neighbours of the current node
         for (auto neighbour : adjList[current])
-            if (!visited[neighbour.second]){
+            if (!visited[neighbour.second])
+            {
                 // Mark the neighbour node as visited
                 visited[neighbour.second] = true;
-                // Add the neighbour to the queue 
+                // Add the neighbour to the queue
                 Q.push(neighbour);
             }
     }
@@ -77,7 +79,6 @@ int main()
     // Perform a best-first-search from the node `1`, searching for `5`
     bestFirstSearch(1, 5, adjList, visited);
     //output: 1 2 6 3 5
-
 
     return 0;
 }
