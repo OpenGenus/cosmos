@@ -77,6 +77,16 @@
       ],
       "updated": "18-05-2019 08:11:05"
     },
+    "number_of_substring_divisible_by_8_but_not_3": {
+      "location": "code/dynamic_programming/src/number_of_substring_divisible_by_8_but_not_3",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/number-of-substrings-divisible-by-8-but-not-3/",
+      "files": [
+       "number_of_substrings.cpp",
+       "README.md"
+      ],
+      "updated": "24-05-2020 08:11:05"
+    },
     "minimum_insertion_palindrome": {
       "location": "code/dynamic_programming/src/minimum_insertion_palindrome",
       "opengenus_discuss": "",
