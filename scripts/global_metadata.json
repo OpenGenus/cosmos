@@ -2573,6 +2573,16 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+    "min_operation_to_make_gcd_k": {
+      "location": "code/greedy_algorithms/src/min_operation_to_make_gcd_k",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/minimum-operations-to-make-gcd-k/",
+      "files": [
+        "min_operation.cpp",
+        "README.md"
+      ],
+      "updated": "24-05-2020 08:11:06"
+    },
     "longest_path_directed_acyclic_graph": {
       "location": "code/graph_algorithms/src/longest_path_directed_acyclic_graph",
       "opengenus_discuss": "",
