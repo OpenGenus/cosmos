@@ -2596,6 +2596,16 @@
       "updated": "18-05-2019 08:11:06"
     }
   },
+  "min_lateness": {
+      "location": "code/greedy_algorithms/src/min_lateness",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/scheduling-to-minimize-lateness/",
+      "files": [
+        "README.md",
+        "min_lateness.cpp"
+      ],
+      "updated": "18-04-2020 08:11:06"
+    },
   "theory_of_computation": {
     "nondeterministic_finite_atomaton": {
       "location": "code/theory_of_computation/src/nondeterministic_finite_atomaton",
