@@ -23,7 +23,6 @@
             temp1 /= 10;
             ++num;
         }
-
         // calculate sum of nth power of its digits
         while (temp2 != 0) {
             rem = temp2 % 10;
