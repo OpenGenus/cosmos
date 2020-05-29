@@ -7165,6 +7165,16 @@
         "Readme.MD"
       ],
       "updated": "28-04-2020 19:15:46"
+    },
+    "counter_objects": {
+    "location": "code/languages/python/counter_objects",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/counter-objects-in-python/",
+      "files": [
+        "counter_obj.py",
+        "README.md"
+      ],
+      "updated": "29-05-2020 23:50:46"
     }
   }
 }
