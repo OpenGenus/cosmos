@@ -1958,6 +1958,16 @@
         "example.c"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "delete_vs_free":{
+      "location": "code/languages/cpp/delete_vs_free",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "free_vs_delete.cpp.c"
+      ],
+      "updated": "29-05-2020 13:39:36"
     }
   },
   "search": {
