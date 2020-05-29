@@ -63,6 +63,16 @@
       ],
       "updated": "18-05-2019 08:11:05"
     },
+    "postmans_sort": {
+      "location": "code/sorting/src/postmans_sort",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/postman-sort/",
+      "files": [
+        "postmans_sort.cpp",
+        "readme.md"
+      ],
+      "updated": "29-05-2019 20:50:07"
+    },
     "rod_cutting": {
       "location": "code/dynamic_programming/src/rod_cutting",
       "opengenus_discuss": "",
