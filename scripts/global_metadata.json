@@ -63,6 +63,16 @@
       ],
       "updated": "18-05-2019 08:11:05"
     },
+    "postmans_sort": {
+      "location": "code/sorting/src/postmans_sort",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/postman-sort/",
+      "files": [
+        "postmans_sort.cpp",
+        "readme.md"
+      ],
+      "updated": "29-05-2019 20:50:07"
+    },
     "rod_cutting": {
       "location": "code/dynamic_programming/src/rod_cutting",
       "opengenus_discuss": "",
@@ -647,6 +657,15 @@
         "neural_style_transfer.ipynb"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "getting_started_with_ml": {
+      "location": "code/artificial_intelligence/src/getting_started_with_ml",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/how-i-mastered-ml-as-fresher/",
+      "files": [
+        "README.md"
+      ],
+      "updated": "29-05-2020 04:53:00"
     },
     "gradient_boosting_trees": {
       "location": "code/artificial_intelligence/src/gradient_boosting_trees",
@@ -1966,8 +1985,19 @@
       "files": [
         "README.md",
         "free_vs_delete.cpp.c"
-      ],
+       ],
       "updated": "29-05-2020 13:39:36"
+      }
+    },
+    "delete_array":{
+      "location": "code/languages/c/delete_array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "del.c"
+      ],
+      "updated": "29-05-2020 02:54:16"
     }
   },
   "search": {
@@ -7175,6 +7205,16 @@
         "Readme.MD"
       ],
       "updated": "28-04-2020 19:15:46"
+    },
+    "counter_objects": {
+    "location": "code/languages/python/counter_objects",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/counter-objects-in-python/",
+      "files": [
+        "counter_obj.py",
+        "README.md"
+      ],
+      "updated": "29-05-2020 23:50:46"
     }
   }
 }
