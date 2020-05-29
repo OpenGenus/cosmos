@@ -7,3 +7,5 @@ But if the array is declared dynamically, i.e. using malloc/calloc, then we need
 When we allocate memory dynamically, some part of information is stored before or after the allocated block. free uses this information to know how memory was allocated and then frees up the whole block of memory.
 
 However, if we allocate memory for each array element, then we need to free each element before deleting the array.
+
+Link to the article: https://iq.opengenus.org/delete-vs-free-in-cpp/
