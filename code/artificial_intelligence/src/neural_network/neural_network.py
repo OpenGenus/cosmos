@@ -1,7 +1,10 @@
+# The following is a from scratch implementation of a neural network in Python without any deep learning libraries
+
+# Import necessary packages
 import numpy as np
 import dill
 
-
+# Create a class 
 class neural_network:
     def __init__(self, num_layers, num_nodes, activation_function, cost_function):
         self.num_layers = num_layers
@@ -16,6 +19,7 @@ class neural_network:
                 layer_i = layer(num_nodes[i], 0, activation_function[i])
             self.layers.append(layer_i)
 
+    # Function to train
     def train(self, batch_size, inputs, labels, num_epochs, learning_rate, filename):
         self.batch_size = batch_size
         self.learning_rate = learning_rate
@@ -31,6 +35,7 @@ class neural_network:
             print("Error: ", self.error)
         dill.dump_session(filename)
 
+    # Feedforward function 
     def forward_pass(self, inputs):
         self.layers[0].activations = inputs
         for i in range(self.num_layers - 1):
@@ -52,20 +57,25 @@ class neural_network:
             else:
                 self.layers[i + 1].activations = temp
 
+    # Create mathematical relu function
     def relu(self, layer):
         layer[layer < 0] = 0
         return layer
-
+    
+    # Create mathematical softmax function
     def softmax(self, layer):
         exp = np.exp(layer)
         return exp / np.sum(exp, axis=1, keepdims=True)
 
+    # Create mathematical sigmoid function
     def sigmoid(self, layer):
         return np.divide(1, np.add(1, np.exp(layer)))
 
+    # Use the tanh function in numpy
     def tanh(self, layer):
         return np.tanh(layer)
 
+    # Function to calculate the error (mean squared error, cross-entropy)
     def calculate_error(self, labels):
         if len(labels[0]) != self.layers[self.num_layers - 1].num_nodes_in_layer:
             print("Error: Label is not of the same shape as output layer.")
@@ -98,6 +108,8 @@ class neural_network:
                 )
             )
 
+    # Back propagation function 
+    # NOTE: This is the most important part of a neural network by application of calculus and the chain rule
     def back_pass(self, labels):
         # if self.cost_function == "cross_entropy" and self.layers[self.num_layers-1].activation_function == "softmax":
         targets = labels
@@ -138,6 +150,7 @@ class neural_network:
         a[np.where(a != np.max(a))] = 0.1
         return a
 
+    # Check model accuracy
     def check_accuracy(self, filename, inputs, labels):
         dill.load_session(filename)
         self.batch_size = len(inputs)
@@ -158,7 +171,7 @@ class neural_network:
     def load_model(self, filename):
         dill.load_session(filename)
 
-
+# Class for each layer used in the network
 class layer:
     def __init__(
         self, num_nodes_in_layer, num_nodes_in_next_layer, activation_function
