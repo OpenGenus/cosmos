@@ -648,6 +648,15 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+    "getting_started_with_ml": {
+      "location": "code/artificial_intelligence/src/getting_started_with_ml",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/how-i-mastered-ml-as-fresher/",
+      "files": [
+        "README.md"
+      ],
+      "updated": "29-05-2020 04:53:00"
+    },
     "gradient_boosting_trees": {
       "location": "code/artificial_intelligence/src/gradient_boosting_trees",
       "opengenus_discuss": "",
