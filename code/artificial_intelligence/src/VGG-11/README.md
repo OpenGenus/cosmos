@@ -1,5 +1,4 @@
-The article at OpenGenus elaborted about VGG-11, its architecture, number of layers it comprise of
-along with its application and importnance.
+The article at OpenGenus elaborted about VGG-11, its architecture, number of layers it comprise of along with its application and importnance.
 
 It is a pre-trained model, on a dataset and contains the weights that represent the features of whichever dataset it was trained on. 
 VGG-11, it attributes to 11 weighted layers, Weights represent the strength of connections between units
@@ -10,3 +9,5 @@ VGG incorporates 1x1 convolutional layers to make the decision function more non
 Labeled as deep CNN, VGG surpasses datasets outside of ImageNet.
 The architecture of VGG-11 and the ctivation functions insight to different applications and importance whose 
 detialed account has ben provided.
+
+Learn more: https://iq.opengenus.org/vgg-11/
