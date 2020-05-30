@@ -7249,6 +7249,15 @@
         "README.md"
       ],
       "updated": "29-05-2020 23:50:46"
-    }
-  }
-}
+    },
+     "Inception_Model":{
+      "location": "code/artificial_intelligence/src/Inception_Pre-trained_Model"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/inception-pre-trained-cnn-model/",
+      "files": [
+        "Inception_model.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 04:57:47"
+      }
+   }
