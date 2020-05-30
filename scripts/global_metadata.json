@@ -7083,6 +7083,17 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:07"
+    },
+    "reverse_linked_list": {
+      "location": "code/languages/cpp/reverse_linked_list",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "reverse_linked_list_3pointers.cpp"
+        "reverse_linked_list_2pointers.cpp"
+        "README.md"
+      ],
+      "updated": "30-05-2020 21:57:07"
     }
   }
 }
