@@ -12,7 +12,7 @@
     
     printf("Armstrong numbers between %d and %d are: ", lower, upper);
 
-    for (i = lower + 1; i < upper; ++i)
+    for (i = lower ; i <= upper; ++i)
     {
         temp1 = i;
         temp2 = i;
