@@ -7217,6 +7217,16 @@
       ],
       "updated": "28-04-2020 19:15:46"
     },
+    "Handlingexceptions": {
+      "location": "code/java/Handlingexceptions",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/handling-exceptions-in-java/",
+      "files": [
+        "Handlingexp.java",
+        "README.MD"
+      ],
+      "updated": "31-05-2020 00:01:57"
+    },
     "counter_objects": {
     "location": "code/languages/python/counter_objects",
       "opengenus_discuss": "",
