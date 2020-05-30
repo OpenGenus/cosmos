@@ -9,19 +9,17 @@ It is similar to the BFS algorithm for a tree. However, it is possible to have c
 Hence, we have to keep track of the visited nodes. We use a boolean visited for this purpose.
 
 ## Explanation
-```
-					 S ----------- level 0
-         / | \
-				/  |  \
-			 /   |   \
-			A		 B    C ------ level 1
-			|    |    |
-		  |    |    |
-			D    E    F ------ level 2
-			 \   |   /
-			  \  |  /
-				 \ | /
-				   G ----------- level 3
+```				
+          S  ------ level 0
+        / | \
+       /  |  \
+      A   B   C --- level 1
+      |   |   |
+      |   |   |
+      D   E   F --- level 2
+       \  |  /
+        \ | /
+          G  ------ level 3
 ```
 Applying BFS algorithm for above graph will give us following output:
 S A B C D E F G
