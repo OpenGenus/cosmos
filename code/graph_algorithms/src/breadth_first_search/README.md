@@ -9,7 +9,7 @@ It is similar to the BFS algorithm for a tree. However, it is possible to have c
 Hence, we have to keep track of the visited nodes. We use a boolean visited for this purpose.
 
 ## Explanation
-
+```
 					 S ----------- level 0
          / | \
 				/  |  \
@@ -22,7 +22,7 @@ Hence, we have to keep track of the visited nodes. We use a boolean visited for 
 			  \  |  /
 				 \ | /
 				   G ----------- level 3
-
+```
 Applying BFS algorithm for above graph will give us following output:
 S A B C D E F G
 
