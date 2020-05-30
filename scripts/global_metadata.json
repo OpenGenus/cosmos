@@ -7240,6 +7240,16 @@
       ],
       "updated": "28-04-2020 19:15:46"
     },
+    "armstrong_num_range": {
+        "location": "code/mathematical_algorithms/src/armstrong_num_range",
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/find-all-armstrong-numbers-in-a-range/",
+        "files": [
+        "armstrong_num_range.c",
+        "REAADME.md"
+      ],
+      "updated": "03-05-2020 21:15:57"
+    },
     "counter_objects": {
     "location": "code/languages/python/counter_objects",
       "opengenus_discuss": "",
