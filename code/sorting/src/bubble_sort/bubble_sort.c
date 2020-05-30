@@ -5,11 +5,13 @@ typedef int bool;
 #define true 1 
 #define false 0 
 
-void swap(int *p, int *q) //Swap function
+void swap(int *p, int *q) //Using Swap function with parameters
+void swap(int *p, int *q) //Using Swap function with parameters
+void swap(int *p, int *q)  //Using Swap function with parameters
 {
 	int temp = *p;//Swapping position of two variable with respect to a third one
 	*p = *q;
-	*q = temp;
+	*q = temp; //Placing variables at different position using pointer
 }
 
 /*Sorting an array a[] consisting of n
@@ -18,7 +20,7 @@ void bubbleSort(int a[], int n)
 {
 	int i, j;
 	bool swapped;
-	for (i = 0; i < n - 1; i++)
+	for (i = 0; i < n - 1; i++) //for loop till n-1 terms
 	{
 		swapped = false;
 		for (j = 0; j < n - i - 1; j++)
