@@ -7226,6 +7226,15 @@
         "README.md"
       ],
       "updated": "29-05-2020 23:50:46"
-    }
-  }
+    },
+      "VGG-11":{
+      "location": "code/artificial_intelligence/src/neural_network"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/vgg-11",
+      "files": [
+        "vgg1.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 12:03:47"
+      }
 }
