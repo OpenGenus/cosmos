@@ -1977,6 +1977,18 @@
         "example.c"
       ],
       "updated": "18-05-2019 08:11:06"
+     }
+    },
+    "2d-array-list":{
+      "location": "code/languages/Java/2d-array-list-java.java",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "2d-array-list-java.java"
+      ],
+      "updated": "29-05-2020 05:22:42"
+     }
     },
     "double_to_string": {
       "location": "code/languages/cpp/double_to_string",
@@ -1988,6 +2000,17 @@
       ],
       "updated": "29-05-2020 14:02:06"
       }
+    },
+    "2d-array":{
+    "location": "code/languages/Java/2d-array.java",
+    "opengenus_discuss": "",
+    "opengenus_iq": "",
+    "files": [
+        "README.md",
+        "2d-array.java"
+        ],
+        "updated": "29-05-2020 04:26:42"
+        }
     },
     "delete_vs_free":{
       "location": "code/languages/cpp/delete_vs_free",
@@ -7236,5 +7259,15 @@
         "README.md"
       ],
         "updated": "30-05-2020 12:03:47"
+      },
+     "Inception_Model":{
+      "location": "code/artificial_intelligence/src/Inception_Pre-trained_Model"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/inception-pre-trained-cnn-model/",
+      "files": [
+        "Inception_model.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 04:57:47"
       }
-}
+   }
