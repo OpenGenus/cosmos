@@ -7289,5 +7289,17 @@
         "README.md"
       ],
         "updated": "30-05-2020 04:57:47"
+      },
+      "Binary_GCD_Algorithm":{
+      "location": "code/mathematical_algorithms/src/Binary_GCD_Algorithm"
+      "opengenus_discuss" : "",
+      "opengenus_iq": " https://iq.opengenus.org/p/27a7354e-a256-4fcd-876e-5ffdbdf9b668/",
+      "files": [
+       "Binary_GCD_Algo.md"
+       "Binary_GCD_Iterative.cpp"
+       "Binary_ GCD_Recursive.cpp"
+       "README.md"
+      ],
+        "updated": "31-05-2020 01:08:47"
       }
-   }
+    }
