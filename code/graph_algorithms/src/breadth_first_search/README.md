@@ -34,8 +34,4 @@ Space complexity: O(V), worst case we need to store all the nodes in the queue.
 V - number of nodes
 E - number of edges
 
----
-<p align="center">
-	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a>
-</p>
----
+Collaborative effort by [OpenGenus](https://github.com/opengenus)
