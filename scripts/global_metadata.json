@@ -33,6 +33,17 @@
       "updated": "31-05-2020 17:41:00"
     }
   },
+"Kadane_algo": {
+      "location": "code/languages/Java/Kadane_algo",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/kadane-algorithm/",
+      "files": [
+        "Kadane_algo.java"
+        "README.md"
+      ],
+      "updated": "31-05-2020 17:41:00"
+    }
+  },
   "square_root_decomposition": {
     "mos_algorithm": {
       "location": "code/square_root_decomposition/src/mos_algorithm",
