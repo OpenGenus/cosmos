@@ -1,4 +1,14 @@
 {
+  "bernoulli_naive_bayes": {
+      "location": "code/artificial_intelligence/src/Bernoulli Naive Bayes",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/bernoulli-naive-bayes/",
+      "files": [
+        "README.md",
+        "bernoulli.py"
+      ],
+      "updated": "31-05-2020 14:30:00"
+    },
   "square_root_decomposition": {
     "mos_algorithm": {
       "location": "code/square_root_decomposition/src/mos_algorithm",
