@@ -8,6 +8,10 @@
     "location" : "code/git/undochanges",
     "opengenus_iq": "https://iq.opengenus.org/p/5a525c5f-e1ac-418c-abac-ff118587dd83/"
   },
+  "view hist" : {
+    "location" : "code/git/viewhist",
+    "opengenus_iq" : "https://iq.opengenus.org/p/911697a3-030c-481a-9793-39138000febd/"
+  },
   "bernoulli_naive_bayes": {
       "location": "code/artificial_intelligence/src/Bernoulli Naive Bayes",
       "opengenus_discuss": "",
