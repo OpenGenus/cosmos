@@ -7083,6 +7083,19 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:07"
+    },
+    "linear_search": {
+      "location": "code/languages/c/linear_search",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "linear_search.c",
+        "linear_search_duplicates.c",
+        "linear_search_duplicates_linked_list.c",
+        "linear_search_linked_list.c "
+        "README.md"
+      ],
+      "updated": "31-05-2020 06:50:00"
     }
   }
 }
