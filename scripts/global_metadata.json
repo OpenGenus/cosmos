@@ -1,4 +1,9 @@
 {
+
+  "explainBlockchain": {
+    "location": "code/blockchain/explainBlockchain.txt",
+    "opengenus_iq:": "https://iq.opengenus.org/p/f3110420-24e9-40f8-9ee5-79b5df2f88ff/"
+  },
   "bernoulli_naive_bayes": {
       "location": "code/artificial_intelligence/src/Bernoulli Naive Bayes",
       "opengenus_discuss": "",
