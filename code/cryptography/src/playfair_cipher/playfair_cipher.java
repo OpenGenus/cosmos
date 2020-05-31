@@ -1,3 +1,6 @@
+// Play Fair Cipher in Java
+
+// Link to the Article(Explanation): https://iq.opengenus.org/play-fair-cipher/
 import java.util.Scanner;
 import java.awt.Point;
 

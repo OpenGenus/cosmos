@@ -1,3 +1,6 @@
+// Play Fair Cipher in C++
+
+// Link to the Article(Explanation): https://iq.opengenus.org/play-fair-cipher/
 #include <iostream>
 #include <cstdlib>
 #define dim 5 //dimension 5x5

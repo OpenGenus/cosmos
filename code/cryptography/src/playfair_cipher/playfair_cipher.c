@@ -1,3 +1,6 @@
+// Play Fair Cipher in C
+
+// Link to the Article(Explanation): https://iq.opengenus.org/play-fair-cipher/
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
