@@ -1,122 +1,83 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-typedef struct node {
-			int value;
-			struct node *left, *right;
-	}node;
-
-node* create_node(int );
-void create_tree(int );
-void cleanup_tree(node* );
-void mirror_image(node* );
-
-node* root = NULL;
-node* create_node(int val)
-{
-	node* tmp = (node *) malloc(sizeof(node));
-	tmp->value = val;
-	tmp->left = tmp->right = NULL;
-	return tmp;
-}
-
-void create_tree(int val)
-{
-	node* tmp = root;
-	if (!root)
-	  root = create_node(val);
-	else
-        {
-           while (1)
-	   {
-	     if (val > tmp->value)
-             {
-                if (!tmp->right)
-                {
-		  tmp->right = create_node(val);
-                  break;
-                }
-                else
-                  tmp = tmp->right;
-             }
-	     else
-             {
-                if (!tmp->left)
-                {
-		  tmp->left= create_node(val);
-                  break;
-                }
-                else
-                  tmp = tmp->left;
-             }	
-	   }
-	}
-	
-}
-
-void mirror_image(node* tmp)
-{
-   node* tmp1 = NULL;
-   if (tmp)
-   {
-     tmp1 = tmp->left;
-     tmp->left = tmp->right;
-     tmp->right = tmp1;
-     mirror_image(tmp->left);
-     mirror_image(tmp->right);
-   }
-}
-
-void print_mirror_image(node* tmp)
-{
-   if (tmp)
-   {
-     printf("%d\n",tmp->value);
-     print_mirror_image(tmp->left);
-     print_mirror_image(tmp->right);
-   }
-}
-
-void cleanup_tree(node* tmp)
-{
-    if (tmp)
-    {
-	cleanup_tree(tmp->left);
-	cleanup_tree(tmp->right);
-        if (tmp->left)
-        {
-          free(tmp->left);
- 	  tmp->left = NULL;
-        }
-        if (tmp->right)
-        {
-          free(tmp->right);
- 	  tmp->right= NULL;
-        }
-    }
-    if (tmp == root)
-    {
-      free(root);
-      root = NULL;
-    }
-}
-
-
-int main()
-{
-        int val, num, ctr;
-        node tmp;
-	printf("Enter number of nodes\n");
-        scanf("%d",&num);
-        for (ctr = 0; ctr < num; ctr++)
-        {
-	  printf("Enter values\n");
-	  scanf("%d",&val);
-	  create_tree(val);
-        }
-     	mirror_image(root);
-        print_mirror_image(root);
-        cleanup_tree(root);
-        return 0; 
-}
+// C program to convert a binary tree 
+// to its mirror 
+#include<stdio.h> 
+#include<stdlib.h> 
+  
+/* A binary tree node has data, pointer  
+   to left child and a pointer to right child */
+struct Node  
+{ 
+    int data; 
+    struct Node* left; 
+    struct Node* right; 
+}; 
+  
+/* Helper function that allocates a new node with the 
+   given data and NULL left and right pointers. */
+struct Node* newNode(int data) 
+  
+{ 
+  struct Node* node = (struct Node*) 
+                       malloc(sizeof(struct Node)); 
+  node->data = data; 
+  node->left = NULL; 
+  node->right = NULL; 
+    
+  return(node); 
+} 
+  
+  void mirror(struct Node* node)  
+{ 
+  if (node==NULL)  
+    return;   
+  else 
+  { 
+    struct Node* temp; 
+      
+    /* do the subtrees */
+    mirror(node->left); 
+    mirror(node->right); 
+  
+    /* swap the pointers in this node */
+    temp        = node->left; 
+    node->left  = node->right; 
+    node->right = temp; 
+  } 
+}  
+  
+/* Helper function to print Inorder traversal.*/
+void inOrder(struct Node* node)  
+{ 
+  if (node == NULL)  
+    return; 
+    
+  inOrder(node->left); 
+  printf("%d ", node->data); 
+  inOrder(node->right); 
+}   
+  
+  
+/* Driver program to test mirror() */
+int main() 
+{ 
+  struct Node *root = newNode(1); 
+  root->left        = newNode(2); 
+  root->right       = newNode(3); 
+  root->left->left  = newNode(4); 
+  root->left->right = newNode(5);  
+    
+  /* Print inorder traversal of the input tree */
+  printf("Inorder traversal of the constructed"
+           " tree is \n"); 
+  inOrder(root); 
+    
+  /* Convert tree to its mirror */
+  mirror(root);  
+    
+  /* Print inorder traversal of the mirror tree */
+  printf("\nInorder traversal of the mirror tree"
+         " is \n");   
+  inOrder(root); 
+    
+  return 0;   
+} 
