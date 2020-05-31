@@ -6458,6 +6458,18 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+    "autokey_cipher": {
+      "location": "code/cryptography/src/autokey_cipher",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/auto-key-cipher/",
+      "files": [
+        "README.md",
+        "autokey_cipher.c",
+        "autokey_cipher.cpp",
+        "autokey_cipher.java"
+      ],
+      "updated": "31-05-2020 23:14:00"
+    },
     "vigenere_cipher": {
       "location": "code/cryptography/src/vigenere_cipher",
       "opengenus_discuss": "",
