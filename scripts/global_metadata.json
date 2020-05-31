@@ -1,4 +1,25 @@
 {
+  "bernoulli_naive_bayes": {
+      "location": "code/artificial_intelligence/src/Bernoulli Naive Bayes",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/bernoulli-naive-bayes/",
+      "files": [
+        "README.md",
+        "bernoulli.py"
+      ],
+      "updated": "31-05-2020 14:30:00"
+    },
+   "largest-element-in-an-array": {
+      "location": "code/languages/cpp/largest-element-in-an-array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/largest-element-in-an-array/",
+      "files": [
+        "Largest_element.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 17:41:00"
+    }
+  },
   "square_root_decomposition": {
     "mos_algorithm": {
       "location": "code/square_root_decomposition/src/mos_algorithm",
@@ -7219,6 +7240,29 @@
       ],
       "updated": "18-05-2019 08:11:07"
     },
+    "linear_search": {
+      "location": "code/languages/c/linear_search",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "linear_search.c",
+        "linear_search_duplicates.c",
+        "linear_search_duplicates_linked_list.c",
+        "linear_search_linked_list.c "
+        "README.md"
+      ],
+      "updated": "31-05-2020 06:50:00"
+    },
+    "initializing_multimap": {
+      "location": "code/languages/cpp/initializing_multimap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "multimap.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 07:18:07"
+    },
     "languages": {
       "2D_array_Numpy": {
       "location": "code/languages/python/2D-array-Numpy",
@@ -7289,7 +7333,7 @@
         "README.md"
       ],
         "updated": "30-05-2020 04:57:47"
-      }
+      },
       "this_reference":{
         "location": "code/languages/Java/this_reference"
         "opengenus_discuss": "",
