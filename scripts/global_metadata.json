@@ -7219,6 +7219,16 @@
       ],
       "updated": "18-05-2019 08:11:07"
     },
+    "initializing_multimap": {
+      "location": "code/languages/cpp/initializing_multimap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "multimap.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 07:18:07"
+    },
     "languages": {
       "2D_array_Numpy": {
       "location": "code/languages/python/2D-array-Numpy",
