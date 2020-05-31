@@ -2041,7 +2041,7 @@
         "README.md",
         "free_vs_delete.cpp.c"
        ],
-      "updated": "29-05-2020 13:39:36"
+      "updated": "31-05-2020 16:01:43"
       }
     },
     "delete_array":{
@@ -2055,6 +2055,17 @@
       "updated": "29-05-2020 02:54:16"
     }
   },
+  "begin_and_end":{
+    "location": "code/languages/cpp/begin_and_end",
+    "opengenus_discuss": "",
+    "opengenus_iq": "",
+    "files": [
+      "README.md",
+      "begin_and_end.cpp"
+    ],
+    "updated": "29-05-2020 13:04:36"
+   }
+ },
   "search": {
     "binary_search": {
       "location": "code/search/src/binary_search",
