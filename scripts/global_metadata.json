@@ -33,12 +33,12 @@
       "updated": "31-05-2020 17:41:00"
     }
   },
-"Kadane's_algo": {
-      "location": "code/languages/Java/Kadane's_algo",
+"Kadane_algo": {
+      "location": "code/languages/Java/Kadane_algo",
       "opengenus_discuss": "",
       "opengenus_iq": "https://iq.opengenus.org/kadane-algorithm/",
       "files": [
-        "Kadane's_algo.java"
+        "Kadane_algo.java"
         "README.md"
       ],
       "updated": "31-05-2020 17:41:00"
