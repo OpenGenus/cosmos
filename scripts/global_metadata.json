@@ -7290,4 +7290,14 @@
       ],
         "updated": "30-05-2020 04:57:47"
       }
+      "this_reference":{
+        "location": "code/languages/Java/this_reference"
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/use-of-this-in-java/",
+        "files": [
+          "this.java"
+          "Readme.md"
+        ],
+          "updated": "30-05-2020 11:47:47"
+        }
    }
