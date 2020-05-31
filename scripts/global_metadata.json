@@ -6404,6 +6404,18 @@
       ],
       "updated": "31-05-2020 23:14:00"
     },
+    "playfair_cipher": {
+      "location": "code/cryptography/src/playfair_cipher",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/play-fair-cipher/",
+      "files": [
+        "README.md",
+        "playfair_cipher.c",
+        "playfair_cipher.cpp",
+        "playfair_cipher.java"
+      ],
+      "updated": "31-05-2020 23:14:00"
+    },
     "vigenere_cipher": {
       "location": "code/cryptography/src/vigenere_cipher",
       "opengenus_discuss": "",
