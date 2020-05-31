@@ -7083,6 +7083,16 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:07"
+    },
+    "Arithmetic_operations": {
+      "location" :  "code/mathematical_algorithms/src/Arithmetic_Operations",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files" : [
+        "calculator.cpp",
+        "README.md"
+      ],
+      "updated": "01-06-2020 03:05:13"
     }
   }
 }
