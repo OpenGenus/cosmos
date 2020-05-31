@@ -7333,5 +7333,15 @@
         "README.md"
       ],
         "updated": "30-05-2020 04:57:47"
-      }
+      },
+      "Java_String_Class":{
+        "location": "code/languages/Java/String"
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/java-lang-string-class/",
+        "files": [
+          "StringClass.java"
+          "Readme.md"
+        ],
+          "updated": "31-05-2020 07:45:47"
+        }
    }
