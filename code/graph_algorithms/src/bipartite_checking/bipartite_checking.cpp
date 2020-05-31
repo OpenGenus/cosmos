@@ -1,65 +1,56 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <queue>
 
-/* Part of Cosmos by OpenGenus Foundation */
+using namespace std;
 
-bool dfs(int v, std::vector<std::vector<int>> &g, std::vector<int> &dp)
+int bipartite(int g[][10], int s, int n)
 {
-    for (int u : g[v])
-    {
-        if (!dp[u])
-        {
-            dp[u] = 3 - dp[v]; // 3 - 1 = 2; 3 - 2 = 1
-            dfs(u, g, dp);
-        }
-        if (dp[u] != 3 - dp[v])
-            return false;
-    }
-
-    return true;
-}
-
-// Time complexity: O(|V| + |E|)
-bool check_bipartite(std::vector<std::vector<int>> &g)
-{
-    int n = (int) g.size();
-    std::vector<int> dp(n);
+    int *col = new int [n];
 
     for (int i = 0; i < n; i++)
-        if (!dp[i])
-        {
-            dp[i] = 1;
-            if (!dfs(i, g, dp))
-                return false;
-        }
+        col[i] = -1;
 
-    return true;
+    queue<int> q;
+
+    col[s] = 1;
+    q.push(s);
+
+    while (!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+
+        if (g[u][u] == 1)
+            return 0;
+
+        for (int v = 0; v < n; v++)
+        {
+            if (g[u][v] && col[v] == -1)
+            {
+                col[v] = 1 - col[u];
+                q.push(v);
+            }
+            else if (g[u][v] == 1 && col[u] == col[v])
+                return 0;
+        }
+    }
+
+    return 1;
 }
+
 
 int main()
 {
-    std::cout << "Enter the number of vertexes:" << std::endl;
-    int n;
-    std::cin >> n;
+    int g[10][10], n;
 
-    std::cout << "Enter the number of edges:" << std::endl;
-    int m;
-    std::cin >> m;
+    cin >> n;
 
-    std::cout << "Enter the edges in the following format: u v. 0 <= u, v < n" << std::endl;
-    std::vector<std::vector<int>> g(n);
-    for (int i = 0; i < m; i++)
-    {
-        int u, v;
-        std::cin >> u >> v;
-        g[u].push_back(v);
-        g[v].push_back(u);
-    }
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cin >> g[i][j];
 
-    if (check_bipartite(g))
-        std::cout << "This graph is bipartite.\n";
-    else
-        std::cout << "This graph is not bipartite.\n";
+    int x = bipartite(g, 0, n);
+
+    cout << x << endl;
     return 0;
 }
