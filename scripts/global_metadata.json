@@ -2021,6 +2021,17 @@
       "updated": "29-05-2020 05:22:42"
      }
     },
+    "Reduce_time_complexity_in_java":{
+      "location": "code/languages/Java/reduce_time_complexity.java",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "Reduce_Time_complexity"
+      ],
+      "updated": "29-05-2020 05:22:42"
+     }
+    },
     "double_to_string": {
       "location": "code/languages/cpp/double_to_string",
       "opengenus_discuss": "",
