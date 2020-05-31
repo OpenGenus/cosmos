@@ -30,6 +30,19 @@
       "updated": "18-05-2019 08:11:05"
     }
   },
+  "algorithm_applications":{
+    "binary_search":{
+      "distributing_candies":{
+        "location": "code/algorithm_applications/src/binary_search/distributing_candies/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/distribute-candies/",
+      "files": [
+        "CandyDistribution.java"
+      ],
+      "updated": "02-05-2020 19:40:00"
+      }
+    }
+  },
   "dynamic_programming": {
     "edit_distance": {
       "location": "code/dynamic_programming/src/edit_distance",
@@ -50,6 +63,16 @@
       ],
       "updated": "18-05-2019 08:11:05"
     },
+    "postmans_sort": {
+      "location": "code/sorting/src/postmans_sort",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/postman-sort/",
+      "files": [
+        "postmans_sort.cpp",
+        "readme.md"
+      ],
+      "updated": "29-05-2019 20:50:07"
+    },
     "rod_cutting": {
       "location": "code/dynamic_programming/src/rod_cutting",
       "opengenus_discuss": "",
@@ -63,6 +86,16 @@
         "rod_cutting.c"
       ],
       "updated": "18-05-2019 08:11:05"
+    },
+    "number_of_substring_divisible_by_8_but_not_3": {
+      "location": "code/dynamic_programming/src/number_of_substring_divisible_by_8_but_not_3",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/number-of-substrings-divisible-by-8-but-not-3/",
+      "files": [
+       "number_of_substrings.cpp",
+       "README.md"
+      ],
+      "updated": "24-05-2020 08:11:05"
     },
     "minimum_insertion_palindrome": {
       "location": "code/dynamic_programming/src/minimum_insertion_palindrome",
@@ -624,6 +657,15 @@
         "neural_style_transfer.ipynb"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "getting_started_with_ml": {
+      "location": "code/artificial_intelligence/src/getting_started_with_ml",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/how-i-mastered-ml-as-fresher/",
+      "files": [
+        "README.md"
+      ],
+      "updated": "29-05-2020 04:53:00"
     },
     "gradient_boosting_trees": {
       "location": "code/artificial_intelligence/src/gradient_boosting_trees",
@@ -1935,6 +1977,61 @@
         "example.c"
       ],
       "updated": "18-05-2019 08:11:06"
+     }
+    },
+    "2d-array-list":{
+      "location": "code/languages/Java/2d-array-list-java.java",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "2d-array-list-java.java"
+      ],
+      "updated": "29-05-2020 05:22:42"
+     }
+    },
+    "double_to_string": {
+      "location": "code/languages/cpp/double_to_string",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "double_to_string.cpp"
+      ],
+      "updated": "29-05-2020 14:02:06"
+      }
+    },
+    "2d-array":{
+    "location": "code/languages/Java/2d-array.java",
+    "opengenus_discuss": "",
+    "opengenus_iq": "",
+    "files": [
+        "README.md",
+        "2d-array.java"
+        ],
+        "updated": "29-05-2020 04:26:42"
+        }
+    },
+    "delete_vs_free":{
+      "location": "code/languages/cpp/delete_vs_free",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "free_vs_delete.cpp.c"
+       ],
+      "updated": "29-05-2020 13:39:36"
+      }
+    },
+    "delete_array":{
+      "location": "code/languages/c/delete_array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "del.c"
+      ],
+      "updated": "29-05-2020 02:54:16"
     }
   },
   "search": {
@@ -2560,6 +2657,16 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+    "min_operation_to_make_gcd_k": {
+      "location": "code/greedy_algorithms/src/min_operation_to_make_gcd_k",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/minimum-operations-to-make-gcd-k/",
+      "files": [
+        "min_operation.cpp",
+        "README.md"
+      ],
+      "updated": "24-05-2020 08:11:06"
+    },
     "longest_path_directed_acyclic_graph": {
       "location": "code/graph_algorithms/src/longest_path_directed_acyclic_graph",
       "opengenus_discuss": "",
@@ -2583,6 +2690,16 @@
       "updated": "18-05-2019 08:11:06"
     }
   },
+  "min_lateness": {
+      "location": "code/greedy_algorithms/src/min_lateness",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/scheduling-to-minimize-lateness/",
+      "files": [
+        "README.md",
+        "min_lateness.cpp"
+      ],
+      "updated": "18-04-2020 08:11:06"
+    },
   "theory_of_computation": {
     "nondeterministic_finite_atomaton": {
       "location": "code/theory_of_computation/src/nondeterministic_finite_atomaton",
@@ -3988,6 +4105,24 @@
         "sieve_of_eratosthenes.cpp"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "minimum_operations_elements_equal": {
+      "location": "code/mathematical_algorithms/src/minimum_operations_elements_equal/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/make-elements-equal/",
+      "files": [
+        "EqualizeEveryone.java"
+      ],
+      "updated": "29-04-2020 19:25:00"
+    },
+    "maximum_perimeter_triangle": {
+      "location": "code/mathematical_algorithms/src/maximum_perimeter_triangle/",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/maximum-perimeter-of-triangle/",
+      "files": [
+        "PerimeterTriangle.java"
+      ],
+      "updated": "29-04-2020 19:43:00"
     }
   },
   "main": {
@@ -6906,7 +7041,7 @@
     "insertion_sort": {
       "location": "code/sorting/src/insertion_sort",
       "opengenus_discuss": "",
-      "opengenus_iq": "",
+      "opengenus_iq": "https://iq.opengenus.org/insertion-sort-analysis/",
       "files": [
         "insertion_sort_extension.swift",
         "insertion_sort.hs",
@@ -6928,7 +7063,7 @@
         "insertion_sort.js",
         "insertion_sort.re"
       ],
-      "updated": "18-05-2019 08:11:06"
+      "updated": "06-05-2020 4:24:00" 
     },
     "bubble_sort": {
       "location": "code/sorting/src/bubble_sort",
@@ -7096,6 +7231,86 @@
         "README.md"
       ],
       "updated": "31-05-2020 06:50:00"
-    }
-  }
-}
+    },
+    "initializing_multimap": {
+      "location": "code/languages/cpp/initializing_multimap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "multimap.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 07:18:07"
+    },
+    "languages": {
+      "2D_array_Numpy": {
+      "location": "code/languages/python/2D-array-Numpy",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "2D-array-numpy.py",
+        "README.md"
+      ],
+      "updated": "24-04-2020 09:45:30"
+     },
+     "bootstrap-table": {
+      "location": "code/html/bootstrap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/bootstrap-tables",
+      "files": [
+        "tables.html",
+        "Readme.MD"
+      ],
+      "updated": "28-04-2020 19:15:46"
+    },
+    "Handlingexceptions": {
+      "location": "code/java/Handlingexceptions",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/handling-exceptions-in-java/",
+      "files": [
+        "Handlingexp.java",
+        "README.MD"
+      ],
+      "updated": "31-05-2020 00:01:57"
+    },
+      "armstrong_num_range": {
+        "location": "code/mathematical_algorithms/src/armstrong_num_range",
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/find-all-armstrong-numbers-in-a-range/",
+        "files": [
+        "armstrong_num_range.c",
+        "REAADME.md"
+      ],
+      "updated": "03-05-2020 21:15:57"
+    },
+    "counter_objects": {
+    "location": "code/languages/python/counter_objects",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/counter-objects-in-python/",
+      "files": [
+        "counter_obj.py",
+        "README.md"
+      ],
+      "updated": "29-05-2020 23:50:46"
+    },
+      "VGG-11":{
+      "location": "code/artificial_intelligence/src/neural_network"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/vgg-11",
+      "files": [
+        "vgg1.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 12:03:47"
+      },
+     "Inception_Model":{
+      "location": "code/artificial_intelligence/src/Inception_Pre-trained_Model"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/inception-pre-trained-cnn-model/",
+      "files": [
+        "Inception_model.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 04:57:47"
+      }
+   }
