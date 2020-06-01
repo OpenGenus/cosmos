@@ -1,4 +1,49 @@
 {
+
+  "explainBlockchain": {
+    "location": "code/blockchain/explainBlockchain.txt",
+    "opengenus_iq:": "https://iq.opengenus.org/p/f3110420-24e9-40f8-9ee5-79b5df2f88ff/"
+  },
+  "undo in git" : {
+    "location" : "code/git/undochanges",
+    "opengenus_iq": "https://iq.opengenus.org/p/5a525c5f-e1ac-418c-abac-ff118587dd83/"
+  },
+  "view hist" : {
+    "location" : "code/git/viewhist",
+    "opengenus_iq" : "https://iq.opengenus.org/p/911697a3-030c-481a-9793-39138000febd/"
+  },
+  "bernoulli_naive_bayes": {
+      "location": "code/artificial_intelligence/src/Bernoulli Naive Bayes",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/bernoulli-naive-bayes/",
+      "files": [
+        "README.md",
+        "bernoulli.py"
+      ],
+      "updated": "31-05-2020 14:30:00"
+    },
+   "largest-element-in-an-array": {
+      "location": "code/languages/cpp/largest-element-in-an-array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/largest-element-in-an-array/",
+      "files": [
+        "Largest_element.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 17:41:00"
+    }
+  },
+"Kadane_algo": {
+      "location": "code/languages/Java/Kadane_algo",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/kadane-algorithm/",
+      "files": [
+        "Kadane_algo.java"
+        "README.md"
+      ],
+      "updated": "31-05-2020 17:41:00"
+    }
+  },
   "square_root_decomposition": {
     "mos_algorithm": {
       "location": "code/square_root_decomposition/src/mos_algorithm",
@@ -62,6 +107,16 @@
         "README.md"
       ],
       "updated": "18-05-2019 08:11:05"
+    },
+    "postmans_sort": {
+      "location": "code/sorting/src/postmans_sort",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/postman-sort/",
+      "files": [
+        "postmans_sort.cpp",
+        "readme.md"
+      ],
+      "updated": "29-05-2019 20:50:07"
     },
     "rod_cutting": {
       "location": "code/dynamic_programming/src/rod_cutting",
@@ -152,6 +207,16 @@
       "opengenus_iq": "",
       "files": [
         "fibonacci.py"
+      ],
+      "updated": "30-05-2020 15:09:06"
+    },
+    "house_robber":{
+      "location": "code/dynamic_programming/src/house_robber",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "HouseRobber.java"
+        "README.md"
       ],
       "updated": "18-05-2019 08:11:05"
     },
@@ -647,6 +712,15 @@
         "neural_style_transfer.ipynb"
       ],
       "updated": "18-05-2019 08:11:06"
+    },
+    "getting_started_with_ml": {
+      "location": "code/artificial_intelligence/src/getting_started_with_ml",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/how-i-mastered-ml-as-fresher/",
+      "files": [
+        "README.md"
+      ],
+      "updated": "29-05-2020 04:53:00"
     },
     "gradient_boosting_trees": {
       "location": "code/artificial_intelligence/src/gradient_boosting_trees",
@@ -1958,8 +2032,85 @@
         "example.c"
       ],
       "updated": "18-05-2019 08:11:06"
+     }
+    },
+    "2d-array-list":{
+      "location": "code/languages/Java/2d-array-list-java.java",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "2d-array-list-java.java"
+      ],
+      "updated": "29-05-2020 05:22:42"
+     }
+    },
+    "Reduce_time_complexity_in_java":{
+      "location": "code/languages/Java/reduce_time_complexity.java",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "Reduce_Time_complexity"
+      ],
+      "updated": "29-05-2020 05:22:42"
+     }
+    },
+    "double_to_string": {
+      "location": "code/languages/cpp/double_to_string",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "double_to_string.cpp"
+      ],
+      "updated": "29-05-2020 14:02:06"
+      }
+    },
+    "2d-array":{
+    "location": "code/languages/Java/2d-array.java",
+    "opengenus_discuss": "",
+    "opengenus_iq": "",
+    "files": [
+        "README.md",
+        "2d-array.java"
+        ],
+        "updated": "29-05-2020 04:26:42"
+        }
+    },
+    "delete_vs_free":{
+      "location": "code/languages/cpp/delete_vs_free",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "free_vs_delete.cpp.c"
+       ],
+      "updated": "31-05-2020 16:01:43"
+      }
+    },
+    "delete_array":{
+      "location": "code/languages/c/delete_array",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "README.md",
+        "del.c"
+      ],
+      "updated": "29-05-2020 02:54:16"
     }
   },
+  "begin_and_end":{
+    "location": "code/languages/cpp/begin_and_end",
+    "opengenus_discuss": "",
+    "opengenus_iq": "",
+    "files": [
+      "README.md",
+      "begin_and_end.cpp"
+    ],
+    "updated": "29-05-2020 13:04:36"
+   }
+ },
   "search": {
     "binary_search": {
       "location": "code/search/src/binary_search",
@@ -6318,6 +6469,18 @@
       ],
       "updated": "18-05-2019 08:11:06"
     },
+    "autokey_cipher": {
+      "location": "code/cryptography/src/autokey_cipher",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/auto-key-cipher/",
+      "files": [
+        "README.md",
+        "autokey_cipher.c",
+        "autokey_cipher.cpp",
+        "autokey_cipher.java"
+      ],
+      "updated": "31-05-2020 23:14:00"
+    },
     "vigenere_cipher": {
       "location": "code/cryptography/src/vigenere_cipher",
       "opengenus_discuss": "",
@@ -7145,6 +7308,29 @@
       ],
       "updated": "18-05-2019 08:11:07"
     },
+    "linear_search": {
+      "location": "code/languages/c/linear_search",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "linear_search.c",
+        "linear_search_duplicates.c",
+        "linear_search_duplicates_linked_list.c",
+        "linear_search_linked_list.c "
+        "README.md"
+      ],
+      "updated": "31-05-2020 06:50:00"
+    },
+    "initializing_multimap": {
+      "location": "code/languages/cpp/initializing_multimap",
+      "opengenus_discuss": "",
+      "opengenus_iq": "",
+      "files": [
+        "multimap.cpp"
+        "README.md"
+      ],
+      "updated": "31-05-2020 07:18:07"
+    },
     "languages": {
       "2D_array_Numpy": {
       "location": "code/languages/python/2D-array-Numpy",
@@ -7165,6 +7351,86 @@
         "Readme.MD"
       ],
       "updated": "28-04-2020 19:15:46"
-    }
-  }
-}
+    },
+    "Handlingexceptions": {
+      "location": "code/java/Handlingexceptions",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/handling-exceptions-in-java/",
+      "files": [
+        "Handlingexp.java",
+        "README.MD"
+      ],
+      "updated": "31-05-2020 00:01:57"
+    },
+      "armstrong_num_range": {
+        "location": "code/mathematical_algorithms/src/armstrong_num_range",
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/find-all-armstrong-numbers-in-a-range/",
+        "files": [
+        "armstrong_num_range.c",
+        "REAADME.md"
+      ],
+      "updated": "03-05-2020 21:15:57"
+    },
+    "counter_objects": {
+    "location": "code/languages/python/counter_objects",
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/counter-objects-in-python/",
+      "files": [
+        "counter_obj.py",
+        "README.md"
+      ],
+      "updated": "29-05-2020 23:50:46"
+    },
+      "VGG-11":{
+      "location": "code/artificial_intelligence/src/neural_network"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/vgg-11",
+      "files": [
+        "vgg1.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 12:03:47"
+      },
+     "Inception_Model":{
+      "location": "code/artificial_intelligence/src/Inception_Pre-trained_Model"
+      "opengenus_discuss": "",
+      "opengenus_iq": "https://iq.opengenus.org/inception-pre-trained-cnn-model/",
+      "files": [
+        "Inception_model.md"
+        "README.md"
+      ],
+        "updated": "30-05-2020 04:57:47"
+      },
+      "Binary_GCD_Algorithm":{
+      "location": "code/mathematical_algorithms/src/Binary_GCD_Algorithm"
+      "opengenus_discuss" : "",
+      "opengenus_iq": " https://iq.opengenus.org/p/27a7354e-a256-4fcd-876e-5ffdbdf9b668/",
+      "files": [
+       "Binary_GCD_Iterative.cpp"
+       "Binary_ GCD_Recursive.cpp"
+       "README.md"
+      ],
+        "updated": "31-05-2020 01:08:47"
+      },
+      "this_reference":{
+        "location": "code/languages/Java/this_reference"
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/use-of-this-in-java/",
+        "files": [
+          "this.java"
+          "Readme.md"
+        ],
+          "updated": "30-05-2020 11:47:47"
+      },
+        "Java_String_Class":{
+        "location": "code/languages/Java/String"
+        "opengenus_discuss": "",
+        "opengenus_iq": "https://iq.opengenus.org/java-lang-string-class/",
+        "files": [
+          "StringClass.java"
+          "Readme.md"
+        ],
+          "updated": "31-05-2020 07:45:47"
+        }
+   }
