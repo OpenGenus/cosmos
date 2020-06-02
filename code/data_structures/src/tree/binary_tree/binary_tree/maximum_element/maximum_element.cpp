@@ -1,8 +1,6 @@
-
 #include<bits/stdc++.h>  
 #include<iostream> 
 using namespace std;  
-  
 // A tree node  
 class Node  
 {  
@@ -20,7 +18,6 @@ class Node
         this->right = NULL; 
     } 
 };  
-  
 // Returns maximum value in a given  
 // Binary Tree  
 int findMax(Node* root)  
@@ -28,7 +25,6 @@ int findMax(Node* root)
     // Base case  
     if (root == NULL)  
     return INT_MIN;  
-  
     // Return maximum of 3 values:  
     // 1) Root's data 2) Max in Left Subtree  
     // 3) Max in right subtree  
@@ -41,7 +37,6 @@ int findMax(Node* root)
     res = rres;  
     return res;  
 }  
-   
 int main()  
 {  
     Node*NewRoot = NULL;  
@@ -52,10 +47,7 @@ int main()
     root->left->right->left = new Node(1);  
     root->left->right->right = new Node(11);  
     root->right->right = new Node(9);  
-    root->right->right->left = new Node(4);  
-  
-    cout << "Maximum element is " 
-         << findMax(root) << endl;  
-  
+    root->right->right->left = new Node(4);   
+    cout << "Maximum element is "<< findMax(root) << endl; // The maximum element in the given tree is 11
     return 0;  
 }  
