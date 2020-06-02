@@ -1,8 +1,6 @@
-
 #include<iostream>
 #include<stdio.h>
 using namespace std;
-
 /* Link list Node */
 struct Node {
   int data;
@@ -12,9 +10,7 @@ struct Node {
     next = NULL;
   }
 };
-
 int intersectPoint(struct Node* head1, struct Node* head2);
-
 void append(struct Node** head_ref, struct Node **tail_ref, int new_data)
 {
     struct Node* new_node = new Node(new_data);
@@ -24,17 +20,14 @@ void append(struct Node** head_ref, struct Node **tail_ref, int new_data)
         (*tail_ref)->next = new_node;
     *tail_ref = new_node;
 }
-
-
 int main()
 {
     int T,i,n1, n2, n3,l,k;
-
     cout<<"Enter the number of test cases"<<endl;
     cin>>T;
     while(T--)
     {
-	cout<<"Enter the  number of nodes before merge point in 1st list,number of nodes before merge point in 2nd list and number of nodes after merge point"<<endl;
+	cout<<"Enter the  number of nodes before merge point in 1st list,number of nodes before merge point in 2nd list and number of nodes after merge point"	      <<endl;
         cin>>n1>>n2>>n3;
 	cout<<"Enter the nodes"<<endl;
         struct Node *head1 = NULL,  *tail1 = NULL;
@@ -55,18 +48,14 @@ int main()
             cin>>l;
             append(&head3, &tail3, l);
         }
-
         if (tail1 != NULL)
         tail1->next = head3;
         if (tail2 != NULL)
         tail2->next = head3;
-
-        cout <<"The intersection point is " << intersectPoint(head1, head2) << endl;
+	 cout <<"The intersection point is " << intersectPoint(head1, head2) << endl;
     }
     return 0;
 }
-
-
 /* Should return data of intersection point of two linked
    lists head1 and head2.
    If there is no intersecting point, then return -1. */
@@ -100,8 +89,5 @@ int intersectPoint(Node* head1, Node* head2)
         head1 = head1->next;
         head2 = head2->next;
     }
-    return -1;
-    
+    return -1;   
 }
-
-
