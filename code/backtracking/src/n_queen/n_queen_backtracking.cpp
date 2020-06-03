@@ -4,16 +4,16 @@ using namespace std;
 
 bool isSafe(char board[][100], int row, int column, int n)
 {
-    int dir[][] = {{-1, 0}, {0, -1}, {-1, -1}, {-1, 1}, {1, 0}, {0, 1}, {1, 1}, {1, -1}};
-    for (int i = 0; i < 8; i++)
+    int dir[][] = {{-1, 0}, {0, -1}, {-1, -1}, {-1, 1}, {1, 0}, {0, 1}, {1, 1}, {1, -1}};   //Created a direction array
+    for (int i = 0; i < 8; i++)                                                             // Runs the loop till the size of dir array
     {
         for (int rad = 1; rad < n; rad++)
         {
-            int new_row = row + rad * dir[i][0];
-            int new_column = column + rad * dir[i][1];
+            int new_row = row + rad * dir[i][0];                                            //Creates all the possible directions in which queen can move in a row
+            int new_column = column + rad * dir[i][1];                                      //Creates all the possible directions in which queen can move in a column 
             if (new_row < 0 || new_column < 0 || new_row >= n || new_column >= n)
                 break;
-            if (board[new_row][new_column]=='Q')
+            if (board[new_row][new_column]=='Q')                                            //If a queen is found then return false
                 return false;
         }
     }
