@@ -4,35 +4,19 @@ using namespace std;
 
 bool isSafe(char board[][100], int row, int column, int n)
 {
-
-    //check that whole row should not have a queen
-    for (int i = 0; i < n; i++)
-        if (board[row][i] == 'Q')
-            return false;
-
-    //check that whole column should not have a queen
-    for (int i = 0; i < n; i++)
-        if (board[i][column] == 'Q')
-            return false;
-
-    //check that left diagonal to the current cell should not have queen
-    int p = row, q = column;
-    while (p >= 0 && q >= 0)
+    int dir[][] = {{-1, 0}, {0, -1}, {-1, -1}, {-1, 1}, {1, 0}, {0, 1}, {1, 1}, {1, -1}};
+    for (int i = 0; i < 8; i++)
     {
-        if (board[p][q] == 'Q')
-            return false;
-        p--; q--;
+        for (int rad = 1; rad < n; rad++)
+        {
+            int new_row = row + rad * dir[i][0];
+            int new_column = column + rad * dir[i][1];
+            if (new_row < 0 || new_column < 0 || new_row >= n || new_column >= n)
+                break;
+            if (board[new_row][new_column]=='Q')
+                return false;
+        }
     }
-
-    //check that right diagonal to the current cell should not have queen
-    p = row; q = column;
-    while (p >= 0 && q <= n - 1)
-    {
-        if (board[p][q] == 'Q')
-            return false;
-        p--; q++;
-    }
-
     return true;
 }
 
