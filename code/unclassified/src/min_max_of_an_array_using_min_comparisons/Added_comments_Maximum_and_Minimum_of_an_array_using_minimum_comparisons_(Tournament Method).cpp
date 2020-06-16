@@ -3,8 +3,7 @@
 #include <iostream>
 #include <vector>
 
-
-// structure is used to return two values from minMax() 
+//Structure is used to return two values from minMax() 
 struct minMax {
     int min;
     int max;
@@ -12,11 +11,14 @@ struct minMax {
 
 struct minMax tournamentMethod(std::vector<int> a, int beg, int end) {
     struct minMax min_max;
-    if (beg == end) {           // If there is only on element 
+    //If there is only one element
+    if (beg == end) {            
         min_max.min = a[beg];
         min_max.max = a[beg];
         return min_max;
-    } else if (end == beg + 1) {    // If there are two elements
+    }
+    //If there are two elements
+    else if (end == beg + 1) {    
         if (a[beg] < a[end]) {
             min_max.min = a[beg];
             min_max.max = a[end];
@@ -26,16 +28,19 @@ struct minMax tournamentMethod(std::vector<int> a, int beg, int end) {
         }
         return min_max;
     }
-
-    int mid = (beg + end) / 2;     //If there are more than 2 elements
+    //If there are more than 2 elements
+    int mid = (beg + end) / 2;     
     struct minMax min_max_left = tournamentMethod(a, beg, mid);
     struct minMax min_max_right = tournamentMethod(a, mid + 1, end);
 
-    if (min_max_left.min < min_max_right.min) {   //compare minimums of two parts
+    //Compare minimums of two parts
+    if (min_max_left.min < min_max_right.min) {   
         min_max.min = min_max_left.min;
     } else
         min_max.min = min_max_right.min;
-    if (min_max_left.max > min_max_right.max)     //compare maximums of two parts
+    
+    //Compare maximums of two parts
+    if (min_max_left.max > min_max_right.max)     
         min_max.max = min_max_left.max;
     else
         min_max.max = min_max_right.max;
