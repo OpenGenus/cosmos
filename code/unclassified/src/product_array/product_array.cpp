@@ -5,7 +5,7 @@ except arr[i]. Solve it without division operator in O(n) time.*/
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-using namespace std;
+
 // O(n^2) approach -> naive approach
 
 void product_array_naive(std::vector<int> a) {
@@ -56,10 +56,10 @@ void product_array(std::vector<int> a) {
    for (int i = 0; i < n; i++)
       product[i] = left[i] * right[i];
 
-   cout << "Product array is : \n";
+   std::cout << "Product array is : \n";
    for (int i : product)
-      cout << i << " ";
-   cout << "\n";
+      std::cout << i << " ";
+   std::cout << "\n";
 }
 
 int main() {
