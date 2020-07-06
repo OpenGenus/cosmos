@@ -20,10 +20,10 @@ void product_array_naive(std::vector<int> a) {
          }
       }
    }
-   cout << "The Product array using naive approach is : \n";
+   std::cout << "The Product array using naive approach is : \n";
    for (int i : arr)
-      cout << i << " ";
-   cout << "\n";
+      std::cout << i << " ";
+   std::cout << "\n";
 }
 
 // O(n) -> optimized approach
