@@ -4,7 +4,7 @@
 
 
 # Part of Cosmos by OpenGenus Foundation
-class Stack(object):
+class Stack:
     # Quasi-Constructor
     def __init__(self):
         # Object data members
@@ -13,6 +13,9 @@ class Stack(object):
     # When the client requests a push simply add the data to the list
     def push(self, data):
         self.stack_arr.append(data)
+
+    def is_empty(self):
+        return len(self.stack_arr) == 0
 
     # When the client requests a pop just run the pop function on the array
     def pop(self):
