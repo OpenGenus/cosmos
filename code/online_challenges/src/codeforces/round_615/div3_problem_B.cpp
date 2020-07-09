@@ -6,7 +6,7 @@ void solve()
         cin >> n;
 	int x,y;
 	string ans = "";
-	ll max = 0;
+	int max = 0;
 	vector<vector<int> > arr(1001);
 	for(int i=0; i<n;i++)
 	{
@@ -22,7 +22,7 @@ void solve()
 	int counter = 0;
 	for(int i=0; i<max+1; i++)
 	{
-		for(int j=0, j<arr[i].size();j++)
+		for(int j=0; j<arr[i].size();j++)
 		{
 			if(arr[i][j] < counter)
 			{
@@ -59,7 +59,7 @@ void solve()
 
 int main()
 {
-    int t=1;
+    int t;
     cin >> t;
     while(t--)
     	solve();
