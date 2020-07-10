@@ -15,4 +15,4 @@ def cipher(plaintext):
 if __name__ == "__main__":
     import sys
 
-    print cipher(sys.argv[1])
+    print(cipher(sys.argv[1]))
