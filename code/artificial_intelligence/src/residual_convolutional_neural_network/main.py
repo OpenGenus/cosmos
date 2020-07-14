@@ -88,6 +88,7 @@ class ConvNet(nn.Module):
 
 
 is_cuda = torch.cuda.is_available()
+print(f"Using {'GPU' if is_cuda else 'CPU'}")
 device = torch.device("cuda" if is_cuda else "cpu")
 
 kwargs = {"batch_size": params.batch_size}
