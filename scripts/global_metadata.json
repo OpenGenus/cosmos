@@ -7288,6 +7288,20 @@
       ],
       "updated": "18-05-2019 08:11:07"
     },
+
+    "PHP-language-basic-code": {
+        "location": "code/languages/PHP",
+        "opengenus_discuss": "",
+        "opengenus_iq": "",
+        "files": [
+          "array&loops.php",
+          "date&time.php",
+          "object.php",
+          "variables&scope.php"
+        ],
+        "updated": "26-04-2020 20:35:08"
+      },
+
     "shaker_sort": {
       "location": "code/sorting/src/shaker_sort",
       "opengenus_discuss": "",
