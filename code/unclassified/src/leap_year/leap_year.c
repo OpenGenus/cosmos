@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdbool.h>
 bool checkLeapYear(int year)
 {
     if (year % 400 == 0)
