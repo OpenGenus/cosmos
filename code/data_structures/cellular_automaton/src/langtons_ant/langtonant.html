@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: 1px solid #000000;
+    }
+    div {
+      position: relative;
+    }
+  </style>
+  <script>
+    //Size of the pixel to display (1 is too small to really see)
+    var scale = 10;
+
+    function fillPixel(x, y) {
+      var canvas = document.getElementById("gridCanvas").getContext("2d");
+      canvas.fillRect(x * scale, y * scale, scale, scale);
+    }
+
+    function clearPixel(x, y) {
+      var canvas = document.getElementById("gridCanvas").getContext("2d");
+      canvas.clearRect(x * scale, y * scale, scale, scale);
+    }
+
+    function isFilled(x, y) {
+      var canvas = document.getElementById("gridCanvas").getContext("2d");
+      var imageData = canvas.getImageData(x * scale, y * scale, scale, scale).data;
+
+      //Don't need to check them all but doesn't hurt
+      for (var i = 0; i < imageData.length; i++) {
+        if (imageData[i] > 0) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function drawAnt(x, y) {
+      var canvas = document.getElementById("antCanvas").getContext("2d");
+      canvas.clearRect(0, 0, document.getElementById("antCanvas").width, document.getElementById("antCanvas").height);
+
+      canvas.strokeStyle = "#FF0000";
+      canvas.strokeRect(x * scale + 2, y * scale + 2, scale - 4, scale - 4);
+    }
+
+    var direction = [{
+        dx: -1,
+        dy: 0
+      }, //Left
+      {
+        dx: 0,
+        dy: 1
+      }, //Up
+      {
+        dx: 1,
+        dy: 0
+      }, //Right
+      {
+        dx: 0,
+        dy: -1
+      } //Down
+    ];
+
+    var directionIndex = 0;
+
+    function turnLeft() {
+      directionIndex--;
+
+      //Should only iterate once
+      while (directionIndex < 0) {
+        directionIndex = directionIndex + 4;
+      }
+    }
+
+    function turnRight() {
+      directionIndex = (directionIndex + 1) % 4;
+    }
+
+    //height/width is 200 with a scale of 10 so 20 coordinates. 10 is half
+    var x = 10;
+    var y = 10;
+
+
+    function nextMove() {
+      //Flip current
+      if (isFilled(x, y)) {
+        clearPixel(x, y);
+      } else {
+        fillPixel(x, y);
+      }
+
+      //Step forward
+      x += direction[directionIndex].dx;
+      y += direction[directionIndex].dy;
+
+      //Turn for next move
+      if (isFilled(x, y)) {
+        turnLeft();
+      } else {
+        turnRight();
+      }
+
+      drawAnt(x, y);
+    }
+  </script>
+</head>
+
+<body>
+
+  <h2>Langton Ant</h2>
+
+  <button type="button" onclick="nextMove()">Step</button><br><br>
+
+  <div>
+    <canvas id="gridCanvas" width="200" height="200" style="z-index: 0;"></canvas>
+    <canvas id="antCanvas" width="200" height="200" style="z-index: 1;"></canvas>
+  </div>
+
+</body>
+
+</html>
