@@ -1,24 +1,29 @@
-/* Part of Cosmos by OpenGenus Foundation */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func bubbleSort(arrayzor []int) {
-	swapped := true
-	for swapped {
-		swapped = false
-		for i := 0; i < len(arrayzor)-1; i++ {
-			if arrayzor[i+1] < arrayzor[i] {
-				arrayzor[i], arrayzor[i+1] = arrayzor[i+1], arrayzor[i]
-				swapped = true
+func bubbleSort(tosort []int) {
+	size := len(tosort)
+	if size < 2 {
+		return
+	}
+	for i := 0; i < size; i++ {
+		for j := size - 1; j >= i+1; j-- {
+			if tosort[j] < tosort[j-1] {
+				tosort[j], tosort[j-1] = tosort[j-1], tosort[j]
 			}
 		}
 	}
 }
 
 func main() {
-	arrayzor := []int{1, 6, 2, 4, 9, 0, 5, 3, 7, 8}
-	fmt.Println("Unsorted array: ", arrayzor)
-	bubbleSort(arrayzor)
-	fmt.Println("Sorted array: ", arrayzor)
+	unsorted := []int{1, 199, 3, 2, 5, 80, 99, 500}
+	
+	fmt.Println("Before : ", unsorted)
+	
+	bubbleSort(unsorted)
+	
+	fmt.Println("After : ", unsorted)
 }
