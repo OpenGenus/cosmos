@@ -1,50 +1,42 @@
-/*
- * Part of Cosmos by OpenGenus Foundation
- *
- * bubble sort synopsis
- *
- * template<typename _Bidirectional_Iter, typename _Compare>
- * void
- * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare);
- *
- * template<typename _Bidirectional_Iter>
- * void
- * bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end);
- */
 
-#include <functional>
-
-template<typename _Bidirectional_Iter, typename _Compare>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end, _Compare compare)
-{
-    if (begin != end)
+#include <iostream>
+using namespace std;
+int recbub(int arr[],int n)
+{   
+   int i,temp;
+   if(n==1)
+   {
+   return n;
+   }
+    else
     {
-        auto frontOfSorted = end;
-
-        for (--frontOfSorted; frontOfSorted != begin; --frontOfSorted)
-        {
-            bool swapped{};
-            for (auto j = begin; j != frontOfSorted; ++j)
-            {
-                auto nextOfJ = j;
-                if (compare(*++nextOfJ, *j))
-                {
-                    std::iter_swap(nextOfJ, j);
-                    swapped = true;
-                }
-            }
-            if (swapped == false)
-                break;
-        }
+    for(i=0;i<n-1;i++)
+    {
+        if(arr[i]>arr[i+1])
+                      {
+                          temp=arr[i];
+                          arr[i]=arr[i+1];
+                          arr[i+1]=temp;
+                      }}
+        recbub(arr, n-1);
     }
-}
-
-template<typename _Bidirectional_Iter>
-void
-bubbleSort(_Bidirectional_Iter begin, _Bidirectional_Iter end)
-{
-    using value_type = typename std::iterator_traits<_Bidirectional_Iter>::value_type;
-
-    bubbleSort(begin, end, std::less<value_type>());
-}
+                      }
+     int main()
+                      {
+           int ar[100],size,j,b;
+                          cout<<"Enter size of array:\n";
+                          cin>>size;
+                          cout<<"Enter the elements of array:\n";
+                          for(j=0;j<size;j++)
+                          {
+                              cin>>ar[j];
+                          }
+                          b=recbub(ar,size);
+                          cout<<"Sorted elements of array are:\n";
+                          for(j=0;j<size;j++)
+                          {
+                              cout<<ar[j]<<" ";
+                          }
+                          return 0;
+                      }
+        
