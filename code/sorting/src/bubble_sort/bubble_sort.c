@@ -1,13 +1,13 @@
-/*Part of Cosmos by OpenGenus Foundation*/
+/*Part of Cosmos by OpenGenus Foundation*/nflic
 
-#include <stdio.h>
+#include <stdio.h>  //pre-defined libraries
 typedef int bool;
-#define true 1
-#define false 0
+#define true 1 
+#define false 0 
 
-void swap(int *p, int *q)
+void swap(int *p, int *q) //Swap function
 {
-	int temp = *p;
+	int temp = *p;//Swapping position of two variable with respect to a third one
 	*p = *q;
 	*q = temp;
 }
@@ -23,22 +23,21 @@ void bubbleSort(int a[], int n)
 		swapped = false;
 		for (j = 0; j < n - i - 1; j++)
 		{
-			if (a[j] > a[j + 1])
+			if (a[j] > a[j + 1])//Condition check to see if greater than swap their position
 			{
 				swap(&a[j], &a[j + 1]);
-				swapped = true;
+				swapped = true; //using boolean operator
 			}
 		}
 
 
-		if (swapped == false)
+		if (swapped == false) //checking for alternative condition
 			break;/*break if array is sorted
 					i.e. no swapping possible*/
 	}
 }
 
-//printing sorted array
-void print(int a[], int size)
+
 {
 	int i;
 	for (i = 0; i < size; i++)
@@ -48,8 +47,7 @@ void print(int a[], int size)
 
 
 
-int main()
-{
+
 	int n, i;
 	printf("What is the size of the array?\n");//taking size of array as input from user
 	scanf("%d",&n);
@@ -57,9 +55,8 @@ int main()
 	printf("Enter elements of the array one by one\n");//storing elements in array
 	for(i = 0; i < n; i++){
 		scanf("\n%d",&a[i]);
-	}
-	bubbleSort(a, n);
+
 	printf("Sorted array: ");
-	print(a, n);
+	print(a, n);  //using upper function
 	return 0;
 }
