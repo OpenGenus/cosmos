@@ -14,6 +14,6 @@ def catalan(n):
         res += catalan(i) * catalan(n - i - 1)
     return res
 
-# Driver function to print first 15 catalan numbers
+# Driver function to print first 10 catalan numbers
 for i in range(10):
     print(catalan(i), end=" ")
