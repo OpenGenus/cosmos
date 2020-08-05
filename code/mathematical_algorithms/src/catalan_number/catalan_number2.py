@@ -7,7 +7,7 @@ def catalanNum(n):
     #Initialize result of a catalan number to 0
     result = 0
 
-    # Catalan(n + 1) = summantion of Catalan(i) * Catalan(n - i) for all i from 0 to n
+    # Catalan(n + 1) = summation of Catalan(i) * Catalan(n - i) for all i from 0 to n
     for i in range(n):
         result += catalanNum(i) * catalanNum(n - i - 1)
     return result
