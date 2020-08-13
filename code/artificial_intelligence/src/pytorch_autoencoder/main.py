@@ -98,7 +98,7 @@ for epoch in range(params.epochs):
     test_outputs = []
 
     with torch.no_grad():
-        for (data, _) in test_loader:
+        for data, _ in test_loader:
             data = data.to(device)
             output = model(data)
 
