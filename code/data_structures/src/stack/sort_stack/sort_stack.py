@@ -1,43 +1,54 @@
-class stack:
-    def __init__(self):
-        self.__stack = []
-        pass
-
-    # method to parse_stack if have already
-    def parse_stack(self, stack):
-        self.__stack = stack
-        pass
-
-    def push(self, value):
-        self.__stack.append(value)
-        pass
-
-    def pop(self):
-        self.__stack.pop()
-        pass
-
-    def get_elements(self):
-        return self.__stack
-
-    def sort(self):
-        self.__stack = sorted(self.__stack)
-
-    pass
-
-
-# defining stack class instance
-stk = stack()
-
-# pushing elements in stack
-stk.push(10)
-stk.push(2)
-stk.push(-1)
-
-# viewing
-print("Original Stack : ", stk.get_elements())
-
-# sorting stack
-stk.sort()
-
-# viewing again
-print("Sorted Stack : ", stk.get_elements())
+def sortedInsert(s , element): 
+      
+    # Base case: Either stack is empty or newly inserted 
+    # item is greater than top (more than all existing) 
+    if len(s) == 0 or element > s[-1]: 
+        s.append(element) 
+        return
+    else: 
+          
+        # Remove the top item and recur 
+        temp = s.pop() 
+        sortedInsert(s, element) 
+  
+        # Put back the top item removed earlier 
+        s.append(temp) 
+  
+# Method to sort stack 
+def sortStack(s): 
+      
+    # If stack is not empty 
+    if len(s) != 0: 
+          
+        # Remove the top item 
+        temp = s.pop() 
+          
+        # Sort remaining stack 
+        sortStack(s) 
+          
+        # Push the top item back in sorted stack 
+        sortedInsert(s , temp) 
+  
+# Printing contents of stack 
+def printStack(s): 
+    for i in s[::-1]: 
+            print(i , end=" ") 
+    print() 
+      
+# Driver Code 
+if __name__=='__main__': 
+    s = [ ] 
+    s.append(30) 
+    s.append(-5) 
+    s.append(18) 
+    s.append(14) 
+    s.append(-3) 
+  
+    print("Stack elements before sorting: ") 
+    printStack(s) 
+  
+    sortStack(s) 
+  
+    print("\nStack elements after sorting: ") 
+    printStack(s) 
+  
