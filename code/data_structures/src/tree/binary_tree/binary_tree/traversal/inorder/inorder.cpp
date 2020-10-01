@@ -1,4 +1,4 @@
-void printInorder(struct Node* node) 
+void inorder(struct Node* node) 
 { 
     if (node == NULL) 
         return; 
