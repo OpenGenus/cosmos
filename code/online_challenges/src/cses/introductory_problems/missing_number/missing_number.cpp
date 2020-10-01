@@ -9,7 +9,7 @@ int main()
 {
     ll n, sum = 0, temp;
     cin >> n;
-    for (ll i = 0; i < n-1; i++)
+    for (ll i = 0; i < n - 1; i++)
     {
         cin >> temp;
         sum += temp;
