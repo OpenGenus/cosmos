@@ -14,18 +14,27 @@ public class Interpolation {
 	        // in array must be in range defined by corner
 	        while (lo <= hi && x >= arr[lo] && x <= arr[hi])
 	        {
+				// Estimate the position of the target element
 	            int pos = lo + (((hi-lo) /
 	                  (arr[hi]-arr[lo]))*(x - arr[lo]));
 	      
+				// If the element at the current position is equal to the target element,
+				// return the current position
 	            if (arr[pos] == x)
 	                return pos;
 	      
+				// If the element at the current position is smaller than the target element,
+				// discard the elements at indexes smaller or equal to the current position
 	            if (arr[pos] < x)
 	                lo = pos + 1;
 	      
+		  		// If the element at the current position is bigger than the target element,
+				// discard the elements at indexes bigger or equal to the current position
 	            else
 	                hi = pos - 1;
 	        }
+			
+			// Return -1 if the target element was not found
 	        return -1;
 	    }
 	   
