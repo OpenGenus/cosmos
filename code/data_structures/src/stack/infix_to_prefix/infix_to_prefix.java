@@ -1,141 +1,70 @@
-// To include java library
-import java.util.*;
-
-public class infixPrefix {
-
-    /**
-      * This method checks if given character is
-      * an operator or not.
-      * @param c character input
-      */
-    static boolean isOperator(char c) {
-        return (!(c >= 'a' && c <= 'z') &&
-               !(c >= '0' && c <= '9') &&
-               !(c >= 'A' && c <= 'Z'));
+import java.util.Stack;
+public class InfixToPreFix {
+    static int precedence(char c){
+        switch (c){
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+            case '^':
+                return 3;
+        }
+        return -1;
     }
 
-    /**
-      * This method checks priority of given operator.
-      * @param c character input
-      */
-    static int getPriority(char C) {
-        if (C == '-' || C == '+')
-            return 1;
-        else if (C == '*' || C == '/')
-            return 2;
-        else if (C == '^')
-            return 3;
-        return 0;
-    }
+    static StringBuilder infixToPreFix(String expression){
 
-    /**
-      * This method converts infix
-      * expression to prefix expression.
-      * @param infix string input
-      */
-    static String infixToPrefix(String infix) {
-        // stack for operators.
-        Stack<Character> operators = new Stack<Character>();
+        StringBuilder result = new StringBuilder();
+        StringBuilder input = new StringBuilder(expression);
+        input.reverse();
+        Stack<Character> stack = new Stack<Character>();
 
-        // stack for operands.
-        Stack<String> operands = new Stack<String>();
-        for (int i = 0; i < infix.length(); i++) {
-            // If current character is an
-            // opening bracket, then
-            // push into the operators stack.
-            if (infix.charAt(i) == '(') {
-                operators.push(infix.charAt(i));
+        char [] charsExp = new String(input).toCharArray();
+        for (int i = 0; i < charsExp.length; i++) {
+
+            if (charsExp[i] == '(') {
+                charsExp[i] = ')';
+                i++;
             }
+            else if (charsExp[i] == ')') {
+                charsExp[i] = '(';
+                i++;
+            }
+        }
+        for (int i = 0; i <charsExp.length ; i++) {
+            char c = charsExp[i];
 
-            // If current character is a
-            // closing bracket, then pop from
-            // both stacks and push result
-            // in operands stack until
-            // matching opening bracket is
-            // not found.
-            else if (infix.charAt(i) == ')') {
-                while (!operators.empty() && operators.peek() != '(') {
-                    // operand 1
-                    String op1 = operands.peek();
-                    operands.pop();
-                    // operand 2
-                    String op2 = operands.peek();
-                    operands.pop();
-                    // operator
-                    char op = operators.peek();
-                    operators.pop();
-                    // Add operands and operator
-                    // in form operator +
-                    // operand1 + operand2.
-                    String tmp = op + op2 + op1;
-                    operands.push(tmp);
+            //check if char is operator or operand
+            if(precedence(c)>0){
+                while(stack.isEmpty()==false && precedence(stack.peek())>=precedence(c)){
+                    result.append(stack.pop());
                 }
-                // Pop opening bracket
-                // from stack.
-                operators.pop();
-            }
-
-            // If current character is an
-            // operand then push it into
-            // operands stack.
-            else if (!isOperator(infix.charAt(i))) {
-                operands.push(infix.charAt(i) + "");
-            }
-
-            // If current character is an
-            // operator, then push it into
-            // operators stack after popping
-            // high priority operators from
-            // operators stack and pushing
-            // result in operands stack.
-            else {
-                while (!operators.empty() && getPriority(infix.charAt(i)) <= getPriority(operators.peek())) {
-                    String op1 = operands.peek();
-                    operands.pop();
-                    String op2 = operands.peek();
-                    operands.pop();
-                    char op = operators.peek();
-                    operators.pop();
-                    String tmp = op + op2 + op1;
-                    operands.push(tmp);
+                stack.push(c);
+            }else if(c==')'){
+                char x = stack.pop();
+                while(x!='('){
+                    result.append(x);
+                    x = stack.pop();
                 }
-                operators.push(infix.charAt(i));
+            }else if(c=='('){
+                stack.push(c);
+            }else{
+                //character is neither operator nor "("
+                result.append(c);
             }
         }
 
-        // Pop operators from operators
-        // stack until it is empty and
-        // operation in add result of
-        // each pop operands stack.
-        while (!operators.empty()) {
-            String op1 = operands.peek();
-            operands.pop();
-            String op2 = operands.peek();
-            operands.pop();
-            char op = operators.peek();
-            operators.pop();
-            String tmp = op + op2 + op1;
-            operands.push(tmp);
+        for (int i = 0; i <=stack.size() ; i++) {
+            result.append(stack.pop());
         }
-
-        // Final prefix expression is
-        // present in operands stack.
-        return operands.peek();
+        return result.reverse();
     }
 
-}
-
-// Driver Code
-public class infixConversion {
-    public static void main(String args[]) {
-        infixPrefix g = new infixPrefix();
-        // Using Scanner for Getting Input from User
-        Scanner in = new Scanner(System.in);
-        String s = in.nextLine();
-        // String s = "(A-B/C)*(A/K-L)";
-        System.out.println(g.infixToPrefix(s));
+    public static void main(String[] args) {
+        String exp = "A+B*(C^D-E)";
+        System.out.println("Infix Expression: " + exp);
+        System.out.println("Prefix Expression: " + infixToPreFix(exp));
     }
 }
-
-// Input - (A-B/C)*(A/K-L)
-// Output -  *-A/BC-/AKL
