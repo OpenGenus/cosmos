@@ -3,7 +3,7 @@
 ### Problem Description:
 Given a string, return "true" if it is an autobiographical number or false otherwise.
 
-An [Autobiographical Number](https://en.wikipedia.org/wiki/Self-descriptive_number#Autobiographical_numbers) is a number where each number at a given index represents the number of times it (the index value) appears in the given string.
+An Autobiographical Number is a number where each number at a given index represents the number of times it (the index value) appears in the given string.
 
 
 For example:
