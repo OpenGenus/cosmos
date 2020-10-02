@@ -37,7 +37,7 @@ def merge_sort(array, asc=True):
     return out
 
 
-randomized = [randint(0, 1000) for x in range(10000)]
+randomized:list = [randint(0, 1000) for x in range(10000)]
 clone = [x for x in randomized]
 assert sorted(clone) == merge_sort(randomized)
 assert sorted(clone, reverse=True) == merge_sort(randomized, False)
