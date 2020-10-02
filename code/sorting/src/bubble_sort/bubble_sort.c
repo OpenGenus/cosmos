@@ -26,6 +26,7 @@ bubbleSort(int arr[], int n, bool order)
             }
         }
     }
+    /* Order 0 corresponds to ascending sort */
     else if (order == 0) {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -35,6 +36,7 @@ bubbleSort(int arr[], int n, bool order)
             }
         }
     }
+    /* If any other value of order is passed */
     else {
         printf("Undefined Sorting Order");
     }
