@@ -1,9 +1,10 @@
 /*
 garsia_wachs algorithm implementation in C++ 14/11
 
-1.use -Wno-deprecated-register for compiling in c++ 17 as ISO C++17 removed the usage og register storage class
+1.use -Wno-deprecated-register for compiling in c++ 17 as ISO C++17 removed the usage of register storage class
 
-2.Refrence from Donald E. Knuth research paper on the same topic.
+2.Refrence:
+Donald E. Knuth research paper on the same topic.
 */
 #include <iostream>
 #define size 64      /* this number should exceed twice the number of input weights */
