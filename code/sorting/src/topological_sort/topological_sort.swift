@@ -3,7 +3,6 @@ var inDegree: [Int] = []
 func topologicalSort(adjList: [[Int]]) -> [Int] {
     var result: [Int] = []
     let numVertices = adjList.count - 1
-    print(numVertices)
     var queue = [Int]()
     for i in 1 ... numVertices {
         if inDegree[i] == 0 {
