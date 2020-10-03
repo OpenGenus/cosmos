@@ -18,8 +18,7 @@ int maxWater(int height[], int n)
 		
 		// Remove bars from the stack 
 		// until the condition holds 
-		while ((!st.empty()) && 
-			(height[st.top()] < height[i])) 
+		while ((!st.empty()) && (height[st.top()] < height[i])) 
 		{ 
 			
 			// Store the height of the top 
@@ -39,9 +38,7 @@ int maxWater(int height[], int n)
 			int distance = i - st.top() - 1; 
 
 			// Calculate the min. height 
-			int min_height = min(height[st.top()], 
-								height[i]) - 
-							pop_height; 
+			int min_height = min(height[st.top()], height[i]) - pop_height; 
 
 			ans += distance * min_height; 
 		} 
@@ -57,8 +54,7 @@ int maxWater(int height[], int n)
 int main() 
 { 
 	
-	int arr[] = { 0, 1, 0, 2, 1, 0, 
-				1, 3, 2, 1, 2, 1 }; 
+	int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }; 
 	int n = sizeof(arr) / sizeof(arr[0]); 
 	
 	cout << maxWater(arr, n); 
