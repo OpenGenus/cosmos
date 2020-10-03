@@ -19,12 +19,10 @@ class Context implements State{
 		currentState.goNext();
 	}
 	
-	public void setState(State state)
-	{
+	public void setState(State state){
 		this.currentState = state;
 	}
-	public State getState()
-	{
+	public State getState(){
 		return this.currentState;
 	}
 }
