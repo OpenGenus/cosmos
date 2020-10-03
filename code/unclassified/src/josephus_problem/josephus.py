@@ -6,5 +6,6 @@ def safePos(n, k):
 
 n = int(input("Enter the number of people : "))
 k = int(input("Enter the kth value of people getting executed : "))
-print("The Safe position to stand is",
-      safePos(n, k) + 1)  # Answer is for 1 based indexing
+print(
+    "The Safe position to stand is", safePos(n, k) + 1
+)  # Answer is for 1 based indexing

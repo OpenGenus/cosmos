@@ -53,7 +53,7 @@ note:
 """
 
 
-class Observer():
+class Observer:
     def __init__(self, decorator=None):
         self._notifiers = {}
         self._decorator = decorator
@@ -85,8 +85,7 @@ class Observer():
         return self._decorator.update(event)
 
 
-class Notifier():
-
+class Notifier:
     def __init__(self, decorator=None):
         self._observers = {}
         self._decorator = decorator

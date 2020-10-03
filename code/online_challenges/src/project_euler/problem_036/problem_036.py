@@ -1,5 +1,5 @@
 def base_check(a, y):
-    ans = ''
+    ans = ""
     while a > 0:
         ans += str(a % y)
         a = a // y
@@ -13,7 +13,7 @@ def palindrome(x, base):
     else:
         x = int(x)
         x = base_check(x, base)
-        x = (str(x))
+        x = str(x)
         return x == x[::-1]
 
 

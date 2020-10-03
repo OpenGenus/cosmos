@@ -1,0 +1,24 @@
+{
+  "location": "code/data_structures/src/tree/space_partitioning_tree/segment_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "lazy_segment_tree.java",
+    "segment_tree_lazy_propagation.cpp",
+    "segment_tree_rmq.adb",
+    "segment_tree_rmq.go",
+    "segment_tree_rmq.cpp",
+    "segment_tree_rmq_with_update.cpp",
+    "segment_tree_sum.py",
+    "segment_tree.java",
+    "segment_tree.scala",
+    "segment_tree_sum.rb",
+    "segment_tree_rmq.py",
+    "README.md",
+    "segment_tree_sum.cpp",
+    "persistent_segment_tree_sum.cpp",
+    "segment_tree_kth_statistics_on_segment.cpp",
+    "segment_tree_sum.go"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

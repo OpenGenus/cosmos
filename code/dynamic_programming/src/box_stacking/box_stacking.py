@@ -1,7 +1,7 @@
-'''
+"""
 dynamic programming | box stacking | Python
 Part of Cosmos by OpenGenus Foundation
-'''
+"""
 
 from collections import namedtuple
 from itertools import permutations
@@ -18,7 +18,9 @@ def create_rotation(given_dimensions):
     :return: All the possible rotations of the boxes with the condition that length >= height.
     """
     for current_dim in given_dimensions:
-        for (height, length, width) in permutations((current_dim.height, current_dim.length, current_dim.width)):
+        for (height, length, width) in permutations(
+            (current_dim.height, current_dim.length, current_dim.width)
+        ):
             if length >= width:
                 yield dimension(height, length, width)
 
@@ -32,7 +34,9 @@ def can_stack(box1, box2):
 
 
 def box_stack_max_height(dimensions):
-    boxes = sort_by_decreasing_area([rotation for rotation in create_rotation(dimensions)])
+    boxes = sort_by_decreasing_area(
+        [rotation for rotation in create_rotation(dimensions)]
+    )
     num_boxes = len(boxes)
     T = [rotation.height for rotation in boxes]
     R = [idx for idx in range(num_boxes)]
@@ -50,7 +54,7 @@ def box_stack_max_height(dimensions):
 
     # Prints the dimensions which were stored in R list.
     while True:
-        print boxes[start_index]
+        print(boxes[start_index])
         next_index = R[start_index]
         if next_index == start_index:
             break
@@ -59,7 +63,7 @@ def box_stack_max_height(dimensions):
     return max_height
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     d1 = dimension(3, 2, 5)
     d2 = dimension(1, 2, 4)

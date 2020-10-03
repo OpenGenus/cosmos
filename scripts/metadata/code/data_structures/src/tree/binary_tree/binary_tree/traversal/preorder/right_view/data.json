@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/traversal/preorder/right_view",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "right_view.py",
+    "right_view2.cpp",
+    "right_view.cpp",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

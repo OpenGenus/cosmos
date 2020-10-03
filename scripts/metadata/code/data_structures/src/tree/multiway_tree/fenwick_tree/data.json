@@ -1,0 +1,16 @@
+{
+  "location": "code/data_structures/src/tree/multiway_tree/fenwick_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "fenwick_tree.cpp",
+    "fenwick_tree.go",
+    "fenwick_tree.c",
+    "fenwick_tree_inversion_count.cpp",
+    "fenwick_tree.pl",
+    "README.md",
+    "fenwick_tree.py",
+    "fenwick_tree.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

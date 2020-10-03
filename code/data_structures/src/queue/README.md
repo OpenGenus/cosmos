@@ -15,3 +15,8 @@ Functions
 - size()
 --Returns the size of the queue
 
+## Time Complexity
+- Enqueue - O(1)
+- Dequeue - O(1)
+- size    - O(1)
+- front - O(n)

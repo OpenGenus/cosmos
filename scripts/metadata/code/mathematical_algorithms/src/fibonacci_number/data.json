@@ -1,0 +1,31 @@
+{
+  "location": "code/mathematical_algorithms/src/fibonacci_number",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "fibonacci_number.cpp",
+    "fibonacci_number.scala",
+    "fibonacci_number.hs",
+    "fibonacci_matrix_multiplication.py",
+    "fibonacci_number.go",
+    "fibonacci_number.js",
+    "fibonacci_number.swift",
+    "fibonacci_number.rs",
+    "fibonacci_number.c",
+    "fibonacci_number.php",
+    "fibonacci_number.ex",
+    "fibonacci_number.py",
+    "fibonacci_number.clj",
+    "fibonacci_lucas.py",
+    "README.md",
+    "fibonacci_matrix_exponentiation.cpp",
+    "fibonacci_for_big_numbers.cpp",
+    "fibonacci_number.rb",
+    "fibonacci_memorized.swift",
+    "fibonacci_number.cs",
+    "fibonacci_number.java",
+    "fast_fibonacci.c",
+    "fibonacci_number.erl"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

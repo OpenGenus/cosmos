@@ -42,5 +42,4 @@ def count_sort(arr):
 if __name__ == "__main__":
     arr = "opengenus"
     ans = count_sort(arr)
-    print "Sorted character array is %s" % ("".join(ans))
-
+    print("Sorted character array is %s" % ("".join(ans)))

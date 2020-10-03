@@ -31,6 +31,7 @@ Following is the high-level structure of cosmos:
 * [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
 * [Online challenges](/code/online_challenges)
 * [Operating system](/code/operating_system) 💻
+* [Quantum algorithms](/code/quantum_algorithms)  :cyclone:
 * [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
 * [Searching](/code/search)
 * [Selecting](/code/selection_algorithms)
@@ -43,7 +44,7 @@ Each type has several hundreds of problems with solutions in several languages s
 
 # Maintainers
 
-This is a massive collaboration and to keep the quality intact and drive the vision in the proper direction, we have maintainers.
+This is a massive collaboration. Hence, to keep the quality intact and drive the vision in the proper direction, we have maintainers.
 
 > Maintainers are your friends forever. They are vastly different from moderators.
 

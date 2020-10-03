@@ -6,13 +6,13 @@ echo ""
 echo "###############################"
 echo "# generating dependencies ... #"
 echo "###############################"
-make -f generate_dependencies.make
+make -f generate_dependencies.make || exit 1
 
 echo ""
 echo "#########################"
 echo "# compiling sources ... #"
 echo "#########################"
-make -f testing.make
+make -f testing.make || exit 1
 
 cd "$cosmos_root_path/scripts"
 echo ""
