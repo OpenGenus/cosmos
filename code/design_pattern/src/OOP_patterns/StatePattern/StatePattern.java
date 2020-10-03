@@ -1,4 +1,11 @@
-package StatePattern;
+/**
+ * State Design Pattern
+ * 
+ * @author Indraneel Ghosh
+ * @version 1.0
+ * 
+ */
+
 interface State{
 	public void goNext();//go to the next state
 }
