@@ -18,18 +18,18 @@ class RedBlackBST:
         self.RED = True
         self.BLACK = False
 
-    # comparing two values
+    #comparing two values
     def compareTo(self, first, second):
         return first - second
 
-    # check if the node is red
+    #check if the node is red
     def isRed(self, node):
         if node is None:
             return False
         return node.color == self.RED
 
-    # if tree is not red left leaning
-    # this function will rotate it to left
+    #if tree is not red left leaning
+    #this function will rotate it to left
     def Rotateleft(self, h):
         assert self.isRed(h.right)
         x = h.right
@@ -39,9 +39,9 @@ class RedBlackBST:
         h.color = self.RED
         return x
 
-    # if there are two consecutives red nodes
-    # this method will rotate one red node to
-    # the right
+    #if there are two consecutives red nodes
+    #this method will rotate one red node to
+    #the right
     def Rotateright(self, h):
         assert self.isRed(h.left)
         x = h.left
@@ -51,9 +51,9 @@ class RedBlackBST:
         h.color = self.RED
         return x
 
-    # if both left and right edge are red
-    # this method will flip the colors, making them
-    # black
+    #if both left and right edge are red
+    #this method will flip the colors, making them
+    #black
     def flipColors(self, h):
         assert self.isRed(h.left)
         assert self.isRed(h.right)
@@ -61,8 +61,8 @@ class RedBlackBST:
         h.right.color = self.BLACK
         h.color = self.RED
 
-    # method for inserting into the tree
-    # this method is called in insert method
+    #method for inserting into the tree
+    #this method is called in insert method
     def Realinsert(self, x, value):
         if x is None:
             return Node(value, self.RED)
@@ -83,14 +83,14 @@ class RedBlackBST:
 
         return x
 
-    # user calls this method for inserting
-    # an element into the tree
+    #user calls this method for inserting
+    #an element into the tree
     def insert(self, value):
         self.root = self.Realinsert(self.root, value)
 
-    # this method searchs for an
-    # element in the tree
-    # returns the value if found
+    #this method search for an
+    #element in the tree
+    #returns the value if found
     def search(self, value):
         x = self.root
         while x is not None:
@@ -105,14 +105,14 @@ class RedBlackBST:
 
     """Hibbard Deletion"""
 
-    # user call this method to delete
-    # an element from the tree
+    #user call this method to delete
+    #an element from the tree
     def delete(self, value):
         self.root = self.Realdelete(self.root, value)
 
-    # this method deletes the value from the tree.
-    # Called inside the delete method
-    # returns the node deleted
+    #this method deletes the value from the tree.
+    #Called inside the delete method
+    #returns the node deleted
     def Realdelete(self, x, value):
         if x is None:
             return None
@@ -127,7 +127,7 @@ class RedBlackBST:
                 return x.left
             if x.left is None:
                 return x.right
-
+            
             t = x
             x = self.Min(t.right)
             x.right = self.deleteMin(t.right)
@@ -135,22 +135,22 @@ class RedBlackBST:
 
         return x
 
-    # method for deleting the minimum
-    # element in the tree
+    #method for deleting the minimum
+    #element in the tree
     def deleteMin(self, x):
         if x.left is None:
             return x.right
         x.left = self.deleteMin(x.left)
         return x
 
-    # returns the minimum element in the tree
+    #returns the minimum element in the tree
     def Min(self, x):
         if x.left is None:
             return x
         return self.Min(x.left)
 
-    # prints the elements in a
-    # non-decreasing order
+    #prints the elements in a
+    #non-decreasing order
     def inorder(self):
         self.inorderRec(self.root)
         print("")
@@ -174,9 +174,9 @@ if __name__ == "__main__":
     the provided value form the tree
     4.object.inorder(): this method will print all the values
     in the tree in a non-decreasing order"""
-
-    # driver program
-
+    
+    #driver program
+    
     bst = RedBlackBST()
     bst.insert(5)
     bst.insert(7)
@@ -191,3 +191,4 @@ if __name__ == "__main__":
     bst.inorder()
     bst.delete(9)
     bst.inorder()
+    
