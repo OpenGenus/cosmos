@@ -1,7 +1,7 @@
 /* Part of Cosmos by OpenGenus Foundation */
 /* Checker */
 export function isPalindrome(str: string): boolean {
-    const convertedString: Array<string> = [str];
+    const convertedString: Array<string> = [...str];
 
     return convertedString.reverse().join("") === str
 };
