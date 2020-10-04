@@ -1,3 +1,4 @@
+// Part of Cosmos by OpenGenus
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
