@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int maxn=1e6+5;
+vector<pair<int,int>> val[maxn];
+int col[1005],row[1005],vrow[1005],vcol[1005],mi,ans;
+stack<pair<int,int>> st;
+multiset<int> mrow,mcol;
+int main()
+{
+    int n,x,y,vr,vc,va;
+    scanf("%d",&n);
+    for(int i=1; i<=n; i++)
+    {
+        mrow.insert(0);
+        for(int j=1; j<=n; j++)
+        {
+            if(i==1) mcol.insert(0);
+            scanf("%d",&x);
+            val[x].push_back(make_pair(i,j));
+        }
+    }
+    ans=2*n;
+    for(int i=1; i<=1000000; i++)
+    {
+        if(!val[i].empty()){
+        //printf("at %d\n",i);
+        vr=*mrow.begin();
+        for(auto j:val[i])
+        {
+            x=j.first;
+            y=j.second;
+            mrow.erase(mrow.find(row[x]));
+            row[x]++;
+            mrow.insert(row[x]);
+            mcol.erase(mcol.find(col[y]));
+            col[y]++;
+            mcol.insert(col[y]);
+            st.push(j);
+        }
+        vc=*mcol.rbegin();
+        //printf("min_row=%d max_col=%d\n",vr,vc);
+        ans=min(ans,vr+n-vc);
+        }
+    }
+    printf("%d",ans);
+}
