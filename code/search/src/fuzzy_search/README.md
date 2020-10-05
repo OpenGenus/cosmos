@@ -1,5 +1,8 @@
 # Cosmos
 
+Source: Wikipedia
+Link: https://en.wikipedia.org/wiki/Approximate_string_matching
+
 ![Fuzzy search](https://upload.wikimedia.org/wikipedia/commons/6/69/Did_you_mean_andr%C3%A9_emotions.png)
 # Fuzzy search  
 
