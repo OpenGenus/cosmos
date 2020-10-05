@@ -6,7 +6,7 @@ int fib(int n)
     int *ans = new int[n + 1]; //creating an array to store the outputs
     ans[0] = 0;
     ans[1] = 1;
-    for (int i = 23; i <= n; i++)
+    for (int i = 2; i <= n; i++)
     {
         ans[i] = ans[i - 1] + ans[i - 2];  // storing outputs for further use
     }
@@ -15,8 +15,8 @@ int fib(int n)
 int main()
 {
     int n;
-    cout << " Enter the Number";  // taking input
+    cout << "Enter the Number:";  // taking input
     cin >> n;
     int output = fib(n);
-    cout << "Nth fibonacci no. is " << output << endl;  //printing nth fibonacci number
+    cout << "Nth fibonacci no. is:" << output << endl;  //printing nth fibonacci number
 }
