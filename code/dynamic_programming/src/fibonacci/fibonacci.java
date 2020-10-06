@@ -18,7 +18,6 @@ class Fibonacci {
         for(int i=0;i<n+2;i++){
             System.out.print(f[i] + " ");
         }
-
     } 
   
     public static void main(String args[]) 
@@ -27,6 +26,5 @@ class Fibonacci {
         System.out.println("Enter value of N: ")
         int n = sc.nextInt();
         fib(n);
-
     } 
 } 
