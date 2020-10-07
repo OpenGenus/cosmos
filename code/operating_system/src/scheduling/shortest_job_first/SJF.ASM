@@ -23,12 +23,12 @@ SJF:
     POP DI                               ;READY QUEUE BASE ADDRESS  
     PUSH AX                              ;RETURN ADDRESS OF SUBROUTINE 
 
-; CALL SELECTION SORT TO SORT (PROCESS JOBS)
+; CALL SELECTION SORT TO SORT (PROCESS JOBS) {According to Burst Time}
     PUSH CX 
     PUSH SI 
     CALL SELSORT
 
-; ENTER SHORTED PROCESS INTO (PROCESS QUEUE)
+; ENTER SHORTED PROCESS INTO (READY QUEUE) 
 REPEAT_SJF:
     MOV [DI],[SI]                        ;ENTER PROCESS INTO READY QUEUE 
     INC DI                           
