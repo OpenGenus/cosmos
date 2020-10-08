@@ -1,6 +1,7 @@
 #include<stdio.h>
 #define Row 4
 #define Col 3
+/*Part of Cosmos by OpenGenus Foundation*/
 void
 spiral_matrix(int r, int c, int arr[Row][Col])
 {
