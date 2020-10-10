@@ -39,8 +39,19 @@ spiral_matrix(int r, int c, int arr[Row][Col])
 int 
 main()
 {
-    int a[Row][Col] = {{1, 2, 3}, {10, 20, 30}, {110, 220, 330}, {1100, 2200, 3300}};
-     
+        int a[Row][Col];
+	int i,j;
+	printf("Enter the elements of the matrix:\n");
+	for(i=0;i<Row;i++)
+	{
+		for(j=0;j<Col;j++)
+		{
+			scanf("%d",&a[i][j]);
+			
+		}
+		
+	}
+    
     spiral_matrix (Row, Col, a);
     return (0);
 }
