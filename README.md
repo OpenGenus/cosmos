@@ -50,7 +50,7 @@ This is a massive collaboration. Hence, to keep the quality intact and drive the
 
 Currently, we have **5 active maintainers** and we are expanding quickly.
 
-The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. 🌍
+The task of maintainers is to review pull requests, suggest further quality additions, and keep the work up to date with the current state of the world. 🌍
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
 
@@ -62,11 +62,11 @@ The success of our vision to bring knowledge offline depends on you. Even a smal
 
 Currently, we have over **700 contributors**
 
-When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
+When you contribute, your name with a link (if available) is added to our [contributor's list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
-You can contribute by writing `code`, documentation in the form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
+You can contribute by writing `code`, documentation in the form of `installation guides`, and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
 
-Additionally, you might want to take a look at this [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
+Additionally, you might want to take a look at these [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
 
 You may, also, refer to the available [style guides](/guides/coding_style) before contributing code.
 
