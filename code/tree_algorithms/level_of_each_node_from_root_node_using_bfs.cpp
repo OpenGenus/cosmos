@@ -52,7 +52,7 @@ int main()
     for( int i = 0 ; i<8 ; i++ )
        graph[i].clear() ;
 
-    // this is the same graph shown in the image at the beginning of the article
+    // we are creating a unidirected graph here
     createEdge( 0 , 1 , graph ) ;
     createEdge( 0 , 2 , graph ) ;
     createEdge( 0 , 3 , graph ) ;
