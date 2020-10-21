@@ -1,6 +1,5 @@
 // Part of Cosmos by OpenGenus
 //Max Sum Subarray in O(n)
-//change
 #include <bits/stdc++.h>
 using namespace std;
 int maximumSumSubarray(int *arr, int n){
