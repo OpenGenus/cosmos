@@ -1,5 +1,5 @@
 """
-Minimax game playing algorithm
+Expectimax game playing algorithm
 Alex Day
 Part of Cosmos by OpenGenus Foundation
 """
