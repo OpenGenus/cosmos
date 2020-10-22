@@ -35,9 +35,9 @@ class Board(ABC):
         return NotImplementedError()
 
 
-def minimax(player: int, board, depth_limit, evaluate):
+def expectimax(player: int, board, depth_limit, evaluate):
     """
-    Minimax algorithm with limited search depth.
+    expectimax algorithm with limited search depth.
     Parameters
     ----------
     player: int
