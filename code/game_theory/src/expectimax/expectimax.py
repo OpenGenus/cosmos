@@ -109,7 +109,7 @@ def expectimax(player: int, board, depth_limit, evaluate):
         # If not leaf then continue searching for minimum value
         # Generate all possible moves for minimizing player and store the
         # min possible value while exploring down to terminal nodes
-        move, child_board = choice(get_child_boards(next_player, board))
+        move, child_board = choice(board.get_child_boards(ext_player))
         return max_value(child_board, depth_limit - 1)
 
         return best_value
