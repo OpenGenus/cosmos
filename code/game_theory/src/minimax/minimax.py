@@ -1,3 +1,9 @@
+"""
+Minimax game playing algorithm
+Alex Day
+Part of Cosmos by OpenGenus Foundation
+
+"""
 from abc import ABC, abstractmethod
 
 
