@@ -5,6 +5,7 @@ Part of Cosmos by OpenGenus Foundation
 
 """
 from abc import ABC, abstractmethod
+import math
 
 
 class Board(ABC):
