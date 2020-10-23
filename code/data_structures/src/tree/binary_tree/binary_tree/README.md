@@ -1,5 +1,5 @@
-# Tree
+# Binary Tree 
+A Binary Tree is a tree data structure that has the binary property constraint in addition to the constraints of the generic tree data structure
+- Binary Property Constraint: Each node has **0, 1 or 2 children** 
 
-Description
----
-A tree is a data structure that is comprised of various **nodes**. Each node has at least one parent node, and can have multiple child nodes. The only node that does not have a parent node is a unique node called the **root**, or sometimes base node. If a node has no children, it can be called a **leaf**.
+![Binary_Tree_Representation](https://assets.leetcode.com/uploads/2018/12/14/binarytree.png)
