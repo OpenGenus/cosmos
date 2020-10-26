@@ -2,6 +2,7 @@
 Betweenness Centrality
 Alex Day
 Part of Cosmos by OpenGenus Foundation
+
 Based on the paper:
 Brandes, Ulrik. "A faster algorithm for betweenness centrality." Journal of mathematical sociology 25.2 (2001): 163-177.
 """
