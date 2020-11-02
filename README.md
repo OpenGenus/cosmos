@@ -1,5 +1,7 @@
 # Cosmos
 
+![GitHub forks](https://img.shields.io/github/forks/OpenGenus/cosmos?style=social) ![GitHub stars](https://img.shields.io/github/stars/OpenGenus/cosmos?style=social) [![GitHub](https://img.shields.io/github/license/OpenGenus/cosmos?style=flat-square)](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
+
 > [Join our discussion now](https://discourse.opengenus.org/) 
 
 > The universe of algorithm and data structures
@@ -71,5 +73,7 @@ Additionally, you might want to take a look at this [contributing guidelines](ht
 You may, also, refer to the available [style guides](/guides/coding_style) before contributing code.
 
 # License
+
+[![GitHub](https://img.shields.io/github/license/OpenGenus/cosmos?style=flat-square)](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
 
 We believe in freedom and improvement. [GNU General Public License v3.0](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
