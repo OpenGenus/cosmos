@@ -40,27 +40,22 @@ class memory {
     }
 };
 
-std::vector<memory> worst_fit(std::vector<memory>memory_blocks, std::queue<process>unallocated_processess) {
+std::vector<memory> next_fit(std::vector<memory>memory_blocks, std::queue<process>unallocated_processess) {
     memory nonAllocatedProcessess;
     nonAllocatedProcessess.id = -1;
     nonAllocatedProcessess.size = 0;
 
     while(!unallocated_processess.empty()) {
-        int candidate_best_index = 0;
-        bool is_process_allocated = false;
-        for(int i = 0; i < memory_blocks.size(); ++i) {
-            if(memory_blocks.at(i).size > unallocated_processess.front().size) {
-                candidate_best_index = (candidate_best_index == -1)? i :
-                                       (memory_blocks.at(i).size > memory_blocks.at(candidate_best_index).size)? i : candidate_best_index;
-                is_process_allocated = true;
+        int temp_p_id = unallocated_processess.front().id;
+        for(int i = 0; i < memory_blocks.size(); i = ((i+1)%memory_blocks.size())) { //this modules needed to shift memory blocks to the beggnings after iterating till the its end.
+            if(memory_blocks.at(i).size >= unallocated_processess.front().size) {
+                memory_blocks.at(i).push(unallocated_processess.front());
+                unallocated_processess.pop();
+                break;
             }
         }
 
-        if(is_process_allocated) {
-            memory_blocks.at(candidate_best_index).push(unallocated_processess.front());
-            unallocated_processess.pop();
-        }
-        else {
+        if(temp_p_id == unallocated_processess.front().id) {
             nonAllocatedProcessess.size += unallocated_processess.front().size;
             nonAllocatedProcessess.push(unallocated_processess.front());
             unallocated_processess.pop();
@@ -124,7 +119,7 @@ void display(std::vector<memory> memory_blocks)
 int main() 
 { 
     std::vector<memory> memory_blocks(5);   
-    std::vector<memory> worst_fit_blocks;  
+    std::vector<memory> next_fit_blocks;  
     std::queue<process> processess; 
     process temp; 
   
@@ -163,12 +158,12 @@ int main()
     temp.size = 489; 
     processess.push(temp); 
   
-    worst_fit_blocks = worst_fit(memory_blocks, processess); 
+    next_fit_blocks = next_fit(memory_blocks, processess); 
   
-    display(worst_fit_blocks); 
+    display(next_fit_blocks); 
     memory_blocks.clear(); 
     memory_blocks.shrink_to_fit(); 
-    worst_fit_blocks.clear(); 
-    worst_fit_blocks.shrink_to_fit(); 
+    next_fit_blocks.clear(); 
+    next_fit_blocks.shrink_to_fit(); 
     return 0; 
 }
