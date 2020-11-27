@@ -1,1 +1,1 @@
-#This is the Implementation of Garsia Wachs Algorithm in c++.
+# This is the Implementation of Garsia Wachs Algorithm in c++.
