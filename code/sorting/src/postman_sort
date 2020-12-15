@@ -1,0 +1,83 @@
+array = [0]*100
+array1 = [0]*100
+i = 0
+j = 0
+temp = 0 
+max = 0 
+count = 0
+maxdigits = 0 
+c = 0
+
+def postmansort(numericalData,size):
+
+    t1 = 1 
+    t2 = 1 
+    k = 1 
+    t = 1 
+    n = 1
+
+    for x in range(count):
+        array1[x] = array[x]
+    
+
+    
+    for x in range(count):
+        t = array[x]
+        while t > 0:
+            c = c + 1
+            t = t / 10
+        if maxdigits < c: 
+            maxdigits = c 
+        c = 0
+
+    while (maxdigits > -1):
+        n = n * 10
+        maxdigits -= 1
+    
+    i = 0
+    for i in range (0, count):
+        max = array[i] / n
+        j = i + 1 
+        for j in range (0, count):
+            j += 1
+            if max >  (array[j] / n):
+                max = array[j] / n 
+                t = j 
+        
+        temp = array1[t]
+        array1[t] = array1[i]
+        array1[i] = temp 
+        temp = array[t]
+        array[t] = array[i]
+        array[i] = temp 
+        
+    
+    
+    while n >= 1:
+        for i in range (0, count):
+            t1 = array[i] / n
+            j = i + 1
+            for j in range (0, count):
+                if t1 == (array[j] /n):
+                    swapTMPS(i , j)
+                    i = j
+                    j += 1
+        n = n / 10 
+
+    print("sorted array POSTMN SRT")
+    for i in range (0, count):
+        print(array1[i])
+    return array1
+
+def swapTMPS( k , n):
+    i = k 
+    for i in range (k, n-1):
+        j = i + 1 
+        for j in range (0, n):
+            temp = array1[i]
+            array1[i] = array1[j]
+            array1[j] = temp 
+            temp = array[i] % 10
+            array[i] = array[j] % 10
+            array[j] = temp
+            j += 1
