@@ -7,11 +7,9 @@ import java.math.BigInteger;
 class Factorial{
     // A Recursive Method calculating Factorial of a given number.
     static BigInteger factorial(int n){
-        // Base Case 
-        if(n<=1){
+        if(n==0){
             return BigInteger.ONE;
         }
-        // Recursive Case
         BigInteger fact = factorial(n-1);
         return fact.multiply(BigInteger.valueOf(n));
     }
