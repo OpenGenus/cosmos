@@ -17,7 +17,7 @@ private:
         }
     };
 
-    int n{}; // number of elements in the segment tree
+    int n; // number of elements in the segment tree
     vector<Node *> ptrs; // ptrs[i] holds a root pointer to the segment tree after the ith update
     Node *newKid(Node *curr) {
         Node *newNode = new Node();
@@ -180,5 +180,4 @@ int main() {
     cout << "Number of segment trees (versions) now = " << tree.size() << '\n';
     cout << "Querying range sum on version 0 from index 3 to 5 = 11-2+7 = " << tree.query(3, 5, 0) << '\n';
     cout << "Querying range sum on version 1 from index 3 to 5 = 4-9+0 = " << tree.query(3, 5, 1) << '\n';
-    tree.clear();
 }
