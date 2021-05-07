@@ -5,4 +5,4 @@ A **Skip List** is a probabilistic data structure. the skip list is used to stor
 The Skip List is the extended version of linked-list. It allows search, remove, and insert the element very quickly. Ii consists of a base list that include set of values which maintains the link to hierarchy of the subsequent elements.
 
 
-[!wikimidia](https://upload.wikimedia.org/wikipedia/commons/2/2c/Skip_list_add_element-en.gif)
+![wikimidia](https://upload.wikimedia.org/wikipedia/commons/2/2c/Skip_list_add_element-en.gif)
