@@ -1,16 +1,14 @@
 /* Part of Cosmos by OpenGenus Foundation */
 /* Checker */
 export function isPalindrome(str: string): boolean {
-    const convertedString: Array<string> = [str];
-
-    return convertedString.reverse().join("") === str
+    return str.split("").reverse().join("") === str;
 };
 
 /* Tests */
-isPalindrome("malayalam"); // should return true
-isPalindrome("racecar"); // should return true
-isPalindrome("opengenus"); // should return false
-isPalindrome("alpha"); // should return false
-isPalindrome("github"); // should return false
-isPalindrome("level"); // should return true
-isPalindrome("rotator"); // should return true
+console.log(isPalindrome("malayalam")); // should return true
+console.log(isPalindrome("racecar")); // should return true
+console.log(isPalindrome("opengenus")); // should return false
+console.log(isPalindrome("alpha")); // should return false
+console.log(isPalindrome("github")); // should return false
+console.log(isPalindrome("level")); // should return true
+console.log(isPalindrome("rotator")); // should return true

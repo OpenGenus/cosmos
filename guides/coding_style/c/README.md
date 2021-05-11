@@ -1,9 +1,9 @@
 # Cosmos Guides
-> Your personal library of every algorithm and data structure code that you will ever encounter
+> Your personal library of every algorithm and data structures code that you will ever encounter
 
 ## C Code style
 
-C is a general-purpose, procedural computer programming language originally developed between 1969 and 1973.
+C is a general-purpose mid level, procedural computer programming language originally developed between 1969 and 1973 and founded by Dennis Ritchie in AT&T Labs in 1972.
 
 # C Programming Style Guide
 
@@ -27,16 +27,24 @@ main(int argc, char *argv[])
 	if (!some_function()) {
 		puts("Something happened!");
 		do_a_thing();
-	} else
+	} 
+	else
+	{
 		some_other_thing();
-
+        }
 	return (0);
 }
 ```
 
+*argc stands for arguments count(ARGument count)
+*argv stands for arguments values(ARGument values)
+*argv[0] is the name of the program 
+
+
 ## Indentation
 
 Indentation is done with a single tab character (Hard Tab). For code split across multiple lines a helper indent of 4 spaces is used.
+
 
 ```C
 int
@@ -48,8 +56,6 @@ some_really_long_function(int a, int b, int c, int d,
 
 ## Conditionals
 
-If, else, for, while, and switch statements should be followed by a space.
-
 ```C
 if (a == 9) {
 ```
@@ -58,7 +64,8 @@ if (a == 9) {
 for (;;)
 ```
 
-Each case in a switch statement should not be indented but the code for each should be. Any case falthroughs should be commented.
+Each case in a switch statement should not be indented but the code for each should be. Any case fallthroughs should be commented.
+Every case should be terminated with a break statement.
 
 ```C
 switch (ch) {
@@ -84,6 +91,10 @@ Functions should have the type on a seperate line proceeding the rest of the fun
 int
 main(int argc, char *argv[])
 {
+//Block of Code
+//" " "
+//" " "
+}
 ```
 
 Return statements should have the value wrapped in parenthesis.
@@ -98,7 +109,7 @@ Always use C style comments (`/* */`) and not C++ style comments (`//`). A sampl
 
 ```C
 
-/* One line comment */
+/* One line comment */ 
 
 /*
  * Multiline comment. Fill it out like it were

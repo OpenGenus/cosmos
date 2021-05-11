@@ -31,6 +31,7 @@ Following is the high-level structure of cosmos:
 * [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
 * [Online challenges](/code/online_challenges)
 * [Operating system](/code/operating_system) 💻
+* [Quantum algorithms](/code/quantum_algorithms)  :cyclone:
 * [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
 * [Searching](/code/search)
 * [Selecting](/code/selection_algorithms)

@@ -29,6 +29,7 @@ bool isPalindromeIterative(string input)
     return true;
 }
 
+// main function begins here
 int main()
 {
     cout << boolalpha << isPalindromeRecursive("alpha") << endl; // should output false
