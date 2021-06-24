@@ -1,3 +1,5 @@
+/* Part of Cosmos by OpenGenus Foundation */
+#pragma once
 #include <bits/stdc++.h>
 
 using namespace std;
