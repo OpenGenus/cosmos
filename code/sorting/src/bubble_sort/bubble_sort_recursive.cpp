@@ -11,9 +11,12 @@ void bubbleSort(std::vector<int>& v, int n)
     if (n == 1)
         return;
     // sorting in a pass
-    for (int i = 0; i < n - 1; i++)
-        if (v[i] > v[i + 1])
+    for (int i = 0; i < n - 1; i++){
+        //comparing the elements and swapping accordingly
+        if (v[i] > v[i + 1]){
             std::swap(v[i], v[i + 1]);
+        }   
+    }
     // recursive call for the next pass
     bubbleSort(v, n - 1);
 }
@@ -35,8 +38,9 @@ int main()
     bubbleSort(v, n); // calling the sort function
 
     std::cout << "Sorted Elements:" << '\n'; // showing output of the sorted vector
-    for (int element : v)
+    for (int element : v){
         std::cout << element << " ";
+    }
     std::cout << '\n';
     return 0;
 }
