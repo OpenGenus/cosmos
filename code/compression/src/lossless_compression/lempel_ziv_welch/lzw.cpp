@@ -4,7 +4,6 @@
 #include <iterator>
 #include <vector>
 
-
 /* Compress a string to a list of output symbols.
  * The result will be written to the output iterator
  * starting at "result"; the final iterator is returned.
@@ -24,8 +23,7 @@ Iterator compress(const std::string &uncompressed, Iterator result)
     {
         char c = *it;
         std::string wc = w + c;
-        if (dictionary.count(wc))
-            w = wc;
+        if (dictionary.count(wc)) w = wc;
         else
         {
             *result++ = dictionary[w];
