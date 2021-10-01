@@ -282,12 +282,10 @@ void Linkedlist<T>::destroy()
 template <typename T>
 void Linkedlist<T>::removeKthNodeFromEnd(int k)
 {
-	if(k<=0)
-		return;
-
-
-
-	Node<T> *pTemp = header;
+    if(k<=0)
+	return;
+	
+    Node<T> *pTemp = header;
 	
     while(pTemp!=nullptr && k--)
     	pTemp = pTemp->pNext;
