@@ -1,5 +1,114 @@
 /*
  * Part of Cosmos by OpenGenus Foundation
+ *
+ * huffman compression synopsis
+ *
+ * template<typename _Tp>
+ * struct BinaryTreeNode {
+ *  _Tp value;
+ *  std::shared_ptr<BinaryTreeNode<_Tp> > left, right;
+ *  BinaryTreeNode(_Tp v,
+ *                 std::shared_ptr<BinaryTreeNode<_Tp> > l = {},
+ *                 std::shared_ptr<BinaryTreeNode<_Tp> > r = {});
+ * };
+ *
+ * template<typename _Tp>
+ * struct Comp {
+ * public:
+ *  bool operator()(_Tp a, _Tp b) const;
+ * };
+ *
+ * class HuffmanTest;
+ *
+ * class Huffman {
+ * private:
+ *  typedef size_t                                                       size_type;
+ *  typedef unsigned long long                                           base_type;
+ *  typedef std::pair<char, size_type>                                   freq_node_type;
+ *  typedef std::unordered_map<char, size_type>                          freq_type;
+ *  typedef std::pair<size_type, std::pair<char, std::string> >          value_type;
+ *  typedef BinaryTreeNode<value_type>                                   tree_node_type;
+ *  typedef std::priority_queue<std::shared_ptr<tree_node_type>,
+ *                              std::vector<std::shared_ptr<tree_node_type> >,
+ *                              Comp<std::shared_ptr<tree_node_type> > > tree_type;
+ *  typedef std::unordered_map<char, std::string>                        dictionary_type;
+ *  typedef std::unordered_map<std::string, char>                        reverse_dictionary_type;
+ *
+ * public:
+ *  Huffman()
+ *      :frequency_(), tree_(), dictionary_(), reverse_dictionary_(), sentinel_(), binary_bit_();
+ *
+ *  std::string compression(std::string const &in);
+ *
+ *  std::string compression(std::istream &in);
+ *
+ *  void compression(std::string const &in, std::ostream &out);
+ *
+ *  void compression(std::istream &in, std::ostream &out);
+ *
+ *  std::string decompression(std::string const &in);
+ *
+ *  std::string decompression(std::istream &in);
+ *
+ *  void decompression(std::string const &in, std::ostream &out);
+ *
+ *  void decompression(std::istream &in, std::ostream &out);
+ *
+ * private:
+ *  freq_type frequency_;
+ *  tree_type tree_;
+ *  dictionary_type dictionary_;
+ *  reverse_dictionary_type reverse_dictionary_;
+ *  std::shared_ptr<tree_node_type> sentinel_;
+ *  size_type binary_bit_;
+ *  std::vector<size_type> power_;
+ *  const char DELIMITER = ' ';
+ *  const size_type GUARANTEE_BIT = sizeof(base_type) * 8;
+ *  const int HEX_BIT = 16;
+ *
+ *  void calculateFrequency(std::string const &input);
+ *
+ *  // no cover test
+ *  void buildForest();
+ *
+ *  // no cover test
+ *  void initialTree();
+ *
+ *  // no cover test
+ *  void initialForest();
+ *
+ *  // no cover test
+ *  void appendDegree();
+ *
+ *  // no cover test
+ *  void buildDictionary();
+ *
+ *  std::pair<std::string, std::string> seperateHeaderAndCode(std::string const &str);
+ *
+ *  // no cover test
+ *  std::string restore(std::string const &input);
+ *
+ *  std::string exportHeader();
+ *
+ *  std::string exportDictionary();
+ *
+ *  void importHeader(std::string const &str);
+ *
+ *  void importDictionary(std::string const &str);
+ *
+ *  std::string addSeperateCode(std::string const &str);
+ *
+ *  std::string removeSeperateCode(std::string const &str);
+ *
+ *  std::string stringToHex(std::string const &str);
+ *
+ *  std::string stringToBinary(std::string const &input);
+ *
+ *  // return string always fill 0 while size is not N * GUARANTEE_BIT
+ *  std::string binaryToHex(std::string const &str);
+ *
+ *  std::string hexToBinary(std::string const &str);
+ * };
  */
 
 #include <functional>
