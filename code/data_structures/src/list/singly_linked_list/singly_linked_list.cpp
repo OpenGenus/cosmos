@@ -31,6 +31,7 @@ public:
     int find(const T& date);
     void sort();
     void destroy();
+    void removeKthNodeFromEnd(int k);
 
 private:
     Node<T>* header;
@@ -277,6 +278,48 @@ void Linkedlist<T>::destroy()
     length = 0;
 }
 
+
+template <typename T>
+void Linkedlist<T>::removeKthNodeFromEnd(int k)
+{
+	if(k<=0)
+		return;
+
+
+
+	Node<T> *pTemp = header;
+	
+    while(pTemp!=nullptr && k--)
+    	pTemp = pTemp->pNext;
+
+
+    if(k==0)
+    {
+    	Node<T> *kthNode = header;
+    	header = header->pNext;
+    	delete kthNode;
+    	length =length - 1;
+    	return;
+    }
+    else if(pTemp==nullptr)
+    	return;
+
+    Node<T> *kthNode = header;
+
+    while(pTemp->pNext != nullptr)
+    {
+    	pTemp = pTemp->pNext;
+    	kthNode = kthNode->pNext;
+    }
+
+    Node<T> *toBeDeleted = kthNode->pNext;
+    kthNode->pNext = kthNode->pNext->pNext;
+    delete toBeDeleted;
+    length = length - 1;
+
+    return;
+}
+
 #endif // _LINKED_LIST_CPP_
 
 int main()
@@ -293,6 +336,10 @@ int main()
     link1.modify(5, 100);
     link1.insert(3, 50);
     std::cout << link1.size() << std::endl;
+    link1.print();
+
+    link1.removeKthNodeFromEnd(3);
+    std::cout<<"After deleting 3rd node from the end\n";
     link1.print();
 
     link1.sort();
