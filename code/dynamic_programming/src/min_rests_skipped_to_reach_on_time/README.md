@@ -2,7 +2,7 @@
 
 ## Description
 
-You have to travel to your office in `Hour` hours by travelling on `n` roads given as array `dist` where `dist[i]` is the length of ith road. You have a constant speed `Speed`. After you travel road `i`, you must rest and wait for the next integer hour before you can begin traveling on the next road.
+You have to travel to your office in reachTime time by travelling on `n` roads given as array `dist` where `dist[i]` is the length of ith road. You have a constant speed `Speed`. After you travel road `i`, you must rest and wait for the next integer hour before you can begin traveling on the next road.
 
 For example, if traveling a road takes 1.4 hours, you must wait until the 2 hour mark before traveling the next road. If traveling a road takes exactly 2 hours, you do not need to wait.
 
