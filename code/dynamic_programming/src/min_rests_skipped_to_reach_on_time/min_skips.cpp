@@ -11,11 +11,11 @@ int minSkips(vector<int>& dist, int speed, int reachTime)
     You start at time=0.
     */
 
-    int n=dist.size();
+    int n = dist.size();
     double time[n];
     
     // Find times taken to cover the roads.
-    for(int i=0; i<dist.size() ; i++)
+    for(int i=0; i<n ; i++)
     {
         time[i] = dist[i]*1.0/speed;
     }
@@ -30,7 +30,7 @@ int minSkips(vector<int>& dist, int speed, int reachTime)
     computers to represent floating point numbers precisely in memory. This is why we subtract a very small number 
     eps (epsilon) while taking ceiling of float. Eg. ceil(1.0000000001)=2 which is unintended in our case.
     */
-    int eps = 0.00000001;
+    double eps = 0.00000001;
     
     // The dp table is going to be a lower triangular matrix as the number
     // of skips cannot exceed the number of roads.
@@ -61,7 +61,8 @@ int minSkips(vector<int>& dist, int speed, int reachTime)
     // check the minimum number of skips required to reach on time 
     for(int j=0;j<n;j++)
     {
-        if( dp[n-1][j] <= reachTime ) return j;
+        if( dp[n-1][j] <= reachTime ) 
+            return j;
     }
     
     // we cannot reach on time even if we skip all stops.
