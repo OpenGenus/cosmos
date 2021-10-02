@@ -13,28 +13,28 @@ int main()
 		for(int &i:x)
 			cin>>i;
 
-		int mn=10,mx=0,curr=1;
+		int smallest=10,largest=0,infected=1;
 
 		for(int i=1;i<n;i++)
 		{
 			if(x[i]-x[i-1]<=2)
-				curr++;
+				infected++;
 			else
 			{
-				mx=max(mx,curr);
-				mn=min(mn,curr);
-				curr=1;
+				largest=max(largest,infected);
+				smallest=min(smallest,infected);
+				infected=1;
 			}
 		}
 
-		if(curr!=0)
+		if(infected!=0)
 		{
-			mx=max(mx,curr);
-			mn=min(mn,curr);
+			largest=max(largest,infected);
+			smallest=min(smallest,infected);
 		}
 
-		mn=min(mn,mx);
-		cout<<mn<<" "<<mx<<"\n";
+		smallest=min(smallest,largest);
+		cout<<smallest<<" "<<largest<<"\n";
 	}
 	return 0;
 }
