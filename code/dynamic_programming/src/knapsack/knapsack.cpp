@@ -3,7 +3,7 @@
  * Part of Cosmos by OpenGenus Foundation
  *
  * Description:
- *  1. We start with i = 0...N number of considered obejcts, where N is the
+ *  1. We start with i = 0...N number of considered objects, where N is the
  *     total number of objects we have. Similarly, for the capacity of bag we
  *     go from b = 0...B where B is maximum capacity.
  *  2. Now for each pair of (i, b) we compute the subset of objects which will
