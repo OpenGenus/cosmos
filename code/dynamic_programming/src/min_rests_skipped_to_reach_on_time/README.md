@@ -35,6 +35,7 @@ Thinking in terms of subproblems and recurrence is a good start. Try answering y
 ## Solution
 
 Create a 2D DP table of n rows and n columns where dp[i][j] stores the minimum time to cover till(including) road i using j skips.
+
 To find the answer, we iterate over all columns (times taken) for road n-1. The skip count corresponding to the first time which is lesser than 
 reachTime is the answer.
 
