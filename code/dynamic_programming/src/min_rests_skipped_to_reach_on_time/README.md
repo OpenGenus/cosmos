@@ -10,7 +10,7 @@ However, you are allowed to skip some rests to be able to arrive on time, meanin
 
 Return the **minimum** number of skips required to arrive at the office on time, or -1 if it is impossible. 
 
-## Thought Process and Solution
+## Thought Process
 
 Let's number the roads and stops starting from 0. So the stop after road 0 is stop 0 and so on.
 Thinking in terms of subproblems and recurrence is a good start. Try answering yourself before revealing the collapsed hints.  
@@ -31,6 +31,12 @@ Thinking in terms of subproblems and recurrence is a good start. Try answering y
   </p>
 	Now, you just need to think about the edge cases like how you would cover i roads without any skip?
 </details>
+
+## Solution
+
+Create a 2D DP table of n rows and n columns where dp[i][j] stores the minimum time to cover till(including) road i using j skips.
+To find the answer, we iterate over all columns (times taken) for road n-1. The skip count corresponding to the first time which is lesser than 
+reachTime is the answer.
 
 
 
