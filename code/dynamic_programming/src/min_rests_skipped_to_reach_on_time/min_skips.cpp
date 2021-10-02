@@ -1,4 +1,5 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// Part of Cosmos by OpenGenus Foundation 
+
 #include<bits/stdc++.h>
 
 int minSkips(vector<int>& dist, int speed, int reachTime) 
@@ -14,9 +15,9 @@ int minSkips(vector<int>& dist, int speed, int reachTime)
     double time[n];
     
     // Find times taken to cover the roads.
-    for(int i=0;i<dist.size();i++)
+    for(int i=0; i<dist.size() ; i++)
     {
-        time[i]=dist[i]*1.0/speed;
+        time[i] = dist[i]*1.0/speed;
     }
     
     
@@ -40,27 +41,27 @@ int minSkips(vector<int>& dist, int speed, int reachTime)
         {
             
             // cover road 0 with 0 skips
-            if(i==0 && j==0) 
+            if(i == 0 && j == 0) 
                 dp[i][j]=time[i];
 
             // no sop is skipped
-            else if(j==0) 
+            else if (j == 0) 
                 dp[i][0] = ceil(dp[i-1][0]- eps)+time[i];
 
             // all the stops are skipped
-            else if(i==j) 
+            else if (i == j) 
                 dp[i][j] = dp[i-1][j-1]+time[i];
 
             // we've used j skips to cover i roads 
             else 
-                dp[i][j] = min(ceil(dp[i-1][j]- eps), dp[i-1][j-1]) +time[i];
+                dp[i][j] = min( ceil (dp[i-1][j] - eps), dp[i-1][j-1]) + time[i];
         } 
     }
       
     // check the minimum number of skips required to reach on time 
     for(int j=0;j<n;j++)
     {
-        if(dp[n-1][j]<=reachTime) return j;
+        if( dp[n-1][j] <= reachTime ) return j;
     }
     
     // we cannot reach on time even if we skip all stops.
