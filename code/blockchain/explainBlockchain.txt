@@ -1,3 +1,6 @@
 Explanation of blockchain.
-Please read article below for more details.
+
+Blockchain is a system of recording information in a way that makes it difficult or 
+impossible to change, hack, or cheat the system.
+Please read article below for a detailed explanation.
 https://iq.opengenus.org/p/f3110420-24e9-40f8-9ee5-79b5df2f88ff/
