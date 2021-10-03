@@ -1,4 +1,4 @@
-#Find (x, y) solutions for 1/x + 1/y=1/n 
+# Find (x, y) solutions for 1/x + 1/y=1/n 
 
 ## Summary
 Find number of possible solution of 1/x + 1/y=1/n 
