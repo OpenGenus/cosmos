@@ -41,9 +41,9 @@ class ComponentAltImpl implements Component {
 }
 
 function helloWorldClassDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {
-    return class extends constructor {
+    return class extends constructor implements HelloWorldDecorator {
         operation() {
-            return 'Hello world again! Something is amiss';
+            return `Hello world again! ${constructor.prototype.operation()}`;
         }
     };
 }
