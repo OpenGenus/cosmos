@@ -337,10 +337,10 @@ main()
 ![Ethernet Datagram](img/ethernet.png)
 
 ### ***IPv4 Frame***
-![IP Frame](img/IP.png)
+![IP Frame](img/ip.png)
 
 ### ***TCP Frame***
-![TCP Frame](img/TCP.png)
+![TCP Frame](img/tcp.png)
 
 ### ***UDP Frame***
-![UDP Frame](img/UDP.png)
+![UDP Frame](img/udp.png)
