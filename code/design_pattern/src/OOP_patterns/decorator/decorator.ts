@@ -1,28 +1,28 @@
 interface Component {
-	operation(): string;
+    operation(): string;
 }
 
 interface HelloWorldDecorator {
-	operation(): string;
+    operation(): string;
 }
 
 class ComponentImpl implements Component {
-	public operation(): string {
-		return 'This method is decorated';
-	}
+    public operation(): string {
+        return 'This method is decorated';
+    }
 }
 
 // This is the general way to implement decorators
 class HelloWorldDecoratorImpl implements HelloWorldDecorator {
-	private _component: Component;
+    private _component: Component;
 
-	constructor(component: Component) {
-		this._component = component;
-	}
+    constructor(component: Component) {
+        this._component = component;
+    }
 
-	public operation(): string {
-		return `Hello world! ${this._component.operation()}`;
-	}
+    public operation(): string {
+        return `Hello world! ${this._component.operation()}`;
+    }
 }
 
 let testComponent = new ComponentImpl();
@@ -35,17 +35,17 @@ console.log(decoratedTestComponent.operation());
 // and class method parameter decorators
 @helloWorldClassDecorator
 class ComponentAltImpl implements Component {
-	public operation(): string {
-		return 'This message will be overriden';
-	}
+    public operation(): string {
+        return 'This message will be overriden';
+    }
 }
 
 function helloWorldClassDecorator<T extends { new (...args: any[]): {} }>(constructor: T) {
-	return class extends constructor {
-		operation() {
-			return 'Hello world again! Something is amiss';
-		}
-	};
+    return class extends constructor {
+        operation() {
+            return 'Hello world again! Something is amiss';
+        }
+    };
 }
 
 let syntacticSugarDecorator = new ComponentAltImpl();
