@@ -7,11 +7,11 @@ Find compute PI (estimate)
 ## Solve
 - Let draw a square with size 2 units
 - Let draw a circle with radius 1 unit inside the square
-- Area of the square = size*size = 2*2 = 4
-- Area of the circle = Pi*r*r = Pi*1*1 = Pi
+- Area of the square = size^2 = 2^2 = 4
+- Area of the circle = Pi*r^2 = Pi*1^2 = Pi
 - x and y uniform random less than 1 so the ratio 
   Area of the circle / Area of the square = number points inside circle / total points
-- Known x*x + y*y <= 1 then (x,y) is inside cirle
+- Known x^2 + y^2 <= 1 then (x,y) is inside cirle
 - Therefore: Pi/4 = number points inside circle / total points
 
 **Pi = 4*number points inside circle / total points**
