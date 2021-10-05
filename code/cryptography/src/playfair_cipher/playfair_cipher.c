@@ -358,3 +358,10 @@ int main()
 	return 0;
 }
 
+
+// OUTPUT
+// Key: Germany
+// Text to be encrypted: Dusseldorf
+// Cipher: nzoxahntgi
+
+// Code curated by Subhadeep Das(username:- Raven1233)
