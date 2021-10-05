@@ -20,12 +20,14 @@ int line_distance(iPair p1, iPair p2, iPair p)
     return abs ((p.second - p1.second) * (p2.first - p1.first) -
                (p2.second - p1.second) * (p.first - p1.first));
 }
+//end points of line L are p1 and p2
 
 void quickHull(iPair arr[], int size, iPair p1, iPair p2, int side)
 {
     int ind = -1;
     int max_dist = 0;
 
+    // find point with maximum distance from L
     for (int i=0; i<size; i++)
     {
         int temp = line_distance(p1, p2, arr[i]);
@@ -36,6 +38,8 @@ void quickHull(iPair arr[], int size, iPair p1, iPair p2, int side)
         }
     }
 
+    //if not found then add the end points
+    
     if (ind == -1)
     {
         hull.insert(p1);
@@ -84,3 +88,7 @@ int main()
     print(arr, size);
     return 0;
 }
+
+// OUTPUT:
+// The points in Convex Hull are:
+// (0, 0) (0, 3) (3, 1) (4, 4)
