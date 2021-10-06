@@ -31,3 +31,23 @@ while choice == 'y':
     if choice == "n":
         break
 g.display_adj_matrix()
+"""
+Output:
+Enter number of vertices: 3
+The vertices are: 
+0 1 2 
+
+Enter vertex 1: 1
+Enter vertex 2: 2
+Do you want to add more edges? (y/n): y
+Enter vertex 1: 0
+Enter vertex 2: 2
+Do you want to add more edges? (y/n): n
+The adjacency matrix is: 
+
+0 0 1 
+
+0 0 1 
+
+1 1 0 
+"""
