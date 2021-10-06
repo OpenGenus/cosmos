@@ -8,9 +8,9 @@ int find(int node)
 	}
 	return f[node] = find(f[node]); //path compression
 }
-int union_set(int x, int y)
+int union_set(int x,int y)
 {
-	return f[find(x)] = find(y);
+	return f[find(x)]=find(y);
 }
 int main()
 {
