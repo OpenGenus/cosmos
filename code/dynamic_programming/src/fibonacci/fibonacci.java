@@ -45,8 +45,19 @@
 
 //Top Down Approach!
 class Solution {
+ 
+    public static void main(String args[]){
+     int n = 5;
+     // Alternative you can use
+     //Scanner sc = new Scanner(System.in);
+     //int n = sc.nextInt();
+     //So, in this case 1st you have to import :
+     //import java.util.Scanner;
+     int result = fib(n);
+     System.out.println(result);
+    }
 
-    public int fib(int n) {
+    public static int fib(int n) {
         if (n < 2)      //This is a base case, as we know when n = 1 then the output will be 1
             return n;
         int[] dp = new int[n + 1];
@@ -64,8 +75,19 @@ class Solution {
 
 // Bottom Up Approach!
 class Solution {
+ 
+ public static void main(String args[]){
+     int n = 5;
+     // Alternative you can use
+     //Scanner sc = new Scanner(System.in);
+     //int n = sc.nextInt();
+     //So, in this case 1st you have to import :
+     //import java.util.Scanner;
+     int result = fib(n);
+     System.out.println(result);
+    }
 
-    public int fib(int n) {
+    public static int fib(int n) {
         if (n <= 1) {
             return n;
         }
@@ -80,8 +102,18 @@ class Solution {
 
 // Another one
 class Solution {
+  public static void main(String args[]){
+     int n = 5;
+     // Alternative you can use
+     //Scanner sc = new Scanner(System.in);
+     //int n = sc.nextInt();
+     //So, in this case 1st you have to import :
+     //import java.util.Scanner;
+     int result = fib(n);
+     System.out.println(result);
+    }
 
-    public int fib(int n) {
+    public static int fib(int n) {
         if (n == 0)
             return 0;
         if (n == 1)
