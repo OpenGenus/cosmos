@@ -1,8 +1,4 @@
-//HACKTOBERFEST 2021
-
 //DIFFERENT WAYS TO SWAP 2 NUMBERS:-
-
-
 
 #include<bits/stdc++.h>                     //it includes most of the headers files needed for basic programming
 using namespace std;
