@@ -1,6 +1,6 @@
 
 # Image Encryption Decryption
-
+# Part of OpenGenus Cosmos
 # imported necessary library
 import tkinter
 from tkinter import *
