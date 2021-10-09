@@ -1,5 +1,7 @@
 # Wildcard Matching
 
+Learn more: [Wildcard Pattern Matching (Dynamic Programming)](https://iq.opengenus.org/wildcard-pattern-matching-dp/)
+
 ## Description
 
 You have a string `s` of length `m` and a pattern `p` of length `n`. With wildcard matching enabled ie. character `?` in `p` can replace 1 character of `s` and a `*` 
