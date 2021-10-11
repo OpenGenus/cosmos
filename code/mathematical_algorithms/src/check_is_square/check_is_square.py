@@ -1,18 +1,30 @@
 # Part of Cosmos by OpenGenus Foundation
 
-import math
+import sys
 
 
-def check_is_square(input):
-    return math.sqrt(input) == math.floor(math.sqrt(input))
+def checkIfSquare(n):
+    start = 0
+    end = int(n)
+    while start <= end:
+
+        mid = (start + end) // 2
+        val = mid * mid
+
+        if val == int(n):
+            return True
+        elif val < int(n):
+            start = mid + 1
+        else:
+            end = mid - 1
+
+    return False
 
 
-if __name__ == "__main__":
-    print(check_is_square(0))  # True
-    print(check_is_square(1))  # True
-    print(check_is_square(2))  # False
-    print(check_is_square(4))  # True
-    print(check_is_square(8))  # False
-    print(check_is_square(16))  # True
-    print(check_is_square(32))  # False
-    print(check_is_square(64))  # True
+version = sys.version_info[0]
+print("Enter a positive number :")
+n = input()
+if checkIfSquare(n):
+    print("Yes")
+else:
+    print("No")
