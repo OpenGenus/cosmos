@@ -73,6 +73,9 @@ defmodule Cryptography do
   end
 end
 
-"-.- . ...- .. -.  ... .--. .- -.-. . -.--  .. ...  -.- . -.-- ... . .-.  ... --- --.. ."
-|> Cryptography.translate_morse_code()
-|> IO.inspect()
+msg = "Hello world"
+
+Cryptography.morse_encrypt(msg)
+|> IO.inspect(label: "Encrypting #{msg} in morse")
+|> Cryptography.morse_decrypt()
+|> IO.inspect(label: "Decrypting #{msg}")

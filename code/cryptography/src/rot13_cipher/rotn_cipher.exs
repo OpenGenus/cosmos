@@ -1,8 +1,11 @@
 defmodule Cryptography do
-  def rot13(input, n \\ 13) do
+  # Its rotn, but defaults to rot13
+  def rotn(input, n \\ 13) do
     alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    String.split(input, "", trim: true)
+    input
+    |> String.downcase()
+    |> String.split("", trim: true)
     |> Enum.map(fn
       " " ->
         " "
@@ -16,9 +19,8 @@ defmodule Cryptography do
 
           rot_ind =
             cond do
-              rot > 25 -> rot - 25
-              rot < 0 -> rot + 25
-              true -> rot
+              rot < 0 -> rem(rot, 26) * -1
+              true -> rem(rot, 26)
             end
 
           String.at(alphabet, rot_ind)
@@ -29,3 +31,9 @@ defmodule Cryptography do
     |> Enum.join("")
   end
 end
+
+msg = "Hello world"
+n = 13
+
+Cryptography.rotn(msg, n)
+|> IO.inspect(label: "Encrypting '#{msg}' in rot#{n}") # uryyb jbeyq
