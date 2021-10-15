@@ -13,14 +13,14 @@ void bfs(int start,                                                             
     // First, clear the distance map, so that only nodes that we can actually reach from the `start` appear in it at the end
     distance.clear();
 
-    // This queue wil hold pairs of numbers of the form (nodeNumber, distance)
+    // This queue will hold pairs of numbers of the form (nodeNumber, distance)
     std::queue<std::pair<int, int>> Q;
 
     // Add the first node with distance 0 to the queue and mark it as visited
     Q.push(std::make_pair(start, 0));
     visited[start] = true;
 
-    // Repeat the algorithm until there are no more ndoes left to process
+    // Repeat the algorithm until there are no more nodes left to process
     while (!Q.empty())
     {
         // Take the node from the front of the queue and pop it off the queue
