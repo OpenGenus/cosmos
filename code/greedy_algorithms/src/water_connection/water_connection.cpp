@@ -1,11 +1,9 @@
 #include <iostream>
-#include <vector> // for vector
-#include<cstring> // for memeset
+#include <vector> 
+#include<cstring> 
 using namespace std;
 
-// number of houses and number
-// of pipes
-int n, p;
+int houses, pipes;
 
 // this array  stores the
 // ending vertex of pipe
@@ -21,9 +19,9 @@ int cd[1100];
 
 // these vectors are used
 // to store the resulting output
-vector<int> a;
-vector<int> b;
-vector<int> c;
+vector<int> a(10);
+vector<int> b(10);
+vector<int> c(10);
 
 int ans;
 
@@ -41,7 +39,7 @@ void solve(int arr[][3])
 {
 	int i = 0;
 
-	while (i < p) {
+	while (i < pipes) {
 		
 		int q = arr[i][0], h = arr[i][1],
 			t = arr[i][2];
@@ -56,7 +54,7 @@ void solve(int arr[][3])
 	b.clear();
 	c.clear();
 	
-	for (int j = 1; j <= n; ++j)
+	for (int j = 1; j <= houses; ++j)
 	
 		// If a pipe has no ending vertex but has 
 		// starting vertex i.e is an outgoing pipe 
@@ -80,7 +78,7 @@ void solve(int arr[][3])
 
 int main()
 {
-	n = 9, p = 6;
+	houses = 9, pipes = 6;
 
 	memset(rd, 0, sizeof(rd));
 	memset(cd, 0, sizeof(cd));
