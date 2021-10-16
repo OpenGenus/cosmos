@@ -6,6 +6,7 @@ public class NumberOfDiceRollsWithTargetSum {
 
         // Test case 2
         System.out.println(numRollsToTarget(30, 30, 500)); //it should output 222616187
+        
     }
 
     public static int numRollsToTarget(int dices, int faces, int target) {
