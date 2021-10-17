@@ -6,7 +6,7 @@ def validate_ipv4(ip_addr):
         return False
     else:
         for component in ip_components:
-            if int(component) not in range(0, 255):
+            if int(component) not in range(0, 256):
                 return False
         return True
 
