@@ -7,10 +7,10 @@ using namespace std;
 void displayimage(
     int arr[n][n]);
 
-// A function to
-// rotate a n x n matrix
-// by 90 degrees in
-// anti-clockwise direction
+/* A function to
+ * rotate a n x n matrix
+ * by 90 degrees in
+ * anti-clockwise direction */
 void rotateimage(int arr[][n])
 { // Performing Transpose
     for (int i = 0; i < n; i++)
@@ -58,20 +58,22 @@ int main()
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-// Test Case 2
-//      int arr[n][n] = {
-//                         {1, 2, 3, 4},
-//                         {5, 6, 7, 8},
-//                         {9, 10, 11, 12},
-//                         {13, 14, 15, 16}
-//                     };
+/* Test Case 2
+ *    int arr[n][n] = {
+ *                       {1, 2, 3, 4},
+ *                       {5, 6, 7, 8},
+ *                       {9, 10, 11, 12},
+ *                       {13, 14, 15, 16}
+ *                   };
+ */
 
-// Tese Case 3
-/*int mat[n][n] = {
-                {1, 2},
-                {3, 4}
-            };*/
+/* Tese Case 3
+ *int mat[n][n] = {
+ *               {1, 2},
+ *               {3, 4}
+ *           };*/
 
-/*
+ /*
 Time complexity : O(n*n)
 Space complexity: O(1)
+ */
