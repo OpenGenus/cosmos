@@ -20,7 +20,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// This is a function that returns the maximum subarray sum
 int maxSubArraySum(int a[], int size)
 { // kedane algorithm
     int max_sum = INT_MIN, current_sum = 0;
