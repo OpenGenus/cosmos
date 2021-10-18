@@ -40,7 +40,6 @@ if len(key) < len(plaintext):
     print("Length of Key Must be >= Length of Plaintext")
 else:
     ciphertext = vernamEncryption(plaintext, key)
-
     plaintext = vernamDecryption(ciphertext, key)
 
     print("Encrypted ciphertext is : ", ciphertext)
