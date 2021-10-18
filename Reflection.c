@@ -5,7 +5,7 @@
 #include<graphics.h>
 void main()
 {
-int poly[30],a[9][3],b[3][3],c[9][3],poly2[30];
+int poly[30], a[9][3], b[3][3], c[9][3], poly2[30];
 int x,y,p,i,j,k,xc,yc;
 int gd=DETECT,gm;
 clrscr();
@@ -75,7 +75,7 @@ for(i=0;i<p;i++)
    }
 
  }
-printf("\n\n\n\n\n\t Reflection : ");
+printf("\n\n\t Reflection : ");
 
 
 for(i=0,j=0;i<p;i++,j+=2)
