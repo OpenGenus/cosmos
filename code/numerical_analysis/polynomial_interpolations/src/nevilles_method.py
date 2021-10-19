@@ -44,9 +44,10 @@ late
 
     for i in range(2, n):
         for j in range(i, n):
-            q[j][i] = ((x0 - x_points[j - i + 1]) * q[j][i - 1] - (
-                x0 - x_points[j]) * q[j - 1][i - 1]) / (
-                x_points[j] - x_points[j - i + 1])
+            q[j][i] = (
+                (x0 - x_points[j - i + 1]) * q[j][i - 1]
+                - (x0 - x_points[j]) * q[j - 1][i - 1]
+            ) / (x_points[j] - x_points[j - i + 1])
 
     return [q[n - 1][n - 1], q]
 

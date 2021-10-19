@@ -7,18 +7,18 @@
 
 class Lagrange:
     """
-        This class implements interpolation using Lagrange's polynomial,
-        For a given set of points (xj, yj) with no two xj values equal,
-        the Lagrange polynomial is the polynomial of lowest degree that
-        assumes at each value xj the corresponding value yj, so that the
-        functions coincide at each point.
+    This class implements interpolation using Lagrange's polynomial,
+    For a given set of points (xj, yj) with no two xj values equal,
+    the Lagrange polynomial is the polynomial of lowest degree that
+    assumes at each value xj the corresponding value yj, so that the
+    functions coincide at each point.
 
-        >>> lagrange = Lagrange()
-        >>> lagrange.fit([1, 2, 3], [7, 8, 9])
-        >>> lagrange.interpolate(4)
-        10.0
-        >>> lagrange.interpolate(-2)
-        4.0
+    >>> lagrange = Lagrange()
+    >>> lagrange.fit([1, 2, 3], [7, 8, 9])
+    >>> lagrange.interpolate(4)
+    10.0
+    >>> lagrange.interpolate(-2)
+    4.0
     """
 
     def __init__(self):
@@ -26,12 +26,12 @@ class Lagrange:
 
     def fit(self, x_points: list, y_points: list) -> None:
         """
-            Set up a the appropriate polynomial string for x_points, y_points
-            values.
+        Set up a the appropriate polynomial string for x_points, y_points
+        values.
 
-            Arguments:
-                x_points, y_points: A list of x and corresponding y points
-                through which the polynomial passes.
+        Arguments:
+            x_points, y_points: A list of x and corresponding y points
+            through which the polynomial passes.
         """
 
         k = len(x_points)
@@ -51,11 +51,12 @@ class Lagrange:
 
     def interpolate(self, x: float) -> float:
         """
-            Interpolate the value of the polynomial at x for the fitted values.
-            Returns the interpolated value.
+        Interpolate the value of the polynomial at x for the fitted values.
+        Returns the interpolated value.
         """
         ev = self.build_str.replace("x", str(x))
         return eval(ev)
+
 
 if __name__ == "__main__":
     import doctest
