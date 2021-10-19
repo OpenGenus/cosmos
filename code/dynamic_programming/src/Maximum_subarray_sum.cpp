@@ -1,21 +1,3 @@
-// To find the maximum subarray sum from the given array.
-// This is a famous application for kedane algorithm.
-/*
- *## kedane Algorithm:
- *
- * Initialize:
- *    max_sum = INT_MIN
- *    current_sum = 0
- *
- * Loop for each element of the array
- *  (a) current_sum = current_sum + a[i]
- *  (b) if(max_sum < current_sum)
- *            max_sum = current_sum
- *  (c) if(current_sum < 0)
- *             current_sum = 0
- * return max_sum
- */
-//--------------------------------------------------------------------------------------------------------------------------------------
 
 #include <bits/stdc++.h>
 using namespace std;
