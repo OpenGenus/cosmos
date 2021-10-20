@@ -1,44 +1,44 @@
 # Part of Cosmos by OpenGenus Foundation
-import array
-
-
 class Queue:
     def __init__(self, size_max):
-        self.max = size_max
-        self.size = 0
-        self.data = []
+        self.data = [None] * (size_max + 1)
+        self.max = (size_max + 1)
+        self.head = 0
+        self.tail = 0
 
     def empty(self):
-        return self.size == 0
+        return self.head == self.tail
 
     def full(self):
-        return self.size == self.max
+        return self.head == (self.tail + 1) % self.max
 
     def enqueue(self, x):
-        if self.size == self.max:
+        if self.full():
             print("Queue full")
             return False
-        self.data.insert(0, x)
-        self.size += 1
+        self.data[self.tail] = x
+        self.tail = (self.tail + 1) % self.max
         return True
 
     def dequeue(self):
-        if self.size == 0:
+        if self.empty():
+            print("Queue empty")
             return None
-        x = self.data.pop()
-        self.size -= 1
+        x = self.data[self.head]
+        self.head = (self.head + 1) % self.max
         return x
 
-    def display(self):
-        if self.size == 0:
-            print("Queue is empty")
-        else:
-            out = ""
-            for ele in self.data:
-                out = out + " " + str(ele)
-            print(out[::-1])
-        return
+    def top(self):
+        if self.empty():
+            print("Queue empty")
+            return None
+        return self.data[self.head]
 
+    def display(self):
+        cur = self.head
+        while cur != self.tail:
+            print(self.data[cur])
+            cur = (cur + 1) % self.max
 
 print("Enter the size of Queue")
 n = int(input())
@@ -47,10 +47,11 @@ while True:
     print("Press E to enqueue an element")
     print("Press D to dequeue an element")
     print("Press P to display all elements of the queue")
+    print("Press T to show top element of the queue")
     print("Press X to exit")
     opt = input().strip()
     if opt == "E":
-        if q.size == q.max:
+        if q.full():
             print("Queue is full")
             continue
         print("Enter the element")
@@ -65,5 +66,7 @@ while True:
             print("Element is", ele)
     if opt == "P":
         q.display()
+    if opt == "T":
+        print(q.top())
     if opt == "X":
         break
