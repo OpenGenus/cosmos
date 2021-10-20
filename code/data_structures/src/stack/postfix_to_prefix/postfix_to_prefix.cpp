@@ -1,6 +1,4 @@
-/*
- * Copyright (c) 2021 Aryan Kashyap
-*/
+// Part of Cosmos by OpenGenus Foundation
 
 #include <bits/stdc++.h>
 using namespace std;
