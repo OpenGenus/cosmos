@@ -26,12 +26,12 @@ class MinQueue {
         return q.size();
     }
 
-    T pop(){
+    void pop(){
         //pop should only be called when there is an item in the 
         //minQueue or else a deque exception will be raised
-        T temp = q.front();
-        q.pop_front();
-        return temp;
+        while (!is_empty()) {        
+            q.pop_front();
+        }        
     }
 
     const T & top(){
