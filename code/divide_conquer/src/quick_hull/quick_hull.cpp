@@ -84,3 +84,10 @@ int main()
     print(arr, size);
     return 0;
 }
+
+
+// OUTPUT
+// The Convex Hull points are:
+// (0, 0) (0, 3) (3, 1) (4, 4)
+
+// Code curated by Subhadeep Das(username:- Raven1233)
