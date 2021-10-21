@@ -17,5 +17,3 @@ Explanation: Pick numbers 5 and 7.
 Input: nums = [3,6]
 Output: false
 ```
-
-origin: https://leetcode.com/problems/check-if-it-is-a-good-array/
