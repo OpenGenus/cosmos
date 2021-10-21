@@ -17,9 +17,9 @@ class MinQueue {
     bool is_empty() const{
         //utilizes the size parameter that deque provides
         if (q.size() > 0){
-            return true;
+            return false; //queue is not empty
         }
-        return false;
+        return true; //queue is empty
     }
 
     int size() const{
