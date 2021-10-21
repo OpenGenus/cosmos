@@ -26,10 +26,10 @@ class MinQueue {
         return q.size();
     }
 
-    void pop(){
+    void pop(){ //Typically pop() should only change the queue state. It should not return the item
         //pop should only be called when there is an item in the 
         //minQueue or else a deque exception will be raised
-        while (!is_empty()) {        
+        if (q.size() > 0) {  //perform check for an empty queue
             q.pop_front();
         }        
     }
