@@ -44,4 +44,4 @@ String_object.decodeString("3[a2[c]]")
 
 String_object.decodeString("2[abc]3[cd]ef")
 
-String_object.decodeString("abc3[cd]xyz")
+String_object.decodeString("abc3[cd]xyz") 
