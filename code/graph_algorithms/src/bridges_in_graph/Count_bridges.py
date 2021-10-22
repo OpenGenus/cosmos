@@ -16,12 +16,7 @@ class Graph:
         self.graph[u].append(v)
         self.graph[v].append(u)
   
-    '''A recursive function that finds and prints bridges
-    using DFS traversal
-    u --> The vertex to be visited next
-    visited[] --> keeps track of visited vertices
-    disc[] --> Stores discovery times of visited vertices
-    parent[] --> Stores parent vertices in DFS tree'''
+    
     def bridgeUtil(self,u, visited, parent, low, disc,res):
  
         # Mark the current node as visited and print it
@@ -49,7 +44,6 @@ class Graph:
                 under v is below u in DFS tree, then u-v is
                 a bridge'''
                 if low[v] > disc[u]:
-                    #print ("%d %d" %(u,v))
                     res.append([u,v])
      
                      
