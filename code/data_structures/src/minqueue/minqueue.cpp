@@ -17,21 +17,21 @@ class MinQueue {
     bool is_empty() const{
         //utilizes the size parameter that deque provides
         if (q.size() > 0){
-            return true;
+            return false; //queue is not empty
         }
-        return false;
+        return true; //queue is empty
     }
 
     int size() const{
         return q.size();
     }
 
-    T pop(){
+    void pop(){ //Typically pop() should only change the queue state. It should not return the item
         //pop should only be called when there is an item in the 
         //minQueue or else a deque exception will be raised
-        T temp = q.front();
-        q.pop_front();
-        return temp;
+        if (q.size() > 0) {  //perform check for an empty queue
+            q.pop_front();
+        }        
     }
 
     const T & top(){
