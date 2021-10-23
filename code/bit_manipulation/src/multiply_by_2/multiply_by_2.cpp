@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int multiplyWith2(int n) {
-    return (n << 1);
+unsigned multiplyWith2(unsigned n) { //Since C++ 11 left shifting a signed int is undefined. 
+    return (n << 1);                 //To avoid unexpected results always use unsigned when doing a multiply by 2 
 }
 
 int main(){
