@@ -2,7 +2,7 @@
 
 using namespace std;
 
-unsigned multiplyWith2(unsigned n) { //Since C++ 11 left signed shift left of a negative int is undefined. 
+unsigned multiplyWith2(unsigned n) { //Since C++ 11 signed shift left of a negative int is undefined. 
     return (n << 1);                 //To avoid unexpected results always use unsigned when doing a multiply by 2 
 }
 
