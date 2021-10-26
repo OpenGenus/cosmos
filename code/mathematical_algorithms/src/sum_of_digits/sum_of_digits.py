@@ -4,4 +4,4 @@ def sum_of_digits(number):
 
 
 input_text = int(input("Input your digits: "))
-print("Sum of your digits is: {0}".format(sum_of_digits(input_number)))
+print("Sum of your digits is: {0}".format(sum_of_digits(input_text)))
