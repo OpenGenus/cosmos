@@ -13,7 +13,6 @@ bubbleSort(List<int> array) {
       print('index i and j at pos: ${i}  &  ${j}');
 
       if (array[j] > array[j + 1]) {
-        // Swapping using temporary variable
         int temp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;
