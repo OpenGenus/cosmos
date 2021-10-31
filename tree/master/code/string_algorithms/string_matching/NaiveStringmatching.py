@@ -1,6 +1,6 @@
 def naive(txt,wrd):
-    lt=len(txt)#length of the string
-    lw=len(wrd)/3length of the substring(pattern)
+    lt=len(txt) #length of the string
+    lw=len(wrd) #length of the substring(pattern)
     for i in range(lt-lw+1):
         j=0
         while(j<lw):
