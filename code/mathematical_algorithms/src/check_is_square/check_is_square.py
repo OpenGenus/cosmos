@@ -1,5 +1,7 @@
 # Part of Cosmos by OpenGenus Foundation
 
+import sys
+
 
 def checkIfSquare(n):
     start = 0
