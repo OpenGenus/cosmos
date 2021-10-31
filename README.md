@@ -65,7 +65,7 @@ The task of maintainers is to review pull requests, suggest further quality addi
 
 The success of our vision to bring knowledge offline depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
-Currently, we have over **950+ contributors** in Cosmos and **over 1K+ contributors** in sister projects of Cosmos.
+Currently, we have over **1000+ contributors** in Cosmos and **over 2K+ contributors** in sister projects of Cosmos.
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
