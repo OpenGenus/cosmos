@@ -1,10 +1,9 @@
-//Given a positive array, find the number of subsequences having product smaller than K.
-// LINK - https://www.geeksforgeeks.org/count-subsequences-product-less-k/#
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstring>
 using namespace std;
 int dp[10005][10005];
 
-int helper(vector<int> a, int n, int k , int product)
+int helper(int a[], int n, int k , int product)
 {
     // base case
     if(n==0)
@@ -37,7 +36,7 @@ int helper(vector<int> a, int n, int k , int product)
     return  dp[n][product];
 }
 
-int solve(vector<int> a, int n, int k)
+int solve(int a[], int n, int k)
 {
     dp[k+1][n+1];
     memset(dp,-1,sizeof(dp));
@@ -50,12 +49,10 @@ int main()
     int n;
     cin>>n;
     
-    vector<int> a;
+    int a[n];
     for(int i=0;i<n;i++)
     {
-        int x;
-        cin>>x;
-        a.push_back(x);
+        cin>>a[i];
     }
 
     int k;
@@ -63,5 +60,8 @@ int main()
     cin>>k;
 
     cout<<solve(a,n,k)<<endl;
+
     return 0;
+
 }
+
