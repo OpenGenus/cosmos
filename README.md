@@ -1,6 +1,6 @@
 # Cosmos
 
-> [Join our discussion now](https://discourse.opengenus.org/) 
+> [Join our Internship Program now](http://internship.opengenus.org/) | Try this cool [One Liner knowledge tool](https://iq.opengenus.org/one/)
 
 > The universe of algorithm and data structures
 
@@ -9,6 +9,13 @@
 This work is maintained by a community of hundreds of people and is a _massive collaborative effort_ to bring the readily available coding knowledge **offline**.
 
 > **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
+
+Make your fundamentals in Algorithms and Data Structure with these free resources:
+
+* [**50+** Linked List Problems](https://iq.opengenus.org/list-of-linked-list-problems/)
+* [**50+** Array Problems](https://iq.opengenus.org/list-of-array-problems/)
+* [**50+** Binary Tree Problems](https://iq.opengenus.org/list-of-binary-tree-problems/)
+* [**100+** Dynamic Programming (DP) Problems](https://iq.opengenus.org/list-of-dynamic-programming-problems/)
 
 # Cosmic Structure
 
@@ -54,13 +61,11 @@ The task of maintainers is to review pull requests, suggest further quality addi
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
 
-Let us know if you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. To join our massive community at [Slack](https://opengenus.slack.com) open an issue [here](https://github.com/OpenGenus/OpenGenus-Slack).
-
 # Contributors
 
 The success of our vision to bring knowledge offline depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
-Currently, we have over **700 contributors**
+Currently, we have over **1000+ contributors** in Cosmos and **over 2K+ contributors** in sister projects of Cosmos.
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
