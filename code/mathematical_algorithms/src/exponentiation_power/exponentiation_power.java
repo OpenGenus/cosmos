@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | exponentiation power | exponentiation power | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class exponent{
 
     public static int exponentBySquare(int num, int power){

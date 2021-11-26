@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | magic number | magic number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Part of Cosmos by OpenGenus Foundation
 #include <iostream>
 #include <cmath>

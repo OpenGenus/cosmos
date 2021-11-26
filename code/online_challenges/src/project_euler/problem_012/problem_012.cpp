@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 012 | problem 012 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 

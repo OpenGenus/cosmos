@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | average stream numbers | average stream numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 function iterativeAverage(arr) {

@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | hierachical clustering | hierachical clustering | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <fstream>
 #include <iostream>
 #include <cstdlib>

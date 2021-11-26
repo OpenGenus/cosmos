@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | thrice unique number | thrice unique number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
 */
 import java.util.*;

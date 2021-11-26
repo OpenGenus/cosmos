@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | topological sort | topological sort adjacency list2 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * This topological sort implementation takes an adjacency list of an acyclic graph and returns
  * an array with the indexes of the nodes in a (non unique) topological order

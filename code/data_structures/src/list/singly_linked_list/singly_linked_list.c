@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #ifndef _LINKED_LIST_C_
 #define _LINKED_LIST_C_
 

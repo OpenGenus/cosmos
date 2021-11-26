@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | replace 0 with 5 | replace 0 with 5 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const Readline = require("readline");
 
 const rl = Readline.createInterface({

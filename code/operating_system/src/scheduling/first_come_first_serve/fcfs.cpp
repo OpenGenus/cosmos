@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | first come first serve | fcfs | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program for implementation of FCFS
 // scheduling
 #include <iostream>

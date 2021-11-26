@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | largest sum contiguous subarray | largest sum contiguous subarray | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */ 
 
 import java.util.Scanner;

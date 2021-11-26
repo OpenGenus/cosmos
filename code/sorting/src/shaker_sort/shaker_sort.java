@@ -1,3 +1,11 @@
+/*
+
+// sorting | shaker sort | shaker sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 public class ShakerSort {

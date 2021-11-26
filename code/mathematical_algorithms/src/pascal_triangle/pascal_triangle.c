@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | pascal triangle | pascal triangle | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 long long int a[101][101];

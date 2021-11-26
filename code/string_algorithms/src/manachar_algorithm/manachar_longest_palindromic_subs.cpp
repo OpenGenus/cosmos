@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | manachar algorithm | manachar longest palindromic subs | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <string>
 #include <iostream>
 #include <cmath>

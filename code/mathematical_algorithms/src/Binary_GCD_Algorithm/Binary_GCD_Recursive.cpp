@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | Binary GCD Algorithm | Binary GCD Recursive | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Recursive program 
 
 #include <bits/stdc++.h> 

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | factorial | factorial | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 fn factorial(n: u64) -> u64 {
     match n {

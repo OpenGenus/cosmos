@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | priority queue | leftist tree | leftist priority queue | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 

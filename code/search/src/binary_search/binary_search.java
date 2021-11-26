@@ -1,4 +1,12 @@
 /*
+
+// search | binary search | binary search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
 */
 class Search

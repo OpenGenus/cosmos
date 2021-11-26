@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | closest pair of points | closest pair | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | structure to represent a point | C
 //  Part of Cosmos by OpenGenus Foundation
 

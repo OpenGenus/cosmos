@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime factors | prime factors | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.*;
 

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | reverse | reverse | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

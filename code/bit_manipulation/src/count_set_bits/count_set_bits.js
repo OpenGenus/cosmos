@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | count set bits | count set bits | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 export default function countSetBits(n) {

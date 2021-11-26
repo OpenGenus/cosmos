@@ -1,3 +1,11 @@
+"""
+
+# divide conquer | strassen matrix multiplication | strassen |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """

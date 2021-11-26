@@ -1,3 +1,11 @@
+"""
+
+# compression | lossless compression | lempel ziv welch | lzw |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/env python3
 
 

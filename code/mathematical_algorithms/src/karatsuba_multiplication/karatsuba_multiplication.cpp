@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | karatsuba multiplication | karatsuba multiplication | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 // To pad both input strings with 0's so they have same size

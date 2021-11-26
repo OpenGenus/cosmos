@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | amicable numbers | amicable numbers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 //Program to Calculate Amicable Numbers under 10000 and find sum of them

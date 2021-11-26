@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | euler totient | euler totient | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 public class EulerTotient {

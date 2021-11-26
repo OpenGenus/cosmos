@@ -1,4 +1,12 @@
 /*
+
+// computational geometry | sphere tetrahedron intersection | sphere tetrahedron intersection | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Analytical calculations for sphere-tetrahedron intersections.
  *
  * See here for it's mathematical description:

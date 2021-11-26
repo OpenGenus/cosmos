@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | doubly linked list | doubly linked list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 /* An implementation of Doubly Linked List of integer type */

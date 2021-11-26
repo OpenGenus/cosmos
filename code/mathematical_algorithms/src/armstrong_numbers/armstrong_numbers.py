@@ -1,4 +1,12 @@
 """
+
+# mathematical algorithms | armstrong numbers | armstrong numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Armstrong Number - In case of an Armstrong number of 3 digits, the sum of 
 cubes of each digits is equal to the number itself. 
 """

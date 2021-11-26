@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | Electronics Shop | Electronics Shop | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 #include <bits/stdc++.h>
 

@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | n queen bitset | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 ///GIVES TOTAL NUMBER OF POSSIBLE WAYS TO SOLVE N QUEEN PROBLEM USING BITSET
 // Part of Cosmos by OpenGenus Foundation
 #include <iostream>

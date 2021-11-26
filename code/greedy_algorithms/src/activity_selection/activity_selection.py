@@ -1,4 +1,12 @@
 """
+
+# greedy algorithms | activity selection | activity selection |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
  Part of Cosmos by OpenGenus Foundation
 
  Activity Selection Problem

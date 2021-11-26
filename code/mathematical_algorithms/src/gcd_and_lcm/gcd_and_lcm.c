@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | gcd and lcm | gcd and lcm | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Created by Shubham Prasad Singh on 13/10/2017 */
 /* GCD and LCM */

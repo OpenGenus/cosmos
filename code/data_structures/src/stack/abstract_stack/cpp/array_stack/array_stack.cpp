@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | abstract stack | cpp | array stack | array stack | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 #include <iostream>
 

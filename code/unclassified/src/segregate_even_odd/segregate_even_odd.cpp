@@ -1,3 +1,11 @@
+/*
+
+// unclassified | segregate even odd | segregate even odd | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Segregate all even numbers to left and odd numbers to right of the array
 #include <algorithm>
 #include <iostream>

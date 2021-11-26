@@ -1,3 +1,11 @@
+/*
+
+// sorting | merge sort | merge sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Java program for Merge Sort */
 // Part of Cosmos by OpenGenus Foundation
 class MergeSort {

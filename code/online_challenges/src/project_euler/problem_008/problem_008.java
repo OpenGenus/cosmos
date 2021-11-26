@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 008 | problem 008 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 import java.math.BigInteger;
 import java.util.ArrayList;

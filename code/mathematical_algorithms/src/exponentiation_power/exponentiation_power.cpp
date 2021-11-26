@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | exponentiation power | exponentiation power | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <ext/numeric>
 #include <iostream>
 using namespace std;

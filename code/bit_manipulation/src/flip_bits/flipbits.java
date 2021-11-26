@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | flip bits | flipbits | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 
 /* 

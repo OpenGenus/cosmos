@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | armstrong numbers | armstrong numbers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 using namespace std;

@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | heap | max heap | max heap | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
   Part of Cosmos by OpenGenus Foundation
   This is a C program that forms a max heap.
   The following queries can be used:

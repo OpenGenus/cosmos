@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | primality tests | fermat primality test | fermat primality test |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from random import randint
 
 

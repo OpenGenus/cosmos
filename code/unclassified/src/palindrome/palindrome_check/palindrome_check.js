@@ -1,3 +1,11 @@
+/*
+
+// unclassified | palindrome | palindrome check | palindrome check | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function isPalindrome(str) {
   return [...str].reverse().join("") == str;
 }

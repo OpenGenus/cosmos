@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | min cost path | min cost path | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 #define ROWS 3

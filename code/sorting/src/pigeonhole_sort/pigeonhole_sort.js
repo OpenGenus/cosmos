@@ -1,3 +1,11 @@
+/*
+
+// sorting | pigeonhole sort | pigeonhole sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Perform a pigeonhole sort on an array of ints.
  * @param {Array} - array of ints

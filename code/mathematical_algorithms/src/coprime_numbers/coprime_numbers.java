@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | coprime numbers | coprime numbers | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.InputStreamReader;
 import java.util.Scanner;
 

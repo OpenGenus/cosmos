@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | tribonacci numbers | tribonacci numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 n = int(input())
 a = []
 a.append(0)

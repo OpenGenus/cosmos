@@ -1,3 +1,11 @@
+"""
+
+# sorting | bogo sort | bogo or permutation sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program for implementation of Bogo Sort or Permutation Sort
 import random
 

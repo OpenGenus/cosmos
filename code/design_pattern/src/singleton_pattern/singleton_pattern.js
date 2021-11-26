@@ -1,3 +1,11 @@
+/*
+
+// design pattern | singleton pattern | singleton pattern | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 class Singleton {

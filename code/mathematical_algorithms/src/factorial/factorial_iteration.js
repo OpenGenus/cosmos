@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | factorial | factorial iteration | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function factorial(n) {
   let ans = 1;
   for (let i = 1; i <= n; i += 1) {

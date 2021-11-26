@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | catalan number | catalan number2 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def catalanNum(n):
     if n <= 1:
         return 1

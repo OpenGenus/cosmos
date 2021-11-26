@@ -1,3 +1,11 @@
+/*
+
+// operating system | memory management | least recently used | lru | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 int frame[3]={0,0,0},pref[3]={0,0,0},page[20];
 int hita(int a) // counts hit

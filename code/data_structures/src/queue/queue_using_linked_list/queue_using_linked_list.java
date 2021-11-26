@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | queue using linked list | queue using linked list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class Node<T> //NODE CLASS
 {
     T data;

@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | hash table | hash table | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::hash::{Hash, Hasher};
 use std::collections::hash_map::DefaultHasher;
 use std::fmt;

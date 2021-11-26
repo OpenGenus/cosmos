@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | longest palindromic substring | longest palindromic substring | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 #include <iostream>
 #include <string>

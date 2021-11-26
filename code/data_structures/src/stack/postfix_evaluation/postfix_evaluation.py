@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | postfix evaluation | postfix evaluation |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # special feature verbose mode -> to trace what is happening
 import sys
 

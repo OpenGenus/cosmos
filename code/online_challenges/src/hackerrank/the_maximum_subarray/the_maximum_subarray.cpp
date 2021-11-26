@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | the maximum subarray | the maximum subarray | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

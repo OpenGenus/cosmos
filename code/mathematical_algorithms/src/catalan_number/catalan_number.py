@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | catalan number | catalan number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

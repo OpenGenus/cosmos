@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | reservoir sampling | reservoir sampling | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 extern crate rand;
 use rand::Rng;
 use std::io;

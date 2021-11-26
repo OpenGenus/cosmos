@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | lonely integer | lonely integer | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * The Lonely Integer Problem
  * Given an array in which all the no. are present twice except one, find that lonely integer.

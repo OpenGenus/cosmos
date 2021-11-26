@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | remove dups | remove dumps |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

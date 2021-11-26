@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest bitonic sequence | longestbitonicseq | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | integer conversion | decimal to any base | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Convert numbers higher than 9 (up to 15) to letters.
 // Part of Cosmos by OpenGenus Foundation
 function hex_val(value) {

@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | factorial | factorial | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<iostream>
 
 int factorial(int num) {

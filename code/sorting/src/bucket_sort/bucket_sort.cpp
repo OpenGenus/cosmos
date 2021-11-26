@@ -1,3 +1,11 @@
+/*
+
+// sorting | bucket sort | bucket sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to sort an array using bucket sort
 #include <iostream>
 #include <algorithm>

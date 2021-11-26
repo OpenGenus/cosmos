@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | Binary GCD Algorithm | Binary GCD Recursive |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def gcd(a, b):
     if (a == b):
         return a

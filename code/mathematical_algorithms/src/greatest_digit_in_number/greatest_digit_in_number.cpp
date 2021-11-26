@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | greatest digit in number | greatest digit in number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 int greatest_digit(int n)

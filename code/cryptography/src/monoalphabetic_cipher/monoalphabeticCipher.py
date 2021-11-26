@@ -1,3 +1,11 @@
+"""
+
+# cryptography | monoalphabetic cipher | monoalphabeticCipher |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 keyDict = {}
 
 # Enter a custom map for the monoalphabetic encryption mapping

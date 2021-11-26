@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | NUMGAME2 | NUMGAME2 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(void) 

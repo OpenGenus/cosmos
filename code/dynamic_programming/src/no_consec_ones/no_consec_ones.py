@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | no consec ones | no consec ones |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by Open Genus Foundation
 # Code contributed by Shamama Zehra
 

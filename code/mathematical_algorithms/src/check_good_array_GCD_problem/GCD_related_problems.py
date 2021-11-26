@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | check good array GCD problem | GCD related problems |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 class Solution:
     def isGoodArray(self, nums: List[int]) -> bool:

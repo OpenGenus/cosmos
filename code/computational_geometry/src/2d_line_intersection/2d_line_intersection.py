@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | 2d line intersection | 2d line intersection |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # computational geometry | 2D line intersecton | Python
 def parallel_int(verticeX, verticeY):
     k = (verticeY[2] - verticeY[0]) * (verticeX[1] - verticeX[0]) - (

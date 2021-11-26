@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | circular linked list | circular linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class Node:
 
     # Constructor to create  a new node

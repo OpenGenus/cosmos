@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | delete | delete nth node | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* delete the nth node from the link list */
 /* Part of Cosmos by OpenGenus Foundation */
 

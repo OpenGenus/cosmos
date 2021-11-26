@@ -1,3 +1,9 @@
+# data structures | tree | tree | trie | trie | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 class Trie
   def insert(word)
     return if word.empty?

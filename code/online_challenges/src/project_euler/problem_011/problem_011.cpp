@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 011 | problem 011 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

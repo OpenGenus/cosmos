@@ -1,3 +1,9 @@
+# mathematical algorithms | shuffle array | shuffle array | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Shuffler
   # This shuffle uses Fisher-Yates shuffle algorithm

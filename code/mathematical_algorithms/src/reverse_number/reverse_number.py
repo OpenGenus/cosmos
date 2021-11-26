@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | reverse number | reverse number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def reverse_number(n):
     return int(str(n)[::-1])
 

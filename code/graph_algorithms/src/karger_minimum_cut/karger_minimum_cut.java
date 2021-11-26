@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | karger minimum cut | karger minimum cut | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Sample Input
 8
 1 2 4 3

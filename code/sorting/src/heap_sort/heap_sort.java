@@ -1,3 +1,11 @@
+/*
+
+// sorting | heap sort | heap sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 /*
  * Part of Cosmos by OpenGenus Foundation

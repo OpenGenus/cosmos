@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | integer conversion | decimal to oct | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <sstream>
 #include <string>

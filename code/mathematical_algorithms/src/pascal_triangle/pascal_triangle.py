@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | pascal triangle | pascal triangle |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 
 # pascals_tri_formula =

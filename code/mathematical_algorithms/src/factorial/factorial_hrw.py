@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | factorial | factorial hrw |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/local/bin/python3.6
 # 	This is my way of calculating factorial, i call it the half reverse way, first you divide the number you want it's factorial
 # 	then you multiply every number until it's half counting up with every number until it's half counting down then

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 007 | problem 007 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 const primes = [];

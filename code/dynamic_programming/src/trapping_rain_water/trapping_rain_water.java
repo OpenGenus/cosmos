@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | trapping rain water | trapping rain water | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Main {
 
     public static void main(String args[]) {

@@ -1,4 +1,12 @@
 /*
+
+// sorting | bubble sort | bubble sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * bubble sort synopsis

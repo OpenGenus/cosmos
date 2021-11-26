@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | mandelbrot fractal | mandelbrot fractal |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy
 import matplotlib.pyplot as plt
 

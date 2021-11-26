@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | dijkstra shortest path | dijkstra shortest path |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program for Dijkstra's single
 # source shortest path algorithm. The program is
 # for adjacency matrix representation of the graph

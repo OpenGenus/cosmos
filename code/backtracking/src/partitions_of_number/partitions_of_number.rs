@@ -1,3 +1,11 @@
+/*
+
+// backtracking | partitions of number | partitions of number | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #[macro_use]
 extern crate text_io;
 

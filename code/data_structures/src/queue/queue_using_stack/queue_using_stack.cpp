@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | queue using stack | queue using stack | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <stack>
 using namespace std;

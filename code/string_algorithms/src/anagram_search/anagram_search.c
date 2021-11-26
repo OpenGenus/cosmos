@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | anagram search | anagram search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 

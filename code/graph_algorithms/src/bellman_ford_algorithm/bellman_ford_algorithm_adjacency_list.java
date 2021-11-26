@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bellman ford algorithm | bellman ford algorithm adjacency list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * An implementation of the Bellman-Ford algorithm. The algorithm finds
  * the shortest path between a starting node and all other nodes in the graph. 

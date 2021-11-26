@@ -1,3 +1,11 @@
+"""
+
+# cellular automaton | genetic algorithm | genetic algorithm2 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 import random
 

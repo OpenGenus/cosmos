@@ -1,3 +1,11 @@
+/*
+
+// cryptography | morse cipher | morse code translator | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //
 // Created by miszk on 10/4/2017.
 //

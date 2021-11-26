@@ -1,3 +1,11 @@
+/*
+
+// data structures | sparse table | sparse table | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>

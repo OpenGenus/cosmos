@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | convert number binary | convert number binary | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class ConvertNumberBinary {
 	public static void main(String[] args) {

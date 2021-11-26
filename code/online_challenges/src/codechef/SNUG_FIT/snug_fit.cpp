@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | SNUG FIT | snug fit | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

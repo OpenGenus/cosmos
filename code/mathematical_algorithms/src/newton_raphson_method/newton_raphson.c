@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | newton raphson method | newton raphson | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #include<stdio.h>
 #include<math.h>

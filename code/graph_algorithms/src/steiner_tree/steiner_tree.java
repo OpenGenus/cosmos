@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | steiner tree | steiner tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class SteinerTree {
 
 	public static int minLengthSteinerTree(int[][] g, int[] verticesToConnect) {

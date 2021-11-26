@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | negative cycle finding | negativeCycleFinding | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 struct Edge {
     ll a, b, cost;
 };

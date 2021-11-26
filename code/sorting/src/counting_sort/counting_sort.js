@@ -1,3 +1,11 @@
+/*
+
+// sorting | counting sort | counting sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function countingSort(arr, min, max) {
   var i,

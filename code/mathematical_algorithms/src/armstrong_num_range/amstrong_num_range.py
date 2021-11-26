@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | armstrong num range | amstrong num range |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 sum_pow = 0.0
 
 #Accept the lower and upper range from the user

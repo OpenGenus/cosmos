@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | lexicographically largest palindrome subsequence | Lexicographyically largest palindrome subsequence | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* C++ Program to find lexicographically largest palindrome subsequence 
 In this Program only input line contains a non-empty string S consisting of lowercase English letters only. Its length does not exceed 10.
 Here, Characters in the strings are compared according to their ASCII codes and the one with largest ASCII code is lexicographically largest. 

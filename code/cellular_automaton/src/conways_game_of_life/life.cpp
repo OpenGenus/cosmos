@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | conways game of life | life | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <fstream>
 #include <cstdlib>

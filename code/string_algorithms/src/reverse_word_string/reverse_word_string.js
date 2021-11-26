@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | reverse word string | reverse word string | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function reverseString(string) {
     const reversedString = string.split(' ').reverse().join(' ');
     console.log(reversedString);

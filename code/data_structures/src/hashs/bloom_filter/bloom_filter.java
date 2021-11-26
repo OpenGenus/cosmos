@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | bloom filter | bloom filter | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Project: Cosmos
  * Package: main

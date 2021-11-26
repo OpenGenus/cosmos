@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | byte swapper | byte swapper | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class ByteSwapper {
 

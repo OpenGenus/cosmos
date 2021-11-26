@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tower of hanoi | tower of hanoi | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn main() {
     tower_of_hanoi(5,"A","C","B");
 }

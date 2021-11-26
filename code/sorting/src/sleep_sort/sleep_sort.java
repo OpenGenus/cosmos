@@ -1,3 +1,11 @@
+/*
+
+// sorting | sleep sort | sleep sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.concurrent.CountDownLatch;
 public class SleepSort {

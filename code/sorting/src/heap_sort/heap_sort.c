@@ -1,3 +1,11 @@
+/*
+
+// sorting | heap sort | heap sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C implementation of Heap Sort
 // Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>

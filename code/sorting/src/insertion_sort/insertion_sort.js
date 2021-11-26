@@ -1,3 +1,11 @@
+/*
+
+// sorting | insertion sort | insertion sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function insertionSort(array) {
   var length = array.length;

@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | naive bayes | naive bayes |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 from collections import defaultdict
 

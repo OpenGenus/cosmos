@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | check is square | check is square alternative |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 
 

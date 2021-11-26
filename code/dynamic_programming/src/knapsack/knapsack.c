@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | knapsack | knapsack | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 #define MAX 10

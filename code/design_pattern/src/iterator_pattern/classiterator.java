@@ -1,3 +1,11 @@
+/*
+
+// design pattern | iterator pattern | classiterator | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package iterator;
 
 public class ClassIterator implements Iterator<Student> {

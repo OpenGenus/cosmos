@@ -1,3 +1,11 @@
+"""
+
+# data structures | queue | queue | queue |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Queue:
     def __init__(self, size_max):

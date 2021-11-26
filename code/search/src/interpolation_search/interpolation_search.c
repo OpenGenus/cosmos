@@ -1,3 +1,11 @@
+/*
+
+// search | interpolation search | interpolation search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 int interpolationSearch(int* array, int n, int key){

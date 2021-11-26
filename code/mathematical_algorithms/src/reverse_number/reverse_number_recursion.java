@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | reverse number | reverse number recursion | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 /*
 	@author Kanika Saini (https://github.com/kanikasaini)

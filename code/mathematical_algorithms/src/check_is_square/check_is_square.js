@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | check is square | check is square | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 let isPerfectSquare = num => Math.sqrt(num) === Math.floor(Math.sqrt(num));
 
 console.log(isPerfectSquare(0)); // should output true

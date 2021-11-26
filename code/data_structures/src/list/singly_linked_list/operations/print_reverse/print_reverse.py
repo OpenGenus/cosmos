@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | singly linked list | operations | print reverse | print reverse |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Node(object):
     def __init__(self, data=None, next_node=None):

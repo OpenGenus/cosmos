@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | tree | trie | trie | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 class Node {

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | newman conway | newman conway dp | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 class NewmanConwaySequence
 {

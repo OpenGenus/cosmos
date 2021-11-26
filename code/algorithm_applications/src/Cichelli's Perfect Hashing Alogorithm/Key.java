@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | Cichelli's Perfect Hashing Alogorithm | Key | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Key implements Comparable<Key> {
     //fields
 	private String keyWord;

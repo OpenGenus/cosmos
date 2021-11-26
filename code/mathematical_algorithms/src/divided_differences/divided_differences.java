@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | divided differences | divided differences | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 import java.util.Arrays;

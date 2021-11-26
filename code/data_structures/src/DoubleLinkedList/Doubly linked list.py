@@ -1,3 +1,11 @@
+"""
+
+# data structures | DoubleLinkedList | Doubly linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class Node:
     def __init__(self, data):
         self.data = data

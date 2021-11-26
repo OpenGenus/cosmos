@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | balanced expression | balanced expression | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 class BalancedExpression {

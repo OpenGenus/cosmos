@@ -1,3 +1,11 @@
+/*
+
+// backtracking | knight tour | knight tour | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 #include <stdlib.h>

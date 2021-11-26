@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | circular buffer | circular buffer | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

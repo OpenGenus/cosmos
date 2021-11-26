@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include "singly_linked_list.h"
 
 int main()

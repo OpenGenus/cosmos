@@ -1,3 +1,11 @@
+"""
+
+# data structures | disjoint set | DisjointSet DS |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 f = []
 f = [0 for x in range(100)]
 

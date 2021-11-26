@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | decision tree | decision tree |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # CART on the Bank Note dataset
 from random import seed
 from random import randrange

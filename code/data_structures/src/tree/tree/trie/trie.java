@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | tree | trie | trie | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 class TrieNode {
     char c; 

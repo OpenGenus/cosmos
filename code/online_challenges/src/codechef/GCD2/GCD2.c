@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | GCD2 | GCD2 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 

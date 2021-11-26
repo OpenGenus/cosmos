@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | count trailing zeroes | count trailing zeroes factorial |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def findTrailingZeroes(n):
     count = 0

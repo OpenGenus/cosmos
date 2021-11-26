@@ -1,3 +1,11 @@
+/*
+
+// cryptography | affine cipher | affine | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 /**

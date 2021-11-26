@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | merge arrays | merge two arrays | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(){

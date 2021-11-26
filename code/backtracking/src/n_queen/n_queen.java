@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | n queen | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 /*
  *	Part of Cosmos by OpenGenus Foundation

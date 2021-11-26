@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | tree | trie | trie | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cstdio>
 #include <string>
 #include <iostream>

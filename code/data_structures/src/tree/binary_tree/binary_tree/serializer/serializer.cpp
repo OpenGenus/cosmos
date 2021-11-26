@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | serializer | serializer | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * tree serializer synopsis

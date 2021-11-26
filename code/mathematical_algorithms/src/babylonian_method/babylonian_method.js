@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | babylonian method | babylonian method | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function b_sqrt(n, e = 1e-5) {
   var x = n;
   while (x - n / x > e) {

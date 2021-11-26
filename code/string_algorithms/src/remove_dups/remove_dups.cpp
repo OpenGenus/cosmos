@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | remove dups | remove dups | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 //Part of Cosmos by OpenGenus Foundation

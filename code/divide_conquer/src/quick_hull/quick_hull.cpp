@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | quick hull | quick hull | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std;
 #define iPair pair<int, int>

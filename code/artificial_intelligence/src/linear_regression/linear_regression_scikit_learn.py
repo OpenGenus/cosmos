@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | linear regression | linear regression scikit learn |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

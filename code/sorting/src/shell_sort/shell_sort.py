@@ -1,3 +1,11 @@
+"""
+
+# sorting | shell sort | shell sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def shell_sort(alist):
     sub_list_count = len(alist) // 2

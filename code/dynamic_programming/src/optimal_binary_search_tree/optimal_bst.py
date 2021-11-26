@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | optimal binary search tree | optimal bst |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Given keys and frequency, calculate the most optimal binary search tree that can be created making use of minimum cost
 
 keys = list(map(int, input("Enter the list of keys").split()))

@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bipartite check | bipartite check | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program to find out whether a given graph is Bipartite or not
 import java.util.*;
 import java.lang.*;

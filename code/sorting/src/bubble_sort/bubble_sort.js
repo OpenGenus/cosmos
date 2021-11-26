@@ -1,3 +1,11 @@
+/*
+
+// sorting | bubble sort | bubble sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 function bubbleSort(items) {
   var length = items.length;

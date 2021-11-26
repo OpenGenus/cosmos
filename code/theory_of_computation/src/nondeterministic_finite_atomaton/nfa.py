@@ -1,3 +1,11 @@
+"""
+
+# theory of computation | nondeterministic finite atomaton | nfa |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from dfa import (
     DFA,
 )  # located at code/theory_of_computation/src/deterministic_finite_automaton/dfa.py

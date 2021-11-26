@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | segment tree | segment tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // Java Program to show segment tree operations like construction, query and update

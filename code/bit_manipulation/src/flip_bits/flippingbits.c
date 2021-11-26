@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | flip bits | flippingbits | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 int main() {

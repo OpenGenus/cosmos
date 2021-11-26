@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | bit division | bit division | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 unsigned bitDivision(unsigned numerator, unsigned denominator) {

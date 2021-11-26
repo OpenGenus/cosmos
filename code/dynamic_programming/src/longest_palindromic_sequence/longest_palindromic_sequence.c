@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | longest palindromic sequence | longest palindromic sequence | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * @Author: Ayush Garg 
  * @Date: 2017-10-13 23:11:52 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | 2sum | 2sum | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 public class two_sum {

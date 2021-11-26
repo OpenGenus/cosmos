@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | egg dropping puzzle | eggdroppingpuzzle | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 //Dynamic Programming solution for the Egg Dropping Puzzle
  /* Returns the minimum number of attempts

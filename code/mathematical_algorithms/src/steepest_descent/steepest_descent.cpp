@@ -1,4 +1,12 @@
 /*
+
+// mathematical algorithms | steepest descent | steepest descent | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * The method of steepest descent
  * -------------------
  * An algorithm for finding the nearest local minimum of a function.

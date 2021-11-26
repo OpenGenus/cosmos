@@ -1,3 +1,11 @@
+/*
+
+// sorting | comb sort | comb sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function is_array_sorted(arr) {
   var sorted = true;

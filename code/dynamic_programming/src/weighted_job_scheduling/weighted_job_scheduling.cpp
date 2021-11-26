@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | weighted job scheduling | weighted job scheduling | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * C++ program for weighted job scheduling using Dynamic Programming and Binary Search
  */

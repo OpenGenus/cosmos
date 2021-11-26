@@ -1,3 +1,9 @@
+# dynamic programming | array median | array median | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 def median(*nums)

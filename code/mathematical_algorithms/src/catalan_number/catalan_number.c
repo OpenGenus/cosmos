@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | catalan number | catalan number | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation. */
 
 #include <stdio.h>

@@ -1,3 +1,11 @@
+"""
+
+# cryptography | rail fence cipher | rail fence cipher |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 string = "Aditya Krishnakumar"
 key = 2
 mode = 0

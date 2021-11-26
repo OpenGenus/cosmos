@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | RRCOPY | RRCOPY | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 

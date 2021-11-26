@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | clear bits from msb | clear bits from msb | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Problem Statement :
 Clear all MSB's except for the first i LSB's of a number n.
 MSB -> Most Significant Bit

@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | prim minimum spanning tree | prim minimum spanning tree |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys
 from heap import Heap
 

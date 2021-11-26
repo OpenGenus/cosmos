@@ -1,3 +1,11 @@
+/*
+
+// sorting | counting sort | counting sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <climits>

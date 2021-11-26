@@ -1,3 +1,11 @@
+/*
+
+// unclassified | maximum subarray sum | maximum subarray sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 

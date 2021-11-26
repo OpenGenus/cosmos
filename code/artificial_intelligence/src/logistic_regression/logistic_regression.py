@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | logistic regression | logistic regression |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Logistic regression implemented from Scratch in Python
 
 import numpy as np

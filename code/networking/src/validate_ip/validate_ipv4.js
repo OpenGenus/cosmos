@@ -1,3 +1,11 @@
+/*
+
+// networking | validate ip | validate ipv4 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function verify_ipv4(ip) {
   const rx = /^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/;
   return ip.match(rx);

@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | infix to postfix | infix to postfix | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 import java.util.Stack;
  

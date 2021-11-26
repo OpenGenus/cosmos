@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | anagram search | anagram search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // Checks if two strings are anagrams of each other, ignoring any whitespace.

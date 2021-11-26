@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | greatest digit in number | greatest digit in number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.*;
 public class Greatest_digit_in_number{

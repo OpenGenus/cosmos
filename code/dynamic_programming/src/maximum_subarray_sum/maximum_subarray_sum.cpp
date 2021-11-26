@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | maximum subarray sum | maximum subarray sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,3 +1,9 @@
+# data structures | tree | multiway tree | red black tree | red black tree | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 class Node
   attr_accessor :data, :color, :left, :right, :parent
 

@@ -1,3 +1,11 @@
+"""
+
+# cryptography | vigenere cipher | vigenere cipher |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #Method for encryption that takes key and plaintext as arguments
 def encrypt(key, text):
 

@@ -1,3 +1,11 @@
+/*
+
+// selection algorithms | quickselect stl | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

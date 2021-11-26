@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | box stacking | box stacking | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // dynamic programming | box stacking | C++
 // Part of Cosmos by OpenGenus Foundation
 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | pascal triangle | pascal triangle | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

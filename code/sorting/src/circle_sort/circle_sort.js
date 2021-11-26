@@ -1,3 +1,11 @@
+/*
+
+// sorting | circle sort | circle sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Reference: https://rosettacode.org/wiki/Sorting_Algorithms/Circle_Sort
 
 const circlesort = (arr, lo, hi, swaps) => {

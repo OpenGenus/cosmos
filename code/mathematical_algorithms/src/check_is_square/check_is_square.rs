@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | check is square | check is square | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 //-- Function to check if a number is square
 //-- Accepts integers, and converts it internally to float

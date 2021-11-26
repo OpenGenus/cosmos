@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | inversion count | inversion count | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | inversion count | Javascript
 //  Part of Cosmos by OpenGenus Foundation
 

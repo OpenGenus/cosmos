@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | exponentiation power | exponentiation by squaring | exponentiation by squaring |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 MOD = 1000000007

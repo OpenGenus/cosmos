@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | min rests skipped to reach on time | min skips | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 
 #include<bits/stdc++.h>

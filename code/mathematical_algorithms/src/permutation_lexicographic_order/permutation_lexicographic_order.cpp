@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | permutation lexicographic order | permutation lexicographic order | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <algorithm>

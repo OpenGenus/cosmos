@@ -1,3 +1,11 @@
+/*
+
+// search | exponential search | exponential search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program to find an element x in a sorted array using Exponential search.
 import java.util.Arrays;
 // Part of Cosmos by OpenGenus Foundation

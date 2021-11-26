@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | kth smallest element algorithm | kth smallest element algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <climits>
 #include <cstdlib>

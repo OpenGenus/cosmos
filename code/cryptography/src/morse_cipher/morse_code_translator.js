@@ -1,3 +1,11 @@
+/*
+
+// cryptography | morse cipher | morse code translator | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Javascript program to implement morse code translator
 
 /*

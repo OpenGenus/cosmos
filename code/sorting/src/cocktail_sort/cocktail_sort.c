@@ -1,3 +1,11 @@
+/*
+
+// sorting | cocktail sort | cocktail sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 /* CocktailSort function is the function used to sort the array using cocktail algorithm. */
 /* Cocktailsort is similar to the bubble sort but the complexity is less comparatively. */

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | CLEANUP | CLEANUP | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main() 

@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | halfplane intersection | halfplane intersection | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cmath>
 #include <iostream>
 #include <vector>

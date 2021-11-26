@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | shuffle an array | shuffle an array | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 extern crate rand;
 use rand::Rng;
 

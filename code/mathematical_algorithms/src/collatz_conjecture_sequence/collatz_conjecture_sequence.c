@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | collatz conjecture sequence | collatz conjecture sequence | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 void

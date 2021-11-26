@@ -1,3 +1,11 @@
+/*
+
+// unclassified | palindrome | palindrome check | palindrome check | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* checks whether a given string is palindrome or not */
 import java.util.Scanner;
 

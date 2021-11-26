@@ -1,4 +1,12 @@
 /*
+
+// backtracking | algorithm x | algorithm x | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *      algo-x.cpp
  *      by Charles (@c650)
  *

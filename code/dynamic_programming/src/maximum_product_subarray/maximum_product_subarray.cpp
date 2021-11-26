@@ -1,5 +1,13 @@
 /*
 
+// dynamic programming | maximum product subarray | maximum product subarray | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
+
 Read Problem Description Here - https://leetcode.com/problems/maximum-product-subarray/
 
 Test Cases - 

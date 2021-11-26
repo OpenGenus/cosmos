@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 028 | problem 028 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 

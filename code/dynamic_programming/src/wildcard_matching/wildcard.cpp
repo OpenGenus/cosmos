@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | wildcard matching | wildcard | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Part of Cosmos by OpenGenus Foundation
 
 bool isMatch(string s, string p) {

@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of triangle | area of triangle | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 struct Point {
     x: f64,
     y: f64

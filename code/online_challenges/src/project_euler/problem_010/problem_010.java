@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 010 | problem 010 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 public class Solution {
 

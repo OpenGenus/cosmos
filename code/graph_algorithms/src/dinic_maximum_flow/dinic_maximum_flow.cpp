@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | dinic maximum flow | dinic maximum flow | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <queue>
 #include <cstring>

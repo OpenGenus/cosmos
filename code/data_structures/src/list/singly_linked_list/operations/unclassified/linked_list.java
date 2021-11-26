@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | unclassified | linked list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class LinkedList {
 	private class Node {

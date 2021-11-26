@@ -1,3 +1,11 @@
+/*
+
+// search | exponential search | exponential search | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn main() {
     let nums = vec![1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
     let find_me = 13;

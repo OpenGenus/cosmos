@@ -1,4 +1,12 @@
 """
+
+# game theory | minimax | minimax |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Minimax game playing algorithm
 Alex Day
 Part of Cosmos by OpenGenus Foundation

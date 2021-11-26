@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | b tree | b tree | b tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ implemntation of search() and traverse() methods
 #include <iostream>
 using namespace std;

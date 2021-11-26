@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | is binary tree | is binary tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* A binary tree node has data, pointer to left child
  * and a pointer to right child
  *

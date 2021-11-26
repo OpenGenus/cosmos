@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | path sum | sum left | sum left | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

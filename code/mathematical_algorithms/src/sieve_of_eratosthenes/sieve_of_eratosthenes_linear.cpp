@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sieve of eratosthenes | sieve of eratosthenes linear | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

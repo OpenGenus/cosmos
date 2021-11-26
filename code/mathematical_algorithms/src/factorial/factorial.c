@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | factorial | factorial | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
  
 // function to find factorial of given number

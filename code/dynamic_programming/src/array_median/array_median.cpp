@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | array median | array median | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <vector>

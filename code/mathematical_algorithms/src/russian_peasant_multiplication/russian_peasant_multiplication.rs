@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | russian peasant multiplication | russian peasant multiplication | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn russian_peasant(mut a: u32, mut b: u32) -> u32 {
     let mut res = 0;
 

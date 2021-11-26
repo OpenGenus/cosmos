@@ -1,3 +1,11 @@
+"""
+
+# unclassified | palindrome | palindrome check | palindrome |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     """
     Determine whether or not a string is a palindrome.

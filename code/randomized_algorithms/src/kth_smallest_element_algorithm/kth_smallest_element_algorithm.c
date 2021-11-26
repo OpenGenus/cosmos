@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | kth smallest element algorithm | kth smallest element algorithm | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 void swap(int *a , int *b)
 {

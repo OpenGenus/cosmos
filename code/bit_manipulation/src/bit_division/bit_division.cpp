@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | bit division | bit division | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Problem Statement : 
 Divide two numbers using bitwise operators
 (i.e without using arithmetic operators)

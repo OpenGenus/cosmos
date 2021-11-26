@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fibonacci number | fibonacci number | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Rerturns the nth element of the fibonacci sequence 
 fn fibo(n :i64) -> i64 {
     match n {

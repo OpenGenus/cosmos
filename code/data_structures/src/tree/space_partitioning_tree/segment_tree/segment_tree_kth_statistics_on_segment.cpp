@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | segment tree | segment tree kth statistics on segment | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cassert>
 #include <iostream>
 #include <vector>

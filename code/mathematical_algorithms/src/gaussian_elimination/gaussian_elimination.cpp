@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | gaussian elimination | gaussian elimination | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #include <cmath>
 #include <iostream>

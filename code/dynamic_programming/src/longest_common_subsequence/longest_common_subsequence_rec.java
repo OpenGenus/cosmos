@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest common subsequence | longest common subsequence rec | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 class LongestCommonSubsequenceRec {
   int lcs( char[] X, char[] Y, int m, int n) {

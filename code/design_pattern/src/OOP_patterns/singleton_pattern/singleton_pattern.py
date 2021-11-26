@@ -1,3 +1,11 @@
+"""
+
+# design pattern | OOP patterns | singleton pattern | singleton pattern |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | perceptron | perceptron |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Function that essentially involves the calculation inside the perceptron
 def predict(row, weights):
     activation = weights[0]

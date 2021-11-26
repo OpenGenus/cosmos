@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | sort stack | sort stack | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C program to sort a stack using recursion
 // Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>

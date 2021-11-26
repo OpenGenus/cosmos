@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | palindrome checker | palindrome |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def isPalindromeRecursive(string):
     if len(string) == 2 or len(string) == 1:
         return True

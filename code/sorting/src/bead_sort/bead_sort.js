@@ -1,3 +1,11 @@
+/*
+
+// sorting | bead sort | bead sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function range(x) {
   var res = [];

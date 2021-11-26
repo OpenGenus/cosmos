@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | finite automata | searchstringusingdfa | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 import java.util.Scanner;
  

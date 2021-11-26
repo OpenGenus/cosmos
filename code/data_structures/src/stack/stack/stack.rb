@@ -1,3 +1,9 @@
+# data structures | stack | stack | stack | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Stack
   attr_accessor :items

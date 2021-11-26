@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | convert number binary | convert number binary | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 //Using built in functions:

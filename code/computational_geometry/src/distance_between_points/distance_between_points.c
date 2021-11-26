@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | distance between points | distance between points | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

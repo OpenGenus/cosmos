@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | factorial | factorial | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::env;
 
 // Part of Cosmos by OpenGenus Foundation

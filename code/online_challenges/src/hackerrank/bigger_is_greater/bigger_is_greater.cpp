@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | bigger is greater | bigger is greater | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 

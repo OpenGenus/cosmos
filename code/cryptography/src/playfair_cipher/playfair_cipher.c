@@ -1,3 +1,11 @@
+/*
+
+// cryptography | playfair cipher | playfair cipher | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C program to implement Playfair Cipher
 
 #include <stdio.h>

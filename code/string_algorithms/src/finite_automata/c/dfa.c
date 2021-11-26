@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | finite automata | c | dfa | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus.
  * Author : ABDOUS Kamel
  */

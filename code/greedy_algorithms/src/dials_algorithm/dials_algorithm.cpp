@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | dials algorithm | dials algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ Program for Dijkstra's dial implementation
 #include<bits/stdc++.h>
 using namespace std;

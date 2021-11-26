@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | number of substring divisible by 8 but not 3 | number of substrings | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h> 
 using namespace std; 
 

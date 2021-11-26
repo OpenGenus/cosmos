@@ -1,3 +1,11 @@
+/*
+
+// data structures | bag | bag | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function Bag() {
   let bag = [];
   this.size = () => bag.length;

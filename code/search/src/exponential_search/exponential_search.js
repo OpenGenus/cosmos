@@ -1,3 +1,11 @@
+/*
+
+// search | exponential search | exponential search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Program to find an element in a sorted array using Exponential search. */
 

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | circular linked list | circular linked list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 // Part of Cosmos by OpenGenus Foundation

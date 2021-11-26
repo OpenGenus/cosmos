@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | Greedy Puppy | Greedy Pupy | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(void) 

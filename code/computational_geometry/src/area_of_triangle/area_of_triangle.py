@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | area of triangle | area of triangle |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #! /usr/local/bin/python3
 
 # Part of Cosmos by OpenGenus Foundation

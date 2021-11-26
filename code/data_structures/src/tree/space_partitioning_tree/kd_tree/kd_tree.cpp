@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | kd tree | kd tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation

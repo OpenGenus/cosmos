@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | pascal triangle | pascal triangle | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 import java.util.Scanner;

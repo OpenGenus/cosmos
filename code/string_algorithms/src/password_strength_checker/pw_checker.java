@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | password strength checker | pw checker | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Password {
 
 	public static void main(String[] args) {	

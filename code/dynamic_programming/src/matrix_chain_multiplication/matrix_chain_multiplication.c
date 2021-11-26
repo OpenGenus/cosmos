@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | matrix chain multiplication | matrix chain multiplication | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>

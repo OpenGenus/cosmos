@@ -1,3 +1,11 @@
+/*
+
+// sorting | counting sort | counting sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java implementation of Counting Sort
 // Part of Cosmos by OpenGenus Foundation
 class CountingSort {

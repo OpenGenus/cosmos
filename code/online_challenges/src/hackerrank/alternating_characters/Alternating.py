@@ -1,3 +1,11 @@
+"""
+
+# online challenges | hackerrank | alternating characters | Alternating |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 count = 0
 test_cases = int(input())
 def cal(test_cases):

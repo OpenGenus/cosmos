@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | left view binary tree | left view binary tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 // This class prints the left nodes of a binary tree
 class Node {

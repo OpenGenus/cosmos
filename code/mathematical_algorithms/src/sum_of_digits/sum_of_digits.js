@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sum of digits | sum of digits | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 //Sum of Digits - Add all digits in a number
 

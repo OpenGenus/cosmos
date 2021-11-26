@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | boolean parenthesization | boolean parenthesization |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # dynamic programming | boolean parenthesization | Python
 # Part of Cosmos by OpenGenus Foundation
 

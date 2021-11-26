@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | segment tree | lazy segment tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program to demonstrate lazy propagation in segment tree
 // Part of Cosmos by OpenGenus Foundation
 class LazySegmentTree

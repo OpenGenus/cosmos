@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | COINS | coins | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <unordered_map>
 

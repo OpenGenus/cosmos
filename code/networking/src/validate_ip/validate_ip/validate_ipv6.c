@@ -1,3 +1,11 @@
+/*
+
+// networking | validate ip | validate ip | validate ipv6 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* This implementation reads in a file as argv[1] and checks if each line of the file is a valid IPv6 address.
 Algorithm of the IPv6 validation is in the char *is_ipv6(char *ip_addr) function.
 

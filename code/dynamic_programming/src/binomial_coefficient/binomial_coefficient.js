@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | binomial coefficient | binomial coefficient | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // dynamic programming | binomial coefficient | javascript js
 // Part of Cosmos by OpenGenus Foundation
 

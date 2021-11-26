@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | reverse number | reverse number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class Reverse

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | rod cutting | rod cutting | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 // Part of Cosmos by OpenGenus Foundation

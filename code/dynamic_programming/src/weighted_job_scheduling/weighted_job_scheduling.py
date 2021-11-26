@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | weighted job scheduling | weighted job scheduling |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python3 program for weighted job scheduling using
 # Naive Recursive Method
 

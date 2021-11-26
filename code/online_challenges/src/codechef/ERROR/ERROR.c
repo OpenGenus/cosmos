@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | ERROR | ERROR | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(void) 

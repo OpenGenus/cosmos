@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 020 | problem 020 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     factorial = 1
     for i in range(100):

@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | image processing | houghtransform | main | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <opencv2/core/types_c.h>

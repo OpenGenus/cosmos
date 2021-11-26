@@ -1,3 +1,11 @@
+/*
+
+// sorting | insertion sort | insertion sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #include <stdio.h>
 

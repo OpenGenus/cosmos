@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | thrice unique number | thrice unique number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # we define the function
 def uniqueNumber(array):
     d = {}

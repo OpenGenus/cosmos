@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fermats little theorem | fermats little theorem | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 class Main
 {

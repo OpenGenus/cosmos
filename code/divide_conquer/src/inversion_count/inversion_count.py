@@ -1,5 +1,13 @@
 """
 
+# divide conquer | inversion count | inversion count |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
+
 divide conquer | inversion count | Python
 part of Cosmos by OpenGenus Foundation
 

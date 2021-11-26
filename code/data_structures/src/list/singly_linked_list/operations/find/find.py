@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | singly linked list | operations | find | find |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class Node:
     """
     A Node in a singly-linked list

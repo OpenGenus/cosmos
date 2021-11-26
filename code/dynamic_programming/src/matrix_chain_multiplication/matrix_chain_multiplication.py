@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | matrix chain multiplication | matrix chain multiplication |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 # Dynamic Programming Python implementation of Matrix Chain Multiplication.
 import sys

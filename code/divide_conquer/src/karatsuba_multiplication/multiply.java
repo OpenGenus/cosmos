@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | karatsuba multiplication | multiply | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | karatsuba multiplication | Java
 //  Part of Cosmos by OpenGenus Foundation
 

@@ -1,3 +1,11 @@
+/*
+
+// unclassified | josephus problem | josephus | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function josephus(n, k) {
   // Returns the safe position of n items
   // that have every kth item counted out

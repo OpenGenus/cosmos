@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | min heap | min heap | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
     public class MinHeap
 

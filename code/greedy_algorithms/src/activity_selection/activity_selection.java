@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | activity selection | activity selection | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // Activity selection problem

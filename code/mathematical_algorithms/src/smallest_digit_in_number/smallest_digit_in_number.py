@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | smallest digit in number | smallest digit in number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/python3
 
 

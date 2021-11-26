@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | z algorithm | z algorithm z array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Complexity = O(length of string)
  * s = aaabaab => z[] = {-1,2,1,0,2,1,0}
  * s = aaaaa => z[] = {-1,4,3,2,1}

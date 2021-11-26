@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | traversal | preorder | right view | right view | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation

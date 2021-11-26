@@ -1,3 +1,11 @@
+"""
+
+# selection algorithms | median of medians | median of medians |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def select(A, i):
     if len(A) <= 5:
         return sorted(A)[i]

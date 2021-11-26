@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | matrix chain multiplication | matrixchainmultiplication | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Dynamic Programming Python implementation of Matrix
 // Chain Multiplication.
 // Part of Cosmos by OpenGenus Foundation

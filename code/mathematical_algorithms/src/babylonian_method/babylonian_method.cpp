@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | babylonian method | babylonian method | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

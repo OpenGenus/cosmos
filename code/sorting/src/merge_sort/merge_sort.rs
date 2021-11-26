@@ -1,3 +1,11 @@
+/*
+
+// sorting | merge sort | merge sort | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 /// A program that defines an unsorted vector,

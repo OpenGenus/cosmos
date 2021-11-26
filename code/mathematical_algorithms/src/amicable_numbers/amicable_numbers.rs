@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | amicable numbers | amicable numbers | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn sum_of_divisors(a: u64) -> u64 {
     let mut sum = 0;
     // let max = (a as f64).sqrt() as u64;

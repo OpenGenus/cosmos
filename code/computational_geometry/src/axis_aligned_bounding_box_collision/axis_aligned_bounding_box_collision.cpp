@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | axis aligned bounding box collision | axis aligned bounding box collision | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 struct Vector

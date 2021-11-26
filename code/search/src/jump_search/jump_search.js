@@ -1,3 +1,11 @@
+/*
+
+// search | jump search | jump search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 let array = [0, 1, 2, 5, 10, 15, 20, 25, 30, 33];
 let wanted = 2;
 

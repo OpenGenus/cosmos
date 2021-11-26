@@ -1,3 +1,11 @@
+/*
+
+// sorting | postmans sort | postmans sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C Program to Implement Postman Sort Algorithm
 
 #include <stdio.h>

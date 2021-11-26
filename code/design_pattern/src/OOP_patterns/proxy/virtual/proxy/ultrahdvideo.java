@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | virtual | proxy | ultrahdvideo | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package virtual.proxy;
 
 public class UltraHDVideo implements Video {

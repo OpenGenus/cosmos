@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | minimum coins | minimum coins | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 function minimumCoins(value, denominations) {

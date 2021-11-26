@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | dijkstra shortest path | dijkstra shortest path | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 public class Dijkstra {

@@ -1,3 +1,11 @@
+/*
+
+// unclassified | biggest of n numbers | biggest of n | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of cosmos from opengenus foundation
 
 const biggestOfN = array => Math.max.apply(null, array);

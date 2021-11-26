@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | virtual | proxy | videoproxy | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package virtual.proxy;
 
 public class VideoProxy implements Video {

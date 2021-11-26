@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | armstrong num range | amstrong num range | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
     #include <math.h>
     #include <stdio.h>
     int main()

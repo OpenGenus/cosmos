@@ -1,3 +1,11 @@
+/*
+
+// unclassified | average | average | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
 class Average

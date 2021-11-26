@@ -1,3 +1,11 @@
+/*
+
+// sorting | quick sort | quick sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /*Part of Cosmos by OpenGenus Foundation*/
 //here a is the array name
 

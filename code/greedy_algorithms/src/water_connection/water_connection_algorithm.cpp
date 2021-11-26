@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | water connection | water connection algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Part of OpenGenus Cosmos
 
 #include <iostream>

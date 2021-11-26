@@ -1,3 +1,11 @@
+"""
+
+# selection algorithms | quickselect |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def quickselect(items, item_index):
     def select(lst, l, r, index):
 

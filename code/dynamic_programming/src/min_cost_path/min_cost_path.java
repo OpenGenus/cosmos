@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | min cost path | min cost path | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // Given a cost matrix and calculate the minimum cost path to reach (m, n) 

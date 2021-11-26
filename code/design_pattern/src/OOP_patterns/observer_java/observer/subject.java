@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | observer java | observer | subject | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package observer;
 
 public interface Subject<T extends String> {

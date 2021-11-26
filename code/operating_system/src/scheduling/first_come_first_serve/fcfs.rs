@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | first come first serve | fcfs | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn find_waiting_time(bt: &[i32]) -> Vec<i32> {
     let mut wt = Vec::with_capacity(bt.len());
     // Waiting time for first process is 0

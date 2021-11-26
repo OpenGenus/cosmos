@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | queue | queue | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>

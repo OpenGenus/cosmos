@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | modular inverse | modular inverse | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 // Part of Cosmos by OpenGenus Foundation
 public class Main {

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | house robber | HouseRobber | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Below is the solution of the same problem using C++
 int rob(vector<int>& nums) {
         

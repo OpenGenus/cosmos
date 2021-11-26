@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | cycle undirected graph | cycle undirected graph | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  */
 #include <iostream>

@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | diameter | diameter2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Data Structures : Finding Diameter of a binary tree
  *
  * Description : Diameter of tree is defined as the longest path or route between any two nodes in a tree.

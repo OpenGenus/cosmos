@@ -1,3 +1,11 @@
+/*
+
+// design pattern | iterator pattern | student | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package iterator;
 
 public class Student {

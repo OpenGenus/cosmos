@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | graph coloring | graph coloring | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <list>
 using namespace std;

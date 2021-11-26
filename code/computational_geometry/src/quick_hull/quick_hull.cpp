@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | quick hull | quick hull | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <iostream>
 #include <cmath>

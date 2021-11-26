@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | Longest common subsequence | longest common subsequence | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 /* Part of Cosmos by OpenGenus Foundation */

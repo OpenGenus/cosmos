@@ -1,3 +1,11 @@
+/*
+
+// unclassified | jaccard similarity | jaccard | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package org.apache.commons.text.similarity;
 
 import java.util.HashSet;

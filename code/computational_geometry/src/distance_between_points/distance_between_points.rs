@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | distance between points | distance between points | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 struct Point {
     x: f64,
     y: f64

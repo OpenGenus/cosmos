@@ -1,3 +1,11 @@
+/*
+
+// backtracking | rat in a maze | rat in a maze | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* C/C++ program to solve Rat in a Maze problem using
  * backtracking */
 #include <stdio.h>

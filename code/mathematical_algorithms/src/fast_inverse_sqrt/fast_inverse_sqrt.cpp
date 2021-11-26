@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fast inverse sqrt | fast inverse sqrt | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // AUTHOR:      Mitchell Haugen
 // GITHUB:      https://github.com/haugenmitch
 // DATE:        October 9, 2017

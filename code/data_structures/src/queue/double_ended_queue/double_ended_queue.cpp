@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | double ended queue | double ended queue | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 #define MAX 10

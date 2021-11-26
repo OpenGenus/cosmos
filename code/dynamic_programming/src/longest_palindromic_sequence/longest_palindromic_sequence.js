@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest palindromic sequence | longest palindromic sequence | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 function longest_palindrome(str) {

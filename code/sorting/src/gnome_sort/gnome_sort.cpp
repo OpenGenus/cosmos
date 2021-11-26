@@ -1,3 +1,11 @@
+/*
+
+// sorting | gnome sort | gnome sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // A C++ Program to implement Gnome Sort
 #include <iostream>
 using namespace std;

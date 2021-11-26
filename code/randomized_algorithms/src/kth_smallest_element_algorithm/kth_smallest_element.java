@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | kth smallest element algorithm | kth smallest element | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 class Kth
 {

@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | transitive closure graph | transitive closure graph | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <iostream>
 using namespace std;

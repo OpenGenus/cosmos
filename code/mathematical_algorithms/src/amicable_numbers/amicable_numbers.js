@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | amicable numbers | amicable numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function check(a, b) {
   let sum = 0;
   for (let i = 1; i < a; i++) {

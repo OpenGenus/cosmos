@@ -1,3 +1,11 @@
+/*
+
+// unclassified | average | average | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 // finds the average of an array of numbers.

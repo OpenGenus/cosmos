@@ -1,3 +1,9 @@
+# sorting | merge sort | merge sort | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 def merge(a, l, m, r)
   n1 = m - l + 1

@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 024 | problem 024 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from itertools import permutations
 
 

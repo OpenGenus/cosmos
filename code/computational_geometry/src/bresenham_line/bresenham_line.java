@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | bresenham line | bresenham line | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package applet;
 
 import java.awt.Color;

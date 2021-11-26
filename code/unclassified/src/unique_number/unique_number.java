@@ -1,3 +1,11 @@
+/*
+
+// unclassified | unique number | unique number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class UniqueNumber {

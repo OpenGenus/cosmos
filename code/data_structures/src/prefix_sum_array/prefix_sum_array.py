@@ -1,3 +1,11 @@
+"""
+
+# data structures | prefix sum array | prefix sum array |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def maximum_sum_subarray(arr, n):
     min_sum = 0
     res = 0

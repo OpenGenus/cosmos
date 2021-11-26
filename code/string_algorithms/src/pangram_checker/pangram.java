@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | pangram checker | pangram | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

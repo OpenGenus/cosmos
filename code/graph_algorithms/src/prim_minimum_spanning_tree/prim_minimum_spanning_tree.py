@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | prim minimum spanning tree | prim minimum spanning tree |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # A Python program for Prim's Minimum Spanning Tree (MST) algorithm.
 # The program is for adjacency matrix representation of the graph
 # Part of Cosmos by OpenGenus Foundation

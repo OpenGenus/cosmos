@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 005 | problem 005 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 int main()

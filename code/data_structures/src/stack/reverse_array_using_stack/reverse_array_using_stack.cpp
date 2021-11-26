@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | reverse array using stack | reverse array using stack | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std; 
 int main(){

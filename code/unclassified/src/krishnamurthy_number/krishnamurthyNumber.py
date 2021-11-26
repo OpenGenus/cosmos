@@ -1,3 +1,11 @@
+"""
+
+# unclassified | krishnamurthy number | krishnamurthyNumber |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # helper function
 def factorial(n):
     fact = 1

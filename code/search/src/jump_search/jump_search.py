@@ -1,4 +1,12 @@
 """
+
+# search | jump search | jump search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Part of Cosmos by OpenGenus Foundation
 """
 

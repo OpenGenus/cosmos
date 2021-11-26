@@ -1,3 +1,11 @@
+/*
+
+// search | binary search | binary search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // implementation by looping
 function binarySearchLooping(array, key) {
   let lo = 0,

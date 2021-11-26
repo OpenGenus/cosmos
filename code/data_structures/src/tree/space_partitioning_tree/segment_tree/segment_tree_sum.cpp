@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | segment tree | segment tree sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Segment tree with spaces. Allows to find sum in O(log size) time. Uses O(n log size) memory.
 
 #include <iostream>

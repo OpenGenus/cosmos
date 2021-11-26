@@ -1,3 +1,11 @@
+"""
+
+# cryptography | vernam cipher | vernam cipher |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 mappingsDict = {}
 
 def vernamEncryption(plaintext, key):

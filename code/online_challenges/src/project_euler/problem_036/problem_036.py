@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 036 | problem 036 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def base_check(a, y):
     ans = ""
     while a > 0:

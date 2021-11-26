@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | integer to roman | integer to roman | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function toRoman(A) {
   var M = ["", "M", "MM", "MMM"];
   let C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];

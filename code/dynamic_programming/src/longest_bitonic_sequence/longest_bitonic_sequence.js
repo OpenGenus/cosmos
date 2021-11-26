@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest bitonic sequence | longest bitonic sequence | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation
  */

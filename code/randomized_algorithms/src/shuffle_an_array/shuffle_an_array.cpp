@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | shuffle an array | shuffle an array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <array>
 #include <iostream>
 #include <iterator>

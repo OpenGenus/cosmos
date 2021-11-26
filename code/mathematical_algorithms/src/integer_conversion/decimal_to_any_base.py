@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | integer conversion | decimal to any base |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # property of cosmos
 decimal_number = float(input("Input the decimal number"))
 hexadecimal = hex(decimal_number)

@@ -1,3 +1,11 @@
+/*
+
+// cryptography | rot13 cipher | rot13 cipher2 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Run rotation cipher on a string
  * @param {string} text - Text to encrypt

@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | cohen sutherland lineclip | cohen sutherland lineclip | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 class CohenSutherLandAlgo

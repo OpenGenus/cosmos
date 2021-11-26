@@ -1,3 +1,11 @@
+/*
+
+// search | interpolation search | interpolation search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 
 public class Interpolation {

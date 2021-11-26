@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | dijkstra shortest path | dijkstra shortest path | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //for directed acyclig graphs!!
 // Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>

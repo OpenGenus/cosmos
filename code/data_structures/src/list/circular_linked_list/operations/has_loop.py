@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | circular linked list | operations | has loop |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import collections
 
 

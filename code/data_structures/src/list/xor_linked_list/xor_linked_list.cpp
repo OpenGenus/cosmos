@@ -1,4 +1,12 @@
 /*
+
+// data structures | list | xor linked list | xor linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * xor linked list synopsis

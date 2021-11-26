@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 012 | problem 012 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 
 

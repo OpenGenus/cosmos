@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | support vector machine | svm |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 
 

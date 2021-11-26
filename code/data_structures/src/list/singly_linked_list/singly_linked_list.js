@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* SinglyLinkedList!!

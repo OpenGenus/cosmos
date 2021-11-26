@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | check is square | check is square |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 import sys

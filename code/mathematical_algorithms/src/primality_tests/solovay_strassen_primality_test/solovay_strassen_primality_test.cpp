@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | primality tests | solovay strassen primality test | solovay strassen primality test | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to implement Solovay-Strassen
 // Primality Test
 #include <iostream>

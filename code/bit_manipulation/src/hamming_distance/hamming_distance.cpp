@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | hamming distance | hamming distance | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *
  * Part of Cosmos by OpenGenus Foundation
  *

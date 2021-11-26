@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of triangle | area of triangle | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.lang.Math;
 
 public class AreaOfTriangle {

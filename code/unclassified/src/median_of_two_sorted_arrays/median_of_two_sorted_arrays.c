@@ -1,3 +1,11 @@
+/*
+
+// unclassified | median of two sorted arrays | median of two sorted arrays | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <math.h>
 #include <stdio.h>
 

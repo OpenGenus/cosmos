@@ -1,3 +1,11 @@
+/*
+
+// sorting | selection sort | selection sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Utility class for sorting an array using Selection Sort algorithm. Selection
  * Sort is a basic algorithm for sorting with O(n^2) time complexity. Basic idea

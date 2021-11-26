@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | replace 0 with 5 | replace 0 with 5 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>
 

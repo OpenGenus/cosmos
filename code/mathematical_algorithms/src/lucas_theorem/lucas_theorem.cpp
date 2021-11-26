@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | lucas theorem | lucas theorem | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // A Lucas Theorem based solution to compute nCr % p
 #include <iostream>
 #include <cmath>

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | count trailing zeroes | count trailing zeroes factorial | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

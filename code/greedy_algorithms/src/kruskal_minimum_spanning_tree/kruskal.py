@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | kruskal minimum spanning tree | kruskal |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 parent = dict()
 rank = dict()

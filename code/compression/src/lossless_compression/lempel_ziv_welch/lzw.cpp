@@ -1,3 +1,11 @@
+/*
+
+// compression | lossless compression | lempel ziv welch | lzw | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <string>
 #include <map>
 #include <iostream>

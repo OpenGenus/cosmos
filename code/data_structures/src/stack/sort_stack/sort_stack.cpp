@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | sort stack | sort stack | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* Sort a stack */

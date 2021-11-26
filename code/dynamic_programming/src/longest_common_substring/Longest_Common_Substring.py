@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest common substring | Longest Common Substring |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def LongestCommonSubstring(
     string1, 
     string2

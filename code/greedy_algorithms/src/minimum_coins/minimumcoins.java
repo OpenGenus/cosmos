@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | minimum coins | minimumcoins | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 import java.util.List;
 import java.util.ArrayList;

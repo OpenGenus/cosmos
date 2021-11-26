@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | fractional knapsack | fractional knapsack | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.ArrayList;
 import java.util.Arrays;

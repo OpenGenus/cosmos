@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | divided differences | divided differences |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Function for calculating divided difference table
 def dividedDiffTable(x, y, n):
 

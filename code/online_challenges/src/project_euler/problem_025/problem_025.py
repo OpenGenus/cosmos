@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 025 | problem 025 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main(size):
     last, actual = 1, 1
     index = 2

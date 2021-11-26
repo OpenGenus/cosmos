@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | gaussian naive bayes | gaussian naive bayes |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # example using iris dataset
 # Part of Cosmos by OpenGenus
 import numpy as np

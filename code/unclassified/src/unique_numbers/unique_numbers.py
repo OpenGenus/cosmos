@@ -1,3 +1,11 @@
+"""
+
+# unclassified | unique numbers | unique numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Unique numbers in an array
 
 l1 = list(map(int, input("Enter the elements: ").split()))

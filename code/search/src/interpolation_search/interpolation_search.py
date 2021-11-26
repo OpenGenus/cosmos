@@ -1,3 +1,11 @@
+"""
+
+# search | interpolation search | interpolation search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def interpolation_search(arr, x):
     lo = 0
     hi = len(arr) - 1

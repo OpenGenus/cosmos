@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | minimum coins | minimum coins | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* This file uses features only available on C++11.

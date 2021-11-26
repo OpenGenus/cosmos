@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | catalan number | catalan number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 import java.util.HashMap;

@@ -1,3 +1,11 @@
+"""
+
+# cryptography | affine cipher | affine cipher |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys, pyperclip, cryptomath, random
 
 SYMBOLS = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\] ^_`abcdefghijklmnopqrstuvwxyz{|}~"""  # note the space at the front

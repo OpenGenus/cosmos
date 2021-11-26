@@ -1,3 +1,11 @@
+"""
+
+# data structures | hashs | bloom filter | bloom filter |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 # A Bloom filter implementation in python

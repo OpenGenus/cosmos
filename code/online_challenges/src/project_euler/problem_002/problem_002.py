@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 002 | problem 002 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     # Variables to keep track of Fibonacci numbers
     p2 = 0

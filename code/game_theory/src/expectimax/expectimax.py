@@ -1,4 +1,12 @@
 """
+
+# game theory | expectimax | expectimax |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Expectimax game playing algorithm
 Alex Day
 Part of Cosmos by OpenGenus Foundation

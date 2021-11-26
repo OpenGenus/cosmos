@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | perfect number | perfect number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const readline = require("readline");
 
 const rl = readline.createInterface({

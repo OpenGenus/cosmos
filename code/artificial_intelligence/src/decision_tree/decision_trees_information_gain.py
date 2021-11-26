@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | decision tree | decision trees information gain |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from math import log
 import numpy as np
 from collections import Counter

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | doubly linked list | doubly linked list | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /** Source: https://github.com/brunocalou/graph-theory-js/blob/master/src/data_structures/linked_list.js */
 
 /**@module dataStructures */

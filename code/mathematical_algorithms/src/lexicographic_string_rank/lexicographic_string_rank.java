@@ -1,4 +1,12 @@
 /*
+
+// mathematical algorithms | lexicographic string rank | lexicographic string rank | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Given a string, find the rank of the string amongst its permutations sorted lexicographically. 
  Assuming that no characters are repeated.
  */

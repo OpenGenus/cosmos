@@ -1,3 +1,11 @@
+/*
+
+// data structures | maxSubArray(KadaneAlgorithm) | KadaneAlgorithm | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 class KadaneAlgorithm {

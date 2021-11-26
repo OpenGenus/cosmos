@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list with classes | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 class Node {
 private:

@@ -1,3 +1,11 @@
+/*
+
+// backtracking | number of ways in maze | number of ways in maze | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

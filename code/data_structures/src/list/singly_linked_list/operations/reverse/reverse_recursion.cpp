@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | reverse | reverse recursion | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

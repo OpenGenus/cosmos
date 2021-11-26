@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | newton polynomial | newton polynomial | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class NewtonPolynomial {
 
     private static ArrayList<Double> output = new ArrayList<>();

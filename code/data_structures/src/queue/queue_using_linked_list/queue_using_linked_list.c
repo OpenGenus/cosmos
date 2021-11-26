@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | queue using linked list | queue using linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

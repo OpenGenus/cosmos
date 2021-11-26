@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 016 | problem 016 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     n = 2 ** 1000
     s = list(str(n))

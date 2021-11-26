@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | coprime numbers | coprime numbers | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 #include<stdio.h>

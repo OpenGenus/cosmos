@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | boruvka minimum spanning tree | boruvka minimum spanning tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | largest sum contiguous subarray | largest sum contiguous subarray | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * BY:- https://github.com/alphaWizard

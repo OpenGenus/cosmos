@@ -1,3 +1,9 @@
+# mathematical algorithms | reverse factorial | reverse factorial | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def inverse_factorial(num)
   num = num.to_f
   i = 2.0

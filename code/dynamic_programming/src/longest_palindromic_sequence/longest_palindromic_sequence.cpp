@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest palindromic sequence | longest palindromic sequence | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>

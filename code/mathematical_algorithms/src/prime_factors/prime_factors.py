@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | prime factors | prime factors |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 Integer = int(input("Enter an Number :  "))
 absInteger = abs(Integer)

@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | nqueen bitmask | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int ans = 0;

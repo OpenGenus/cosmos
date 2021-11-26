@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | power of 2 | power of 2 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
 import java.lang.*;
 import java.math.*;

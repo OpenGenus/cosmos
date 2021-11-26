@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | k means | k means |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from random import random
 
 # sets and datas

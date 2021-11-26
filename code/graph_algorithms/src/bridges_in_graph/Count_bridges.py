@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | bridges in graph | Count bridges |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to find bridges in a given undirected graph
 #Complexity : O(V+E)
   

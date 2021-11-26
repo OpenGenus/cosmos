@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | postfix evaluation | postfix evaluation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* In this Input will be Postfix Expression on which particular operations will be 
 performed using stacks and output will be the result of that expression.
 Eg. Input => 4 6 + 2 / 5 * 7 +       Output => 32

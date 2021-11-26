@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | integer conversion | decimal to bin | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

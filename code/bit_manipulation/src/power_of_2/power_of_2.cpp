@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | power of 2 | power of 2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Created by Shubham Prasad Singh on 12/10/2017 */
 

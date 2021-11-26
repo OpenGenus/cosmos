@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | array median | array median |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys
 
 # Part of Cosmos by OpenGenus Foundation

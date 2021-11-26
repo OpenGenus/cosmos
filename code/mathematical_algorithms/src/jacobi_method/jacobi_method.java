@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | jacobi method | jacobi method | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.math.BigDecimal;

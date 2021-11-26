@@ -1,3 +1,11 @@
+/*
+
+// sorting | bubble sort | bubble sort recursive | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 // using namespace std;

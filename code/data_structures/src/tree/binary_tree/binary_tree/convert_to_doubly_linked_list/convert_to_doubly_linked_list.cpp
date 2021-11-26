@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | convert to doubly linked list | convert to doubly linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Structure for tree and linked list
  *
  * struct Node

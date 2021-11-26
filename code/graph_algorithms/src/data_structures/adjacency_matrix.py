@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | data structures | adjacency matrix |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class graph:
     adj=[]
     def __init__(self,v,e):

@@ -1,3 +1,11 @@
+/*
+
+// operating system | concurrency | peterson algorithm for mutual exclusion | peterson algorithm in c | peterson algo mutual exclusion in c | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Peterson's algorithm
 // C implementation
 // Here mythreads.h is a file externally included by me with some assertion statements

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | CASH | HardCash | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 class Hardcash {

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | horner polynomial evaluation | horner polynomial evaluation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

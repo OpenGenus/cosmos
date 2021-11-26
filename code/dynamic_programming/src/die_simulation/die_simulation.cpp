@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | die simulation | die simulation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of OpenGenus cosmos
 
 #define ll long long

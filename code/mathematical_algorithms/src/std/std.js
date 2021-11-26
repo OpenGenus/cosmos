@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | std | std | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function sd(arr) {
   // calculate standard deviation of array of numbers
   var arr_sum = 0;

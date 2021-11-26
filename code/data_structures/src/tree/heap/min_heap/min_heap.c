@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | min heap | min heap | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 #define asize 100

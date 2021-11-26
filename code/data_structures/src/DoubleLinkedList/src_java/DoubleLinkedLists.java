@@ -1,3 +1,11 @@
+/*
+
+// data structures | DoubleLinkedList | src java | DoubleLinkedLists | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class DoubleLinkedLists {
     Node head;
     int size;

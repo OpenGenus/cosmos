@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | knapsack | knapsack | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *
  * Part of Cosmos by OpenGenus Foundation
  *

@@ -1,3 +1,11 @@
+/*
+
+// unclassified | no operator addition | addition | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int add(int x, int y) 

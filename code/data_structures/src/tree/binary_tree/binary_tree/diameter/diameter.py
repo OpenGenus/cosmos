@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | binary tree | binary tree | diameter | diameter |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Time:  O(n)
 # Space: O(h)
 

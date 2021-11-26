@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fractals | simple julia | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cassert>
 #include <cmath>

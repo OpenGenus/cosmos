@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | exponentiation power | exponentiation by squaring | exponentiation by squaring | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

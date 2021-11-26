@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | count digits | count digits | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 function countDigits(n) {

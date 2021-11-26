@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | diameter | diameter | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Diameter of binary tree using java
 class Node
 {

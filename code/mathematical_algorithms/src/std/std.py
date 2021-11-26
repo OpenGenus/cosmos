@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | std | std |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 from math import sqrt

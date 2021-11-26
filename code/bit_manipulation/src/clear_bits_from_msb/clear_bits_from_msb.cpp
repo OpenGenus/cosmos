@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | clear bits from msb | clear bits from msb | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos (OpenGenus)
 #include <iostream>
 #include <bits/stdc++.h>

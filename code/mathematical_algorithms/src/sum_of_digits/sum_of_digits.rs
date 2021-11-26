@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sum of digits | sum of digits | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::io::{stdin, stdout, Write};
 
 fn main() {

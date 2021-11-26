@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | square free number | square free number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Program to check whether a number is square_free or not
 from math import sqrt
 

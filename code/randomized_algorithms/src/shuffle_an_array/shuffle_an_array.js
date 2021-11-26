@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | shuffle an array | shuffle an array | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // This is a JavaScript implementation of Fisher-Yates shuffle based on

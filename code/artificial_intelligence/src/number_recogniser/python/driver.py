@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | number recogniser | python | driver |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import nn
 import numpy as np
 import os

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | min cost path | min cost path | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cstdio>
 using namespace std;
 #define R 3

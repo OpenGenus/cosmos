@@ -1,3 +1,11 @@
+/*
+
+// sorting | shell sort | shell sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java implementation of ShellSort
 // Part of Cosmos by OpenGenus Foundation
 class ShellSort

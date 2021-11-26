@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | smallest digit in number | smallest digit in number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 int smallest_digit(int n)

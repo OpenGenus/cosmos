@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | eulerian path | eulerian path | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // A Java program to check if a given graph is Eulerian or not
 import java.io.*;
 import java.util.*;

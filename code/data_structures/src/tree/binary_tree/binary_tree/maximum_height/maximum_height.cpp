@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | maximum height | maximum height | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

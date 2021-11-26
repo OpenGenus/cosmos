@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | queue using stack | queue using stack | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.NoSuchElementException;
 import java.util.Stack;
 

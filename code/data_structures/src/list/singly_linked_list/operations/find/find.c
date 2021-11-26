@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | find | find | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Check weather element is present in link list (iterative method)*/
 /* Part of Cosmos by OpenGenus Foundation */
 

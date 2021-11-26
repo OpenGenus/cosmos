@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tower of hanoi | tower of hanoi iterative | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

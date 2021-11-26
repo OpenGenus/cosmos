@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | gcd and lcm | gcd and lcm | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
 class Gcd_Lcm_Calc{

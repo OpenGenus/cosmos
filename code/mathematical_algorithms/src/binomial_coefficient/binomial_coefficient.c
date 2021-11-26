@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | binomial coefficient | binomial coefficient | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 long long int a[101][101];

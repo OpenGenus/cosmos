@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | cycle undirected graph | cycle undirected graph check | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java Program to detect cycle in an undirected graph.
 // This program performs  DFS traversal on the given graph 
 // represented by a adjacency matrix 

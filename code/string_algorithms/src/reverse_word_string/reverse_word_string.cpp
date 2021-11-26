@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | reverse word string | reverse word string | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Reverse the words in a given string
 #include <algorithm>
 #include <cstdlib>

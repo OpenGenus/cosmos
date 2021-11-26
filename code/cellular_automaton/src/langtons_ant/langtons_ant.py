@@ -1,3 +1,11 @@
+"""
+
+# cellular automaton | langtons ant | langtons ant |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import turtle
 import numpy
 

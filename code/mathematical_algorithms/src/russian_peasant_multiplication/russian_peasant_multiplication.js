@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | russian peasant multiplication | russian peasant multiplication | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function russianPeasant(a, b) {
   let res = 0;
   while (b > 0) {

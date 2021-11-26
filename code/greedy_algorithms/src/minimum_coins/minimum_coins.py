@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | minimum coins | minimum coins |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

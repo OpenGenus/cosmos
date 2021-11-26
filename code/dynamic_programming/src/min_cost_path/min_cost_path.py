@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | min cost path | min cost path |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

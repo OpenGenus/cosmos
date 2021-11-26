@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | sort | bubble sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 ///Bubble sort a linked list
 #include <iostream>
 #include <stack>

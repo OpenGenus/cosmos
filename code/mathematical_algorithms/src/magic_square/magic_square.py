@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | magic square | magic square |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to generate odd sized magic squares
 # A function to generate odd sized magic squares
 

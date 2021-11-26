@@ -1,3 +1,11 @@
+/*
+
+// cryptography | vigenere cipher | vigenere cipher | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Modified code from: https://rosettacode.org/wiki/Vigen%C3%A8re_cipher#Java
  * Part of Cosmos by Open Genus Foundation

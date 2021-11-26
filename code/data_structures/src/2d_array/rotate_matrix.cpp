@@ -1,3 +1,11 @@
+/*
+
+// data structures | 2d array | rotate matrix | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //#rotate square matrix by 90 degrees
 
 #include <bits/stdc++.h>

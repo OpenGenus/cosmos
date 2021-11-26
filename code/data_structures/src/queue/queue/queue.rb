@@ -1,3 +1,9 @@
+# data structures | queue | queue | queue | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Queue
   attr_accessor :items

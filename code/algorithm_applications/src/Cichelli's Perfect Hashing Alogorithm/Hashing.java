@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | Cichelli's Perfect Hashing Alogorithm | Hashing | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | reverse number | reverse number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function reverse_number(value) {
   let reversed = String(value)
     .split("")

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | power of 2 | power of 2 | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Created by Luke Diamond on 13/10/2017 */
 

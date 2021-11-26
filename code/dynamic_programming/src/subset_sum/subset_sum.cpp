@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | subset sum | subset sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #ifndef SUBSET_SUM
 #define SUBSET_SUM

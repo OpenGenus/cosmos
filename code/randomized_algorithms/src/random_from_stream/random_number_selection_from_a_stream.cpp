@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | random from stream | random number selection from a stream | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Randomly select a number from stream of numbers.
 // A function to randomly select a item from stream[0], stream[1], .. stream[i-1]
 #include <random>

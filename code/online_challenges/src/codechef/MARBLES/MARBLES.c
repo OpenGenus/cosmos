@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | MARBLES | MARBLES | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(void) {

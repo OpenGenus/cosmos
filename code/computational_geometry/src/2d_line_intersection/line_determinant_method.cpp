@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | 2d line intersection | line determinant method | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 class TwoDimensionalLineIntersection
 {

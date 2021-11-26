@@ -1,3 +1,11 @@
+/*
+
+// backtracking | partitions of set | partitions of set | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /// Part of Cosmos by OpenGenus Foundation
 #include <stdio.h>
 #include <vector>

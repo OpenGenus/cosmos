@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | multiply polynomial | multiply polynomial | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Templated Implementation of FFT.
 // Used to multiply 2 polynomials of size N in O(N logN).
 // Polynomials are passed as vectors with index of "i" is

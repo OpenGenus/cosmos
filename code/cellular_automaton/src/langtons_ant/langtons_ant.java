@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | langtons ant | langtons ant | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | flip bits | flippingbits |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #! /usr/bin/env python3
 # Part of Cosmos by OpenGenus Foundation
 def main():

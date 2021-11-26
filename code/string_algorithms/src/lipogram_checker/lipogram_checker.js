@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | lipogram checker | lipogram checker | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Checker */
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
 

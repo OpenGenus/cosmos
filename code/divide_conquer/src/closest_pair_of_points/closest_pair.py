@@ -1,3 +1,11 @@
+"""
+
+# divide conquer | closest pair of points | closest pair |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #  divide conquer | structure to represent a point | Python
 #  Part of Cosmos by OpenGenus Foundation
 

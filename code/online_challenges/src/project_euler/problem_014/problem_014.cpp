@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 014 | problem 014 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 long long int collatzSequenceSize(long long int n)

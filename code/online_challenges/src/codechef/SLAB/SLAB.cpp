@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | SLAB | SLAB | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 #include <iostream>
 

@@ -1,3 +1,11 @@
+"""
+
+# online challenges | codechef | COINS | COINS |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 a = {}
 
 def dollar(n):

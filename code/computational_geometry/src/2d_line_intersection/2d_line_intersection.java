@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | 2d line intersection | 2d line intersection | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
    computational geometry | 2D line intersecton | C
    Model class which represents a Vector.

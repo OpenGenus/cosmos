@@ -1,4 +1,12 @@
 /*
+
+// data structures | queue | queue | queue | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * C Program to Implement a Queue using an Array
  * Part of Cosmos by OpenGenus Foundation
  */

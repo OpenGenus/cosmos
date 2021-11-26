@@ -1,3 +1,11 @@
+"""
+
+# sorting | gnome sort | gnome sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to implement Gnome Sort
 
 

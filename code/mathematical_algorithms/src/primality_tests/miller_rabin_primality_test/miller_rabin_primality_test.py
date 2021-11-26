@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | primality tests | miller rabin primality test | miller rabin primality test |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import random
 
 

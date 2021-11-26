@@ -1,3 +1,11 @@
+/*
+
+// selection algorithms | median of medians | median of medians | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of OpenGenus/cosmos
 // Author : ABDOUS Kamel
 

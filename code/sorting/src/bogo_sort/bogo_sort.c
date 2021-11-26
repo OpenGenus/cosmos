@@ -1,3 +1,11 @@
+/*
+
+// sorting | bogo sort | bogo sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of cosmos by OpenGenus Foundation  */
 
 /*

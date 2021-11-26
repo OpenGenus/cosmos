@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | neural network | keras nn |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 '''numpy stands for numerical python library. It is used for scientific computing in python '''
 import keras.utils

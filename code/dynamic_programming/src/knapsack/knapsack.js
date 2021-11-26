@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | knapsack | knapsack | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation
  */

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime factors | prime factors | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 typedef int bool;
 #define true 1

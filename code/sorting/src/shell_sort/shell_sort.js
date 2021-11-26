@@ -1,3 +1,11 @@
+/*
+
+// sorting | shell sort | shell sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function shellSort(a) {
   for (var h = a.length; h > 0; h = parseInt(h / 2)) {

@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | image processing | canny | canny | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //
 //  canny.cpp
 //  Canny Edge Detector

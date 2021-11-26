@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 007 | problem 007 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cmath>
 #include <iostream>
 #include <vector>

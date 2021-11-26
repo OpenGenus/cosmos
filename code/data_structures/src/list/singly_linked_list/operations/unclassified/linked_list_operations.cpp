@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | unclassified | linked list operations | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 #include <iostream>
 

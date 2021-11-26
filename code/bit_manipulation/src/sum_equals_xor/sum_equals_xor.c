@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | sum equals xor | sum equals xor | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <math.h>
 #include <stdio.h>
 #include <string.h>

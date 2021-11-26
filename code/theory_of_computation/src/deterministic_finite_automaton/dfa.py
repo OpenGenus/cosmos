@@ -1,3 +1,11 @@
+"""
+
+# theory of computation | deterministic finite automaton | dfa |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class DFA(object):
     """Class for Deterministic Finite Atomata"""
 

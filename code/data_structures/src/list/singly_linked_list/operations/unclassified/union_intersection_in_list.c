@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | unclassified | union intersection in list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C/C++ program to find union and intersection of two unsorted 
 // linked lists
 // Part of Cosmos by OpenGenus Foundation

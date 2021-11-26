@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 028 | problem 028 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from math import sqrt
 
 

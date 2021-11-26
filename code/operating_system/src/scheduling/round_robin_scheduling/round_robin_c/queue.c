@@ -1,4 +1,12 @@
 /*
+
+// operating system | scheduling | round robin scheduling | round robin c | queue | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Basic queue.
  * Author : ABDOUS Kamel

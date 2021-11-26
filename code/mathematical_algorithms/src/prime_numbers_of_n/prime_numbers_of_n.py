@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | prime numbers of n | prime numbers of n |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Pollard-Rho-Brent Integer factorisation
 # Complexity: O(n^(1/4) * log2(n))
 # Output is list of primes factors & exponents.

@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | strongly connected components | strongly connected components | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <list>
 #include <stack>

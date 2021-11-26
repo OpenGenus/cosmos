@@ -1,3 +1,11 @@
+/*
+
+// sorting | sleep sort | sleep sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Sleep Sort Implementation in JavaScript
  *

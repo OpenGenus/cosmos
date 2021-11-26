@@ -1,3 +1,11 @@
+"""
+
+# search | ternary search | ternary search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def ternary_search(arr, to_find):
     left = 0
     right = len(arr) - 1

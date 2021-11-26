@@ -1,3 +1,9 @@
+# unclassified | palindrome | palindrome check | palindrome check | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # careful using any variables named word, scoping gets weird
 def is_palindrome_recursive(word)
   # set both indices for iterating through the word

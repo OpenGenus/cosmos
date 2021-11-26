@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | traversal | zigzag | zigzag | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <stack>
 

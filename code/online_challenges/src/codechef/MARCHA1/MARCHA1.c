@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | MARCHA1 | MARCHA1 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main() 

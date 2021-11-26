@@ -1,4 +1,12 @@
 /*
+
+// operating system | concurrency | monitors | monitors system v | main | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Implementation of Hoare monitors using System V IPC.
  * An example of how to use monitors.

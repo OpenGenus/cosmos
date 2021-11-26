@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fibonacci number | fibonacci number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function fibonacci(n) {
   if (n <= 1) {
     return n;

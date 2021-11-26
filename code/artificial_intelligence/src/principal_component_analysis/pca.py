@@ -1,4 +1,12 @@
 """
+
+# artificial intelligence | principal component analysis | pca |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Solution to Principal Component Analysis Inspired by http://sebastianraschka.com/Articles/2014_pca_step_by_step.html
 Solution is proposed for Python 3, using numpy and matplotlib
 

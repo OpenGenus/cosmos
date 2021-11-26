@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | infix to postfix | infix to postfix |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Stack:
     def __init__(self):

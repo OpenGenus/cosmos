@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | postfix evaluation | postfix evaluation | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>

@@ -1,3 +1,11 @@
+"""
+
+# backtracking | subset sum | subset sum duplicates |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def combinationSum(candidates, target):
     """
     Problem description:

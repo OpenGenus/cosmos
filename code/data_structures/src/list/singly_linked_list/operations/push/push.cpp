@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | push | push | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

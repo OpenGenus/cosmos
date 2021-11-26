@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | pangram checker | pangram checker | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Pangram is a sentence containing every alphabet.
  * Part of Cosmos by OpenGenus Foundation
  */

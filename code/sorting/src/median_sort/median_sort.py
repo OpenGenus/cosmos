@@ -1,3 +1,11 @@
+"""
+
+# sorting | median sort | median sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def median_sort(list):
     data = sorted(list)

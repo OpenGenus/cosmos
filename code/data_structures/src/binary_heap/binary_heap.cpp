@@ -1,3 +1,11 @@
+/*
+
+// data structures | binary heap | binary heap | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Binary Heap in C++ */
 
 #include <iostream>

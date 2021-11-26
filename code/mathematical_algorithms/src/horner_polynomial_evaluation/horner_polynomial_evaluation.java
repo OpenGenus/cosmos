@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | horner polynomial evaluation | horner polynomial evaluation | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
  
 class Horner

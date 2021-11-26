@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | node | node | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * tree node synopsis

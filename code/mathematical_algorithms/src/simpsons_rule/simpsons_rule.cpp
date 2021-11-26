@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | simpsons rule | simpsons rule | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 

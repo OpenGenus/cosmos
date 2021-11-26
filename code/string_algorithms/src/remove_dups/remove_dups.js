@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | remove dups | remove dups | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const removeDups = str => [...str].filter((c, i) => c !== str[i + 1]).join("");
 
 console.log(removeDups("lol"));

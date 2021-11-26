@@ -1,3 +1,11 @@
+/*
+
+// unclassified | autobiographical numbers | autobiographical numbers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of OpenGenus Cosmos
 #include <iostream>
 #include <string>

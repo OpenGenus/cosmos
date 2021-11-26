@@ -1,4 +1,12 @@
 /*
+
+// search | fibonacci search | fibonacci search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * fibonacci search synopsis

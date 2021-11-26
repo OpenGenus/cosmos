@@ -1,3 +1,11 @@
+"""
+
+# cellular automaton | conways game of life | life |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from tkinter import *
 import random
 

@@ -1,3 +1,11 @@
+"""
+
+# data structures | queue | double ended queue | double ended queue |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """ python programme for showing dequeue data sturcture in python """
 
 

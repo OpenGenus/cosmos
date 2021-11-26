@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | factorial | factorial |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 from functools import wraps

@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | arithmetic on large numbers | string addition | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <string>
 #include <iostream>
 #include <cassert>

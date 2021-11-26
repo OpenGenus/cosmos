@@ -1,3 +1,11 @@
+/*
+
+// sorting | merge sort | merge sort linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Program to mergesort linked list
 
 #include <stdio.h>

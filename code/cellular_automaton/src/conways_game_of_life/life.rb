@@ -1,3 +1,9 @@
+# cellular automaton | conways game of life | life | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 #!/usr/bin/env ruby
 # Part of Cosmos by OpenGenus Foundation
 

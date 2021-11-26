@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | diophantine | diophantine | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

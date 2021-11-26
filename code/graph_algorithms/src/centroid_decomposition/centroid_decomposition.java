@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | centroid decomposition | centroid decomposition | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class CentroidDecomposition {

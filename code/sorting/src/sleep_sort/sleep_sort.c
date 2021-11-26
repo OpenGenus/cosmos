@@ -1,3 +1,11 @@
+/*
+
+// sorting | sleep sort | sleep sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* sleep sort works both in windows and linux*/

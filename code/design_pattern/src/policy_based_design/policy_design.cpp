@@ -1,4 +1,12 @@
 /*
+
+// design pattern | policy based design | policy design | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * policy_design.cpp
  *
  * Created: 3/15/2018 1:14:41 AM

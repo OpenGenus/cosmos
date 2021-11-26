@@ -1,3 +1,11 @@
+/*
+
+// cryptography | huffman encoding | huffman encoding | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,11 @@
+/*
+
+// sorting | bead sort | bead sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <iostream>
 using namespace std;

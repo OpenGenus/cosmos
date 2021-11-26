@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | magic number | magic number | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 // Find the nth magic number where n is a positive number

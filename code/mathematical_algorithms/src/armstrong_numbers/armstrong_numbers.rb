@@ -1,3 +1,9 @@
+# mathematical algorithms | armstrong numbers | armstrong numbers | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # created by AnkDos
 # You can Simply use '**' to cube ,ex. 3**3=27 ,so cube(remainder) can be written as (reminder**3)
 def cube(num)

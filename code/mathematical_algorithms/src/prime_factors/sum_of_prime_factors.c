@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime factors | sum of prime factors | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // A C program to find the sum of all the primes factors of given number .
 #include <stdio.h>
 #include <stdlib.h>

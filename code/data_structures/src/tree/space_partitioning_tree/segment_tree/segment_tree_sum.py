@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | space partitioning tree | segment tree | segment tree sum |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

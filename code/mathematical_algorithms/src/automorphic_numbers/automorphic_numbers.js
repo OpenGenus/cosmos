@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | automorphic numbers | automorphic numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
 In mathematics an automorphic number (sometimes referred to as a circular number) is a number
 whose square "ends" in the same digits as the number itself. 

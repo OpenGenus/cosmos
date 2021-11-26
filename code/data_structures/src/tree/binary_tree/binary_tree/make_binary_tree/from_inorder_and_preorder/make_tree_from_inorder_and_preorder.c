@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | make binary tree | from inorder and preorder | make tree from inorder and preorder | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 #include<stdlib.h> 
  

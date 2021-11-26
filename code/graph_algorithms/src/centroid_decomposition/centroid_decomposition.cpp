@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | centroid decomposition | centroid decomposition | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | lexicographic string rank | lexicographic string rank | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* Lexicographic String Rank */

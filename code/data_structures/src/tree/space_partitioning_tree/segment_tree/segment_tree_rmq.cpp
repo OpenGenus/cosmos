@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | segment tree | segment tree rmq | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Name: Mohit Khare
  * B.Tech 2nd Year
  * Computer Science and Engineering

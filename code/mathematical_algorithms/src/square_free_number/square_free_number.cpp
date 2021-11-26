@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | square free number | square free number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Program to check whether a number is square_free or not
 #include <iostream>
 #include <cmath>

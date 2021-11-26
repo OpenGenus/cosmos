@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | rabin karp algorithm | rabinKarp | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 typedef long long ll;
 
 const ll MOD = 1e9 + 7;

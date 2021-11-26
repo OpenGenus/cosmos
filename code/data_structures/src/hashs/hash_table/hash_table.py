@@ -1,4 +1,12 @@
 """
+
+# data structures | hashs | hash table | hash table |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Hash Table implementation in Python using linear probing. 
 This code is based on the c/c++ implementation that I used to study hashing.
 https://github.com/jwasham/practice-c/tree/master/hash_table  

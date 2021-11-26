@@ -1,3 +1,11 @@
+"""
+
+# game theory | game of nim next best move | game of nim next best move |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def nim_sum(objectList, heaps):
     nim = 0
 

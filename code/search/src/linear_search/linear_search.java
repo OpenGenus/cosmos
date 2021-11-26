@@ -1,4 +1,12 @@
 /*
+
+// search | linear search | linear search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  */

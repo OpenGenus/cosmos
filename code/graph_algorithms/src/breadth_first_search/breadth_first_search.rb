@@ -1,3 +1,9 @@
+# graph algorithms | breadth first search | breadth first search | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 #   This class represents a node in a graph.
 #   It has a NAME and an ID and each node knows which nodes it is connected to.
 class GraphNode

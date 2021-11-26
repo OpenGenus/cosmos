@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | bloom filter | bloom filter | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

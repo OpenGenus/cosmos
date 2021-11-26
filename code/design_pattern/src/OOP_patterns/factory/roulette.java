@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | factory | roulette | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package factory;
 
 import factory.gifts.*;

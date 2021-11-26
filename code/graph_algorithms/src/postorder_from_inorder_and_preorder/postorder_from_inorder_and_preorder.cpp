@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | postorder from inorder and preorder | postorder from inorder and preorder | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | karger minimum cut algorithm | karger minimum cut algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Karger's algorithm to find Minimum Cut in an
 // undirected, unweighted and connected graph.
 #include <stdio.h>

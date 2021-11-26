@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | bresenham line | bresenham line |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def calc_del(x1, x2, y1, y2):
     """
         Calculate the delta values for x and y co-ordinates

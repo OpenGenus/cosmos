@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | CASH | hard cash | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 int main() {

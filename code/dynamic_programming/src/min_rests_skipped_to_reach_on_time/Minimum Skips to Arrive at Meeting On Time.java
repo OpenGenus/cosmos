@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | min rests skipped to reach on time | Minimum Skips to Arrive at Meeting On Time | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class DPprob {
     public int minSkips(int[] A, int s, int target) {
         int n = A.length, dp[] = new int[n + 1];

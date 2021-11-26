@@ -1,3 +1,11 @@
+/*
+
+// operating system | concurrency | readers writers | readers writers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <thread>

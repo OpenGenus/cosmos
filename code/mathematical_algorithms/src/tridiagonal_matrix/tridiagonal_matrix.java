@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tridiagonal matrix | tridiagonal matrix | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class TridiagonalMatrix {
     private static void TridiagonalMatrix(double matrix[][], int rows, int cols) {
         double[][] output = new double[rows][cols + 1];

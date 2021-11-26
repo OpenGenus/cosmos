@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bellman ford algorithm | bellman ford algorithm | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus
  * Javascript program for Bellman Ford algorithm.

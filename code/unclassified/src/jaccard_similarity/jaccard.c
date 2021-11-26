@@ -1,3 +1,11 @@
+/*
+
+// unclassified | jaccard similarity | jaccard | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 /* A simple C program to create Jaccard’s indices adjusted for differences in species richness across site  */
 #include <time.h>

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tower of hanoi | tower of hanoi | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 #include <stack>

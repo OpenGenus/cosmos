@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | morse code | morsecode |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from functools import reduce
 
 morseAlphabet = {

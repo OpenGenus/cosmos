@@ -1,3 +1,11 @@
+"""
+
+# backtracking | m coloring problem | m coloring problem |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Given m colors and a graph tell whether it is possible to assign colors
 # to all the nodes such that no 2 connected nodes have the same color
 

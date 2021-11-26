@@ -1,3 +1,11 @@
+/*
+
+// sorting | quick sort | quick sort median of medians | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 #define SIZE 10000
 

@@ -1,3 +1,11 @@
+/*
+
+// data structures | prefix sum array | prefix sum subarray | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 //Max Sum Subarray in O(n)
 #include <bits/stdc++.h>

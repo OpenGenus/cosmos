@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | n queen | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include<stdio.h>

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | count set bits | count set bits | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 int count_set_bits(int n){

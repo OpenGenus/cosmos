@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | stack | stack using linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class node:
     def __init__(self,value):
         self.data=value

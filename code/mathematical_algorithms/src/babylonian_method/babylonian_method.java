@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | babylonian method | babylonian method | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 class Babylonian{
     public static void main(String args[] ) throws Exception {

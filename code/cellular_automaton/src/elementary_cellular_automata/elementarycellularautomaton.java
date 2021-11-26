@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | elementary cellular automata | elementarycellularautomaton | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 public class ElementaryCellularAutomaton {

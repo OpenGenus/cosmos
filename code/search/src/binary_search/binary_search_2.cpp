@@ -1,3 +1,11 @@
+/*
+
+// search | binary search | binary search 2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <vector>

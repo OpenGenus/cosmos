@@ -1,4 +1,12 @@
 """
+
+# data structures | stack | reverse stack | reverse stack |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Part of Cosmos by OpenGenus Foundation
 """
 

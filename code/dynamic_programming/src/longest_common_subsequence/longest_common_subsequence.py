@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest common subsequence | longest common subsequence |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def lcs(X, Y):
     m = len(X)

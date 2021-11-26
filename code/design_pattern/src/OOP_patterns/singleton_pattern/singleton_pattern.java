@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | singleton pattern | singleton pattern | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 /**
  * Singleton Design Pattern

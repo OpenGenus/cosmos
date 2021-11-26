@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | MAXDIFF | MAXDIFF | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main() 

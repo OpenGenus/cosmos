@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | postfix to prefix | postfix to prefix | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 #include <bits/stdc++.h>

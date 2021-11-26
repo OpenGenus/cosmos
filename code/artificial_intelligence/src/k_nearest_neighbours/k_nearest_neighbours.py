@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | k nearest neighbours | k nearest neighbours |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # k Nearest Neighbours implemented from Scratch in Python
 
 import csv

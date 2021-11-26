@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | tree | bottom view binary tree | bottom view tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <map>
 #include <queue>

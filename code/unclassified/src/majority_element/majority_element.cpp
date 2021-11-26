@@ -1,3 +1,11 @@
+/*
+
+// unclassified | majority element | majority element | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

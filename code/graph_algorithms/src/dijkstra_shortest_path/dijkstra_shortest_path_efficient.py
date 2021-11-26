@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | dijkstra shortest path | dijkstra shortest path efficient |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Title: Dijkstra's Algorithm for finding single source shortest path from scratch
 # Author: Shubham Malik
 # References: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm

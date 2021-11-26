@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | count trailing zeroes | count trailing zeroes factorial | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 // Part of Cosmos by OpenGenus Foundation
 public class count_trailing_zeroes_factorial {

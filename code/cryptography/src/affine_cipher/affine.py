@@ -1,4 +1,12 @@
 """
+
+# cryptography | affine cipher | affine |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Part of Cosmos by OpenGenus Foundation
    Affine Cipher: each alphabet letter is maped by a linear function to its numeric equivalent
    and converted to letter again. 

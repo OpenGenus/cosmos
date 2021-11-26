@@ -1,3 +1,11 @@
+/*
+
+// cryptography | rail fence cipher | rail fence cipher | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cstring>
 #include <string>

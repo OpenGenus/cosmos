@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | replace 0 with 5 | 0 to 5 efficent | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

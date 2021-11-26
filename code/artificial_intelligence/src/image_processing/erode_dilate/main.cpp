@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | image processing | erode dilate | main | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "highgui.h"

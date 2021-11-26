@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | lexicographic string rank | lexicographic string rank |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def fact(n):
     f = 1

@@ -1,3 +1,11 @@
+/*
+
+// sorting | bubble sort | bubble sort | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 fn bubble_sort(mut arr: Vec<i32>) -> Vec<i32> {
     for _ in 0..arr.len() {

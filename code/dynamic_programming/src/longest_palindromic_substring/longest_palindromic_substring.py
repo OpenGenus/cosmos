@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest palindromic substring | longest palindromic substring |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def longest_pal(test_num):
     num = str(test_num)
     # booleanArray with [start][end]

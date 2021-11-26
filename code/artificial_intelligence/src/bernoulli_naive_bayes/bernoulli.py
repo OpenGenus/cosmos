@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | bernoulli naive bayes | bernoulli |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 mport numpy as np
 from sklearn.naive_bayes import BernoulliNB 
 from sklearn.metrics import accuracy_score

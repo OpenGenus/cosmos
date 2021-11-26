@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | first come first serve | fcfs | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*; 
 class FCFS 
 { 

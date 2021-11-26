@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | huffman coding | huffman GreedyAlgo | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.Comparator;

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | perfect number | perfect number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 public final class perfect_number {

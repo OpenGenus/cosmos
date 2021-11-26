@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | quick sort | quick sort2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

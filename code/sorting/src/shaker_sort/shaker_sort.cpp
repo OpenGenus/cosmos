@@ -1,3 +1,11 @@
+/*
+
+// sorting | shaker sort | shaker sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /*
  * This is coctail shaker sort (bidirectional buble sort)

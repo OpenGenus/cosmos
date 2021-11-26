@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | skip list | skip list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * skip list C++ implementation
  *

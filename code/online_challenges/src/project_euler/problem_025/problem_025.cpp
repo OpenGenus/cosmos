@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 025 | problem 025 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

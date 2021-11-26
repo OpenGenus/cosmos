@@ -1,3 +1,9 @@
+# mathematical algorithms | greatest digit in number | greatest digit in number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def greatest_digit_in_number(input)
   unless is_a_number? input
     puts 'Wrong input. Try again and insert a integer next time'

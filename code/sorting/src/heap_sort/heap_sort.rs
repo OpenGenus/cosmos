@@ -1,3 +1,11 @@
+/*
+
+// sorting | heap sort | heap sort | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 fn heapify(arr: &mut [i32], n: usize, i: usize){

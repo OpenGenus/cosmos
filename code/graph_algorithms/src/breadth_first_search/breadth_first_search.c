@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | breadth first search | breadth first search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

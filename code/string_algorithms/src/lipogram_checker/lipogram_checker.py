@@ -1,4 +1,12 @@
 """
+
+# string algorithms | lipogram checker | lipogram checker |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 A pangram or holoalphabetic sentence is a sentence using every letter of a given alphabet at least once.
 The best-known English pangram is "The quick brown fox jumps over the lazy dog."
 A pangrammatic lipogram is a text that uses every letter of the alphabet but excludes one of them. 

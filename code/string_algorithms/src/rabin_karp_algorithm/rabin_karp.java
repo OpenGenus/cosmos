@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | rabin karp algorithm | rabin karp | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Following program is a Java implementation 
 // of Rabin Karp Algorithm given in the CLRS book
 // Part of Cosmos by OpenGenus Foundation

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | modular inverse | modular inverse | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 int modularInverse(int number, int mod);
 void extendedEuclid(int, int, int* d, int* x, int* y);

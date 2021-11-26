@@ -1,4 +1,12 @@
 """
+
+# unclassified | split list | split list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Function script to split a list in n parts
 This function can be reused in any project or script.
 

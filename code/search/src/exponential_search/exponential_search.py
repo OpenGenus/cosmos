@@ -1,4 +1,12 @@
 """
+
+# search | exponential search | exponential search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Part of Cosmos by OpenGenus Foundation
 """
 

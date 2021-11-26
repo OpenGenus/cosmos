@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | log of factorial | log of factorial | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | add polynomials | add polynomials | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Contributed by Vaibhav Jain (vaibhav29498) */
 /* Refactored by Adeen Shukla (adeen-s) */

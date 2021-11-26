@@ -1,3 +1,11 @@
+/*
+
+// unclassified | biggest of n numbers | biggest of n numbers | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 public class BiggestOfNNumbers

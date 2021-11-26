@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | double ended queue | deque library function | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <deque>
 

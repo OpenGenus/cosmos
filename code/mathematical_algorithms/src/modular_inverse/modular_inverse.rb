@@ -1,3 +1,9 @@
+# mathematical algorithms | modular inverse | modular inverse | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 def extended_gcd(a, b)
   last_remainder = a.abs

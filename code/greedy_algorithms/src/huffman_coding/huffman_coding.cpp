@@ -1,4 +1,12 @@
 /*
+
+// greedy algorithms | huffman coding | huffman coding | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Huffman Codes
  */
 // Part of Cosmos by OpenGenus Foundation

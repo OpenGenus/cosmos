@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | biconnected components | biconnected components | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class Biconnectivity {

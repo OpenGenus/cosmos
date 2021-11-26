@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | derangements | derangements | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 long long int factorial(long long int n);

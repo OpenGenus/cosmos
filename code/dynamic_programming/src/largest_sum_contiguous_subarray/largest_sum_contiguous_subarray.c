@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | largest sum contiguous subarray | largest sum contiguous subarray | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int 

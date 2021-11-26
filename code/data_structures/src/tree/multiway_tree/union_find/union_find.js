@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | multiway tree | union find | union find | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 class UnionFind {

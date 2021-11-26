@@ -1,3 +1,9 @@
+# mathematical algorithms | factorial | factorial | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def factorial(n)
   if n == 0
     1

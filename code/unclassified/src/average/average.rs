@@ -1,3 +1,11 @@
+/*
+
+// unclassified | average | average | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 fn average(arr :&Vec<i32>) -> i32 {
     let mut sum = 0;

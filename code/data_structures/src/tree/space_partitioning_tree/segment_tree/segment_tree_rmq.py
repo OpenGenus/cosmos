@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | space partitioning tree | segment tree | segment tree rmq |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import math
 
 

@@ -1,3 +1,11 @@
+/*
+
+// search | exponential search | exponential search2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to find an element x in a
 // sorted array using Exponential search.
 #include <cstdio>

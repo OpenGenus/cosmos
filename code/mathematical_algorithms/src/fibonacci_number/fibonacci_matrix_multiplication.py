@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | fibonacci number | fibonacci matrix multiplication |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def fibonacci(n):
     """
     Returns the nth Fibonacci number

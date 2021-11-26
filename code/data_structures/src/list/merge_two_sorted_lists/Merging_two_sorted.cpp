@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | merge two sorted lists | Merging two sorted | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Write a SortedMerge function that takes two lists, each of which is sorted in increasing order, and merges the two together into one list which is in increasing order
 
 #include <bits/stdc++.h>

@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 018 | problem 018 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     prob = [
         [75],

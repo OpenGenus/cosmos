@@ -1,3 +1,11 @@
+/*
+
+// sorting | bucket sort | bucket sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 #define SIZE 10	//number of buckets 
 

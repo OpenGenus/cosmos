@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | cycle directed graph | cycle directed graph detection | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  * 

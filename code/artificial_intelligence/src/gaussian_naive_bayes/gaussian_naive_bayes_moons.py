@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | gaussian naive bayes | gaussian naive bayes moons |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 ############################################################################
 ############################################################################
 

@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | astar algorithm | astar algorithm | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Astar algorithm using a Binary Heap instead of a list
 /* 
 

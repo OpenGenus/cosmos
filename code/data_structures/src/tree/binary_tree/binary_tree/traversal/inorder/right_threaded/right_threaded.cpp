@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | traversal | inorder | right threaded | right threaded | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /*
  * Right-Threaded Binary Tree implementation in C++

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | RESQ | RESQ | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

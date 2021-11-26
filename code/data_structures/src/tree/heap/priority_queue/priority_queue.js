@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | priority queue | priority queue | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 Array.prototype.swap = function(x, y) {

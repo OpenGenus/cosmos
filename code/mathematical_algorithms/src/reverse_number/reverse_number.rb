@@ -1,3 +1,9 @@
+# mathematical algorithms | reverse number | reverse number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 ''"
 Author: ryanml
 Path of Cosmos by OpenGenus Foundation

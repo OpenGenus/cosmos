@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | multiply by 2 | multiply by 2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<iostream>
 
 using namespace std;

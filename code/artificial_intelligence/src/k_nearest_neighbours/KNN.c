@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | k nearest neighbours | KNN | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 //Sample Input and Output:
 //

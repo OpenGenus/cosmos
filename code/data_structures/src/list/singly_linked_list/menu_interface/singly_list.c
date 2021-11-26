@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | menu interface | singly list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* This project aims to demonstrate various operations on linked lists. It uses
 a clean command line interface and provides a baseline to make linked list
 applications in C. There are two files. The C file containing main() function and

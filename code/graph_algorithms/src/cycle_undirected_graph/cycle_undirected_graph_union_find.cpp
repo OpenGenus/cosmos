@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | cycle undirected graph | cycle undirected graph union find | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /*this includes code for cheking the cycle is undirected graph using unionfind disjoint data structure
  *
  * the implementation is very fast

@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | eulerian path | eulerian path |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 # Python program to check if a given graph is Eulerian of not using eulerian path identification

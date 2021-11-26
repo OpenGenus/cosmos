@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 006 | problem 006 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;

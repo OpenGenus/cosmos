@@ -1,3 +1,11 @@
+/*
+
+// unclassified | segregate positive negative | segregate positive negative | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Segregate positive and negative numbers in an array
 // Here, we try to place all negative numbers to the left
 // and all positive elements to the right in O(n) time.

@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | redundant connection | redundant connection | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus foundation
  * 
  * Redundant Connection

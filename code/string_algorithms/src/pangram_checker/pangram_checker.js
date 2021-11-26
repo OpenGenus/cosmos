@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | pangram checker | pangram checker | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Checker */
 const alphabet = [..."abcdefghijklmnopqrstuvwxyz"];

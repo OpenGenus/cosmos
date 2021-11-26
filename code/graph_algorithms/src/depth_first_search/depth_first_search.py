@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | depth first search | depth first search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """ Part of Cosmos by OpenGenus Foundation"""
 
 import collections

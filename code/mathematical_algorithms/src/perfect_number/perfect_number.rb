@@ -1,3 +1,9 @@
+# mathematical algorithms | perfect number | perfect number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def perfect(i)
   sum = 0
   for n in 1..i - 1

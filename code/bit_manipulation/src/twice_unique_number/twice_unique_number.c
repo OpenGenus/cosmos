@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | twice unique number | twice unique number | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 void findUnique2(int *a,int n){

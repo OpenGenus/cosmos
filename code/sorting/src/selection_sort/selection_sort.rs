@@ -1,3 +1,11 @@
+/*
+
+// sorting | selection sort | selection sort | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 fn selection_sort(mut arr :Vec<i32>) -> Vec<i32> {
     let len = arr.len();

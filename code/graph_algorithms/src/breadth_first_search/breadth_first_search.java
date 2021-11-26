@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | breadth first search | breadth first search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program to print BFS traversal from a given source vertex.
 import java.io.*;
 import java.util.*;

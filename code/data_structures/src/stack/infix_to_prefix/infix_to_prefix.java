@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | infix to prefix | infix to prefix | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // To include java library
 import java.util.*;
 

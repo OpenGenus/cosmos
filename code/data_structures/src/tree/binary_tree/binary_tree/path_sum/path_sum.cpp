@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | path sum | path sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  */
 

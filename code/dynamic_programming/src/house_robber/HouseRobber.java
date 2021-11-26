@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | house robber | HouseRobber | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Arrays;
 
 class HouseRobber {

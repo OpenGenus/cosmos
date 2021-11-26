@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tribonacci numbers | tribonnaci | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 class Tribonacci {
     public static void main(String args[] ) throws Exception {

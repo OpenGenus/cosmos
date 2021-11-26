@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | avl tree | avl tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * avl tree synopsis
  *

@@ -1,3 +1,11 @@
+/*
+
+// unclassified | average | average | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 // Code written by Adeen Shukla (adeen-s)
 #include <stdio.h>

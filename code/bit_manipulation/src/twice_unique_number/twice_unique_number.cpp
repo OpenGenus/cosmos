@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | twice unique number | twice unique number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

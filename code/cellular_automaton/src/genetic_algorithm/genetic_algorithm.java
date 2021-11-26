@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | genetic algorithm | genetic algorithm | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;

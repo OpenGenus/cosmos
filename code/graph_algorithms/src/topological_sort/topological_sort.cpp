@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | topological sort | topological sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <cstdio>

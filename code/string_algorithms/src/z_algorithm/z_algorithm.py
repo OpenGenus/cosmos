@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | z algorithm | z algorithm |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def getZarr(str, Z):
     n = len(str)
     Left = 0

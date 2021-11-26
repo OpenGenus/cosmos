@@ -1,3 +1,11 @@
+/*
+
+// search | linear search | linear search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 /*
  * Part of Cosmos by OpenGenus Foundation

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | GUESSNUM | Guessnum | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;

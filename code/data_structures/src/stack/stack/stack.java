@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | stack | stack | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.util.ArrayList;

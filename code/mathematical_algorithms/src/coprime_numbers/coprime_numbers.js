@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | coprime numbers | coprime numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const Readline = require("readline");
 
 const rl = Readline.createInterface({

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | armstrong numbers | armstrong numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const readline = require("readline");
 
 const ioInterface = readline.createInterface({

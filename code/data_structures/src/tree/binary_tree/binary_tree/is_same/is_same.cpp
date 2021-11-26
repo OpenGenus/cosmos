@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | is same | is same | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * tree comparer synopsis

@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | max heap | max heap | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Part of Open Genus foundation
 import java.util.Scanner;
 

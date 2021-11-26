@@ -1,3 +1,9 @@
+# data structures | list | skip list | skip list | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 class Node
   attr_accessor :key
   attr_accessor :value

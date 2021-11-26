@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | magic number | magic number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 
 /* 

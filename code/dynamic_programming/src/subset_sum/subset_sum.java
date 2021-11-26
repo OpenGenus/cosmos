@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | subset sum | subset sum | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 // A Java programm for subset sum problem using Dynamic Programming.

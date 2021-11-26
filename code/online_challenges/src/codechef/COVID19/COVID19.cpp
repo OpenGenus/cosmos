@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | COVID19 | COVID19 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std;
 

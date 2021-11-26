@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | boyer moore algorithm | boyer moore algorithm2 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* 
  * Pointer based implementation of the Boyer-Moore String Search Algorithm 

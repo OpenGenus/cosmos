@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | multiway tree | splay tree | splay tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * splay tree synopsis

@@ -1,3 +1,11 @@
+/*
+
+// search | binary search | binary search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 /*
  * Part of Cosmos by OpenGenus Foundation

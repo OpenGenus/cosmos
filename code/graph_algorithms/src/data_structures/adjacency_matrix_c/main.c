@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | data structures | adjacency matrix c | main | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  * How to use matrix-representation graphs.

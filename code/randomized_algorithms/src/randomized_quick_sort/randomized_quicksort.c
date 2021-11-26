@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | randomized quick sort | randomized quicksort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
     /*
 
      * C Program to Implement Quick Sort Using Randomization

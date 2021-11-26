@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | artificial neural network | ann |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd

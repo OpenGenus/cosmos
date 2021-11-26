@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | binary tree | rope | rope |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class node:
     def __init__(self, data=None):
         self.data = data

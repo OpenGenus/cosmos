@@ -1,3 +1,11 @@
+/*
+
+// backtracking | permutations of string | permutations of string stl | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 #include <algorithm>
 #include <iostream>

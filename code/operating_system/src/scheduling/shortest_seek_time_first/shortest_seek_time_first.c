@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | shortest seek time first | shortest seek time first | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C program for implementing Shortest Seek Time First
 // Disk Scheduling
 

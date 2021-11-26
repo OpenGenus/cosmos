@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | newman conway | newman conway sequence | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 //prints input number of teerms of Newman-Conway Sequence

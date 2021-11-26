@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | graham scan | graham scan2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <stack>
 #include <stdlib.h>

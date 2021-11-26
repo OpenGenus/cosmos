@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | dda line | dda line | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 class DDALineDrawingAlgorithm

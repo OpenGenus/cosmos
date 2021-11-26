@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tribonacci numbers | tribonacci numbers | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Prints series of 'n' tribonacci numbers 
 
 fn tribonacci(n: i32) {

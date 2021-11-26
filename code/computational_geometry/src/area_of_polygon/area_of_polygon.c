@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of polygon | area of polygon | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* computational geometry | area of polygon | C
  * @Author: Ayush Garg 
  * @Date: 2017-10-13 01:20:26 

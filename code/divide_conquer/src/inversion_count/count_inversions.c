@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | inversion count | count inversions | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | inversion count | C
 //  Part of Cosmos by OpenGenus Foundation
 

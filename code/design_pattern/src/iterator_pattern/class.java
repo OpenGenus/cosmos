@@ -1,3 +1,11 @@
+/*
+
+// design pattern | iterator pattern | class | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package iterator;
 
 

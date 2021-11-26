@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest bitonic sequence | longestbitonicsequence | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* Dynamic Programming implementation in Java for longest bitonic

@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | shortest common supersequence | shortest common supersequence |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 # shortest common supersequence using dp
