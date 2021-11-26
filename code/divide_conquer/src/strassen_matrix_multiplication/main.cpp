@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | strassen matrix multiplication | main | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 //The following program contains the strassen algorithm along with the Currently Fastest Matrix Multiplication Algorithm for sparse matrices
 // Developed by Raphael Yuster and Uri Zwick

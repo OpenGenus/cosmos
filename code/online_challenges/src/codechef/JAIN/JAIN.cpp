@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | JAIN | JAIN | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <list>

@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 013 | problem 013 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     numbers = [
         37107287533902102798797998220837590246510135740250,

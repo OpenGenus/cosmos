@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | sieve of eratosthenes | sieve of eratosthenes |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys
 
 # Part of Cosmos by OpenGenus Foundation

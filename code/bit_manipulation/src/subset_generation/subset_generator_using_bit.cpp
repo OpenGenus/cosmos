@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | subset generation | subset generator using bit | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cstring>
 using namespace std;

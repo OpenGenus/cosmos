@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | newman conway | newman conway recursion | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 class NewmanConwaySequence
 {

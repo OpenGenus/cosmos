@@ -1,3 +1,11 @@
+"""
+
+# cryptography | morse cipher | morse code translator |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to implement Morse Code Translator
 
 """

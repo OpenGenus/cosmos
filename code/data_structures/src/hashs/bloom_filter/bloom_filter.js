@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | bloom filter | bloom filter | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * bloom_filter.js
  * @author Sidharth Mishra

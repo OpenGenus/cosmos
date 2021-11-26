@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fibonacci number | fibonacci matrix exponentiation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cstring>
 using namespace std;

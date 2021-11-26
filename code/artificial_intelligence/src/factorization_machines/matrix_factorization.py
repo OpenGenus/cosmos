@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | factorization machines | matrix factorization |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 
 

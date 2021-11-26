@@ -1,3 +1,9 @@
+# randomized algorithms | shuffle an array | shuffle an array | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Implementation of the algo
 # Stdlib has #shuffle, use that instead
 def randomize(arr, n)

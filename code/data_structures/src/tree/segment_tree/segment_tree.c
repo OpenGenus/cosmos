@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | segment tree | segment tree | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Program to show segment tree operations like construction, query and update
 #include <stdio.h>
 #include <math.h>

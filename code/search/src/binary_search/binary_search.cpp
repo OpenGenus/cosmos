@@ -1,4 +1,12 @@
 /*
+
+// search | binary search | binary search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * binary search synopsis

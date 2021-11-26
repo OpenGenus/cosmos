@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | longest palindromic substring | longest palindromic substring |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def expand_center(s, l, r):
     while l >= 0 and r < len(s) and s[l] == s[r]:
         l -= 1

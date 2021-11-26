@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest palindromic sequence | longest palindromic sequence |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

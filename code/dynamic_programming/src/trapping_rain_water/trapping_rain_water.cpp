@@ -1,5 +1,13 @@
 /*
 
+// dynamic programming | trapping rain water | trapping rain water | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
+
 Problem Description - https://leetcode.com/problems/trapping-rain-water/description/
 
 

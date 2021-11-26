@@ -1,3 +1,11 @@
+"""
+
+# unclassified | average | average |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 ## Part of Cosmos by OpenGenus Foundation
 ## Find of average of numbers in an array
 ## Contributed by: Pranav Gupta (foobar98)

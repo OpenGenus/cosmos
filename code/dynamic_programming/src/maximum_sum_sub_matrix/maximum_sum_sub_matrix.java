@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | maximum sum sub matrix | maximum sum sub matrix | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.util.*;

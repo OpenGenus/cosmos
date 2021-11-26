@@ -1,3 +1,11 @@
+/*
+
+// unclassified | unique number | unique num stl | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

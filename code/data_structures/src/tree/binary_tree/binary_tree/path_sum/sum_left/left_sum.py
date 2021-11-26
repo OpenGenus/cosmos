@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | binary tree | binary tree | path sum | sum left | left sum |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Sum of left leaves in a binary tree
 
 # Class for individual nodes

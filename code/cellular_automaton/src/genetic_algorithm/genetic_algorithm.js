@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | genetic algorithm | genetic algorithm | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 var Gene = function(code) {
   if (code) this.code = code;
   this.cost = 9999;

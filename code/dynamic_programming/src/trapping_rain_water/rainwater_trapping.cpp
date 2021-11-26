@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | trapping rain water | rainwater trapping | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<iostream>
 using namespace std;
 int main() {

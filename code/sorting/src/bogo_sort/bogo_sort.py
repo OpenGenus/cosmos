@@ -1,3 +1,11 @@
+"""
+
+# sorting | bogo sort | bogo sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import random
 
 

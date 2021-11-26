@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime factors | sum of primes | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // A C++ program to find the sum of all the primes not greater than given N.
 // Constraints:  1<=N<=10^6
 // Constraints : 1<=t<=10^6

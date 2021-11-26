@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 020 | problem 020 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.math.BigInteger;
 
 public class Problem_020 {

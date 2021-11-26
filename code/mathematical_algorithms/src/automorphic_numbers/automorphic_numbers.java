@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | automorphic numbers | automorphic numbers | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 class AutomorphicNumber{

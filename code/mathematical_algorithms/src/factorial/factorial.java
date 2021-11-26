@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | factorial | factorial | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 // Part of Cosmos by OpenGenus Foundation
 public class Factorial {

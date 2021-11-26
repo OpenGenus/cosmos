@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | make mirror tree | make mirror tree | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>

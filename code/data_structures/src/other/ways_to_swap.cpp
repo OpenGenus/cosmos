@@ -1,3 +1,11 @@
+/*
+
+// data structures | other | ways to swap | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //DIFFERENT WAYS TO SWAP 2 NUMBERS:-
 
 #include<bits/stdc++.h>                     //it includes most of the headers files needed for basic programming

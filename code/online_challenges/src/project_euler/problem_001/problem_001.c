@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 001 | problem 001 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int

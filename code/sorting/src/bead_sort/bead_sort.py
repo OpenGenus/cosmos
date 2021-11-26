@@ -1,3 +1,11 @@
+"""
+
+# sorting | bead sort | bead sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def bead_sort(obj):
     if all([type(x) == int and x >= 0 for x in obj]):

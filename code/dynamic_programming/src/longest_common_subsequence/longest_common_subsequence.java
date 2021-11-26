@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest common subsequence | longest common subsequence | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 class LongestCommonSubsequence {
   /* Returns length of LCS for X[0..m-1], Y[0..n-1] */

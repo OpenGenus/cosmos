@@ -1,3 +1,11 @@
+/*
+
+// unclassified | sum numbers string | sum numbers string | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Given a string containing alphanumeric characters, calculate sum of all
 // numbers present in the string.
 #include <cctype>

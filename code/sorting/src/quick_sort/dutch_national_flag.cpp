@@ -1,3 +1,11 @@
+/*
+
+// sorting | quick sort | dutch national flag | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <vector>

@@ -1,3 +1,11 @@
+/*
+
+// cryptography | morse cipher | morse code | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 import java.util.HashMap;
 import java.util.Map;

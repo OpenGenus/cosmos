@@ -1,4 +1,12 @@
 /*
+
+// search | exponential search | exponential search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * jump search synopsis

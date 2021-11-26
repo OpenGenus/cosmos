@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | J7 | J7 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int main(void) 

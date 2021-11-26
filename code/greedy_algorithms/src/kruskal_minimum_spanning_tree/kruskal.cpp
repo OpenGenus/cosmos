@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | kruskal minimum spanning tree | kruskal | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <vector>
 

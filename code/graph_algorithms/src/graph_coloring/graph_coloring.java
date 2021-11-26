@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | graph coloring | graph coloring | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class Coloring {

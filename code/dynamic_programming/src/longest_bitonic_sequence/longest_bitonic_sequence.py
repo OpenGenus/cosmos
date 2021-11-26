@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest bitonic sequence | longest bitonic sequence |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 import copy

@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | area of polygon | area of polygon |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def area_of_polygon(verticeX, verticeY):
     length = len(verticeX)
     area = 0.0

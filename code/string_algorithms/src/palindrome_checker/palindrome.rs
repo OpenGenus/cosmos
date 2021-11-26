@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | palindrome checker | palindrome | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 fn is_palindrome(input: &str) -> bool {

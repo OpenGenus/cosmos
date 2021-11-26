@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | linear regression | linear regression | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
 * Author: Daniel Hernández (https://github.com/DHDaniel)
 

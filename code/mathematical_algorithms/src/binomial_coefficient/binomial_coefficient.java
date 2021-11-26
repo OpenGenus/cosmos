@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | binomial coefficient | binomial coefficient | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class BinomialCoefficient {
 // Part of Cosmos by OpenGenus Foundation
 	public long solve(int n, int k) {

@@ -1,3 +1,11 @@
+"""
+
+# computational geometry | bresenham line | bresenham line2 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Import graphics library
 from graphics import GraphWin
 

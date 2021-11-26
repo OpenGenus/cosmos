@@ -1,3 +1,11 @@
+/*
+
+// sorting | shaker sort | shaker sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /*Added by arpank10 */
 #include <stdio.h>

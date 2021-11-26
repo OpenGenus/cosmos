@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | reverse queue | reverse queue | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class reverse_queue {

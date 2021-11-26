@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | depth first search | depth first search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <map>
 #include <set>

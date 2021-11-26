@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | connected components | connected components | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  *

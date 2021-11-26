@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of polygon | area of polygon | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class AreaOfPolygon {
 
      public static void main(String []args){

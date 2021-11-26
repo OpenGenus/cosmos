@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | tree | trie | trie |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # An efficient information reTRIEval data structure
 
 

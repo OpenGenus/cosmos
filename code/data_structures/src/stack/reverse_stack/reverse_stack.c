@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | reverse stack | reverse stack | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C program to reverse a stack using recursion
 // Part of Cosmos by OpenGenus Foundation
 

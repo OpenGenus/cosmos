@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | babylonian method | babylonian method |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def squareRoot(n):
     x = n
     y = 1

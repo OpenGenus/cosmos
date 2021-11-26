@@ -1,4 +1,12 @@
 /*
+
+// networking | determine endianess | determine endianess | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Determine if the machine is in Little Endian or Big Endian.
  */

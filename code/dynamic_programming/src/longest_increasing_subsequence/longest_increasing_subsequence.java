@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest increasing subsequence | longest increasing subsequence | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.lang.Math;

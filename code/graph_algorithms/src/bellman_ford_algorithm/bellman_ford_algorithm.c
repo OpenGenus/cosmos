@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bellman ford algorithm | bellman ford algorithm | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 void relax(int u, int v, double w, double d[], int pi[]) {
   if (d[v] > d[u] + w) {

@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | password strength checker | pw checker | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function scorePassword(pass) {
   var score = 0;
   if (!pass) return score;

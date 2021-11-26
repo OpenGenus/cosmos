@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | average stream numbers | average stream numbers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | NEWSCH | NEWSCH | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 #include <cstring>

@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | multiway tree | fenwick tree | fenwick tree inversion count | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cstring>
 using namespace std;

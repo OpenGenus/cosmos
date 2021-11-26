@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest repeating subsequence | longest repeating subsequence | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 //dynamic programming || Longest repeating subsequence

@@ -1,3 +1,11 @@
+/*
+
+// sorting | gnome sort | gnome sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function gnomeSort(arr) {
   let index = 0;
 

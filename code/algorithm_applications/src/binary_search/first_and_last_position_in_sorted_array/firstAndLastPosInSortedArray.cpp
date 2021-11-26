@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | binary search | first and last position in sorted array | firstAndLastPosInSortedArray | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

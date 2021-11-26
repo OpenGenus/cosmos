@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | boyer moore algorithm | boyer moore algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cstring>
 #define NO_OF_CHARS 256

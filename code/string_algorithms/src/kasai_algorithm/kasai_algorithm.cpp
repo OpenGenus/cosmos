@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | kasai algorithm | kasai algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *
  * Kasai Algorithm
  * https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/

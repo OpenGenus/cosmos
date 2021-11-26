@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | x power y | x power y | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
  
 float 

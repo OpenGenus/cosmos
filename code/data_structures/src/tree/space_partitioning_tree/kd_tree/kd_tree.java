@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | kd tree | kd tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Comparator;
 import java.util.HashSet;
 

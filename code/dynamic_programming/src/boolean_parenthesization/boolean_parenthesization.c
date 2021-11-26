@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | boolean parenthesization | boolean parenthesization | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * dynamic programming | boolean parenthesization | C
  * Part of Cosmos by OpenGenus Foundation
  */

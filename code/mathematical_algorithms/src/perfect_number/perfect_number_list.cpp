@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | perfect number | perfect number list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 

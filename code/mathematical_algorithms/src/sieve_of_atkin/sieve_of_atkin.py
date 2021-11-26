@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | sieve of atkin | sieve of atkin |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 from math import sqrt, ceil
 

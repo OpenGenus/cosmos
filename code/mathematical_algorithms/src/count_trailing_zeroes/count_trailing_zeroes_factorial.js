@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | count trailing zeroes | count trailing zeroes factorial | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const readline = require("readline");
 
 const rl = readline.createInterface({

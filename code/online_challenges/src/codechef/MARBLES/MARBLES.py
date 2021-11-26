@@ -1,3 +1,11 @@
+"""
+
+# online challenges | codechef | MARBLES | MARBLES |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 t = int(input())
 
 while t > 0:

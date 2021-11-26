@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | diameter | diameter2 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

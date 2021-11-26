@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tower of hanoi | tower of hanoi | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 int moves = 0;

@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | aho corasick algorithm | aho corasick algorithm | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class AhoCorasick {

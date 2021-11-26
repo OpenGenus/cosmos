@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | addition using bits | addition using bits | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Problem Statement : 
 Add two numbers using bitwise operators
 (i.e without using arithmetic operators)

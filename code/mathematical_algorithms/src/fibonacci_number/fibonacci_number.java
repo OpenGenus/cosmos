@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fibonacci number | fibonacci number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class fibonacci {
 

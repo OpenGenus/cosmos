@@ -1,4 +1,12 @@
 /*
+
+// design pattern | OOP patterns | observer pattern | observer pattern | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * observer_pattern.cpp
  *
  *  Created on: 26 May 2017

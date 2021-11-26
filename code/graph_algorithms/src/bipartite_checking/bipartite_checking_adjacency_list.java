@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bipartite checking | bipartite checking adjacency list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation.
  *

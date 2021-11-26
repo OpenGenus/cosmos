@@ -1,3 +1,11 @@
+"""
+
+# networking | validate ip | validate ipv6 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import socket
 
 

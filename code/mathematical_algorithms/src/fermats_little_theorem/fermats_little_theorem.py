@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | fermats little theorem | fermats little theorem |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys
 import argparse
 

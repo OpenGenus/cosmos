@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | anagram search | anagram search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.Arrays;  
 import java.util.Scanner;  

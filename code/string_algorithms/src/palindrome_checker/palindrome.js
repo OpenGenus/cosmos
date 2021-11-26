@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | palindrome checker | palindrome | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Author: Amit Kr. Singh
 // Github: @amitsin6h
 // Social: @amitsin6h

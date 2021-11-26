@@ -1,3 +1,9 @@
+# mathematical algorithms | fibonacci number | fibonacci number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def fibonacci(n)
   case n
   when 0 then 0

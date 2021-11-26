@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | convert number binary | convert number binary |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # part of Cosmos by OpenGenus Foundation
 
 import math

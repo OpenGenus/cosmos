@@ -1,3 +1,9 @@
+# sorting | quick sort | quick sort | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 def quick_sort(array, beg_index, end_index)
   if beg_index < end_index

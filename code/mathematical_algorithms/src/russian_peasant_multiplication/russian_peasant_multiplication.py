@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | russian peasant multiplication | russian peasant multiplication |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def russian_peasant(a, b):
     res = 0

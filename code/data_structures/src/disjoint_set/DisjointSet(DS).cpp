@@ -1,3 +1,11 @@
+/*
+
+// data structures | disjoint set | DisjointSet(DS) | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 using namespace std;

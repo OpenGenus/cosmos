@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 036 | problem 036 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bitset>
 #include <iostream>
 #include <string>

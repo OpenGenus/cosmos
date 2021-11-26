@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | euler totient | euler totient | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 long long phi(long long n)

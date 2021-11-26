@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | Strassens algorithm | strassens algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | longest common substring | longest common substring 2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * finding longest common substring between two strings by dynamic programming
  */

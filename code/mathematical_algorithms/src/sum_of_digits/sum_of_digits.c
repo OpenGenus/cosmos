@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sum of digits | sum of digits | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 int 

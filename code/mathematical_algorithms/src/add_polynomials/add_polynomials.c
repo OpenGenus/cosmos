@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | add polynomials | add polynomials | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>

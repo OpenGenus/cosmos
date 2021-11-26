@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | round robin scheduling | round robin scheduling | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program for implementation of RR scheduling
  
 public class round_robin_scheduling

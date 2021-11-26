@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bipartite checking | bipartite checking | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <queue>
 

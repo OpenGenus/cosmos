@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | hamiltonian path | hamiltonian path | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <bitset>

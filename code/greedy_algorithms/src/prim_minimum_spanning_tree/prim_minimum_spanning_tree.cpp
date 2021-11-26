@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | prim minimum spanning tree | prim minimum spanning tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <queue>

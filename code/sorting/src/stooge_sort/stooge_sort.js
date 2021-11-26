@@ -1,3 +1,11 @@
+/*
+
+// sorting | stooge sort | stooge sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function stoogeSort(a) {
   function sort(left, right) {

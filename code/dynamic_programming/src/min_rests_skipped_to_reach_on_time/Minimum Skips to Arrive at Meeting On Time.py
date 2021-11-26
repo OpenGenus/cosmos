@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | min rests skipped to reach on time | Minimum Skips to Arrive at Meeting On Time |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def minSkips(self, A, s, target):
     n = len(A)
     dp = [0] * (n + 1)

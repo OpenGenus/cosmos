@@ -1,4 +1,12 @@
 /*
+
+// mathematical algorithms | 2sum | 2sum | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Given an array and a sum, returns two numbers from the array that add-up to sum.
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel

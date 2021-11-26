@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | circular linked list | operations | FloydAlgo circular ll | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

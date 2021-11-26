@@ -1,3 +1,11 @@
+/*
+
+// unclassified | tokenizer | tokenizer | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 // Part of Cosmos by OpenGenus Foundation

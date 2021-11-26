@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | longest palindromic substring | longest palindromic substring | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /*  
       Path of Cosmos by OpenGenus
       

@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | adapter | soldiers | general | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package Adapter.Soldiers;
 
 import Adapter.Movement;

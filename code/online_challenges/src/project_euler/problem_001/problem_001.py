@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 001 | problem 001 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     total = 0
     for i in range(0, 1000):

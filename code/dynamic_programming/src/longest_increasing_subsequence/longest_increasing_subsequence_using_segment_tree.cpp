@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest increasing subsequence | longest increasing subsequence using segment tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 // Finding the Longest Increasing Subsequence using  Segment Tree

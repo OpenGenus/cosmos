@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of triangle | area of triangle herons formula | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <cmath>
 

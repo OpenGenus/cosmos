@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list menu driven | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // use -1 option to exit
 // to learn about singly link list visit https://blog.bigoitsolution.com/learn/data-structures/922/
 

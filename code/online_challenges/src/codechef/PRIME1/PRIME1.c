@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | PRIME1 | PRIME1 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

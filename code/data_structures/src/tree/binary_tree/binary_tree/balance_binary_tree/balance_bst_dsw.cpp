@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | balance binary tree | balance bst dsw | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>

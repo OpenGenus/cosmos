@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | morse code | morsecode | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // String algorithms | morse code | javascript
 // Part of OpenGenus Foundation
 

@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | q learning | q learning | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Q Learning Introduction: https://en.wikipedia.org/wiki/Q-learning
 // Algorithm: Q(s,a):=Q(s,a)+α[r+γ*maxQ(s′,a′)−Q(s,a)]
 

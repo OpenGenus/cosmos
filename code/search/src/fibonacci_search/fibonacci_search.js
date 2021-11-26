@@ -1,3 +1,11 @@
+/*
+
+// search | fibonacci search | fibonacci search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function fibonacciSearch(ar, x, n) {
   var secondPreceding = 0,
     firstPreceding = 1;

@@ -1,3 +1,11 @@
+/*
+
+// operating system | concurrency | dining philosophers | dining philosophers | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Dining Philosophers Problem*/
 #include <stdio.h>
 #include <stdlib.h>

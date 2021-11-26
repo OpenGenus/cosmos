@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | binary search | floor of element | floor of element in sorted array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std; 
 int solve(int arr[],int n,int ele){

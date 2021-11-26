@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | Electronics Shop | Electronics Shop | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 import java.io.*;
 import java.util.*;

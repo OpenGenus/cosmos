@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | min lateness | min lateness | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

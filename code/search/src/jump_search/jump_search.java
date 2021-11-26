@@ -1,3 +1,11 @@
+/*
+
+// search | jump search | jump search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 
 public class JumpSearch {

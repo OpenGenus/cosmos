@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | binary search | ceil of element | ceil of element in sorted array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std; 
 int solve(int arr[],int n, int ele){

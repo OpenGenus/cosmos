@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | aa tree | aa tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * arne andersson tree synopsis
  *

@@ -1,3 +1,11 @@
+"""
+
+# operating system | scheduling | first come first serve | fcfs |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # ------------------
 #   Part of cosmos from OpenGenus Foundations
 # ------------------

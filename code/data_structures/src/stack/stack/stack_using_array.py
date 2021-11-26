@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | stack | stack using array |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 stack=[]
 def push(item):
     stack.append(item)

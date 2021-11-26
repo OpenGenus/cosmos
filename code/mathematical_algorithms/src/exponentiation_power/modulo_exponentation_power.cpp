@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | exponentiation power | modulo exponentation power | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 long long powmod(long long base, long long exp, long long mod)

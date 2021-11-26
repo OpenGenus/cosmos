@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | stack | stack | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 pub struct Stack<T> {
     elements: Vec<T>
 }

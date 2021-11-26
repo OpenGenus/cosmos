@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 001 | problem 001 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Problem001 {
 	public static void main(String []args) {
 		int sum = 0;

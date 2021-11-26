@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | heap | min heap | min heap | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /** Source: https://github.com/brunocalou/graph-theory-js/blob/master/src/data_structures/binary_heap.js */
 "use strict";
 

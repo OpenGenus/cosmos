@@ -1,3 +1,9 @@
+# data structures | list | singly linked list | singly linked list | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Node
   attr_accessor :data

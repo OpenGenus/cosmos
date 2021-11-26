@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bridges in graph | bridges | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <iomanip>
 #include <vector>

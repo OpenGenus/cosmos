@@ -1,3 +1,11 @@
+"""
+
+# data structures | maxSubArray(KadaneAlgorithm) | Kadane algorithm |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 
 def maxSubArraySum(a,size):
       

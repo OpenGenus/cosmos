@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | sort stack | sort stack |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class stack:
     def __init__(self):
         self.__stack = []

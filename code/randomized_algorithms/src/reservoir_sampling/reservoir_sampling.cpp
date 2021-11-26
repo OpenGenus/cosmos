@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | reservoir sampling | reservoir sampling | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // An efficient program to randomly select k items from a stream of n items
 // Part of Cosmos by OpenGenus Foundation
 #include <iostream>

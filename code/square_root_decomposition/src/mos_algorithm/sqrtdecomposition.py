@@ -1,3 +1,11 @@
+"""
+
+# square root decomposition | mos algorithm | sqrtdecomposition |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # PROBLEM STATEMENT-> You are given an array A of size N and Q queries.(All indexes are 1 based).
 # Each query can be of two types
 #       1->   1 i  - add 1 to the ith element of the array A

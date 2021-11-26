@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | minimax | minimax |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import operator
 import time
 

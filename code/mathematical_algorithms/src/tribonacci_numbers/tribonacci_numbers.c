@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tribonacci numbers | tribonacci numbers | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int

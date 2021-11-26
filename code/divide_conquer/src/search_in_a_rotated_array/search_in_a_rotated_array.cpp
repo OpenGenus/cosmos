@@ -1,4 +1,12 @@
 /*
+
+// divide conquer | search in a rotated array | search in a rotated array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Problem statement:
 Given a sorted and rotated array A of N distinct elements which is rotated
 at some point, and given an element K. The task is to find the index of

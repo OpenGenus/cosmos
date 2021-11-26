@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | gcd and lcm | gcd and lcm |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def gcd(a, b):
 
     while a > 0:

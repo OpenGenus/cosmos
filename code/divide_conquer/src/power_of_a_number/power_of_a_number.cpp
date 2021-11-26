@@ -1,4 +1,12 @@
 /*
+
+// divide conquer | power of a number | power of a number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 PROBLEM STATEMENT:
 Given 2 numbers x and y, you need to find x raise to y.
 */

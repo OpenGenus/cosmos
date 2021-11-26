@@ -1,3 +1,11 @@
+/*
+
+// search | binary search | binary search | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn main() {
     let nums = vec![1, 3, 5, 7, 9];
     let find_me = 5;

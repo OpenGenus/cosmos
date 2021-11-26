@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | tree | suffix array | suffix array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

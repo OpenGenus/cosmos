@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sieve of atkin | sieve of atkin | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  ** Java Program to implement Sieve Of Atkin Prime generation
  **/

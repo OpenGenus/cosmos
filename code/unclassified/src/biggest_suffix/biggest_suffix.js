@@ -1,3 +1,11 @@
+/*
+
+// unclassified | biggest suffix | biggest suffix | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  *
  * @param {string} longest One of the two strings for biggest common suffix

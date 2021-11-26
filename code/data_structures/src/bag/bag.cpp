@@ -1,3 +1,11 @@
+/*
+
+// data structures | bag | bag | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Needed for random and vector
 #include <vector>
 #include <string>

@@ -1,4 +1,12 @@
 /*
+
+// data structures | hashs | hash table | hash table | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *  Part of Cosmos by OpenGenus Foundation
  *
  *  hash_table synopsis

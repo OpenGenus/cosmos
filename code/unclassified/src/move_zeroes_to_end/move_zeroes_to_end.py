@@ -1,3 +1,11 @@
+"""
+
+# unclassified | move zeroes to end | move zeroes to end |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Moving zeroes to the end of array
 
 ar = list(map(int, input("Enter the elements: ").split()))

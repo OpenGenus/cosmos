@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | stack using queue | stack using queue |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 ## Part of Cosmos by OpenGenus Foundation
 
 class Stack:

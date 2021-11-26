@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | shortest job first | sjf | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <stdlib.h>
 

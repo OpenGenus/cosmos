@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | flip bits | flippingbits | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

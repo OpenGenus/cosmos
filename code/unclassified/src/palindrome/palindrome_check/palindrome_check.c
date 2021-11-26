@@ -1,3 +1,11 @@
+/*
+
+// unclassified | palindrome | palindrome check | palindrome check | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 

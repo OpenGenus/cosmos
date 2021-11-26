@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | edit distance | edit distance | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // dynamic programming | edit distance | Rust
 // Part of Cosmos by OpenGenus Foundation
 

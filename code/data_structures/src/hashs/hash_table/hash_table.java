@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | hash table | hash table | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class HashTable<K, V> {
 	private class HTPair {

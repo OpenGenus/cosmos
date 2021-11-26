@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | invert bit | invert bit | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 

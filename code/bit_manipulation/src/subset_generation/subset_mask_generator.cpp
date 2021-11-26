@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | subset generation | subset mask generator | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 typedef unsigned long long ll;

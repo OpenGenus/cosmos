@@ -1,3 +1,9 @@
+# mathematical algorithms | pandigital number | pandigital number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def is_pandigital(num)
   digits = (1 << 10) - 1
   while num > 0

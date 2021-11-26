@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | longest increasing subsequence | longest increasing subsequence |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """LIS implementation in Python"""
 # Part of Cosmos by OpenGenus Foundation
 

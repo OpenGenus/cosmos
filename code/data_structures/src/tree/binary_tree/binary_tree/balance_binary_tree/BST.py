@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | binary tree | binary tree | balance binary tree | BST |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class BinaryTree:
     def __init__(self,value):
         self.left=None

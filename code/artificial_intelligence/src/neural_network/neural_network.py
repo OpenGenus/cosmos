@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | neural network | neural network |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # The following is a from scratch implementation of a neural network in Python without any deep learning libraries
 
 # Import necessary packages

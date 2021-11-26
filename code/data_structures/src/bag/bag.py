@@ -1,3 +1,11 @@
+"""
+
+# data structures | bag | bag |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class Bag:
     """
   Create a collection to add items and iterate over it.

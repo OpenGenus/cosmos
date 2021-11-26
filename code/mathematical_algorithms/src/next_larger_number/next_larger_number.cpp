@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | next larger number | next larger number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>

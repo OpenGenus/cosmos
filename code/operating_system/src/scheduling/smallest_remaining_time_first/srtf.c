@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | smallest remaining time first | srtf | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
  
 void main()

@@ -1,3 +1,11 @@
+"""
+
+# data structures | queue | reverse queue | reverse queue |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation.
 
 # Make a new Queue class with list.

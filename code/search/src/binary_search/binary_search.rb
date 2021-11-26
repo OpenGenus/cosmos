@@ -1,3 +1,9 @@
+# search | binary search | binary search | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 #   Part of Cosmos by OpenGenus Foundation
 
 def binary_search(arr, l, r, x)

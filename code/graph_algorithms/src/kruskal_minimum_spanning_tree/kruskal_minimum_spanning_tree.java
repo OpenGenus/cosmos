@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | kruskal minimum spanning tree | kruskal minimum spanning tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Java program for Kruskal's algorithm to find Minimum
  * Spanning Tree of a given connected, undirected and 
  * weighted graph

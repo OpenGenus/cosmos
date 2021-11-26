@@ -1,3 +1,11 @@
+"""
+
+# unclassified | josephus problem | josephus |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def safePos(n, k):
     if n == 1:
         return 0

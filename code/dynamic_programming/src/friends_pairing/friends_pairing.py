@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | friends pairing | friends pairing |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Dynamic Programming solution to friends pairing problem in Python3
 # Contributed by Santosh Vasisht
 

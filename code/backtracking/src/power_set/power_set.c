@@ -1,3 +1,11 @@
+/*
+
+// backtracking | power set | power set | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

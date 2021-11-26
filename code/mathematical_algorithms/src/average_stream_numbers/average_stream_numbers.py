@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | average stream numbers | average stream numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def newAvg(prevAvg, newN, newX):
     return (prevAvg * (newN - 1) + newX) / newN

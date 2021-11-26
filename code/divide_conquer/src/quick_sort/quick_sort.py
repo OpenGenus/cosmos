@@ -1,3 +1,11 @@
+"""
+
+# divide conquer | quick sort | quick sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def partition(arr, low, high):
     i = low - 1
     pivot = arr[high]

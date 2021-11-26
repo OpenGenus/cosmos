@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | fast inverse sqrt | fast inverse sqrt |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import struct
 
 

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | singly linked list with 3 nodes | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package linkedlist;
 
 public class LinkedList {

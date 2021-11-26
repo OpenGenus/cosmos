@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | make binary tree | from inorder and postorder | make tree from inorder and postorder | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

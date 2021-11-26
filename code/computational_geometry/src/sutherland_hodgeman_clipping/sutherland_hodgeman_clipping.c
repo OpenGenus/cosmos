@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | sutherland hodgeman clipping | sutherland hodgeman clipping | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 #include<math.h>
 #include<graphics.h>

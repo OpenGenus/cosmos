@@ -1,5 +1,13 @@
 /*
 
+// bit manipulation | power of 2 | power of 2 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
+
     Part of Cosmos by OpenGenus Foundation
     Created by Jiraphapa Jiravaraphan on 14/10/2017 
     Check if a number is a power of 2 - javascript implementation

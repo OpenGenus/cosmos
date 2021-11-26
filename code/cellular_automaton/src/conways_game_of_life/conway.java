@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | conways game of life | conway | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

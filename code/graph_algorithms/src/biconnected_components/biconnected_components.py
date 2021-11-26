@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | biconnected components | biconnected components |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """ 
 This program reads the structure of the undirected graph for stdin, you can
 feed it with a file using input/output redirections.

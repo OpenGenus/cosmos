@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | naive pattern search | naive pattern search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def search(pat, txt):
     M = len(pat)

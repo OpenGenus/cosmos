@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | sum equals xor | sum equals xor | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Counts the number of values between 0 and a given number that satisfy the condition x+n = x^n (0<=x<=n)
  */
 #include <iostream>

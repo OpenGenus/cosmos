@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | sat | togasat | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /************************************************************
 *  MiniSat -- Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
 *          Copyright (c) 2007-2010  Niklas Sorensson

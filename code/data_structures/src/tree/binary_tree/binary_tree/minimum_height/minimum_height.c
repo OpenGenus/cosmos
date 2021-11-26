@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | minimum height | minimum height | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 // Part of Cosmos by OpenGenus Foundation

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | reverse number | reverse a number | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 int main()
 {

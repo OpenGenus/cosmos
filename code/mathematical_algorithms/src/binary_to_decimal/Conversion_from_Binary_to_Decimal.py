@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | binary to decimal | Conversion from Binary to Decimal |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def check_binary(st):
 
 	p = set(st)

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 003 | problem 003 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Problem003 {
 
 	public static long smallestFactor(long n) {

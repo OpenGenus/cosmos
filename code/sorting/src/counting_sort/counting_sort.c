@@ -1,3 +1,11 @@
+/*
+
+// sorting | counting sort | counting sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #define RANGE 255

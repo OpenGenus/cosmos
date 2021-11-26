@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | z algorithm | z algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <string>
 #include <iostream>
 

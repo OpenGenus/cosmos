@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | tree | tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.ArrayList;
 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fermats little theorem | fermats little theorem | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #define ll long long int
 

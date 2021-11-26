@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | shuffle an array | shuffle an array | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 
 import java.util.Random;

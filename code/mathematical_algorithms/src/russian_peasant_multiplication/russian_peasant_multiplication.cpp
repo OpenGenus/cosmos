@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | russian peasant multiplication | russian peasant multiplication | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

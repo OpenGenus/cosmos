@@ -1,3 +1,11 @@
+"""
+
+# game theory | game of nim win loss prediction | game of nim win loss prediction |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Code inspiration taken from Wikipedia's Python Implementation
 import functools
 

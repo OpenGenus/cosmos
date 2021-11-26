@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | palindrome partition | palindrome partition | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation
  */

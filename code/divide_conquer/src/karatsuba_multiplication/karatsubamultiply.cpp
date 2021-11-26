@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | karatsuba multiplication | karatsubamultiply | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Author: Tote93
 #include <iostream>
 #include <string>

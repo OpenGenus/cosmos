@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | adjacency lists graph representation | adjacency lists in c | main | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  */

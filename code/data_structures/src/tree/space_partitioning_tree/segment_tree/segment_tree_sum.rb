@@ -1,3 +1,9 @@
+# data structures | tree | space partitioning tree | segment tree | segment tree sum | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 class SegTree

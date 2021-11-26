@@ -1,3 +1,11 @@
+"""
+
+# online challenges | leetcode | max distance to closest person | Solution |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 '''
 Link to the problem: https://leetcode.com/problems/maximize-distance-to-closest-person/
 

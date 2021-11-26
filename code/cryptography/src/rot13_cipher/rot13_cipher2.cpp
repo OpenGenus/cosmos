@@ -1,3 +1,11 @@
+/*
+
+// cryptography | rot13 cipher | rot13 cipher2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <cctype>

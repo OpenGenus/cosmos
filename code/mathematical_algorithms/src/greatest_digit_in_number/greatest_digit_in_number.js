@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | greatest digit in number | greatest digit in number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function greatestDigit(num) {
   return String(num)
     .split("")

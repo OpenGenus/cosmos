@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | multiway tree | splay tree | splay tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * Public API:
  * put(): to insert a data

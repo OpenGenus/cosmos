@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sieve of atkin | sieve of atkin | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program for implementation of Sieve of Atkin
 #include <bits/stdc++.h>
 using namespace std;

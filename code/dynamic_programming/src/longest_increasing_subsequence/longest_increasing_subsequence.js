@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest increasing subsequence | longest increasing subsequence | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation
  */

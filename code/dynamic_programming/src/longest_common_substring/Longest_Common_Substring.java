@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest common substring | Longest Common Substring | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Space Complexity: O(n)
 // Time Complexity: O(m*n) 
 import java.util.*;

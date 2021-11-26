@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | manachar algorithm | manachar longest palindromic subs |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def get_palindrome_length(string, index):
     length = 1

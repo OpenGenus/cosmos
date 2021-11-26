@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | palindrome checker | palindrome | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
 import java.lang.*;
 

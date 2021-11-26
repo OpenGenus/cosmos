@@ -1,3 +1,11 @@
+/*
+
+// data structures | minqueue | minqueue | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <deque>
 #include <iostream>
 

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | house robber | HouseRobber | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * @param {number[]} nums
  * @return {number}

@@ -1,3 +1,11 @@
+/*
+
+// cryptography | columnar transposition cipher | columnar transposition cipher | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // CPP program for
 // Columnar Transposition Cipher
 #include <string>

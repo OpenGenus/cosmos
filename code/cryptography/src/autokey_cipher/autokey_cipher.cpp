@@ -1,3 +1,11 @@
+/*
+
+// cryptography | autokey cipher | autokey cipher | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 std::string autokeycipher(std::string text, char key, int encrypt)

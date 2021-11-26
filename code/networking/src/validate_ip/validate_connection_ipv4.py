@@ -1,3 +1,11 @@
+"""
+
+# networking | validate ip | validate connection ipv4 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import sys
 from os import system
 

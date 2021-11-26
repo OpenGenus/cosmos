@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | rabin karp algorithm | rabin karp | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * Rabin-Karp is a linear time pattern finding
  * algorithm.

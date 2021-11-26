@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | reverse word string | reverse word string | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::io::*;
 
 fn reverse_words(words: String) -> Vec<String> {

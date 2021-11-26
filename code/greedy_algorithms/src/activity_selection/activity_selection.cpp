@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | activity selection | activity selection | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <iostream>
 

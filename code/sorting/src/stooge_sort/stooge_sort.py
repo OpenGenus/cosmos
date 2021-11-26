@@ -1,3 +1,11 @@
+"""
+
+# sorting | stooge sort | stooge sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/env python2
 # Part of Cosmos by OpenGenus Foundation
 def stooge_sort(a):

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | nth node linked list | nth node linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 ///
 /// Part of Cosmos by OpenGenus Foundation
 /// Contributed by: Pranav Gupta (foobar98)

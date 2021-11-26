@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bipartite check | bipartite check | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to find out whether a 
 // given graph is Bipartite or not 
 #include <iostream> 

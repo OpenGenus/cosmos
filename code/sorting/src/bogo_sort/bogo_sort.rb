@@ -1,3 +1,9 @@
+# sorting | bogo sort | bogo sort | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def bogosort(arr)
   arr.shuffle! until in_order?(arr)
   arr

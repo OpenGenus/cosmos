@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | automorphic numbers | automorphic numbers | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* 
  * Part of Cosmos by OpenGenus.
  * Implementing automorphic numbers in C.

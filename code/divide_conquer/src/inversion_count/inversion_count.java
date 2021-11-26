@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | inversion count | inversion count | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | inversion count | Java
 //  Part of Cosmos by OpenGenus Foundation
 

@@ -1,3 +1,9 @@
+# sorting | bubble sort | bubble sort | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 def bubble_sort(array)
   n = array.length

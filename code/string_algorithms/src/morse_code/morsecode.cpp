@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | morse code | morsecode | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <vector>

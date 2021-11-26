@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | reverse factorial | reverse factorial |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def reversefactorial(factorial):
     n = 1

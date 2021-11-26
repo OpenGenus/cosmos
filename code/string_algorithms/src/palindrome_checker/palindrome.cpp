@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | palindrome checker | palindrome | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 

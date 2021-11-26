@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | merge sort using divide and conquer | merge sort using divide and conquer | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | merge sort using divide and conquer | C++
 //  Part of Cosmos by OpenGenus Foundation
 

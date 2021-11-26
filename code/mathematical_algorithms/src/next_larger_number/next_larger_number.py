@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | next larger number | next larger number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to find the smallest number which
 # is greater than a given no. has same set of
 # digits as given number

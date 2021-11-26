@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | quick hull | quick hull2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 // Part of Cosmos by OpenGenus Foundation

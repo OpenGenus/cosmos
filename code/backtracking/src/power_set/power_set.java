@@ -1,3 +1,11 @@
+/*
+
+// backtracking | power set | power set | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus Foundation
  * This code snippet shows how to generate the powerset of a set which is the 

@@ -1,3 +1,11 @@
+/*
+
+// backtracking | number of ways in maze | number of ways in maze | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 extern crate nalgebra as na;
 extern crate num;
 

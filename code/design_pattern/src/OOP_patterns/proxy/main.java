@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | main | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import demo.Demo;
 
 public class Main {

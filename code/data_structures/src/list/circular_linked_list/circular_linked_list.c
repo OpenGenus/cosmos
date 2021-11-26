@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | circular linked list | circular linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | doubly linked list | c | doubly linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>

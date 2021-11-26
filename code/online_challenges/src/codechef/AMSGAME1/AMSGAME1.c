@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | AMSGAME1 | AMSGAME1 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 long long int gcd(long long int a, long long int b) 

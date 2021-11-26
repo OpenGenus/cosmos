@@ -1,3 +1,11 @@
+/*
+
+// search | ternary search | ternary search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public static void main(String[] args) {
     //declare a string array with initial size
 

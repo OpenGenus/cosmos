@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | bit division | bit division | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 // Part of Cosmos by OpenGenus Foundation
 class BitDivision

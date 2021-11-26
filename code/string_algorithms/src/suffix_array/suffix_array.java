@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | suffix array | suffix array | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Arrays;
 
 public class SuffixArray {

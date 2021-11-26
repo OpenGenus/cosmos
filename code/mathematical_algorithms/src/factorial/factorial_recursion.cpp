@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | factorial | factorial recursion | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// backtracking | permutations of string | permutations of string | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 /* Function to swap values at two pointers */

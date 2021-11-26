@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | topological sort | topological sort adjacency matrix2 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * This Topological sort takes an adjacency matrix of an acyclic graph and returns
  * an array with the indexes of the nodes in a (non unique) topological order

@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | huffman coding | huffman coding |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import heapq
 import os
 from functools import total_ordering

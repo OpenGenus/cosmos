@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | a star | a star |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import random
 
 

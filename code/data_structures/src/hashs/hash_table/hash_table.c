@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | hash table | hash table | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

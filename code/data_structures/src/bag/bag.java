@@ -1,3 +1,11 @@
+/*
+
+// data structures | bag | bag | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package bag.java;
 // Part of Cosmos by OpenGenus Foundation
 import java.util.Iterator;

@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | egg dropping puzzle | egg dropping puzzle |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by the Open Genus Foundation
 
 

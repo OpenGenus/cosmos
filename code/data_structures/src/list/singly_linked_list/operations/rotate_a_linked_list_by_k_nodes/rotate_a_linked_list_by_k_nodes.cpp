@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | rotate a linked list by k nodes | rotate a linked list by k nodes | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to rotate a linked list counter clock wise by k Nodes
 // where k can be greater than length of linked list
 

@@ -1,3 +1,9 @@
+# mathematical algorithms | sum of digits | sum of digits | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 ## Part of Cosmos by OpenGenus Foundation
 def sum_of_digits(num)
   num = num.abs

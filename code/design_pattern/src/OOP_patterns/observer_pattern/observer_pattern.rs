@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | observer pattern | observer pattern | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 use std::collections::HashMap;
 

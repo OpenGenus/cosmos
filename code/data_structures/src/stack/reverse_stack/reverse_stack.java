@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | reverse stack | reverse stack | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 import java.util.Stack;
 // Assuming that you already know how the Stack works,

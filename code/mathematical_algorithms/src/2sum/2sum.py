@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | 2sum | 2sum |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 # Given an array of integers, return the indices of the two numbers such that they add up to a specific target.
 

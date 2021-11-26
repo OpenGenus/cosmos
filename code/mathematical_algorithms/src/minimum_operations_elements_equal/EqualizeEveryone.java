@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | minimum operations elements equal | EqualizeEveryone | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | maximum contiguous subsequence sum | maximum contiguous subsequence sum | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int 

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | STRWN | STRWN | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 #define ll long long

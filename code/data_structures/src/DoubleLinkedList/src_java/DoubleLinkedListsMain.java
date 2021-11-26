@@ -1,3 +1,11 @@
+/*
+
+// data structures | DoubleLinkedList | src java | DoubleLinkedListsMain | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class DoubleLinkedListsMain {
     public static void main(String[] args) throws Exception {
         DoubleLinkedLists dll = new DoubleLinkedLists();

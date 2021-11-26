@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | job sequencing | job sequencing | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 using namespace std;

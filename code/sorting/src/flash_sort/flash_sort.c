@@ -1,3 +1,11 @@
+/*
+
+// sorting | flash sort | flash sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // The flash sort algorithm
 // The idea is simple
 // If we know min max of arr is 0 and 100

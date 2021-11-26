@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | TACHSTCK | TACHSTCK | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

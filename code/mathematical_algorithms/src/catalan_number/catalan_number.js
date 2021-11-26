@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | catalan number | catalan number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function binomial_Coeff(n, k) {
   let res = 1;
 

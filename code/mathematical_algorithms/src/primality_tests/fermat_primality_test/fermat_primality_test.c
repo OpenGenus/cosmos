@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | primality tests | fermat primality test | fermat primality test | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * C program to implement Fermat's Primality Test
  * based on Fermat's little theorem

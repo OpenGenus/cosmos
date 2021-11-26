@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | multiway tree | union find | union find dynamic | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 // Union-find stores a graph, and allows two operations in amortized constant time:

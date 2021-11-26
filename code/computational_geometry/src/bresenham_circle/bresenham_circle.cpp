@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | bresenham circle | bresenham circle | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include "graphics.h"
 

@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | amicable numbers | amicable numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def ami_check(x, y):
     if x == y:
         return False  # 1

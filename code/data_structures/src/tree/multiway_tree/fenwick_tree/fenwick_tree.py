@@ -1,3 +1,11 @@
+"""
+
+# data structures | tree | multiway tree | fenwick tree | fenwick tree |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Binary indexed tree or fenwick tree
 # Space Complexity: O(N) for declaring another array of N=size num_of_elements
 # Time Complexity: O(logN) for each operation(update and query as well)

@@ -1,3 +1,11 @@
+/*
+
+// square root decomposition | mos algorithm | mos algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Time Complexity : O((n+q)*sqrt(n))
 
 #include <bits/stdc++.h>

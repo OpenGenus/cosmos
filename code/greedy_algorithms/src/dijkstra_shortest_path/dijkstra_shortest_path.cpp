@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | dijkstra shortest path | dijkstra shortest path | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Implemented by jhbecares based on Dijkstra's algorithm in "Competitive Programming 3"
 // Example extracted from problem 10986 - Sending email from UVa Online Judge
 /*

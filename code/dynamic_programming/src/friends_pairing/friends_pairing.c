@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | friends pairing | friends pairing | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Dynamic Programming solution to friends pairing problem in C
 // Contributed by Santosh Vasisht
 

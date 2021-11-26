@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | knapsack | knapsack | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 class Knapsack {

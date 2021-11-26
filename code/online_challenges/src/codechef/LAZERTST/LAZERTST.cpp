@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | LAZERTST | LAZERTST | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<iostream>
 
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | euler totient | euler totient | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 /*

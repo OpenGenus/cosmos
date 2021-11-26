@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | 2sum | 2sum | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::collections::HashMap;
 // Part of Cosmos by OpenGenus Foundation
 

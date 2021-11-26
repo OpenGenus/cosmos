@@ -1,3 +1,11 @@
+/*
+
+// search | interpolation search | interpolation search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // implementation with looping
 function interpolationSearchRecursion(
   arr,

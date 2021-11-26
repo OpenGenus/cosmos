@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | dijkstra shortest path | dijkstra shortest path gnu fast | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <climits>
 #include <ext/pb_ds/priority_queue.hpp>
 #include <iostream>

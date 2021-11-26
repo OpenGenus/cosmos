@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | rabin karp algorithm | rabin karp |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Rabin Karp Algorithm in python using hash values
 # d is the number of characters in input alphabet
 d = 2560

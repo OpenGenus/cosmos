@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | factorial | factorial iteration |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

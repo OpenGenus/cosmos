@@ -1,3 +1,9 @@
+# search | linear search | linear search | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 items = [5, 10, 34, 18, 6, 7, 45, 67]

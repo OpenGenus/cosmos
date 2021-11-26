@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | graph coloring | graph coloring greedy |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from collections import defaultdict
 
 

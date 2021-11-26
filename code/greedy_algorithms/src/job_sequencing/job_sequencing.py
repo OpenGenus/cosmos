@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | job sequencing | job sequencing |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

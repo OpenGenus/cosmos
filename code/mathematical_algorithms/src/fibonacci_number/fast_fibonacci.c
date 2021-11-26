@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fibonacci number | fast fibonacci | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 typedef unsigned long long llu;

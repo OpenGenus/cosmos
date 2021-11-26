@@ -1,3 +1,11 @@
+"""
+
+# sorting | bucket sort | bucket sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def bucket_sort(A):
     buckets = [[] for x in range(10)]

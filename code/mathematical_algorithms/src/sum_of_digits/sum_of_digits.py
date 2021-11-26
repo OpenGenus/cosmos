@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | sum of digits | sum of digits |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def sum_of_digits(number):
     return sum(map(int, str(number)))

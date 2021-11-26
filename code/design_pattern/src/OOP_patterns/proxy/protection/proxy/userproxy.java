@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | protection | proxy | userproxy | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package protection.proxy;
 
 import java.util.Objects;

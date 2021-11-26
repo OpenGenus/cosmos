@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | depth first search | depth first search | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java program to print DFS traversal from a given Graph
 // Part of Cosmos by OpenGenus Foundation
 import java.io.*;

@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | binomial coefficient | binomial coefficient | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * dynamic programming | binomial coefficient | C
  * Part of Cosmos by OpenGenus Foundation
  * A DP based solution that uses table C[][] to calculate the Binomial Coefficient

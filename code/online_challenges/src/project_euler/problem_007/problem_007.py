@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 007 | problem 007 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     n = 10001
     x = 2

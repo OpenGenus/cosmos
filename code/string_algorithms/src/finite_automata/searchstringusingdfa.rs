@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | finite automata | searchstringusingdfa | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 use std::io;
 
 fn search(string: &str, pattern: &str, start: u64, prev_match: bool) -> (bool, u64) {

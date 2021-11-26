@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | egyptian fraction | egyptian fraction |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 import math

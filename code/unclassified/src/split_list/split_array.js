@@ -1,3 +1,11 @@
+/*
+
+// unclassified | split list | split array | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function splitArray(array, parts) {
   let subArray = [];
   for (let i = 0; i <= array.length; i += parts) {

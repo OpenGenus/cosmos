@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | dijkstra shortest path | dijkstra shortest path | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus
  * Javascript program for Dijkstra's single

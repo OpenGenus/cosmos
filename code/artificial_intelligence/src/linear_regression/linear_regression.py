@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | linear regression | linear regression |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | primality tests | miller rabin primality test | miller rabin primality test | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program Miller-Rabin Primality test
 #include <iostream>
 #include <vector>

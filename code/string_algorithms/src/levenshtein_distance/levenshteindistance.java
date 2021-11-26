@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | levenshtein distance | levenshteindistance | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 class LevenshteinDistance {
     private String a, b;

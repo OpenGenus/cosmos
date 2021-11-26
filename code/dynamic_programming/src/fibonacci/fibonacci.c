@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | fibonacci | fibonacci | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
  
 int fib(int n)

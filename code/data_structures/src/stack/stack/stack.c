@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | stack | stack | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>

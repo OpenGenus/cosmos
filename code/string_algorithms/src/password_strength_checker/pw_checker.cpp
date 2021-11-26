@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | password strength checker | pw checker | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  C++ program for check password strength
 //
 //  main.cpp

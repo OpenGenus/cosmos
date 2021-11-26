@@ -1,4 +1,12 @@
 /*
+
+// sorting | merge sort | merge sort linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Here ListNode is class containing 'next' for next node, and value for
 value at node.
 */

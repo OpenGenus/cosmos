@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | shuffle array | shuffle array | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <random>

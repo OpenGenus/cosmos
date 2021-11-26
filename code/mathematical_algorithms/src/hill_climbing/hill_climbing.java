@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | hill climbing | hill climbing | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class HillClimbing {

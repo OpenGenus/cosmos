@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | square free number | squarefreenumber | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Program to check whether a number is square_free or not
 import java.util.Scanner;
 class SquareFreeNumber{

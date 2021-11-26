@@ -1,3 +1,11 @@
+"""
+
+# data structures | queue | queue using linked list | queue using linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 Queue = {"front": None, "back": None}

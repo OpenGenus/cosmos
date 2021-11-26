@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | min operation to make gcd k | min operation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int main()

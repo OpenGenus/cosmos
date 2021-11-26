@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | gaussian elimination | gaussian elimination | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class GaussianElimination {
     int rows;
     int cols;

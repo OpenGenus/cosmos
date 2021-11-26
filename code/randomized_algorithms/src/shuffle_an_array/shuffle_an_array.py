@@ -1,3 +1,11 @@
+"""
+
+# randomized algorithms | shuffle an array | shuffle an array |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python Program to shuffle a given array
 import random
 import time

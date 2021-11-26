@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 014 | problem 014 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     dic = {n: 0 for n in range(1, 1000000)}
 

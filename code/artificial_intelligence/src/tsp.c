@@ -1,4 +1,12 @@
 /*
+
+// artificial intelligence | tsp | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Implement any scheme to find the optimal solution for the
  * Traveling Salesperson problem and then solve the same problem
  * instance using any approximation algorithm and determine

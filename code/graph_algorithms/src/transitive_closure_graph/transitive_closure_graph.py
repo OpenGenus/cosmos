@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | transitive closure graph | transitive closure graph |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python program to print transitive closure of a graph
 # Part of Cosmos by OpenGenus Foundation
 from collections import defaultdict

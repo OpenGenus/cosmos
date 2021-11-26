@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sieve of eratosthenes | sieve of eratosthenes | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class SieveOfEratosthenes {
   /**
    * @constructor

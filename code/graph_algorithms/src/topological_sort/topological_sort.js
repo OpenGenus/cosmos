@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | topological sort | topological sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Part of Cosmos by OpenGenus
  * Javascript program to find topological Sort order of a Directed Acyclic Graph.

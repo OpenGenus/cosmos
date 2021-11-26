@@ -1,4 +1,12 @@
 """
+
+# design pattern | OOP patterns | observer pattern | observer pattern |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 How to use observer:
 
 1. Decorate your observed-class with the Observer class,

@@ -1,3 +1,11 @@
+"""
+
+# online challenges | codechef | JOHNY | JOHNY |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 t = int(input())
 for x in range(t):
     n = int(input())

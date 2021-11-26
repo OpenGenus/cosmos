@@ -1,3 +1,11 @@
+"""
+
+# greedy algorithms | k centers | k centers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 import random

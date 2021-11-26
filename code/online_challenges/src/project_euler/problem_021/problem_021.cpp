@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 021 | problem 021 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 
 int sumProperDivisors(int n)

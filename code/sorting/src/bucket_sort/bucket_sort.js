@@ -1,3 +1,11 @@
+/*
+
+// sorting | bucket sort | bucket sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // InsertionSort to be used within bucket sort
 // Part of Cosmos by OpenGenus Foundation
 function insertionSort(array) {

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | dynamic array | dynamic array | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
 import java.math.*;
 import java.security.*;

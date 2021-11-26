@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | lonely integer | lonely integer | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 * Part of Cosmos by OpenGenus Foundation
 */
 fn lonely_integer(a: &[i64]) -> i64 {

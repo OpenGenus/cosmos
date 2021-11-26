@@ -1,3 +1,11 @@
+/*
+
+// sorting | quick sort | quick sort three way | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <vector>

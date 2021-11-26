@@ -1,3 +1,11 @@
+/*
+
+// backtracking | number of ways in maze | number of ways in maze | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 /*
  * Part of Cosmos by OpenGenus Foundation

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | rosalind | complement dna strand | complement dna | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn complement_dna(dna: &str) -> String {
     dna.chars()
         .rev()

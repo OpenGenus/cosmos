@@ -1,4 +1,12 @@
 /*
+
+// backtracking | generate parentheses | generate parentheses | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Input: n = 3
 Output: ["((()))","(()())","(())()","()(())","()()()"]  
 

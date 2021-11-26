@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | edit distance | edit distance hirschberg | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * dynamic programming | edit distance | C++
  * Part of Cosmos by OpenGenus Foundation
  *

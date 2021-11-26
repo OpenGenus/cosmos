@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | stack | stack |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Author: Alex Day
 # Purpose: Stack implementation with array in python
 # Date: October 2 2017

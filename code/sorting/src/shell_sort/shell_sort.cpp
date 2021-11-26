@@ -1,3 +1,11 @@
+/*
+
+// sorting | shell sort | shell sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

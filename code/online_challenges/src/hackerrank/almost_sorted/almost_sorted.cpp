@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | almost sorted | almost sorted | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cmath>
 #include <cstdio>
 #include <vector>

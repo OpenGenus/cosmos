@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | k means | k means | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 #include<stdio.h>
 #include<conio.h>

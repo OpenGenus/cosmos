@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | longest common subsequence | longest common subsequence | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>

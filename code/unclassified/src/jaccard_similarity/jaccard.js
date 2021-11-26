@@ -1,3 +1,11 @@
+/*
+
+// unclassified | jaccard similarity | jaccard | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Calculates union of two given sets
  * @param {Set} setA

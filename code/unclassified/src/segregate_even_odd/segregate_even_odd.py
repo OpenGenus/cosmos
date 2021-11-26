@@ -1,3 +1,11 @@
+"""
+
+# unclassified | segregate even odd | segregate even odd |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Implemented using Bubble Sort
 
 ar = list(map(int, input("Enter the elements: ").split()))

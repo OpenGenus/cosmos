@@ -1,3 +1,11 @@
+/*
+
+// search | jump search | jump search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 #define MAX 100

@@ -1,3 +1,11 @@
+"""
+
+# graph algorithms | kruskal minimum spanning tree | kruskal minimum spanning tree |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from collections import defaultdict
 
 # Part of Cosmos by OpenGenus Foundation

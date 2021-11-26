@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | circular linked list | operations | is circular |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # uses try block so dont have to check if reached the end, provides faster runtime. credit-leetcode
 def is_circular(self, head):
     """

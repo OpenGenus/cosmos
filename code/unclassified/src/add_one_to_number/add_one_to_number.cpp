@@ -1,3 +1,11 @@
+/*
+
+// unclassified | add one to number | add one to number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cstdlib>
 #include <iostream>
 #include <vector>

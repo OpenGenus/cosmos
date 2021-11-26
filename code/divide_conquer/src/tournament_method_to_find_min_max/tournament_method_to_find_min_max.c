@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | tournament method to find min max | tournament method to find min max | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 
 struct pair

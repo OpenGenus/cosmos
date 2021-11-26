@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | arithmetic on large numbers | string factorial | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <iostream>
 

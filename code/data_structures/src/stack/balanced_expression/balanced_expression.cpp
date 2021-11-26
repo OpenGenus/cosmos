@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | balanced expression | balanced expression | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Stack | Balance paraenthesis | C++
 // Part of Cosmos by OpenGenus Foundation
 

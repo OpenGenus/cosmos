@@ -1,3 +1,11 @@
+/*
+
+// search | fuzzy search | fuzzy search | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //
 // A node module that executes the Fuzzy Search algorithm
 //

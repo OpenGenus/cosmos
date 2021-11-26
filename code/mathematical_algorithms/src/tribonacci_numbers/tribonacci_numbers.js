@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tribonacci numbers | tribonacci numbers | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function tribonacci(n) {
   if (n == 0) {
     return 0;

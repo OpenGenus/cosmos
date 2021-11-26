@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | quick sort | quick sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | quick sort | C
 //  Part of Cosmos by OpenGenus Foundation
 

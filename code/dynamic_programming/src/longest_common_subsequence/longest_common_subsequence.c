@@ -1,4 +1,12 @@
 /*
+
+// dynamic programming | longest common subsequence | longest common subsequence | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
 Problem Statement : 
 Find the length of LCS present in given two sequences.
 LCS -> Longest Common Subsequence

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | smallest digit in number | smallest digit in number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 import java.util.*;
 class smallest_digit_in_number{

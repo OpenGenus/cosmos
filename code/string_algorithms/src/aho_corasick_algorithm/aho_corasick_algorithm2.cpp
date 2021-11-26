@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | aho corasick algorithm | aho corasick algorithm2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <fstream>
 #include <queue>

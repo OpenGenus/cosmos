@@ -1,3 +1,9 @@
+# mathematical algorithms | smallest digit in number | smallest digit in number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 def smallest_digit_in_number(input)
   unless is_a_number? input

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime numbers of n | prime numbers of n | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>

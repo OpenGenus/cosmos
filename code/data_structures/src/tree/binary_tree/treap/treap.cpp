@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | treap | treap | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #define ll long long
 #define MOD 1000000007

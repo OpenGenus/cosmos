@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | fractional knapsack | fractional knapsack | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>

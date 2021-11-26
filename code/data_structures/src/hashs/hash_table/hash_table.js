@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | hash table | hash table | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 var HashTable = function() {
   this._storage = [];
   this._count = 0;

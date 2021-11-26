@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | std | std | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <math.h>
 

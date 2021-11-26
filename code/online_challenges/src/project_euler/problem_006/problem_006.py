@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 006 | problem 006 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     sum_of_squares = 0
     square_of_sum = 0

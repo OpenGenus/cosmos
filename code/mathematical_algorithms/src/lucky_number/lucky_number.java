@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | lucky number | lucky number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.*;
 // Part of Cosmos by OpenGenus Foundation
 class Main {

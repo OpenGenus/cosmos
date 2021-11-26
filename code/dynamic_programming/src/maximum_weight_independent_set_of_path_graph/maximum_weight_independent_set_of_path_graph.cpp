@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | maximum weight independent set of path graph | maximum weight independent set of path graph | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

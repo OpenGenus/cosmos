@@ -1,3 +1,9 @@
+# computational geometry | 2d line intersection | 2d line intersection | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 class LineInterserction
   def initialize(x1, y1, x2, y2, x3, y3, x4, y4)
     @x1 = x1

@@ -1,3 +1,11 @@
+/*
+
+// sorting | bogo sort | bogo sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function bogosort(arr) {
   var isSorted = function(arr) {
     for (var i = 1; i < arr.length; i++) {

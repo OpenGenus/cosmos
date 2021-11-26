@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | kmp algorithm | kmp algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program for implementation of KMP pattern searching
 // algorithm
 #include <string>

@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | balanced expression | balanced expression |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 OPENING = '('
 
 def is_balanced(parentheses):

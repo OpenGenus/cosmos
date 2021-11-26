@@ -1,3 +1,11 @@
+/*
+
+// sorting | bogo sort | bogo sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 // C++ implementation of BogoSort by ldaw
 

@@ -1,3 +1,11 @@
+"""
+
+# unclassified | jaccard similarity | jaccard |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/env python
 
 

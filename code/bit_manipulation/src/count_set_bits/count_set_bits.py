@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | count set bits | count set bits |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def count_set_bit(number):
     count = 0

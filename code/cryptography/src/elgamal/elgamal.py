@@ -1,3 +1,11 @@
+"""
+
+# cryptography | elgamal | elgamal |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # ElGamal encryption
 
 # pip install pycryptodome

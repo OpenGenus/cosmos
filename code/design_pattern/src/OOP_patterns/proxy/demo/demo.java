@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | demo | demo | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package demo;
 
 import protection.proxy.User;

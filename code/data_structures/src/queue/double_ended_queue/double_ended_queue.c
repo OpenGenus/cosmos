@@ -1,3 +1,11 @@
+/*
+
+// data structures | queue | double ended queue | double ended queue | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <conio.h> 
 #define MAX 10 

@@ -1,3 +1,11 @@
+"""
+
+# randomized algorithms | birthday paradox | birthday paradox |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 import math

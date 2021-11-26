@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | genetic algorithm | genetic | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Root finding using genetic algorithm (Uses C++11).
  * Reference: https://arxiv.org/abs/1703.03864

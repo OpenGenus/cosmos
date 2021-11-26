@@ -1,4 +1,12 @@
 /*
+
+// search | ternary search | ternary search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  * Ternary Search Uses Divide And Conquer Technique

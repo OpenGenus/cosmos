@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | round robin scheduling | round robin scheduling | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | multiway tree | red black tree | red black tree | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * author: JonNRb <jonbetti@gmail.com>
  * license: GPLv3

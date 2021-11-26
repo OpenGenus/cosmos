@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | quick sort | quicksort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | quick sort | Java
 //  Part of Cosmos by OpenGenus Foundation
 

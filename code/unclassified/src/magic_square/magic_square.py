@@ -1,3 +1,11 @@
+"""
+
+# unclassified | magic square | magic square |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # MAgic Square generation for odd numbered squares
 import numpy as np
 

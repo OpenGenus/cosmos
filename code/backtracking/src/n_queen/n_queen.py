@@ -1,3 +1,11 @@
+"""
+
+# backtracking | n queen | n queen |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def place(k, i):
     for l in range(1, k):

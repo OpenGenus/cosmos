@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | thrice unique number | thrice unique number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *
  * Part of Cosmos by OpenGenus Foundation
  * Find unique number in an array where every element occours thrice except one.Find that unique Number

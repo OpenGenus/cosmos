@@ -1,4 +1,12 @@
 /*
+
+// data structures | list | singly linked list | operations | reverse | reverse | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  */
 

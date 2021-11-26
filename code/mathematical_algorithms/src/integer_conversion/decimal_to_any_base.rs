@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | integer conversion | decimal to any base | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 use std::{io::{self, Write}, process};

@@ -1,3 +1,11 @@
+/*
+
+// unclassified | biggest of n numbers | biggest of n numbers | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of cosmos from opengenus foundation
 
 #include <iostream>

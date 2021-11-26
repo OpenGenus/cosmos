@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | kruskal minimum spanning tree | kruskal | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program for Kruskal's algorithm to find Minimum Spanning Tree
 // of a given connected, undirected and weighted graph
 #include <stdio.h>

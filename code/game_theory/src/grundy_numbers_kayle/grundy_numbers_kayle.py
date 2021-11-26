@@ -1,3 +1,11 @@
+"""
+
+# game theory | grundy numbers kayle | grundy numbers kayle |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def SGsom(a, b):
     """Returns recurrence Calulation for a and b"""
     x = 0

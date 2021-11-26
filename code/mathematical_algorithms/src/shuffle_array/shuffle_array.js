@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | shuffle array | shuffle array | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 //shuffle_array - Randomly shuffle an array

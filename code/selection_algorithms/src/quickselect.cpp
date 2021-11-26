@@ -1,3 +1,11 @@
+/*
+
+// selection algorithms | quickselect | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // This algorithm is similar to quicksort because it
 // chooses an element as a pivot and partitions the
 // data into two based on the pivot. However, unlike

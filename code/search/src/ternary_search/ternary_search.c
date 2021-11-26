@@ -1,3 +1,11 @@
+/*
+
+// search | ternary search | ternary search | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 // Function to perform Ternary Search 

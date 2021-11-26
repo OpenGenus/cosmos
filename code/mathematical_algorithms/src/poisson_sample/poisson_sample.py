@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | poisson sample | poisson sample |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from random import random
 from math import exp
 from math import factorial

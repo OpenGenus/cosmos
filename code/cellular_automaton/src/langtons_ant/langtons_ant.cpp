@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | langtons ant | langtons ant | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <array>

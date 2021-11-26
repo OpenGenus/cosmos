@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | kmp algorithm | kmp |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def getLPS(pattern):
     m = len(pattern)
     lps = [0] * (m + 1)

@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | kruskal minimum spanning tree | kruskal using adjacency matrix | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <limits.h>
 

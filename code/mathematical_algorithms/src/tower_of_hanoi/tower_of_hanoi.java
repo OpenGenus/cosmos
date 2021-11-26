@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | tower of hanoi | tower of hanoi | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 //Recursive algorithm 

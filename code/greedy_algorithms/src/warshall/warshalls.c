@@ -1,4 +1,12 @@
 /*
+
+// greedy algorithms | warshall | warshalls | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Compute the transitive closure of a given directed graph
  * using Warshall's algorithm.
  */

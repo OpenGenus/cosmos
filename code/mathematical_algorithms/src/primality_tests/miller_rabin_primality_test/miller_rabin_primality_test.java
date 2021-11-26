@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | primality tests | miller rabin primality test | miller rabin primality test | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Random;
 import java.lang.Math;
 

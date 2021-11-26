@@ -1,4 +1,12 @@
 /*
+
+// operating system | scheduling | round robin scheduling | round robin c | round robin | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * scanf is used for reading integers without any verification, so be careful.
  * Author : ABDOUS Kamel

@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | no consec ones | no consec 1 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

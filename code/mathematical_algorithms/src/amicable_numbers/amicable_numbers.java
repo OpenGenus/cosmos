@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | amicable numbers | amicable numbers | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Set;
 import java.util.TreeSet;
 

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | addition using bits | addition using bits | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function bitwiseRecursiveAddition(n, m) {
   if (m == 0) return n;
 

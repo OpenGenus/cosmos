@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fractals | julia miim | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // This is a simple code to generate Julia sets of quadratic functions
 // of the form f(z) = z^2 + c.
 //

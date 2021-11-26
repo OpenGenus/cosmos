@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | EID2 | eid2 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

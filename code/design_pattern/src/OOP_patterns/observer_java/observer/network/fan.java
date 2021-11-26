@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | observer java | observer | network | fan | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package observer.network;
 
 import observer.Observer;

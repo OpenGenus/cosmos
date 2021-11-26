@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | factorial | factorial | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function factorialize(number) {
   if (number == 0) {
     return 1;

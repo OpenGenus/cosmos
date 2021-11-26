@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | tree | tree | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Author: Praveen Gupta
 // Part of Cosmos by OpenGenus Foundation
 #include<stdio.h>

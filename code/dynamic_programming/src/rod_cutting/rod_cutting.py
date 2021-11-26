@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | rod cutting | rod cutting |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 # Code contributed by Debajyoti Halder
 

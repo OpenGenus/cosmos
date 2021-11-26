@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | delannoy number | delannoy number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def DelannoyGenerator(n,m):
 	if n==0 or m==0:
 		d = 1

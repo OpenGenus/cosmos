@@ -1,3 +1,11 @@
+/*
+
+// backtracking | kth grammar | kth Grammar | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //https://leetcode.com/problems/k-th-symbol-in-grammar/submissions/
 
 class Solution {

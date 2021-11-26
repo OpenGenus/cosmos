@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | minimum height | minimum height | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class TreeNode<T>
 {
 	T data;

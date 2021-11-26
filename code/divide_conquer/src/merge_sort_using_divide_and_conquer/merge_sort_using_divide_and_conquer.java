@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | merge sort using divide and conquer | merge sort using divide and conquer | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //  divide conquer | merge sort using divide and conquer | Java
 //  Part of Cosmos by OpenGenus Foundation
 

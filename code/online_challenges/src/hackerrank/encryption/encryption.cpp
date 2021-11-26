@@ -1,3 +1,11 @@
+/*
+
+// online challenges | hackerrank | encryption | encryption | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cmath>
 #include <iostream>
 

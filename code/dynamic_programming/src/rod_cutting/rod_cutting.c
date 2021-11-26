@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | rod cutting | rod cutting | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 #define INT_MIN -32767 

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | segmented sieve of eratosthenes | segmented sieve of eratosthenes | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Code Copyright: Manish Kumar, E&C, IIT Roorkee
 // Part of Cosmos by OpenGenus Foundation
 #include <iostream>

@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | skip list | skip list | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 import java.util.*;
 public class SkipList<E> {

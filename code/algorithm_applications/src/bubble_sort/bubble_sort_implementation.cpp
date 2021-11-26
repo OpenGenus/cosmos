@@ -1,3 +1,11 @@
+/*
+
+// algorithm applications | bubble sort | bubble sort implementation | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<iostream>
 
 using namespace std;

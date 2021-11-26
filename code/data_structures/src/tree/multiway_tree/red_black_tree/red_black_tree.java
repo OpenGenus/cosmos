@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | multiway tree | red black tree | red black tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class RedBlackTree {
 // Part of Cosmos by OpenGenus Foundation
     public RedBlackTree( ) {

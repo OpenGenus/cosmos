@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | maximum sum sub matrix | maximum sum sub matrix | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 // Author: Karan Chawla
 // 15th Oct '17

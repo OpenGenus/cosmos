@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | gcd and lcm | gcd and lcm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <algorithm>
 // Part of Cosmos by OpenGenus Foundation

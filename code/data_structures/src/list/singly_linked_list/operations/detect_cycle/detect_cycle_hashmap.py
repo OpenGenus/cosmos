@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | singly linked list | operations | detect cycle | detect cycle hashmap |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class Node:
     def __init__(self, data, next=None):
         self.data = data

@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | karatsuba multiplication | karatsuba multiplication | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 
 public class KaratsubaMultiply {

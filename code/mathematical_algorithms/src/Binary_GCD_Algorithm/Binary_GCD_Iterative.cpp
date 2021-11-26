@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | Binary GCD Algorithm | Binary GCD Iterative | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Iterative Approach 
 
 #include <bits/stdc++.h> 

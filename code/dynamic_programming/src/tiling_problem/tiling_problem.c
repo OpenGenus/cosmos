@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | tiling problem | tiling problem | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 long long int 

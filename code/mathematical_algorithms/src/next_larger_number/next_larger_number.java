@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | next larger number | next larger number | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public class NextGreaterNumber 
 {

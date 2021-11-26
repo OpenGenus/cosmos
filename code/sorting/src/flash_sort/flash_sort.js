@@ -1,3 +1,11 @@
+/*
+
+// sorting | flash sort | flash sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 "use strict";
 
 function flash_sort(arr) {

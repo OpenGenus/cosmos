@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | taxicab numbers | taxicab numbers | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 
 public class taxicab_numbers{
     public static void main(String[] args){

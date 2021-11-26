@@ -1,3 +1,9 @@
+# mathematical algorithms | catalan number | catalan number | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def catalan(num)
   return 1 if num <= 1
   ans = 0

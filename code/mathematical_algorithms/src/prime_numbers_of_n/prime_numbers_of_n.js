@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | prime numbers of n | prime numbers of n | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function primeFactors(number) {
   let factors = [];
   let limit = parseInt(Math.sqrt(number)); // used parseInt to avoid floating digit :D

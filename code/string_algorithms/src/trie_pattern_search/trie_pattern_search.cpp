@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | trie pattern search | trie pattern search | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>

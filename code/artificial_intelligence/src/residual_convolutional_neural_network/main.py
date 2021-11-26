@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | residual convolutional neural network | main |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

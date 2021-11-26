@@ -1,3 +1,11 @@
+/*
+
+// sorting | bucket sort | bucket sorting | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Implementation of Bucket/Bin Sort Algorithm in C++
 // Best Time Complexity O(n+k)
 // Worst Time Complexity O(n^2)

@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | tarjan algorithm strongly connected components | tarjan algorithm strongly connected components | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  * Tarjan algorithm.

@@ -1,3 +1,11 @@
+/*
+
+// operating system | concurrency | producer consumer | producer consumer | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>

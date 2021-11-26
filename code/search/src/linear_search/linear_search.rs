@@ -1,3 +1,11 @@
+/*
+
+// search | linear search | linear search | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn search(vec: &[i32], n: i32) -> i32 {
     for i in 0..vec.len() {
         if vec[i] == n {

@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | postfix evaluation | postfix evaluation | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 // Java proram to evaluate value of a postfix expression 
   

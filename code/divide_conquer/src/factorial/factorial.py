@@ -1,5 +1,13 @@
 """
 
+# divide conquer | factorial | factorial |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
+
 divide conquer | factorial | Python
 part of Cosmos by OpenGenus Foundation
 

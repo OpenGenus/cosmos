@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 005 | problem 005 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Problem005 {
 	public static boolean isDivisible(int number) {
 		for(int i = 1; i <= 20; ++i) {

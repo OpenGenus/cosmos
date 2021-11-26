@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | distance between points | distance between points | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.lang.Math;
 
 public class DistanceBetweenPoints {

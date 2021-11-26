@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | array median | array median | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
 // Part of Cosmos by OpenGenus Foundation
 public class Median{

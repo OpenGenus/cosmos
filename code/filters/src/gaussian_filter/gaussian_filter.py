@@ -1,3 +1,11 @@
+"""
+
+# filters | gaussian filter | gaussian filter |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 ##Author - Sagar Vakkala (@codezoned)
 
 

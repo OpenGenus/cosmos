@@ -1,4 +1,12 @@
 /*
+
+// artificial intelligence | k means | k means | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *  Kmeans written in C++ for use on Images.
  *  Requires several data structures from the user context
  *

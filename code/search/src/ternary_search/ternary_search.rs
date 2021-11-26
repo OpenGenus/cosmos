@@ -1,3 +1,11 @@
+/*
+
+// search | ternary search | ternary search | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 fn main() {
     let nums = vec![1, 3, 5, 7, 9];

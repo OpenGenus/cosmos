@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | log of factorial | log of factorial | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.InputStreamReader;
 import java.util.Scanner;
 

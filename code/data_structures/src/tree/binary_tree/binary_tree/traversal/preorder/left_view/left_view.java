@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | traversal | preorder | left view | left view | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Java Program to print left View of a binary Tree
 
 /* Class containing left and right child of current

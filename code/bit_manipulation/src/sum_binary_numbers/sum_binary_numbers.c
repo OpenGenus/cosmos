@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | sum binary numbers | sum binary numbers | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
  
 int main()

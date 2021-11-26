@@ -1,3 +1,11 @@
+/*
+
+// operating system | shell | c | shell | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

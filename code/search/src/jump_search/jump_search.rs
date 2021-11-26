@@ -1,3 +1,11 @@
+/*
+
+// search | jump search | jump search | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 use std::cmp::min;
 

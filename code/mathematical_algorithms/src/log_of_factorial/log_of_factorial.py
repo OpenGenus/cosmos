@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | log of factorial | log of factorial |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from math import *
 
 

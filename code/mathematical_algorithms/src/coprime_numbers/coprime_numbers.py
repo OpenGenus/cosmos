@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | coprime numbers | coprime numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def gcd(a, b):
     while b != 0:

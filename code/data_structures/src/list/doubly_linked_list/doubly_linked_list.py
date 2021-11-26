@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | doubly linked list | doubly linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 class DoublyLinkedList:
     class Node:

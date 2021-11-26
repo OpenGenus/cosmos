@@ -1,4 +1,12 @@
 /*
+
+// cellular automaton | conways game of life | game of life c sdl | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * This program uses SDL 1.2
  * Author : ABDOUS Kamel

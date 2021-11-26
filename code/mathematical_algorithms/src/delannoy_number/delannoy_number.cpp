@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | delannoy number | delannoy number | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 int DelannoyGenerator(int n, int m)

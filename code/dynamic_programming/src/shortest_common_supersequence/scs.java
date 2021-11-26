@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | shortest common supersequence | scs | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.util.*;

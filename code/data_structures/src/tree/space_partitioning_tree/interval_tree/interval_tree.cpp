@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | interval tree | interval tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Part of Cosmos by OpenGenus Foundation
 
 #include <iostream>

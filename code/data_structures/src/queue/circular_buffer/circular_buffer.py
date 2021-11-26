@@ -1,3 +1,11 @@
+"""
+
+# data structures | queue | circular buffer | circular buffer |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class CircularBuffer:
     __array = []
     __size = 0

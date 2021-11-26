@@ -1,4 +1,12 @@
 """
+
+# greedy algorithms | fractional knapsack | fractional knapsack |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
+"""
 Part of Cosmos by OpenGenus Foundation
 """
 

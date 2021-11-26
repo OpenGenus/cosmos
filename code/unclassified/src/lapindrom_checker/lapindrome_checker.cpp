@@ -1,3 +1,11 @@
+/*
+
+// unclassified | lapindrom checker | lapindrome checker | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // part of cosmos by opengenus foundation
 
 #include <iostream>

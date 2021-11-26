@@ -1,3 +1,11 @@
+/*
+
+// sorting | intro sort | intro sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cmath>
 #include <algorithm>
 #include <iostream>

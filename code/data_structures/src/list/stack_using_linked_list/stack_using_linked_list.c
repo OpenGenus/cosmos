@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | stack using linked list | stack using linked list | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 
 struct node

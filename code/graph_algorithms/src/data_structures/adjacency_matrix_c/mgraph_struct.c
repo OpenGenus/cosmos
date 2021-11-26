@@ -1,4 +1,12 @@
 /*
+
+// graph algorithms | data structures | adjacency matrix c | mgraph struct | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation.
  * Author : ABDOUS Kamel
  * Here we have the definition of a graph using adjacency-matrix representation.

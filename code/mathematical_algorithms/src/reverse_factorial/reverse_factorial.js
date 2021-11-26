@@ -1,4 +1,12 @@
 /*
+
+// mathematical algorithms | reverse factorial | reverse factorial | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  */
 function unfactorial(num) {

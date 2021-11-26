@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | factorial | factorial recursion |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 def factorial(n):
     if n == 0:

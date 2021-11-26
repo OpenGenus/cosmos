@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | egg dropping puzzle | egg dropping puzzle | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>

@@ -1,3 +1,9 @@
+# mathematical algorithms | count digits | counts digits | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def count_num(num)
   count = 0
   while num > 0

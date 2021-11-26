@@ -1,3 +1,9 @@
+# cryptography | rail fence cipher | rail fence cipher | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 require 'optparse'

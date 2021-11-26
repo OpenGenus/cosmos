@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | observer java | demo | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import observer.Observer;
 import observer.Subject;
 import observer.network.Artist;

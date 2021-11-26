@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | delete | delete node with key | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package linkedlist;
 
 class LinkedList {

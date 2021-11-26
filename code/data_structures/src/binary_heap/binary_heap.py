@@ -1,3 +1,11 @@
+"""
+
+# data structures | binary heap | binary heap |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 class BinaryHeap:
     def __init__(self, size):
         self.List = (size) * [None]

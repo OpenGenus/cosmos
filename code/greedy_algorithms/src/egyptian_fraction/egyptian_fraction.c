@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | egyptian fraction | egyptian fraction | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 /*
 This is a program to represent a number in terms of it's Egyptian fraction. An Egyptian Fraction is a finitet sum of unit fractions. Any 

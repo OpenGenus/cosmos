@@ -1,3 +1,11 @@
+/*
+
+// sorting | gnome sort | gnome sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Java Program to implement Gnome Sort
  
 import java.util.Arrays;

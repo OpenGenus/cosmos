@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | delannoy number | delannoy number | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 int 

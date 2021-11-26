@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | doubly linked list | doubly linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 /* Contributed by Vaibhav Jain (vaibhav29498) */
 #include <iostream>

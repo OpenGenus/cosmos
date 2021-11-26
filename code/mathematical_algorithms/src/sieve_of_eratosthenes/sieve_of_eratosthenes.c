@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | sieve of eratosthenes | sieve of eratosthenes | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 /* Part of Cosmos by OpenGenus Foundation */

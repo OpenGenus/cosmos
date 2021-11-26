@@ -1,3 +1,9 @@
+# mathematical algorithms | amicable numbers | amicable numbers | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def sum_of_proper_divisors(num)
   (1..(num / 2)).select { |i| num % i == 0 }.inject(:+)
 end

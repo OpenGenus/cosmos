@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | SplitArrayLargestSum | SplitArrayLargestSum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //CODE
 
 #include <bits/stdc++.h>

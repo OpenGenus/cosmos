@@ -1,3 +1,11 @@
+"""
+
+# data structures | list | singly linked list | singly linked list |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 class Node:
     def __init__(self, data):

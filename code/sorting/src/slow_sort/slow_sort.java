@@ -1,3 +1,11 @@
+/*
+
+// sorting | slow sort | slow sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Arrays;
 
 public class slow_sort {

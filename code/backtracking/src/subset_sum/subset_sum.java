@@ -1,3 +1,11 @@
+/*
+
+// backtracking | subset sum | subset sum | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

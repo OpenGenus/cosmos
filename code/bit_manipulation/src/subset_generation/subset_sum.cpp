@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | subset generation | subset sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 #include <iostream>
 #include <vector>

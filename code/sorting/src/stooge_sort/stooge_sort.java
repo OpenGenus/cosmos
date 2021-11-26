@@ -1,3 +1,11 @@
+/*
+
+// sorting | stooge sort | stooge sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //This is a java program to sort numbers using Stooge Sort
 import java.util.Random;
  

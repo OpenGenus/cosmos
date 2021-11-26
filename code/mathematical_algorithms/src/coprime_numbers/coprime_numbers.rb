@@ -1,3 +1,9 @@
+# mathematical algorithms | coprime numbers | coprime numbers | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def factor_finder(num)
   i = 1
   fact = []

@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | adapter | soldiers | soldier | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package Adapter.Soldiers;
 
 public class Soldier implements Adaptee {

@@ -1,3 +1,11 @@
+/*
+
+// sorting | bubble sort | bubble sort efficient | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <vector>
 #include <iostream>
 using namespace std;

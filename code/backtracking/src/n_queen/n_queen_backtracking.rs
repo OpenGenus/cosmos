@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | n queen backtracking | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 extern crate nalgebra as na;
 extern crate num;
 #[macro_use]

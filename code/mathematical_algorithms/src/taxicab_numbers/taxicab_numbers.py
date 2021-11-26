@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | taxicab numbers | taxicab numbers |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # the function taxi_cab_numbers generates and returns n taxicab numbers along with the number pairs
 def taxi_cab_numbers(n):
     gen_num = 0

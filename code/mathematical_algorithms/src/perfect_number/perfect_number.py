@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | perfect number | perfect number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def is_perfect_number(n):
     sum = 0
     for x in range(1, n):

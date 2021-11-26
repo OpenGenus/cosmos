@@ -1,3 +1,11 @@
+"""
+
+# data structures | stack | prefix to postfix | prefix to postfix |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Converting prefix to its equivalent postfix notation.
 # Part of Cosmos by OpenGenus Foundation
 postfix = []

@@ -1,3 +1,11 @@
+/*
+
+// operating system | deadlocks | bankers algorithm | banker safety | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation.
 // Banker's Algorithm: Safety Algorithm
 

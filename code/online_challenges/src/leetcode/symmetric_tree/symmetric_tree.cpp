@@ -1,3 +1,11 @@
+/*
+
+// online challenges | leetcode | symmetric tree | symmetric tree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {

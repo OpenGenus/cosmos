@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | adapter | civilian | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package Adapter;
 
 public class Civilian implements Movement {

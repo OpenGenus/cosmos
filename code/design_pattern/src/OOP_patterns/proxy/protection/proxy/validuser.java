@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | proxy | protection | proxy | validuser | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 package protection.proxy;
 
 class ValidUser implements User {

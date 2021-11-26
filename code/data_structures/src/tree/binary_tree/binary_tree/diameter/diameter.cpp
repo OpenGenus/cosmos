@@ -1,4 +1,12 @@
 /*
+
+// data structures | tree | binary tree | binary tree | diameter | diameter | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *  Part of Cosmos by OpenGenus Foundation
  *
  *  diameter of tree synopsis

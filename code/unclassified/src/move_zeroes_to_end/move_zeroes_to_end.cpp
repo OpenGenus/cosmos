@@ -1,3 +1,11 @@
+/*
+
+// unclassified | move zeroes to end | move zeroes to end | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <cstdlib>
 #include <iostream>
 #include <vector>

@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | stack using queue | stack using queue | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /**
  * @brief Stack Data Structure Using the Queue Data Structure
  * @details

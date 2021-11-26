@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | check is square | check is square | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation 
 
 import java.util.Scanner;

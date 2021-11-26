@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | biconnected components | biconnected components | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <list>
 #include <stack>

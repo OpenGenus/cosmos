@@ -1,3 +1,11 @@
+/*
+
+// online challenges | leetcode | longest substring without repetition | longest substring without repetition | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* 
  * 
  * Problem: https://leetcode.com/problems/longest-substring-without-repeating-characters/

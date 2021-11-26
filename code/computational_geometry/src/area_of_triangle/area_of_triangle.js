@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of triangle | area of triangle | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 // Author: Igor Antun
 // Github: @IgorAntun

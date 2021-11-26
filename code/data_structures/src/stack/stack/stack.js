@@ -1,3 +1,11 @@
+/*
+
+// data structures | stack | stack | stack | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 /* Stack!!

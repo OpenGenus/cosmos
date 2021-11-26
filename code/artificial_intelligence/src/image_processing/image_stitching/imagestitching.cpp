@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | image processing | image stitching | imagestitching | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>

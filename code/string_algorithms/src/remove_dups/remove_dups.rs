@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | remove dups | remove dups | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 fn remove_dup(string: &str) -> String {
     let mut chars: Vec<char> = string.chars().collect();
     chars.dedup();

@@ -1,3 +1,11 @@
+/*
+
+// online challenges | leetcode | Find Minimum in Rotated Sorted Array | FindMinimumInRotatedSortedArray | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.*;
     /*
      *

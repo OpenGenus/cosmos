@@ -1,3 +1,9 @@
+# cryptography | morse cipher | morse code generator | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 MORSE_CODES = {
   'a' => '.-', 'b' => '-...', 'c' => '-.-.',
   'd' => '-..', 'e' => '.', 'f' => '..-.',

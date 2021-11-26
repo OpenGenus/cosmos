@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | assembly line scheduling | assembly line scheduling | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of OpenGenus Cosmos
 // A C++ program to find minimum possible 
 // time by the car chassis to complete 

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | invert bit | invert bit | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 use std::{io::{self, Write}, process};

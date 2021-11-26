@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 040 | problem 040 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     nums = ""  # The string containing the sequence of numbers
     i = 0  # Used for iteration

@@ -1,3 +1,9 @@
+# mathematical algorithms | automorphic numbers | automorphic numbers | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def is_automorphic(x)
   x2 = (x**2).to_s;   x = x.to_s
   x2_len = x2.length; x_len = x.length

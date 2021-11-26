@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | minimum insertion palindrome | minimum insertions palindrome using lcs | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 //Number of insertion required to make a string palindrome using dynamic programming

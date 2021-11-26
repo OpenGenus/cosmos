@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | bit division | bit division |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """ Part of Cosmos by OpenGenus Foundation """
 
 

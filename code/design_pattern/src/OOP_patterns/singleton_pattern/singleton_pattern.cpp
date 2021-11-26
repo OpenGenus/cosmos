@@ -1,3 +1,11 @@
+/*
+
+// design pattern | OOP patterns | singleton pattern | singleton pattern | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <string>
 #include <iostream>
 

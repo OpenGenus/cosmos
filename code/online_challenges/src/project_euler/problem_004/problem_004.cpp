@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 004 | problem 004 | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <string>
 

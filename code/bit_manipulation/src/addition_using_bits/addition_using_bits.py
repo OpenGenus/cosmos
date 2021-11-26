@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | addition using bits | addition using bits |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 # Function adds 2 numbers a and b without using + operator

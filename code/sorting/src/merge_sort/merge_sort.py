@@ -1,3 +1,11 @@
+"""
+
+# sorting | merge sort | merge sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 # Split array in half, sort the 2 halves and merge them.

@@ -1,3 +1,11 @@
+/*
+
+// cryptography | rot13 cipher | rot13 cipher | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function rot13(text) {
   return text.replace(/[a-z]/gi, function(char) {
     return String.fromCharCode(

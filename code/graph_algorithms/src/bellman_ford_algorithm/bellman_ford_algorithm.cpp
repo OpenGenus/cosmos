@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | bellman ford algorithm | bellman ford algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <map>
 #include <vector>

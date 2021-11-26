@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | fast fourier transform | fast fourier transform | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class FFT {
 
     private final double[] cos;

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | count set bits | brian kernighan algo | brian kernighan algorithm | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Brian Kernighan’s Algorithm. This programme uses O(logn) to count set bits.
 
 #include <iostream> 

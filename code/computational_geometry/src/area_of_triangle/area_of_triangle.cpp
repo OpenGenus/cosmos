@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | area of triangle | area of triangle | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 typedef std::pair<double, double> point;
 

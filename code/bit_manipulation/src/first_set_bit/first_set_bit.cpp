@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | first set bit | first set bit | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos (OpenGenus)
 #include <bits/stdc++.h>
 using namespace std;

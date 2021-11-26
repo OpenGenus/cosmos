@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | image processing | sobelfilter | sobel | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>

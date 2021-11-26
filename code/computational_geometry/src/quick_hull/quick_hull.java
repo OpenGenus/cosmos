@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | quick hull | quick hull | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 import java.util.ArrayList;

@@ -1,3 +1,11 @@
+/*
+
+// operating system | memory management | memory mapping | mapping | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #ifdef USE_MAP_ANON
 #define _BSD_SOURCE
 #endif  

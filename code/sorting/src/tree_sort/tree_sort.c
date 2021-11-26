@@ -1,3 +1,11 @@
+/*
+
+// sorting | tree sort | tree sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <alloc.h>
 // Part of Cosmos by OpenGenus Foundation

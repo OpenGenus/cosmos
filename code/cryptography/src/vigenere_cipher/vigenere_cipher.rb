@@ -1,3 +1,9 @@
+# cryptography | vigenere cipher | vigenere cipher | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 class Vigenere
   @@alphabet = 'abcdefghijklmnopqrstuvwxyz'
   def initialize(key)

@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | greatest digit in number | greatest digit in number |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 #!/usr/bin/python3
 
 

@@ -1,3 +1,11 @@
+/*
+
+// computer graphics | diamond square | diamondsquare | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Scanner;
 
 /**

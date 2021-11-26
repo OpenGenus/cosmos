@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | number of dice rolls with target sum | NumberOfDiceRollsWithTargetSum | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class NumberOfDiceRollsWithTargetSum {
 
     public static void main(String[] args) {

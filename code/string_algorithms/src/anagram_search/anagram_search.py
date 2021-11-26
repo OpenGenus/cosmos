@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | anagram search | anagram search |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 """ Part of Cosmos by OpenGenus Foundation"""
 
 import collections

@@ -1,3 +1,11 @@
+"""
+
+# sorting | cocktail sort | cocktail sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # cocktailsort is the function used to sort array
 # it is just like bubble sort with less complexity comparatively
 def cocktailsort(l):

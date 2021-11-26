@@ -1,3 +1,11 @@
+/*
+
+// sorting | shaker sort | shaker sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 // Sort a list using shaker sort (bidirectional bubble sort)

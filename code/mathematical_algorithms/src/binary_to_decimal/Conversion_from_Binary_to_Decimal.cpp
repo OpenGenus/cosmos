@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | binary to decimal | Conversion from Binary to Decimal | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int binary_to_decimal(int number)

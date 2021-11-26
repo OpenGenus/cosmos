@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | euler totient | euler totient sieve |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # computes the sieve for the euler totient function
 def ETF_sieve(N=1000000):
     sieve = [i for i in range(N)]

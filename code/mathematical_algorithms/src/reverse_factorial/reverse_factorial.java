@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | reverse factorial | reverse factorial | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 public static String reverseFactorial(int n) {
     int number = n;

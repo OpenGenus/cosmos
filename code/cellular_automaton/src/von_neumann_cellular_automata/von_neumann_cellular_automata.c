@@ -1,3 +1,11 @@
+/*
+
+// cellular automaton | von neumann cellular automata | von neumann cellular automata | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

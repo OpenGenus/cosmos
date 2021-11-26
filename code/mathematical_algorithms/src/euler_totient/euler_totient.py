@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | euler totient | euler totient |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 import math
 

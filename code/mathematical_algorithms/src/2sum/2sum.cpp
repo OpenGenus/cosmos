@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | 2sum | 2sum | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //Given an array and a sum, print two numbers from the array that add-up to sum
 
 #include <iostream>

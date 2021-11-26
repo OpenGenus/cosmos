@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | digit dp | digit dp | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation
  * By: Sibasish Ghosh (https://github.com/sibasish14)
  */

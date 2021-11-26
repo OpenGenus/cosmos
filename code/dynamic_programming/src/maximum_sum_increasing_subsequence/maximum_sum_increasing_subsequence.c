@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | maximum sum increasing subsequence | maximum sum increasing subsequence | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <stdio.h>

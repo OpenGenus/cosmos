@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | tower of hanoi | tower of hanoi |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 moves = 0
 

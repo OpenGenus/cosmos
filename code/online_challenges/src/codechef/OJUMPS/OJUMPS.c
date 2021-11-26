@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | OJUMPS | OJUMPS | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include<stdio.h>
 
 int main() 

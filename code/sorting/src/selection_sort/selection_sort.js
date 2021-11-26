@@ -1,3 +1,11 @@
+/*
+
+// sorting | selection sort | selection sort | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 function selectionSort(inputArray) {
   var len = inputArray.length;

@@ -1,3 +1,11 @@
+/*
+
+// randomized algorithms | randomized quick sort | randomized quicksort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // implementation of quicksort using randomization
 // by shobhit(dragon540)
 #include <algorithm>

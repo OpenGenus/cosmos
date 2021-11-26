@@ -1,3 +1,11 @@
+/*
+
+// sorting | bead sort | bead sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.Arrays;
 // Part of Cosmos by OpenGenus Foundation
 public class BeadSort {

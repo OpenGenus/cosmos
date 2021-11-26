@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | pangram checker | pangram checker |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def pangram_checker(text):
     # Part of Cosmos by OpenGenus Foundation
     # Arr is a list that contains a bool value

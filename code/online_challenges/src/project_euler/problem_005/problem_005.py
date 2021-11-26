@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 005 | problem 005 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def gcd(n1, n2):
     remainder = 1
     while remainder != 0:

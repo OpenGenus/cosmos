@@ -1,3 +1,11 @@
+/*
+
+// cryptography | baconian cipher | baconian cipher | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 function baconianEncrypt(plainText) {
   let baconianCodes = {
     a: "AAAAA",

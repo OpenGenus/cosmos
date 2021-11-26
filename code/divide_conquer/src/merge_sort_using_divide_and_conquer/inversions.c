@@ -1,3 +1,11 @@
+/*
+
+// divide conquer | merge sort using divide and conquer | inversions | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 const int maxn = 1e6;

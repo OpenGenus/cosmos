@@ -1,3 +1,9 @@
+# cellular automaton | conways game of life | conways game of life | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 class GameOfLife
   attr_accessor :matrix, :rows, :columns

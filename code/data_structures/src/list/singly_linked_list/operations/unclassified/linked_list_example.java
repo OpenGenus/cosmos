@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | singly linked list | operations | unclassified | linked list example | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Scanner;

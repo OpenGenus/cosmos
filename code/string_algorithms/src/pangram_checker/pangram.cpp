@@ -1,4 +1,12 @@
 /*
+
+// string algorithms | pangram checker | pangram | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  *      pangram.cpp
  *      by Charles (@c650)
  *

@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | maximum xor value | maximum xor value | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 

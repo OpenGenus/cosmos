@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | segment tree | segment tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 class SegmentTree {
     private int seg_t[];        // An array to store the segment tree implementation
     

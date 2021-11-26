@@ -1,3 +1,11 @@
+/*
+
+// dynamic programming | array median | array median | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 fn median(arr: &[i32]) -> f64 {

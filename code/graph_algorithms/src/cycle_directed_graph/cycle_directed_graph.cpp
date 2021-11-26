@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | cycle directed graph | cycle directed graph | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <list>
 #include <limits.h>

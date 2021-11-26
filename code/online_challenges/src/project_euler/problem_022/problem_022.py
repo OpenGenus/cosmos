@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 022 | problem 022 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     names = [
         "MARY",

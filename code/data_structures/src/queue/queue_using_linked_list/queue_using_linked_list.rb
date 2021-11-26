@@ -1,3 +1,9 @@
+# data structures | queue | queue using linked list | queue using linked list | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 class LinkedQueue

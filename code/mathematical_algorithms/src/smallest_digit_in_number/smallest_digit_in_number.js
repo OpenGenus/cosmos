@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | smallest digit in number | smallest digit in number | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 const smallest_digit_in_number = input => {
   if (typeof input !== "number") {
     console.error("Please enter a number.");

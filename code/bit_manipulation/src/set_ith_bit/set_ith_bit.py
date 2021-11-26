@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | set ith bit | set ith bit |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def setithBit(n,i):
  
     # ith bit of n is being

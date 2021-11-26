@@ -1,4 +1,12 @@
 /*
+
+// bit manipulation | power of 2 | power of 2 | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  * @Author: Ayush Garg 
  * @Date: 2017-10-13 18:46:12 

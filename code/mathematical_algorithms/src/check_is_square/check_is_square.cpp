@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | check is square | check is square | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 #include <iostream>
 using namespace std;

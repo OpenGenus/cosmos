@@ -1,3 +1,11 @@
+/*
+
+// backtracking | sudoku solve | sudoku solver | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public static boolean isSafe(int[][] board,
               int row, int col,
               int num)

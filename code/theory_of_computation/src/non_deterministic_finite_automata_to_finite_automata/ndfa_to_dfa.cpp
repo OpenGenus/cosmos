@@ -1,3 +1,11 @@
+/*
+
+// theory of computation | non deterministic finite automata to finite automata | ndfa to dfa | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <bits/stdc++.h>
 #define pb push_back
 using namespace std;

@@ -1,3 +1,11 @@
+/*
+
+// data structures | DoubleLinkedList | src java | Node | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Node{
     int data;
     Node prev, next;

@@ -1,3 +1,11 @@
+/*
+
+// sorting | postmans sort | postmans sort | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 void arrange(int,int);
 int array[100], array1[100];

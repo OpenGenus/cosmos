@@ -1,3 +1,11 @@
+"""
+
+# bit manipulation | invert bit | invert bit |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Part of Cosmos by OpenGenus Foundation
 
 

@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | simpsons rule | simpsons rule |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 from math import sqrt
 from scipy.integrate import quad
 

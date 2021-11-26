@@ -1,3 +1,11 @@
+/*
+
+// sorting | shell sort | shell sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 // Part of Cosmos by OpenGenus Foundation
 void shell_sort(int *a, int n)

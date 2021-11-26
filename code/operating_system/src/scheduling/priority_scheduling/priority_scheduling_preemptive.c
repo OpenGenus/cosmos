@@ -1,3 +1,11 @@
+/*
+
+// operating system | scheduling | priority scheduling | priority scheduling preemptive | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Priority scheduling: each process is assigned a priority. Process with
 // highest priority is to be executed first and so on.
 

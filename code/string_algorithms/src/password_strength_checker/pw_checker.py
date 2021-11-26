@@ -1,3 +1,11 @@
+"""
+
+# string algorithms | password strength checker | pw checker |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # coding=utf-8
 # Author: Vitor Ribeiro
 

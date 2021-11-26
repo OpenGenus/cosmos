@@ -1,3 +1,11 @@
+/*
+
+// mathematical algorithms | perfect number | perfect number | RUST
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /// Perfect number is a positive integer that is equal to the sum of its proper divisors.
  
 fn is_perfect(num: i32) -> bool {

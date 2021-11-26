@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | space partitioning tree | interval tree | interval tree | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 //This is a java program to implement a interval tree
 import java.util.ArrayList;
 import java.util.List;

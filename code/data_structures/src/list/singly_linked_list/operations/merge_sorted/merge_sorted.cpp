@@ -1,4 +1,12 @@
 /*
+
+// data structures | list | singly linked list | operations | merge sorted | merge sorted | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  */
 

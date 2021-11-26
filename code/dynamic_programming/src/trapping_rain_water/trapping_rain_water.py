@@ -1,3 +1,11 @@
+"""
+
+# dynamic programming | trapping rain water | trapping rain water |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 # Python3 implementation of the approach
  
 # Function to return the maximum

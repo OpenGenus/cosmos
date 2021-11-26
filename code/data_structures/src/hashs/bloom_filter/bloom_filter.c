@@ -1,3 +1,11 @@
+/*
+
+// data structures | hashs | bloom filter | bloom filter | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

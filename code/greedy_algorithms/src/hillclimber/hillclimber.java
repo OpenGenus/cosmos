@@ -1,3 +1,11 @@
+/*
+
+// greedy algorithms | hillclimber | hillclimber | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

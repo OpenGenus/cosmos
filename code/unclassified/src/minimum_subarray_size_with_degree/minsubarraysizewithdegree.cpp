@@ -1,3 +1,11 @@
+/*
+
+// unclassified | minimum subarray size with degree | minsubarraysizewithdegree | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 #include <queue>

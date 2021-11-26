@@ -1,3 +1,11 @@
+/*
+
+// cryptography | morse cipher | morse code generator | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Part of Cosmos by OpenGenus Foundation */
 //C implementation of morse code generator
 #include <stdio.h>

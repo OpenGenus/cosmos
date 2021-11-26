@@ -1,3 +1,11 @@
+/*
+
+// data structures | list | circular linked list | operations | is circular linked list | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 using namespace std;
 //node structure

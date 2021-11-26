@@ -1,3 +1,11 @@
+/*
+
+// online challenges | codechef | CHNUM | CHNUM | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <list>

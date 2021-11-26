@@ -1,4 +1,12 @@
 /*
+
+// data structures | queue | queue | queue | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
+/*
  * Part of Cosmos by OpenGenus Foundation
  *
  */

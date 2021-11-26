@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | linear regression | linear regression | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // author @Yatharth Shah
 
 public class LinearRegression { 

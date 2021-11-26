@@ -1,3 +1,11 @@
+"""
+
+# mathematical algorithms | modular inverse | modular inverse |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def extendedEuclid(a, b):
     if b == 0:
         return (a, 1, 0)

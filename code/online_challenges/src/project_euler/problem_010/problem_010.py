@@ -1,3 +1,11 @@
+"""
+
+# online challenges | project euler | problem 010 | problem 010 |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def main():
     n = 2000000
     sum = 0

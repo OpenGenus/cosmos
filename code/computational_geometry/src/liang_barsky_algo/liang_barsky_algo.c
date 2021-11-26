@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | liang barsky algo | liang barsky algo | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 /* Header files included */
 #include <stdio.h>
 #include <conio.h>

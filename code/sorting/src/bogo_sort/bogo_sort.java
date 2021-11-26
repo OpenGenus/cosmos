@@ -1,3 +1,11 @@
+/*
+
+// sorting | bogo sort | bogo sort | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class Bogosort {
     public static void main(String[] args) {
         if (args.length == 1) {

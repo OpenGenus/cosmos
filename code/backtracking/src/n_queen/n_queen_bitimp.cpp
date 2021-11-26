@@ -1,3 +1,11 @@
+/*
+
+// backtracking | n queen | n queen bitimp | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 // Part of Cosmos by OpenGenus Foundation
 using namespace std;

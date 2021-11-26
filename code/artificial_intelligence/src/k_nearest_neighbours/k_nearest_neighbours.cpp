@@ -1,3 +1,11 @@
+/*
+
+// artificial intelligence | k nearest neighbours | k nearest neighbours | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus
 #include <cmath>
 #include <iomanip>

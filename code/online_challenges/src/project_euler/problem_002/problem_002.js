@@ -1,3 +1,11 @@
+/*
+
+// online challenges | project euler | problem 002 | problem 002 | JAVASCRIPT
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 let sum = 0;
 let num1 = 0;
 let num2 = 0;

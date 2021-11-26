@@ -1,3 +1,11 @@
+/*
+
+// graph algorithms | kruskal minimum spanning tree | kruskal minimum spanning tree | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // Part of Cosmos by OpenGenus Foundation
 
 #include<stdio.h>

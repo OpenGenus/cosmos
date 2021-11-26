@@ -1,3 +1,9 @@
+# search | exponential search | exponential search | RUBY
+// Part of Cosmos by OpenGenus Foundation
+
+=end
+
+
 def binary_search(arr, l, r, x)
   return -1 if x.nil?
 

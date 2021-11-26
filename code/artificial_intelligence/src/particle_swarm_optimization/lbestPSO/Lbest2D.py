@@ -1,3 +1,11 @@
+"""
+
+# artificial intelligence | particle swarm optimization | lbestPSO | Lbest2D |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 import numpy as np
 from matplotlib.pyplot import subplots
 

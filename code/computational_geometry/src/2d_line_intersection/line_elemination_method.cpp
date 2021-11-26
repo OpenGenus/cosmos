@@ -1,3 +1,11 @@
+/*
+
+// computational geometry | 2d line intersection | line elemination method | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <iostream>
 #include <vector>
 class EliminationMethd2DLineIntersection

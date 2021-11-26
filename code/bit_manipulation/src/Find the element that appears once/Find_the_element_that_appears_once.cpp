@@ -1,3 +1,11 @@
+/*
+
+// bit manipulation | Find the element that appears once | Find the element that appears once | C++
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 // C++ program to find the element
 // that occur only once
 #include <bits/stdc++.h>

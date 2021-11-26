@@ -1,3 +1,11 @@
+/*
+
+// sorting | cycle sort | cycle sort | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 void 

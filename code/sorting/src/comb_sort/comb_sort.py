@@ -1,3 +1,11 @@
+"""
+
+# sorting | comb sort | comb sort |  PYTHON 
+# Part of Cosmos by OpenGenus Foundation
+
+"""
+
+
 def combsort(array):
     gap = len(array)
     swap = True

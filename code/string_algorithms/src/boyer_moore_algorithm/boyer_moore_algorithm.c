@@ -1,3 +1,11 @@
+/*
+
+// string algorithms | boyer moore algorithm | boyer moore algorithm | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 # include <limits.h>
 # include <string.h>
 # include <stdio.h>

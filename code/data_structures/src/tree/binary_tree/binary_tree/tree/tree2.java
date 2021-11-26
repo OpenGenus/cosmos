@@ -1,3 +1,11 @@
+/*
+
+// data structures | tree | binary tree | binary tree | tree | tree2 | JAVA
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 public class binary_search_tree {
 	private int value;
 	private binary_search_tree left;

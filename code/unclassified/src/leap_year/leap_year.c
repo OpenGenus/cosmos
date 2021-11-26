@@ -1,3 +1,11 @@
+/*
+
+// unclassified | leap year | leap year | C
+// Part of Cosmos by OpenGenus Foundation
+
+*/
+
+
 #include <stdio.h>
 
 bool checkLeapYear(int year)
