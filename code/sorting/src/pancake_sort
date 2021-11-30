@@ -1,0 +1,38 @@
+def turn(x, i): 
+    start = 0
+    while start < i: 
+        y = x[start] 
+        x[start] = x[i] 
+        x[i] = y 
+        start =start+ 1
+        i =i- 1
+  def find_max(x, n): 
+    a = 0
+    for i in range(0,n): 
+        if x[i] > x[a]: 
+            a = i 
+    return a 
+  
+def pancakeSort(x, n): 
+      
+    
+    cursize = n 
+    while cursize > 1: 
+       
+        a = find_max(x, cursize) 
+  
+        if a != cursize-1: 
+           
+            turn(x, a) 
+  
+            turn(x, cursize-1) 
+        cursize -= 1
+   
+def printx(x, n): 
+    for i in range(0,n): 
+   
+x = [] 
+n = len(x) 
+pancakeSort(x, n); 
+print ("array is sorted ") 
+printx(x,n) 
