@@ -1,0 +1,50 @@
+#include<vector>
+#include <iostream>
+using namespace std;
+//this functions takes input of an array
+void input(vector<int>& arr){
+    for(int i=0;i<arr.size();i++){ cin>>arr[i]; }
+}
+//this function displays the elements of an array
+void display(vector<int>& arr){   
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+//linear search:time complexity n
+ int findMax(vector<int>& arr){
+        int mymax=arr[0];
+        for(int i=1;i<arr.size();i++){
+            if(mymax<arr[i]){
+                mymax = arr[i];
+            }
+        }
+        return mymax;
+    }
+    //by following recursive approach 
+int rec(vector<int>& arr,int i){
+if(i==arr.size()){
+    return -1;
+}
+ int max=1;
+       max= rec(arr,i+1);
+        if(arr[i]>max){
+            max=arr[i];
+            return max;
+        }
+        return max;
+}
+int main(){
+cout<<"enter size of array"<<endl;
+    int size=0;
+    cin>>size;
+    vector<int> arr(size,0);
+    cout<<"enter elements"<<endl;
+    input(arr);
+    cout<<"the array is:"<<endl;
+    display(arr);
+    cout<<"largest no in the array is: "<<findMax(arr)<<endl;
+    cout<<"largest no in the array is: "<<rec(arr,0)<<endl;
+    return 0;
+}
