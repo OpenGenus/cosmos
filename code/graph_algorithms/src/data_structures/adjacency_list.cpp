@@ -32,7 +32,10 @@ int main()
 		{
 			cout << "Enter an edge for vertex " << i + 1 << ": " << endl;
 			cin >> numInput;
-			adjList[i].push_back(numInput);
+			if (numInput > nodeNum)
+				cout << "Invalid input" << endl;
+			else
+				adjList[i].push_back(numInput);
 			cout << "Do you want to add more edges? (y/n): " << endl;
 			cin >> charInput;
 			if (charInput == 'n')
