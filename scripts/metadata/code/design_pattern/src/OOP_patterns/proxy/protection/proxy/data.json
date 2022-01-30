@@ -1,0 +1,12 @@
+{
+  "location": "code/design_pattern/src/OOP_patterns/proxy/protection/proxy",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "registeredusers.java",
+    "validuser.java",
+    "userproxy.java",
+    "user.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

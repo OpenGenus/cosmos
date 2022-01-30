@@ -1,0 +1,11 @@
+{
+  "location": "code/backtracking/src/partitions_of_set",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "set_partitions.cpp",
+    "set_partitions.go",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

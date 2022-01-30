@@ -1,0 +1,10 @@
+{
+  "location": "code/graph_algorithms/src/maximum_bipartite_matching",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "max_bipartite_matching.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

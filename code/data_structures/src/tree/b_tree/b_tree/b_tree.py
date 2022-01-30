@@ -16,10 +16,12 @@ class BTreeNode(object):
     def __str__(self):
         if self.leaf:
             return "Leaf BTreeNode with {0} keys\n\tK:{1}\n\tC:{2}\n".format(
-                len(self.keys), self.keys, self.c)
+                len(self.keys), self.keys, self.c
+            )
         else:
             return "Internal BTreeNode with {0} keys, {1} children\n\tK:{2}\n\n".format(
-                len(self.keys), len(self.c), self.keys, self.c)
+                len(self.keys), len(self.c), self.keys, self.c
+            )
 
 
 class BTree(object):
@@ -91,14 +93,14 @@ class BTree(object):
 
         # keys of z are t to 2t - 1,
         # y is then 0 to t-2
-        z.keys = y.keys[t:(2 * t - 1)]
-        y.keys = y.keys[0:(t - 1)]
+        z.keys = y.keys[t : (2 * t - 1)]
+        y.keys = y.keys[0 : (t - 1)]
 
         # children of z are t to 2t els of y.c
         if not y.leaf:
-            z.c = y.c[t:(2 * t)]
-            y.c = y.c[0:(t - 1)]
+            z.c = y.c[t : (2 * t)]
+            y.c = y.c[0 : (t - 1)]
 
     def __str__(self):
         r = self.root
-        return r.__str__() + '\n'.join([child.__str__() for child in r.c])
+        return r.__str__() + "\n".join([child.__str__() for child in r.c])

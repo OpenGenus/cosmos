@@ -1,0 +1,19 @@
+{
+  "location": "code/string_algorithms/src/anagram_search",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "anagram_search.swift",
+    "anagram.scala",
+    "anagram_search.js",
+    "anagram_search.go",
+    "anagram_search.java",
+    "anagram_search.cs",
+    "anagram_search.py",
+    "anagram_search.rb",
+    "anagram_search.c",
+    "README.md",
+    "anagram_search.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

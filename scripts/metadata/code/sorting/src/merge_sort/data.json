@@ -1,0 +1,30 @@
+{
+  "location": "code/sorting/src/merge_sort",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "merge_sort.cs",
+    "merge_sort.sh",
+    "merge_sort.ts",
+    "merge_sort.kt",
+    "merge_sort.pl",
+    "merge_sort.fs",
+    "merge_sort.php",
+    "merge_sort.go",
+    "merge_sort_extension.swift",
+    "merge_sort.js",
+    "merge_sort.m",
+    "merge_sort.rs",
+    "merge_sort.java",
+    "merge_sort.py",
+    "merge_sort.scala",
+    "merge_sort.rb",
+    "merge_sort.c",
+    "merge_sort.hs",
+    "README.md",
+    "merge_sort.cpp",
+    "merge_sort_linked_list.c",
+    "merge_sort.swift"
+  ],
+  "updated": "18-05-2019 08:11:07"
+}

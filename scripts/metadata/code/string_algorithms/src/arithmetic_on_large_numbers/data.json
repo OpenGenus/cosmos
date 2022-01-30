@@ -1,0 +1,12 @@
+{
+  "location": "code/string_algorithms/src/arithmetic_on_large_numbers",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "string_factorial.cpp",
+    "string_multiplication.cpp",
+    "string_subtract.cpp",
+    "string_addition.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,6 +1,7 @@
 import math
 
-def main(): 
+
+def main():
     i = 1
     triangle_number = 0
     divisor_count = 0
@@ -14,7 +15,8 @@ def main():
             if triangle_number % z == 0:
                 divisor_count += 2
 
-    print (triangle_number)
+    print(triangle_number)
+
 
 if __name__ == "__main__":
     main()

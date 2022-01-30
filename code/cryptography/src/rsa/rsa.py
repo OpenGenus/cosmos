@@ -4,22 +4,26 @@ from Crypto.PublicKey import RSA
 
 # Convert string to number
 def strToNum(s):
-    return int(s.encode('hex'),16)
+    return int(s.encode("hex"), 16)
+
 
 # Convert number to string
 def numToStr(n):
-    s = '%x' % n
+    s = "%x" % n
     if len(s) % 2 != 0:
-        s = '0' + s
-    return s.decode('hex')
+        s = "0" + s
+    return s.decode("hex")
+
 
 # Encrypt s using public key (e,n)
 def encrypt(s, e, n):
-    return numToStr(pow(strToNum(s),e,n))
+    return numToStr(pow(strToNum(s), e, n))
+
 
 # Decrypt s using private key (d,n)
 def decrypt(s, d, n):
-    return numToStr(pow(strToNum(s),d,n))
+    return numToStr(pow(strToNum(s), d, n))
+
 
 # Example
 # Generate random key

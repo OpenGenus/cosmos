@@ -1,34 +1,36 @@
-''' Part of Cosmos by OpenGenus Foundation '''
+""" Part of Cosmos by OpenGenus Foundation """
 
 from collections import deque
 
 NUM_V = 100005
-adj_list = [ [] for i in range(0, NUM_V) ]
-in_degree = [ 0 for i in range(0, NUM_V) ]
+adj_list = [[] for i in range(0, NUM_V)]
+in_degree = [0 for i in range(0, NUM_V)]
 
-def toposort() :
-	result = []
-	q = deque()
 
-	for i in range(1, vertex+1):
-		# if no incoming degree, add to queue
-		if in_degree[i] == 0 :
-			q.append(i)
+def toposort():
+    result = []
+    q = deque()
 
-	while q :
-		front = q.popleft()
+    for i in range(1, vertex + 1):
+        # if no incoming degree, add to queue
+        if in_degree[i] == 0:
+            q.append(i)
 
-		# add into toposort result
-		result.append(front)
+    while q:
+        front = q.popleft()
 
-		for neighbor in adj_list[front] :
-			in_degree[neighbor] -= 1
+        # add into toposort result
+        result.append(front)
 
-			# if already no incoming degree, then ready to put in toposort list
-			if in_degree[neighbor] == 0 :
-				q.append(neighbor)
+        for neighbor in adj_list[front]:
+            in_degree[neighbor] -= 1
 
-	return result
+            # if already no incoming degree, then ready to put in toposort list
+            if in_degree[neighbor] == 0:
+                q.append(neighbor)
+
+    return result
+
 
 """
 consider following graph
@@ -58,9 +60,8 @@ in_degree[4] = 1
 in_degree[5] = 1
 result = toposort()
 
-print("toposort :", end='')
+print("toposort :", end="")
 for vtx in result:
-	print(" {:d}".format(vtx), end='')
+    print(" {:d}".format(vtx), end="")
 
 print()
-

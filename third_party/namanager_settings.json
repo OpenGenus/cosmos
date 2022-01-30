@@ -1,0 +1,30 @@
+{
+    "CHECK_DIRS": ["code/"],
+    "DIR_FORMATS": {
+        "LETTER_CASE": "lower_case",
+        "SEP": ["dash_to_underscore"]
+    },
+    "DIR_PREFIX": "",
+    "DIR_PREFIX_MODE": "ignore",
+    "DIR_SUFFIX": "",
+    "DIR_SUFFIX_MODE": "ignore",
+    "FILE_FORMATS": {
+        "LETTER_CASE": "lower_case",
+        "SEP": ["dash_to_underscore"]
+    },
+    "FILE_PREFIX": "",
+    "FILE_PREFIX_MODE": "ignore",
+    "FILE_SUFFIX": "",
+    "FILE_SUFFIX_MODE": "ignore",
+    "IGNORE_DIRS": [
+        "/design_pattern/src/OOP_patterns$",
+        "/artificial_intelligence/src/DBSCAN_clustering$",
+        "/artificial_intelligence/src/ISODATA_clustering$",
+        "/artificial_intelligence/src/SAT$",
+        "/artificial_intelligence/src/TSP$",
+        "^/$"
+    ],
+    "IGNORE_FILES": ["README.MD", "README.md", "Readme.md", "readme.md", ".DS_Store"],
+    "INCLUDE_DIRS": [],
+    "INCLUDE_FILES": []
+}

@@ -11,7 +11,7 @@ def median_sort(list):
         return (data[i - 1] + data[i]) / 2
 
 
-#list = [0,2,3,4,5,6,7,8,9]
-#print calculateMedian(list)
+# list = [0,2,3,4,5,6,7,8,9]
+# print calculateMedian(list)
 
-#uncomment the above to see how does python median sort works
+# uncomment the above to see how does python median sort works

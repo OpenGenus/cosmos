@@ -1,0 +1,13 @@
+{
+  "location": "code/cellular_automaton/src/langtons_ant",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "langtonant.py",
+    "langtonant.html",
+    "langtonant.cpp",
+    "langtonant.java",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

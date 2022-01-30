@@ -4,24 +4,27 @@ import numpy as np
 
 # implementation using dynamic programming
 def binomialCoefficient(n, k, C=None):
-	if k<0 or n<0:
-		raise ValueError('n,k must not be less than 0')
+    if k < 0 or n < 0:
+        raise ValueError("n,k must not be less than 0")
 
-	if k>n:
-		return 0
+    if k > n:
+        return 0
 
-	k = min(k,n-k)
+    k = min(k, n - k)
 
-	if C is None:
-		C = np.zeros((n+1,k+1))
+    if C is None:
+        C = np.zeros((n + 1, k + 1))
 
-	if k==0:
-		C[n,k] = 1
+    if k == 0:
+        C[n, k] = 1
 
-	if C[n,k] == 0:
-		C[n,k] = binomialCoefficient(n-1,k,C=C) + binomialCoefficient(n-1,k-1,C=C)
+    if C[n, k] == 0:
+        C[n, k] = binomialCoefficient(n - 1, k, C=C) + binomialCoefficient(
+            n - 1, k - 1, C=C
+        )
 
-	return C[n,k]
+    return C[n, k]
+
 
 # test
 # print(binomialCoefficient(10,3))

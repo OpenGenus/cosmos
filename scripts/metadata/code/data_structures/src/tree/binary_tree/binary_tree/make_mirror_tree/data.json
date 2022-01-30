@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/make_mirror_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "make_mirror_tree.c",
+    "make_mirror_tree.cpp",
+    "README.md",
+    "make_mirror_tree.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

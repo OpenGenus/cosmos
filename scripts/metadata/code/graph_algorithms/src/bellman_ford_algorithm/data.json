@@ -1,0 +1,16 @@
+{
+  "location": "code/graph_algorithms/src/bellman_ford_algorithm",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "bellman_ford.cpp",
+    "bellman_ford.c",
+    "bellman_ford.js",
+    "bellman_ford.php",
+    "bellman_ford.py",
+    "bellman_ford_adjacency_list.java",
+    "README.md",
+    "bellman_ford_edge_list.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

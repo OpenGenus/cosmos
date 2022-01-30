@@ -10,7 +10,7 @@ def swap(a, i, j):
 # recursive function to perfrom circle sort on the given list
 def circle_sort(a, lower, upper, swaps):
     # base case
-    if (lower == upper):
+    if lower == upper:
         return swaps
 
     low = lower
@@ -18,7 +18,7 @@ def circle_sort(a, lower, upper, swaps):
     mid = int((upper - lower) / 2)
 
     while lower < upper:
-        if (a[lower] > a[upper]):
+        if a[lower] > a[upper]:
             swap(a, lower, upper)
             swaps += 1
             print(a, swaps)
@@ -26,8 +26,8 @@ def circle_sort(a, lower, upper, swaps):
         lower += 1
         upper -= 1
 
-    if (lower == upper):
-        if (a[lower] > a[upper + 1]):
+    if lower == upper:
+        if a[lower] > a[upper + 1]:
             swap(a, lower, upper + 1)
             swaps += 1
             print(a, swaps)
@@ -39,7 +39,7 @@ def circle_sort(a, lower, upper, swaps):
 
 
 # hard coded driver function to run the program
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [6, 5, 3, 1, 8, 7, 2, 4]
     print("Unsorted List: ", a)
     no_of_swaps = circle_sort(a, 0, len(a) - 1, 0)
