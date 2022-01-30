@@ -218,12 +218,12 @@ bool LinkedList<T>::RemoveTail()
 template <typename T>
 bool LinkedList<T>::RemoveAt(unsigned int index)
 {
-  unsigned int happyNow = this->numberOfNodes;
-  if (index > happyNow)
+  unsigned int nodes = this->numberOfNodes;
+  if (index > nodes)
   {
     return false;
   }
-  else if (index == happyNow)
+  else if (index == nodes)
   {
     return this->RemoveTail();
   }
