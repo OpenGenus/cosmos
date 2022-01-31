@@ -1,53 +1,88 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include <stdlib.h> 
+#include <stdio.h> 
+  
+/* Reverses arr[0..i] */
+void flip(int arr[], int i) 
+{ 
+    int temp, start = 0; 
+    while (start < i) 
+    { 
+        temp = arr[start]; 
+        arr[start] = arr[i]; 
+        arr[i] = temp; 
+        start++; 
+        i--; 
+    } 
+} 
+  
+// Returns index of the  
+// maximum element in  
+// arr[0..n-1]  
 
-void flip(int arr[], int i)                       // Fliping algorithm
-{
-    int temp, start = 0;
-    while (start < i)
-    {
-        temp = arr[start];
-        arr[start] = arr[i];
-        arr[i] = temp;
-        start++;
-        i--;
-    }
-}
+int findMax(int arr[], int n) 
+{ 
+int mi, i; 
+for (mi = 0, i = 0; i < n; ++i) 
+    if (arr[i] > arr[mi]) 
+            mi = i; 
+return mi; 
+} 
+  
+// The main function that  
+// sorts given array using  
+// flip operations 
 
-int findMax(int arr[], int n)                   // to find the max element 
-{
-    int mi = 0;
-    for (int i = 0; i < n; ++i)
-        if (arr[i] > arr[mi])
-            mi = i;
-    return mi;
-}
+int pancakeSort(int *arr, int n) 
+{ 
+    // Start from the complete 
+    // array and one by one  
+    // reduce current size  
+    // by one 
 
-void pancakeSort(int arr[], int n)
-{
-    for (int i = n; i > 1; i--)
-    {
-        int mi = findMax(arr, i);
-        if (mi != i - 1)
-        {
-            flip(arr, mi);
-            flip(arr, i - 1);
-        }
-    }
-}
-int main() {
+    for (int curr_size = n; curr_size > 1; --curr_size) 
+    { 
 
-    int n = 6;
-    int arr[6] = {5, 3, 4, 2, 1, 6};
-    cout << "Input arr: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << "\n";
-    pancakeSort(arr, n); // Sort elements in ascending order
-    cout << "Output arr: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << "\n";
-}
+        int mi = findMax(arr, curr_size); 
+  
+        // Move the maximum 
+        // element to end of  
+        // current array if 
+        // it's not already 
+        // at the end 
+        if (mi != curr_size-1) 
+        { 
+            // To move at the end, 
+            // first move maximum  
+            // number to beginning  
+
+            flip(arr, mi); 
+  
+            // Now move the maximum  
+            // number to end by  
+            // reversing current array 
+
+            flip(arr, curr_size-1); 
+        } 
+    } 
+} 
+  
+// A utility function to print  
+// n array of size n  
+void printArray(int arr[], int n) 
+{ 
+    for (int i = 0; i < n; ++i) 
+        printf("%d ", arr[i]); 
+} 
+  
+int main() 
+{ 
+    int arr[] = {23, 10, 20, 11, 12, 6, 7}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+  
+    pancakeSort(arr, n); 
+  
+    puts("Sorted Array "); 
+    printArray(arr, n); 
+  
+    return 0; 
+} 
