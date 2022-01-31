@@ -1,5 +1,5 @@
 # Problem Link:
-[AMSGAME1](https://www.codechef.com/MAY20B/problems/COVID19)
+[Coronavirus Spread](https://www.codechef.com/MAY20B/problems/COVID19)
 
 # Description
 There are N people on a street (numbered 1 through N). For simplicity, we'll view them as points on a line. For each valid i, the position of the i-th person is Xi.
