@@ -44,3 +44,4 @@ void output_min_max(int* positions, int numPeople)
 		max_chain = current_chain;
 	cout << min_chain << ' ' << max_chain << endl;
 }
+
