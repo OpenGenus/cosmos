@@ -1,0 +1,8 @@
+//
+// Created by Valentina Aguilar  on 2/4/22.
+//
+
+#ifndef COSMOS_DOUBLYLINKEDLIST_HPP
+#define COSMOS_DOUBLYLINKEDLIST_HPP
+
+#endif //COSMOS_DOUBLYLINKEDLIST_HPP
