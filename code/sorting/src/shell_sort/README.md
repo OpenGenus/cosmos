@@ -6,17 +6,17 @@ The method starts by sorting pair of elements far apart from each other in the a
 ## Explanation
 Consider the following example:
 
-![image1](http://interactivepython.org/runestone/static/pythonds/_images/shellsortA.png)
+![image1](https://runestone.academy/ns/books/published/cppds/_images/shellsortA.png)
 
 This list has nine items. If we use an increment of three, there are three sublists, each of which can be sorted by an insertion sort. After completing these sorts, we get the list as shown below. 
 
-![img2](http://interactivepython.org/runestone/static/pythonds/_images/shellsortB.png)
+![img2](https://runestone.academy/ns/books/published/cppds/_images/shellsortB.png)
 
 Although this list is not completely sorted, something very interesting has happened. By sorting the sublists, we have moved the items closer to where they actually belong.
 
 Figure below shows a final insertion sort using an increment of one; in other words, a standard insertion sort. Note that by performing the earlier sublist sorts, we have now reduced the total number of shifting operations necessary to put the list in its final order. For this case, we need only four more shifts to complete the process.
 
-![img3](http://interactivepython.org/runestone/static/pythonds/_images/shellsortC.png)
+![img3](https://runestone.academy/ns/books/published/cppds/_images/shellsortC.png)
 
 > Image credits: http://interactivepython.org
 
