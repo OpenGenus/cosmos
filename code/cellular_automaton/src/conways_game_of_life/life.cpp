@@ -46,12 +46,12 @@ int main()
     char c;
     cout << "\nPress return to create a new generation and press x to exit!\n";
     cin.get(c);
-    do {
+     while (c == '\n') {
         generation(world, gen);
         display(world, fout, gen);
         cout << "\nPress return to create a new generation and press x to exit!\n";
         cin.get(c);
-    } while (c == '\n');
+    }
 
     return 0;
 }
