@@ -9,16 +9,16 @@ type bitwise_multiply(type a, type b)
         {
             while(a != 0) {
                 type carry = product & a; // Variable carry keeps track of bits that carry over
-                product = product ^ a; // This adds up the individual bits
+                product ^= a; // This adds up the individual bits
                 a = carry << 1; // Shift carry over bits so they can be added next iteration
             }
-            a = a | a_reset; // reset 'a' for next iteration
+            a |= a_reset; // reset 'a' for next iteration
         }
         product ^= -1; // since 'b' is negative, the product will need to be inverted
         type one {1}; // see below for annotations of lines 18-23
         while(one != 0){
             type carry = product & one;
-            product = product ^ one;
+            product ^= one;
             one = carry << 1;
         }
         return product;
@@ -27,10 +27,10 @@ type bitwise_multiply(type a, type b)
         {
             while(a != 0) {
                 type carry = product & a;
-                product = product ^ a;
+                product ^= a;
                 a = carry << 1;
             }
-            a = a | a_reset;
+            a |= a_reset;
         }
     return product;
 }
