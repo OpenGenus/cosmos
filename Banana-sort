@@ -1,0 +1,9 @@
+https://github.com/Jeckers09/cosmos.git
+(Ctrl + Alt + T in Ubuntu, Press CMD + Space, type terminal and hit return in Mac OS X and Press WinR key, type CMD and press enter in Windows)
+cd cosmos
+git checkout -b <Banana>
+git checkout -b banana-sort
+git add
+git commit -m "<Potassium>"
+git push origin <Banana-sort>
+git push origin master
