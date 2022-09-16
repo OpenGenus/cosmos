@@ -8,8 +8,8 @@ template <typename T>
 struct node
 {
     T info;
-    node* pre;
-    node* next;
+    node* pre;  // Holds the pointer to the previous node
+    node* next; // Holds the pointer to the next node
     node();
 };
 
@@ -42,6 +42,8 @@ template <class T> int doubleLinkedList<T>::listSize()
 {
     int i = 0;
     node<T> *ptr = head;
+
+    // The loop below traverses the list to find out the size
     while (ptr != nullptr)
     {
         ++i;
@@ -55,15 +57,17 @@ template <class T> void doubleLinkedList<T>::insertNode(T i, int p)
     node<T> *ptr = new node<T>, *cur = head;
     ptr->info = i;
     if (cur == nullptr)
-        head = ptr;
+        head = ptr; // New node becomes head if the list is empty
     else if (p == 1)
     {
+        // Put the node at the beginning of the list and change head accordingly
         ptr->next = head;
         head->pre = ptr;
         head = ptr;
     }
     else if (p > listSize())
     {
+        // Navigate to the end of list and add the node to the end of the list
         while (cur->next != nullptr)
             cur = cur->next;
         cur->next = ptr;
@@ -71,6 +75,7 @@ template <class T> void doubleLinkedList<T>::insertNode(T i, int p)
     }
     else
     {
+        // Navigate to 'p'th element of the list and insert the new node before it
         int n = p - 1;
         while (n--)
             cur = cur->next;
@@ -86,18 +91,21 @@ template <class T> void doubleLinkedList<T>::deleteNode(int p)
 {
     if (p > listSize())
     {
+        // List does not have a 'p'th node
         cout << "Underflow!" << endl;
         return;
     }
     node<T> *ptr = head;
     if (p == 1)
     {
+        // Update head when the first node is being deleted
         head = head->next;
         head->pre = nullptr;
         delete ptr;
     }
     else if (p == listSize())
     {
+        // Navigate to the end of the list and delete the last node
         while (ptr->next != nullptr)
             ptr = ptr->next;
         ptr->pre->next = nullptr;
@@ -105,6 +113,7 @@ template <class T> void doubleLinkedList<T>::deleteNode(int p)
     }
     else
     {
+        // Navigate to 'p'th element of the list and delete that node
         int n = p - 1;
         while (n--)
             ptr = ptr->next;
@@ -117,6 +126,7 @@ template <class T> void doubleLinkedList<T>::deleteNode(int p)
 
 template <class T> void doubleLinkedList<T>::print()
 {
+    // Traverse the entire list and print each node
     node<T> *ptr = head;
     while (ptr != nullptr)
     {
@@ -129,8 +139,12 @@ template <class T> void doubleLinkedList<T>::print()
 template <class T> void doubleLinkedList<T>::reversePrint()
 {
     node<T> *ptr = head;
+
+    // First, traverse to the last node of the list
     while (ptr->next != nullptr)
         ptr = ptr->next;
+
+    // From the last node, use `pre` attribute to traverse backwards and print each node in reverse order
     while (ptr != nullptr)
     {
         cout << ptr->info << " <- ";
