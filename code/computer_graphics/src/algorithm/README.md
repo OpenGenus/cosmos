@@ -10,7 +10,7 @@ Computer graphics algorithm is collectio of algorithm used to draw diffent kind 
 ***
 <p align="center">
 A massive colaborative effort by 
-<a href="https://duckduckgo.com">OpenGenus Foundation</a>
+<a href="https://github.com/OpenGenus">OpenGenus Foundation</a>
 </p>
 
 
