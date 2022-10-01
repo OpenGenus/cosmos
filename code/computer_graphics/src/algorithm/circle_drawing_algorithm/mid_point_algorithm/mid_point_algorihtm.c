@@ -12,14 +12,14 @@ int main(){
     cleardevice();
     while(x<=y){
          if(p<0){
-        x=x+1;
-        y=y;
-        p=p+2*x+1;
+            x=x+1;
+            y=y;
+            p=p+2*x+1;
          }
          else{
-        x=x+1;
-        y=y-1;
-        p=p+2*x+1-2*y;
+            x=x+1;
+            y=y-1;
+            p=p+2*x+1-2*y;
          }
          putpixel(x+xc,y+yc,WHITE);
          putpixel(x+xc,-y+yc,WHITE);
