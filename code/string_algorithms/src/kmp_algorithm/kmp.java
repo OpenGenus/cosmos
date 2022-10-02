@@ -1,5 +1,3 @@
-// JAVA program for implementation of KMP pattern
-// searching algorithm
 
 class KMP_String_Matching {
 	void KMPSearch(String pat, String txt)
@@ -74,12 +72,6 @@ class KMP_String_Matching {
 		}
 	}
 
-	// Driver program to test above function
-	public static void main(String args[])
-	{
-		String txt = "ABABDABACDABABCABAB";
-		String pat = "ABABCABAB";
-		new KMP_String_Matching().KMPSearch(pat, txt);
-	}
+	
 }
-// This code has been contributed by Amit Khandelwal.
+
