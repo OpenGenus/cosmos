@@ -1,3 +1,4 @@
+# Part of Cosmos by OpenGenus Foundation
 from QuadTree import *
 
 if __name__ == '__main__':
