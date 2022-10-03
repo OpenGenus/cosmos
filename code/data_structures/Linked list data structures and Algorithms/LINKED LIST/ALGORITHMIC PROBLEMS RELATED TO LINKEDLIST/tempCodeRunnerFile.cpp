@@ -1,0 +1,1 @@
+ cout<< detectcycle(head)<<endl;
