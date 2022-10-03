@@ -13,7 +13,7 @@ SC; O(N); // Call stack Space
 
     int minCut(string s) {
        
-        // Finding Palindromic Substrings in he given string
+        // Finding Palindromic Substrings in the given string
         
         vector<vector<bool>>dp(s.size()+2,vector<bool>(s.size()+1,0));
         
