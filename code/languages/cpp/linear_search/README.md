@@ -1,4 +1,4 @@
-Linear Search in C Programming Language :
+Linear Search in C++ Programming Language :
 
 This article covers the topics :
 
