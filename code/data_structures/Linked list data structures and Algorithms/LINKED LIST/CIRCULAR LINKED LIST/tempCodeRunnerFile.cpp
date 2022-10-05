@@ -1,0 +1,3 @@
+   reverselinkedlist(head);
+    print(head);
+  
