@@ -1,4 +1,12 @@
-# Python implementation of Dinic's Algorithm
+#Dinic's Algorithm
+
+#Explanation:-
+# Initialize residual graph G as given graph.
+# Do BFS of G to construct a level graph (or assign levels to vertices) and also check if more flow is possible
+
+#
+
+
 class Edge:
     def __init__(self, v, flow, C, rev):
         self.v = v
@@ -134,3 +142,8 @@ g.addEdge(3, 5, 20)
 g.addEdge(4, 3, 7)
 g.addEdge(4, 5, 4)
 print("Maximum flow", g.DinicMaxflow(0, 5))
+
+
+#Time Complexity - O(EV^2)
+#space Complexity - O(E+V)
+
