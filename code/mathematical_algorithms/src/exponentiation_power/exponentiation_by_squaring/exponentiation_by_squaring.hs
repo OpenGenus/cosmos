@@ -7,6 +7,9 @@ import Data.Char (intToDigit)
 import Data.Maybe()
 
 
+-- | Square & Multiply Algorithm
+-- | input values: base and expn
+-- | return value: base^expn
 exp_by_sqr :: Int -> Int -> Int
 exp_by_sqr base expn
   | (expn == 0) = 1
@@ -28,4 +31,5 @@ main = do
   base <- getLine
   putStrLn "Enter a expn: "
   expn <- getLine
+  putStrLn "result: base^expn"
   print $ exp_by_sqr (read base :: Int) (read expn :: Int)
