@@ -1,14 +1,11 @@
-/*
-Problem Statement :
-Clear all MSB's except for the first i LSB's of a number n.
-MSB -> Most Significant Bit
-LSB -> Most Significant Bit 
-*/
+// Problem Statement :
+// Clear all MSB's except for the first i LSB's of a number n.
+// MSB -> Most Significant Bit
+// LSB -> Most Significant Bit 
 
 use std::io;
 
-fn clear_bits_from_msb(n: i32, i: i32)->i32
-{
+fn clear_bits_from_msb(n: i32, i: i32) -> i32 {
   let mask:i32 = (1 << i) - 1;
   return n & mask;
 }
@@ -40,10 +37,8 @@ fn main()
   println!("Result : {}", result);
 }
 
-/*
-Enter n :
-14
-Enter i :
-3
-Result : 6
-*/
+//Enter n :
+//14
+//Enter i :
+//3
+//Result : 6
