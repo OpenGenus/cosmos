@@ -10,8 +10,7 @@ fn clear_bits_from_msb(n: i32, i: i32) -> i32 {
   return n & mask;
 }
 
-fn main() 
-{
+fn main() {
   let n:i32; 
   let i:i32;
   let result:i32;
