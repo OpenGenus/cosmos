@@ -15,9 +15,9 @@ checkArmstrong :: Int -> Int -> Bool
 checkArmstrong i num = i == num
 
 main = do
-  print "Enter lower range: "
-  lower <- getLine
-  print "Enter upper range: "
-  upper <- getLine
-  let result = armstrongList (read lower) (read upper)
+  putStrLn "Enter lower range: "
+  lower <- readLn
+  putStrLn "Enter upper range: "
+  upper <- readLn
+  let result = armstrongList lower upper
   print result
