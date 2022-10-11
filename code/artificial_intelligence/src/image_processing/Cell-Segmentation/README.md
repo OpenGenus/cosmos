@@ -6,7 +6,6 @@
 
 ## Image sets and experiment description
 
-- The final report for the project can be accessed from here: <a href="https://github.com/Curovearth/Cell-Segmentation/blob/main/Report%20Final.pdf">Final Report for Cell Segmentation</a>
 - **Dataset** which was used was extracted from the mentioned repo data: <a href="https://github.com/Subham2901/Nuclei-Cell-segmentaion/tree/master/Data">Shubham2901/Nuclei Cell Segmentation</a>
 
 | Dataset | Images | Input Size | Modality | Provider |
@@ -57,15 +56,6 @@ With the rise of size and complexity of cell images, the requirements for cells 
 On the contrary, development of more effective image processing algorithms is more promising for the progress of cell segmentation. In the meantime, comparison of these newly developed algorithms and teaching the biologists to use these newly developed algorithms are also very important. Hence, the open access and authoritative platforms are necessary for researchers all over the world to share, learn, and teach the data, codes, and algorithms. 
 
 ---
-<div align=center>
 
-Share it with the world.
-
-Let the information be Free!
-
-<samp>If you like it, make sure to ⭐ it and encouraging you to make your own fork and play around with the code.</samp>
-<hr>
-👽 Swarup Tripathy
-</div>
-
+[**Have Fun**](https://youtu.be/dQw4w9WgXcQ?t=85) ...
 
