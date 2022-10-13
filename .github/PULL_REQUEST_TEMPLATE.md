@@ -1,5 +1,5 @@
 **Fixes issue:**
-<!-- [Mention the issue number it fixes or add the details of the changes if it doesn't has a specific issue. -->
+<!-- [Mention the issue number it fixes or add the details of the changes if it doesn't have a specific issue. -->
 
 
 **Changes:**
@@ -17,7 +17,7 @@
 
      https://github.com/OpenGenus/cosmos/blob/master/guides/documentation_guide.md
 
-     The document style guide may not apply for your algorithm category, you must also look at specified guide under all of the directory in the category, e.g., for project euler:
+     The document style guide may not apply to your algorithm category, you must also look at the specified guide under all of the directories in the category, e.g., for project Euler:
 
      https://github.com/OpenGenus/cosmos/blob/master/code/online_challenges/src/project_euler/documentation_guide.md
 -->
