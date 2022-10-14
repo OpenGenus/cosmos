@@ -60,6 +60,3 @@ int main()
 	cout << "Number of islands is: " << countIslands(M);
 	return 0;
 }
-
-// This code is contributed by ajaymakvana.
-// Code improved by Animesh Singh
