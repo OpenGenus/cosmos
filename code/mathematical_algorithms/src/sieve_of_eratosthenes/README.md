@@ -2,50 +2,51 @@
 
 Learn at [**OpenGenus IQ**](https://iq.opengenus.org/the-sieve-of-eratosthenes/)
 
-Sieve of Eratosthenes is used to find prime numbers up to some predefined integer n. For sure, we can just test all the numbers in range from 2 to n for primality using some approach, but it is quite inefficient. Sieve of Eratosthenes is a simple algorithm to find prime numbers. Though, there are better algorithms exist today, sieve of Eratosthenes is a great example of the sieve approach.
+The **Sieve of Eratosthenes** is used to find prime numbers from 2 up to some predefined integer n. While this seive is efficient, there are faster and more efficient sieves out there (see [Sieve of Atkin](https://github.com/OpenGenus/cosmos/tree/master/code/mathematical_algorithms/src/sieve_of_atkin)). However, this sieve is simple to understand and implement for finding prime numbers, and consequently acts as a good example of a what a sieve algorithm is.
 
-<b>Algorithm</b>
+When implemented correctly, the **Sieve of Eratosthenes** has a time complexity of $O(n\log{}n)$. In contrast to the brute force method, which has a time complexity of $O(n^2)$.
 
-First of all algorithm requires a bit array isComposite to store n - 1 numbers: isComposite[2 .. n]. Initially the array contains zeros in all cells. During algorithm's work, numbers, which can be represented as k * p, where k ≥ 2, p is prime, are marked as composite numbers by writing 1 in a corresponding cell. Algorithm consists of two nested loops: outer, seeking for unmarked numbers (primes), and inner, marking primes' multiples as composites.
-<ul type="disc">
+## Algorithm
 
-<li>For all numbers m: 2 .. n, if m is unmarked:</li>
-<ul type="circle">
-  <li> add m to primes list;</li>
+The algorithm requires a binary array (which may be a packed bit array) representing the primality of each index from 2 to n. The array initially has all cells set to True (assuming all numbers are prime to start), and then any multiples of a given prime are set to False ("crossed out"). By the end, all multiplies of one or more primes will be eliminated, leaving only the prime numbers within the specified range. There are some tricks to the sieve that make it more than just a brute force elimination seive (as will be mentioned) but that's the core principle behind the sieve.
 
-<li>  mark all it's multiples, lesser or equal, than n (k * m ≤ n, k ≥ 2);</li>
-</ul>
-<li>otherwise, if m is marked, then it is a composite number.</li>
-</ul>
+### Example
 
-<b>Modification</b>
+Suppose a range from 2 to 10...
+1. Create an array for that given range (10 elements to start) `[ True, True, True, True, True, True, True, True, True, True ]`
+2. Set the first element to False (since 1 is not prime) `[ False, True, True, True, True, True, True, True, True, True ]`
+3. Start at the first True index (our first prime number) `[ False, (True), True, True, True, True, True, True, True, True ]`
+4. Eliminate all multiples of that index starting from the square of the index (4, 6, 8, etc...) `[ False, True, True, False, True, False, True, False, True, False ]`
+5. Move to the next True index (the next prime number)
+6. Go to 4, repeating until we've reached the square root of n (in this case, the square root of 10)
+7. We now have all the primes from 2 to n (2 to 10 in this case)
 
-Let's notice, that algorithm can start marking multiples beginning from square of a found unmarked number. Indeed,
+### Explanation
 
-For m = 2, algorithm marks
+So why are we starting at the square of primes? Why are we stopping at the square root of n? Why do we use an array of booleans? Allow me to explain how the sieve is working under the hood, and the mathematics behind _why_ it works:
 
-	2 * 2   3 * 2   4 * 2   5 * 2   6 * 2   7 * 2   ...
-For m = 3,
+At it's core, the sieve works because it utilizes the prime composite lemma. Plainly speaking, the sieve recognizes that all non-prime numbers are multiples of one or more prime numbers, or put another way all non-prime numbers are composed of prime numbers. Knowing this, the process of finding primes is done by finding and marking off (eliminating) all non-primes by looking at what primes we have found and eliminating their multiples. However, this fact on its own would simply make this a brute-force elimination sieve. Where the Sieve of Eratosthenes differs is that it also recognizes some other mathematical properties of the sieve that allow it to achieve its amazing time complexity. First, it recognizes that numbers before the square of the current prime will have already been eliminated by previous primes (there's a lemma expalining this but it's too long to include). Thus, for a given prime we should start at the square of the current prime for elimination (reduce redundancies). The second principle is that all multiples will have been eliminated by the time we've repeated this process as much as the square root of n times. This way we reduce two redundancies that are found in the brute force method.
 
-	2 * 3
-were already marked on m = 2 step.
+## Pseudocode
 
-For m = 5,
+Taken from the [Wikipedia: Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+```
+algorithm Sieve of Eratosthenes is
+    input: an integer n > 1.
+    output: all prime numbers from 2 through n.
 
-	2 * 5   3 * 5   4 * 5 (= 10 * 2)
-were already marked on m = 2 and m = 3 steps.
+    let A be an array of Boolean values, indexed by integers 2 to n, initially all set to true.
+    
+    for i = 2, 3, 4, ..., not exceeding √n do
+        if A[i] is true
+            for j = i^2, i^2+i, i^2+2i, i^2+3i, ..., not exceeding n do
+                set A[j] := false
 
-Strong proof is omitted, but you can easily prove it on your own. Modified algorithm is as following:
-<ul type="disc">
-  <li>For all numbers m: 2 .. √n, if m is unmarked:</li>
-<ul type="circle">
-<li>add m to primes list;</li>
+    return all i such that A[i] is true.
+```
 
-<li>mark all it's multiples, starting from square, lesser or equal than n (k * m ≤ n, k ≥ m);</li>
-</ul>
-<li>otherwise, if m is marked, then it is a composite number;</li>
-
-<li>check all numbers in range √n .. n. All found unmarked numbers are primes, add them to list.</li>
-</ul>
+---
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)	
+
+---
