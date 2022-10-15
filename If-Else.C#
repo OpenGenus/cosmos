@@ -1,0 +1,24 @@
+using System;
+  
+class GFG{
+      
+static public void Main()
+{
+      
+   
+    int x = 10;
+    int y = 100;
+      
+    
+    if (x >= y)
+    {
+        Console.WriteLine("x is greater than y");
+    }
+      
+    
+   else
+    {
+         Console.WriteLine("x is not greater than y");
+    }
+}
+}
