@@ -1,6 +1,6 @@
 ## Fibonacci Series implemented using dynamic programming
-- If you do not know what **Fibonacci Series** is please [visit](https://en.wikipedia.org/wiki/Fibonacci_number) to get an idea about it.
-- If you do not know what **dynamic programming** is please [visit](https://www.geeksforgeeks.org/dynamic-programming/) to get an idea about it.
+- If you do not know what **Fibonacci Series** is please [visit](https://iq.opengenus.org/calculate-n-fibonacci-number/) to get an idea about it.
+- If you do not know what **dynamic programming** is please [visit](https://iq.opengenus.org/n-th-fibonacci-number-using-dynamic-programming/) to get an idea about it.
 ### Let's go step by step i.e code block by code block
 To get first *n* Fibonnaci numbers, we first create an array of size n
 ```cpp
