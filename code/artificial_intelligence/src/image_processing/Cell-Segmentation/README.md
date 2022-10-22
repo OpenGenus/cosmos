@@ -13,7 +13,7 @@
 | Cell Nuclei | 670 | 96x96 | microscopy | Kaggle Data Science Bowl 2018|
 
 <p align=center>
-  <img src='https://github.com/Curovearth/Cell-Segmentation/blob/main/img/blogdiagram.png' width=400><br>
+  <img src='img/blogdiagram.png' width=400><br>
   <samp>Block diagram for the overall process</samp>
 </p>
 
@@ -45,8 +45,8 @@ and false negative detections.</p>
 ## Final Result
 
 <p align=center>
-  <img src='https://github.com/Curovearth/Cell-Segmentation/blob/main/img/img2.png'>
-  <img src='https://github.com/Curovearth/Cell-Segmentation/blob/main/img/img3.png'>
+  <img src='img/img2.png'>
+  <img src='img/img3.png'>
 </p>
 
 ## Future of Cell Segmentation
@@ -56,6 +56,3 @@ With the rise of size and complexity of cell images, the requirements for cells 
 On the contrary, development of more effective image processing algorithms is more promising for the progress of cell segmentation. In the meantime, comparison of these newly developed algorithms and teaching the biologists to use these newly developed algorithms are also very important. Hence, the open access and authoritative platforms are necessary for researchers all over the world to share, learn, and teach the data, codes, and algorithms. 
 
 ---
-
-[**Have Fun**](https://youtu.be/dQw4w9WgXcQ?t=85) ...
-
