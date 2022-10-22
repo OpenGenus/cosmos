@@ -1,12 +1,12 @@
 ## Fibonacci Series implemented using dynamic programming
-- If you do not know what **Fibonacci Series** is please [visit](https://en.wikipedia.org/wiki/Factorial) to get an idea about it.
-- If you do not know what **dynamic programming** is please [visit](https://www.geeksforgeeks.org/dynamic-programming/) to get an idea about it.
+- If you do not know what **Fibonacci Series** is please [visit](https://iq.opengenus.org/calculate-n-fibonacci-number/) to get an idea about it.
+- If you do not know what **dynamic programming** is please [visit](https://iq.opengenus.org/introduction-to-dynamic-programming/) to get an idea about it.
 ### Let's go step by step i.e code block by code block
 The underlying concept for finding the factorial of a number *n* is :
     - ```cpp n! = n*(n-1)*(n-2)*......*2*1 ``` for all i>1
     - Which can also be written as ```cpp n! = n*((n-1)!)``` for all i>1
     - And the initial case is :
-        - ```cpp 0! = 0 ```  (If you are curious about why this is the case, [checkout](https://www.youtube.com/watch?v=Mfk_L4Nx2ZI))
+        - ```cpp 0! = 0 ```  (If you are curious about why this is the case, [checkout](https://iq.opengenus.org/factorial-of-large-numbers/))
         - ```cpp 1! = 1 ```
 The block of code below does exactly what we discussed above but using recursion.
 ```cpp 
