@@ -20,3 +20,11 @@ The block of code below does exactly what we discussed above i.e initialise for 
 ```
 - The outer for loop iterates through every number and for each of the numbers we have to calculate it's catalan as : ```cpp catalan[i] = catalan[i] + catalan[j] * catalan[i - j - 1]```, j running from 0 to i-1.
 - This is because, ```cpp catalan[i] = (i*catalan[i]) + (catalan[0] * catalan[i - 1]) + (catalan[1] * catalan[i - 2]) + .......... + (catalan[i-1]*catalan[0]) ``` i.e $$C_0=1 \ and \ C_{n+1}=\sum_{i=0}^{n}C_iC_{n-i} \ for \ n\geq 0$$
+
+Time complexity
+---------------
+Worst case: $$O(n^2)$$ where n is input number for which we have to fin the catalan number
+
+Space complexity
+----------------
+$$O(n)$$ - Linear Extra Space
