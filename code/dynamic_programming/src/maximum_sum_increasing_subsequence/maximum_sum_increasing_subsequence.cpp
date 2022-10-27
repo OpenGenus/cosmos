@@ -8,9 +8,9 @@ int maxSum(int arr[], int n)
 	vector<int> dp(n);
 
 	for (i = 0; i < n; i++)
-    {
+	{
 		dp[i] = arr[i];
-    }
+	}
 
 	for (i = 1; i < n; i++ )
     {
