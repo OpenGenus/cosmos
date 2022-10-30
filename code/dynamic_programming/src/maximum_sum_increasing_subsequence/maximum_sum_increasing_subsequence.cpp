@@ -15,15 +15,14 @@ int maxSum(int arr[], int n){
 			if (arr[i] > arr[j] && dp[i] < dp[j] + arr[i]){
 				dp[i] = dp[j] + arr[i];
 			}
-        }
-    }
+		}
+	}
 
 	for (i = 0; i < n; i++){
 		if (max < dp[i]){
 			max = dp[i];
-        }
-    }
-
+		}
+	}
 	return max;
 }
 
