@@ -30,8 +30,8 @@ int maxSum(int arr[], int n){
 int main()
 {
 	int arr[] = {4, 6, 1, 3, 8, 4, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "Sum of maximum sum increasing subsequence is " << maxSum(arr, n) << ".\n";
-
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "Sum of maximum sum increasing subsequence is " << maxSum(arr, n) << ".\n";
+	
 	return (0);
 }
