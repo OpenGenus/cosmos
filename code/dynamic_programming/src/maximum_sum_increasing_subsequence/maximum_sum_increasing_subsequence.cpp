@@ -14,7 +14,7 @@ int maxSum(int arr[], int n){
 		for (j = 0; j < i; j++ ){
 			if (arr[i] > arr[j] && dp[i] < dp[j] + arr[i]){
 				dp[i] = dp[j] + arr[i];
-            }
+			}
         }
     }
 
