@@ -16,3 +16,12 @@
 3. Scaling
 4. Reflection
 5. Shearing
+
+***
+<p align="center">
+A massive colaborative effort by 
+<a href="https://github.com/OpenGenus">OpenGenus Foundation</a>
+</p>
+
+
+***
