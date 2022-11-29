@@ -25,17 +25,28 @@ def binary_search_recursive(arr, x):
 
 
 def _binary_search_iterative_impl(arr, x, left, right):
-    while left < right:
-        mid = left + int((right - left) / 2)
+#     while left < right:
+#         mid = left + int((right - left) / 2)
 
+#         if arr[mid] == x:
+#             return mid
+#         elif arr[mid] > x:
+#             right = mid - 1
+#         else:
+#             left = mid + 1
+
+#     return left if left in range(0, len(arr)) and arr[left] == x else -1
+      while left <= right:
+        mid =left + (right -left)//2
+        
         if arr[mid] == x:
             return mid
-        elif arr[mid] > x:
+        elif arr[mid] >= x:
             right = mid - 1
         else:
             left = mid + 1
-
-    return left if left in range(0, len(arr)) and arr[left] == x else -1
+       return -1
+            
 
 
 def binary_search_iterative(arr, x):
