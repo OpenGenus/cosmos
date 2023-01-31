@@ -75,6 +75,11 @@ Additionally, you might want to take a look at this [contributing guidelines](ht
 
 You may, also, refer to the available [style guides](/guides/coding_style) before contributing code.
 
+# DSA
+linked list
+queue
+array 
+
 # License
 
 We believe in freedom and improvement. [GNU General Public License v3.0](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
