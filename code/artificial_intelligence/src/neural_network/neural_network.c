@@ -1,5 +1,4 @@
 /* Basic neural network in C trained on mnist dataset */
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -8,10 +7,10 @@
 #include <string.h>
 
 //#define _BIG_ENDIAN // For big endian machines
-#define TRAIN_IMGS "data/train-images-idx3-ubyte"
-#define TRAIN_LBLS "data/train-labels-idx1-ubyte"
-#define TEST_IMGS "data/t10k-images-idx3-ubyte"
-#define TEST_LBLS "data/t10k-labels-idx1-ubyte"
+#define TRAIN_IMGS "train-images-idx3-ubyte"
+#define TRAIN_LBLS "train-labels-idx1-ubyte"
+#define TEST_IMGS "t10k-images-idx3-ubyte"
+#define TEST_LBLS "t10k-labels-idx1-ubyte"
 #define LYRS 0, 50, 40, 20, 10
 #define NLYRS 5
 #define STAGE_RATES 0.25, 0.18, 0.13, 0.1
@@ -23,8 +22,8 @@ struct net {
 };
 
 static struct net net;
-static double *trainIn, *testIn;
-static uint8_t *trainOut, *testOut;
+static double *trainIn = 0, *testIn = 0;
+static uint8_t *trainOut = 0, *testOut = 0;
 static size_t trainSamples, testSamples;
 
 #ifdef _BIG_ENDIAN
@@ -40,9 +39,14 @@ smolendian(uint32_t val)
 }
 
 int
-openFiles()
+openFiles(const char *trainData, const char *trainLable, const char *testData, const char *testLable)
 {
-	FILE *imgs = fopen(TRAIN_IMGS, "rb"), *lbls = fopen(TRAIN_LBLS, "rb");
+	static const char* notFoundStr = "%s: No such file: Download data from \"http://yann.lecun.com/exdb/mnist/\"\n";
+	FILE *imgs = fopen(trainData, "rb"), *lbls = fopen(trainLable, "rb");
+	if (!(imgs && lbls)) {
+		printf(notFoundStr, imgs ? trainLable : trainData);
+		return -1;
+	}
 	fseek(imgs, 4, SEEK_SET);
 	fseek(lbls, 8, SEEK_SET);
 
@@ -70,8 +74,12 @@ openFiles()
 	fclose(lbls);
 	free(buffer);
 
-	imgs = fopen(TEST_IMGS, "rb");
-	lbls = fopen(TEST_LBLS, "rb");
+	imgs = fopen(testData, "rb");
+	lbls = fopen(testLable, "rb");
+	if (!(imgs && lbls)) {
+		printf(notFoundStr, imgs ? testLable : testData);
+		return -1;
+	}
 	fseek(imgs, 4, SEEK_SET);
 	fseek(lbls, 8, SEEK_SET);
 
@@ -324,7 +332,7 @@ delNet(struct net *const net)
 }
 
 int
-main()
+main(int argc, char **argv)
 {
 	size_t lyrs[NLYRS] = {LYRS}, succ = 0, epoch = 0;
 	double rs[STAGES] = {STAGE_RATES}, *optWs, *optBs,
@@ -333,7 +341,19 @@ main()
 
 	net.layers = lyrs;
 	net.nlayers = NLYRS;
-	openFiles();
+	switch (argc) {
+	case 1:
+		if (openFiles(TRAIN_IMGS, TRAIN_LBLS, TEST_IMGS, TEST_LBLS))
+			goto end;
+		break;
+	case 5:
+		if (openFiles(argv[1], argv[2], argv[3], argv[4]))
+			goto end;
+		break;
+	default:
+		printf("Usage: neural_network [train-images train-labels test-images test-labels]\n");
+		return 1;
+	}
 	srand(time(0));
 	initNet(&net);
 	optWs = malloc(net.nws * sizeof(double));
@@ -398,12 +418,13 @@ main()
 		    testOut[i];
 	printf("Final success rate: %.2f%%\n", 100 * (double)succ/testSamples);
 
+	free(optWs);
+	free(optBs);
 	delNet(&net);
+end:
 	free(trainIn);
 	free(trainOut);
 	free(testIn);
 	free(testOut);
-	free(optWs);
-	free(optBs);
 	return 0;
 }
