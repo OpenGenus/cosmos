@@ -1,2 +1,4 @@
-# cosmos
+# Searching algorithms
+Searching is the task of locating a given element/key which is stored in a data structure. Search algorithms differ from one another in their mechanism of searching for the key. For instance, 'Linear Search' checks all the entries sequentially, comparing it with the value of the key to be searched. Searching algorithms other than linear search, require that the data be maintained in some sorted fashion. Binary search is one such other popular searching algorithm. It requires that the data be stored in either an ascending or descending manner. The key to be searched is compared with the middle element of the array, in each iteration, thereby, deciding which half should be selected for narrowing down the search.  
+ # cosmos
 Your personal library of every algorithm and data structure code that you will ever encounter
