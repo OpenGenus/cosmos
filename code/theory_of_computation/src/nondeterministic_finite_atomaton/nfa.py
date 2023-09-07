@@ -3,6 +3,8 @@ from dfa import (
 )  # located at code/theory_of_computation/src/deterministic_finite_automaton/dfa.py
 
 
+EPSILON = ''
+
 class NFA(object):
     """Class for Non-deterministic Finite Atomata"""
 
