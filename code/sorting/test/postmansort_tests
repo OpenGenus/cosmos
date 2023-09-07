@@ -1,0 +1,42 @@
+def test_1():
+    array = [1]
+    size = 1
+    sorted = [1]
+    
+    result_array = postmansort(array,size) 
+    for x in range(size):
+        assert(result_array[x] == sorted[x])
+
+
+def test_2():
+    array = [1,2]
+    size = 2
+    sorted = [1,2]
+    result_array = postmansort(array,size) 
+    for x in range(size):
+        assert(result_array[x] == sorted[x])
+
+def test_3():
+    array = [3,2,1]
+    size = 3
+    sorted = [1,2,3]
+    result_array = postmansort(array,size) 
+    for x in range(size):
+        assert(result_array[x] == sorted[x])
+
+def test_4():
+    array = [9,8,7,6,5,4,3,2,1,0]
+    size = 10
+    sorted = [1,2,3,4,5,6,7,8,9,10]
+    result_array = postmansort(array,size) 
+    for x in range(size):
+        assert(result_array[x] == sorted[x])
+
+
+def test_4():
+    array = [10, 30, 20, 50, 40, 60, 50, 80, 70, 100, 90]
+    size = 10
+    sorted = [10,20,30,40,50,60,70,80,90,100]
+    result_array = postmansort(array,size) 
+    for x in range(size):
+        assert(result_array[x] == sorted[x])
