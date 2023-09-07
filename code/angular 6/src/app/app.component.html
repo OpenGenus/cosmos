@@ -1,0 +1,261 @@
+<h1 style = "text-align: center">
+  Welcome to {{ title }}!
+</h1>
+<div class="main">
+<mat-slide-toggle class="toggle" [(ngModel)]="mymodel">Show marksheet !!</mat-slide-toggle>
+<div class = "bgcolor">
+  <div *ngIf="mymodel">
+    <div class = "form-group device1">
+      <label for = "device">
+      Select Class :-
+      </label>
+      <mat-form-field>
+      <mat-select placeholder="Select" class = "form-control device" [(value)]="selected">
+      <mat-option *ngFor="let dev of device" [value]="dev.value" class="options">
+      {{dev.name}}
+      </mat-option>
+      </mat-select>
+      </mat-form-field>
+        <div [ngSwitch] = "selected">
+          <div *ngSwitchCase = "'1'" >
+            <div>
+              <form [formGroup] = "twelveForm" (ngSubmit) = "add_marksheet(1)"> 
+                <div>
+                  <table class="table_margin">
+                    <tr>
+                    <td>
+                    <label for = "device">Physics</label>
+                    </td>
+                    <td>
+                    <input type= "text"  formControlName = "phy1">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>
+                    <span class="error" *ngIf="twelveForm.get('phy1').touched && !twelveForm.get('phy1').valid">
+                    *Field is empty</span></td></tr>
+                    <tr>
+                    <td>
+                    <label for = "device">Chemistry</label>
+                    </td>
+                    <td>
+                    <input type= "text" formControlName = "chem1">
+                    </td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>
+                    <span class="error" *ngIf="twelveForm.get('chem1').touched && !twelveForm.get('chem1').valid">
+                    *Field is empty</span></td></tr>   
+                    <tr>
+                    <td>
+                    <label for = "device">Maths</label>
+                    </td>
+                    <td>
+                    <input type= "text"  formControlName = "mat1">
+                    </td>
+                    <tr>
+                    <td></td>
+                    <td>
+                    <span class="error" *ngIf="twelveForm.get('mat1').touched && !twelveForm.get('mat1').valid">
+                    *Field is empty</span></td></tr>
+                  </table>
+                </div>
+                <button type="submit" mat-fab color="primary" class="submit" [disabled]="!twelveForm.valid">Submit</button>
+                <!-- <button mat-fab color="accent" (click)="clearform()">Reset</button> -->
+              </form>
+            </div>
+          </div>
+          <div *ngSwitchCase = "'2'" class="value1">
+            <form [formGroup] = "elevenForm" (ngSubmit) = "add_marksheet(2)">
+              <div>
+                <table class="table_margin">
+                  <tr>
+                  <td>
+                  <label for = "device">Physics</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "phy2">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="elevenForm.get('phy2').touched && !elevenForm.get('phy2').valid">
+                  *Field is empty</span></td></tr>
+                  <tr>
+                  <td>
+                  <label for = "device">Chemistry</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "chem2">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="elevenForm.get('chem2').touched && !elevenForm.get('chem2').valid">
+                  *Field is empty</span></td></tr>
+                  <tr>
+                  <td>
+                  <label for = "device">Maths</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "mat2">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="elevenForm.get('mat2').touched && !elevenForm.get('mat2').valid">
+                  *Field is empty</span></td></tr>
+                </table>
+                <button type="submit" mat-fab color="primary" class="submit" [disabled]="!elevenForm.valid">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div *ngSwitchCase = "'3'">
+            <form [formGroup] = "tenForm" (ngSubmit) = "add_marksheet(3)">
+              <div>
+                <table class="table_margin">
+                  <tr>
+                  <td>
+                  <label for = "device">Physics</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "phy3">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="tenForm.get('phy3').touched && !tenForm.get('phy3').valid">
+                  *Field is empty</span></td></tr>
+                  <tr>
+                  <td>
+                  <label for = "device">Chemistry</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "chem3">
+                  </td>
+                  </tr><tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="tenForm.get('chem3').touched && !tenForm.get('chem3').valid">
+                  *Field is empty</span></td></tr>
+                  <tr>
+                  <td>
+                  <label for = "device">Maths</label>
+                  </td>
+                  <td>
+                  <input type= "text" formControlName = "mat3">
+                  </td>
+                  </tr>
+                  <tr>
+                  <td></td>
+                  <td>
+                  <span class="error" *ngIf="tenForm.get('mat3').touched && !tenForm.get('mat3').valid">
+                  *Field is empty</span></td></tr>
+                  </table>
+                </div>
+                <button type="submit" mat-fab color="primary" class="submit" [disabled]="!tenForm.valid">Submit</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- ##############  structure ################# -->
+      <div *ngIf="!mymodel">
+            <div *ngFor = "let device of devices">
+              <div *ngIf = "device.type === 1">
+                <b><i> 12 Marksheet </i></b>
+                <table >
+                  <tr class="tablerow">
+                    <td>
+                      <label class="parameter">Physics</label> 
+                    </td>
+                    <td>
+                      {{device.phy1}}
+                    </td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>
+                      <label class="parameter">Chemistry</label> 
+                    </td>
+                    <td>
+                      {{device.chem1}}
+                    </td>
+                  </tr>
+                  <tr class="tablerow">
+                    <td>
+                      <label class="parameter">Maths</label> 
+                    </td>
+                    <td>
+                      {{device.mat1}}  
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div *ngIf = "device.type === 2">
+                <b><i> 11 Marksheet </i></b>
+                  <table>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Physics</label> 
+                        </td>
+                        <td>
+                          {{device.phy2}}
+                        </td>
+                      </tr>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Chemistry</label> 
+                        </td>
+                        <td>
+                          {{device.chem2}}
+                        </td>
+                      </tr>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Maths</label> 
+                        </td>
+                        <td>
+                          {{device.mat2}}  
+                        </td>
+                      </tr>
+                  </table>
+              </div>
+              <div *ngIf = "device.type === 3">
+                 <b><i> 10 Marksheet</i></b>
+                  <table>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Physics</label> 
+                        </td>
+                        <td>
+                          {{device.phy3}}
+                        </td>
+                      </tr>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Chemistry</label> 
+                        </td>
+                        <td>
+                          {{device.chem3}}
+                        </td>
+                      </tr>
+                      <tr class="tablerow">
+                        <td>
+                          <label class="parameter">Maths</label> 
+                        </td>
+                        <td>
+                          {{device.mat3}}  
+                        </td>
+                      </tr>
+                    </table>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
