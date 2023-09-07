@@ -2,24 +2,32 @@
 #include <stdlib.h>
 #include <time.h>
 // Part of Cosmos by OpenGenus Foundation
-void printSpiral(int N, int M, int[][M]);
-void print(int N, int M, int[][M]);
+void printSpiral(int N, int M, int ** mat);
+void print(int N, int M, int ** mat);
+
+/*
+	Creates a matrix on the heap (uses malloc).
+	And initializes the matrix with random numbers. 
+*/
+int ** createMatrix(int N, int M);
+
+/*
+	Destroys the matrix and tidy up. 
+*/
+void freeMatrix(int N, int M, int ** matrix);
 
 int main()
 {
-	srand(time(NULL));
 	const int N = 5;
 	const int M = 5;
-	int matrix[N][M]; 		// if you change N & M values, use malloc()
-	int i, j;
-
-	for(i = 0; i < N; i++)
-		for(j = 0; j < M; j++)
-			matrix[i][j] = rand()%100;		//I'm filling the matrix with random numbers
+	int ** matrix = createMatrix(N,M); // ueses the heap
+	int i, j;	
 
 	print(N, M, matrix);
 	printf("\n");
 	printSpiral(N, M, matrix);
+
+	freeMatrix(N, M, matrix); // tidy up 
 
 }
 
@@ -31,7 +39,7 @@ int main()
 *	3: from bottom to top
 */
 
-void print(int N, int M, int matrix[][M])
+void print(int N, int M, int ** matrix)
 {
 	int i, j;
 	for(i = 0; i < N; i++)
@@ -43,7 +51,7 @@ void print(int N, int M, int matrix[][M])
 		
 }
 
-void printSpiral(int N, int M, int matrix[][M])
+void printSpiral(int N, int M, int ** matrix)
 {
 	int top = 0, bottom = N-1, left = 0, right = M-1;
 	int direction = 0;	
@@ -76,7 +84,33 @@ void printSpiral(int N, int M, int matrix[][M])
 				break;
 		}
 
-		direction = (direction + 1) % 4;	//if direction equals 3 it becomes 0, it increases by one otherwise
+		//if direction equals 3 it becomes 0, it increases by one otherwise
+		direction = (direction + 1) % 4;	
 	}
 	printf("\n");		
+}
+
+int ** createMatrix(int N, int M) 
+{
+	int ** array = (int**) malloc(sizeof(int *) * N);
+	int i,j;
+	srand(time(NULL));
+	for(i = 0; i < N; i++) 
+	{
+		array[i] = (int *) malloc(sizeof(int) * M);
+		for(j = 0; j < M; j++)
+			array[i][j] = random() % 100;
+	}
+
+	return array;
+
+}
+
+void freeMatrix(int N, int M, int ** matrix) 
+{
+	int i;
+	for(i = 0; i < N; i++)
+		free(matrix[i]);
+	free(matrix);
+	
 }
