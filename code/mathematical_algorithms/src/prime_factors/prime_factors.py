@@ -20,6 +20,6 @@ if absInteger > 0:
     print("Prime Factors : " + str(prime_num))
 elif absInteger == 0:
     print("Your Input: 0")
-    print("Prime Factors : [0]")
+    print("Prime Factors : []") #0 is not a prime number.
 else:
     print("Please Input a number")
