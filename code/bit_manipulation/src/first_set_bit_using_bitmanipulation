@@ -1,0 +1,20 @@
+/* Part of Cosmos by OpenGenus Foundation */
+/*
+    This program returns the right-most set bit in a number.
+    example 20 = (1 0 1 0 0)binary
+                      ^ returns 4
+
+            22 = (1 0 1 1 0)binary
+                        ^ returns 2
+
+*/
+#include <iostream>
+
+int returnFirstSetBit(int n){
+    return (n & (-n));
+}
+int main(){
+    int num = 22;
+    std::cout << "The rightmost set bit is: " << returnFirstSetBit(num);
+    return 0;
+}
