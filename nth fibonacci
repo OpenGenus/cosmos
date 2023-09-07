@@ -1,0 +1,33 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+int nth_fibonacci (int n)
+{
+    int a=1;
+    int b=1;
+    int c=0;
+    int i=1;
+    if (n<3){
+    return 1;
+    }
+    while(i<n) {
+   c=a+b;
+   a=b;
+   b=c;
+   i++;
+   }
+  return c;
+}
+
+int main ()
+{
+ int x=nth_fibonacci(4);
+  printf("%d\n", x);
+  return 0;
+}
