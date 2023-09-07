@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p==NULL || q==NULL) return (p==q) ;
+        if(p->val!=q->val) return false ;
+        bool h1= isSameTree(p->left,q->left) ;
+        bool h2= isSameTree(p->right,q->right) ;
+        
+        if(!h1 || !h2) return false ;
+        
+        return true ;
+    }
+};
