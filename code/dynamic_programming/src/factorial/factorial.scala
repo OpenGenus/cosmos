@@ -1,27 +1,20 @@
-/* Part of Cosmos by OpenGenus Foundation */
-
-import scala.annotation.tailrec
-
-/**
-  * Implement factorial using tail recursion
-  */
-object main {
-
-  @tailrec
-  private def _factorial(of: Int, current: Int): Int = {
-    if (of == 0) {
-      current
-    } else {
-      _factorial(of - 1, of * current)
-    }
-  }
-
-  def factorial(of: Int): Int = {
-    _factorial(of, 1)
-  }
-
-  def main(args: Array[String]) = {
-    val number: Int = 5
-    println(s"The factorial of ${number} is ${factorial(number)}")
-  }
-}
+// Creating object 
+object RONALDO
+{ 
+    // Function to calculate 
+    // factorial using Recursive  
+    // formula (i.e N! = N * N-1 !) 
+    def factorial(n: Int): Int =
+    { 
+        if (n == 0)  
+            return 1
+        else
+            return n * factorial(n-1) 
+    } 
+  
+    // Driver Code 
+    def main(args: Array[String])  
+    { 
+        println(factorial(5)) 
+    } 
+} 
