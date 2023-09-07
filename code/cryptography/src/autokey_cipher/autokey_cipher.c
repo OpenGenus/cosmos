@@ -1,3 +1,7 @@
+// Auto Key Cipher in C
+
+// Link to the Article(Explanation): https://iq.opengenus.org/auto-key-cipher/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

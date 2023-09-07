@@ -1,3 +1,7 @@
+// Auto Key Cipher in C++
+
+// Link to the Article(Explanation): https://iq.opengenus.org/auto-key-cipher/
+
 #include <iostream>
 
 std::string autokeycipher(std::string text, char key, int encrypt)
