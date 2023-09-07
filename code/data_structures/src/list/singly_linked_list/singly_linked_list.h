@@ -315,3 +315,22 @@ void Linkedlist<T>::removeKthNodeFromEnd(int k)
 
     return;
 }
+
+template <typename T>
+bool LinkedList<T>::hasCycle(Node<T> *head) {
+       if (!head){ 
+           return false;
+       }
+        
+       Node<T> *slow = head;
+       Node<T> *fast = head;
+        
+       while (fast->next && fast->next->next) {
+           slow = slow->next;
+           fast = fast->next->next;
+           if (slow == fast) 
+               return true;      
+       }
+        
+       return false;
+}
