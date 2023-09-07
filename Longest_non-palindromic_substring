@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// function to check if a string is a palindrome or not
+bool isPalindrome(string str) {
+    for (int i = 0; i < str.length() / 2; i++) 
+        if (str[i] != str[str.length() - i - 1]) 
+            return false; 
+  
+    return true;
+}
+
+// function to find longest non-palindromic substring
+int maxNonPalindrome(string str) {
+    char c = str[0];
+    int i = 1; 
+    for (i = 1; i < str.length(); i++) 
+        if (str[i] != c) 
+            break; 
+    
+    //if all the characters are same, so no non-palindromic 
+    //substring can be formed
+    if(i == str.length()) { 
+        return 0;
+    }
+    
+    
+    //if the string is a palindrome, we can make it
+    //non-palindromic by removing any last character
+    if (isPalindrome(str)) {
+        return str.length() - 1;
+    }
+    
+    //if the string is a non-palindrome
+    return str.length();
+}
+
+int main() {
+    string str;
+    cin >> str;
+    int n;
+    n = maxNonPalindrome(str);
+    cout << "Length of longest non-palindromic substring is " << n;
+    return 0;
+}
