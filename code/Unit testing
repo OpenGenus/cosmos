@@ -1,0 +1,47 @@
+Unit Testing
+Introduction
+
+Testing is a critical part of the software engineering process. A unit test is a particular kind of test, which checks the functionality of a single, small module of source code. Unit testing is always done by the engineer, and is usually done at the same time they are coding the module. The test drivers you used to test the Composer and Database classes are examples of unit tests.
+
+Unit Tests have the following characteristics. They...
+
+    test a component in isolation
+    are deterministic
+    usually map onto a single class
+    avoid dependencies on external resources, e.g. databases, files, network
+    execute quickly
+    can be run in any order
+
+There are automated frameworks and methodologies that provide support and consistency for unit testing in large software engineering organizations. There are some sophisticated open source unit testing frameworks, which we'll learn about later in this lesson. 
+
+The tests that occur as a part of unit testing are illustrated below.
+
+In an ideal world, we test for the following:
+
+    The module interface is tested to make sure information flows in and out correctly.
+    Local data structures are examined to make sure they store data properly.
+    Boundary conditions are tested to make sure the module operates correctly at the boundaries that limit or restrict processing.
+    We test independent paths through the module to make sure each path, and thus each statement in the module, is executed at least once. 
+    Finally, we need to check that errors are handled properly.
+
+Code Coverage
+
+In reality, we cannot attain complete "code coverage" with our testing. Code coverage is an analysis method that determines which parts of a software system have been executed (covered) by the test case suite and which parts have not been executed. If we try and attain 100% coverage, we'll spend more time writing unit tests than writing the actual code! Consider coming up with unit tests for all independent paths of the following. This can quickly become an exponential problem.
+
+In this diagram, the red lines are not tested, while the uncolored lines are tested.
+
+Instead of attempting 100% coverage, we focus on tests that raise our confidence that the module is working properly. We test for things like:
+
+    Null cases
+    Range tests, e.g., positive/negative value tests
+    Edge cases
+    Failure cases
+    Testing the paths most likely to execute most of the time
+
+Unit Test Frameworks
+
+Most unit test frameworks use assertions to test values during execution of a path. Assertions are statements that check whether a condition is true. The result of an assertion can be success, nonfatal failure , or fatal failure. After an assertion is performed, the program continues normally if the result is either success or nonfatal failure. If a fatal failure occurs, the current function is aborted.
+
+Tests consist of code that sets up state or manipulates your module, coupled with a number of assertions which verify expected results. If all assertions in a test are successful, i.e., return true, then the test succeeds; otherwise it fails.
+
+A test case contains one or many tests. We group tests into test cases that reflect the structure of the tested code. In this course, we are going to use CPPUnit as our unit test framework. With this framework, we can write unit tests in C++ and run them automatically, giving a report about the success or failure of tests. 
