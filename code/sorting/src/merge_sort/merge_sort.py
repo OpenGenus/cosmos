@@ -1,7 +1,8 @@
 # Part of Cosmos by OpenGenus Foundation
 
 # Split array in half, sort the 2 halves and merge them.
-# When merging we pick the smallest element in the array.
+# When merging we pick either the smallest or the largest element in the array, depending on
+# the sort property defined. 
 # The "edge" case is when one of the arrays has no elements in it
 # To avoid checking and breaking the look, finding which array has elements and then
 # Starting another loop, we simply alias the arrays. This abstracts the issue without
@@ -14,27 +15,29 @@
 from random import randint
 
 
-def merge_sort(array):
-
+def merge_sort(array, asc=True):
+    condition = lambda x, y: x < y if asc else x > y
+    
     if len(array) == 1:
         return array
 
-    left = merge_sort(array[: (len(array) // 2)])
-    right = merge_sort(array[(len(array) // 2) :])
+    left = merge_sort(array[: (len(array) // 2)], asc)
+    right = merge_sort(array[(len(array) // 2) :], asc)
+
     out = []
 
     while bool(left) or bool(right):
         if bool(left) ^ bool(right):
             alias = left if left else right
         else:
-            alias = left if left[0] < right[0] else right
-
+            alias = left if condition(left[0], right[0]) else right
         out.append(alias[0])
         alias.remove(alias[0])
 
     return out
 
 
-randomized: list = [randint(0, 1000) for x in range(10000)]
+randomized:list = [randint(0, 1000) for x in range(10000)]
 clone = [x for x in randomized]
 assert sorted(clone) == merge_sort(randomized)
+assert sorted(clone, reverse=True) == merge_sort(randomized, False)
