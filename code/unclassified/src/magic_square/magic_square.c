@@ -3,9 +3,10 @@
 #include<stdio.h>
 #include<string.h>
  
-void MagicSquare(int n)
+void 
+magic_square(int n)
 {
-    int magic[n][n],num;
+    int magic[n][n], num = 1;
 
     memset(magic, 0, sizeof(magic));
  
@@ -14,15 +15,11 @@ void MagicSquare(int n)
     int j = n-1;
  
     // One by one put all values in magic square
-    for(num = 1; num <= n*n; )
-    {
-        if (i==-1 && j==n)
-        {
+    while (num <= n*n) {
+        if (i == -1 && j == n) {
             j = n-2;
             i = 0;
-        }
-        else
-        {
+        } else {
             // if next number goes to out of square's right side
             if (j == n)
                 j = 0;
@@ -30,13 +27,11 @@ void MagicSquare(int n)
             if (i < 0)
                 i=n-1;
         }
-        if (magic[i][j])
-        {
+        if (magic[i][j]) {
             j -= 2;
             i++;
             continue;
-        }
-        else
+        } else
             magic[i][j] = num++; //set number
  
         j++; i--;
@@ -46,9 +41,8 @@ void MagicSquare(int n)
     printf("The Magic Square for n=%d:\nSum of each row or column %d:\n\n",
             n, n*(n*n+1)/2);
     
-    for(i=0; i < n; i++)
-    {
-        for(j=0; j < n; j++)
+    for (i=0; i < n; i++) {
+        for (j=0; j < n; j++)
             printf("%3d ", magic[i][j]);
         printf("\n");
     }
@@ -57,6 +51,6 @@ void MagicSquare(int n)
 int main()
 {
     int n = 7; // Works only when n is odd
-    MagicSquare(n);
-    return 0;
+    magic_square(n);
+    return (0);
 }
