@@ -1,0 +1,40 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+int *
+merge (int *A, int *B)
+{
+  int Asize = sizeof (A);
+  int Bsize = sizeof (B);
+  int Csize = Asize + Bsize;
+  int C[Csize];
+  int i=0;
+  int j=0;
+  
+  for (i = 1; i < Asize; i++)
+    {
+      C[i] = A[i];
+    }
+  for (j = i - Asize; j < Bsize; j++)
+    {
+      C[j] = B[j];
+    }
+
+  return C;
+}
+
+int
+main ()
+{
+  int A[2] = { 19, 10 };
+  int B[5] = { 19, 10, 8, 17, 9 };
+  merge (A,B);
+
+  return 0;
+}
