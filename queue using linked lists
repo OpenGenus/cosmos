@@ -1,0 +1,74 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+typedef struct queue{
+int data;
+struct queue* link;
+}queue;
+queue* rear,*front;
+void insert_from_queue(int k,struct queue* q){
+if(q->link==NULL){
+rear=(queue*)malloc(sizeof(queue));
+front=rear;
+rear->data=k;
+rear->link=NULL;
+q->link=front;
+}
+else{
+queue*temp=rear;
+queue *ptr=malloc(sizeof(queue));
+ptr->data=k;
+rear=ptr;
+temp->link=rear;
+rear->link=NULL;
+}
+}
+void remove_from_queue(struct queue* q){
+queue*ptr=front;
+q->link=ptr->link;
+front=q->link;
+free(ptr);
+}
+void display_queue(struct queue* q){
+queue*ptr=q->link;
+while(ptr!=NULL){
+printf("%d ",ptr->data);
+ptr=ptr->link;
+}
+printf("\n");
+}
+int is_empty(struct queue* q){
+
+if(q->link==NULL)
+return 1;
+return 0;
+}
+int main() {
+queue* q=malloc(sizeof(queue));
+rear =NULL;
+front =NULL;
+int opt,val;
+do{
+scanf("%d",&opt);
+switch(opt){
+case 1: scanf("%d",&val);
+insert_from_queue(val,q);
+break;
+
+case 2: if(is_empty(q)){
+printf("Deletion not possible\n");
+}
+else
+remove_from_queue(q);
+break;
+
+case 3: display_queue(q);
+break;
+}
+}while(opt != 4);
+return 0;
+}
