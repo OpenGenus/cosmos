@@ -32,7 +32,7 @@ public class RotateMatrix {
     }
   }
   // driver code
-public static void main(String args[]) {
+public static void main(String args[])throws IOException {
     int n = 3;
     // initializing a 3*3 matrix with an illustration
     int matrix[][] = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
