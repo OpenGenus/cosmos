@@ -12,6 +12,10 @@ class DoublyLinkedList:
         self.count = 0
 
     def addFirst(self, data):
+        '''
+        function to append the element to the beginning of the linked list
+        '''
+        
         if self.count == 0:
             self.first = self.Node(data, None, None)
             self.last = self.first
@@ -26,6 +30,10 @@ class DoublyLinkedList:
         self.count += 1
 
     def popFirst(self):
+        '''
+        function to remove the first element of the linked list
+        '''
+        
         if self.count == 0:
             raise RuntimeError("Cannot pop from an empty linked list")
         result = self.first.data
@@ -40,6 +48,10 @@ class DoublyLinkedList:
         return result
 
     def popLast(self):
+         '''
+        function to remove the last element of the linked list
+        '''
+            
         if self.count == 0:
             raise RuntimeError("Cannot pop from an empty linked list")
         result = self.last.data
@@ -53,6 +65,10 @@ class DoublyLinkedList:
         return result
 
     def addLast(self, data):
+         '''
+        function to append at the end of the linked list
+        '''
+            
         if self.count == 0:
             self.addFirst(0)
         else:
