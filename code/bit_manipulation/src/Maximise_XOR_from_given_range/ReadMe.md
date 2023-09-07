@@ -1,0 +1,1 @@
+Problem: XOR of a given integer with a number from given range such that it is maximum.
