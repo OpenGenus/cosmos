@@ -7,24 +7,6 @@
 #include <string>
 #include <climits>
 
-int nodes, edges;
-// Path of Cosmos by OpenGenus Foundation
-// function to calculate path from source to the given destination
-void path_finding(int source, std::unordered_map<int, int> parent_map)
-{
-    using namespace std;
-    string str;
-    while (parent_map[source] != source)
-    {
-        str.append(to_string(source));
-        str.append(" ");
-        source = parent_map[source];
-    }
-    str.append(to_string(source));
-    reverse(str.begin(), str.end());
-    cout << "Path\n";
-    cout << str << endl;
-}
 // A utility function used to print the solution
 void print_distance(std::vector<int> distance)
 {
@@ -33,69 +15,46 @@ void print_distance(std::vector<int> distance)
     for (size_t i = 0; i < distance.size(); ++i)
         cout << i << "\t\t" << distance[i] << endl;
 }
-// The main function that finds the minimum distance from the source to all other
-// vertices using Bellmann ford algorithm
-// The function also detects negative weight cycle 
-void BellmanFord(std::vector<std::pair<int, std::pair<int, int>>> graph, int source,
-                 std::unordered_map<int, int> &parent_map)
-{
-    using namespace std;
-    vector<int> distance(nodes, INT_MAX);
-    distance[source] = 0;
-// Relax all edges nodes-1 times to get the shortest possible distance
-    for (int i = 0; i < nodes; i++)
-        for (int j = 0; j < edges; j++)
-        {
-            int source = graph[j].second.first;
-            int destination = graph[j].second.second;
-            int weight = graph[j].first;
-            if (distance[source] != INT_MAX && distance[source] + weight < distance[destination])
-            {
-                distance[destination] = distance[source] + weight;
-                parent_map[destination] = source;
+
+
+// 1/29/22 -- This is an update to the existing Bellman Ford algorithm
+//Given a graph and a source vertex src in graph, find shortest paths from src to
+// all vertices in the given graph(Adjacency List). The graph may contain negative weight edges.
+
+//Here we have an alternative BellmanFord solution, where the parameters are only a source vertex and graph
+
+vector<int> bellmanFord(int src, std::vector<std::pair<int, std::pair<int, int>>> graph){
+    // Number of vertices from the inputted graph
+    int numVert = graph.size();
+    // Vector with the shortest paths to all other vertices, will be returned at the end
+    vector<int> shortestPaths;
+
+    // Sets all of the paths to each vertex equal to INFINITY aka INT_MAX
+    for (int x = 0; x < numVert; x++)
+        shortestPaths.push_back(INT_MAX);
+
+    // Sets the distance to the source vertex, itself, equal to zero
+    shortestPaths[src] = 0;
+
+    // Beginning of triple For loops to allow for relaxation of shortestPaths
+    // Covers every single edge in the graph through a double for loop
+    for (int i = 1; i <= numVert -1; i++){
+        for (int j = 0; j < numVert; j++){
+
+            //Iterates for the number of edges from vertex at index j
+            for (int z = 0; z < graph[j].size(); z++){
+                int distance = graph[j].at(z).second;
+                int nextVert = graph[j].at(z).first;
+
+                // The output vector slowly gets relaxed as iteration occurs
+                if ((distance + shortestPaths[j] < shortestPaths[nextVert]) && (shortestPaths[j] != INT_MAX)){
+                    shortestPaths[nextVert] = shortestPaths[j] + distance;
+                }
             }
         }
-/* If after relaxing all edges for nodes-1 time we still get a shorter path that indicates
- * a negative weight cycle */
-    for (int j = 0; j < edges; j++)
-    {
-        int source = graph[j].second.first;
-        int destination = graph[j].second.second;
-        int weight = graph[j].first;
-        if (distance[source] != INT_MAX && distance[source] + weight < distance[destination])
-        {
-            cout << "Graph contains negative weight cycle\n";
-            exit(0);  // If negative cycle found then terminate the program
-        }
     }
-    print_distance(distance); 
-}
-int main()
-{
-    using namespace std;
-    vector<pair<int, pair<int, int>>> graph;
-    unordered_map<int, int> parent_map;
-    int source, init_path;
-    cout << "Enter number of nodes in graph\n";
-    cin >> nodes;
-    cout << "Enter number of edges is graph\n";
-    cin >> edges;
-    for (int i = 0; i < edges; i++)
-    {
-        int src, dest, weight;
-        cout << "Enter source vertex(zero indexed)\n";
-        cin >> src;
-        cout << "Enter destination vertex(zero indexed)\n";
-        cin >> dest;
-        cout << "Enter weight of edge\n";
-        cin >> weight;
-        graph.push_back(make_pair(weight, make_pair(src, dest)));
-    }
-    cout << "Enter initial vertex(zero indexed)\n";
-    cin >> source;
-    BellmanFord(graph, source, parent_map);
-    cout << "Enter destination vertex for path finding(zero indexed)\n";
-    cin >> init_path;
-    path_finding(init_path, parent_map);
-    return 0;
+
+    //Prints shortestPaths
+    print_distance(shortestPaths);
+    return shortestPaths;
 }
