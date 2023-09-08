@@ -1,0 +1,21 @@
+#include <iostream>
+#define N;//length of the array
+using namespace std;
+
+
+ 
+ int[] median(int []arr){
+     for (i=1;i<N;i++){
+         if(arr[i-1]>arr[i]){
+             temp=arr[i-1];
+             arr[i-1]=arr[i];
+             arr[i]=temp
+         }
+     }
+     return arr[N/2];
+ }
+ 
+
+ 
+ 
+ 
