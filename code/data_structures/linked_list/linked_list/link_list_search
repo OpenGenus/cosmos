@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+struct node *make(int d)
+{
+	struct node *p=(struct node *)malloc(sizeof(struct node));
+	p->data=d;
+	p->next=NULL;
+	return p;
+}
+
+void search(struct node *head,int x,int n)
+{
+	struct node *t=head;
+	int i=n;
+	while(t!=NULL)
+	{
+		if(t->data==x)
+		{
+			printf("%d is present in the list at the position %d\n", x,i);
+			break;
+		}
+
+		else
+		{
+			t=t->next;
+			i--;
+		}
+	}
+
+	if(t==NULL) printf("%d is not present in the list.\n",x);
+}
+
+int main()
+{
+	int n;
+	int d;
+	int s;
+	struct node *head;
+	head=NULL;
+	printf("Enter the no. of enteries of the list.\n");
+	scanf("%d",&n);
+	printf("Enter the values of nodes in the list.\n");
+	if(n==0) printf("Empty list.\n");
+	for(int i=0;i<n;i++)
+	{
+		scanf("%d",&d);
+		struct node *p=make(d);
+
+		if(head==NULL)
+		{
+			head=p;
+		}
+
+		else
+		{
+			p->next=head;
+			head=p;
+		}
+	}
+
+	printf("Do you want to print the list. Type 1 for yes, -1 otherwise.\n");
+	int r;
+	scanf("%d",&r);
+	if(r==1)
+	{
+		struct node *t=head;
+		for(int i=0;i<n;i++)
+		{
+			printf("%d ", t->data);
+			t=t->next;
+		}
+
+		printf("\n");
+	}
+
+	printf("Enter the element to be searched.\n");
+	scanf("%d",&s);
+	search(head,s,n);
+	
+	return 0;
+}
