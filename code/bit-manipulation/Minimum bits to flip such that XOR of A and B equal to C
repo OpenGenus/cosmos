@@ -1,0 +1,33 @@
+// C++ code to count the Minimum bits in A and B
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int totalFlips(char *A, char *B, char *C, int N)
+{
+    int count = 0;
+    for (int i=0; i < N; ++i)
+    {
+        // If both A[i] and B[i] are equal
+        if (A[i] == B[i] && C[i] == '1')
+            ++count;
+ 
+        // If Both A and B are unequal
+        else if (A[i] != B[i] && C[i] == '0')
+            ++count;
+    }
+    return count;
+}
+ 
+//Driver Code
+int main()
+{
+    //N represent total count of Bits
+    int N = 5;
+    char a[] = "10100";
+    char b[] = "00010";
+    char c[] = "10011";
+ 
+    cout << totalFlips(a, b, c, N);
+ 
+    return 0;
+}
