@@ -1,0 +1,20 @@
+import java.util.*;
+ +import java.lang.*;
+ +class demo{
+ +    int swapBits( int x)
+ +    {
+ +	      int even_bits = x & 0xAAAAAAAA; 
+ +	      int odd_bits = x & 0x55555555; 
+ +	      even_bits >>= 1; 
+ +	      odd_bits <<= 1; 
+ +
+ +	      return (even_bits | odd_bits); 
+ +    }
+ +    public static void main(String []args)
+ +    {
+ +        Scanner s=new Scanner(System.in);
+ +        unsigned int x=s.nextInt();
+ +        int r=new demo().swapBits(x);
+ +        System.out.println(r);
+ +    }
+ +}
