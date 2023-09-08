@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int greatest_digit(int n){
+  int max=0;
+  while(n>=10){
+      if(n%10>max)max=n%10;
+  }
+  if(n%10>max)max=n%10;
+  return max;
+}
