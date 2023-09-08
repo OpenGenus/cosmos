@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1460620680 source:c:\nacp\bisection\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
