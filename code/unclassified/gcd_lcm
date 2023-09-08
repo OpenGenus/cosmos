@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+
+
+int gcd(int n, int m){
+    //find the gcd of given two numbers
+    int q=0,r=0;
+    max=find_max(n,m);
+    min=m+n-max;
+    q=max/min;
+    r=max-min*q;
+    if (r==0)return min;
+    else return gcd(min,r);
+}
+
+int lcm(int n, int m){
+    //find the lcm of given two numbers
+    ans=m*n/gcd(m,n);
+    return ans;
+}
+
+int find_max(int a,int b){
+    //return the largest number between a and b
+    if(a>=b)return a;
+    else return b;
+}
+
+
