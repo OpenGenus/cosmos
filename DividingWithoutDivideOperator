@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int divide(int nu,int de)
+{
+    
+    int count = 0;
+    while(nu>0)
+    {
+        nu= nu-de;
+        count++;
+    }
+    if(nu<0)
+    return count-1;
+    else
+    return count;
+}
+int abs(int w)
+{
+	if(w<0)
+	{
+		return -w;
+	}
+	else
+	return w;
+}
+
+int main()
+{
+    int n;
+    int a,b;
+   cout<<"Enter dividend and divisor"<<endl;
+   cin>>a>>b;
+    int x=abs(a);
+    int y=abs(b);
+n=divide(x,y);
+if(a<0||b<0)
+cout<<(-n)<<endl;
+else
+cout<<n<<endl;
+
+    return 0;
+}
