@@ -1,6 +1,8 @@
 # Cosmos
 
 > [Join our Internship Program now](http://internship.opengenus.org/) | Try this cool [One Liner knowledge tool](https://iq.opengenus.org/one/)
+>
+> Participate in [Checklist project](https://github.com/OpenGenus/checklist)
 
 > The universe of algorithm and data structures
 
