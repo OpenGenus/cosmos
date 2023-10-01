@@ -1,19 +1,27 @@
 /*
-Problem Statement : 
+Problem Statement :
 Add two numbers using bitwise operators
 (i.e without using arithmetic operators)
 */
 
 #include <stdio.h>
+#include <limits.h>
 
-// iterative function
+// Function to add two numbers using bitwise operators
 int bitwiseAddition(int n, int m)
 {
     while (m != 0)
     {
-        int carry = n & m;  
-        n = n ^ m;      
-        m = carry << 1; 
+        int carry = n & m;
+        n = n ^ m;
+        m = carry << 1;
+
+        // Check for overflow (positive to negative or vice versa)
+        if ((n < 0 && m > 0) || (n > 0 && m < 0))
+        {
+            fprintf(stderr, "Overflow detected. Cannot add numbers.\n");
+            return INT_MAX; // Return the maximum possible value
+        }
     }
     return n;
 }
@@ -34,8 +42,18 @@ int main()
 {
     int a, b;
     printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
-    
+    if (scanf("%d %d", &a, &b) != 2)
+    {
+        fprintf(stderr, "Invalid input. Please enter two integers.\n");
+        return 1; // Exit with an error code
+    }
+
+    int result = bitwiseAddition(a, b);
+    if (result == INT_MAX)
+    {
+        return 1; // Exit with an error code
+    }
+
     printf("\nBitwise addition using iterative function : %d", bitwiseAddition(a, b));
     printf("\nBitwise addition using recursive function : %d", bitwiseAdditionRecursive(a, b));
     return 0;
