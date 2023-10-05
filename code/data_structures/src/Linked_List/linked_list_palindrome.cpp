@@ -1,24 +1,32 @@
-// Check if the liked list is palindrome or not 
- bool checkpalindrome(vector<int> arr){
-        int s = 0;
-        int e = arr.size() -1;
-        while(s<=e){
-            if(arr[s] != arr[e]){
-                return 0;
-            }
-            s++;
-            e--;
-        }
-        return 1;
+bool isPalindrome(Node* head) {
+    if (head == NULL || head->next == NULL) {
+        return true;
     }
- 
-    bool isPalindrome(Node *head)
-    {
-        vector<int>arr;
-        Node* temp = head;
-        while(temp != NULL){
-            arr.push_back(temp -> data);
-            temp = temp -> next;
-        }
-        return checkpalindrome(arr);
+    Node* additional = head;
+    Node* slow = head, * fast = head;
+    while (fast->next != NULL && fast->next->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
     }
+
+    Node* np = slow;
+    Node* prev = slow, * curr = slow, * nex = slow;
+    curr = prev->next;
+    nex = curr->next;
+    while (nex != NULL) {
+        curr->next = nex->next;
+        nex->next = prev->next;
+        prev->next = nex;
+        nex = curr->next;
+        np = np->next;
+    }
+    slow = slow->next;
+    while (slow != NULL) {
+        if (additional->val != slow->val) {
+            return false;
+        }
+        additional = additional->next;
+        slow = slow->next;
+    }
+    return true;
+}
