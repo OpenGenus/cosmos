@@ -31,6 +31,7 @@ public:
     void deleteNode(int);
     void print();
     void reversePrint();
+    void insertionSort();
 };
 
 template <class T> doubleLinkedList<T>::doubleLinkedList()
@@ -153,6 +154,57 @@ template <class T> void doubleLinkedList<T>::reversePrint()
     cout << "NULL" << endl;
 }
 
+template <class T> void doubleLinkedList<T>::insertionSort() 
+{
+    if (!head || !head->next) 
+    {
+        // The list is empty or has only one element, which is already sorted.
+        return;
+    }
+
+    node<T> *sorted = nullptr; // Initialize a sorted sublist
+
+    node<T> *current = head;
+    while (current) {
+        node<T> *nextNode = current->next;
+
+        if (!sorted || current->info < sorted->info) 
+        {
+            // If the sorted list is empty or current node's value is smaller than the 
+            // sorted list's head,insert current node at the beginning of the sorted list.
+            current->next = sorted;
+            current->pre = nullptr;
+            if (sorted) {
+                sorted->pre = current;
+            }
+            sorted = current;
+        } 
+        else 
+        {
+            // Traverse the sorted list to find the appropriate position for the current node.
+            node<T> *temp = sorted;
+            while (temp->next && current->info >= temp->next->info) 
+            {
+                temp = temp->next;
+            }
+            // Insert current node after temp.
+            current->next = temp->next;
+            current->pre = temp;
+            if (temp->next) 
+            {
+                temp->next->pre = current;
+            }
+            temp->next = current;
+        }
+
+        current = nextNode; // Move to the next unsorted node
+    }
+
+    // Update the head of the list to point to the sorted sublist.
+    head = sorted;
+    cout<<"Sorting Complete"<<endl;
+}
+
 int main()
 {
     doubleLinkedList<int> l;
@@ -164,7 +216,8 @@ int main()
              << "2.Delete" << endl
              << "3.Print" << endl
              << "4.Reverse Print" << endl
-             << "5.Exit" << endl;
+             << "5.Sort" << endl
+             << "6.Exit" << endl;
         cin >> m;
         switch (m)
         {
@@ -185,6 +238,9 @@ int main()
             l.reversePrint();
             break;
         case 5:
+            l.insertionSort();
+            break;
+        case 6:
             exit(0);
         default:
             cout << "Invalid choice!" << endl;
