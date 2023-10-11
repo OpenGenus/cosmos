@@ -12,7 +12,7 @@ class Job {
     }
 }
 
-public class JobSequencing {
+public class job_sequencing {
 
     public static void printJobSequence(Job[] jobs) {
         // Sort jobs based on decreasing order of profit
