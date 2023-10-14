@@ -51,6 +51,19 @@ public:
         // By the method of DFS
         // Time Complexity of code: O(m*n)
         // Auxillary Space Complexity of code: O(m*n)
+        // Sample Input 1: [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
+        /*
+        In the sample input, "1" represents a land piece, and "0" represents a water area. 
+        The grid is a m*n matrix with m rows and n columns, here, m being 4 and n being 5.
+        The grid is in the form of a 2D array/vector in the input as given above. 
+        Visualizing the input more effectively, 
+        [
+        ["1","1","1","1","0"],
+        ["1","1","0","1","0"],
+        ["1","1","0","0","0"],
+        ["0","0","0","0","0"]
+        ]
+        */
         int ans = solver(grid);
         return ans;
     }
