@@ -16,14 +16,9 @@ class LongestCommonSubsequence {
 
   public static void main(String[] args) {
         LongestCommonSubsequence lcs = new LongestCommonSubsequence();
-        String s1 = "AGGAGTCTAGCTAB";
-        String s2 = "AGXGTTXAYBATCGAT";
+        String s1 = "AGGTAB";
+        String s2 = "GXTXAYB";
 
-        char []X = s1.toCharArray();
-        char []Y = s2.toCharArray();
-        int m = X.length;
-        int n = Y.length;
-
-        System.out.println("Length of LCS is" + " " + lcs.longestCommonSubsequence(X, Y, m, n));
+        System.out.println("Length of LCS is" + " " + lcs.longestCommonSubsequence(s1, s2));
     }
 }
