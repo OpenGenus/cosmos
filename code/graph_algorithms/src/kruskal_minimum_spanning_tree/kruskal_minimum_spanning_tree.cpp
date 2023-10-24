@@ -1,61 +1,93 @@
+// Kruskal's algorithm in C++
+
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
-// Part of Cosmos by OpenGenus Foundation
+using namespace std;
 
-int n, dj[100], rank[100]; //disjoint set
-int findset(int a)
-{
-    if (dj[a] != a)
-        return dj[a] = findset(dj[a]);
-    else
-        return a;
+#define edge pair<int, int>
+
+class Graph {
+   private:
+  vector<pair<int, edge> > G;  // graph
+  vector<pair<int, edge> > T;  // mst
+  int *parent;
+  int V;  // number of vertices/nodes in graph
+   public:
+  Graph(int V);
+  void AddWeightedEdge(int u, int v, int w);
+  int find_set(int i);
+  void union_set(int u, int v);
+  void kruskal();
+  void print();
+};
+Graph::Graph(int V) {
+  parent = new int[V];
+
+  //i 0 1 2 3 4 5
+  //parent[i] 0 1 2 3 4 5
+  for (int i = 0; i < V; i++)
+    parent[i] = i;
+
+  G.clear();
+  T.clear();
 }
-bool sameset(int a, int b)
-{
-    return findset(a) == findset(b);
+void Graph::AddWeightedEdge(int u, int v, int w) {
+  G.push_back(make_pair(w, edge(u, v)));
 }
-void unionset(int a, int b)
-{
-    int x = findset(a), y = findset(b);
-    if (rank[x] > rank[y])
-        dj[y] = x;
-    else
-    {
-        dj[x] = y;
-        if (rank[x] == rank[y])
-            rank[y]++;
-    }
+int Graph::find_set(int i) {
+  // If i is the parent of itself
+  if (i == parent[i])
+    return i;
+  else
+    // Else if i is not the parent of itself
+    // Then i is not the representative of his set,
+    // so we recursively call Find on its parent
+    return find_set(parent[i]);
 }
 
-int main()
-{
-    using namespace std;
-    int e, u, v, w;
-    vector< pair<int, pair<int, int>>> edge;      //(weight, two vertices that the edge connects)
-    for (int i = 0; i < n; i++)
-    {
-        dj[i] = i;
-        ::rank[i] = 0;
+void Graph::union_set(int u, int v) {
+  parent[u] = parent[v];
+}
+void Graph::kruskal() {
+  int i, uRep, vRep;
+  sort(G.begin(), G.end());  // increasing weight
+  for (i = 0; i < G.size(); i++) {
+    uRep = find_set(G[i].second.first);
+    vRep = find_set(G[i].second.second);
+    if (uRep != vRep) {
+      T.push_back(G[i]);  // add to tree
+      union_set(uRep, vRep);
     }
-    cout << "Input Number of Edges" << endl;
-    cin >> e;
-    cout << "Input Edges (weight and then two vertices that the edge connects)" << endl;
-    for (int i = 0; i < e; i++)
-    {
-        cin >> u >> v >> w;   //u,v,w are just temporary variables
-        edge.push_back({u, {v, w}});
-    }
-    sort(edge.begin(), edge.end());    //sort by edge weight
-    int mst = 0;
-    for (int i = 0; i < e; i++)
-    {
-        int x = edge[i].second.first, y = edge[i].second.second;
-        if (!sameset(x, y))
-        {
-            mst += edge[i].first;
-            unionset(x, y);
-        }
-    }
-    cout << mst << endl;
+  }
+}
+void Graph::print() {
+  cout << "Edge :"
+     << " Weight" << endl;
+  for (int i = 0; i < T.size(); i++) {
+    cout << T[i].second.first << " - " << T[i].second.second << " : "
+       << T[i].first;
+    cout << endl;
+  }
+}
+int main() {
+  Graph g(6);
+  g.AddWeightedEdge(0, 1, 4);
+  g.AddWeightedEdge(0, 2, 4);
+  g.AddWeightedEdge(1, 2, 2);
+  g.AddWeightedEdge(1, 0, 4);
+  g.AddWeightedEdge(2, 0, 4);
+  g.AddWeightedEdge(2, 1, 2);
+  g.AddWeightedEdge(2, 3, 3);
+  g.AddWeightedEdge(2, 5, 2);
+  g.AddWeightedEdge(2, 4, 4);
+  g.AddWeightedEdge(3, 2, 3);
+  g.AddWeightedEdge(3, 4, 3);
+  g.AddWeightedEdge(4, 2, 4);
+  g.AddWeightedEdge(4, 3, 3);
+  g.AddWeightedEdge(5, 2, 2);
+  g.AddWeightedEdge(5, 4, 3);
+  g.kruskal();
+  g.print();
+  return 0;
 }
