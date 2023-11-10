@@ -2,19 +2,18 @@
 #   Part of cosmos from OpenGenus Foundations
 # ------------------
 import sys
+
 """
     Class FCFS accepts dictionary for __processes
 """
 
 
-class FCFS():
+class FCFS:
     def __init__(self, processes):
         # initializing private method
         self.__processes = processes  # colling processes
-        self.__wtList = self.__wtl(
-        )  # self.__wtl() returns a list of waiting_time
-        self.__taList = self.__tal(
-        )  # self.__tal() returns a list of turn_arround_time
+        self.__wtList = self.__wtl()  # self.__wtl() returns a list of waiting_time
+        self.__taList = self.__tal()  # self.__tal() returns a list of turn_arround_time
         pass
 
     # Print() prints details about the processes
@@ -30,14 +29,19 @@ class FCFS():
                 self.__processes[process][1],
                 self.__wtList[l],
                 self.__taList[l],
-                sep=" -> ")
+                sep=" -> ",
+            )
             l += 1  # incrementing the list
             pass
         pass
 
     # Print_Chat() prints the gantt chart for the FCFS
     def Print_Chat(self):
-        for process in self.__processes:  # creating line | separates the process and = indicates the burst_time
+        for (
+            process
+        ) in (
+            self.__processes
+        ):  # creating line | separates the process and = indicates the burst_time
             print("=" * self.__processes[process][1], "|", end="", sep="")
             pass
         print()

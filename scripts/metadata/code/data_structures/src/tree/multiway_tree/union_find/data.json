@@ -1,0 +1,17 @@
+{
+  "location": "code/data_structures/src/tree/multiway_tree/union_find",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "union_find.py",
+    "union_find.c",
+    "union_find.js",
+    "union_find_dynamic.cpp",
+    "union_find.scala",
+    "union_find.go",
+    "union_find.cpp",
+    "README.md",
+    "union_find.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

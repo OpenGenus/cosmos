@@ -4,7 +4,7 @@
 
 /**
  * Method which returns the Minimum Cuts to perform Palindrome Partioning
- * @param {string} inputString 
+ * @param {string} inputString
  */
 function palindromePartioning(inputString) {
   // Get the length of the string
@@ -63,6 +63,6 @@ function palindromePartioning(inputString) {
 
 console.log(
   `Minimum Cuts to perform Palindrome Partioning - ${palindromePartioning(
-    'hallelujah'
+    "hallelujah"
   )}`
 );

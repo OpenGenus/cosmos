@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/stack/infix_to_postfix",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "infix_to_postfix.c",
+    "infix_to_postfix.java",
+    "infix_to_postfix.py",
+    "infix_to_postfix.cpp",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

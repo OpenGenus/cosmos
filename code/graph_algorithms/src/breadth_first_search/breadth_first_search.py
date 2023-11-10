@@ -6,14 +6,19 @@ import collections
     Wrapper function for the print function.
     Used as the default visitFunc for bfs
 """
+
+
 def visitPrint(i):
     print(i)
+
 
 """
     A class representing a undirected graph of nodes.
     An edge can be added between two nodes by calling addEdge
         *This class assumes all edge weights are equal
 """
+
+
 class Graph:
     def __init__(self):
         self.adjList = collections.defaultdict(set)
@@ -22,6 +27,7 @@ class Graph:
         self.adjList[node1].add(node2)
         self.adjList[node2].add(node1)
 
+
 """
     Given a 'start' node and a 'graph', call visitFunc
     sequentially on the current node, and then its children
@@ -29,20 +35,23 @@ class Graph:
     When visiting each node, mark it as visited by adding it to the hashmap.
     Then queue up all of its children to be visited next.
 """
+
+
 def bfs(start, graph, visitFunc=visitPrint):
     visited = collections.defaultdict(bool)
     queue = collections.deque()
 
     queue.append(start)
 
-    while(len(queue) > 0):
+    while len(queue) > 0:
         current = queue.popleft()
 
-        if (not visited[current]):
+        if not visited[current]:
             visited[current] = True
             visitFunc(current)
             for neighbor in graph.adjList[current]:
                 queue.append(neighbor)
+
 
 # Testing the breadth first search implementation
 if __name__ == "__main__":

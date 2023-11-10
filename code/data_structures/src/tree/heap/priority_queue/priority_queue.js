@@ -1,13 +1,12 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
-Array.prototype.swap = function (x,y) {
+Array.prototype.swap = function(x, y) {
   let b = this[x];
   this[x] = this[y];
   this[y] = b;
 
   return this;
 };
-
 
 /**
  * PriorityQueue constructor
@@ -36,8 +35,8 @@ function PriorityQueue(data, compareFn) {
 function init() {
   if (this.data.length > 1) {
     let n = this.data.length;
-    for (let i = Math.floor(n/2 - 1);i >= 0; i -=1) {
-      this._down(i, n)
+    for (let i = Math.floor(n / 2 - 1); i >= 0; i -= 1) {
+      this._down(i, n);
     }
   }
 }
@@ -47,7 +46,7 @@ function init() {
  * @returns {*|Object}
  */
 function top() {
-  return this.data[0]
+  return this.data[0];
 }
 
 /**
@@ -102,7 +101,7 @@ function defaultCompareFn(p, q) {
  * @param index
  */
 function up(index) {
-  while(index > 0) {
+  while (index > 0) {
     let parentIndex = parent(index);
     let parentItem = this.data[parentIndex];
     let currentItem = this.data[index];
@@ -124,10 +123,11 @@ function up(index) {
  */
 function down(index, n) {
   let i = index;
-  while(true) {
+  while (true) {
     let currentItem = this.data[i];
     let j1 = leftChild(i);
-    if (j1+1 >= n || j1 < 0) { // overflows
+    if (j1 + 1 >= n || j1 < 0) {
+      // overflows
       break;
     }
     let j = j1; // left child
@@ -160,9 +160,8 @@ function parent(index) {
  * @returns {number} left child index
  */
 function leftChild(index) {
-  return index * 2 + 1
+  return index * 2 + 1;
 }
-
 
 function main() {
   const pq = new PriorityQueue([45, 6, 4, 3, 2, 72, 34, 12, 456, 29, 312]);
@@ -171,6 +170,3 @@ function main() {
 }
 
 main();
-
-
-

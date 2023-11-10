@@ -1,0 +1,11 @@
+{
+  "location": "code/mathematical_algorithms/src/gaussian_elimination/scala/src/main/scala/gaussian/elimination",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "gaussianelimination.scala",
+    "matrixtype.scala",
+    "solution.scala"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

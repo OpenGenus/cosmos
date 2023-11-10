@@ -1,3 +1,4 @@
-.vscode
-
+**/*.vscode
+**/*.netrwhist
 .DS_Store
+.replit

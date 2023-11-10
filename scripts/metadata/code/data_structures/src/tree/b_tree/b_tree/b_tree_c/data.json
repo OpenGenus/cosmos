@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/tree/b_tree/b_tree/b_tree_c",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "btree.h",
+    "btree.c",
+    "main.c",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

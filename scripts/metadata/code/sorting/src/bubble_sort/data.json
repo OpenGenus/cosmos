@@ -1,0 +1,32 @@
+{
+  "location": "code/sorting/src/bubble_sort",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "bubble_sort.py",
+    "bubble_sort.sml",
+    "bubble_sort.go",
+    "bubble_sort.hs",
+    "bubble_sort.rb",
+    "bubble_sort.sh",
+    "bubble_sort.jl",
+    "bubble_sort.php",
+    "bubble_sort.m",
+    "bubble_sort.c",
+    "bubble_sort.swift",
+    "bubble_sort.cs",
+    "bubble_sort.cpp",
+    "bubble_sort.rs",
+    "bubble_sort.exs",
+    "bubble_sort_extension.swift",
+    "bubble_sort_efficient.cpp",
+    "bubble_sort.ts",
+    "README.md",
+    "bubble_sort.js",
+    "bubble_sort.f",
+    "bubble_sort.elm",
+    "bubble_sort.java",
+    "bubble_sort.kt"
+  ],
+  "updated": "18-05-2019 08:11:07"
+}

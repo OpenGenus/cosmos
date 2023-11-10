@@ -1,0 +1,10 @@
+{
+  "location": "code/online_challenges/src/rosalind/complement_dna_strand",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "complement_dna.rs",
+    "complement_dna_strand.exs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,0 +1,6 @@
+# Problem Link
+
+[NEWSCH](https://www.codechef.com/problems/NEWSCH)
+
+# Description
+Scheme? - Too loudly said. Just a new idea. Now Chef is expanding his business. He wants to make some new restaurants in the big city of Lviv. To make his business competitive he should interest customers. Now he knows how. But don't tell anyone - it is a secret plan. Chef knows four national Ukrainian dishes - salo, borsch, varenyky and galushky. It is too few, of course, but enough for the beginning. Every day in his restaurant will be a dish of the day among these four ones. And dishes of the consecutive days must be different. To make the scheme more refined the dish of the first day and the dish of the last day must be different too. Now he wants his assistant to make schedule for some period. Chef suspects that there is more than one possible schedule. Hence he wants his assistant to prepare all possible plans so that he can choose the best one among them. He asks you for help. At first tell him how many such schedules exist. Since the answer can be large output it modulo 109 + 7, that is, you need to output the remainder of division of the actual answer by 109 + 7.

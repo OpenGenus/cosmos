@@ -6,10 +6,10 @@
 array = []
 # array to store cumulative sum
 bit = []
-'''
+"""
 index i in the bit[] array stores the cumulative sum from the index i to i - (1<<r) + 1 (both inclusive),
  where r represents the last set bit in the index i
-'''
+"""
 
 
 class FenwickTree:

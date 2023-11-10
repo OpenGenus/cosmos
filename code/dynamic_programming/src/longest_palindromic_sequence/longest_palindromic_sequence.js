@@ -1,11 +1,11 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 function longest_palindrome(str) {
-  let longest = [];  // A table to store results of subproblems
+  let longest = []; // A table to store results of subproblems
 
   // Strings of length 1 are palindrome of lentgh 1
   for (let i = 0; i < str.length; i++) {
-   (longest[i] = longest[i] || [])[i] = 1;
+    (longest[i] = longest[i] || [])[i] = 1;
   }
 
   for (let cl = 2; cl <= str.length; ++cl) {
@@ -26,9 +26,9 @@ function longest_palindrome(str) {
 
 //test
 [
-  [ 'bbabcbcab', 7 ], // 7: babcbab | bacbcab
-  [ 'abbaab', 4 ], // 4: abba | baab
-  [ 'opengenus', 3 ], // 3: ene | ege | ngn | nen
+  ["bbabcbcab", 7], // 7: babcbab | bacbcab
+  ["abbaab", 4], // 4: abba | baab
+  ["opengenus", 3] // 3: ene | ege | ngn | nen
 ].forEach(test => {
   console.assert(longest_palindrome(test[0]) == test[1]);
 });

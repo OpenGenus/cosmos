@@ -8,8 +8,7 @@ class Event(Enum):
     Joke = 1
 
 
-class SomeWhere():
-
+class SomeWhere:
     def __init__(self):
         self._member = {}
 
@@ -57,7 +56,6 @@ res = []
 
 
 class TestObserver(unittest.TestCase):
-
     def test_observer(self):
         global res
         study_room = Observer(StudyRoom())
@@ -80,37 +78,45 @@ class TestObserver(unittest.TestCase):
         # Just cooking.
         res = []
         kitchen.notify(Event.Joke)
-        self.assertListEqual(sorted(res),
-                             sorted(["I received, A false alarm ...",
-                                     "My sister received, A false alarm ..."]))
+        self.assertListEqual(
+            sorted(res),
+            sorted(
+                [
+                    "I received, A false alarm ...",
+                    "My sister received, A false alarm ...",
+                ]
+            ),
+        )
 
         # My sister is on her way to school.
         study_room.remove_member("My sister")
         school.add_member("My sister")
         res = []
         kitchen.notify(Event.Joke)
-        self.assertListEqual(sorted(res),
-                             sorted(["I received, A false alarm ..."]))
+        self.assertListEqual(sorted(res), sorted(["I received, A false alarm ..."]))
 
         # Living room alert is no longer needed.
         living_room.detach_notifier(kitchen)
         res = []
         kitchen.notify(Event.Joke)
-        self.assertListEqual(sorted(res),
-                             sorted([]))
+        self.assertListEqual(sorted(res), sorted([]))
 
         # I am studying
         living_room.remove_member("I")
         study_room.add_member("I")
         res = []
         kitchen.notify(Event.Joke)
-        self.assertListEqual(sorted(res),
-                             sorted(["I received, A false alarm ..."]))
+        self.assertListEqual(sorted(res), sorted(["I received, A false alarm ..."]))
 
         # emergency alart notify you everywhere
         res = []
         emergency_alart.notify(Event.Earthquake)
         self.assertListEqual(
             sorted(res),
-            sorted(["I received, need to run away !!!",
-                    "My sister received, need to run away !!!"]))
+            sorted(
+                [
+                    "I received, need to run away !!!",
+                    "My sister received, need to run away !!!",
+                ]
+            ),
+        )

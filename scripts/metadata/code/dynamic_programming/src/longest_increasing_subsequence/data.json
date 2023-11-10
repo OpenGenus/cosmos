@@ -1,0 +1,16 @@
+{
+  "location": "code/dynamic_programming/src/longest_increasing_subsequence",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "longest_increasing_subsequence.js",
+    "longest_increasing_subsequence.py",
+    "longest_increasing_subsequence.go",
+    "longest_increasing_subsequence.cpp",
+    "longest_increasing_subsequence_using_segment_tree.cpp",
+    "README.md",
+    "longest_increasing_subsequence.java",
+    "longest_increasing_subsequence.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

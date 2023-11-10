@@ -1,21 +1,19 @@
 /* Part of Cosmos by OpenGenus Foundation */
-export function bubbleSort(items: number[]): number[] {
-	const n = items.length;
-	let swapped = false;
+export function bubbleSort(items: Array<number>): Array<number> {
+	let swapped: boolean = false;
 	do {
 		swapped = false;
 		// 1. Run through the list.
-		for(let i = 0; i < n-1 ; i++) {
+		items.forEach((item: number, index: number, items: Array<number>) => {
 			// 2. Compare each adjacent pair of element
-			if(items[i] > items[i + 1]) {
+			if (item > items[index + 1]) {
 				// 3. Swap elements if not in correct order
-				const tmp = items[i];
-				items[i] = items[i + 1];
-				items[i + 1] = tmp;
+				const tmp = item;
+				items[index] = items[index + 1];
+				items[index + 1] = tmp;
 				swapped = true;
 			}
-
-		}
+		});
 	// 4. Repeat until no swap is needed
 	} while(swapped)
 	return items;

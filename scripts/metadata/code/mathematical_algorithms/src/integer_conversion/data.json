@@ -1,0 +1,14 @@
+{
+  "location": "code/mathematical_algorithms/src/integer_conversion",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "decimal_to_any_base.py",
+    "decimal_to_int.go",
+    "decimal_to_hex.cpp",
+    "decimal_to_bin.cpp",
+    "decimal_to_oct.cpp",
+    "decimal_to_any_base.js"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

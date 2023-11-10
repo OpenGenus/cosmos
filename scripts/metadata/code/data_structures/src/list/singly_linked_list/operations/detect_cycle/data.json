@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/list/singly_linked_list/operations/detect_cycle",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "detect_cycle.cpp",
+    "detect_cycle_hashmap.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

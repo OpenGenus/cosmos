@@ -1,0 +1,13 @@
+{
+  "location": "code/greedy_algorithms/src/prim_minimum_spanning_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "prim_minimum_spanning_tree.cpp",
+    "prim_minimum_spanning_tree.c",
+    "README.md",
+    "prim_minimum_spanning_tree.py",
+    "prim_minimum_spanning_tree.hs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -66,6 +66,8 @@ bool isBST(Node* root)
 // Another variation
 
 // Utility function
+
+//another function for the same but need to provide the min and max in the the tree beforehand
 template<typename Node>
 int isBSTUtil(Node *root, int min, int max)
 {

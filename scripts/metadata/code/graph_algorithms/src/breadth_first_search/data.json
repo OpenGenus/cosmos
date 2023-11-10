@@ -1,0 +1,15 @@
+{
+  "location": "code/graph_algorithms/src/breadth_first_search",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "bfs.c",
+    "breadth_first_search.swift",
+    "bfs.cpp",
+    "README.md",
+    "breadth_first_search.py",
+    "bfs.java",
+    "bfs.rb"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

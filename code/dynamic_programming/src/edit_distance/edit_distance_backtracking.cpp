@@ -83,7 +83,7 @@ public:
             if (i == 0 || j == 0)
                 break;
             //A[i][j] will have one of the three above values from which it is derived
-            //so comapring from each one
+            //so comparing from each one
             if (i >= 0 && j >= 0 && rec(i, j) == modC(sx[i - 1], sy[j - 1]) + A[i - 1][j - 1])
             {
                 sa.push_back(sx[i - 1]);

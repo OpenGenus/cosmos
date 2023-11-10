@@ -1,0 +1,10 @@
+{
+  "location": "code/operating_system/src/concurrency/dining_philosophers",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "dining_philosophers.c",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

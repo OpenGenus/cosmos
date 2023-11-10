@@ -1,6 +1,6 @@
 const smallest_digit_in_number = input => {
-  if (typeof input !== 'number') {
-    console.error('Please enter a number.');
+  if (typeof input !== "number") {
+    console.error("Please enter a number.");
     return;
   }
 
@@ -19,6 +19,6 @@ const smallest_digit_in_number = input => {
   numbers.sort();
 
   return numbers[0];
-}
+};
 
 console.log(smallest_digit_in_number(243245));

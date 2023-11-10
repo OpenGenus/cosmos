@@ -1,4 +1,12 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter.
+# QuickSelect
+It is a selection algorithm to find the k-th smallest element in an unordered list. It is related to the quick sort sorting algorithm.
 
-A large scale collaboration of [OpenGenus](https://github.com/opengenus)
+## Complexity
+O(n) (with a worst-case of O(n^2))
+
+---
+<p align="center">
+	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
+</p>
+
+---

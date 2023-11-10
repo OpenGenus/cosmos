@@ -1,0 +1,19 @@
+{
+  "location": "code/dynamic_programming/src/edit_distance",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "edit_distance.php",
+    "edit_distance.rs",
+    "edit_distance_hirschberg.cpp",
+    "edit_distance_backtracking.cpp",
+    "edit_distance.go",
+    "edit_distance.c",
+    "edit_distance.py",
+    "edit_distance.cpp",
+    "edit_distance.hs",
+    "edit_distance.java",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:05"
+}

@@ -1,0 +1,65 @@
+During the last decade, the ToF range imaging cameras have significantly
+improved and have been used in various applications from agricultural sectors
+to engineering industries. With the improvement of the technology to build
+the depth sensor, novel applications of ToF range imaging will increase. At
+present, more researchers are mainly focused on the noise investigation in
+these cameras. However, from this thesis, we found that the jitter significantly
+influences range measurements therefore it is worth further investigating jitter
+in ToF range imaging systems. Several investigations could be extended to
+further perform the ToF range imaging systems due to the jitter influence on
+measurements as follows.
+
+The proposed methodology in Chapters 4 and 5 could be extended to correct
+range measurements after extracting and measuring the RJ and PJ in the
+light signal of the camera. This will be very useful since the available jitter can
+be compensated before the measurement. Since for a particular configuration
+of the AMCW camera (e.g., with default modulation frequency and integration 
+period), the periodic and random jitter in the illumination source is fixed
+amounts which can be computed with the proposed methodology. Then, considering
+the benchmark numerical results in Chapters 7 and 8 for the influence
+of the periodic and random jitter on range measurements, respectively, can
+be applied for compensating of the measurement. In addition, the proposed
+algorithm may be applied to extract the jitter in other types of ToF range
+imaging cameras such as pulse based and pseudo-noise based modulation cameras.
+This methodology can be used for jitter measurement in any kind of
+application where the reference clock signal cannot be accessed.
+
+A cheaper SDR USB dongle with the proposed algorithm for jitter extraction
+in ToF cameras at lower frequencies in the RF signal was investigated in
+Chapter 6. The high sample rates and high quality of SDRs can be used to
+explore the relatively large range of frequencies of the PJ and RJ in the light
+source of the AMCW ToF cameras by setting a suitable local oscillator frequency
+to get a large intermediate frequency (less than the Nyquist frequency)
+in the dongle. Also, this concept may be used to find the jitter in the light
+source of the aforementioned two modulation types of ToF range imaging cameras
+as well as in any other relevant applications. In addition, it may possible
+to modify the DSP engine in the dongle which is a software based controller in
+order to get maximum benefit but this may not be a straightforward process.
+
+In Chapter 7, the influence of the periodic jitter on range measurements
+was investigated. Can we compensate the PJ amount in the first phase step
+(by determining and correcting it) before it proceeds to the second phase step
+and so on, in the correlation function within the integration period? With
+the influence of the PJ in each phase step a constant (a fixed amount), then
+it can be further analysed with the crosstalking between phase steps, during
+the integration period. But if it is not a constant (i.e., random behaviour),
+then it will be difficult to compensate for the influence of the PJ on range 
+measurements. Thus, this is a more challenging task for future investigation
+that arises from Chapter 7. On the other hand, here the periodic jitter at a
+single frequency was considered. But in practice, the ToF cameras may have
+periodic jitter at multiple frequencies. Then, it is very interesting to know how
+the analytical model will change accordingly. Will the influence be linear or
+non-linear and will it be partially or fully cancel on range measurements? So,
+some interesting questions arise from this future investigation.
+
+A finite number of evaluations of the Monte Carlo simulation were used to
+investigate the influence of random jitter on range measurements in Chapter 8. 
+With increasing the number of simulations, it is surprisingly effective to estimate
+the better result than the current one. In order to understand the
+impact of uncertainty of the results obtained, it is necessary to analyse the
+stochastic model for the full range of possible outcomes, to get much more
+accurate results. On the other hand, all simulations were done at fixed integration
+period T = 1 ms and it is interesting to investigate the behaviour of the
+random jitter for various T, especially for less than 1 ms integration period
+since now the depth sensor manufacturers are trying to develop the AMCW
+ToF cameras with short integration periods. 

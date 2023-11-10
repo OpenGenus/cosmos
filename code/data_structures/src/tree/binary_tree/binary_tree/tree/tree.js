@@ -1,16 +1,16 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 /*Binary Search Tree!!
-*
-* Nodes that will go on the Binary Tree.
-* They consist of the data in them, the node to the left, the node
-* to the right, and the parent from which they came from.
-*
-* A binary tree is a data structure in which an element
-* has two successors(children). The left child is usually
-* smaller than the parent, and the right child is usually
-* bigger.
-*/
+ *
+ * Nodes that will go on the Binary Tree.
+ * They consist of the data in them, the node to the left, the node
+ * to the right, and the parent from which they came from.
+ *
+ * A binary tree is a data structure in which an element
+ * has two successors(children). The left child is usually
+ * smaller than the parent, and the right child is usually
+ * bigger.
+ */
 
 // Node in the tree
 function Node(val) {
@@ -29,7 +29,7 @@ Node.prototype.search = function(val) {
     return this.right.search(val);
   }
   return null;
-}
+};
 
 // Visit a node
 Node.prototype.visit = function() {
@@ -43,7 +43,7 @@ Node.prototype.visit = function() {
   if (this.right != null) {
     this.right.visit();
   }
-}
+};
 
 // Add a node
 Node.prototype.addNode = function(n) {
@@ -51,7 +51,7 @@ Node.prototype.addNode = function(n) {
     if (this.left == null) {
       this.left = n;
     } else {
-      this.left.addNode(n)
+      this.left.addNode(n);
     }
   } else if (n.value > this.value) {
     if (this.right == null) {
@@ -60,7 +60,7 @@ Node.prototype.addNode = function(n) {
       this.right.addNode(n);
     }
   }
-}
+};
 
 function Tree() {
   // Just store the root
@@ -70,19 +70,17 @@ function Tree() {
 // Inorder traversal
 Tree.prototype.traverse = function() {
   this.root.visit();
-}
+};
 
 // Start by searching the root
 Tree.prototype.search = function(val) {
   var found = this.root.search(val);
-  if(found === null)
-  {
+  if (found === null) {
     console.log(val + " not found");
+  } else {
+    console.log("Found:" + found.value);
   }
-  else{
-    console.log("Found:"+found.value);
-  }
-}
+};
 
 // Add a new value to the tree
 Tree.prototype.addValue = function(val) {
@@ -92,7 +90,7 @@ Tree.prototype.addValue = function(val) {
   } else {
     this.root.addNode(n);
   }
-}
+};
 
 //Implementation of BST
 var bst = new Tree();

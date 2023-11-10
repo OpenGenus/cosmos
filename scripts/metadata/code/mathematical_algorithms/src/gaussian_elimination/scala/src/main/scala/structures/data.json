@@ -1,0 +1,11 @@
+{
+  "location": "code/mathematical_algorithms/src/gaussian_elimination/scala/src/main/scala/structures",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "matrix.scala",
+    "epsilon.scala",
+    "regularmatrix.scala"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

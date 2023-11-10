@@ -1,0 +1,10 @@
+{
+  "location": "code/graph_algorithms/src/tarjan_algorithm_strongly_connected_components",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "README.md",
+    "tarjan_algorithm.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

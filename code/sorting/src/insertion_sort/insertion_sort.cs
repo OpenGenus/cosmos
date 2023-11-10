@@ -19,19 +19,25 @@ namespace ConsoleApplication1
             {
                 Console.WriteLine(arr[i]);
             }
-            insertsort(arr, 5);
+            InsertionSort(arr, 5);
             Console.WriteLine("The Sorted Array is :");
+            
             for (i = 0; i < 5; i++)
                 Console.WriteLine(arr[i]); 
             Console.ReadLine();
-        }        
-        static void insertsort(int[] data, int n)
+        }  
+         
+        static void InsertionSort(int[] data, int n)
         {
             int i, j;
             for (i = 1; i < n; i++)
             {
                 int item = data[i];
                 int ins = 0;
+                /* Move elements of data[0..i-1], 
+                that are greater than item, 
+                to one position ahead of 
+                their current position */
                 for (j = i - 1; j >= 0 && ins != 1; )
                 {
                     if (item < data[j])

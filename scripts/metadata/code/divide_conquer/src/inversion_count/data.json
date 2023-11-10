@@ -1,0 +1,14 @@
+{
+  "location": "code/divide_conquer/src/inversion_count",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "count_inversions.c",
+    "inversion_count.cpp",
+    "inversion_count.java",
+    "inversion_count.py",
+    "inversion_count.js",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

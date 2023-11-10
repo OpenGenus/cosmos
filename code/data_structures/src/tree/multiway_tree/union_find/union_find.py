@@ -2,7 +2,6 @@
 
 
 class UnionFind:
-
     def __init__(self):
         self.parent = {}
         self.rank = {}
@@ -56,8 +55,12 @@ def main():
     union_find.union(7, 9)
     union_find.union(3, 9)
     for i in range(1, 10):
-        print("{} is in group {} with {} elements".format(
-            i, union_find.find(i), union_find.count(i)))
+        print(
+            "{} is in group {} with {} elements".format(
+                i, union_find.find(i), union_find.count(i)
+            )
+        )
+
 
 if __name__ == "__main__":
     main()

@@ -75,9 +75,12 @@ binarySearchImpl(_Random_Access_Iter first,
                  std::random_access_iterator_tag,
                  recursive_binary_search_tag)
 {
+     // verifying the base condition in order to proceed with the binary search               
     if (first <= last)
     {
+             // calculating the middle most term
         _Random_Access_Iter mid = first + (last - first) / 2;
+         // checking whether the term to be searched lies in the first half or second half of the series    
 
         if (comp(*mid, find))
             return binarySearchImpl(mid + 1,

@@ -1,0 +1,11 @@
+{
+  "location": "code/data_structures/src/list/singly_linked_list/operations/insertion",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "insertion_at_front.py",
+    "insertion_at_nth_node.py",
+    "insertion_at_ending.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

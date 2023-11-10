@@ -1,0 +1,11 @@
+{
+  "location": "code/string_algorithms/src/finite_automata",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "searchstringusingdfa.rs",
+    "searchstringusingdfa.java",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

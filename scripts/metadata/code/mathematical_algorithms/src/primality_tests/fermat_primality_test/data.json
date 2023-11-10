@@ -1,0 +1,10 @@
+{
+  "location": "code/mathematical_algorithms/src/primality_tests/fermat_primality_test",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "fermat_primality_test.py",
+    "fermat_primality_test.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

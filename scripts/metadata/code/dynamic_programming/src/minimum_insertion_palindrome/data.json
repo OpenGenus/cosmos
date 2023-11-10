@@ -1,0 +1,9 @@
+{
+  "location": "code/dynamic_programming/src/minimum_insertion_palindrome",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "minimum_insertions_palindrome_using_lcs.cpp"
+  ],
+  "updated": "18-05-2019 08:11:05"
+}

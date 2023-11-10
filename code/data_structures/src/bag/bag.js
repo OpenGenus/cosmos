@@ -10,8 +10,8 @@ function Bag() {
 let bag1 = new Bag();
 console.log(bag1.size()); // 0
 
-bag1.add('Blue ball');
+bag1.add("Blue ball");
 console.log(bag1.size()); // 1
 
-bag1.add('Red ball');
+bag1.add("Red ball");
 console.log(bag1.size()); // 2

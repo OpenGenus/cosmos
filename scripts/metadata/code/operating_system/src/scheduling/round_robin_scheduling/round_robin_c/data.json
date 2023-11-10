@@ -1,0 +1,12 @@
+{
+  "location": "code/operating_system/src/scheduling/round_robin_scheduling/round_robin_c",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "queue.h",
+    "queue.c",
+    "README.md",
+    "round_robin.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

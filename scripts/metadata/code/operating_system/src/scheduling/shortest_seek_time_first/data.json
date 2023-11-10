@@ -1,0 +1,10 @@
+{
+  "location": "code/operating_system/src/scheduling/shortest_seek_time_first",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "shortest_seek_time_first.c",
+    "shortest_seek_time_first.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

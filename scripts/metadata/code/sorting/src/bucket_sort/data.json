@@ -1,0 +1,21 @@
+{
+  "location": "code/sorting/src/bucket_sort",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "bucket_sort.js",
+    "bucket_sort.c",
+    "bucket_sort.rb",
+    "bucket_sort.cs",
+    "bucket_sort.go",
+    "bucket_sort.php",
+    "bucket_sort.java",
+    "bucket_sort.swift",
+    "bucket_sort.py",
+    "README.md",
+    "bucket_sort.m",
+    "bucket_sort.cpp",
+    "bucket_sort.hs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

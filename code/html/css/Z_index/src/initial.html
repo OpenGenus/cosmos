@@ -1,0 +1,34 @@
+<style>
+    img
+    {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    }
+    h1
+    {
+    z-index: 1;
+    position: absolute;
+    top: 220px;
+    }
+    #b1
+    {
+    position:absolute;
+    top:400px;
+    }
+</style>
+<img src="OpenGenus.jpg" alt="OpenGenus Logo" id="img1">
+<h1> Generic Heading </h1>
+<button onclick="function1()"> Click here to Modify Z-index of Image </button>
+<button onclick="function2()" id="b1"> Click here to Restore Defaults </button>
+<script>
+    function function1()
+    {
+    document.getElementById("img1").style.zIndex=2;
+    }
+    function function2()
+    {
+    document.getElementById("img1").style.zIndex=initial;
+    }
+</script>

@@ -1,0 +1,12 @@
+{
+  "location": "code/string_algorithms/src/boyer_moore_algorithm",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "boyer_moore_algorithm.c",
+    "boyer_moore_algorithm.cpp",
+    "README.md",
+    "boyer_moore_algorithm2.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

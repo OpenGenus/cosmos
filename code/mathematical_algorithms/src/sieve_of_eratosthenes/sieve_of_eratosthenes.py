@@ -1,4 +1,5 @@
 import sys
+
 # Part of Cosmos by OpenGenus Foundation
 def sieve_erato(n):
     loops = 0
@@ -8,6 +9,7 @@ def sieve_erato(n):
             numbers.discard(j)
             loops += 1
     return sorted(numbers), loops
+
 
 try:
     primes = sieve_erato(int(input().rstrip()))

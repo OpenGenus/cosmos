@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include<stdbool.h>
 
 long long p, q, n, t, d, e, m[100], en[100];
 /*

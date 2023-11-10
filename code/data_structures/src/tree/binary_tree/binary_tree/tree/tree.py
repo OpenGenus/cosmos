@@ -1,6 +1,6 @@
 ## BST operation
 ## functionalities included are:
-'''
+"""
 *insert node
 *delete node
 *find successor of a node
@@ -11,7 +11,7 @@
 *search in BST
 *get node path in BST
 *find Lowest Common Ancestor in BST(LCA)
-'''
+"""
 
 
 ## class for node creation
@@ -32,26 +32,26 @@ class BST(object):
 
     def insert(self, val):
         if self.root == None:
-            print "root!"
+            print("root!")
             self.root = Node(val)
         else:
             root = self.root
             while True:
                 if val < root.data:
                     if not root.left:
-                        print "left",
+                        print("left")
                         root.left = Node(val)
                         break
                     else:
-                        print "left",
+                        print("left")
                         root = root.left
                 else:
                     if not root.right:
-                        print "right",
+                        print("right")
                         root.right = Node(val)
                         break
                     else:
-                        print "right",
+                        print("right")
                         root = root.right
 
     def insert_recursive(self, root, val):
@@ -68,10 +68,10 @@ class BST(object):
     def traverse(self):  ## level order traversals
         nodes = []
         nodes.append(self.root)
-        print "\n\nBST representation"
+        print("\n\nBST representation")
         while nodes:
             current = nodes.pop(0)
-            print current.data,
+            print(current.data)
             if current.left:
                 nodes.append(current.left)
             if current.right:
@@ -102,21 +102,22 @@ class BST(object):
             return current.data
 
     def height_(self, root):  ## the height driver function
-        if root == None: return 0
+        if root == None:
+            return 0
         else:
             max_left_subtree_height = self.height_(root.left)
             max_right_subtree_height = self.height_(root.right)
-            max_height = max(max_left_subtree_height,
-                             max_right_subtree_height) + 1
+            max_height = max(max_left_subtree_height, max_right_subtree_height) + 1
             return max_height
 
     ## height of the first node is 0 not 1
     def height(self):
         depth = self.height_(self.root)
-        return (depth - 1)
+        return depth - 1
 
     def search(self, val):
-        if self.root is None: return False
+        if self.root is None:
+            return False
         else:
             current = self.root
             while True:
@@ -171,7 +172,8 @@ class BST(object):
             min_list, max_list = path1, path2
             for lca1 in min_list:
                 for lca2 in max_list:
-                    if lca1 == lca2: store = lca1
+                    if lca1 == lca2:
+                        store = lca1
             return store
         except:
             return None
@@ -215,9 +217,12 @@ class BST(object):
             return "error"
 
     def clear(self):
-        print "\n\nre-initializing\n"
+        print("\n\nre-initializing\n")
         self.__init__()
 
 
 ## creating an instance for the BST
 bst = BST()
+bst.insert(5)
+bst.insert(9)
+bst.insert(10)

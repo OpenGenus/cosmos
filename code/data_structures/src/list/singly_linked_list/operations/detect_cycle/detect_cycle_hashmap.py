@@ -40,6 +40,6 @@ class LinkedList:
             all_nodes.append(str(current_node.data))
             current_node = current_node.next
         if len(all_nodes) > 0:
-            return ' -> '.join(all_nodes)
+            return " -> ".join(all_nodes)
         else:
             return ""
