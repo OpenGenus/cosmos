@@ -1,6 +1,8 @@
 # Cosmos
 
 > [Join our Internship Program now](http://internship.opengenus.org/) | Try this cool [One Liner knowledge tool](https://iq.opengenus.org/one/)
+>
+> Participate in [Checklist project](https://github.com/OpenGenus/checklist)
 
 > The universe of algorithm and data structures
 
@@ -78,3 +80,15 @@ You may, also, refer to the available [style guides](/guides/coding_style) befor
 # License
 
 We believe in freedom and improvement. [GNU General Public License v3.0](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
+
+---
+
+OpenGenus is sponsored by DigitalOcean and Discourse.
+
+<p style="float: left;">
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px">
+  </a>
+  <br>
+  <br><img src="https://github.com/OpenGenus/cosmos/assets/10634210/b6d7640b-9a98-45e2-a293-f11725cec6f9" width="150px">
+</p>
