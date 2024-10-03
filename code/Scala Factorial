@@ -1,0 +1,12 @@
+object factorial extends App {
+
+def factorial(n:Int):Int= // define factorial function
+{
+def go(n:Int,acc:Int):Int= // define a inner function which is common in functional programming
+{
+if(n<=0) acc else go(n-1,acc*n) // recursion .. of go function
+}
+go(n,1) //calling function go
+}
+println(factorial(3)) // print factorial function output
+}
