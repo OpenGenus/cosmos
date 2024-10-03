@@ -36,12 +36,13 @@ template<typename _Input_Iter,
          typename _Tp = typename std::iterator_traits<_Input_Iter>::value_type,
          typename _Compare>
 _Input_Iter
+// function definition
 fibonacciSearchImpl(_Input_Iter begin,
                     _Input_Iter end,
                     _Tp const &find,
                     _Compare comp,
                     std::input_iterator_tag)
-{
+{   // if no element then return
     if (begin == end)
         return end;
 
@@ -52,11 +53,12 @@ fibonacciSearchImpl(_Input_Iter begin,
 
     while (fibM < dist)
     {
+        // calculating the next fibonacci number      
         fibMMm2 = fibMMm1;
         fibMMm1 = fibM;
         fibM = fibMMm2 + fibMMm1;
     }
-
+    // initializing the offset value
     size_t offset = -1;
     auto it = begin;
 
@@ -72,6 +74,7 @@ fibonacciSearchImpl(_Input_Iter begin,
             fibM = fibMMm1;
             fibMMm1 = fibMMm2;
             fibMMm2 = fibM - fibMMm1;
+            // updating the offset     
             offset = i;
         }
         else if (comp(find, *it))
@@ -100,7 +103,7 @@ _Input_Iter
 fibonacciSearch(_Input_Iter begin, _Input_Iter end, _Tp const &find, _Compare comp)
 {
     auto category = typename std::iterator_traits<_Input_Iter>::iterator_category();
-
+    // recursive approach
     return fibonacci_search_impl::fibonacciSearchImpl(begin, end, find, comp, category);
 }
 
