@@ -1,0 +1,157 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+using namespace std;
+class edge
+
+  {
+       public:
+        int v=0;
+        int w=0;
+
+    edge(int v,int w)
+    {
+        this->v=v;
+        this->w=w;
+    }
+};   
+
+         int n=7;
+       vector<vector<edge *>>graph(n,vector<edge *>());
+       void display() {
+
+
+    for(int i=0;i<graph.size();i++)
+  
+   { cout<<i<<"->";
+    for(edge *e:graph[i]){
+     
+     cout<<"("<<e->v<<","<<e->w<<")";
+    }
+cout<<endl;
+}
+       }
+   
+      
+
+       void addedge(int u,int v,int w){
+        if(u<0||v<0||u>=n||v>=n)
+        return;
+        graph[u].push_back(new edge(v,w));
+       // graph[v].push_back(new edge(u,w));
+
+       }
+       void constructgraph()
+{    //normal
+    // addedge(0,1,10);
+    // addedge(0,3,10);
+    // addedge(1,2,10);
+     //addedge(2,3,40);
+     //addedge(3,4,2);
+     //addedge(4,5,2);
+     //addedge(4,6,3);
+     //addedge(5,6,8);
+     // addedge(2,5,8);
+      //addedge(0,6,8);
+        
+        //topological
+         addedge(0,1,8);
+         addedge(0,3,8);
+         addedge(1,2,8);
+         addedge(2,3,8);
+         addedge(3,4,8);
+         addedge(4,5,8);
+         addedge(4,6,8);
+         addedge(5,6,8);
+          //cycle
+         
+         
+         
+
+
+            
+     display();
+     
+}
+ void removeedge(int u,int v)
+{   
+    int i=0;
+    while(i<graph[u].size())
+   { 
+       edge* e=graph[u][i];
+    if((e->v==v))
+      break;
+   
+    i++;
+   }
+   int j=0;
+    while(j<graph[v].size())
+   { 
+       edge *e=graph[v][j];
+    if((e->v==u))
+    break;
+   
+    j++;
+   }
+   graph[u].erase(graph[u].begin()+i);   
+   graph[v].erase(graph[v].begin()+j);
+ 
+       
+}
+ void removevtx(int u)
+{
+    
+    while(graph[u].size()!=0)
+    {
+        edge *e=graph[u][graph[u].size()-1];
+        removeedge(u,e->v);
+    }
+}
+int hamiltonian(int src,int vtxcount,int osrc,vector<bool>&vis,string psf)
+{    if(vtxcount==graph.size()){
+       bool flag=false;
+       for(edge *e :graph[src]){
+        if(e->v==osrc){
+            cout<<"cycle"<<psf+to_string(src)<<endl;
+            flag=true;
+        }
+       }
+
+         if(!flag)
+         {
+          cout<<"path"<<psf+to_string(src)<<endl;
+
+
+       }
+       return 1;
+
+}
+      int count=0;
+      vis[src]=true;
+      for(edge *e:graph[src])
+    {if(!vis[e->v])
+   {
+   count+=hamiltonian(e->v,vtxcount+1,osrc,vis,psf+to_string(src));
+}
+    }
+     vis[src]=false;
+      return count;
+
+}
+void solve()
+{
+
+   constructgraph();
+    vector<bool>vis(n,false);
+   
+     cout<<hamiltonian(0,1,0,vis,"");
+     
+
+
+}
+
+int main()
+{
+    solve();
+    return 0;
+}
