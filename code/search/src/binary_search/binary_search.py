@@ -2,7 +2,8 @@
 Part of Cosmos by OpenGenus Foundation
 """
 
-
+arr = input("Enter array")
+x=input("mid value")
 def _binary_search_recursive_impl(arr, x, left, right):
     if right > left:
         mid = left + int((right - left) / 2)
