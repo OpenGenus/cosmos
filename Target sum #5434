@@ -1,0 +1,51 @@
+// C++ implementation for  prints all pairs of numbers which sum to target.
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void printPairs(long long int arr[],long long  int n,long long  int target)
+{
+	// Store counts of all elements in map m
+	unordered_map<long long int, long long int> m;
+
+	// Traverse through all elements
+	for (int i = 0; i < n; i++) {
+
+		// Search if a pair can be formed with
+		// arr[i].
+		int rem = target - arr[i];
+		if (m.find(rem) != m.end()) {
+			int count = m[rem];
+			for (int j = 0; j < count; j++)
+				cout << rem << ", "
+					<< arr[i]  << endl;
+		}
+		m[arr[i]]++;
+	}
+}
+
+
+int main()
+{
+long long int n;
+cin>>n;
+long long int arr[n];
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+  }
+	long long int target;
+  cin>>target;
+	
+	printPairs(arr, n, target);
+	return 0;
+}
+//example
+Input:
+6
+3 1 9 7 5 -1
+8
+Output:
+-1 and 9
+1 and 7
+3 and 5
+complexity O(n)
