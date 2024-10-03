@@ -1,11 +1,5 @@
 # Cosmos Guides
-> Your personal library of every algorithm and data structure code that you will ever encounter
+A compiler for C++ is already built into Mac.
+You can try with g++ <filename>.cpp. Example : g++ main.cpp.
 
-
----
-
-<p align="center">
-	A massive collaborative effort by <a href="https://github.com/OpenGenus/cosmos">OpenGenus Foundation</a> 
-</p>
-
----
+If you are looking for an IDE, you can use Xcode available at app store.
