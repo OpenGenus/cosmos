@@ -1,0 +1,234 @@
+// A class that converts an infix expression into either postfix or prefix expression.
+
+package infixexpression;
+
+import java.util.StringTokenizer;
+
+/**
+ *
+ * @author Samuel
+ */
+public class InfixExpression {
+    
+    public static char[] convertToPostfix (char[] infixExpression) {
+        char[] postfixExpression = new char[infixExpression.length];
+        JStack<Character> stack = new JStack<>(infixExpression.length);
+        int leftCount = 0;
+        int rightCount = 0;
+        int j = 0; // For neater output format
+        
+        for (int i = 0; i < infixExpression.length; i++) {
+            if (infixExpression[i] == '(')
+                leftCount++;
+            if (infixExpression[i] == ')')
+                rightCount++;
+        }
+        
+        if (leftCount != rightCount ) {
+            throw new RuntimeException("Unbalanced parentheses");
+        }
+        
+        for (int i = 0; i < infixExpression.length; i++) {
+            if (infixExpression[i] == '(') {
+                stack.push('(');
+            }
+            else if (infixExpression[i] == ')') {
+                while (!stack.empty() && stack.peek() != '(') {
+                    postfixExpression[j++] = stack.pop();
+                }
+                if (!stack.empty())
+                    stack.pop(); // Remove last (left) parenthesis
+            }
+            else if (infixExpression[i] == '+' || infixExpression[i] == '-') {
+                if (stack.empty())
+                    stack.push(infixExpression[i]);
+                else if (!stack.empty() && stack.peek() == '(')
+                    stack.push(infixExpression[i]);
+                else {
+                    postfixExpression[j++] = stack.pop();
+                    stack.push(infixExpression[i]);
+                }
+            }
+            else if (infixExpression[i] == '*' || infixExpression[i] == '/') {
+                if (stack.empty())
+                    stack.push(infixExpression[i]);
+                else if (!stack.empty() && (stack.peek() == '+' || stack.peek() == '-' || stack.peek() == '(')) {
+                    stack.push(infixExpression[i]);
+                }
+                else {
+                    postfixExpression[j++] = stack.pop();
+                    stack.push(infixExpression[i]);
+                }
+            }
+            else if (!Character.isWhitespace(infixExpression[i])) {
+                postfixExpression[j++] = infixExpression[i];
+            }
+            
+        }
+        while (!stack.empty()) {
+            if (stack.peek() == '(' || stack.peek() == ')') // Discard some dangling parentheses
+                stack.pop();
+            else
+                postfixExpression[j++] = stack.pop();
+        }
+        return postfixExpression;
+    }
+    
+    public static char[] convertToPrefix (char[] infixExpression) {
+        char[] prefixExpression = new char[infixExpression.length];
+        JStack<Character> operands = new JStack<>(infixExpression.length);
+        JStack<Character> operators = new JStack<>(infixExpression.length);
+        int leftCount = 0;
+        int rightCount = 0;
+        int j = 0;
+        
+        char op = ' ';
+        char leftOperand = ' ';
+        char rightOperand = ' ';
+        char leftOperator = ' ';
+        char rightOperator = ' ';
+        
+        for (int i = 0; i < infixExpression.length; i++) {
+            if (infixExpression[i] == '(')
+                leftCount++;
+            if (infixExpression[i] == ')')
+                rightCount++;
+        }
+        
+        if (leftCount != rightCount ) {
+            throw new RuntimeException("Unbalanced parentheses");
+        }
+        
+        for (int i = 0; i < infixExpression.length; i++) {
+            if (infixExpression[i] == '(') {
+                operators.push('(');
+            }
+            else if (infixExpression[i] == ')') {
+                op = operators.pop();
+                operators.pop(); // Discard left parenthesis
+                rightOperand = operands.pop();
+                leftOperand = operands.pop();
+                operands.push(rightOperand);
+                operands.push(leftOperand);
+                operands.push(op);
+            }
+            else if (infixExpression[i] == '+' || infixExpression[i] == '-') {
+                if (operators.empty()) {
+                    operators.push(infixExpression[i]);
+                }
+                else if (!operators.empty() && (operators.peek() == '+' || operators.peek() == '-')) {
+                    op = operators.pop();
+                    rightOperand = operands.pop();
+                    leftOperand = operands.pop();
+                    operands.push(rightOperand);
+                    operands.push(leftOperand);
+                    operands.push(op);
+                    operators.push(infixExpression[i]);
+                }
+                else {
+                    operators.push(infixExpression[i]);
+                }
+            }
+            else if (infixExpression[i] == '*' || infixExpression[i] == '/') {
+                if (operators.empty()) {
+                    operators.push(infixExpression[i]);
+                }
+                else if (!operators.empty() && (operators.peek() == '+' || operators.peek() == '-')) {
+                    operators.push(infixExpression[i]);
+                }
+                else {
+                    op = operators.pop();
+                    rightOperand = operands.pop();
+                    leftOperand = operands.pop();
+                    operands.push(rightOperand);
+                    operands.push(leftOperand);
+                    operands.push(op);
+                    operators.push(infixExpression[i]);
+                }
+            }
+            else if (!Character.isWhitespace(infixExpression[i])) {
+                operands.push(infixExpression[i]);
+            }
+        }
+            prefixExpression[j++] = operators.pop();
+        while (!operands.empty()) {
+            prefixExpression[j++] = operands.pop();
+        }
+        while (!operators.empty()) {
+            prefixExpression[j++] = operators.pop();
+        }
+        return prefixExpression;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Postfix Expressions:");
+        System.out.println(convertToPostfix("a  +  b  +  c".toCharArray()));
+        System.out.println(convertToPostfix("a + b * c".toCharArray()));
+        System.out.println(convertToPostfix("a / b - c".toCharArray()));
+        System.out.println(convertToPostfix("(a + b) * (c - d)".toCharArray()));
+        
+        System.out.println("\nPrefix Expressions:");
+        System.out.println(convertToPrefix("a + b + c".toCharArray()));
+        System.out.println(convertToPrefix("a + b * c".toCharArray()));
+        System.out.println(convertToPrefix("(a + b) * (c - d)".toCharArray()));
+        
+        System.out.println("\nErrors:");
+        System.out.println(convertToPostfix("(a + b + c".toCharArray()));
+        System.out.println(convertToPostfix("a + (b + c".toCharArray()));
+        System.out.println(convertToPostfix("a + b) + c".toCharArray()));
+        System.out.println(convertToPostfix("a + b + c)".toCharArray()));
+        
+        System.out.println(convertToPrefix("(a + b + c".toCharArray()));
+        System.out.println(convertToPrefix("a + (b + c".toCharArray()));
+        System.out.println(convertToPrefix("a + b) + c".toCharArray()));
+        System.out.println(convertToPrefix("a + b + c)".toCharArray()));
+        
+    }
+}
+
+class JStack<T> {
+    T[] stack;
+    int top;
+    
+    public JStack(int size) {
+        stack = (T[])new Object[size];
+        top = -1;
+    }
+    
+    public void push(T e) {
+        if (top + 1 == stack.length) {
+            throw new RuntimeException("Stack full");
+        }
+        stack[++top] = e;
+    }
+    
+    public T pop() {
+        if (empty()) {
+            throw new RuntimeException("Stack empty");
+        }
+        return stack[top--];
+    }
+    
+    public int size() {
+        return top + 1;
+    }
+    
+    public boolean empty() {
+        return top == -1;
+    }
+    
+    public T peek() {
+        if (empty()) {
+            throw new RuntimeException("Stack empty");
+        }
+        return stack[top];
+    }
+    
+    public String toString() {
+        String s = "BOTTOM[ ";
+        for (int i = 0; i <= top; i++) {
+            s += stack[i] + " " ;
+        }
+        return s + "]TOP";
+    }
+}
