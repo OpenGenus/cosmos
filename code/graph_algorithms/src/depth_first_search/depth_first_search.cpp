@@ -9,13 +9,17 @@ void dfs(int current,                                                   // the n
 {
     if (visited[current])
         return;
+     // set the visited array to true once that element is approached    
     visited[current] = true;
+    // loop to depth-wise visit each node     
     for (auto neighbour : adjList[current])
+         // recursive all with node as its neighbour    
         dfs(neighbour, adjList, visited);
 }
 
 void addEdge(int a, int b, std::map<int, std::set<int>>& adjList)
 {
+    // insertion taking place     
     adjList[a].insert(b);
     adjList[b].insert(a);
 }
