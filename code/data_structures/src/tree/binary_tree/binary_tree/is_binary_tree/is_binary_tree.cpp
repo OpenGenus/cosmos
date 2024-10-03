@@ -71,7 +71,7 @@ bool isBST(Node* root)
 template<typename Node>
 int isBSTUtil(Node *root, int min, int max)
 {
-    if (!root)
+    if (!root)  //If tree has only one node, then it is a binary tree
         return 1;
 
     if (root->data < min || root->data > max)
