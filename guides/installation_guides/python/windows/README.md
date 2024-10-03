@@ -11,3 +11,5 @@ Now that Python is installed, it is accessible through the program called IDLE.
 </p>
 
 ---
+#update this
+add installation guide here
