@@ -4,8 +4,7 @@
  * Part of Cosmos by OpenGenus Foundation
  */
 
-int
-isPalindromeIterative(char *input, int length)
+int isPalindromeIterative(char *input, int length)
 {
 	int start = 0, end = length - 1;
 	while (start < end)
@@ -14,8 +13,7 @@ isPalindromeIterative(char *input, int length)
 	return (1);
 }
 
-int
-is_palindrome_recursive(char *input, int length)
+int is_palindrome_recursive(char *input, int length)
 {
 	if (length <= 1)
 		return (1);
@@ -25,8 +23,7 @@ is_palindrome_recursive(char *input, int length)
 		return (is_palindrome_recursive(input + 1, length - 2));
 }
 
-int
-main(void)
+int main(void)
 {
 	printf("Is hello a palindrome (iterative): %d\n", isPalindromeIterative("hello", 5));
 	printf("Is racecar a palindrome (iterative): %d\n", isPalindromeIterative("racecar", 7));
