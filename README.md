@@ -1,14 +1,23 @@
 # Cosmos
 
-> [Join our discussion now](https://discourse.opengenus.org/) 
+> [Join our Internship Program now](http://internship.opengenus.org/) | Try this cool [One Liner knowledge tool](https://iq.opengenus.org/one/)
+>
+> Participate in [Checklist project](https://github.com/OpenGenus/checklist)
 
-> The universe of algorithm and data structures
+> The universe of algorithm and data structures - OpenGenus Cosmos
 
 **Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `JavaScript`, `Swift`, `Python`, `Go` and others.
 
 This work is maintained by a community of hundreds of people and is a _massive collaborative effort_ to bring the readily available coding knowledge **offline**.
 
 > **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
+
+Make your fundamentals in Algorithms and Data Structure with these free resources:
+
+* [**50+** Linked List Problems](https://iq.opengenus.org/list-of-linked-list-problems/)
+* [**50+** Array Problems](https://iq.opengenus.org/list-of-array-problems/)
+* [**50+** Binary Tree Problems](https://iq.opengenus.org/list-of-binary-tree-problems/)
+* [**100+** Dynamic Programming (DP) Problems](https://iq.opengenus.org/list-of-dynamic-programming-problems/)
 
 # Cosmic Structure
 
@@ -17,33 +26,34 @@ Following is the high-level structure of cosmos:
 * [Backtracking](/code/backtracking)
 * [Bit manipulation](/code/bit_manipulation)
 * [Cellular automaton](/code/cellular_automaton) 🐚
-* [Compression algorithms](/code/compression)
+* [Compression algorithms](/code/compression) 🗜️
 * [Computational geometry](/code/computational_geometry) :gear:
 * [Cryptography](/code/cryptography)
 * [Data structures](/code/data_structures)
 * [Design pattern](/code/design_pattern)
-* [Divide conquering](/code/divide_conquer)
+* [Divide conquering](/code/divide_conquer) ➗
 * [Dynamic programming](/code/dynamic_programming)
-* [Graph algorithms](/code/graph_algorithms)
-* [Greedy algorithms](/code/greedy_algorithms)
+* [Graph algorithms](/code/graph_algorithms) 📈
+* [Greedy algorithms](/code/greedy_algorithms) 💰
 * [Mathematical algorithms](/code/mathematical_algorithms)  :1234:
 * [Networking](/code/networking)  :globe_with_meridians:
 * [Numerical analysis](/code/numerical_analysis)  :chart_with_upwards_trend:
 * [Online challenges](/code/online_challenges)
 * [Operating system](/code/operating_system) 💻
+* [Quantum algorithms](/code/quantum_algorithms)  :cyclone:
 * [Randomized algorithms](/code/randomized_algorithms)  :slot_machine:
-* [Searching](/code/search)
+* [Searching](/code/search) 🔎
 * [Selecting](/code/selection_algorithms)
 * [Sorting](/code/sorting)
 * [Square root decomposition](/code/square_root_decomposition)
-* [String algorithms](/code/string_algorithms)
+* [String algorithms](/code/string_algorithms) 🧵
 * [Unclassified](/code/unclassified) 👻
 
 Each type has several hundreds of problems with solutions in several languages spanning `C`, `C++`, `Java`, `Python`, `Go` and others.
 
 # Maintainers
 
-This is a massive collaboration and to keep the quality intact and drive the vision in the proper direction, we have maintainers.
+This is a massive collaboration. Hence, to keep the quality intact and drive the vision in the proper direction, we have maintainers.
 
 > Maintainers are your friends forever. They are vastly different from moderators.
 
@@ -53,13 +63,11 @@ The task of maintainers is to review pull requests, suggest further quality addi
 
 [Check out our current maintainers](https://github.com/OpenGenus/cosmos/wiki/maintainers)
 
-Let us know if you would like to be a maintainer in the Slack channel *#algorithms* and we will review and add you upon subsequent contributions. To join our massive community at [Slack](https://opengenus.slack.com) open an issue [here](https://github.com/OpenGenus/OpenGenus-Slack).
-
 # Contributors
 
 The success of our vision to bring knowledge offline depends on you. Even a small contribution helps. All forms of contributions are highly welcomed and valued.
 
-Currently, we have over **700 contributors**
+Currently, we have over **1000+ contributors** in Cosmos and **over 2K+ contributors** in sister projects of Cosmos.
 
 When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
@@ -72,3 +80,15 @@ You may, also, refer to the available [style guides](/guides/coding_style) befor
 # License
 
 We believe in freedom and improvement. [GNU General Public License v3.0](https://github.com/OpenGenus/cosmos/blob/master/LICENSE)
+
+---
+
+OpenGenus is sponsored by DigitalOcean and Discourse.
+
+<p style="float: left;">
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px">
+  </a>
+  <br>
+  <br><img src="https://github.com/OpenGenus/cosmos/assets/10634210/b6d7640b-9a98-45e2-a293-f11725cec6f9" width="150px">
+</p>

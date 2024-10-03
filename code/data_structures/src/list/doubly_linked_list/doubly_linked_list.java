@@ -25,9 +25,7 @@ class DoublyLinkedList {
 	private Node last;
 	private int n = 0;  //size
 
-
 	/*-----Insert Method-----*/
-
 	public void insert(int pos, int data){
 		if (pos > n + 1){
 			pos = n + 1;
@@ -75,7 +73,6 @@ class DoublyLinkedList {
 	}
 
 	/*-----Delete Method-----*/
-
 	public void delete(int pos){
 		if (n == 0) {
 			System.out.println("List is Empty!");
@@ -86,6 +83,12 @@ class DoublyLinkedList {
 			pos = n;
 		}
 
+		if (pos == 1) {
+			first = first.next;
+			first.prev = null;
+			return;
+		}
+
 		int c = 1;
 		Node cur = first;
 
@@ -94,16 +97,16 @@ class DoublyLinkedList {
 			cur = cur.next;
 		}
 
-
-		cur.prev.next = cur.next;
-		cur.next.prev = cur.prev;
-
+		if (cur.prev != null) {
+			cur.prev.next = cur.next;
+		}
+		if (cur.next != null) {
+			cur.next.prev = cur.prev;
+		}
 		n--;
-
 	}
 
 	/*-----Print in forward direction-----*/
-
 	public void display() {
 		Node cur = first;
 
@@ -116,7 +119,6 @@ class DoublyLinkedList {
 	}
 
 	/*-----Print in reverse direction-----*/
-
 	public void reverseDisplay() {
 		Node cur = last;
 
@@ -145,11 +147,14 @@ class App {
 
 			switch(c) {
 				case 1:
+					System.out.println("Enter insertion position");
 					int pos = sc.nextInt();
+					System.out.println("Enter value");
 					int val = sc.nextInt();
 					l.insert(pos, val);
 					break;
 				case 2:
+					System.out.println("Enter deletion position");
 					pos = sc.nextInt();
 					l.delete(pos);
 					break;

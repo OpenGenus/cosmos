@@ -1,0 +1,28 @@
+{
+  "location": "code/search/src/linear_search",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "linear_search.cpp",
+    "linear_search.rs",
+    "linear_search.js",
+    "linear_search.nim",
+    "linear_search.clj",
+    "linear_search.swift",
+    "linear_search.php",
+    "linear_search.re",
+    "linear_search.go",
+    "linear_search.ml",
+    "linear_search.py",
+    "linear_search.rb",
+    "linear_search.hs",
+    "README.md",
+    "linear_search.c",
+    "linear_search.java",
+    "linear_search.kt",
+    "linear_search.scala",
+    "linear_search.cs",
+    "sentinellinearsearch.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

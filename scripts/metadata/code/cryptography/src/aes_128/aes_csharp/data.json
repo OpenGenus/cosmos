@@ -1,0 +1,14 @@
+{
+  "location": "code/cryptography/src/aes_128/aes_csharp",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "aesdecipher.cs",
+    "aescipher.cs",
+    "helpers.cs",
+    "README.md",
+    "aeskeygen.cs",
+    "aesconsts.cs"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,0 +1,15 @@
+{
+  "location": "code/backtracking/src/subset_sum",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "subsetsum.java",
+    "subset_sum.cpp",
+    "subset_sum_duplicates.py",
+    "subsetsum.py",
+    "subset_sum.c",
+    "subset_sum.go",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

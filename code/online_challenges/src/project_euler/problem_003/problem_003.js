@@ -6,8 +6,7 @@ while (num > highestPrimeFactor) {
   if (num % currentFactor === 0) {
     highestPrimeFactor = currentFactor;
     num /= currentFactor;
-  }
-  else {
+  } else {
     ++currentFactor;
   }
 }

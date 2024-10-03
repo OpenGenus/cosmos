@@ -4,9 +4,9 @@
 
 /**
  * method which returns the maximum total value in the knapsack
- * @param {array} valueArray 
- * @param {array} weightArray 
- * @param {integer} maximumWeight 
+ * @param {array} valueArray
+ * @param {array} weightArray
+ * @param {integer} maximumWeight
  */
 function knapsack(valueArray, weightArray, maximumWeight) {
   let n = weightArray.length;
@@ -45,5 +45,5 @@ function knapsack(valueArray, weightArray, maximumWeight) {
 }
 
 console.log(
-  'Result - ' + knapsack([12, 1000, 30, 10, 1000], [19, 120, 20, 1, 120], 40)
+  "Result - " + knapsack([12, 1000, 30, 10, 1000], [19, 120, 20, 1, 120], 40)
 );

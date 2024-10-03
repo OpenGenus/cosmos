@@ -15,9 +15,9 @@ def integral_rectangle(a, b, step, func):
     return res
 
 
-print('Enter interval: ')
-start = float(input('a: '))
-finish = float(input('b: '))
-move = float(input('Enter integration step: '))
-result = integral_rectangle(start, finish, move, lambda x: x**2 + x)
-print('Result: ', result)
+print("Enter interval: ")
+start = float(input("a: "))
+finish = float(input("b: "))
+move = float(input("Enter integration step: "))
+result = integral_rectangle(start, finish, move, lambda x: x ** 2 + x)
+print("Result: ", result)

@@ -1,0 +1,12 @@
+{
+  "location": "code/artificial_intelligence/src/convolutional_neural_network",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "cnn_adversarial_examples.ipynb",
+    "cnn.ipynb",
+    "train.csv",
+    "test.csv"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}
