@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1460566588 source:c:\nacp\boolesrule\main.c
+	<stdio.h>
+	<stdlib.h>
+

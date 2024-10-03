@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1460623424 source:c:\nacp\newtonraphsonmethod\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
