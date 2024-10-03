@@ -1,81 +1,56 @@
-/* Part of Cosmos by OpenGenus Foundation */
+// Given a string s, partition s such that every substring of the partition is a palindrome.
 
-#include <iostream>
-#include <cstring>
-#include <string>
+// Return the minimum cuts needed for a palindrome partitioning of s.
 
-#define MAX 1010
+// TC:O(N*N)
+// SC:O(N*N)
 
-using namespace std;
+BruteForce TC:O(N^N);
+SC; O(N); // Call stack Space
 
-int isPal[MAX][MAX], memo[MAX];
+#include<bits/stdc++.h>
+    using namespace std;
 
-/*
- *  Checks if s[i...j] is palindrome
- *  in a top-down fashion. Result is
- *  stored in isPal matrix.
- *  Time complexity: O(n^2)
- */
-int isPalindrome(const string &s, int i, int j)
-{
+    int minCut(string s) {
+       
+        // Finding Palindromic Substrings in the given string
+        
+        vector<vector<bool>>dp(s.size()+2,vector<bool>(s.size()+1,0));
+        
+        for(int i=1;i<=s.size();++i){
+            int k=i;
+            for(int j=1;k<=s.size();++j,k++){
+                
+                if(k-j==0||s[k-1]==s[j-1]&&k-j==1)dp[j][k]=1;
+                    
+            else if(s[k-1]==s[j-1]&&dp[j+1][k-1])dp[j][k]=1;
+            
+            }
+        }
 
-    if (i > j)
-        return isPal[i][j] = 0;
+        vector<int>mincuts(s.size()+1,0); // This is the array that keeps track of how many minimum cuts  till that particular index to form palindromes
+        
+  
+        // When we stand at a index looking backwards what are the different length of palindromes that we can get by including current character
+        
+        // we can get total required partitions till that index  by getting cuts required till starting of the palindrome+1 from all find minimum and store result in 
+//             mincuts array
+        
+         //EX:abcbab if we stand at last b we look leftwards we find bab is a palindrome can be considered as 1 partition and from min cuts array we ask what are the
+        //partitions till c(before b) it's 2 so if we consider bab we get 2+1 =3 partitons but if we consider b itself a palindrome cuts required till a (before b)is 0
+//         so 0+1 =1 which is much more smaller we choose minimum
+        
+        
+        for(int i=1;i<=s.size();++i){
+            int ans=INT_MAX;
+            for(int j=1;j<=s.size();++j)
+                if(dp[j][i]){ans=min(ans,j==1?0:1+mincuts[j-1]);}
+            mincuts[i]=ans;
+        }
+    
+        return mincuts[s.size()];
+    }
+main(){
 
-    if (isPal[i][j] > -1)
-        return isPal[i][j];
-
-    if (j - i <= 1 && s[i] == s[j])
-        return isPal[i][j] = 1;
-
-    if (s[i] == s[j])
-        return isPal[i][j] = isPalindrome(s, i + 1, j - 1);
-
-    return isPal[i][j] = 0;
-}
-
-/*
- *  Compute the minimum number of cuts
- *  necessary to partition the string
- *  s[0...i] in a set of palindromes.
- *  Time complexity: O(n^2)
- */
-int minPalPartition(const string &s, int i)
-{
-
-    if (isPal[0][i])
-        return memo[i] = 0;
-
-    if (memo[i] > -1)
-        return memo[i];
-
-    int ans = i + 1;
-    for (int j = 0; j < i; ++j)
-        if (isPal[j + 1][i] == 1)
-            ans = min(ans, 1 + minPalPartition(s, j));
-
-    return memo[i] = ans;
-}
-
-// Helper function
-int solve(const string  &s)
-{
-
-    memset(isPal, -1, sizeof isPal);
-    memset(memo, -1, sizeof memo);
-
-    int n = s.length();
-    for (int i = 0; i < n; ++i)
-        for (int j = i; j < n; ++j)
-            isPalindrome(s, i, j);
-
-    return minPalPartition(s, n - 1);
-}
-
-int main()
-{
-
-    cout << solve("aaabba") << '\n'; // 1:  aa | abba
-    cout << solve("ababbbabbababa") << '\n'; // 3: a | babbbab | b | ababa
-    return 0;
+cout<<minCut("abcbab");//2 
 }
