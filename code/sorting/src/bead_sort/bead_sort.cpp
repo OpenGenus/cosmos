@@ -1,63 +1,88 @@
 #include <vector>
+#include <algorithm>
 #include <iostream>
-using namespace std;
 
 #define BEAD(i, j) beads[i * max + j]
 
 // Part of Cosmos by OpenGenus Foundation
 // function to perform the above algorithm
-void beadSort(vector<int>& a)
+void beadSort(std::vector<int>& Vector)
 {
-    // Find the maximum element
-    int max = a[0];
-    for (size_t i = 1; i < a.size(); ++i)
-        if (a[i] > max)
-            max = a[i];
+    // Finding the maximum element.
+    const int max = *std::max_element(Vector.begin(), Vector.end());
+    const size_t VectorSize = Vector.size();
 
     // allocating memory
-    vector<unsigned char> beads(max * a.size(), 0);
+    std::vector<unsigned char> beads(max * VectorSize, 0);
 
     // mark the beads
-    for (size_t i = 0; i < a.size(); ++i)
-        for (int j = 0; j < a[i]; ++j)
-            BEAD(i, j) = 1;
+    for (size_t rowIndex = 0; rowIndex < VectorSize; ++rowIndex) {
+      for (int columnIndex = 0; columnIndex < Vector[rowIndex]; ++columnIndex) {
+        BEAD(rowIndex, columnIndex) = 1;
+      }
+    }
 
-    for (int j = 0; j < max; ++j)
+    // mark the beads
+    for (size_t rowIndex = 0; rowIndex < VectorSize; ++rowIndex) {
+      for (int columnIndex = 0; columnIndex < Vector[rowIndex]; ++columnIndex) {
+        BEAD(rowIndex, columnIndex) = 1;
+      }
+    }
+
+    for (int columnIndex = 0; columnIndex < max; ++columnIndex)
     {
-        // count how many beads are on each post
-        int sum = 0;
-        for (size_t i = 0; i < a.size(); ++i)
-        {
-            sum += BEAD(i, j);
-            BEAD(i, j) = 0;
-        }
+      // count how many beads are on each post/column
+      int sum = 0;
+      for (size_t rowIndex = 0; rowIndex < VectorSize; ++rowIndex)
+      {
+        sum += BEAD(rowIndex, columnIndex);
+        BEAD(rowIndex, columnIndex) = 0;
+      }
 
-        // Move beads down
-        for (size_t i = a.size() - sum; i < a.size(); ++i)
-            BEAD(i, j) = 1;
+      // Move beads down
+      for (size_t rowIndex = VectorSize - sum; rowIndex < VectorSize; ++rowIndex)
+        BEAD(rowIndex, columnIndex) = 1;
     }
 
     // Put sorted values in array using beads
-    for (size_t i = 0; i < a.size(); ++i)
+    for (size_t rowIndex = 0; rowIndex < VectorSize; ++rowIndex)
     {
-        int j;
-        for (j = 0; j < max && BEAD(i, j); ++j)
+        int beadCountInRow;
+        //Counting the number of beads present in the row.
+        for (beadCountInRow = 0; beadCountInRow < max && BEAD(rowIndex, beadCountInRow); ++beadCountInRow)
             ;
 
-        a[i] = j;
+        Vector[rowIndex] = beadCountInRow;
     }
 }
 
 // driver function to test the algorithm
-int main()
+int main(int argc, char** argv)
 {
-    vector<int> a{5, 3, 1, 7, 4, 1, 1, 20};
+  std::vector<int> testVector{5, 3, 1, 7, 4, 1, 1, 20};
 
-    beadSort(a);
+  //The user can give his own values, if he/she wants, in the argument.
+  if(argc > 1) {
+    testVector.clear();
+    for(int argIndex = 1; argIndex < argc; ++argIndex)
+      testVector.push_back(std::stoi(argv[argIndex]));
+  }
 
-    cout << "After Sorting.. " << endl;
-    for (size_t i = 0; i < a.size(); ++i)
-        cout << a[i] << " ";
+  std::cout << "\nBefore Sorting.. " << std::endl;
 
-    return 0;
+  for(const auto& element : testVector) {
+    std::cout << element << " ";
+  }
+
+  beadSort(testVector);
+
+  std::cout << "\n\nAfter Sorting.. " << std::endl;
+
+  for(const auto& element : testVector) {
+    std::cout << element << " ";
+  }
+
+  std::cout<<std::endl;
+
+  return 0;
 }
