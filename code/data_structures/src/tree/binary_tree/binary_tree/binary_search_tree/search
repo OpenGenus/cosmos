@@ -1,0 +1,17 @@
+// C function to search a given key in a given BST 
+struct node* search(struct node* root, int key) 
+{ 
+     
+    if (root == NULL || root->key == key){ 
+       // Base Cases: root is null or key is present at root
+       return root; 
+     }
+     
+    if (root->key < key){ 
+     // Key is greater than root's key 
+       return search(root->right, key);
+    } 
+  
+    // Key is smaller than root's key 
+    return search(root->left, key); 
+} 
