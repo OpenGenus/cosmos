@@ -1,0 +1,32 @@
+class MoveZeroes {
+    public static void moveZeroes(int[] nums) {
+        int i=0;
+        int k=0;// will keep track of non zero elements first and then zeroes elements
+        while(i<nums.length)
+        {
+            if(nums[i] !=0)
+            {
+                nums[k] = nums[i];// allowing only non zero elements
+                k++;
+            }
+            i++;
+        } // when the whole array traversed no. of non zeroes = k and no. of zeroes = n-1-k, where n is length of array.
+        while(k != nums.length)// putting zeroes at remaining indices.
+        {
+            nums[k] =0;
+            k++;
+        }
+    }
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            nums[i] = sc.nextInt();
+        }
+        moveZeroes(nums);
+        String stringArr = Arrays.toString(nums);
+        System.out.println(stringArr);
+    }
+}
