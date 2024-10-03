@@ -20,6 +20,18 @@ To install a package just open Terminal and type:
 
 Where `packageName` is the name of the package that you want to install. You can see the full list of available packages from <a href="https://pypi.python.org/pypi?%3Aaction=browse">here</a>.
 
+
+### Using virtual environment
+pip install virtualenv
+cd cosmos/
+virtualenv venv
+virtualenv venv --system-site-packages
+source venv/bin/activate
+pip install <package>
+
+deactivate <In case you want to exit environment.>
+
+
 ---
 
 <p align="center">
