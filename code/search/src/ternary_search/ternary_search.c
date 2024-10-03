@@ -1,9 +1,9 @@
-#include <stdio.h>
+#include <stdio.h> //Pre-defined library
 
 // Function to perform Ternary Search 
-int ternarySearch(int array[], int left, int right, int x)
+int ternarySearch(int array[], int left, int right, int x) //Function with parameters
 {
-   if (right >= left) {
+   if (right >= left) { //Condition check
       
    // Find the leftmid and rightmid 
      int intvl = (right - left) / 3;
@@ -40,9 +40,9 @@ int ternarySearch(int array[], int left, int right, int x)
 //Main function
 int main(void)
 {
-   int array[] = {1, 2, 3, 5};
-   int size = sizeof(array)/ sizeof(array[0]);
+   int array[] = {1, 2, 3, 5}; //Initializing array
+   int size = sizeof(array)/ sizeof(array[0]); //Calculating size 
    int find = 3;
-   printf("Position of %d is %d\n", find, ternarySearch(array, 0, size-1, find));
+   printf("Position of %d is %d\n", find, ternarySearch(array, 0, size-1, find)); 
    return 0;
 }
