@@ -1,84 +1,79 @@
-using System;
-using System.Linq;
-
-/* Part of Cosmos by OpenGenus Foundation */
-namespace OpenGenus
-{
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			var random = new Random();
-			var array = Enumerable.Range(1, 20).Select(x => random.Next(1,40)).ToArray();
-
-			Console.WriteLine("Unsorted");
-			Console.WriteLine(string.Join(",", array));
-
-			Console.WriteLine("\nSorted");
-			
-			var writes = CycleSort(array);
-			Console.WriteLine(string.Join(",", array));
-			Console.WriteLine($"\nNumber of writes: {writes}");
-
-			Console.ReadLine();
-		}
-
-		// Adapted from Wikipedia CycleSort pseudocode
-		private static int CycleSort(int[] array)
-		{
-			// Sort an array in place and return the number of writes.
-			var writes = 0;
-			var cycleStart = 0;
-			var arrayLength = array.Length;
-
-			// Loop through the array to find cycles to rotate.
-			for (; cycleStart < arrayLength; cycleStart++) {
-				var item = array[cycleStart];
-
-				// Find where to put the item.
-				var position = cycleStart;
-
-				for (var i = cycleStart + 1; i < arrayLength; i++)
-					if (array[i] < item)
-						position++;
-
-				// If the item is already there, this is not a cycle.
-				if (position == cycleStart)
-					continue;
-
-				// Otherwise, put the item there or right after any duplicates.
-				while (item == array[position])
-					position++;
-
-				var tempSwapItem = array[position];
-				array[position] = item;
-				item = tempSwapItem;
-
-				writes++;
-
-				// Rotate the rest of the cycle.
-				while (position != cycleStart)
-				{
-					// Find where to put the item.
-					position = cycleStart;
-
-					for (var j = cycleStart + 1; j < arrayLength; j++)
-						if (array[j] < item)
-							position++;
-
-					// Put the item there or right after any duplicates.
-					while (item == array[position])
-						position++;
-
-					tempSwapItem = array[position];
-					array[position] = item;
-					item = tempSwapItem;
-
-					writes++;
-				}
-			}
-
-			return writes;
-		}
-	}
-}
+using System; 
+  
+class RONALDO { 
+      
+    // Function sort the array using Cycle sort 
+    public static void cycleSort(int[] arr, int n) 
+    { 
+        // count number of memory writes 
+        int writes = 0; 
+  
+        // traverse array elements and  
+        // put it to on the right place 
+        for (int cycle_start = 0; cycle_start <= n - 2; cycle_start++) 
+        { 
+            // initialize item as starting point 
+            int item = arr[cycle_start]; 
+  
+            // Find position where we put the item.  
+            // We basically count all smaller elements  
+            // on right side of item. 
+            int pos = cycle_start; 
+            for (int i = cycle_start + 1; i < n; i++) 
+                if (arr[i] < item) 
+                    pos++; 
+  
+            // If item is already in correct position 
+            if (pos == cycle_start) 
+                continue; 
+  
+            // ignore all duplicate elements 
+            while (item == arr[pos]) 
+                pos += 1; 
+  
+            // put the item to it's right position 
+            if (pos != cycle_start) { 
+                int temp = item; 
+                item = arr[pos]; 
+                arr[pos] = temp; 
+                writes++; 
+            } 
+  
+            // Rotate rest of the cycle 
+            while (pos != cycle_start) { 
+                pos = cycle_start; 
+  
+                // Find position where we put the element 
+                for (int i = cycle_start + 1; i < n; i++) 
+                    if (arr[i] < item) 
+                        pos += 1; 
+  
+                // ignore all duplicate elements 
+                while (item == arr[pos]) 
+                    pos += 1; 
+  
+                // put the item to it's right position 
+                if (item != arr[pos]) { 
+                    int temp = item; 
+                    item = arr[pos]; 
+                    arr[pos] = temp; 
+                    writes++; 
+                } 
+            } 
+        } 
+    } 
+  
+    // Driver program to test above function 
+    public static void Main() 
+    { 
+        int[] arr = { 1, 8, 3, 9, 10, 10, 2, 4 }; 
+        int n = arr.Length; 
+          
+        // Function calling 
+        cycleSort(arr, n); 
+  
+        Console.Write("After sort : "); 
+        for (int i = 0; i < n; i++) 
+            Console.Write(arr[i] + " "); 
+    } 
+} 
