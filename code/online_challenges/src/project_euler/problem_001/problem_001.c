@@ -3,9 +3,9 @@
 int
 main(void)
 {
-    int sum, i;
+    int sum = 0, i = 0;
     
-    for (i = 0; i < 1000; ++i)
+    for (; i < 1000; ++i)
         sum += (i % 3 == 0) || (i % 5 == 0) ? i : 0;
     
     printf("%d\n", sum);
