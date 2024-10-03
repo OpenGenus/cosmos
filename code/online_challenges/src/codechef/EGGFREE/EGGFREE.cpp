@@ -2,12 +2,12 @@
 
 using namespace std;
 
-int tt,n,m,old,it,i,j,k,x[222],y[222],u[222];
-bool g[222][222],q;
-char r[222];
-
 int main() 
 {
+  int tt,n,m,old,it,i,j,k,x[222],y[222],u[222];
+  bool g[222][222],q;
+  char r[222];
+
   scanf("%d",&tt);
   while (tt--) 
   {
