@@ -15,15 +15,15 @@ def factorial(num):
     Parameter: num is the number for which the factorial will be found
     Precondition: num is a non-negative integer
     """
-    assert (type(num)) == int
-    assert num >= 0
+    assert (type(num)) == int  #checking the type of num whether it is integer or not
+    assert num >= 0           
 
     # base case
-    if num == 0 or num == 1:
+    if num == 0 or num == 1:           #base condition
         return 1
 
     # recursive case
-    recursive = factorial(num - 1)
+    recursive = factorial(num - 1)      #recursive call
 
     # output
     return num * recursive
