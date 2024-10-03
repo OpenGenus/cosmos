@@ -49,7 +49,8 @@
  * };
  */
 
-#include <map>
+#include <bits/stdc++.h>
+using namespace std;
 template<typename _Tp, typename _HashFunc = std::hash<_Tp>>
 class hash_table {
 public:
