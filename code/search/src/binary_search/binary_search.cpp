@@ -54,6 +54,15 @@
  * binarySearch(_Random_Access_Iter begin, _Random_Access_Iter end, _Tp const &find);
  */
 
+/*First contribution: “cosmo/code/search/src/binary_search/binary_search.cpp”
+Pull Request:*/
+
+
+
+
+
+
+
 #include <functional>
 
 namespace binary_search_impl
