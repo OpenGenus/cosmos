@@ -1,0 +1,53 @@
+#include <stdio.h>
+ 
+int main()
+{
+   int board[ 8 ][ 8 ] = { 0 };                 /* Chess board */
+   int horizontal[ 8 ] = { 2, 1, -1, -2, -2, -1, 1, 2 };
+   int vertical[ 8 ] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+   int totalMoves = 0;                      /* Total of all moves made */
+   int currentRow = 0, currentColumn = 0;   /* Current position of knight */
+   int moveNumber;                          /* Move type */
+   int i, j;                                /* Loop counters */
+   int newPos;                              /* Test next possible move for validity */
+   int tryNextMoveType = 0;                        /* Flag to see if try next move number */
+   int end = 0;
+ 
+   while ( end != 1 ) {
+ 
+      moveNumber = 0;
+ 
+      for ( i = 0; i <= 7; i++ ) {
+ 
+         tryNextMoveType = 0;
+ 
+         newPos = currentRow + vertical[ moveNumber ];
+         if ( newPos < 0 || newPos > 7 )
+            tryNextMoveType = 1;
+ 
+         newPos = currentColumn + horizontal[ moveNumber ];
+         if ( newPos < 0 || newPos > 7 )
+            tryNextMoveType = 1;
+ 
+         if ( board[ currentRow + vertical[ moveNumber ] ][ currentColumn + horizontal[ moveNumber ] ] == 1 )
+            tryNextMoveType = 1;
+ 
+         if ( tryNextMoveType == 0 ) {
+            currentRow += vertical[ moveNumber ];
+            currentColumn += horizontal[ moveNumber ];
+            board[ currentRow ][ currentColumn ] = 1;
+            ++totalMoves;
+            break;
+         }
+         else
+            moveNumber++;
+ 
+         if ( i == 7 && tryNextMoveType == 1 ) /* No more possible moves */
+            end = 1;
+      }
+   }
+ 
+   printf( "Total moves made by the knight: %d", totalMoves );
+ 
+   return 0;
+}
