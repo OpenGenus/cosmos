@@ -1,87 +1,82 @@
-//  divide conquer | merge sort using divide and conquer | C++
-//  Part of Cosmos by OpenGenus Foundation
-
-#include <cstdlib>
-#include <cstdio>
-
-int  _mergeSort(int arr[], int temp[], int left, int right);
-int merge(int arr[], int temp[], int left, int mid, int right);
-
-/* This function sorts the input array and returns the
- * number of inversions in the array */
-int mergeSort(int arr[], int array_size)
+#include <bits/stdc++.h>
+#define vi vector<int>
+using namespace std;
+void merge(vi &v,int e,int b,int a,int c,int r)
 {
-    int *temp = (int *)malloc(sizeof(int) * array_size);
-    return _mergeSort(arr, temp, 0, array_size - 1);
-}
+    vi v1,v2,v3,v4;
+    for(int i=0;i<b-e+1;i++)
+    v1.push_back(v[e+i]);
+    for(int j=0;j<a-b;j++)
+    v2.push_back(v[b+j+1]);
+    for(int j=0;j<c-a;j++)
+    v3.push_back(v[j+a+1]);
+    for(int j=0;j<r-c;j++)
+    v4.push_back(v[c+j+1]);
 
-/* An auxiliary recursive function that sorts the input array and
- * returns the number of inversions in the array. */
-int _mergeSort(int arr[], int temp[], int left, int right)
-{
-    int mid, inv_count = 0;
-    if (right > left)
+
+    v1.push_back(INT_MAX);
+    v2.push_back(INT_MAX);
+    v3.push_back(INT_MAX);
+    v4.push_back(INT_MAX);
+
+    int i=0,j=0,k=0,l=0;
+    vector<int> x;
+    while(i<v1.size() && j<v2.size() && k<v3.size() && l<v4.size())
     {
-        /* Divide the array into two parts and call _mergeSortAndCountInv()
-         * for each of the parts */
-        mid = (right + left) / 2;
+        if(v1[i]==INT_MAX && v2[j]==INT_MAX && v3[k]==INT_MAX  && v4[l]==INT_MAX)
+        break;
+        else if(v1[i]<v2[j] && v1[i]<v3[k] && v1[i]<v4[l])
+       { x.push_back(v1[i]);
+i++;
+       }
+        else if(v1[i]>v2[j] && v2[j]<v3[k] && v2[j]<v4[l])
+      {  x.push_back(v2[j]);
+j++;
+      }
+      else if(v1[i]>v3[k] && v2[j]>v3[k] && v4[l]>v3[k])
+      {
+        x.push_back(v3[k]);
+        k++;
 
-        /* Inversion count will be sum of inversions in left-part, right-part
-         * and number of inversions in merging */
-        inv_count = _mergeSort(arr, temp, left, mid);
-        inv_count += _mergeSort(arr, temp, mid + 1, right);
+      }
+      else
+      {
+        x.push_back(v4[l]);
+        l++;
+      }
 
-        /*Merge the two parts*/
-        inv_count += merge(arr, temp, left, mid + 1, right);
     }
-    return inv_count;
+  
+   for(int i=0;i<x.size();i++)
+   {
+    v[e+i]=x[i];
+
+   }
 }
-
-/* This funt merges two sorted arrays and returns inversion count in
- * the arrays.*/
-int merge(int arr[], int temp[], int left, int mid, int right)
+void mergesort(vi &v,int l,int h)
 {
-    int i, j, k;
-    int inv_count = 0;
-
-    i = left; /* i is index for left subarray*/
-    j = mid; /* j is index for right subarray*/
-    k = left; /* k is index for resultant merged subarray*/
-    while ((i <= mid - 1) && (j <= right))
+    if(l<h)
     {
-        if (arr[i] <= arr[j])
-            temp[k++] = arr[i++];
-        else
-        {
-            temp[k++] = arr[j++];
+        int a=(l+h)/2;
+        int b=(a+l)/2;
+        int c=(a+h)/2;
 
-            /*this is tricky -- see above explanation/diagram for merge()*/
-            inv_count = inv_count + (mid - i);
-        }
+       
+        mergesort(v,l,b);
+        mergesort(v,b+1,a);
+        mergesort(v,a+1,c);
+        mergesort(v,c+1,h);
+        merge(v,l,b,a,c,h);
+
     }
-
-    /* Copy the remaining elements of left subarray
-     * (if there are any) to temp*/
-    while (i <= mid - 1)
-        temp[k++] = arr[i++];
-
-    /* Copy the remaining elements of right subarray
-     * (if there are any) to temp*/
-    while (j <= right)
-        temp[k++] = arr[j++];
-
-    /*Copy back the merged elements to original array*/
-    for (i = left; i <= right; i++)
-        arr[i] = temp[i];
-
-    return inv_count;
 }
-
-/* Driver program to test above functions */
-int main()
+int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 20, 6, 4, 5};
-    printf(" Number of inversions are %d \n", mergeSort(arr, 5));
-    getchar();
+
+vector<int> v={23,1,100,987,-100,0,56};
+mergesort(v,0,v.size()-1);
+for(int i=0;i<v.size();i++)
+cout<<v[i]<<" ";
+
     return 0;
 }
