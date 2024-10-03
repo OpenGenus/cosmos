@@ -1,0 +1,67 @@
+.main{
+    width: 80%;
+    margin-left: 10%;
+}
+.device{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 75%;
+}
+.table_margin{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 75%;
+    margin-left: 30%;
+}
+.device1{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 175%;
+    text-align: center;
+}
+.bgcolor{
+    background-color: #eee;
+    clear: left;
+    padding: 5%;
+    margin-left: 8%;
+}
+tr{
+    color:#ffb366;
+}
+.tablerow
+{
+    background-color: white;
+    padding: 5%;
+
+}
+input{
+    margin-left: 65%;
+    height: 95%;
+    width: 134%;
+}
+.value1{
+    margin-left: 16%;
+}
+  #select{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 160%;
+  }
+.parameter{
+    color: black;
+    font-family: bold;
+    font-size: 120%;
+}
+.toggle{
+    margin-left: 50%; 
+}
+.submit{
+    margin-top: 8%;
+}
+.error{
+    color : #ff0000;
+    font-size: 60%;
+    margin-left: 16%;
+}
+
+
