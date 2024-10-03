@@ -1,0 +1,13 @@
+python:
+  enabled: true
+
+eslint:
+  enabled: true
+
+tslint:
+  enabled: true
+
+credo:
+  enabled: true
+
+fail_on_violations: true
