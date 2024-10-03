@@ -1,0 +1,8 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["Dowon Cha <dowoncha.cs@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rand = "*"
