@@ -52,6 +52,8 @@ partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp)
 {
     _Random_Acccess_Iter i = first, j = last + 1;
     while (true)
+// Loop for the first half and second half in order to implement Quick Sort
+        
     {
         while (i + 1 <= last && comp(*++i, *first))
             ;
@@ -59,8 +61,10 @@ partition(_Random_Acccess_Iter first, _Random_Acccess_Iter last, _Compare comp)
             ;
         if (i >= j)
             break;
+// sawpping the values of iterators i and j        
         std::swap(*i, *j);
     }
+// sawpping the values of iterators i and first element 
     std::swap(*first, *j);
 
     return j;
@@ -74,10 +78,12 @@ quickSortImpl(_Random_Acccess_Iter first,
               std::random_access_iterator_tag,
               recursive_quick_sort_tag)
 {
+ // checking the base condition   
     if (first < last)
     {
-        // first is pivot
+         // first is pivot
         auto mid = quick_sort_impl::partition(first, last, comp);
+        // calling the quickSortImpl function on two different halves
         quickSortImpl(first,
                       mid - 1,
                       comp,
@@ -99,6 +105,7 @@ quickSortImpl(_Random_Acccess_Iter first,
               std::random_access_iterator_tag,
               iterative_quick_sort_tag)
 {
+ // implementation through stack   
     if (first < last)
     {
         std::stack<std::pair<_Random_Acccess_Iter, _Random_Acccess_Iter>> st;
