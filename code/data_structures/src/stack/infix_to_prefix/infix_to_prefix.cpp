@@ -1,138 +1,144 @@
-// Including Library
-#include <iostream>
-#include <ctype.h>
-#include <string.h>
-#include <stack>
+/*
+  Infix to postfix conversion in C++ 
+  Input Postfix expression must be in a desired format. 
+  Operands and operator, both must be single character.
+  Only '+'  ,  '-'  , '*', '/' and '$' (for exponentiation)  operators are expected. 
+*/
+#include<iostream>
+#include<stack>
+#include<string>
 
-/** Function to check if given character is
-    an operator or not. **/
-bool isOperator(char c)
+using namespace std;
+
+// Function to convert Infix expression to postfix 
+string InfixToPostfix(string expression);
+
+// Function to verify whether an operator has higher precedence over other
+int HasHigherPrecedence(char operator1, char operator2);
+
+// Function to verify whether a character is operator symbol or not. 
+bool IsOperator(char C);
+
+// Function to verify whether a character is alphanumeric chanaracter (letter or numeric digit) or not. 
+bool IsOperand(char C);
+
+int main() 
 {
-    return (!isalpha(c) && !isdigit(c));
+	string expression; 
+	cout<<"Enter Infix Expression \n";
+	getline(cin,expression);
+	string postfix = InfixToPostfix(expression);
+	cout<<"Output = "<<postfix<<"\n";
 }
 
-/** Function to find priority of given
-    operator.**/
-int getPriority(char c)
+// Function to evaluate Postfix expression and return output
+string InfixToPostfix(string expression)
 {
-    if (c == '-' || c == '+')
-        return 1;
-    else if (c == '*' || c == '/')
-        return 2;
-    else if (c == '^')
-        return 3;
-    return 0;
+	// Declaring a Stack from Standard template library in C++. 
+	stack<char> S;
+	string postfix = ""; // Initialize postfix as empty string.
+	for(int i = 0;i< expression.length();i++) {
+
+		// Scanning each character from left. 
+		// If character is a delimitter, move on. 
+		if(expression[i] == ' ' || expression[i] == ',') continue; 
+
+		// If character is operator, pop two elements from stack, perform operation and push the result back. 
+		else if(IsOperator(expression[i])) 
+		{
+			while(!S.empty() && S.top() != '(' && HasHigherPrecedence(S.top(),expression[i]))
+			{
+				postfix+= S.top();
+				S.pop();
+			}
+			S.push(expression[i]);
+		}
+		// Else if character is an operand
+		else if(IsOperand(expression[i]))
+		{
+			postfix +=expression[i];
+		}
+
+		else if (expression[i] == '(') 
+		{
+			S.push(expression[i]);
+		}
+
+		else if(expression[i] == ')') 
+		{
+			while(!S.empty() && S.top() !=  '(') {
+				postfix += S.top();
+				S.pop();
+			}
+			S.pop();
+		}
+	}
+
+	while(!S.empty()) {
+		postfix += S.top();
+		S.pop();
+	}
+
+	return postfix;
 }
 
-/** Function that converts infix
-    expression to prefix expression. **/
-std::string infixToPrefix(std::string infix)
+// Function to verify whether a character is english letter or numeric digit. 
+// We are assuming in this solution that operand will be a single character
+bool IsOperand(char C) 
 {
-    // stack for operators.
-    std::stack<char> operators;
-    // stack for operands.
-    std::stack<std::string> operands;
-
-    for (int i = 0; i < infix.length(); i++)
-    {
-        /** If current character is an
-        opening bracket, then
-        push into the operators stack. **/
-        if (infix[i] == '(')
-            operators.push(infix[i]);
-
-
-        /** If current character is a
-            closing bracket, then pop from
-            both stacks and push result
-            in operands stack until
-            matching opening bracket is
-            not found. **/
-        else if (infix[i] == ')')
-        {
-            while (!operators.empty() && operators.top() != '(')
-            {
-                // operand 1
-                std::string op1 = operands.top();
-                operands.pop();
-                // operand 2
-                std::string op2 = operands.top();
-                operands.pop();
-                // operator
-                char op = operators.top();
-                operators.pop();
-                /** Add operands and operator
-                   in form operator +
-                   operand1 + operand2. **/
-                std::string tmp = op + op2 + op1;
-                operands.push(tmp);
-            }
-
-            /** Pop opening bracket from stack. **/
-            operators.pop();
-        }
-
-        /** If current character is an
-            operand then push it into
-            operands stack. **/
-        else if (!isOperator(infix[i]))
-            operands.push(std::string(1, infix[i]));
-
-
-        /** If current character is an
-            operator, then push it into
-            operators stack after popping
-            high priority operators from
-            operators stack and pushing
-            result in operands stack. **/
-        else
-        {
-            while (!operators.empty() && getPriority(infix[i]) <= getPriority(operators.top())) {
-                std::string op1 = operands.top();
-                operands.pop();
-                std::string op2 = operands.top();
-                operands.pop();
-                char op = operators.top();
-                operators.pop();
-                std::string tmp = op + op2 + op1;
-                operands.push(tmp);
-            }
-            operators.push(infix[i]);
-        }
-    }
-
-    /** Pop operators from operators stack
-        until it is empty and add result
-        of each pop operation in
-        operands stack. **/
-    while (!operators.empty())
-    {
-        std::string op1 = operands.top();
-        operands.pop();
-
-        std::string op2 = operands.top();
-        operands.pop();
-
-        char op = operators.top();
-        operators.pop();
-
-        std::string tmp = op + op2 + op1;
-        operands.push(tmp);
-    }
-
-    /** Final prefix expression is
-        present in operands stack. **/
-    return operands.top();
+	if(C >= '0' && C <= '9') return true;
+	if(C >= 'a' && C <= 'z') return true;
+	if(C >= 'A' && C <= 'Z') return true;
+	return false;
 }
 
-// Driver code
-int main()
+// Function to verify whether a character is operator symbol or not. 
+bool IsOperator(char C)
 {
-    std::string s;
-    std::cin >> s;
-    std::cout << infixToPrefix(s);
-    return 0;
+	if(C == '+' || C == '-' || C == '*' || C == '/' || C== '$')
+		return true;
+
+	return false;
 }
 
-// Input - (A-B/C)*(A/K-L)
-// Output - *-A/BC-/AKL
+// Function to verify whether an operator is right associative or not. 
+int IsRightAssociative(char op)
+{
+	if(op == '$') return true;
+	return false;
+}
+
+// Function to get weight of an operator. An operator with higher weight will have higher precedence. 
+int GetOperatorWeight(char op)
+{
+	int weight = -1; 
+	switch(op)
+	{
+	case '+':
+	case '-':
+		weight = 1;
+	case '*':
+	case '/':
+		weight = 2;
+	case '$':
+		weight = 3;
+	}
+	return weight;
+}
+
+// Function to perform an operation and return output. 
+int HasHigherPrecedence(char op1, char op2)
+{
+	int op1Weight = GetOperatorWeight(op1);
+	int op2Weight = GetOperatorWeight(op2);
+
+	// If operators have equal precedence, return true if they are left associative. 
+	// return false, if right associative. 
+	// if operator is left-associative, left one should be given priority. 
+	if(op1Weight == op2Weight)
+	{
+		if(IsRightAssociative(op1)) return false;
+		else return true;
+	}
+	return op1Weight > op2Weight ?  true: false;
+}
