@@ -3,7 +3,8 @@
 function selection_sort($arr) {
     $n = count($arr);
 
-    foreach ($arr as $k => $el) {
+    $k = 0;
+    foreach ($arr as $el) {
         $min = $k;
 
         for ($j = $k + 1; $j < $n; $j++) {
@@ -12,9 +13,11 @@ function selection_sort($arr) {
             }
         }
 
-        $hold = $el;
-        $el = $arr[$min];
-        $arr[$min] = $hold;
+	$el = $arr[$k];
+	$arr[$k] = $arr[$min];
+	$arr[$min] = $el;
+	
+	$k++;
     }
 
     return $arr;
