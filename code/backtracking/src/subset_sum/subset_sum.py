@@ -21,7 +21,7 @@ def subsetsum(cs, k, r, x, w, d):
 # Main array w
 w = [2, 3, 4, 5, 0]
 x = [0 for i in range(len(w))]
-print("Enter the no u want to get the subsets sum for")
+print("Enter the number you want to get the subsets sum for: ")
 num = int(input())
 if num <= sum(w):
     print("The subsets are:-\n")
@@ -29,5 +29,5 @@ if num <= sum(w):
     subsetsum(0, 0, sum(w), x, w, num)
 else:
     print(
-        "Not possible The no is greater than the sum of all the elements in the array"
+        "Not possible! The number is greater than the sum of all the elements in the array."
     )
