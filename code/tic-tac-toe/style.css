@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  background: #fff;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 700px;
+  min-height: 500px;
+  border-radius: 5%;
+  margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+td {
+  background-color: #666;
+  border: 5px solid white;
+  font-size: 80px;
+  color: #fff;
+  border-radius: 10%;
+}
+
+#player {
+  padding: 1rem;
+}
+
+body {
+  display: flex;
+  background: #eee url('https://www.wallpapertip.com/wmimgs/82-825008_high-resolution-background-image-for-website.jpg') no-repeat
+    center center/cover;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+@media(max-width: 880px){
+  .container{
+  display: flex;
+  background: #fff;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 350px;
+  min-height: 250px;
+  border-radius: 5%;
+  margin: auto;
+  }
+}
