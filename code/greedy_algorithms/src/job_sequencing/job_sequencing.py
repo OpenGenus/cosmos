@@ -1,10 +1,12 @@
 # Part of Cosmos by OpenGenus Foundation
 
+
 class Job:
     def __init__(self, name, profit, deadline):
         self.name = name
         self.profit = profit
         self.deadline = deadline
+
 
 def job_scheduling(jobs):
     jobs = sorted(jobs, key=lambda job: job.profit)

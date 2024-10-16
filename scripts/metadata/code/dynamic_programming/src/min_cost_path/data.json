@@ -1,0 +1,13 @@
+{
+  "location": "code/dynamic_programming/src/min_cost_path",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "min_cost_path.c",
+    "min_cost_path.java",
+    "min_cost_path.cpp",
+    "min_cost_path.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

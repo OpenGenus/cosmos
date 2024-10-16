@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/list/singly_linked_list/operations/n_th_node_linked_list",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "nth_node_from_end.cpp",
+    "nth_node_from_end.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

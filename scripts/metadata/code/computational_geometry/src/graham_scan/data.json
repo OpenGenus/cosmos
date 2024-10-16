@@ -1,0 +1,11 @@
+{
+  "location": "code/computational_geometry/src/graham_scan",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "grahamscan.java",
+    "graham_scan_alternative.cpp",
+    "graham_scan.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

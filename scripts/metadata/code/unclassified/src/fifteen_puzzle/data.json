@@ -1,0 +1,12 @@
+{
+  "location": "code/unclassified/src/fifteen_puzzle",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "readme.md",
+    "makefile",
+    "log.txt",
+    "fifteen.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

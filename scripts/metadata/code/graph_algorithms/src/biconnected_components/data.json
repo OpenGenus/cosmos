@@ -1,0 +1,12 @@
+{
+  "location": "code/graph_algorithms/src/biconnected_components",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "biconnected_components.cpp",
+    "biconnected_components.java",
+    "biconnected_components.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

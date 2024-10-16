@@ -1,4 +1,4 @@
-const Readline = require('readline');
+const Readline = require("readline");
 
 const rl = Readline.createInterface({
   input: process.stdin,
@@ -24,11 +24,15 @@ function coPrime(a, b) {
   }
 }
 
+rl.question(
+  "Enter two values to find for relative prime or co prime: ",
+  numbers => {
+    let [a, b] = numbers.split(" ").filter(function(e) {
+      return parseInt(e, 10);
+    });
 
-rl.question('Enter two values to find for relative prime or co prime: ', (numbers) => {
-  let [a, b] = numbers.split(' ').filter(function(e) { return parseInt(e, 10) });
+    console.log(coPrime(a, b));
 
-  console.log(coPrime(a, b));
-
-  rl.close();
-});
+    rl.close();
+  }
+);

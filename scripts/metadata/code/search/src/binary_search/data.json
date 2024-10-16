@@ -1,0 +1,27 @@
+{
+  "location": "code/search/src/binary_search",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "binary_search.rs",
+    "binary_search.scala",
+    "binary_search.java",
+    "binary_search.php",
+    "binary_search.c",
+    "binary_search.rkt",
+    "binary_search.py",
+    "binary_search.js",
+    "binary_search.ex",
+    "binary_search.go",
+    "binary_search.rb",
+    "binary_search.hs",
+    "binary_search.swift",
+    "binary_search.cs",
+    "binary_search.cpp",
+    "binary_search.sh",
+    "README.md",
+    "binary_search_2.cpp",
+    "binary_search.kt"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,0 +1,11 @@
+{
+  "location": "code/operating_system/src/concurrency/monitors/monitors_system_v",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "monitors.c",
+    "monitors.h",
+    "main.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

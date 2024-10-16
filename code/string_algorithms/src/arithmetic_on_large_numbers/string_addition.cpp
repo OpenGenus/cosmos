@@ -9,7 +9,7 @@ std::string strAdd(std::string s, std::string r)
 
     // precondition for empty strings
     assert(s.length() > 0 && r.length() > 0);
-    
+
     if (r.length() < s.length())
         r.insert(r.begin(), s.length() - r.length(), '0');
     else if (r.length() > s.length())

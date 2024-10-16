@@ -11,6 +11,14 @@ int gcd(int x, int y)
     return x;
 }
 
+//should use this recursive approach.
+// int gcd(int c,int d)
+// {
+//     if(d==0)
+//         return a;
+//     return gcd(d,c%d);
+// }
+
 int lcm(int x, int y)
 {
     return x / gcd(x, y) * y;

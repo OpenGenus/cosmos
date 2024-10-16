@@ -1,0 +1,11 @@
+{
+  "location": "code/graph_algorithms/src/data_structures/adjacency_matrix_c",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "mgraph_struct.c",
+    "main.c",
+    "mgraph_struct.h"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

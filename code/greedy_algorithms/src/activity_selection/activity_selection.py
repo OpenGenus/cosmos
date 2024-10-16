@@ -1,12 +1,12 @@
-'''
+"""
  Part of Cosmos by OpenGenus Foundation
 
  Activity Selection Problem
 
-'''
+"""
+
 
 class Activity:
-
     def __init__(self, start, finish):
         self.start = start
         self.finish = finish
@@ -20,7 +20,7 @@ class Activity:
 
 def activity_selection(activity_arr):
     selected_activities = []
-    
+
     if activity_arr:
         activity_arr.sort()
         selected = activity_arr[0]
@@ -35,6 +35,13 @@ def activity_selection(activity_arr):
     return selected_activities
 
 
-activity_arr = [Activity(5,9), Activity(1, 2), Activity(3, 4), Activity(0, 6), Activity(5, 7), Activity(8, 9)]
+activity_arr = [
+    Activity(5, 9),
+    Activity(1, 2),
+    Activity(3, 4),
+    Activity(0, 6),
+    Activity(5, 7),
+    Activity(8, 9),
+]
 
 print(activity_selection(activity_arr))

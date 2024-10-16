@@ -1,5 +1,5 @@
 def main():
-    n = 2**1000
+    n = 2 ** 1000
     s = list(str(n))
     ans = 0
 
@@ -8,5 +8,6 @@ def main():
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,0 +1,11 @@
+{
+  "location": "code/computational_geometry/src/sutherland_hodgeman_clipping",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "sutherland.cpp",
+    "README.md",
+    "sutherland.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

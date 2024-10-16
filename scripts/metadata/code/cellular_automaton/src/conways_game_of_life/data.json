@@ -1,0 +1,18 @@
+{
+  "location": "code/cellular_automaton/src/conways_game_of_life",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "gameoflife.hs",
+    "life.cpp",
+    "life.c",
+    "conway.java",
+    "life.rb",
+    "life.go",
+    "life.py",
+    "README.md",
+    "game_of_life_c_sdl.c",
+    "conways_game_of_life.rb"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

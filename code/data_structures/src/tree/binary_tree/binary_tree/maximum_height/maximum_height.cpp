@@ -1,10 +1,11 @@
 #include <iostream>
+// #include<bits/stdc++.h>
 using namespace std;
 
 // Part of Cosmos by OpenGenus Foundation
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
 // max function
 int max(int a, int b)
@@ -57,14 +58,19 @@ struct node* Insert(struct node* root, int data)
 // compute height of the tree
 int getHeight(node* root)
 {
-    if (root == NULL)
-        return 0;
-
-    // find the height of each subtree
-    int lh = getHeight(root->left);
-    int rh = getHeight(root->right);
-
-    return 1 + max(lh, rh);
+    int l;
+    int r;
+     if(root){
+        l = getHeight(root->left);
+        r = getHeight(root->right);
+        
+        if(l>r){
+            return l+1;
+        }
+        else{
+            return r+1;
+        }
+     }
 }
 
 int main()

@@ -1,0 +1,11 @@
+{
+  "location": "code/artificial_intelligence/src/image_processing/canny",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "canny.h",
+    "main.cpp",
+    "canny.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

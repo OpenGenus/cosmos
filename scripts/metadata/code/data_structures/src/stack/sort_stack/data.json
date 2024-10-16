@@ -1,0 +1,12 @@
+{
+  "location": "code/data_structures/src/stack/sort_stack",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "README.md",
+    "sort_stack.c",
+    "sort_stack.py",
+    "sort_stack.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

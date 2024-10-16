@@ -1,13 +1,16 @@
 #include <stdio.h>
-
-void 
-printEgyptian(int numerator, int denominator)
+/*
+This is a program to represent a number in terms of it's Egyptian fraction. An Egyptian Fraction is a finitet sum of unit fractions. Any 
+positive rational number can be represented by sum of unit fractions.
+*/
+void printEgyptian(int numerator, int denominator)
 {
-    if (denominator == 0 || numerator == 0)
+    if (denominator == 0 || numerator == 0)//if numerator is zero, then it cannot be represented as unit fraction. Denominator zero 
+        //implies undefined. So we return.
         return;
  
     if (denominator % numerator == 0) {
-        printf("1/%d", denominator / numerator);
+        printf("1/%d", denominator / numerator);//For example 2/4 becomes 1/2
         return;
     }
  
@@ -23,7 +26,7 @@ printEgyptian(int numerator, int denominator)
     }
  
     int n = (denominator / numerator) + 1;
-    printf("1/%d + ", n);
+    printf("1/%d + ", n);//printing the number found
     
     printEgyptian((numerator * n) - denominator, denominator * n);
  }

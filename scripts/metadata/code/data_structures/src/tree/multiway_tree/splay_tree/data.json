@@ -1,0 +1,14 @@
+{
+  "location": "code/data_structures/src/tree/multiway_tree/splay_tree",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "readme.md",
+    "splay_tree.go",
+    "splay_tree.kt",
+    "splay_tree.cpp",
+    "splay_tree.scala",
+    "splay_tree.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

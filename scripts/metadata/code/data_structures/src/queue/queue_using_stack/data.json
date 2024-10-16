@@ -1,0 +1,13 @@
+{
+  "location": "code/data_structures/src/queue/queue_using_stack",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "queue_using_stack.java",
+    "queue_using_stack.sh",
+    "queue_using_stack.py",
+    "queue_using_stack.cpp",
+    "queue_using_stack.c"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -42,7 +42,7 @@ def cycle_sort(arr):
     return writes
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     arr = [1, 6, 4, 7, 2, 8]
     print("Unsorted Array: ", arr)
     cycle_sort(arr)

@@ -1,4 +1,4 @@
-## Analgram Search 
+## Anagram Search 
 An anagram of a string is another string that contains same characters, only the order of characters can be different. For example, “abcd” and “dabc” are anagram of each other.
 
 ![download](https://user-images.githubusercontent.com/29759141/45692328-21a91980-bb78-11e8-90f8-c484de6fc894.png)

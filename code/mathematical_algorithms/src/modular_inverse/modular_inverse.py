@@ -19,7 +19,11 @@ def modInverse(num, mod):
             return x
 
         else:
-            raise Exception("The number ({0}) and mod ({1}) are not coprime!".format(str(num), str(mod)))
+            raise Exception(
+                "The number ({0}) and mod ({1}) are not coprime!".format(
+                    str(num), str(mod)
+                )
+            )
 
     return -1
 

@@ -8,11 +8,22 @@ function range(x) {
 }
 
 function determinePrev(arr, idx) {
-  return arr.filter(function(x){return x.length > idx}).map(function() {return 1}).reduce(function (p1, p2) {return p1 + p2}, 0);
+  return arr
+    .filter(function(x) {
+      return x.length > idx;
+    })
+    .map(function() {
+      return 1;
+    })
+    .reduce(function(p1, p2) {
+      return p1 + p2;
+    }, 0);
 }
 
 function beadsort(arr) {
-  var ref = arr.map(function(x) {return range(x)});
+  var ref = arr.map(function(x) {
+    return range(x);
+  });
   var inter = [];
   var idx = 0;
   var prev = determinePrev(ref, idx);

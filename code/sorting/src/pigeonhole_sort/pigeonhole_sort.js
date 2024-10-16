@@ -17,7 +17,7 @@ function pigeonholeSort(array) {
   for (let item of array) {
     holes[item - min] += 1;
   }
-  
+
   let sortedArray = [];
   for (let i = 0; i < holes.length; i++) {
     while (holes[i] > 0) {
@@ -33,4 +33,3 @@ let array = [5, 2, 8, 9, 10, 1, 3];
 console.log(pigeonholeSort(array));
 > [ 1, 2, 3, 5, 8, 9, 10 ]
 */
-

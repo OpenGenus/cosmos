@@ -1,9 +1,7 @@
 /* Part of Cosmos by OpenGenus Foundation */
 
 #include <iostream>
-
-#include <unordered_map>
-#include <unordered_set>
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -17,41 +15,26 @@ using namespace std;
  *  Check to ensure every unique character is used in both strings the
  *      same number of times.
  */
-bool isAnagram(const string& s1, const string& s2)
+
+vector<int> getMap(const string& s) 
 {
-    unordered_map<char, int> charCount1, charCount2;
-    unordered_set<char> allChars;
-
-    for (char c : s1)
+    vector<int> m(26, 0);
+    for(char c : s) 
     {
-        c = tolower(c);
-        if (!iswspace(c))
+        if(c != ' ') 
         {
-            charCount1[c]++;
-            allChars.insert(c);
+            c = tolower(c);
+            m[c - 'a']++;
         }
     }
-
-    for (char c : s2)
-    {
-        c = tolower(c);
-        if (!iswspace(c))
-        {
-            charCount2[c]++;
-            allChars.insert(c);
-        }
-    }
-
-    for (auto it = allChars.begin(); it != allChars.end(); it++)
-    {
-        char c = *it;
-        if (charCount1[c] != charCount2[c])
-            return false;
-    }
-
-    return true;
+    return m;
 }
-
+bool isAnagram(const string& s1, const string& s2) 
+{
+    vector<int> m1 = getMap(s1);
+    vector<int> m2 = getMap(s2);
+    return m1 == m2;
+}
 int main()
 {
     cout << isAnagram("anagram", "not a gram") << endl; // false

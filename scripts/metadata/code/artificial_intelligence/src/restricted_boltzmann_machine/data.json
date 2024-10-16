@@ -1,0 +1,12 @@
+{
+  "location": "code/artificial_intelligence/src/restricted_boltzmann_machine",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "train.csv",
+    "test.csv",
+    "README.md",
+    "rbm.ipynb"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

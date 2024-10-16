@@ -1,0 +1,19 @@
+{
+  "location": "code/string_algorithms/src/pangram_checker",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "pangram_checker.c",
+    "pangram.cpp",
+    "pangram_checker.php",
+    "pangram_checker.py",
+    "pangram_checker.go",
+    "pangram_checker.m",
+    "pangram.java",
+    "pangram_checker.js",
+    "pangram.rb",
+    "README.md",
+    "pangram_checker.swift"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

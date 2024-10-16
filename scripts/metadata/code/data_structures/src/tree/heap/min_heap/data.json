@@ -1,0 +1,15 @@
+{
+  "location": "code/data_structures/src/tree/heap/min_heap",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "min_heap.c",
+    "min_heap.js",
+    "min_heap.rb",
+    "min_heap.cpp",
+    "min_heap.py",
+    "min_heap.swift",
+    "min_heap.java"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

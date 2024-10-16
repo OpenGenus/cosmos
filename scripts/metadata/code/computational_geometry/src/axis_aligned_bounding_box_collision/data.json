@@ -1,0 +1,10 @@
+{
+  "location": "code/computational_geometry/src/axis_aligned_bounding_box_collision",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "axis_aligned_bounding_box_collision.go",
+    "axis_aligned_bounding_box_collision.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/stack/abstract_stack/cpp/arraystack",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "arraystacktester.cpp",
+    "arraystack.h"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

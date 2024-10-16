@@ -1,0 +1,13 @@
+{
+  "location": "code/graph_algorithms/src/bipartite_checking",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "bipartite.cpp",
+    "bipartite_bfs.java",
+    "bipartite_checking.cpp",
+    "bipartite_graph_checked_adjacency_list.java",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

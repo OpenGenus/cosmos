@@ -1,0 +1,13 @@
+{
+  "location": "code/artificial_intelligence/src/naive_bayes",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "naive_bayes.swift",
+    "iris1.csv",
+    "gaussian_naive_bayes.py",
+    "README.md",
+    "naive_bayes.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,68 +1,72 @@
 # Part of Cosmos by OpenGenus Foundation
-import array
-
 class Queue:
-	def __init__(self, size_max):
-		self.max = size_max
-		self.size = 0
-		self.data = []
-  
-  def empty(self):
-    return self.size == 0
+    def __init__(self, size_max):
+        self.data = [None] * (size_max + 1)
+        self.max = (size_max + 1)
+        self.head = 0
+        self.tail = 0
 
-  def full(self):
-    return self.size == self.max
+    def empty(self):
+        return self.head == self.tail
 
-	def enqueue(self, x):
-		if self.size == self.max:
-			print "Queue full"
-			return False
-		self.data.insert(0, x)
-		self.size += 1
-		return True
+    def full(self):
+        return self.head == (self.tail + 1) % self.max
 
-	def dequeue(self):
-		if self.size == 0:
-			return None
-		x = self.data.pop()
-		self.size -= 1
-		return x
+    def enqueue(self, x):
+        if self.full():
+            print("Queue full")
+            return False
+        self.data[self.tail] = x
+        self.tail = (self.tail + 1) % self.max
+        return True
 
-	def display(self):
-		if self.size == 0:
-			print "Queue is empty"
-		else:
-			out = ""
-			for ele in self.data:
-				out = out + " " + str(ele)
-			print(out[::-1])
-		return
+    def dequeue(self):
+        if self.empty():
+            print("Queue empty")
+            return None
+        x = self.data[self.head]
+        self.head = (self.head + 1) % self.max
+        return x
 
-print "Enter the size of Queue"
-n = int(raw_input())
+    def top(self):
+        if self.empty():
+            print("Queue empty")
+            return None
+        return self.data[self.head]
+
+    def display(self):
+        cur = self.head
+        while cur != self.tail:
+            print(self.data[cur])
+            cur = (cur + 1) % self.max
+
+print("Enter the size of Queue")
+n = int(input())
 q = Queue(n)
 while True:
-	print "Press E to enqueue an element"
-	print "Press D to dequeue an element"
-	print "Press P to display all elements of the queue"
-	print "Press X to exit"
-	opt = raw_input().strip()
-	if opt == "E":
-		if q.size == q.max:
-			print "Queue is full"
-			continue
-		print "Enter the element"
-		ele = int(raw_input())
-		q.enqueue(ele)
-		continue
-	if opt == "D":
-		ele = q.dequeue()
-		if ele == None:
-			print "Queue is empty"
-		else:
-			print "Element is", ele
-	if opt == "P":
-		q.display()
-	if opt == "X":
-		break
-
+    print("Press E to enqueue an element")
+    print("Press D to dequeue an element")
+    print("Press P to display all elements of the queue")
+    print("Press T to show top element of the queue")
+    print("Press X to exit")
+    opt = input().strip()
+    if opt == "E":
+        if q.full():
+            print("Queue is full")
+            continue
+        print("Enter the element")
+        ele = int(input())
+        q.enqueue(ele)
+        continue
+    if opt == "D":
+        ele = q.dequeue()
+        if ele == None:
+            print("Queue is empty")
+        else:
+            print("Element is", ele)
+    if opt == "P":
+        q.display()
+    if opt == "T":
+        print(q.top())
+    if opt == "X":
+        break

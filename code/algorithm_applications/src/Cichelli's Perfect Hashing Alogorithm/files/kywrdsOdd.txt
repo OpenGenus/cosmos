@@ -1,0 +1,10 @@
+jitter
+frequency
+Chapter
+camera
+step
+in
+range
+the
+ToF
+influence

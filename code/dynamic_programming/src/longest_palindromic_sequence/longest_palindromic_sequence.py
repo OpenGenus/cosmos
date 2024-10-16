@@ -1,5 +1,5 @@
-
 # Part of Cosmos by OpenGenus Foundation
+
 
 def longest_palindrome(text):
     """ Find the maximum length of a palindrome subsequence
@@ -32,18 +32,21 @@ def longest_palindrome(text):
                     palindromes_lengths[rgap] = 2 + pre
             else:
                 # if first and last characters do not match, try the latter ones
-                palindromes_lengths[rgap] = max(palindromes_lengths[rgap + 1],
-                                                palindromes_lengths[rgap])
+                palindromes_lengths[rgap] = max(
+                    palindromes_lengths[rgap + 1], palindromes_lengths[rgap]
+                )
             # update pre-calculated length
             pre = tmp
     # return the maximum palindrome length
     return palindromes_lengths[0]
 
+
 def main():
     """ Main routine to test longest_palindrome funtion """
-    print(longest_palindrome('bbabcbcab')) # 7: babcbab | bacbcab
-    print(longest_palindrome('abbaab'))    # 4: abba | baab
-    print(longest_palindrome('opengenus')) # 3: ene | ege | ngn | nen
+    print(longest_palindrome("bbabcbcab"))  # 7: babcbab | bacbcab
+    print(longest_palindrome("abbaab"))  # 4: abba | baab
+    print(longest_palindrome("opengenus"))  # 3: ene | ege | ngn | nen
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

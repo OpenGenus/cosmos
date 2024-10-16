@@ -16,7 +16,8 @@ def main():
                 n = (3 * n) + 1
                 count += 1
 
-    print (dic.values().index(max(dic.values())) + 1)
+    print(dic.values().index(max(dic.values())) + 1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

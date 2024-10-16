@@ -1,0 +1,10 @@
+{
+  "location": "code/data_structures/src/tree/binary_tree/binary_tree/path_sum",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "path_sum.hpp",
+    "path_sum.cpp"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

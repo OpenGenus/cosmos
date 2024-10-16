@@ -1,0 +1,11 @@
+{
+  "location": "code/graph_algorithms/src/eulerian_path",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "eulerian.py",
+    "eulerian.java",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -1,6 +1,6 @@
-'''
+"""
 Part of Cosmos by OpenGenus Foundation
-'''
+"""
 
 
 def _binary_search_recursive_impl(arr, x, left, right):

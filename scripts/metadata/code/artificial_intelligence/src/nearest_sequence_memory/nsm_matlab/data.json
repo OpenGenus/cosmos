@@ -1,0 +1,11 @@
+{
+  "location": "code/artificial_intelligence/src/nearest_sequence_memory/nsm_matlab",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "main.m",
+    "simulator.m",
+    "nsm_agent.m"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

@@ -10,7 +10,8 @@ def bucket_sort(A):
 
 
 def isort(A):
-    if len(A) <= 1: return A
+    if len(A) <= 1:
+        return A
     i = 1
     while i < len(A):
         k = A[i]

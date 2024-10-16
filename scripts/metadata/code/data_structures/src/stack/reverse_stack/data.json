@@ -1,0 +1,16 @@
+{
+  "location": "code/data_structures/src/stack/reverse_stack",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "reverse_stack.swift",
+    "reverse_stack.cs",
+    "reverse_stack.c",
+    "reverse_stack.go",
+    "reverse_stack_without_extra_space.cpp",
+    "reverse_stack.java",
+    "README.md",
+    "reverse_stack.py"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

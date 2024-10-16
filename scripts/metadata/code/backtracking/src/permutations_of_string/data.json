@@ -1,0 +1,15 @@
+{
+  "location": "code/backtracking/src/permutations_of_string",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "permutations_of_string.c",
+    "permutations_of_string.go",
+    "permutations_of_string.kt",
+    "permutations_of_string_itertools.py",
+    "permutations_of_string_stl.cpp",
+    "permutations_of_string.py",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

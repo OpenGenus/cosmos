@@ -1,0 +1,12 @@
+{
+  "location": "code/divide_conquer/src/merge_sort_using_divide_and_conquer",
+  "opengenus_discuss": "",
+  "opengenus_iq": "",
+  "files": [
+    "merge_sort_using_divide_and_conquer.cpp",
+    "merge_sort_using_divide_and_conquer.java",
+    "inversions.c",
+    "README.md"
+  ],
+  "updated": "18-05-2019 08:11:06"
+}

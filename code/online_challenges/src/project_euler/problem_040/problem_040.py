@@ -3,7 +3,7 @@ def main():
     i = 0  # Used for iteration
 
     while len(nums) < 1000002:  # Loop to add the sequence of numbers to the list
-        nums += str(i) 
+        nums += str(i)
         i += 1
 
     answer = 1  # Initialising answer which will store final computed answer
@@ -15,5 +15,6 @@ def main():
 
     print(answer)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
