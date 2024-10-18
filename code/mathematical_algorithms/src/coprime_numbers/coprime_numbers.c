@@ -1,32 +1,37 @@
-// Part of Cosmos by OpenGenus Foundation
+#include <stdio.h>
 
-#include<stdio.h>
-
-int 
-hcf(int a, int h) 
-{
-    int temp; 
-    while (1) {
-        temp = a % h;
-        if (temp == 0)
-        	return h;
-        a = h;
-        h = temp;
-    }
-} 
-
-int 
-main() 
-{
-    int c, d, gcd; 
-    printf("Enter two Natural Numbers\n");
-    scanf("%d %d", &c, &d);
-    gcd = hcf(c, d);
+// Function to calculate the GCD of two numbers using the Euclidean algorithm
+int gcd(int a, int b) {
    
-    if (gcd == 1) 
-        printf("%d and %d are relatively prime or co prime numbers . \n", c, d);
-    else
-        printf("%d and %d are not relatively prime or co prime numbers . \n", c, d);
-
-     return (0);     
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
 }
+
+int main() {
+    int num1, num2;
+
+    // Input two numbers from the user
+    printf("Enter First number:");
+    scanf("%d", &num1);
+    printf("Enter Second number:");
+    scanf("%d" , &num2);
+
+    // Calculate the GCD of the two numbers
+    int gcd_result = gcd(num1, num2);
+
+    // Check if the GCD is 1 (co-prime) or not
+    if (gcd_result == 1) 
+    {
+        printf("%d and %d are co-prime.\n", num1, num2);
+    } 
+    else 
+    {
+        printf("%d and %d are not co-prime.\n", num1, num2);
+    }
+
+    return 0;
+}
+
+
