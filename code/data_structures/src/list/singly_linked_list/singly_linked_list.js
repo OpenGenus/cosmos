@@ -57,23 +57,30 @@ function LinkedList() {
   this.remove = function(element) {
     var currentNode = head;
     var previousNode;
-
+  
+    // Check if head exist
+    if(!currentNode) console.log("list does not exist.");
+    
     //Check if the head node is the element to remove
     if (currentNode.element === element) {
       head = currentNode.next;
+      length--;
     } else {
       //Check which node is the node to remove
-      while (currentNode.element !== element) {
+      while (currentNode.element !== element && currentNode.next) {
         previousNode = currentNode;
         currentNode = currentNode.next;
       }
-
-      //Removing the currentNode
+      if(currentNode.element === element) {
+      //Removing the currentNode if the data is found after search
       previousNode.next = currentNode.next;
+      length--;
+      }
+      else {
+      // if the node could not found, log it
+      console.log("element not found");
+      }
     }
-
-    //Decrementing the length
-    length--;
   };
 
   //Return if the list is empty
