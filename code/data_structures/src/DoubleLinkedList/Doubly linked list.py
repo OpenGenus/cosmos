@@ -57,9 +57,18 @@ class DLL:
                 current.prev = prev.next
     def Empty(self):
         return self.ptr == None
+    def HasCycle(self):
+        slow = self.ptr
+        fast = self.ptr
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
 dll = DLL()
 while True:
-    choice = int(input("\n1.Insert\n2.Delete\n3.Check Empty\n4.Exit\nEnter Choice : "))
+    choice = int(input("\n1.Insert\n2.Delete\n3.Check Empty\n4.Detect Cycle\n5.Exit\nEnter Choice : "))
     if choice == 1:
         value = int(input("Enter element to Insert : "))
         dll.Insert(value)
@@ -71,5 +80,10 @@ while True:
     elif choice == 3:
         print(dll.Empty())
     elif choice == 4:
+        if dll.HasCycle():
+            print("Cycle detected in the linked list")
+        else:
+            print("No cycle detected in the linked list")
+    elif choice == 5:
         break
 print("Program End")
