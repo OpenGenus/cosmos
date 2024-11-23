@@ -2,8 +2,13 @@ from random import choice
 
 while (True):
     print("Rock \nPaper \nScissors!!!!!")
-    player1 = input("Enter your choice: ")
+    player1 = input("Enter your choice: ").upper()
     choices = ["ROCK", "PAPER", "SCISSORS"]
+
+    if player1 not in choices:
+        print("Invalid choice, please choose ROCK, PAPER, or SCISSORS.")
+        continue
+
     player2 = choice(choices)
     print("SHOOT!!!")
     print(f"player 2 played {player2}")
@@ -19,7 +24,7 @@ while (True):
     else:
         print("Tied")
     print("---------------------------------------")
-    flag = input("Do you want to continue? ")
+    flag = input("Do you want to continue? ").lower()
     if flag.lower() == "no":
         break
     elif flag.lower() == "yes":
