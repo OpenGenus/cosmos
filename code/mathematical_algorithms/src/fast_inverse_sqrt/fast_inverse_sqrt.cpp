@@ -8,7 +8,7 @@
 #include <cstdint>
 // Part of Cosmos by OpenGenus Foundation
 
-double fastInverseSqrt(double x)
+float fastInverseSqrt(float x)
 {
     float xhalf = 0.5f * x;
     std::int64_t i = *(std::int64_t*)&x;    // get bits for double value
