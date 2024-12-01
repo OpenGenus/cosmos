@@ -1,0 +1,296 @@
+AVL Trees
+C++
+ Today we are going to review the implementation of AVL Trees. They must be the first type of Balanced Binary Search Trees. They were invented by two Soviet inventors, G. M. Adelson-Velskii and E. M. Landis in 1962. There are plenty of AVL trees implementations, but, to my mind, none of them is good enough when you try to make sense of it all from scratch. They say that AVL trees are simpler than Red-Black trees, but when looking at the code, we can not believe it. Thus, I have decided to explain the structure of AVL trees step by step. I’ll also provide the code in C++.
+AVL Tree Notion
+
+AVL Tree
+
+First of all, an AVL Tree is a Binary Search Tree (BST), the keys of which meet standard requirements: a key of any tree node is not less than the key in the left subtree of the given node and not more than any key in the right subtree of this node. This means that in order to find the necessary key in an AVL tree, we can use a standard algorithm. For simplicity, we will consider that all keys in a tree are integers and not repeated.
+
+AVL trees are peculiar as for their balance in a way that for any tree node the height of its right subtree differs from the left subtree height for not more than one. It has been proved that this property is enough for the tree height to depend logarithmically in the number of its nodes. h height of an AVL tree with n keys lies in the range from log2(n + 1) to 1.44 log2(n + 2) − 0.328. Since all major operations on a BST (search, insertion and deletion) depend linearly on its height, we get a guaranteed logarithmic dependence of these algorithms operation time from the number of keys that are stored in a tree. Reminding you, that randomized search trees provide the balance in probability sense only. Though the probability of getting a badly imbalanced tree having high n values, is negligible, it is still not equal to zero.
+Node Structure
+
+We will represent AVL tree nodes with the help of the following structure:
+
+struct node // the structure for representing tree nodes 
+{
+    int key;
+    unsigned char height;
+    node* left;
+    node* right;
+    node(int k) { key = k; left = right = 0; height = 1; }
+};
+
+key field stores the node key, height field stores the height of the subtree with the root in the given node, left and right fields are pointers to the left and the right subtrees. A simple constructor creates a new node (of 1 height) with the specified k key.
+
+Traditionally, AVL tree nodes do not store the height, but the difference between the height of the left and the right subtrees (the so-called balance factor) that can accept three values only: -1, 0 and 1. But we should note that this difference is still stored in a variable, the size of which is equal to at least 1 byte (if we do not think out any schemes of an “efficient” package of such sizes). Let’s recall that h < 1.44 log2(n + 2). It can mean that when n=10^9 (one milliard of keys, more than 10 GB of memory allocated for nodes storage) the tree height will not exceed h=44 size that can be easily placed in the same 1 memory byte, just as the balance factor. Thus, height storage does not increase the memory amount that is allocated for the tree nodes. On the other hand, it efficiently simplifies implementation of some operations.
+
+Let’s define three helper functions related to height. The first one is a wrapper for height field. It can operate with NULL pointers (empty trees) as well:
+
+unsigned char height(node* p)
+{
+    return p ? p->height : 0;
+}
+
+The second one calculates the balance factor of the given node. It operates with nonzero pointers only:
+
+int bfactor(node* p)
+{
+    return height(p->right) - height(p->left);
+}
+
+The third function retrieves the correct value of height field of the given node (provided that this field value in the left and the right child nodes are correct)
+
+void fixheight(node* p)
+{
+    unsigned char hl = height(p->left);
+    unsigned char hr = height(p->right);
+    p->height = (hl>hr ? hl : hr) + 1;
+}
+
+We should note that all of the three functions are nonrecursive, i.e. their operation time is О(1).
+Balancing Nodes
+
+When adding or deleting nodes in an AVL tree, the balance factor of some nodes can be equal either to 2, or -2. Thus, the subtree is imbalanced. To solve this problem, we should apply the well known rotations round some tree nodes. Reminding you that a simple right (left) rotation causes the following transformations of the tree:
+
+Let’s take a look at the code implementing a right rotation (as usual, each function which modifies a tree, returns a root of a new tree):
+
+node* rotateright(node* p) // the right rotation round p
+{
+    node* q = p->left;
+    p->left = q->right;
+    q->right = p;
+    fixheight(p);
+    fixheight(q);
+    return q;
+}
+
+The left rotation is the symmetric copy of the right one:
+
+node* rotateleft(node* q) // the left rotation round q
+{
+    node* p = q->right;
+    q->right = p->left;
+    p->left = q;
+    fixheight(q);
+    fixheight(p);
+    return p;
+}
+
+Let’s review the situation of imbalance, when the height of the right subtree of p node is greater by 2, than of the left subtree (the opposite case is symmetric and is implemented in much the same way). Let’s assume that q is the right child node of a p node, while s is the left child node of a q node.
+
+The analysis of possible cases within the limits of the given situation shows that in order to get rid of imbalance in p node, it’s enough to perform either a simple rotation to the left round p, or the so-called big rotation to the left round the same p. A simple rotation is performed when the height of the left subtree of g node is more than the height of its right subtree: h(s)≤h(D).
+
+We can apply a big rotation when h(s)>h(D) and perform two simple ones – at first the right rotation round q, then the left one round p.
+
+The balance executing code comes to checking conditions and performing rotations:
+
+node* balance(node* p) // p node balance
+{
+    fixheight(p);
+    if( bfactor(p)==2 )
+    {
+        if( bfactor(p->right) < 0 )
+            p->right = rotateright(p->right);
+        return rotateleft(p);
+    }
+    if( bfactor(p)==-2 )
+    {
+        if( bfactor(p->left) > 0  )
+            p->left = rotateleft(p->left);
+        return rotateright(p);
+    }
+    return p; // no balance needed
+}
+
+The described rotation and balance functions contain neither loops, nor recursion. Thus, they’re executed in constant-time that does not depend on the AVL tree size.
+Key Insertion
+
+A new key insertion in an AVL tree is executed in much the same way as in simple search trees. We go down the tree choosing either the right, or the left move direction depending on the result of comparing the key in the current node with the inserted one.
+
+The only difference is that we balance current node when returning from recursion (i.e. after the key is inserted either in the left or the right subtree and this tree is balanced). It is proven that during insertion, the imbalance occurring in any node along the path is not more than 2. Thus, the use of the mentioned above balance function is correct.
+
+node* insert(node* p, int k) // k key insertion in the tree with p root  
+{
+    if( !p ) return new node(k);
+    if( k<p->key )
+        p->left = insert(p->left,k);
+    else
+        p->right = insert(p->right,k);
+    return balance(p);
+}
+
+To check the correspondence of the implemented insertion algorithm to theoretical estimates for AVL trees height, a simple calculating experiment has been carried out. There was an array with randomly generated numbers from 1 to 1000. Then these numbers were subsequently inserted in an initially empty AVL tree and the tree height was measured after each insertion. The obtained results were averaged according to 1000 calculations. The following chart represents the dependency of n on average height (the red line), the minimal height (the green line) and the maximum height (the blue line). It also depicts the upper and the lower theoretical estimates.
+
+We can see that the experimentally found heights for random key sequences are within the theoretical limits even with some spare. We can reach the lower bound (at least in some points) if the initial key sequence is arranged in ascending order.
+Key Deletion
+
+As for nodes deletion from an AVL tree, it is not as simple as with Randomized Search Trees. I have not been able to either find, or create a method that would be based on joining two trees together. Therefore, as a basis I used the variant that is described almost everywhere. It is usually applied for deleting nodes from a standard Binary Search Tree as well.
+
+AVL Tree Delete Operation
+
+Its main concept is that we find p node with the specified k key (if it is not there, we do not have to perform any actions). In the right subtree find min node with the least key and replace the deleted p node with the found min.
+
+There are some nuances may occur during the implementation. First of all, if the found p node does not have a right subtree, according to an AVL tree property, this node either should have just one child node (the tree of 1 height) on the left, or it is a list. In both cases we should just delete p node and return a pointer to the left child node of p.
+
+Assume that now p node has the right subtree. Find the minimal key in it. According to Binary Trees, this key is found in the end of the left branch, starting from the tree root. Use the recursive function:
+
+node* findmin(node* p) // searching the node with the minimal key in p tree  
+{
+    return p->left?findmin(p->left):p;
+}
+
+Another function will be in charge of deleting the minimal element from the given tree. And again, according to the AVL tree property, the minimal element either has a single node, or it is empty. In both cases we should simply return the pointer to the right node and on our way back (when returning from recursion) perform the balancing. We will not delete the minimal node as it will come in handy later.
+
+node* removemin(node* p) // deleting the node with the minimal key from p tree 
+{
+    if( p->left==0 )
+        return p->right;
+    p->left = removemin(p->left);
+    return balance(p);
+}
+
+Now all is ready to implement key deletion from the AVL tree. First, find the necessary node by performing the same actions as when inserting a key.
+
+node* remove(node* p, int k) // k key deletion from p tree
+{
+    if( !p ) return 0;
+    if( k < p->key )
+        p->left = remove(p->left,k);
+    else if( k > p->key )
+        p->right = remove(p->right,k);	
+
+As soon as we have found the k key, turn to plan B: Memorize q and r roots of the left and the right subtrees of p node, and then delete p. If the right subtree is empty, return the pointer to the left subtree. If the right subtree is not empty, we should find the minimal min element and extract it from there. Hook the q to min on the left. On the right we will hook what was obtained from r. Return min after its balancing.
+
+else //  k == p->key 
+    {
+        node* q = p->left;
+        node* r = p->right;
+        delete p;
+        if( !r ) return q;
+        node* min = findmin®;
+        min->right = removemin®;
+        min->left = q;
+        return balance(min);
+    }
+
+When quitting recursion, do not forget to execute balancing:
+
+return balance(p);
+}
+
+That’s pretty much it! The search of the minimal node and its extract can be implemented in one function. At that, we will have to solve a problem (not really difficult one) of returning a pair of pointers from the function. But we can gain some time during one passage along the right subtree.
+
+It is obvious that insertion and deletion functions (and also a simpler one search operation) are performed in time that is proportional to the tree height. During the time of these operations performance we execute the descent from the node to the given node. On each level some fixed number of actions are performed. Since an AVL tree is balanced, its height depends logarithmically on the number of nodes. Thus, the operation time of all three base operations is guaranteed to depend logarithmically on the number of the tree nodes.
+
+Tanks for your time!
+
+Complete code:
+
+struct node
+{
+    int key;
+    unsigned char height;
+    node* left;
+    node* right;
+    node(int k) { key = k; left = right = 0; height = 1; }
+};
+
+unsigned char height(node* p)
+{
+    return p?p->height:0;
+}
+
+int bfactor(node* p)
+{
+    return height(p->right)-height(p->left);
+}
+
+void fixheight(node* p)
+{
+    unsigned char hl = height(p->left);
+    unsigned char hr = height(p->right);
+    p->height = (hl>hr?hl:hr)+1;
+}
+
+node* rotateright(node* p)
+{
+    node* q = p->left;
+    p->left = q->right;
+    q->right = p;
+    fixheight(p);
+    fixheight(q);
+    return q;
+}
+
+node* rotateleft(node* q)
+{
+    node* p = q->right;
+    q->right = p->left;
+    p->left = q;
+    fixheight(q);
+    fixheight(p);
+    return p;
+}
+
+node* balance(node* p) // balancing the p node
+{
+    fixheight(p);
+    if( bfactor(p)==2 )
+    {
+        if( bfactor(p->right) < 0 )
+            p->right = rotateright(p->right);
+        return rotateleft(p);
+    }
+    if( bfactor(p)==-2 )
+    {
+        if( bfactor(p->left) > 0  )
+            p->left = rotateleft(p->left);
+        return rotateright(p);
+    }
+    return p; // balancing is not required
+}
+
+node* insert(node* p, int k) // insert k key in a tree with p root
+{
+    if( !p ) return new node(k);
+    if( k<p->key )
+        p->left = insert(p->left,k);
+    else
+        p->right = insert(p->right,k);
+    return balance(p);
+}
+
+node* findmin(node* p) // find a node with minimal key in a p tree 
+{
+    return p->left?findmin(p->left):p;
+}
+
+node* removemin(node* p) // deleting a node with minimal key from a p tree
+{
+    if( p->left==0 )
+        return p->right;
+    p->left = removemin(p->left);
+    return balance(p);
+}
+
+node* remove(node* p, int k) // deleting k key from p tree
+{
+    if( !p ) return 0;
+    if( k < p->key )
+        p->left = remove(p->left,k);
+    else if( k > p->key )
+        p->right = remove(p->right,k);	
+    else //  k == p->key 
+    {
+        node* q = p->left;
+        node* r = p->right;
+        delete p;
+        if( !r ) return q;
+        node* min = findmin®;
+        min->right = removemin®;
+        min->left = q;
+        return balance(min);
+    }
+    return balance(p);
+}
