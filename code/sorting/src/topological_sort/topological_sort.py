@@ -1,42 +1,42 @@
-from collections import defaultdict
+from collections import defaultdict 
 
+class Graph: 
+    def __init__(self,vertices): 
+        self.graph = defaultdict(list) 
+        self.V = vertices 
+  
+    
+    def __addEdge__(self,u,v): 
+        self.graph[u].append(v) 
+  
+    
+    def __topologicalSortUtil__(self,v,visited,stack): 
+  
+        visited[v] = True
+        for i in self.graph[v]: 
+            if visited[i] == False: 
+                self.__topologicalSortUtil__(i,visited,stack) 
 
-class Graph:
-    def __init__(self, vertices):
-        self.graph = defaultdict(list)
-        self.V = vertices
+        stack.insert(0,v) 
 
-    def addEdge(self, u, v):
-        self.graph[u].append(v)
-
-    def topologicalSortUtil(self, v, visited, stack):
-
-        visited[v] = True  # Mark current node as visited
-
-        for i in self.graph[v]:  # traversing adjacent nodes
-            if visited[i] == False:
-                self.topologicalSortUtil(i, visited, stack)
-
-        stack.insert(0, v)  # pushing current node to stack
-
-    def topologicalSort(self):
-
-        visited = [False] * self.V
-        stack = []
-
-        for i in range(self.V):
-            if visited[i] == False:
-                self.topologicalSortUtil(i, visited, stack)
-
+    def __topologicalSort__(self): 
+       
+        visited = [False]*self.V 
+        stack =[] 
+        for i in range(self.V): 
+            if visited[i] == False: 
+                self.__topologicalSortUtil__(i,visited,stack) 
+  
         print(stack)
+print("Enter the size of the directed graph")
+n=int(input()) 
+print("Enter the edges of the directed graph")
+g= Graph(n) 
+for i in range(0,n):
+    val=str(input())
+    arr=val.split(" ")
+    edge1, edge2 = map(int, val.split(" "))
+    g.__addEdge__(edge1,edge2)
 
-
-g = Graph(4)
-g.addEdge(0, 2)
-g.addEdge(0, 3)
-g.addEdge(2, 1)
-g.addEdge(1, 3)
-g.addEdge(2, 3)
-
-print("Topological Sort of the given graph")
-g.topologicalSort()
+print("Topological Sort of the given graph-:")
+g.__topologicalSort__() 
