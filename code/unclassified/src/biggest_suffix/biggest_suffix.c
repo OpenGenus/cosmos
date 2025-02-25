@@ -12,7 +12,7 @@ char *biggest_suffix(char *s1, char *s2)
 {
 	int i;
 	int shortest_string; /* Finds the number of characters that needs to traversed to check smallest substring */
-	int reminder = 0; /* Keeps count of number of characters that are same in both the strings starting from back */
+	int remainder = 0; /* Keeps count of number of characters that are same in both the strings starting from back */
 
 	if(strlen(s1) > strlen(s2))
 		shortest_string = strlen(s2);
@@ -22,15 +22,15 @@ char *biggest_suffix(char *s1, char *s2)
 	for(i = 0; i <= shortest_string; i++)
 	{
 		if( equality(s1, s2, i) )
-			reminder = i;
+			remainder = i;
 		else
 			break;
 	}
 
-	if(reminder == 0)
+	if(remainder == 0)
 		return "No suffix";
 	else
-		return s1 + strlen(s1) - reminder;
+		return s1 + strlen(s1) - remainder;
 
 }
 
