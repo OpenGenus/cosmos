@@ -1,0 +1,159 @@
+<div><form>Entry Point
+    <br>
+    <select id="entryPointSelect" name="entryPointSelect">
+        <option>Select an entry point</option>
+    </select>
+    <br>
+    <br>Exit Point
+    <br>
+    <select disabled="" id="exitPointSelect" name="exitPointSelect">
+        <option>Please select entry point first</option>
+    </select>
+    <br>
+    <br>Points Traversed
+    <br>
+    <textarea id="pointsTraversed" rows="10" cols="30"></textarea>
+</form>
+        </div>
+<div><img src="http://i.stack.imgur.com/rhmbZ.png"></div>
+
+<script>
+// GLOBALS
+var myRoute = new Object();
+var network_neighbours={};
+var network_obj={};
+// Define network
+var network = [{
+    id: 'A',
+    canBeEntry: true,
+    ifEntryRouteIs: ['CW'],
+    isExitIfRouteIs: [],
+    neightbourCW: ['B'],
+    neighbourCCW: ['G']
+}, {
+    id: 'B',
+    canBeEntry: true,
+    ifEntryRouteIs: ['CW','CCW'],
+    isExitIfRouteIs: [],
+    neightbourCW: ['C'],
+    neighbourCCW: ['A']
+}, {
+    id: 'C',
+    canBeEntry: true,
+    ifEntryRouteIs: ['CW'],
+    isExitIfRouteIs: ['CCW'],
+    neightbourCW: ['D'],
+    neighbourCCW: ['B']
+}, {
+    id: 'D',
+    canBeEntry: false,
+    ifEntryRouteIs: [],
+    isExitIfRouteIs: ['CW'],
+    neightbourCW: ['E','F'],
+    neighbourCCW: ['C']
+}, {
+    id: 'E',
+    canBeEntry: false,
+    ifEntryRouteIs: [],
+    isExitIfRouteIs: ['CW'],
+    neightbourCW: ['D'],
+    neighbourCCW: []
+}, {
+    id: 'F',
+    canBeEntry: true,
+    ifEntryRouteIs: ['CCW'],
+    isExitIfRouteIs: ['CW'],
+    neightbourCW: ['B'],
+    neighbourCCW: ['C']
+}, {
+    id: 'G',
+    canBeEntry: false,
+    ifEntryRouteIs: [],
+    isExitIfRouteIs: [],
+    neightbourCW: ['A'],
+    neighbourCCW: ['G']
+}];
+
+for(var i=0;i<network.length;i++){
+    network_neighbours[network[i].id]={};
+    for(var j =0;j< network[i].neightbourCW.length;j++){
+        network_neighbours[network[i].id][network[i].neightbourCW[j]]='CW';
+    }
+    for(var j =0;j< network[i].neighbourCCW.length;j++){
+        network_neighbours[network[i].id][network[i].neightbourCW[j]]='CCW';
+    }
+    network_obj[network[i].id]=network[i];    
+}
+
+// Populate entry point select menu
+for (var i in network) {
+    if(!network[i].canBeEntry) continue;
+    var val = network[i].id;
+    for(var j=0;j<network[i].ifEntryRouteIs.length;j++){
+        var dir=network[i].ifEntryRouteIs[j];
+        $('<option/>').val(val).attr("data-dir",dir).text(val+' ('+dir+')').appendTo($('#entryPointSelect'));    
+    }
+    
+};
+
+// Process change in entry point select menu
+$('#entryPointSelect').on('change', function () {
+    findExitPoint(this.value, $(this).find("option:selected").attr("data-dir"));
+});
+$('#exitPointSelect').on('change', function () {
+    $("#pointsTraversed").val($(this).find("option:selected").attr("data-path"));    
+});
+
+// Function to determine exit points
+function findExitPoint(entryPoint, dir) {
+    var visited={};
+    for(var i in network_neighbours){
+        visited[i]=false;
+    }
+    var validExitPoints =[];
+    var nodes=[];
+    var tree_path=[];
+    nodes.push({node:entryPoint});
+    visited[entryPoint]=true;
+    while(!nodes.length==0){
+        var node=network_obj[nodes[0].node];
+        
+        nodes.shift();
+        if(canExit(node.id,dir)){
+            validExitPoints.push({node:node.id,path:''});
+        }
+        var neighbours=getNeighbours(node.id,dir);
+        for(var i=0;i<neighbours.length;i++){
+            if(visited[neighbours[i]]==false){
+                nodes.push({node:neighbours[i]});
+                visited[neighbours[i]]=true;
+                tree_path[neighbours[i]]=node.id;
+            }
+        }
+    }
+    $("#exitPointSelect").prop("disabled",false).find('option').remove();
+    for(var j=0;j<validExitPoints.length;j++){
+        $("#exitPointSelect").append($("<option></option>").val(validExitPoints[j].node).text(validExitPoints[j].node).attr("data-path",getPath(tree_path,validExitPoints[j].node).reverse().toString()));
+    }
+     $("#pointsTraversed").val($("#exitPointSelect").find("option:selected").attr("data-path"));
+    
+}
+        function canExit(node,dir){
+            node=network_obj[node];
+            if(node.isExitIfRouteIs.length==2) return true;
+            if(node.isExitIfRouteIs.length==0) return false;
+            if(node.isExitIfRouteIs[0]==dir) return true;
+            return false;
+        }
+        
+        function getNeighbours(node,dir){
+            node=network_obj[node];
+            if(dir=='CW') return node.neightbourCW;
+            return node.neighbourCCW;
+        }
+
+        function getPath(tree_path,node,path){
+            path=path || [];
+            if(tree_path.hasOwnProperty(node)){
+
+           </script>
