@@ -20,7 +20,7 @@ Make your fundamentals in Algorithms and Data Structure with these free resource
 * [**100+** Dynamic Programming (DP) Problems](https://iq.opengenus.org/list-of-dynamic-programming-problems/)
 
 # Cosmic Structure
-
+ - [Alyssa] ([@rageunleashed69](https://github.com/rageunleashed69)), Head Dev, Computer Science Major[Lab]
 Following is the high-level structure of cosmos:
 * [Artificial intelligence](/code/artificial_intelligence) :robot:
 * [Backtracking](/code/backtracking)
