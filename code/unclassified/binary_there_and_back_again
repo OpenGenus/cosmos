@@ -1,0 +1,54 @@
+#include <iostream>
+#define x
+using namespace std;
+
+int binary_to_decimal(int n){
+    int sum=0,mul=1;
+while(n>0){
+    sum+=mul;
+    mul=mul*2;
+}
+}
+
+int decimal_to_binary(int n, int N){
+    sum=0;
+    int array [N] = { };
+    for (i=1;i<N;i++){
+        //initialize the array
+        array(i)=0;
+    }
+    while(n>0){
+        array[log2base(n)]=1;
+        n=n-pownk(n,log2base(n));
+    }
+    for (i=N;i>0;i--){
+        sum+=array[i]*pownk(10,i);
+    }
+}
+
+int log2base(int n){
+    //log base 2 of number
+    int ans=0;
+    while(n>0){
+        n=n/2;
+        ans=ans+1;
+    }
+    return ans;
+}
+
+int pownk(int n, int k){
+    //return the k'th pow of n
+    int ans=1,i=1;
+    for (i=1;i<k,i++){
+        ans=ans*n;
+    }
+    return ans;
+}
+
+
+int main() {
+	// your code goes here
+N=log2bas(n);
+decimal_to_binary(int x, int N)
+	return 0;
+}
