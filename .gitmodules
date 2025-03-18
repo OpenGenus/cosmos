@@ -5,3 +5,7 @@
 [submodule "third_party/namanager"]
 	path = third_party/namanager
 	url = https://github.com/iattempt/namanager.git
+	
+[submodule "third_party/team"]
+path = third_party/team
+	url = https://github.com/iattempt/team.git
