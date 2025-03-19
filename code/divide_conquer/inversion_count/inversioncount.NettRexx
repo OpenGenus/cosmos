@@ -1,0 +1,59 @@
+/* NetRexx */
+options replace format comments java crossref symbols nobinary
+import java.util.concurrent.CountDownLatch
+ 
+-- =============================================================================
+class RSortingSleepsort
+  properties constant private
+    dflt = '-6 3 1 4 5 2 3 -7 1 6 001 3 -9 2 5 -009 -8 4 6 1 9 8 7 6 5 -7 3 4 5 2 0 -2 -1 -5 -4 -3 -0 000 0'
+  properties indirect
+    startLatch = CountDownLatch
+    doneLatch  = CountDownLatch
+    floor      = 0
+    sorted     = ''
+  -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  method main(args = String[]) public static
+    arg = Rexx(args)
+    if arg = '' then arg = dflt
+    say ' unsorted:' arg
+    say '   sorted:' (RSortingSleepsort()).sleepSort(arg)
+    return
+  -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  method sleepSort(iArg) public
+    setStartLatch(CountDownLatch(1))           -- used to put all threads on hold until we're ready to run
+    setDoneLatch(CountDownLatch(iArg.words())) -- used to indicate all work is done
+    loop mn = 1 to iArg.words()
+      setFloor(getFloor().min(iArg.word(mn)))   -- save smallest -ve number so we can use it as a scale for sleep
+      Thread(SortThread(iArg.word(mn))).start() -- loop through input and create a thread for each element
+      end mn
+    getStartLatch().countDown() -- cry 'Havoc', and let slip the dogs of war.
+    do
+      getDoneLatch().await() -- wait for worker threads to complete
+    catch ix = InterruptedException
+      ix.printStackTrace()
+    end
+    return getSorted()
+ 
+-- =============================================================================
+class RSortingSleepsort.SortThread dependent implements Runnable
+  properties indirect
+    num
+  -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  method SortThread(nm)
+    setNum(nm)
+    return
+  -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  method run() public
+    do
+      parent.getStartLatch().await()                 -- wait until all threads are constructed
+      sleepTime = getNum() + parent.getFloor().abs() -- shifted by value of smallest number (permits numbers < 0)
+      sleepTime = sleepTime * 250                    -- scale up; milliseconds are not granular enough
+      Thread.sleep(sleepTime)                        -- wait for this number's turn to run
+    catch ie = InterruptedException
+      ie.printStackTrace()
+    end
+    do protect parent -- lock the parent to prevent collisions
+      parent.setSorted((parent.getSorted() num).strip()) -- stow the number in the results List
+    end
+    parent.getDoneLatch().countDown() -- this one's done; decrement the latch
+    return
