@@ -1,4 +1,4 @@
-# cosmos
-Your personal library of every algorithm and data structure code that you will ever encounter
+# Randomized Algorithms
+Algorithms that employ a certain degree of randomness classify in this category. These algorithms use random numbers to decide what is to be done next. Randomized Quicksort is an example. 
 
 Collaborative effort by [OpenGenus](https://github.com/opengenus)
