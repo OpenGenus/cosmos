@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//gives the parent value.
+int parent(int i){
+	int p;
+	if(i%3==0){p=i/3-1;}
+	else{p=i/3;}
+	return p;
+}
+
+void choice()
+{
+	printf("\n\n\nChoose any one of the following choices.\n");
+	printf("Q or q: \t\t to quit.\n");
+	printf("I or i: \t\t to insert.\n");
+	printf("D or d: \t\t to delete minimin element.\n\n\n");
+	
+}
+
+//minheap function. Building heap ne by one.
+void minheapify(int a[],int size){
+	for(int i=1;i<size;i++){
+		int s=i;
+		int p=parent(s);
+	
+		//if parent value > child value swap the two.
+		while(p>=0 && a[s]<a[p]){
+			int key=a[s];
+			a[s]=a[p];
+			a[p]=key;
+			s=p;
+			p=parent(s);
+		}
+		
+	}
+}
+
+//insert function to insert in the heap.
+int insert(int a[],int x,int size){
+	size++;			//increase the size of the heap by one and insert the element at the last position
+	a[size-1]=x;
+	minheapify(a,size);		//minheapify the heap as minheap property may not be followed after insertion 
+	return size;
+}
+
+int deletemin(int a[],int size){
+	
+	//check if size is zero
+	if(size==0){printf("can not delete from empty heap\n");}
+
+	else{
+		a[0]=a[size-1];	//the first element is replaced by the last and decrease the size by one.
+		size--;
+		minheapify(a,size); 	//apply minheapify
+		return size;
+	}
+}
+
+
+//to print the heap.
+void showheap(int a[],int size){
+	for(int i=0;i<size;i++){
+		printf("%d ",a[i]);
+	}
+	printf("\n");
+}
+
+//main starts here
+int main(){
+	int n;
+	int x;
+	char c;
+
+	printf("Enter the size initial size of the ternery heap.\n");
+	scanf("%d",&n);
+
+	int a[100];
+	int size=0;
+
+	printf("Enter the elements of the heap.\n");
+	//insert all he numbers into the heap
+	for(int i=0;i<n;i++){
+		scanf("%d",&x);
+		size=insert(a,x,size);
+	}
+	
+	printf("\n\nTernery Min_Heap is.\n");
+	//showheap after insertion
+	showheap(a,size);
+
+	choice();
+
+	scanf("%c",&c);
+	scanf("%c",&c);
+
+	//exit condition is that c=q or Q
+	while(c!='q' || c!='Q'){
+
+		//if insert command is given
+		if(c=='i' || c=='I'){
+			printf("Enter the element to be inserted into the heap.\n");
+			scanf("%d",&x);
+			size=insert(a,x,size);
+			printf("%d is inserted\n",x);
+			printf("\n\nHeap is.\n\n\n");
+			showheap(a,size);
+		}
+
+		//if delete command is given.
+		if(c=='d' || c=='D'){
+			printf("%d is deleted\n",a[0]);
+			size=deletemin(a,size);
+			printf("Heap is.\n\n");
+			showheap(a,size);
+		}
+
+		if(c!='d' && c!='q' && c!='i' && c!='D' && c!='Q' && c!='I' )
+		{
+			printf("Please choose a valid choice.\n");
+		}
+		
+		choice();
+		scanf("%c",&c);
+		scanf("%c",&c);
+
+		if(c=='q' || c=='Q') break;
+	}
+
+	
+	return 0;
+}
