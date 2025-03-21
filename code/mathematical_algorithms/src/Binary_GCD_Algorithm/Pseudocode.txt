@@ -1,0 +1,30 @@
+function binaryGCD(int u, int v) {
+    //simple termination cases
+    if v equals 0 : return u;
+    if u equals 0 : return v;
+
+// If u and v are both even, then gcd(u, v) = 2·gcd(u/2, v/2), because 2 is a common divisor
+    if ((u is even) and (v is even)){
+        return binaryGCD(u >> 1, v >> 1) << 1;
+    }
+
+// If u is even and v is odd, then gcd(u, v) = gcd(u/2, v), because 2 is not a common divisor
+    else if (u is even){
+        return binaryGCD(u >> 1, v);
+    }
+
+// If u is odd and v is even, then gcd(u, v) = gcd(u, v/2)
+    else if (v is even){
+        return binaryGCD(u, v >> 1);
+    }
+
+// If u and v are both odd, and u ≥ v, then gcd(u, v) = gcd((u − v)/2, v)
+    else if (u >= v){
+        return binaryGCD((u-v) >> 1, v);
+    }
+
+// If both are odd and u < v, then gcd(u, v) = gcd((v − u)/2, u)
+    else{
+        return binaryGCD(u, (v-u) >> 1);
+    }
+}
