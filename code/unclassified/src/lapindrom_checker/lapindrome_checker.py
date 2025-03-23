@@ -1,5 +1,7 @@
 # part of cosmos by opengenus foundation
-
+def isLapin(s): # one-line Lapindrome
+    l = len(s)
+    return sorted(s[0:int(l/2):]) == sorted(s[math.ceil(l/2)::]
 
 def isLapindrome(string):
     mid = len(string) // 2
@@ -25,6 +27,16 @@ else:
     print("Not a Lapindrome")
 
 if isLapindrome(testCase2):
+    print("Lapindrome")
+else:
+    print("Not a Lapindrome")
+    
+if isLapin(testCase1):
+    print("Lapindrome")
+else:
+    print("Not a Lapindrome")
+
+if isLapin(testCase2):
     print("Lapindrome")
 else:
     print("Not a Lapindrome")

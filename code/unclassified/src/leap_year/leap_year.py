@@ -23,3 +23,14 @@ leaps2 = [
 ]
 
 print(leaps2)
+
+print("Using calender module ---------------------------------------")
+#If you forget the conditions.
+
+import calendar
+leaps3 = []
+for y in range(year_1, year_2):
+    if isleap(y):
+        leaps.append(y)
+        
+print(leaps3)
