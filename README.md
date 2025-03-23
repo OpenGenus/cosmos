@@ -6,11 +6,11 @@
 
 > The universe of algorithm and data structures - OpenGenus Cosmos
 
-**Cosmos** is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `JavaScript`, `Swift`, `Python`, `Go` and others.
+**Cosmos** is your Personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning `C`, `C++`, `Java`, `JavaScript`, `Swift`, `Python`, `Go` and others.
 
 This work is maintained by a community of hundreds of people and is a _massive collaborative effort_ to bring the readily available coding knowledge **offline**.
 
-> **Many coders ask me how to improve their own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
+> **Many coders ask me how to improve their Own performances. I cannot say anything except "solve and review and prepare your library"** - _Uwi Tenpen_
 
 Make your fundamentals in Algorithms and Data Structure with these free resources:
 
@@ -69,11 +69,11 @@ The success of our vision to bring knowledge offline depends on you. Even a smal
 
 Currently, we have over **1000+ contributors** in Cosmos and **over 2K+ contributors** in sister projects of Cosmos.
 
-When you contribute, your name with a link (if available) is added to our [contributors list](https://github.com/OpenGenus/cosmos/wiki/contributors).
+When you contribute, your name with a link (if available) is added to our [contributor's list](https://github.com/OpenGenus/cosmos/wiki/contributors).
 
 You can contribute by writing `code`, documentation in the form of `installation guides` and `style guides`, making Cosmos search friendly and many others. There are endless possibilities.
 
-Additionally, you might want to take a look at this [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
+Additionally, you might want to take a look at these [contributing guidelines](https://github.com/OpenGenus/cosmos/wiki/contribute) before you make Cosmos better.
 
 You may, also, refer to the available [style guides](/guides/coding_style) before contributing code.
 
