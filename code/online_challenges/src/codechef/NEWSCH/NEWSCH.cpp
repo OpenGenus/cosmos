@@ -1,18 +1,16 @@
 #include <iostream>
 
-#include <cstring>
-
 using namespace std;
 
-#define MOD 1000000007
+const long  mod=1000000007;
 
 uint64_t modmul(const uint64_t x, const uint64_t y)
 {
 	if (x > (1 << 30) && y > (1 << 30))
-		return ((x >> 30)*((y << 30) % MOD) + y*(x & ((1 << 30) - 1))) % MOD;
+		return ((x >> 30)*((y << 30) % mod) + y*(x & ((1 << 30) - 1))) % mod;
 	uint64_t z = x*y;
-	if (z >= MOD)
-		z %= MOD;
+	if (z >= mod)
+		z %= mod;
 	return z;
 }
 
@@ -42,10 +40,10 @@ int main()
 		cin >> n;
 		uint64_t ans = modpow(3, n);
 		if (n % 2 == 0)
-			ans = (ans + 3) % MOD;
+			ans = (ans + 3) % mod;
 		else
-			ans = (ans + MOD - 3) % MOD;
-		cout << ans << endl;
+			ans = (ans + mod - 3) % mod;
+		cout << ans << "\n";
 	}
 
 	return 0;
