@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1460574832 source:c:\nacp\doubleintegration2\main.c
+	<stdio.h>
+	<stdlib.h>
+
