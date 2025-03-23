@@ -1,0 +1,25 @@
+#include <iostream>
+#define N;//length of the array
+using namespace std;
+
+int average(int []arr){
+    int sum=0;
+    for (i=1;i<N;i++){
+        sum+=arr[i];
+    }
+    return sum/N;
+}
+
+int std(int []arr){
+    int std=0;
+    av=average(arr);
+    for (i=1;i<N;i++){
+        std+=(arr[i]-av)*(arr[i]-av);
+    }
+    return std/N;
+}
+
+int main() {
+	// your code goes here
+	return 0;
+}
