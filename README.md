@@ -28,6 +28,7 @@ Following is the high-level structure of cosmos:
 * [Cellular automaton](/code/cellular_automaton) 🐚
 * [Compression algorithms](/code/compression) 🗜️
 * [Computational geometry](/code/computational_geometry) :gear:
+* [Computer Graphics](/code/computer_graphics)
 * [Cryptography](/code/cryptography)
 * [Data structures](/code/data_structures)
 * [Design pattern](/code/design_pattern)
