@@ -17,7 +17,8 @@ int bitwiseAdditionRecursive(int n, int m)
     if (m == 0)
         return n;
     else
-    {
+    {   //bit wise addition false case
+   
         int carry = n & m;
         return bitwiseAdditionRecursive(n ^ m, carry << 1);
     }
