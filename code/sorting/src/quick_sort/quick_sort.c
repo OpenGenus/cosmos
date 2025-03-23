@@ -9,8 +9,8 @@ void swap(int *p, int *q)
 }
 
 
-//Last element is used a spivot
-//Places elements smaller than pivot to its left side
+//Last element is used as pivot
+//Places elements smaller than or equal to pivot to its left side
 //Places elements larger than pivot to its right side
 int partition(int a[], int low, int high)
 {
