@@ -18,6 +18,16 @@ Download the Java version for your operating system from the [Java website](http
 
 `rm *.tar.gz`
 
+### How to run sample Java Code in Linux
+1. Compile the java code by javac
+```
+javac filename.java
+```
+2. Run the java code
+```
+java filename
+```
+
 ---
 
 <p align="center">
