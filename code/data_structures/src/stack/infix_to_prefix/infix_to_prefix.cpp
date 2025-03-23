@@ -1,138 +1,110 @@
-// Including Library
-#include <iostream>
-#include <ctype.h>
-#include <string.h>
-#include <stack>
-
-/** Function to check if given character is
-    an operator or not. **/
-bool isOperator(char c)
-{
-    return (!isalpha(c) && !isdigit(c));
-}
-
-/** Function to find priority of given
-    operator.**/
-int getPriority(char c)
-{
-    if (c == '-' || c == '+')
-        return 1;
-    else if (c == '*' || c == '/')
-        return 2;
-    else if (c == '^')
-        return 3;
-    return 0;
-}
-
-/** Function that converts infix
-    expression to prefix expression. **/
-std::string infixToPrefix(std::string infix)
-{
-    // stack for operators.
-    std::stack<char> operators;
-    // stack for operands.
-    std::stack<std::string> operands;
-
-    for (int i = 0; i < infix.length(); i++)
-    {
-        /** If current character is an
-        opening bracket, then
-        push into the operators stack. **/
-        if (infix[i] == '(')
-            operators.push(infix[i]);
-
-
-        /** If current character is a
-            closing bracket, then pop from
-            both stacks and push result
-            in operands stack until
-            matching opening bracket is
-            not found. **/
-        else if (infix[i] == ')')
-        {
-            while (!operators.empty() && operators.top() != '(')
-            {
-                // operand 1
-                std::string op1 = operands.top();
-                operands.pop();
-                // operand 2
-                std::string op2 = operands.top();
-                operands.pop();
-                // operator
-                char op = operators.top();
-                operators.pop();
-                /** Add operands and operator
-                   in form operator +
-                   operand1 + operand2. **/
-                std::string tmp = op + op2 + op1;
-                operands.push(tmp);
-            }
-
-            /** Pop opening bracket from stack. **/
-            operators.pop();
-        }
-
-        /** If current character is an
-            operand then push it into
-            operands stack. **/
-        else if (!isOperator(infix[i]))
-            operands.push(std::string(1, infix[i]));
-
-
-        /** If current character is an
-            operator, then push it into
-            operators stack after popping
-            high priority operators from
-            operators stack and pushing
-            result in operands stack. **/
-        else
-        {
-            while (!operators.empty() && getPriority(infix[i]) <= getPriority(operators.top())) {
-                std::string op1 = operands.top();
-                operands.pop();
-                std::string op2 = operands.top();
-                operands.pop();
-                char op = operators.top();
-                operators.pop();
-                std::string tmp = op + op2 + op1;
-                operands.push(tmp);
-            }
-            operators.push(infix[i]);
-        }
-    }
-
-    /** Pop operators from operators stack
-        until it is empty and add result
-        of each pop operation in
-        operands stack. **/
-    while (!operators.empty())
-    {
-        std::string op1 = operands.top();
-        operands.pop();
-
-        std::string op2 = operands.top();
-        operands.pop();
-
-        char op = operators.top();
-        operators.pop();
-
-        std::string tmp = op + op2 + op1;
-        operands.push(tmp);
-    }
-
-    /** Final prefix expression is
-        present in operands stack. **/
-    return operands.top();
-}
-
-// Driver code
-int main()
-{
-    std::string s;
-    std::cin >> s;
-    std::cout << infixToPrefix(s);
-    return 0;
-}
-
-// Input - (A-B/C)*(A/K-L)
-// Output - *-A/BC-/AKL
+// CPP program to convert infix to prefix 
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+bool isOperator(char c) 
+{ 
+    return (!isalpha(c) && !isdigit(c)); 
+} 
+  
+int getPriority(char C) 
+{ 
+    if (C == '-' || C == '+') 
+        return 1; 
+    else if (C == '*' || C == '/') 
+        return 2; 
+    else if (C == '^') 
+        return 3; 
+    return 0; 
+} 
+  
+string infixToPostfix(string infix) 
+{ 
+    infix = '(' + infix + ')'; 
+    int l = infix.size(); 
+    stack<char> char_stack; 
+    string output; 
+  
+    for (int i = 0; i < l; i++) { 
+  
+        // If the scanned character is an  
+        // operand, add it to output. 
+        if (isalpha(infix[i]) || isdigit(infix[i])) 
+            output += infix[i]; 
+  
+        // If the scanned character is an 
+        // ‘(‘, push it to the stack. 
+        else if (infix[i] == '(') 
+            char_stack.push('('); 
+  
+        // If the scanned character is an 
+        // ‘)’, pop and output from the stack  
+        // until an ‘(‘ is encountered. 
+        else if (infix[i] == ')') { 
+  
+            while (char_stack.top() != '(') { 
+                output += char_stack.top(); 
+                char_stack.pop(); 
+            } 
+  
+            // Remove '(' from the stack 
+            char_stack.pop();  
+        } 
+  
+        // Operator found  
+        else { 
+              
+            if (isOperator(char_stack.top())) { 
+                while (getPriority(infix[i]) 
+                   <= getPriority(char_stack.top())) { 
+                    output += char_stack.top(); 
+                    char_stack.pop(); 
+                } 
+  
+                // Push current Operator on stack 
+                char_stack.push(infix[i]); 
+            } 
+        } 
+    } 
+    return output; 
+} 
+  
+string infixToPrefix(string infix) 
+{ 
+    /* Reverse String 
+     * Replace ( with ) and vice versa 
+     * Get Postfix 
+     * Reverse Postfix  *  */
+    int l = infix.size(); 
+  
+    // Reverse infix 
+    reverse(infix.begin(), infix.end()); 
+  
+    // Replace ( with ) and vice versa 
+    for (int i = 0; i < l; i++) { 
+  
+        if (infix[i] == '(') { 
+            infix[i] = ')'; 
+            i++; 
+        } 
+        else if (infix[i] == ')') { 
+            infix[i] = '('; 
+            i++; 
+        } 
+    } 
+  
+    string prefix = infixToPostfix(infix); 
+  
+    // Reverse postfix 
+    reverse(prefix.begin(), prefix.end()); 
+  
+    return prefix; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    string s = ("(a-b/c)*(a/k-l)"); 
+    cout << infixToPrefix(s) << std::endl; 
+    return 0; 
+} 
