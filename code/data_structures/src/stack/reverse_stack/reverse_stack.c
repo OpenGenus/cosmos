@@ -1,159 +1,147 @@
-// C program to reverse a stack using recursion
-// Part of Cosmos by OpenGenus Foundation
+#include <stdio.h>
 
-#include<stdio.h>
-#include<stdlib.h>
-#define bool int
- 
-/* structure of a stack node */
-struct sNode
+#define N 100
+
+void reverse(int*, int*, int*, int, int, int, int);
+int pop1(int*, int);
+int pop2(int*, int);
+int pop3(int*, int);
+void isEmpty(int);
+void push1(int*, int, int, int);
+void push2(int*, int, int, int);
+void push3(int*, int, int, int);
+int display(int*, int);
+
+void reverse(int* stack1, int* stack2, int* stack3, int top1, int top2, int top3, int n)
+{	
+	int x,y,z;
+	if (top2 == 0 && top3 == 0 && top1 == n-1)
+	{
+		display(stack1, top1);
+	}
+	else
+	{
+		x = pop1(stack1, top1);
+		push2(stack1, x, n, top2);
+		
+		y = pop2(stack2, top2);
+		push3(stack2, y, n, top1);
+
+		z = pop3(stack3, top3);
+		push1(stack3, z, n, top3);
+
+		reverse(stack1, stack2, stack3, top1, top2, top3,  n);
+	}
+}	
+
+int pop1(int* stack1, int top1)
 {
-    char data;
-    struct sNode *next;
-};
- 
-/* Function Prototypes */
-void push(struct sNode** top_ref, int new_data);
-int pop(struct sNode** top_ref);
-bool isEmpty(struct sNode* top);
-void print(struct sNode* top);
-void insertAtBottom(struct sNode** top_ref, int item);
-void reverse(struct sNode** top_ref);
-/* Driver program to test above functions */
+	if (top1 == -1)	//Checks if array is empty or not
+	{
+		printf("\nStack Underflow\n");
+		return -1;
+	}
+	else
+	{
+		return stack1[--top1];
+	}
+}
+
+int pop2(int* stack2, int top2)
+{
+	if (top2 == -1)
+	{
+		printf("\nStack Underflow\n");
+		return -1;
+	}
+	else
+	{
+		return stack2[--top2];
+	}
+}
+
+int pop3(int* stack3, int top3)
+{
+	if (top3 == -1)
+	{
+		printf("\nStack Undeflow\n");
+		return -1;
+	}
+	else
+	{
+		return stack3[--top3];
+	}
+}
+
+void push1(int* stack1, int element, int n, int top1)
+{
+	if (top1 == n - 1)
+	{
+		printf("\nStack Overflow\n");
+	}
+	else
+	{
+		stack1[++top1] = element;
+	}
+	
+}
+void push2(int* stack2 ,int element, int n, int top2)
+{
+	if (top2 == n - 1)
+	{
+		printf("\nStack Overflow\n");
+	}
+	else
+	{
+		stack2[++top2] = element;
+	}
+}
+void push3(int* stack3, int element, int n, int top3)
+{
+	if (top3 == n-1)
+	{
+		printf("\nStack Overflow\n");
+	}
+	else
+	{
+		stack3[++top3] = element;
+	}
+}
+
+void isEmpty(int top1)
+{
+	if (top1 == -1)
+	{
+		printf("\nTrue\n");
+	}
+	else
+	{
+		printf("\nFalse\n");
+	}
+}
+int display(int* stack1, int top1)
+{
+	int i;
+	printf("The reverse of the stack is-\n");
+	for (i=top1; i > -1; i--)
+	{
+		printf("%d\n", stack1[i]);
+	}
+}
 int main()
 {
-    struct sNode *s = NULL;
-    push(&s, 4);
-    push(&s, 3);
-    push(&s, 2);
-    push(&s, 1);
- 
-    printf("\n Original Stack ");
-    print(s);
-    reverse(&s);
-    printf("\n Reversed Stack ");
-    print(s);
-    return 0;
-}
+	int stack1[N], stack2[N], stack3[N];
+	int i, n;
+	
+	printf("Enter the size of stack-\n");
+	scanf("%d", &n);
 
-// Below is a recursive function that inserts an element
-// at the bottom of a stack.
-void insertAtBottom(struct sNode** top_ref, int item)
-{
-    if (isEmpty(*top_ref))
-        push(top_ref, item);
-    else
-    {
- 
-        /* Hold all items in Function Call Stack until we
-           reach end of the stack. When the stack becomes
-           empty, the isEmpty(*top_ref)becomes true, the
-           above if part is executed and the item is inserted
-           at the bottom */
-        int temp = pop(top_ref);
-        insertAtBottom(top_ref, item);
- 
-        /* Once the item is inserted at the bottom, push all
-           the items held in Function Call Stack */
-        push(top_ref, temp);
-    }
-}
- 
-// Below is the function that reverses the given stack using
-// insertAtBottom()
-void reverse(struct sNode** top_ref)
-{
-    if (!isEmpty(*top_ref))
-    {
-        /* Hold all items in Function Call Stack until we
-           reach end of the stack */
-        int temp = pop(top_ref);
-        reverse(top_ref);
- 
-        /* Insert all the items (held in Function Call Stack)
-           one by one from the bottom to top. Every item is
-           inserted at the bottom */
-        insertAtBottom(top_ref, temp);
-    }
-}
-
- 
-/* Driveer program to test above functions */
-int main()
-{
-    struct sNode *s = NULL;
-    push(&s, 4);
-    push(&s, 3);
-    push(&s, 2);
-    push(&s, 1);
- 
-    printf("\n Original Stack ");
-    print(s);
-    reverse(&s);
-    printf("\n Reversed Stack ");
-    print(s);
-    return 0;
-}
-
- 
-/* Function to check if the stack is empty */
-bool isEmpty(struct sNode* top)
-{
-    return (top == NULL)? 1 : 0;
-}
- 
-/* Function to push an item to stack*/
-void push(struct sNode** top_ref, int new_data)
-{
-    /* allocate node */
-    struct sNode* new_node =
-        (struct sNode*) malloc(sizeof(struct sNode));
- 
-    if (new_node == NULL)
-    {
-        printf("Stack overflow \n");
-        exit(0);
-    }
- 
-    /* put in the data  */
-    new_node->data  = new_data;
- 
-    /* link the old list off the new node */
-    new_node->next = (*top_ref);
- 
-    /* move the head to point to the new node */
-    (*top_ref)    = new_node;
-}
- 
-/* Function to pop an item from stack*/
-int pop(struct sNode** top_ref)
-{
-    char res;
-    struct sNode *top;
- 
-    /*If stack is empty then error */
-    if (*top_ref == NULL)
-    {
-        printf("Stack overflow \n");
-        exit(0);
-    }
-    else
-    {
-        top = *top_ref;
-        res = top->data;
-        *top_ref = top->next;
-        free(top);
-        return res;
-    }
-}
- 
-/* Functrion to pront a linked list */
-void print(struct sNode* top)
-{
-    printf("\n");
-    while (top != NULL)
-    {
-        printf(" %d ", top->data);
-        top =  top->next;
-    }
+	printf("Enter the stack\n");
+	for (i=0; i<n; i++)
+	{
+		scanf("%d", &stack1[i]);
+	}
+	int top1=n-1, top2=0, top3=0;
+	reverse(stack1, stack2, stack3, top1, top2, top3, n);
+	return 0;
 }
