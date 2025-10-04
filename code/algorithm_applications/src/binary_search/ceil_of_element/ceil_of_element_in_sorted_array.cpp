@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std; 
 int solve(int arr[],int n, int ele){
-  int ans=-1;
+  int ans = -1;
   int low=0;
   int high=n-1;
   while(low<=high){
@@ -9,14 +9,15 @@ int solve(int arr[],int n, int ele){
     if(ele==arr[mid]){
       return ele; 
       }
-    else if(ele>arr[mid]){
-      ans=mid;
-      high=mid-1;
-      }
-    else{
-      low=mid+1;
-      }
+    else if(arr[mid] > ele){
+      ans = mid;
+      high = mid - 1;
     }
+    else {
+      low = mid + 1;
+    }
+    }
+  if(ans == -1) return -1; // ceil does not exist (all elements smaller than ele)
   return arr[ans];
   }
 int main(){
