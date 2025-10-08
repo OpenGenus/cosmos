@@ -1,20 +1,18 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <map>
+#include <iostream>
 using namespace std;
 int main() {
-map<string,int> mp1;
-mp1["Shivani"] = 500;
-mp1["Kumari"] = 100;
-mp1["Hacktoberfest"] = 400;
+    map<string,int> mp1;
+    mp1["Shivani"] = 500;
+    mp1["Kumari"] = 100;
+    mp1["Hacktoberfest"] = 400;
 
-vector<pair<string,int>> vec1;
+    vector<pair<string,int>> vec1(mp1.begin(), mp1.end());
 
-for(auto i : mp1)   //inserting map values into vector
-{
-    vec1.push_back(make_pair(i.first,i.second));
-}
+    for (const auto& [name, value] : vec1) {
+        cout << name << ": " << value << endl;
+    }
 
-for(auto j : vec1)
-cout<<j.first<<" : "<<j.second<<endl;
-
-return 0;
+    return 0;
 }
