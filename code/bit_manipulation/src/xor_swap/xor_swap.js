@@ -1,6 +1,6 @@
 // Part of Cosmos by OpenGenus Foundation
 
-function xorSwap(a, b) {
+function xorSwap(a: number, b: number): void {
     console.log(`Before swap: a = ${a}, b = ${b}`);
     
     a = a ^ b; // Step 1: a now contains the XOR of both
@@ -11,6 +11,6 @@ function xorSwap(a, b) {
 }
 
 // Example usage:
-let x = 5;
-let y = 10;
+let x: number = 5;
+let y: number = 10;
 xorSwap(x, y);
