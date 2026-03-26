@@ -1,41 +1,39 @@
-// C++ code to linearly search x in arr[].
-//If x is present then return its location, otherwise return -1
-
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int *linearSearch(int arr[], int result[], int N, int x)
+void linearSearch(const vector<int>& arr, vector<int>& result, int x)
 {
-    int pos = -1, ind = 0;
-    for (int i = 0; i <N; ++i)
+    for (int i = 0; i < arr.size(); ++i)
     {
         if (arr[i] == x)
         {
-            result[ind++] = i+1; // store the index of key, if found
+            result.push_back(i + 1); // store position (1-based)
         }
-        else
-            result[ind++] = -1; // store -1 if key not found
     }
-    return result;
 }
 
-// Driver's code
-int main(void)
+int main()
 {
-    int arr[] = {2, 3, 4, 10, 40, 3, 10, 2, 10 };
+    vector<int> arr = {2, 3, 4, 10, 40, 3, 10, 2, 10};
     int x = 10;
-    int N = sizeof(arr) / sizeof(arr[0]);
-    int result[N];
-    linearSearch(arr, result, N, x);
-    int size = sizeof(result) / sizeof(result[0]);
-    cout<<"Key found at position(s) : \n";
-    for (int i = 0; i < size; i++)
+
+    vector<int> result;
+
+    linearSearch(arr, result, x);
+
+    if (result.empty())
     {
-        if (result[i] != -1)
-            cout<<result[i]<<" ";
+        cout << "Key not found";
     }
+    else
+    {
+        cout << "Key found at position(s): ";
+        for (int pos : result)
+        {
+            cout << pos << " ";
+        }
+    }
+
     return 0;
 }
-
-
-

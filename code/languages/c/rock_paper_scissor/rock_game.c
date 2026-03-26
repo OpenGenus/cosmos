@@ -1,101 +1,87 @@
-// Part of Cosmos by OpenGenus
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-
-int generaterandomfunc(int n)
+// Generate random choice: 0, 1, or 2
+int generateRandom(int n)
 {
-    srand(time(NULL));
     return rand() % n;
 }
-int greater(char char1, char char2)
+
+// Returns:
+//  1  -> first wins
+//  0  -> second wins
+// -1  -> draw
+int compare(char p1, char p2)
 {
-    // return 1 if c1>c2 and 0 otherwise . if c1==c2 it will return -1
-
-    if (char1 == char2)
-    {
+    if (p1 == p2)
         return -1;
-    }
-    else if ((char1 == 'r') && (char2 == 's'))
-    {
-        return 1;
-    }
-    else if ((char2 == 'r' && char1 == 's'))
-    {
-        return 0;
-    }
 
-    else if ((char1 == 'p') && (char2 == 'r'))
-    {
+    if ((p1 == 'r' && p2 == 's') ||
+        (p1 == 'p' && p2 == 'r') ||
+        (p1 == 's' && p2 == 'p'))
         return 1;
-    }
-    else if ((char2 == 'p') && (char1 == 'r'))
-    {
-        return 0;
-    }
 
-    else if ((char1 == 's') && (char2 == 'p'))
-    {
-        return 1;
-    }
-    else if ((char2 == 's') && (char1 == 'p'))
-    {
-        return 0;
-    }
+    return 0;
 }
 
 int main()
 {
-    int playerscore = 0, compscore = 0, temp;
-    char playerchar, compchar;
-    char dict[45] = {'r', 'p', 's'};
-    printf("welcome to the rock paper scissor game\n");
+    int playerScore = 0, cpuScore = 0;
+    int choice;
+    char playerChar, cpuChar;
+    char options[] = {'r', 'p', 's'};
+
+    srand(time(NULL)); // seed ONCE
+
+    printf("Welcome to Rock Paper Scissors Game 🎮\n");
 
     for (int i = 0; i < 3; i++)
-
     {
-        printf("choose 1 for rock choose 2 for paper choose 3 for scissor \n");
-        printf("player no.1 turn \n");
-        scanf("%d", &temp);
-        playerchar = dict[temp - 1];
-        printf("you choose  %c\n", playerchar);
+        printf("\nRound %d\n", i + 1);
+        printf("Choose:\n1. Rock\n2. Paper\n3. Scissors\n");
+        scanf("%d", &choice);
 
-        printf("choose 1 for rock choose 2 for paper choose 3 for scissor \n");
-        printf("player no.1 turn \n");
-        temp = generaterandomfunc(3) + 1;
-        compchar = dict[temp - 1];
-        printf("cpu choose  %c\n", compchar);
-        if (greater(compchar, playerchar) == 1) //compchar is greater than player char
+        if (choice < 1 || choice > 3)
         {
-            compscore += 1;
-            printf("cpu got it hurray\n");
+            printf("Invalid choice! Try again.\n");
+            i--;
+            continue;
         }
-        else if (greater(compchar, playerchar) == -1)
+
+        playerChar = options[choice - 1];
+        cpuChar = options[generateRandom(3)];
+
+        printf("You chose: %c\n", playerChar);
+        printf("CPU chose: %c\n", cpuChar);
+
+        int result = compare(playerChar, cpuChar);
+
+        if (result == 1)
         {
-            compscore += 1;
-            playerscore += 1;
-            printf("its a draw \n");
+            printf("You win this round! 🎉\n");
+            playerScore++;
+        }
+        else if (result == 0)
+        {
+            printf("CPU wins this round 🤖\n");
+            cpuScore++;
         }
         else
         {
-            playerscore += 1;
-            printf("you got it hurray\n");
+            printf("It's a draw 🤝\n");
         }
 
-        printf("you : %d \ncpu : %d \n", playerscore, compscore);
+        printf("Score → You: %d | CPU: %d\n", playerScore, cpuScore);
     }
-    if (playerscore > compscore)
-    {
-        printf("you win \n");
-    }
-    else if (compscore > playerscore)
-    {
-        printf("cpu win \n");
-    }
+
+    printf("\nFinal Result:\n");
+    if (playerScore > cpuScore)
+        printf("You won the game 🏆\n");
+    else if (cpuScore > playerScore)
+        printf("CPU won the game 🤖\n");
     else
-    {
-        printf("match is draw");
-    }
+        printf("Game is a draw 🤝\n");
+
     return 0;
 }

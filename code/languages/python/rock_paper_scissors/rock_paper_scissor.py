@@ -1,26 +1,37 @@
 from random import choice
 
-while (True):
-    print("Rock \nPaper \nScissors!!!!!")
-    player1 = input("Enter your choice: ")
-    choices = ["ROCK", "PAPER", "SCISSORS"]
-    player2 = choice(choices)
-    print("SHOOT!!!")
-    print(f"player 2 played {player2}")
-    if (player1 != player2):
-        if (player1.upper() == "ROCK") and (player2.upper() == "SCISSORS"):
-            print("player 1 wins")
-        elif (player1.upper() == "SCISSORS") and (player2.upper() == "PAPER"):
-            print("player 1 wins")
-        elif (player1.upper() == "PAPER") and (player2.upper() == "ROCK"):
-            print("player 1 wins")
-        else:
-            print("player 2 wins")
-    else:
-        print("Tied")
-    print("---------------------------------------")
-    flag = input("Do you want to continue? ")
-    if flag.lower() == "no":
-        break
-    elif flag.lower() == "yes":
+choices = ["ROCK", "PAPER", "SCISSORS"]
+
+# Rules: what each choice beats
+wins_against = {
+    "ROCK": "SCISSORS",
+    "SCISSORS": "PAPER",
+    "PAPER": "ROCK"
+}
+
+while True:
+    print("\nRock\nPaper\nScissors!!!!!")
+    player1 = input("Enter your choice: ").strip().upper()
+
+    if player1 not in choices:
+        print("Invalid choice. Please choose Rock, Paper, or Scissors.")
         continue
+
+    player2 = choice(choices)
+
+    print("SHOOT!!!")
+    print(f"Player 2 played {player2}")
+
+    if player1 == player2:
+        print("Tied")
+    elif wins_against[player1] == player2:
+        print("Player 1 wins 🎉")
+    else:
+        print("Player 2 wins 🤖")
+
+    print("---------------------------------------")
+    flag = input("Do you want to continue? (yes/no): ").strip().lower()
+
+    if flag != "yes":
+        print("Thanks for playing!")
+        break
