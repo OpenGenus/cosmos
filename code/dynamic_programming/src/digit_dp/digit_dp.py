@@ -1,4 +1,3 @@
-
 # Part of Cosmos by OpenGenus Foundation
 
 """
@@ -45,13 +44,7 @@ def digit_dp(num, pos, count, smaller, dp):
             next_count += 1
 
         if next_count <= k:
-            result += digit_dp(
-                num,
-                pos + 1,
-                next_count,
-                next_smaller,
-                dp
-            )
+            result += digit_dp(num, pos + 1, next_count, next_smaller, dp)
 
     dp[pos][count][smaller] = result
     return result
@@ -79,4 +72,3 @@ if __name__ == "__main__":
     ans = solve(b) - solve(a) + check(a)
 
     print(ans)
-
